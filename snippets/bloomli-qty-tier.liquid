@@ -1,0 +1,64 @@
+{% comment %}
+  Quantity bundle tier selector for PDP.
+  Usage: {% render 'bloomli-qty-tier', product: product %}
+  Requires Shopify Bundles app for actual discount enforcement.
+{% endcomment %}
+
+<div class="bloomli-qty-tier" style="margin: 20px 0 28px;">
+  <div class="smallcaps" style="color: var(--charcoal); margin-bottom: 10px;">Quantity bundle</div>
+
+  {% assign base_price = product.price | divided_by: 100.0 %}
+  {% assign tier2_price = base_price | times: 2 | times: 0.85 %}
+  {% assign tier3_price = base_price | times: 3 | times: 0.75 %}
+  {% assign tier2_unit = tier2_price | divided_by: 2 %}
+  {% assign tier3_unit = tier3_price | divided_by: 3 %}
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;" role="group" aria-label="Quantity bundle">
+
+    <button type="button" class="qty-tier-btn qty-tier-btn--active" data-qty="1"
+      style="border: 1.5px solid var(--aubergine); background: rgba(110,74,99,0.03); border-radius: 12px; padding: 14px 10px; cursor: pointer; text-align: center; position: relative; font-family: 'DM Sans', sans-serif; transition: all 0.15s ease;">
+      <div style="font-size: 14px; font-weight: 500; margin-bottom: 2px; color: var(--charcoal);">Buy 1</div>
+      <div style="font-size: 11px; color: rgba(42,38,34,0.6);">${{ base_price | round: 2 }} / bottle</div>
+    </button>
+
+    <button type="button" class="qty-tier-btn" data-qty="2"
+      style="border: 1.5px solid rgba(110,74,99,0.15); border-radius: 12px; padding: 14px 10px; cursor: pointer; text-align: center; position: relative; font-family: 'DM Sans', sans-serif; transition: all 0.15s ease; background: transparent;">
+      <div style="position: absolute; top: -9px; right: 8px; background: var(--aubergine); color: var(--cream); font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 999px; letter-spacing: 0.04em; font-family: 'DM Sans', sans-serif;">−15%</div>
+      <div style="font-size: 14px; font-weight: 500; margin-bottom: 2px; color: var(--charcoal);">Buy 2</div>
+      <div style="font-size: 11px; color: rgba(42,38,34,0.6);">${{ tier2_unit | round: 2 }} / bottle</div>
+    </button>
+
+    <button type="button" class="qty-tier-btn" data-qty="3"
+      style="border: 1.5px solid rgba(110,74,99,0.15); border-radius: 12px; padding: 14px 10px; cursor: pointer; text-align: center; position: relative; font-family: 'DM Sans', sans-serif; transition: all 0.15s ease; background: transparent;">
+      <div style="position: absolute; top: -9px; right: 8px; background: var(--aubergine); color: var(--cream); font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 999px; letter-spacing: 0.04em; font-family: 'DM Sans', sans-serif;">−25%</div>
+      <div style="font-size: 14px; font-weight: 500; margin-bottom: 2px; color: var(--charcoal);">Buy 3</div>
+      <div style="font-size: 11px; color: rgba(42,38,34,0.6);">${{ tier3_unit | round: 2 }} / bottle</div>
+    </button>
+
+  </div>
+</div>
+
+<script>
+(function() {
+  var group = document.querySelector('.bloomli-qty-tier');
+  if (!group) return;
+  group.querySelectorAll('.qty-tier-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      group.querySelectorAll('.qty-tier-btn').forEach(function(b) {
+        b.style.border = '1.5px solid rgba(110,74,99,0.15)';
+        b.style.background = 'transparent';
+        b.classList.remove('qty-tier-btn--active');
+      });
+      btn.style.border = '1.5px solid var(--aubergine)';
+      btn.style.background = 'rgba(110,74,99,0.03)';
+      btn.classList.add('qty-tier-btn--active');
+      var qty = btn.dataset.qty;
+      var input = document.querySelector('input[name="quantity"]');
+      if (input) {
+        input.value = qty;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  });
+})();
+</script>

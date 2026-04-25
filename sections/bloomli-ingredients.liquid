@@ -1,0 +1,100 @@
+<section style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--cream);">
+  <div style="max-width: 1280px; margin: 0 auto;">
+
+    <div style="margin-bottom: 64px; text-align: center;">
+      {%- if section.settings.eyebrow != blank -%}
+        <div style="display: inline-block; background: rgba(200,209,190,0.2); padding: 5px 12px; border-radius: 999px; margin-bottom: 18px;">
+          <span class="smallcaps" style="color: #5d6b55; font-size: 11px;">{{ section.settings.eyebrow }}</span>
+        </div>
+      {%- endif -%}
+      <h2 style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; font-weight: 400; max-width: 720px; margin: 0 auto; color: var(--charcoal);">
+        {{ section.settings.heading_line1 }}<br><span style="font-style: italic;">{{ section.settings.heading_line2 }}</span>
+      </h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }} style="background: var(--pearl); border-radius: 12px; padding: 28px; text-align: center;">
+          <div style="margin-bottom: 16px; display: flex; justify-content: center;">
+            <svg width="72" height="72" viewBox="0 0 80 80" fill="none" stroke="#6E4A63" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              {%- case block.settings.botanical -%}
+                {%- when 'biotin' -%}
+                  <path d="M40 10 C 30 25, 30 45, 40 70"/><path d="M40 22 C 30 20, 22 24, 20 32 C 28 34, 36 30, 40 22Z"/><path d="M40 38 C 52 36, 60 40, 62 48 C 54 52, 44 48, 40 38Z"/><path d="M40 54 C 30 52, 22 56, 22 64 C 30 66, 38 62, 40 54Z"/>
+                {%- when 'saw' -%}
+                  <path d="M40 70 L40 25"/><path d="M40 25 C 28 15, 20 18, 14 28"/><path d="M40 25 C 52 15, 60 18, 66 28"/><path d="M40 30 C 30 22, 22 24, 18 32"/><path d="M40 30 C 50 22, 58 24, 62 32"/><path d="M40 38 C 32 32, 26 34, 24 40"/><path d="M40 38 C 48 32, 54 34, 56 40"/>
+                {%- when 'marine' -%}
+                  <path d="M40 68 C 30 60, 26 48, 30 38 C 34 28, 46 28, 50 38 C 54 48, 50 60, 40 68Z"/><path d="M35 44 Q 40 40, 45 44"/><path d="M33 52 Q 40 48, 47 52"/><path d="M12 20 Q 20 14, 28 20 T 44 20"/>
+                {%- when 'ashwagandha' -%}
+                  <path d="M40 70 L40 40"/><path d="M40 40 Q 30 30, 20 35"/><path d="M40 40 Q 50 30, 60 35"/><path d="M40 30 Q 32 22, 26 26"/><path d="M40 30 Q 48 22, 54 26"/><circle cx="22" cy="48" r="5"/><circle cx="58" cy="48" r="5"/><circle cx="40" cy="58" r="4"/>
+                {%- when 'zinc' -%}
+                  <circle cx="40" cy="40" r="24"/><path d="M28 36 L52 36 M28 44 L52 44"/>
+                {%- when 'bloom' -%}
+                  <circle cx="40" cy="40" r="6"/><ellipse cx="40" cy="24" rx="7" ry="11"/><ellipse cx="56" cy="40" rx="11" ry="7"/><ellipse cx="40" cy="56" rx="7" ry="11"/><ellipse cx="24" cy="40" rx="11" ry="7"/><path d="M40 60 L40 72"/>
+                {%- when 'sprout' -%}
+                  <path d="M40 70 L40 40"/><path d="M40 40 Q 28 34, 24 22 Q 36 24, 40 40Z"/><path d="M40 46 Q 52 40, 56 28 Q 44 30, 40 46Z"/>
+              {%- endcase -%}
+            </svg>
+          </div>
+          <h4 style="font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; margin-bottom: 8px; color: var(--charcoal);">{{ block.settings.name }}</h4>
+          <p style="font-size: 13px; color: rgba(42,38,34,0.7); line-height: 1.5;">{{ block.settings.benefit }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @media (max-width: 749px) {
+    section:has(.bloomli-ing-grid) > div > div:last-child {
+      grid-template-columns: 1fr 1fr !important;
+    }
+    section:has(.bloomli-ing-grid) h2 { font-size: 34px !important; }
+    section:has(.bloomli-ing-grid) { padding-left: 20px !important; padding-right: 20px !important; }
+    section:has(.bloomli-ing-grid) > div > div:first-child { margin-bottom: 40px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Bloomli — Ingredients",
+  "tag": "div",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow badge", "default": "The formula" },
+    { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Backed by plants." },
+    { "type": "text", "id": "heading_line2", "label": "Heading line 2 (italic)", "default": "Grounded in science." },
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 48, "max": 160, "step": 8, "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 48, "max": 160, "step": 8, "default": 96 }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "select", "id": "botanical", "label": "Botanical icon", "options": [
+          { "value": "biotin", "label": "Biotin (leaf stem)" },
+          { "value": "saw", "label": "Saw Palmetto (fan)" },
+          { "value": "marine", "label": "Marine Collagen (drop)" },
+          { "value": "ashwagandha", "label": "Ashwagandha (root)" },
+          { "value": "zinc", "label": "Zinc (circle)" },
+          { "value": "bloom", "label": "Bloom (flower)" },
+          { "value": "sprout", "label": "Sprout (leaves)" }
+        ], "default": "biotin" },
+        { "type": "text", "id": "name", "label": "Ingredient name", "default": "Biotin" },
+        { "type": "textarea", "id": "benefit", "label": "Benefit text", "default": "Supports keratin production for stronger strands." }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Bloomli — Ingredients",
+    "blocks": [
+      { "type": "ingredient", "settings": { "botanical": "biotin", "name": "Biotin", "benefit": "Supports keratin production for stronger strands." } },
+      { "type": "ingredient", "settings": { "botanical": "saw", "name": "Saw Palmetto", "benefit": "Gently helps regulate DHT, a common culprit in thinning." } },
+      { "type": "ingredient", "settings": { "botanical": "marine", "name": "Marine Collagen", "benefit": "Amino acids for follicle strength and elasticity." } },
+      { "type": "ingredient", "settings": { "botanical": "ashwagandha", "name": "Ashwagandha", "benefit": "Adaptogen that helps calm stress-related shedding." } },
+      { "type": "ingredient", "settings": { "botanical": "zinc", "name": "Zinc", "benefit": "Essential mineral that supports a healthy scalp environment." } }
+    ]
+  }]
+}
+{% endschema %}

@@ -1,0 +1,69 @@
+<section style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--rose);">
+  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 20px;">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+
+    <h2 style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 64px; margin-bottom: 20px; font-weight: 400; color: var(--charcoal);">
+      {{ section.settings.headline_line1 }}<br><span style="font-style: italic;">{{ section.settings.headline_line2 }}</span>
+    </h2>
+
+    {%- if section.settings.description != blank -%}
+      <p style="font-size: 18px; color: var(--charcoal); margin: 0 auto 36px; max-width: 560px; line-height: 1.6;">
+        {{ section.settings.description }}
+      </p>
+    {%- endif -%}
+
+    <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; align-items: flex-end;">
+      {%- if section.settings.product_image_1 != blank -%}
+        <img src="{{ section.settings.product_image_1 | image_url: width: 360 }}" alt="{{ section.settings.product_image_1.alt | escape }}" style="width: 180px; filter: drop-shadow(0 12px 24px rgba(110,74,99,0.14));">
+      {%- else -%}
+        <div style="width: 180px; height: 240px; background: rgba(250,244,235,0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(110,74,99,0.5);">Gummies</span></div>
+      {%- endif -%}
+      {%- if section.settings.product_image_2 != blank -%}
+        <img src="{{ section.settings.product_image_2 | image_url: width: 360 }}" alt="{{ section.settings.product_image_2.alt | escape }}" style="width: 180px; filter: drop-shadow(0 12px 24px rgba(110,74,99,0.14));">
+      {%- else -%}
+        <div style="width: 180px; height: 240px; background: rgba(250,244,235,0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(110,74,99,0.5);">Hair Oil</span></div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.cta_label != blank -%}
+      <a href="{{ section.settings.cta_url }}" class="button">{{ section.settings.cta_label }}</a>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<style>
+  @media (max-width: 749px) {
+    section:has(.bloomli-bundle-inner) {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+      padding-top: 64px !important;
+      padding-bottom: 64px !important;
+    }
+    section:has(.bloomli-bundle-inner) h2 { font-size: 40px !important; }
+    section:has(.bloomli-bundle-inner) p { font-size: 16px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Bloomli — Bundle Promo",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The complete ritual" },
+    { "type": "text", "id": "headline_line1", "label": "Headline line 1", "default": "Inside & out." },
+    { "type": "text", "id": "headline_line2", "label": "Headline line 2 (italic)", "default": "Save 20%." },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "The Root Ritual gummies that work from within, paired with our moisturizing & strengthening hair oil for visible shine day one." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop the Duo — $74" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "image_picker", "id": "product_image_1", "label": "Product image 1 (gummies)" },
+    { "type": "image_picker", "id": "product_image_2", "label": "Product image 2 (oil)" },
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 48, "max": 160, "step": 8, "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 48, "max": 160, "step": 8, "default": 96 }
+  ],
+  "presets": [{ "name": "Bloomli — Bundle Promo" }]
+}
+{% endschema %}

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(cd /tmp)",
+      "Bash(cp \"C:/Users/Bensh/.claude/projects/c--Users-Bensh-Desktop-Bloomli-shop-source-code-supplement-dawn/030c523d-4966-4170-b36d-e7e102dadace/tool-results/webfetch-1777107339715-ea6lpw.bin\" design.tar.gz)",
+      "Bash(tar -tzf design.tar.gz)",
+      "Bash(gunzip -c design.tar.gz)",
+      "Bash(tar -xzf design.tar.gz supplement-brand/README.md supplement-brand/project/styles.css \"supplement-brand/project/bloomli Storefront.html\" supplement-brand/project/components/primitives.jsx supplement-brand/project/components/home.jsx supplement-brand/project/components/pdp.jsx supplement-brand/project/components/logo.jsx)"
+    ]
+  }
+}

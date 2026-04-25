@@ -1,0 +1,105 @@
+<section class="bloomli-hero" style="background: var(--brand-gradient); min-height: {{ section.settings.min_height }}px; position: relative; overflow: hidden;">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 96px 48px; display: grid; grid-template-columns: 55fr 45fr; gap: 48px; align-items: center; min-height: {{ section.settings.min_height }}px;">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 24px;">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+
+      <h1 style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100, 'opsz' 144; font-size: 88px; line-height: 0.98; margin-bottom: 28px; letter-spacing: -0.02em; font-weight: 400; color: var(--charcoal);">
+        {{ section.settings.headline_line1 }}<br>
+        <span style="font-style: italic;">{{ section.settings.headline_line2 }}</span>
+      </h1>
+
+      {%- if section.settings.subtext != blank -%}
+        <p style="font-size: 18px; color: var(--charcoal); max-width: 440px; margin-bottom: 36px; line-height: 1.55;">
+          {{ section.settings.subtext }}
+        </p>
+      {%- endif -%}
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px;">
+        {%- if section.settings.cta_primary_label != blank -%}
+          <a href="{{ section.settings.cta_primary_url }}" class="button">{{ section.settings.cta_primary_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.cta_secondary_label != blank -%}
+          <a href="{{ section.settings.cta_secondary_url }}" class="button button--secondary">{{ section.settings.cta_secondary_label }}</a>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_reviews -%}
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <span style="color: var(--aubergine); font-size: 16px; letter-spacing: -1px;">★★★★★</span>
+          <span style="font-size: 14px; color: var(--charcoal);">
+            <strong style="font-weight: 500;">{{ section.settings.review_score }}</strong> from {{ section.settings.review_count }} reviews
+          </span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div style="position: relative; height: 540px;">
+      {%- if section.settings.editorial_image != blank -%}
+        <img
+          src="{{ section.settings.editorial_image | image_url: width: 760 }}"
+          alt="{{ section.settings.editorial_image.alt | escape }}"
+          loading="eager"
+          style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; object-fit: cover; box-shadow: 0 24px 60px rgba(110,74,99,0.18);"
+        >
+      {%- else -%}
+        <div style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; background: var(--pearl); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'DM Sans', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(110,74,99,0.5);">Editorial photo</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.product_image != blank -%}
+        <img
+          src="{{ section.settings.product_image | image_url: width: 400 }}"
+          alt="{{ section.settings.product_image.alt | escape }}"
+          loading="eager"
+          style="position: absolute; left: -20px; bottom: 40px; transform: rotate(-6deg); width: 200px; filter: drop-shadow(0 20px 30px rgba(110,74,99,0.18));"
+        >
+      {%- endif -%}
+
+      <!-- Floating accent blob -->
+      <div style="position: absolute; right: -60px; top: 60px; width: 140px; height: 140px; border-radius: 50%; background: rgba(250,244,235,0.4); filter: blur(40px); pointer-events: none;"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 749px) {
+    .bloomli-hero > div {
+      grid-template-columns: 1fr !important;
+      padding: 48px 20px 64px !important;
+    }
+    .bloomli-hero h1 { font-size: 56px !important; }
+    .bloomli-hero > div > div:last-child { height: 320px !important; margin-top: 40px; }
+    .bloomli-hero > div > div:last-child img:first-child { width: 220px !important; height: 300px !important; border-radius: 150px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Bloomli — Hero",
+  "tag": "div",
+  "class": "bloomli-hero-wrapper",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow text", "default": "Clinically-studied hair wellness" },
+    { "type": "text", "id": "headline_line1", "label": "Headline line 1", "default": "Quiet science," },
+    { "type": "text", "id": "headline_line2", "label": "Headline line 2 (italic)", "default": "visible results." },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },
+    { "type": "range", "id": "min_height", "label": "Min height (px)", "min": 500, "max": 900, "step": 20, "default": 720 },
+    { "type": "header", "content": "CTAs" },
+    { "type": "text", "id": "cta_primary_label", "label": "Primary CTA label", "default": "Shop Hair" },
+    { "type": "url", "id": "cta_primary_url", "label": "Primary CTA URL" },
+    { "type": "text", "id": "cta_secondary_label", "label": "Secondary CTA label", "default": "Take the 2-min Quiz" },
+    { "type": "url", "id": "cta_secondary_url", "label": "Secondary CTA URL" },
+    { "type": "header", "content": "Reviews badge" },
+    { "type": "checkbox", "id": "show_reviews", "label": "Show reviews badge", "default": true },
+    { "type": "text", "id": "review_score", "label": "Score", "default": "4.8" },
+    { "type": "text", "id": "review_count", "label": "Count text", "default": "2,400+" },
+    { "type": "header", "content": "Images" },
+    { "type": "image_picker", "id": "editorial_image", "label": "Editorial image (tall pill crop)" },
+    { "type": "image_picker", "id": "product_image", "label": "Product image (transparent PNG)" }
+  ],
+  "presets": [{ "name": "Bloomli — Hero" }]
+}
+{% endschema %}

@@ -1,0 +1,55 @@
+<section style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--aubergine); color: var(--cream); text-align: center;">
+  <div style="max-width: 720px; margin: 0 auto;">
+
+    <!-- Sparkle icon -->
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F2D4D0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 24px; display: block;">
+      <path d="M12 3v6M12 15v6M3 12h6M15 12h6"/>
+      <path d="M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/>
+    </svg>
+
+    <h2 style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 64px; color: var(--cream); margin-bottom: 20px; font-weight: 400; line-height: 1.05;">
+      {{ section.settings.heading }}
+    </h2>
+
+    {%- if section.settings.subtext != blank -%}
+      <p style="font-size: 18px; color: rgba(250,244,235,0.8); margin: 0 auto 36px; max-width: 520px; line-height: 1.55;">
+        {{ section.settings.subtext }}
+      </p>
+    {%- endif -%}
+
+    {%- if section.settings.cta_label != blank -%}
+      <a href="{{ section.settings.cta_url }}" class="button" style="background: var(--cream) !important; color: var(--aubergine) !important;">
+        {{ section.settings.cta_label }}
+      </a>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<style>
+  @media (max-width: 749px) {
+    section:has(.bloomli-quiz-inner) {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+      padding-top: 80px !important;
+      padding-bottom: 80px !important;
+    }
+    section:has(.bloomli-quiz-inner) h2 { font-size: 40px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Bloomli — Quiz CTA",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Not sure where to start?" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Take our 2-minute quiz and get a personalized hair wellness routine." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Take the Quiz" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 64, "max": 180, "step": 8, "default": 128 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 64, "max": 180, "step": 8, "default": 128 }
+  ],
+  "presets": [{ "name": "Bloomli — Quiz CTA" }]
+}
+{% endschema %}

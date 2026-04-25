@@ -1,0 +1,265 @@
+{% schema %}
+{
+  "name": "Bloomli Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Clinically-studied hair wellness"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading (use <em> for italic)",
+      "default": "<p>Quiet science,<br><em>visible results.</em></p>"
+    },
+    {
+      "type": "textarea",
+      "id": "subhead",
+      "label": "Subhead",
+      "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Shop Hair"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Take the 2-min Quiz"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating text",
+      "default": "<strong>4.8</strong> from 2,400+ reviews"
+    },
+    {
+      "type": "image_picker",
+      "id": "editorial_image",
+      "label": "Editorial portrait image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottle_image",
+      "label": "Floating bottle (transparent PNG)"
+    }
+  ],
+  "presets": [{ "name": "Bloomli Hero" }]
+}
+{% endschema %}
+
+<section class="bloomli-hero">
+  <div class="bloomli-hero__inner">
+    <!-- Text column -->
+    <div class="bloomli-hero__text">
+      <div class="bloomli-hero__eyebrow">{{ section.settings.eyebrow }}</div>
+      <h1 class="bloomli-hero__heading">{{ section.settings.heading }}</h1>
+      <p class="bloomli-hero__subhead">{{ section.settings.subhead }}</p>
+      <div class="bloomli-hero__buttons">
+        <a href="{{ section.settings.primary_link | default: '#' }}" class="bloomli-btn bloomli-btn--primary">
+          {{ section.settings.primary_label }}
+        </a>
+        <a href="{{ section.settings.secondary_link | default: '#' }}" class="bloomli-btn bloomli-btn--secondary">
+          {{ section.settings.secondary_label }}
+        </a>
+      </div>
+      <div class="bloomli-hero__rating">
+        <span class="bloomli-hero__stars">★★★★★</span>
+        <span class="bloomli-hero__rating-text">{{ section.settings.rating_text }}</span>
+      </div>
+    </div>
+
+    <!-- Image column with layered composition -->
+    <div class="bloomli-hero__visual">
+      <div class="bloomli-hero__blob"></div>
+      {% if section.settings.editorial_image %}
+        <img
+          src="{{ section.settings.editorial_image | image_url: width: 800 }}"
+          alt=""
+          class="bloomli-hero__portrait"
+          loading="eager"
+          width="380"
+          height="520"
+        >
+      {% endif %}
+      {% if section.settings.bottle_image %}
+        <img
+          src="{{ section.settings.bottle_image | image_url: width: 600 }}"
+          alt=""
+          class="bloomli-hero__bottle"
+          loading="eager"
+        >
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .bloomli-hero {
+    background: linear-gradient(135deg, #F2D4D0 0%, #D9CCE8 100%);
+    overflow: hidden;
+    position: relative;
+  }
+  .bloomli-hero__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 96px 48px;
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    gap: 48px;
+    align-items: center;
+    min-height: 720px;
+  }
+  .bloomli-hero__eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    font-size: 12px;
+    color: #6E4A63;
+    margin-bottom: 24px;
+  }
+  .bloomli-hero__heading {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 400;
+    font-size: 88px;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    color: #2A2622;
+    margin: 0 0 28px;
+  }
+  .bloomli-hero__heading p { margin: 0; }
+  .bloomli-hero__heading em { font-style: italic; font-weight: 400; }
+  .bloomli-hero__subhead {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    color: #2A2622;
+    max-width: 440px;
+    line-height: 1.55;
+    margin: 0 0 36px;
+  }
+  .bloomli-hero__buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .bloomli-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+  }
+  .bloomli-btn--primary {
+    background: #6E4A63;
+    color: #FAF4EB;
+  }
+  .bloomli-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(110, 74, 99, 0.18);
+  }
+  .bloomli-btn--secondary {
+    background: transparent;
+    color: #6E4A63;
+    border-color: #6E4A63;
+  }
+  .bloomli-btn--secondary:hover {
+    background: rgba(110, 74, 99, 0.04);
+    transform: translateY(-2px);
+  }
+  .bloomli-hero__rating {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 14px;
+    color: #2A2622;
+  }
+  .bloomli-hero__stars { color: #6E4A63; font-size: 16px; }
+
+  /* The visual column — relative anchor for absolutely-positioned children */
+  .bloomli-hero__visual {
+    position: relative;
+    height: 540px;
+  }
+  .bloomli-hero__portrait {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 380px;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 220px;
+    box-shadow: 0 24px 60px rgba(110, 74, 99, 0.18);
+  }
+  .bloomli-hero__bottle {
+    position: absolute;
+    left: -20px;
+    bottom: 40px;
+    width: 240px;
+    height: auto;
+    transform: rotate(-6deg);
+    filter: drop-shadow(0 20px 30px rgba(110, 74, 99, 0.18));
+    z-index: 2;
+  }
+  .bloomli-hero__blob {
+    position: absolute;
+    right: -60px;
+    top: 60px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(250, 244, 235, 0.4);
+    filter: blur(40px);
+  }
+
+  /* MOBILE — stack vertically, image below text */
+  @media (max-width: 749px) {
+    .bloomli-hero__inner {
+      grid-template-columns: 1fr;
+      padding: 48px 20px 64px;
+      gap: 0;
+      min-height: auto;
+    }
+    .bloomli-hero__heading { font-size: 56px; }
+    .bloomli-hero__subhead { font-size: 16px; }
+    .bloomli-hero__visual {
+      height: 320px;
+      margin-top: 40px;
+      width: 100%;
+    }
+    .bloomli-hero__portrait {
+      width: 220px;
+      height: 300px;
+      border-radius: 150px;
+    }
+    .bloomli-hero__bottle {
+      width: 160px;
+      left: 0;
+      bottom: 10px;
+    }
+    .bloomli-hero__blob { display: none; }
+  }
+</style>

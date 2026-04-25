@@ -154,22 +154,13 @@
             "name": "Ashwagandha",
             "benefit": "Adaptogen that helps calm stress-related shedding."
           }
-        },
-        "ingredient_Khizfj": {
-          "type": "ingredient",
-          "settings": {
-            "botanical": "zinc",
-            "name": "Zinc",
-            "benefit": "Essential mineral that supports a healthy scalp environment."
-          }
         }
       },
       "block_order": [
         "ingredient_4dWiwa",
         "ingredient_WJH7g8",
         "ingredient_TWN3Jg",
-        "ingredient_cxWFfm",
-        "ingredient_Khizfj"
+        "ingredient_cxWFfm"
       ],
       "name": "Bloomli — Ingredients",
       "settings": {

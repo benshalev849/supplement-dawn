@@ -62,12 +62,10 @@
       {%- if section.settings.product_image != blank -%}
         <img
           class="bloomli-hero__bottle"
-          src="{{ section.settings.product_image | image_url: width: 400 }}"
+          src="{{ section.settings.product_image | image_url: width: 600 }}"
           alt="{{ section.settings.product_image.alt | default: 'Root Ritual Gummies' | escape }}"
           loading="eager"
-          width="200"
-          height="260"
-          style="position: absolute; left: -20px; bottom: 40px; transform: rotate(-6deg); width: 200px; height: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(110,74,99,0.18));"
+          style="position: absolute; left: {{ section.settings.bottle_x_desktop }}px; bottom: {{ section.settings.bottle_y_desktop }}px; transform: rotate({{ section.settings.bottle_rotation }}deg); width: {{ section.settings.bottle_width_desktop }}px; height: auto; max-width: none; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(110,74,99,0.18));"
         >
       {%- endif -%}
 
@@ -82,6 +80,9 @@
   /* Make sure the wrapping color-scheme div doesn't paint a background over the gradient hero */
   .bloomli-hero__ctas { background: transparent !important; }
 
+  /* Bottle: opt out of the global img max-width clamp so % widths can scale freely */
+  .bloomli-hero__bottle { max-width: none !important; }
+
   @media (max-width: 749px) {
     .bloomli-hero { min-height: unset !important; }
     .bloomli-hero__inner {
@@ -95,21 +96,20 @@
     .bloomli-hero__ctas { gap: 8px !important; margin-bottom: 20px !important; }
     .bloomli-hero__ctas .button { padding: 12px 22px !important; font-size: 14px !important; }
     .bloomli-hero__media {
-      height: 280px !important;
+      height: {{ section.settings.media_height_mobile }}px !important;
       margin-top: 12px;
     }
     .bloomli-hero__editorial {
-      width: 60% !important;
-      max-width: 220px !important;
-      height: 260px !important;
-      border-radius: 130px !important;
+      width: {{ section.settings.editorial_width_mobile }}% !important;
+      max-width: none !important;
+      height: {{ section.settings.editorial_height_mobile }}px !important;
+      border-radius: {{ section.settings.editorial_height_mobile | divided_by: 2 }}px !important;
       right: 0 !important;
     }
     .bloomli-hero__bottle {
-      width: 38% !important;
-      max-width: 130px !important;
-      left: 0 !important;
-      bottom: 12px !important;
+      width: {{ section.settings.bottle_width_mobile }}% !important;
+      left: {{ section.settings.bottle_x_mobile }}% !important;
+      bottom: {{ section.settings.bottle_y_mobile }}px !important;
     }
   }
 </style>
@@ -138,7 +138,21 @@
     { "type": "text",     "id": "review_count",  "label": "Count",              "default": "2,400+" },
     { "type": "header", "content": "Images" },
     { "type": "image_picker", "id": "editorial_image", "label": "Editorial image (tall pill crop)" },
-    { "type": "image_picker", "id": "product_image",   "label": "Product image (transparent PNG)" }
+    { "type": "image_picker", "id": "product_image",   "label": "Product image (transparent PNG)" },
+    { "type": "header", "content": "Bottle — desktop" },
+    { "type": "range", "id": "bottle_width_desktop", "label": "Bottle width", "min": 80, "max": 600, "step": 10, "default": 400, "unit": "px" },
+    { "type": "range", "id": "bottle_x_desktop", "label": "Horizontal offset (from left edge of media)", "min": -250, "max": 250, "step": 5, "default": -120, "unit": "px" },
+    { "type": "range", "id": "bottle_y_desktop", "label": "Vertical offset (from bottom of media)", "min": -50, "max": 200, "step": 5, "default": 40, "unit": "px" },
+    { "type": "range", "id": "bottle_rotation", "label": "Rotation (applies to both)", "min": -45, "max": 45, "step": 1, "default": -8, "unit": "deg" },
+    { "type": "header", "content": "Bottle — mobile" },
+    { "type": "paragraph", "content": "Mobile sizes are percentages of the hero media area, so the bottle scales with screen width." },
+    { "type": "range", "id": "bottle_width_mobile", "label": "Bottle width", "min": 30, "max": 130, "step": 2, "default": 90, "unit": "%" },
+    { "type": "range", "id": "bottle_x_mobile", "label": "Horizontal offset (from left edge of media)", "min": -30, "max": 60, "step": 1, "default": -8, "unit": "%" },
+    { "type": "range", "id": "bottle_y_mobile", "label": "Vertical offset (from bottom of media)", "min": -40, "max": 120, "step": 2, "default": 0, "unit": "px" },
+    { "type": "header", "content": "Editorial image — mobile" },
+    { "type": "range", "id": "editorial_width_mobile", "label": "Editorial image width", "min": 30, "max": 90, "step": 2, "default": 55, "unit": "%" },
+    { "type": "range", "id": "editorial_height_mobile", "label": "Editorial image height", "min": 180, "max": 480, "step": 10, "default": 300, "unit": "px" },
+    { "type": "range", "id": "media_height_mobile", "label": "Hero media area height", "min": 240, "max": 600, "step": 10, "default": 360, "unit": "px" }
   ],
   "presets": [{ "name": "Bloomli — Hero" }]
 }

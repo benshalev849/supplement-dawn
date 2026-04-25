@@ -14,21 +14,21 @@
 
     {%- assign block_count = section.blocks.size -%}
     {%- assign desktop_cols = block_count | at_most: 4 -%}
+    {%- assign icon_size = section.settings.icon_size | default: 72 -%}
     <div class="bloomli-ing__grid" style="display: grid; grid-template-columns: repeat({{ desktop_cols }}, 1fr); gap: 16px;">
       {%- for block in section.blocks -%}
         <div class="bloomli-ing__card" {{ block.shopify_attributes }} style="background: var(--pearl); border-radius: 12px; padding: 24px; text-align: center; aspect-ratio: 1 / 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0;">
-          <div class="bloomli-ing__icon" style="margin-bottom: 12px; display: flex; justify-content: center; align-items: center; width: 72px; height: 72px;">
+          <div class="bloomli-ing__icon" style="margin-bottom: 12px; display: flex; justify-content: center; align-items: center; width: {{ icon_size }}px; height: {{ icon_size }}px;">
             {%- if block.settings.image != blank -%}
               <img
-                src="{{ block.settings.image | image_url: width: 200 }}"
+                class="bloomli-ing__icon-img"
+                src="{{ block.settings.image | image_url: width: 240 }}"
                 alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
                 loading="lazy"
-                width="64"
-                height="64"
-                style="width: 100%; height: 100%; object-fit: contain;"
+                style="width: 100%; height: 100%; max-width: none; object-fit: contain;"
               >
             {%- else -%}
-              <svg width="64" height="64" viewBox="0 0 80 80" fill="none" stroke="#6E4A63" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 80 80" fill="none" stroke="#6E4A63" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
                 {%- case block.settings.botanical -%}
                   {%- when 'biotin' -%}
                     <path d="M40 10 C 30 25, 30 45, 40 70"/><path d="M40 22 C 30 20, 22 24, 20 32 C 28 34, 36 30, 40 22Z"/><path d="M40 38 C 52 36, 60 40, 62 48 C 54 52, 44 48, 40 38Z"/><path d="M40 54 C 30 52, 22 56, 22 64 C 30 66, 38 62, 40 54Z"/>
@@ -58,6 +58,8 @@
 </section>
 
 <style>
+  .bloomli-ing__icon-img { max-width: none !important; }
+
   @media (max-width: 749px) {
     .bloomli-ing {
       padding-left: 16px !important;
@@ -73,13 +75,13 @@
       padding: 16px !important;
     }
     .bloomli-ing__icon {
-      width: 56px !important;
-      height: 56px !important;
+      width: {{ section.settings.icon_size_mobile | default: 56 }}px !important;
+      height: {{ section.settings.icon_size_mobile | default: 56 }}px !important;
       margin-bottom: 8px !important;
     }
     .bloomli-ing__icon svg {
-      width: 48px !important;
-      height: 48px !important;
+      width: {{ section.settings.icon_size_mobile | default: 56 }}px !important;
+      height: {{ section.settings.icon_size_mobile | default: 56 }}px !important;
     }
     .bloomli-ing__heading { font-size: 30px !important; }
     .bloomli-ing__name { font-size: 16px !important; }
@@ -97,6 +99,10 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow badge", "default": "The formula" },
     { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Backed by plants." },
     { "type": "text", "id": "heading_line2", "label": "Heading line 2 (italic)", "default": "Grounded in science." },
+    { "type": "header", "content": "Icon sizing (applies to both SVG and uploaded images)" },
+    { "type": "range", "id": "icon_size", "label": "Icon size — desktop", "min": 32, "max": 140, "step": 2, "default": 72, "unit": "px" },
+    { "type": "range", "id": "icon_size_mobile", "label": "Icon size — mobile", "min": 24, "max": 100, "step": 2, "default": 56, "unit": "px" },
+    { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 48, "max": 160, "step": 8, "default": 96 },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 48, "max": 160, "step": 8, "default": 96 }
   ],

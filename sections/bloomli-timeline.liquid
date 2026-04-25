@@ -10,25 +10,28 @@
       </h2>
     </div>
 
+    {%- assign circle_size = section.settings.circle_size | default: 100 -%}
+    {%- assign icon_size = section.settings.icon_size | default: 64 -%}
+    {%- assign line_top = circle_size | divided_by: 2 -%}
+
     <div class="bloomli-timeline__wrap" style="position: relative;">
       <!-- dashed connector line (desktop only) -->
-      <div class="bloomli-timeline__line" aria-hidden="true" style="position: absolute; top: 50px; left: 16.66%; right: 16.66%; height: 0; border-top: 2px dashed rgba(110,74,99,0.35); pointer-events: none; z-index: 0;"></div>
+      <div class="bloomli-timeline__line" aria-hidden="true" style="position: absolute; top: {{ line_top }}px; left: 16.66%; right: 16.66%; height: 0; border-top: 2px dashed rgba(110,74,99,0.35); pointer-events: none; z-index: 0;"></div>
 
       <div class="bloomli-timeline__grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
         {%- for block in section.blocks -%}
           <div class="bloomli-timeline__step" {{ block.shopify_attributes }} style="text-align: center; position: relative; z-index: 1; min-width: 0;">
-            <div class="bloomli-timeline__circle" style="width: 100px; height: 100px; margin: 0 auto 24px; border-radius: 999px; background: var(--pearl); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(110,74,99,0.1); overflow: hidden;">
+            <div class="bloomli-timeline__circle" style="width: {{ circle_size }}px; height: {{ circle_size }}px; margin: 0 auto 24px; border-radius: 999px; background: var(--pearl); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(110,74,99,0.1); overflow: hidden;">
               {%- if block.settings.image != blank -%}
                 <img
-                  src="{{ block.settings.image | image_url: width: 200 }}"
+                  class="bloomli-timeline__icon-img"
+                  src="{{ block.settings.image | image_url: width: 240 }}"
                   alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
                   loading="lazy"
-                  width="64"
-                  height="64"
-                  style="width: 64px; height: 64px; object-fit: contain;"
+                  style="width: {{ icon_size }}px; height: {{ icon_size }}px; max-width: none; object-fit: contain;"
                 >
               {%- else -%}
-                <svg width="56" height="56" viewBox="0 0 80 80" fill="none" stroke="#6E4A63" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="bloomli-timeline__icon-svg" width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 80 80" fill="none" stroke="#6E4A63" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
                   {%- case block.settings.icon -%}
                     {%- when 'seed' -%}
                       <ellipse cx="40" cy="44" rx="12" ry="18"/><path d="M40 26 Q 48 22, 56 26"/><path d="M40 44 L40 60"/>
@@ -52,6 +55,8 @@
 </section>
 
 <style>
+  .bloomli-timeline__icon-img { max-width: none !important; }
+
   @media (max-width: 749px) {
     .bloomli-timeline {
       padding-left: 16px !important;
@@ -78,6 +83,10 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Your 6-month journey" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Your ritual, over time." },
+    { "type": "header", "content": "Icon sizing (applies to both SVG and uploaded images)" },
+    { "type": "range", "id": "circle_size", "label": "Circle size", "min": 60, "max": 180, "step": 4, "default": 100, "unit": "px" },
+    { "type": "range", "id": "icon_size", "label": "Icon size inside circle", "min": 24, "max": 160, "step": 2, "default": 64, "unit": "px" },
+    { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 48, "max": 160, "step": 8, "default": 128 },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 48, "max": 160, "step": 8, "default": 128 }
   ],

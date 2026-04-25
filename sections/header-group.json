@@ -53,10 +53,27 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "hero_bloomli_MGwtqb": {
+      "type": "hero-bloomli",
+      "name": "Bloomli Hero",
+      "settings": {
+        "eyebrow": "Clinically-studied hair wellness",
+        "heading": "<p>Quiet science,<br/><em>visible results.</em></p>",
+        "subhead": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life.",
+        "primary_label": "Shop Hair",
+        "primary_link": "",
+        "secondary_label": "Take the 2-min Quiz",
+        "secondary_link": "",
+        "rating_text": "4.8 from 2,400+ reviews",
+        "editorial_image": "shopify://shop_images/hero-editorial.png",
+        "bottle_image": "shopify://shop_images/hero-bottle.png"
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "hero_bloomli_MGwtqb"
   ]
 }

@@ -9,196 +9,197 @@
  */
 {
   "sections": {
-    "hero_bloomli_wQKPKD": {
-      "type": "hero-bloomli",
+    "bloomli_hero_7dR8fN": {
+      "type": "bloomli-hero",
       "custom_css": [
-        ".bloomli-hero__bottle {left: -120px; /* horizontal — negative pushes bottle off-canvas left */ bottom: 40px; /* vertical — distance from bottom of visual column */ width: 400px; /* size — bigger = more dominant */ transform: rotate(-8deg); /* tilt — try -8deg, -4deg, etc */}"
+        ".bloomli-hero__media img:last-of-type {left: -120px !important; bottom: 40px !important; width: 400px !important; transform: rotate(-8deg) !important;}"
       ],
-      "name": "Bloomli Hero",
+      "name": "Bloomli — Hero",
       "settings": {
         "eyebrow": "Clinically-studied hair wellness",
-        "heading": "<p>Quiet science,<br/><em>visible results.</em></p>",
-        "subhead": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life.",
-        "primary_label": "Shop Hair",
-        "primary_link": "shopify://collections/all",
-        "secondary_label": "Take the 2-min Quiz",
-        "secondary_link": "",
-        "rating_text": "4.8 from 2,400+ reviews",
+        "headline_line1": "Quiet science,",
+        "headline_line2": "visible results.",
+        "subtext": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life.",
+        "min_height": 720,
+        "cta_primary_label": "Shop Hair",
+        "cta_primary_url": "",
+        "cta_secondary_label": "Take the 2-min Quiz",
+        "cta_secondary_url": "",
+        "show_reviews": true,
+        "review_score": "4.8",
+        "review_count": "2,400+",
         "editorial_image": "shopify://shop_images/hero-editorial.png",
-        "bottle_image": "shopify://shop_images/hero-bottle.png"
+        "product_image": "shopify://shop_images/hero-bottle.png"
       }
     },
-    "rich_text": {
-      "type": "rich-text",
+    "bloomli_trust_row_6WztPT": {
+      "type": "bloomli-trust-row",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "trust_item_ENiVhL": {
+          "type": "trust_item",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "icon": "flask",
+            "label": "Clinically-studied ingredients"
           }
         },
-        "text": {
-          "type": "text",
+        "trust_item_qt7KmA": {
+          "type": "trust_item",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "icon": "shield",
+            "label": "Dermatologist-approved"
+          }
+        },
+        "trust_item_CtHkqq": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "leaf",
+            "label": "Cruelty-free & vegan"
+          }
+        },
+        "trust_item_KgjBGQ": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "globe",
+            "label": "Made in the USA"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "trust_item_ENiVhL",
+        "trust_item_qt7KmA",
+        "trust_item_CtHkqq",
+        "trust_item_KgjBGQ"
       ],
+      "name": "Bloomli — Trust Row",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
+    "bloomli_timeline_yFPmqr": {
+      "type": "bloomli-timeline",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "step_76LWCm": {
+          "type": "step",
           "settings": {
-            "collection": ""
+            "icon": "seed",
+            "range": "Month 1–3",
+            "title": "Foundation",
+            "description": "Nourishment reaches the follicle. Expect less shedding and a healthier scalp feel."
           }
         },
-        "product": {
-          "type": "product",
+        "step_egttHe": {
+          "type": "step",
           "settings": {
-            "product": "",
-            "second_image": false
+            "icon": "sprout",
+            "range": "Month 3–6",
+            "title": "Visible Shift",
+            "description": "New growth begins. Many see fuller density at the part line and temples."
           }
         },
-        "collection-1": {
-          "type": "collection",
+        "step_XKBHGh": {
+          "type": "step",
           "settings": {
-            "collection": ""
+            "icon": "bloom",
+            "range": "Month 6+",
+            "title": "Full Bloom",
+            "description": "Thicker, stronger, shinier hair. Results consolidate with consistent use."
           }
         }
       },
       "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
+        "step_76LWCm",
+        "step_egttHe",
+        "step_XKBHGh"
       ],
+      "name": "Bloomli — Timeline",
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow": "Your 6-month journey",
+        "heading": "Your ritual, over time.",
+        "padding_top": 128,
+        "padding_bottom": 128
       }
     },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
+    "bloomli_ingredients_DdjGj4": {
+      "type": "bloomli-ingredients",
       "blocks": {
-        "column1": {
-          "type": "column",
+        "ingredient_4dWiwa": {
+          "type": "ingredient",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
+            "botanical": "biotin",
+            "name": "Biotin",
+            "benefit": "Supports keratin production for stronger strands."
           }
         },
-        "column2": {
-          "type": "column",
+        "ingredient_WJH7g8": {
+          "type": "ingredient",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
+            "botanical": "saw",
+            "name": "Saw Palmetto",
+            "benefit": "Gently helps regulate DHT, a common culprit in thinning."
           }
         },
-        "column3": {
-          "type": "column",
+        "ingredient_TWN3Jg": {
+          "type": "ingredient",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
+            "botanical": "marine",
+            "name": "Marine Collagen",
+            "benefit": "Amino acids for follicle strength and elasticity."
+          }
+        },
+        "ingredient_cxWFfm": {
+          "type": "ingredient",
+          "settings": {
+            "botanical": "ashwagandha",
+            "name": "Ashwagandha",
+            "benefit": "Adaptogen that helps calm stress-related shedding."
+          }
+        },
+        "ingredient_Khizfj": {
+          "type": "ingredient",
+          "settings": {
+            "botanical": "zinc",
+            "name": "Zinc",
+            "benefit": "Essential mineral that supports a healthy scalp environment."
           }
         }
       },
       "block_order": [
-        "column1",
-        "column2",
-        "column3"
+        "ingredient_4dWiwa",
+        "ingredient_WJH7g8",
+        "ingredient_TWN3Jg",
+        "ingredient_cxWFfm",
+        "ingredient_Khizfj"
       ],
+      "name": "Bloomli — Ingredients",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow": "The formula",
+        "heading_line1": "Backed by plants.",
+        "heading_line2": "Grounded in science.",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "bloomli_bundle_promo_mU8URW": {
+      "type": "bloomli-bundle-promo",
+      "name": "Bloomli — Bundle Promo",
+      "settings": {
+        "eyebrow": "The complete ritual",
+        "headline_line1": "Inside & out.",
+        "headline_line2": "Save 20%.",
+        "description": "The Root Ritual gummies that work from within, paired with our moisturizing & strengthening hair oil for visible shine day one.",
+        "cta_label": "Shop the Duo — $74",
+        "cta_url": "",
+        "padding_top": 96,
+        "padding_bottom": 96
       }
     }
   },
   "order": [
-    "hero_bloomli_wQKPKD",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "bloomli_hero_7dR8fN",
+    "bloomli_trust_row_6WztPT",
+    "bloomli_timeline_yFPmqr",
+    "bloomli_ingredients_DdjGj4",
+    "bloomli_bundle_promo_mU8URW"
   ]
 }

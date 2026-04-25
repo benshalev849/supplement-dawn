@@ -8,7 +8,8 @@
       "Bash(gunzip -c design.tar.gz)",
       "Bash(tar -xzf design.tar.gz supplement-brand/README.md supplement-brand/project/styles.css \"supplement-brand/project/bloomli Storefront.html\" supplement-brand/project/components/primitives.jsx supplement-brand/project/components/home.jsx supplement-brand/project/components/pdp.jsx supplement-brand/project/components/logo.jsx)",
       "Bash(cp \"/c/Users/Bensh/Desktop/Bloomli/Store Icons/hero-bottle.png\" \"c:/Users/Bensh/Desktop/Bloomli/shop-source-code/supplement-dawn/assets/hero-bottle.png\")",
-      "Bash(cp \"/c/Users/Bensh/Desktop/Bloomli/Store Icons/hero-editorial.png\" \"c:/Users/Bensh/Desktop/Bloomli/shop-source-code/supplement-dawn/assets/hero-editorial.png\")"
+      "Bash(cp \"/c/Users/Bensh/Desktop/Bloomli/Store Icons/hero-editorial.png\" \"c:/Users/Bensh/Desktop/Bloomli/shop-source-code/supplement-dawn/assets/hero-editorial.png\")",
+      "Bash(shopify version *)"
     ]
   }
 }

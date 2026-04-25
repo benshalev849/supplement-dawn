@@ -12,7 +12,8 @@
     "bloomli_hero_7dR8fN": {
       "type": "bloomli-hero",
       "custom_css": [
-        ".bloomli-hero__media img:last-of-type {left: -120px !important; bottom: 40px !important; width: 400px !important; transform: rotate(-8deg) !important;}"
+        "@media (min-width: 750px) {.bloomli-hero__media img:last-of-type {left: -120px !important; bottom: 40px !important; width: 400px !important; transform: rotate(-8deg) !important; }}",
+        "@media (max-width: 749px) {.bloomli-hero__media img:last-of-type {left: 50px !important; bottom: 40px !important; width: 700px !important; transform: rotate(-8deg) !important; }}"
       ],
       "name": "Bloomli — Hero",
       "settings": {

@@ -1,46 +1,29 @@
-{%- liquid
-  assign editorial_src = 'hero-editorial.png' | asset_url
-  assign bottle_src    = 'hero-bottle.png'    | asset_url
-  if section.settings.editorial_image != blank
-    assign editorial_src = section.settings.editorial_image | image_url: width: 760
-  endif
-  if section.settings.product_image != blank
-    assign bottle_src = section.settings.product_image | image_url: width: 400
-  endif
--%}
-
 <section class="bloomli-hero" style="background: var(--brand-gradient); min-height: {{ section.settings.min_height }}px; position: relative; overflow: hidden;">
   <div class="bloomli-hero__inner" style="max-width: 1280px; margin: 0 auto; padding: 96px 48px; display: grid; grid-template-columns: 55fr 45fr; gap: 48px; align-items: center; min-height: {{ section.settings.min_height }}px;">
 
     <!-- Left: copy -->
     <div class="bloomli-hero__copy">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 24px;">
-          {{- section.settings.eyebrow -}}
-        </div>
+        <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 24px;">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
 
       <h1 class="bloomli-hero__headline" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100, 'opsz' 144; font-size: 88px; line-height: 0.98; margin-bottom: 28px; letter-spacing: -0.02em; font-weight: 400; color: var(--charcoal);">
-        {{- section.settings.headline_line1 -}}<br>
-        <span style="font-style: italic;">{{- section.settings.headline_line2 -}}</span>
+        {{ section.settings.headline_line1 }}<br>
+        <span style="font-style: italic;">{{ section.settings.headline_line2 }}</span>
       </h1>
 
       {%- if section.settings.subtext != blank -%}
         <p style="font-size: 18px; color: var(--charcoal); max-width: 440px; margin-bottom: 36px; line-height: 1.55;">
-          {{- section.settings.subtext -}}
+          {{ section.settings.subtext }}
         </p>
       {%- endif -%}
 
       <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px;">
         {%- if section.settings.cta_primary_label != blank -%}
-          <a href="{{ section.settings.cta_primary_url }}" class="button">
-            {{- section.settings.cta_primary_label -}}
-          </a>
+          <a href="{{ section.settings.cta_primary_url }}" class="button">{{ section.settings.cta_primary_label }}</a>
         {%- endif -%}
         {%- if section.settings.cta_secondary_label != blank -%}
-          <a href="{{ section.settings.cta_secondary_url }}" class="button button--secondary">
-            {{- section.settings.cta_secondary_label -}}
-          </a>
+          <a href="{{ section.settings.cta_secondary_url }}" class="button button--secondary">{{ section.settings.cta_secondary_label }}</a>
         {%- endif -%}
       </div>
 
@@ -48,8 +31,7 @@
         <div style="display: flex; gap: 10px; align-items: center;">
           <span style="color: var(--aubergine); font-size: 16px; letter-spacing: -1px;" aria-hidden="true">★★★★★</span>
           <span style="font-size: 14px; color: var(--charcoal);">
-            <strong style="font-weight: 500;">{{ section.settings.review_score }}</strong>
-            from {{ section.settings.review_count }} reviews
+            <strong style="font-weight: 500;">{{ section.settings.review_score }}</strong> from {{ section.settings.review_count }} reviews
           </span>
         </div>
       {%- endif -%}
@@ -57,38 +39,35 @@
 
     <!-- Right: images -->
     <div class="bloomli-hero__media" style="position: relative; height: 540px;">
-
-      <!-- Editorial pill photo -->
-      <img
-        src="{{ editorial_src }}"
-        {%- if section.settings.editorial_image != blank -%}
+      {%- if section.settings.editorial_image != blank -%}
+        <img
+          src="{{ section.settings.editorial_image | image_url: width: 760 }}"
           alt="{{ section.settings.editorial_image.alt | default: 'bloomli hero' | escape }}"
           srcset="{{ section.settings.editorial_image | image_url: width: 380 }} 380w,
                   {{ section.settings.editorial_image | image_url: width: 760 }} 760w"
           sizes="380px"
-        {%- else -%}
-          alt="bloomli hero"
-        {%- endif -%}
-        loading="eager"
-        fetchpriority="high"
-        width="380"
-        height="520"
-        style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; object-fit: cover; box-shadow: 0 24px 60px rgba(110,74,99,0.18);"
-      >
+          loading="eager"
+          fetchpriority="high"
+          width="380"
+          height="520"
+          style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; object-fit: cover; box-shadow: 0 24px 60px rgba(110,74,99,0.18);"
+        >
+      {%- else -%}
+        <div style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; background: rgba(250,244,235,0.5); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'DM Sans', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(110,74,99,0.4);">Editorial photo</span>
+        </div>
+      {%- endif -%}
 
-      <!-- Bottle PNG — transparent bg, tilted overlay -->
-      <img
-        src="{{ bottle_src }}"
-        {%- if section.settings.product_image != blank -%}
+      {%- if section.settings.product_image != blank -%}
+        <img
+          src="{{ section.settings.product_image | image_url: width: 400 }}"
           alt="{{ section.settings.product_image.alt | default: 'Root Ritual Gummies' | escape }}"
-        {%- else -%}
-          alt="Root Ritual Gummies"
-        {%- endif -%}
-        loading="eager"
-        width="200"
-        height="260"
-        style="position: absolute; left: -20px; bottom: 40px; transform: rotate(-6deg); width: 200px; height: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(110,74,99,0.18));"
-      >
+          loading="eager"
+          width="200"
+          height="260"
+          style="position: absolute; left: -20px; bottom: 40px; transform: rotate(-6deg); width: 200px; height: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(110,74,99,0.18));"
+        >
+      {%- endif -%}
 
       <!-- Floating blur accent -->
       <div aria-hidden="true" style="position: absolute; right: -60px; top: 60px; width: 140px; height: 140px; border-radius: 50%; background: rgba(250,244,235,0.4); filter: blur(40px); pointer-events: none;"></div>
@@ -127,37 +106,24 @@
   "tag": "div",
   "class": "bloomli-hero-wrapper",
   "settings": [
-    {
-      "type": "header",
-      "content": "Copy"
-    },
-    { "type": "text",     "id": "eyebrow",        "label": "Eyebrow",                "default": "Clinically-studied hair wellness" },
-    { "type": "text",     "id": "headline_line1",  "label": "Headline line 1",        "default": "Quiet science," },
-    { "type": "text",     "id": "headline_line2",  "label": "Headline line 2 (italic)","default": "visible results." },
-    { "type": "textarea", "id": "subtext",         "label": "Subtext",                "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },
-    { "type": "range",    "id": "min_height",      "label": "Min height (px)",        "min": 500, "max": 900, "step": 20, "default": 720 },
-    {
-      "type": "header",
-      "content": "CTAs"
-    },
-    { "type": "text", "id": "cta_primary_label",   "label": "Primary button label",   "default": "Shop Hair" },
+    { "type": "header", "content": "Copy" },
+    { "type": "text",     "id": "eyebrow",        "label": "Eyebrow",                 "default": "Clinically-studied hair wellness" },
+    { "type": "text",     "id": "headline_line1",  "label": "Headline line 1",         "default": "Quiet science," },
+    { "type": "text",     "id": "headline_line2",  "label": "Headline line 2 (italic)", "default": "visible results." },
+    { "type": "textarea", "id": "subtext",         "label": "Subtext",                 "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },
+    { "type": "range",    "id": "min_height",      "label": "Min height (px)",         "min": 500, "max": 900, "step": 20, "default": 720 },
+    { "type": "header", "content": "CTAs" },
+    { "type": "text", "id": "cta_primary_label",   "label": "Primary button label",    "default": "Shop Hair" },
     { "type": "url",  "id": "cta_primary_url",     "label": "Primary button URL" },
-    { "type": "text", "id": "cta_secondary_label", "label": "Secondary button label", "default": "Take the 2-min Quiz" },
+    { "type": "text", "id": "cta_secondary_label", "label": "Secondary button label",  "default": "Take the 2-min Quiz" },
     { "type": "url",  "id": "cta_secondary_url",   "label": "Secondary button URL" },
-    {
-      "type": "header",
-      "content": "Reviews badge"
-    },
+    { "type": "header", "content": "Reviews badge" },
     { "type": "checkbox", "id": "show_reviews",  "label": "Show reviews badge", "default": true },
     { "type": "text",     "id": "review_score",  "label": "Score",              "default": "4.8" },
     { "type": "text",     "id": "review_count",  "label": "Count",              "default": "2,400+" },
-    {
-      "type": "header",
-      "content": "Images",
-      "info": "Leave blank to use the built-in hero images (hero-editorial.png / hero-bottle.png). Upload here to override."
-    },
-    { "type": "image_picker", "id": "editorial_image", "label": "Editorial image override (tall pill)" },
-    { "type": "image_picker", "id": "product_image",   "label": "Product image override (transparent PNG)" }
+    { "type": "header", "content": "Images" },
+    { "type": "image_picker", "id": "editorial_image", "label": "Editorial image (tall pill crop)" },
+    { "type": "image_picker", "id": "product_image",   "label": "Product image (transparent PNG)" }
   ],
   "presets": [{ "name": "Bloomli — Hero" }]
 }

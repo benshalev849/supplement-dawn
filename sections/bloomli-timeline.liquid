@@ -1,37 +1,48 @@
-<section style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--cream);">
+<section class="bloomli-timeline" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--cream);">
   <div style="max-width: 1280px; margin: 0 auto;">
 
-    <div style="text-align: center; margin-bottom: 80px;">
+    <div class="bloomli-timeline__header" style="text-align: center; margin-bottom: 80px;">
       {%- if section.settings.eyebrow != blank -%}
         <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 14px;">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
-      <h2 style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 56px; font-weight: 400; color: var(--charcoal);">
+      <h2 class="bloomli-timeline__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 56px; font-weight: 400; color: var(--charcoal); margin: 0; line-height: 1.05;">
         {{ section.settings.heading }}
       </h2>
     </div>
 
-    <div style="position: relative;">
+    <div class="bloomli-timeline__wrap" style="position: relative;">
       <!-- dashed connector line (desktop only) -->
-      <div class="bloomli-timeline-line" style="position: absolute; top: 50px; left: 16.7%; right: 16.7%; border-top: 1.5px dashed rgba(110,74,99,0.3); z-index: 0;"></div>
+      <div class="bloomli-timeline__line" aria-hidden="true" style="position: absolute; top: 50px; left: 16.66%; right: 16.66%; height: 0; border-top: 2px dashed rgba(110,74,99,0.35); pointer-events: none; z-index: 0;"></div>
 
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; z-index: 1;">
+      <div class="bloomli-timeline__grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
         {%- for block in section.blocks -%}
-          <div {{ block.shopify_attributes }} style="text-align: center;">
-            <div style="width: 100px; height: 100px; margin: 0 auto 24px; border-radius: 999px; background: var(--pearl); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(110,74,99,0.1);">
-              <svg width="56" height="56" viewBox="0 0 80 80" fill="none" stroke="#6E4A63" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
-                {%- case block.settings.icon -%}
-                  {%- when 'seed' -%}
-                    <ellipse cx="40" cy="44" rx="12" ry="18"/><path d="M40 26 Q 48 22, 56 26"/><path d="M40 44 L40 60"/>
-                  {%- when 'sprout' -%}
-                    <path d="M40 70 L40 40"/><path d="M40 40 Q 28 34, 24 22 Q 36 24, 40 40Z"/><path d="M40 46 Q 52 40, 56 28 Q 44 30, 40 46Z"/>
-                  {%- when 'bloom' -%}
-                    <circle cx="40" cy="40" r="6"/><ellipse cx="40" cy="24" rx="7" ry="11"/><ellipse cx="56" cy="40" rx="11" ry="7"/><ellipse cx="40" cy="56" rx="7" ry="11"/><ellipse cx="24" cy="40" rx="11" ry="7"/><path d="M40 60 L40 72"/>
-                {%- endcase -%}
-              </svg>
+          <div class="bloomli-timeline__step" {{ block.shopify_attributes }} style="text-align: center; position: relative; z-index: 1; min-width: 0;">
+            <div class="bloomli-timeline__circle" style="width: 100px; height: 100px; margin: 0 auto 24px; border-radius: 999px; background: var(--pearl); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(110,74,99,0.1); overflow: hidden;">
+              {%- if block.settings.image != blank -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 200 }}"
+                  alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
+                  loading="lazy"
+                  width="64"
+                  height="64"
+                  style="width: 64px; height: 64px; object-fit: contain;"
+                >
+              {%- else -%}
+                <svg width="56" height="56" viewBox="0 0 80 80" fill="none" stroke="#6E4A63" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                  {%- case block.settings.icon -%}
+                    {%- when 'seed' -%}
+                      <ellipse cx="40" cy="44" rx="12" ry="18"/><path d="M40 26 Q 48 22, 56 26"/><path d="M40 44 L40 60"/>
+                    {%- when 'sprout' -%}
+                      <path d="M40 70 L40 40"/><path d="M40 40 Q 28 34, 24 22 Q 36 24, 40 40Z"/><path d="M40 46 Q 52 40, 56 28 Q 44 30, 40 46Z"/>
+                    {%- when 'bloom' -%}
+                      <circle cx="40" cy="40" r="6"/><ellipse cx="40" cy="24" rx="7" ry="11"/><ellipse cx="56" cy="40" rx="11" ry="7"/><ellipse cx="40" cy="56" rx="7" ry="11"/><ellipse cx="24" cy="40" rx="11" ry="7"/><path d="M40 60 L40 72"/>
+                  {%- endcase -%}
+                </svg>
+              {%- endif -%}
             </div>
             <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 10px;">{{ block.settings.range }}</div>
-            <h3 style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; margin-bottom: 12px; color: var(--charcoal);">{{ block.settings.title }}</h3>
-            <p style="font-size: 15px; color: rgba(42,38,34,0.7); line-height: 1.6; max-width: 300px; margin: 0 auto;">{{ block.settings.description }}</p>
+            <h3 class="bloomli-timeline__title" style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; margin: 0 0 12px; color: var(--charcoal); line-height: 1.15;">{{ block.settings.title }}</h3>
+            <p class="bloomli-timeline__copy" style="font-size: 15px; color: rgba(42,38,34,0.7); line-height: 1.6; max-width: 300px; margin: 0 auto; word-wrap: break-word; overflow-wrap: break-word;">{{ block.settings.description }}</p>
           </div>
         {%- endfor -%}
       </div>
@@ -42,12 +53,20 @@
 
 <style>
   @media (max-width: 749px) {
-    .bloomli-timeline-line { display: none !important; }
-    section:has(.bloomli-timeline-line) > div > div:last-child {
-      grid-template-columns: 1fr !important;
+    .bloomli-timeline {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      padding-top: 64px !important;
+      padding-bottom: 64px !important;
     }
-    section:has(.bloomli-timeline-line) h2 { font-size: 36px !important; }
-    section:has(.bloomli-timeline-line) { padding-left: 20px !important; padding-right: 20px !important; }
+    .bloomli-timeline__line { display: none !important; }
+    .bloomli-timeline__grid {
+      grid-template-columns: 1fr !important;
+      gap: 40px !important;
+    }
+    .bloomli-timeline__heading { font-size: 32px !important; }
+    .bloomli-timeline__title { font-size: 22px !important; }
+    .bloomli-timeline__header { margin-bottom: 40px !important; }
   }
 </style>
 
@@ -67,11 +86,15 @@
       "type": "step",
       "name": "Step",
       "settings": [
-        { "type": "select", "id": "icon", "label": "Icon", "options": [
+        { "type": "header", "content": "Icon" },
+        { "type": "paragraph", "content": "Upload a transparent PNG/SVG to override the default icon. The image is centered inside the circle and scales to fit." },
+        { "type": "image_picker", "id": "image", "label": "Custom icon (optional)" },
+        { "type": "select", "id": "icon", "label": "Default icon (used if no image)", "options": [
           { "value": "seed", "label": "Seed" },
           { "value": "sprout", "label": "Sprout" },
           { "value": "bloom", "label": "Bloom" }
         ], "default": "seed" },
+        { "type": "header", "content": "Text" },
         { "type": "text", "id": "range", "label": "Month range", "default": "Month 1–3" },
         { "type": "text", "id": "title", "label": "Title", "default": "Foundation" },
         { "type": "textarea", "id": "description", "label": "Description", "default": "Nourishment reaches the follicle. Expect less shedding and a healthier scalp feel." }

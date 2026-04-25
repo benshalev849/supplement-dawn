@@ -2,25 +2,25 @@
   <div class="bloomli-hero__inner" style="max-width: 1280px; margin: 0 auto; padding: 96px 48px; display: grid; grid-template-columns: 55fr 45fr; gap: 48px; align-items: center; min-height: {{ section.settings.min_height }}px;">
 
     <!-- Left: copy -->
-    <div class="bloomli-hero__copy">
+    <div class="bloomli-hero__copy" style="min-width: 0;">
       {%- if section.settings.eyebrow != blank -%}
         <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 24px;">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
 
-      <h1 class="bloomli-hero__headline" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100, 'opsz' 144; font-size: 88px; line-height: 0.98; margin-bottom: 28px; letter-spacing: -0.02em; font-weight: 400; color: var(--charcoal);">
+      <h1 class="bloomli-hero__headline" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100, 'opsz' 144; font-size: 88px; line-height: 0.98; margin-bottom: 28px; letter-spacing: -0.02em; font-weight: 400; color: var(--charcoal); word-wrap: break-word;">
         {{ section.settings.headline_line1 }}<br>
         <span style="font-style: italic;">{{ section.settings.headline_line2 }}</span>
       </h1>
 
       {%- if section.settings.subtext != blank -%}
-        <p style="font-size: 18px; color: var(--charcoal); max-width: 440px; margin-bottom: 36px; line-height: 1.55;">
+        <p class="bloomli-hero__subtext" style="font-size: 18px; color: var(--charcoal); max-width: 440px; margin-bottom: 36px; line-height: 1.55;">
           {{ section.settings.subtext }}
         </p>
       {%- endif -%}
 
-      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px;">
+      <div class="bloomli-hero__ctas color-{{ section.settings.button_color_scheme }}" style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; background: transparent;">
         {%- if section.settings.cta_primary_label != blank -%}
-          <a href="{{ section.settings.cta_primary_url }}" class="button">{{ section.settings.cta_primary_label }}</a>
+          <a href="{{ section.settings.cta_primary_url }}" class="button button--primary">{{ section.settings.cta_primary_label }}</a>
         {%- endif -%}
         {%- if section.settings.cta_secondary_label != blank -%}
           <a href="{{ section.settings.cta_secondary_url }}" class="button button--secondary">{{ section.settings.cta_secondary_label }}</a>
@@ -28,7 +28,7 @@
       </div>
 
       {%- if section.settings.show_reviews -%}
-        <div style="display: flex; gap: 10px; align-items: center;">
+        <div class="bloomli-hero__reviews" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
           <span style="color: var(--aubergine); font-size: 16px; letter-spacing: -1px;" aria-hidden="true">★★★★★</span>
           <span style="font-size: 14px; color: var(--charcoal);">
             <strong style="font-weight: 500;">{{ section.settings.review_score }}</strong> from {{ section.settings.review_count }} reviews
@@ -41,6 +41,7 @@
     <div class="bloomli-hero__media" style="position: relative; height: 540px;">
       {%- if section.settings.editorial_image != blank -%}
         <img
+          class="bloomli-hero__editorial"
           src="{{ section.settings.editorial_image | image_url: width: 760 }}"
           alt="{{ section.settings.editorial_image.alt | default: 'bloomli hero' | escape }}"
           srcset="{{ section.settings.editorial_image | image_url: width: 380 }} 380w,
@@ -53,13 +54,14 @@
           style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; object-fit: cover; box-shadow: 0 24px 60px rgba(110,74,99,0.18);"
         >
       {%- else -%}
-        <div style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; background: rgba(250,244,235,0.5); display: flex; align-items: center; justify-content: center;">
+        <div class="bloomli-hero__editorial bloomli-hero__editorial--placeholder" style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; background: rgba(250,244,235,0.5); display: flex; align-items: center; justify-content: center;">
           <span style="font-family: 'DM Sans', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(110,74,99,0.4);">Editorial photo</span>
         </div>
       {%- endif -%}
 
       {%- if section.settings.product_image != blank -%}
         <img
+          class="bloomli-hero__bottle"
           src="{{ section.settings.product_image | image_url: width: 400 }}"
           alt="{{ section.settings.product_image.alt | default: 'Root Ritual Gummies' | escape }}"
           loading="eager"
@@ -77,25 +79,37 @@
 </section>
 
 <style>
+  /* Make sure the wrapping color-scheme div doesn't paint a background over the gradient hero */
+  .bloomli-hero__ctas { background: transparent !important; }
+
   @media (max-width: 749px) {
+    .bloomli-hero { min-height: unset !important; }
     .bloomli-hero__inner {
       grid-template-columns: 1fr !important;
-      padding: 48px 20px 64px !important;
+      padding: 40px 16px 48px !important;
       min-height: unset !important;
+      gap: 24px !important;
     }
-    .bloomli-hero__headline { font-size: 56px !important; }
+    .bloomli-hero__headline { font-size: 44px !important; line-height: 1.02 !important; margin-bottom: 16px !important; }
+    .bloomli-hero__subtext { font-size: 15px !important; margin-bottom: 24px !important; max-width: 100% !important; }
+    .bloomli-hero__ctas { gap: 8px !important; margin-bottom: 20px !important; }
+    .bloomli-hero__ctas .button { padding: 12px 22px !important; font-size: 14px !important; }
     .bloomli-hero__media {
-      height: 320px !important;
-      margin-top: 40px;
+      height: 280px !important;
+      margin-top: 12px;
     }
-    .bloomli-hero__media img:first-child {
-      width: 220px !important;
-      height: 300px !important;
-      border-radius: 150px !important;
+    .bloomli-hero__editorial {
+      width: 60% !important;
+      max-width: 220px !important;
+      height: 260px !important;
+      border-radius: 130px !important;
+      right: 0 !important;
     }
-    .bloomli-hero__media img:last-of-type {
-      width: 130px !important;
+    .bloomli-hero__bottle {
+      width: 38% !important;
+      max-width: 130px !important;
       left: 0 !important;
+      bottom: 12px !important;
     }
   }
 </style>
@@ -113,6 +127,7 @@
     { "type": "textarea", "id": "subtext",         "label": "Subtext",                 "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },
     { "type": "range",    "id": "min_height",      "label": "Min height (px)",         "min": 500, "max": 900, "step": 20, "default": 720 },
     { "type": "header", "content": "CTAs" },
+    { "type": "color_scheme", "id": "button_color_scheme", "label": "Button color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "text", "id": "cta_primary_label",   "label": "Primary button label",    "default": "Shop Hair" },
     { "type": "url",  "id": "cta_primary_url",     "label": "Primary button URL" },
     { "type": "text", "id": "cta_secondary_label", "label": "Secondary button label",  "default": "Take the 2-min Quiz" },

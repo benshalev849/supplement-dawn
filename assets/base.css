@@ -17,6 +17,17 @@
   --card-shadow: 0 4px 16px rgba(110, 74, 99, 0.06);
 }
 
+/* ---- Mobile-first guard rails: never let any section blow past viewport ---- */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
 /* ---- Typography (mandatory: Google Fonts can't be set via Shopify UI) ---- */
 body {
   font-family: 'DM Sans', sans-serif !important;
@@ -259,21 +270,38 @@ input[type="text"] {
 /* ---- Mobile overrides ---- */
 @media (max-width: 749px) {
   .container-bloomli {
-    padding: 0 20px !important;
+    padding: 0 16px !important;
   }
 
   h1,
   .banner__heading {
-    font-size: 56px !important;
-    line-height: 1 !important;
+    font-size: 44px !important;
+    line-height: 1.02 !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 
   h2 {
-    font-size: 36px !important;
+    font-size: 30px !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   h3 {
-    font-size: 24px !important;
+    font-size: 22px !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  h4, h5, h6 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  p, li, span, a, .smallcaps {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   .multicolumn-list {
@@ -285,40 +313,58 @@ input[type="text"] {
   }
 
   .footer-block__newsletter .footer-block__heading {
-    font-size: 40px !important;
+    font-size: 36px !important;
   }
 
   .section-bloomli {
-    padding: 64px 0;
+    padding: 56px 0;
   }
 
   .section-bloomli-lg {
-    padding: 80px 0;
+    padding: 72px 0;
   }
 
   .section-bloomli-sm {
-    padding: 48px 0;
+    padding: 40px 0;
   }
 
   .collection-hero {
-    padding: 64px 20px !important;
+    padding: 56px 16px !important;
   }
 
   .collection-hero h1 {
-    font-size: 44px !important;
+    font-size: 38px !important;
   }
 
   .header {
-    min-height: 64px;
+    min-height: 60px;
     padding-top: 6px !important;
     padding-bottom: 8px !important;
   }
 
   .announcement-bar__message {
-    min-height: 4.6rem !important;
-    padding: 1.2rem 0 !important;
-    font-size: 1.4rem !important;
+    min-height: 4.4rem !important;
+    padding: 1rem 1rem !important;
+    font-size: 1.25rem !important;
     line-height: 1.35 !important;
+    text-align: center;
+  }
+
+  /* Buttons stay inside the viewport and don't overflow on tight phone widths */
+  .button,
+  .button--primary,
+  .button--secondary {
+    padding: 12px 22px !important;
+    font-size: 14px !important;
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+
+/* ---- PDP trust row inside a snippet — squeeze on narrow viewports ---- */
+@media (max-width: 749px) {
+  .product__info-wrapper [style*="grid-template-columns: repeat(4, 1fr)"] {
+    gap: 4px !important;
   }
 }
 

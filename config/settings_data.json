@@ -15,13 +15,13 @@
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
     "body_scale": 100,
-    "page_width": 1200,
+    "page_width": 1280,
     "spacing_sections": 0,
-    "spacing_grid_horizontal": 8,
-    "spacing_grid_vertical": 8,
+    "spacing_grid_horizontal": 24,
+    "spacing_grid_vertical": 24,
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
-    "buttons_radius": 0,
+    "buttons_radius": 40,
     "buttons_shadow_opacity": 0,
     "buttons_shadow_horizontal_offset": 0,
     "buttons_shadow_vertical_offset": 4,
@@ -35,7 +35,7 @@
     "variant_pills_shadow_blur": 5,
     "inputs_border_thickness": 1,
     "inputs_border_opacity": 55,
-    "inputs_radius": 0,
+    "inputs_radius": 8,
     "inputs_shadow_opacity": 0,
     "inputs_shadow_horizontal_offset": 0,
     "inputs_shadow_vertical_offset": 4,
@@ -43,10 +43,10 @@
     "card_style": "standard",
     "card_image_padding": 0,
     "card_text_alignment": "left",
-    "card_color_scheme": "scheme-2",
+    "card_color_scheme": "bloomli-pearl",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
-    "card_corner_radius": 0,
+    "card_corner_radius": 12,
     "card_shadow_opacity": 0,
     "card_shadow_horizontal_offset": 0,
     "card_shadow_vertical_offset": 4,
@@ -198,9 +198,42 @@
           "background_gradient": "",
           "text": "#2a2622",
           "button": "#6e4a63",
-          "button_label": "#ffffff",
+          "button_label": "#faf4eb",
+          "secondary_button_label": "#6e4a63",
+          "shadow": "#2a2622"
+        }
+      },
+      "bloomli-aubergine": {
+        "settings": {
+          "background": "#6e4a63",
+          "background_gradient": "",
+          "text": "#faf4eb",
+          "button": "#faf4eb",
+          "button_label": "#6e4a63",
           "secondary_button_label": "#f2d4d0",
-          "shadow": "#121212"
+          "shadow": "#563c55"
+        }
+      },
+      "bloomli-pearl": {
+        "settings": {
+          "background": "#f5ede4",
+          "background_gradient": "",
+          "text": "#2a2622",
+          "button": "#6e4a63",
+          "button_label": "#faf4eb",
+          "secondary_button_label": "#6e4a63",
+          "shadow": "#2a2622"
+        }
+      },
+      "bloomli-rose": {
+        "settings": {
+          "background": "#f2d4d0",
+          "background_gradient": "",
+          "text": "#2a2622",
+          "button": "#6e4a63",
+          "button_label": "#faf4eb",
+          "secondary_button_label": "#6e4a63",
+          "shadow": "#2a2622"
         }
       }
     }

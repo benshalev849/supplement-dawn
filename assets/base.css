@@ -1,5 +1,7 @@
 /* ============================================================
    BLOOMLI DESIGN TOKENS & GLOBAL OVERRIDES
+   Keep colors here as custom properties for use in custom sections only.
+   Section bg/text/button colors are controlled by Shopify color schemes.
    ============================================================ */
 :root {
   --cream: #FAF4EB;
@@ -13,24 +15,13 @@
   --brand-gradient: linear-gradient(135deg, #F2D4D0 0%, #D9CCE8 100%);
   --soft-shadow: 0 8px 24px rgba(110, 74, 99, 0.08);
   --card-shadow: 0 4px 16px rgba(110, 74, 99, 0.06);
-
-  /* Override Dawn color tokens (values are R,G,B for Dawn's rgb() usage) */
-  --color-background: 250, 244, 235;
-  --color-foreground: 42, 38, 34;
-  --color-button: 110, 74, 99;
-  --color-button-text: 250, 244, 235;
-  --color-secondary-button-text: 110, 74, 99;
 }
 
-/* ---- Global typography ---- */
+/* ---- Typography (mandatory: Google Fonts can't be set via Shopify UI) ---- */
 body {
   font-family: 'DM Sans', sans-serif !important;
-  background: var(--cream) !important;
-  color: var(--charcoal) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-  line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -54,7 +45,7 @@ h1, h2, h3, h4, h5, h6,
   font-size: 12px !important;
 }
 
-/* ---- Buttons ---- */
+/* ---- Buttons — shape & type only; colors come from scheme ---- */
 .button,
 .button--primary,
 .shopify-payment-button__button--unbranded,
@@ -66,28 +57,17 @@ h1, h2, h3, h4, h5, h6,
   font-size: 15px !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
-  background: var(--aubergine) !important;
-  color: var(--cream) !important;
-  border: none !important;
-  transition: all 0.2s ease !important;
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 .button:hover,
 .button--primary:hover,
 .product-form__submit:hover {
   opacity: 0.92;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(110, 74, 99, 0.18);
-}
-.button--secondary {
-  background: transparent !important;
-  color: var(--aubergine) !important;
-  border: 1.5px solid var(--aubergine) !important;
+  box-shadow: var(--soft-shadow);
 }
 .button--secondary:hover {
-  background: rgba(110, 74, 99, 0.04) !important;
   transform: translateY(-2px);
-  box-shadow: none;
-  opacity: 1;
 }
 
 /* ---- Section spacing helpers ---- */
@@ -102,12 +82,10 @@ h1, h2, h3, h4, h5, h6,
   padding: 0 48px;
 }
 
-/* ---- Header ---- */
+/* ---- Header — layout & typography only; colors come from scheme ---- */
 .header {
   min-height: 88px;
   align-items: center;
-  border-bottom: 1px solid rgba(110, 74, 99, 0.06) !important;
-  background: var(--cream) !important;
 }
 .header__inline-menu { justify-content: flex-start !important; }
 .header__icons { justify-content: flex-end !important; }
@@ -116,24 +94,17 @@ h1, h2, h3, h4, h5, h6,
   font-family: 'DM Sans', sans-serif !important;
   font-size: 15px !important;
   font-weight: 500 !important;
-  color: var(--charcoal) !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
 }
 .cart-count-bubble {
-  background: var(--aubergine) !important;
-  color: var(--cream) !important;
   border-radius: 999px !important;
 }
 
-/* ---- Product / collection cards ---- */
+/* ---- Cards — shape & transition only; bg color comes from global card scheme ---- */
 .card--standard .card__inner {
-  background: var(--pearl) !important;
   border-radius: 12px !important;
-  transition: background 0.2s ease;
-}
-.card--standard:hover .card__inner {
-  background: var(--rose) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 .card__heading {
   font-size: 20px !important;
@@ -142,28 +113,25 @@ h1, h2, h3, h4, h5, h6,
 .price-item--regular {
   font-size: 15px !important;
   font-weight: 500 !important;
-  color: var(--aubergine) !important;
 }
 
-/* ---- Multicolumn cards ---- */
+/* ---- Multicolumn cards — shape only ---- */
 .multicolumn-card {
-  background: var(--pearl) !important;
   border-radius: 12px !important;
   padding: 40px !important;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 .multicolumn-card:hover {
-  background: var(--rose) !important;
   transform: translateY(-4px);
 }
 .multicolumn-card__info h3 {
   font-size: 22px !important;
 }
 
-/* ---- Subscription selector (Shopify Subscriptions) ---- */
+/* ---- Subscription selector — shape only; active colors use --aubergine
+        (this is a product UI element that should always reflect brand color) ---- */
 .selling-plan-selector__option label {
   border-radius: 12px !important;
-  border: 1.5px solid rgba(110, 74, 99, 0.15) !important;
   padding: 14px 18px !important;
 }
 .selling-plan-selector__option input:checked + label {
@@ -171,9 +139,8 @@ h1, h2, h3, h4, h5, h6,
   background: rgba(110, 74, 99, 0.03) !important;
 }
 
-/* ---- Collection / facets ---- */
+/* ---- Facets — shape & font only; active state uses --aubergine ---- */
 .facets__summary {
-  border: 1.5px solid rgba(110, 74, 99, 0.15) !important;
   border-radius: 999px !important;
   padding: 8px 16px !important;
   font-family: 'DM Sans', sans-serif !important;
@@ -185,42 +152,29 @@ h1, h2, h3, h4, h5, h6,
   color: var(--cream) !important;
 }
 
-/* ---- Footer ---- */
-.footer {
-  background: var(--aubergine) !important;
-  color: var(--cream) !important;
-  padding-top: 96px !important;
-}
+/* ---- Footer — typography only; colors come from bloomli-aubergine scheme ---- */
 .footer-block__newsletter .footer-block__heading {
   font-family: 'Fraunces', serif !important;
-  font-variation-settings: "SOFT" 100;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
   font-size: 56px !important;
   font-weight: 400 !important;
-  color: var(--cream) !important;
 }
 .footer__content-bottom {
-  border-top: 1px solid rgba(250, 244, 235, 0.12) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding-top: 28px;
 }
 .copyright__content {
   font-size: 11px !important;
-  color: rgba(250, 244, 235, 0.55) !important;
 }
 
-/* ---- Inputs ---- */
+/* ---- Inputs — shape & font only ---- */
 .field__input,
 input[type="email"],
 input[type="text"] {
-  border-radius: 8px !important;
-  border: 1.5px solid rgba(110, 74, 99, 0.15) !important;
   font-family: 'DM Sans', sans-serif !important;
 }
-.field__input:focus,
-input[type="email"]:focus {
-  border-color: var(--aubergine) !important;
-}
 
-/* ---- Collection hero ---- */
+/* ---- Collection hero — gradient is a layout/brand decision, not a scheme color ---- */
 .collection-hero {
   background: var(--brand-gradient) !important;
   padding: 96px 48px !important;
@@ -231,7 +185,6 @@ input[type="email"]:focus {
   font-size: 18px;
   max-width: 540px;
   margin: 0 auto;
-  color: var(--charcoal);
 }
 
 /* ---- Header layout (links-left · logo-center · icons-right) ---- */

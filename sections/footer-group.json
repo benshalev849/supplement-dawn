@@ -11,6 +11,40 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "newsletter_4PUBTw": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_Ujdxr9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join Us.",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_NgaH87": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
+          }
+        },
+        "email_form_xWxFqC": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_Ujdxr9",
+        "paragraph_NgaH87",
+        "email_form_xWxFqC"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -42,8 +76,8 @@
         "footer-2"
       ],
       "settings": {
-        "color_scheme": "bloomli-aubergine",
-        "newsletter_enable": true,
+        "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
+        "newsletter_enable": false,
         "newsletter_heading": "Join us.",
         "enable_follow_on_shop": true,
         "show_social": true,
@@ -52,12 +86,13 @@
         "payment_enable": true,
         "show_policy": false,
         "margin_top": 0,
-        "padding_top": 96,
-        "padding_bottom": 48
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     }
   },
   "order": [
+    "newsletter_4PUBTw",
     "footer"
   ]
 }

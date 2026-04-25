@@ -71,7 +71,7 @@
   border-radius: 999px;
   height: 6.4rem;
   padding-left: 2.4rem;
-  padding-right: 2.4rem;
+  padding-right: 5.4rem;
 }
 
 .newsletter__form-block .field__label {
@@ -83,19 +83,6 @@
 .newsletter__form-block .field__input:not(:placeholder-shown) ~ .field__label,
 .newsletter__form-block .field__input:-webkit-autofill ~ .field__label {
   left: calc(var(--inputs-border-width) + 2.4rem);
-}
-
-.newsletter__form-block .newsletter-form__button--text {
-  align-self: flex-start;
-  width: auto;
-  height: auto;
-  min-width: 16.8rem;
-  min-height: 6.4rem;
-  margin: 0;
-  padding: 0 3.8rem !important;
-  background-color: rgba(var(--color-button), var(--alpha-button-background));
-  color: rgb(var(--color-button-text));
-  flex-shrink: 0;
 }
 
 .newsletter__button {
@@ -120,15 +107,6 @@
   .newsletter__form-block {
     grid-column: 2;
     grid-row: 1 / span 2;
-  }
-
-  .newsletter__form-block .newsletter-form__field-wrapper {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .newsletter__form-block .field {
-    flex: 1 1 auto;
   }
 
   .newsletter__button {

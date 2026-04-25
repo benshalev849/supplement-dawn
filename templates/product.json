@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "bogos_io_free_gift_volume_discount_view_KwKR8Y": {
-          "type": "shopify://apps/bogos-io-free-gift/blocks/volume-discount-view/0432bba6-720a-4e95-be5a-b868386f7aa6",
-          "settings": {
-            "bogos_offer_id": 1,
-            "product": "test-supplement"
-          }
-        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -40,6 +33,12 @@
         "price": {
           "type": "price",
           "settings": {}
+        },
+        "bogos_io_free_gift_volume_discount_view_DahX43": {
+          "type": "shopify://apps/bogos-io-free-gift/blocks/volume-discount-view/0432bba6-720a-4e95-be5a-b868386f7aa6",
+          "settings": {
+            "product": "test-supplement"
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -107,11 +106,11 @@
         }
       },
       "block_order": [
-        "bogos_io_free_gift_volume_discount_view_KwKR8Y",
         "vendor",
         "title",
         "caption",
         "price",
+        "bogos_io_free_gift_volume_discount_view_DahX43",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",

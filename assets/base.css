@@ -307,6 +307,19 @@ input[type="text"] {
   .collection-hero h1 {
     font-size: 44px !important;
   }
+
+  .header {
+    min-height: 64px;
+    padding-top: 6px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .announcement-bar__message {
+    min-height: 4.6rem !important;
+    padding: 1.2rem 0 !important;
+    font-size: 1.4rem !important;
+    line-height: 1.35 !important;
+  }
 }
 
 /* ============================================================

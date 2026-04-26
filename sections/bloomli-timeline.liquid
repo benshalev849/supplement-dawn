@@ -19,12 +19,7 @@
     {%- assign connector_style = section.settings.connector_style | default: 'dashed' -%}
     {%- assign connector_width = section.settings.connector_width | default: 1 -%}
 
-    <div class="bloomli-timeline__wrap" style="position: relative;">
-      <!-- dashed connector line (desktop only) -->
-      {%- unless section.settings.show_connector == false -%}
-        <div class="bloomli-timeline__line" aria-hidden="true" style="position: absolute; top: {{ line_top }}px; left: {{ line_inset }}%; right: {{ line_inset }}%; height: 0; border-top: {{ connector_width }}px {{ connector_style }} {{ connector_color }}; pointer-events: none; z-index: 2;"></div>
-      {%- endunless -%}
-
+    <div class="bloomli-timeline__wrap" style="--timeline-line-top: {{ line_top }}px; --timeline-line-inset: {{ line_inset }}%; --timeline-line-color: {{ connector_color }}; --timeline-line-width: {{ connector_width }}px; --timeline-line-style: {{ connector_style }}; position: relative;">
       <div class="bloomli-timeline__grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; z-index: 1;">
         {%- for block in section.blocks -%}
           <div class="bloomli-timeline__step" {{ block.shopify_attributes }} style="text-align: center; position: relative; z-index: 2; min-width: 0;">
@@ -63,6 +58,16 @@
 
 <style>
   .bloomli-timeline__icon-img { max-width: none !important; }
+  .bloomli-timeline__wrap::before {
+    content: '';
+    position: absolute;
+    top: var(--timeline-line-top);
+    left: var(--timeline-line-inset);
+    right: var(--timeline-line-inset);
+    border-top: var(--timeline-line-width) var(--timeline-line-style) var(--timeline-line-color);
+    z-index: 2;
+    pointer-events: none;
+  }
 
   @media (max-width: 749px) {
     .bloomli-timeline {
@@ -71,7 +76,7 @@
       padding-top: 64px !important;
       padding-bottom: 64px !important;
     }
-    .bloomli-timeline__line { display: none !important; }
+    .bloomli-timeline__wrap::before { display: none !important; }
     .bloomli-timeline__grid {
       grid-template-columns: 1fr !important;
       gap: 40px !important;

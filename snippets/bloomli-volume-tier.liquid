@@ -1,0 +1,600 @@
+{%- comment -%}
+  Bloomli Volume Tier — block snippet rendered inside main-product.liquid.
+
+  Renders 1-4 quantity tier cards + an optional subscription toggle with frequency dropdown.
+  Sets the buy-buttons form's `quantity` and `selling_plan` fields via shared `form="..."` attribute.
+
+  Reads selling plans from `product.selling_plan_groups` (e.g. populated by Appstle).
+
+  Accepts:
+    block            - block object with all settings
+    product          - current product
+    product_form_id  - id of the buy-buttons form to associate inputs with
+    section_id       - parent section id for unique element ids
+{%- endcomment -%}
+
+{%- liquid
+  assign uid = section_id | append: '-' | append: block.id
+  assign sp_group = product.selling_plan_groups | first
+  assign has_plans = false
+  if sp_group and sp_group.selling_plans.size > 0
+    assign has_plans = true
+  endif
+
+  assign unit_price = product.selected_or_first_available_variant.price
+  assign unit_compare = product.selected_or_first_available_variant.compare_at_price | default: unit_price
+
+  assign sub_pct = block.settings.subscription_discount_pct | default: 0
+
+  assign default_idx = -1
+-%}
+
+<div class="bloomli-vt"
+     data-bloomli-vt
+     data-uid="{{ uid }}"
+     data-form-id="{{ product_form_id }}"
+     data-unit-price="{{ unit_price }}"
+     data-unit-compare="{{ unit_compare }}"
+     data-currency="{{ shop.currency }}"
+     data-money-format="{{ shop.money_format | escape }}"
+     data-sub-discount-pct="{{ sub_pct }}"
+     {{ block.shopify_attributes }}>
+
+  {%- if block.settings.eyebrow != blank -%}
+    <div class="bloomli-vt__eyebrow">{{ block.settings.eyebrow }}</div>
+  {%- endif -%}
+
+  {%- if block.settings.heading != blank -%}
+    <h3 class="bloomli-vt__title">{{ block.settings.heading }}</h3>
+  {%- endif -%}
+
+  <div class="bloomli-vt__cards" role="radiogroup" aria-label="{{ block.settings.heading | default: 'Bundle options' | escape }}">
+    {%- for i in (1..4) -%}
+      {%- liquid
+        case i
+          when 1
+            assign show = block.settings.tier_1_show
+            assign qty = block.settings.tier_1_qty | default: 1
+            assign label = block.settings.tier_1_label
+            assign description = block.settings.tier_1_description
+            assign badge = block.settings.tier_1_badge
+            assign tag = block.settings.tier_1_tag
+            assign discount_pct = block.settings.tier_1_discount_pct | default: 0
+            assign is_default = block.settings.tier_1_default
+            assign show_ship = block.settings.tier_1_show_shipping
+          when 2
+            assign show = block.settings.tier_2_show
+            assign qty = block.settings.tier_2_qty | default: 2
+            assign label = block.settings.tier_2_label
+            assign description = block.settings.tier_2_description
+            assign badge = block.settings.tier_2_badge
+            assign tag = block.settings.tier_2_tag
+            assign discount_pct = block.settings.tier_2_discount_pct | default: 0
+            assign is_default = block.settings.tier_2_default
+            assign show_ship = block.settings.tier_2_show_shipping
+          when 3
+            assign show = block.settings.tier_3_show
+            assign qty = block.settings.tier_3_qty | default: 3
+            assign label = block.settings.tier_3_label
+            assign description = block.settings.tier_3_description
+            assign badge = block.settings.tier_3_badge
+            assign tag = block.settings.tier_3_tag
+            assign discount_pct = block.settings.tier_3_discount_pct | default: 0
+            assign is_default = block.settings.tier_3_default
+            assign show_ship = block.settings.tier_3_show_shipping
+          when 4
+            assign show = block.settings.tier_4_show
+            assign qty = block.settings.tier_4_qty | default: 4
+            assign label = block.settings.tier_4_label
+            assign description = block.settings.tier_4_description
+            assign badge = block.settings.tier_4_badge
+            assign tag = block.settings.tier_4_tag
+            assign discount_pct = block.settings.tier_4_discount_pct | default: 0
+            assign is_default = block.settings.tier_4_default
+            assign show_ship = block.settings.tier_4_show_shipping
+        endcase
+
+        if is_default and default_idx == -1
+          assign default_idx = forloop.index0
+        endif
+
+        assign line_compare = unit_price | times: qty
+        if unit_compare > unit_price
+          assign line_compare = unit_compare | times: qty
+        endif
+        assign one_time_pct_factor = 100 | minus: discount_pct
+        assign one_time_total_cents = unit_price | times: qty | times: one_time_pct_factor | divided_by: 100
+      -%}
+
+      {%- if show -%}
+        <label class="bloomli-vt__card{% if forloop.index0 == default_idx %} is-selected{% endif %}"
+               data-vt-card
+               data-tier-index="{{ forloop.index0 }}"
+               data-quantity="{{ qty }}"
+               data-discount-pct="{{ discount_pct }}"
+               data-one-time-cents="{{ one_time_total_cents }}"
+               data-line-compare-cents="{{ line_compare }}">
+          <input type="radio"
+                 name="bloomli-vt-tier-{{ uid }}"
+                 value="{{ qty }}"
+                 class="bloomli-vt__radio"
+                 {% if forloop.index0 == default_idx %}checked{% endif %}>
+          <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+
+          <div class="bloomli-vt__card-body">
+            {%- if badge != blank or tag != blank -%}
+              <div class="bloomli-vt__pills">
+                {%- if badge != blank -%}
+                  <span class="bloomli-vt__badge">{{ badge }}</span>
+                {%- endif -%}
+                {%- if tag != blank -%}
+                  <span class="bloomli-vt__tag">{{ tag }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            <div class="bloomli-vt__name">{{ label | default: qty | append: ' bottle' }}</div>
+
+            {%- if description != blank -%}
+              <div class="bloomli-vt__desc">{{ description }}</div>
+            {%- endif -%}
+          </div>
+
+          <div class="bloomli-vt__price">
+            <span class="bloomli-vt__price-current" data-vt-card-price>{{ one_time_total_cents | money }}</span>
+            {%- if line_compare > one_time_total_cents -%}
+              <span class="bloomli-vt__price-compare">{{ line_compare | money }}</span>
+            {%- endif -%}
+          </div>
+
+          {%- if show_ship -%}
+            <div class="bloomli-vt__shipping">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+              <span>{{ block.settings.shipping_text | default: 'Free shipping' }}</span>
+            </div>
+          {%- endif -%}
+        </label>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if block.settings.subscription_enabled -%}
+    <div class="bloomli-vt__sub">
+      {%- if block.settings.subscription_heading != blank -%}
+        <div class="bloomli-vt__sub-heading">{{ block.settings.subscription_heading }}</div>
+      {%- endif -%}
+
+      <div class="bloomli-vt__sub-options" role="radiogroup">
+        <label class="bloomli-vt__sub-option is-selected" data-vt-sub-option data-sub-mode="onetime">
+          <input type="radio" name="bloomli-vt-sub-{{ uid }}" value="onetime" checked class="bloomli-vt__radio">
+          <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+          <span class="bloomli-vt__sub-label">{{ block.settings.label_one_time | default: 'One-time purchase' }}</span>
+        </label>
+
+        {%- if has_plans -%}
+          <label class="bloomli-vt__sub-option" data-vt-sub-option data-sub-mode="subscribe">
+            <input type="radio" name="bloomli-vt-sub-{{ uid }}" value="subscribe" class="bloomli-vt__radio">
+            <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+            <span class="bloomli-vt__sub-label">
+              {{ block.settings.label_subscribe | default: 'Subscribe & save' }}
+              {%- if sub_pct > 0 -%}
+                <span class="bloomli-vt__sub-savings">— save {{ sub_pct }}%</span>
+              {%- endif -%}
+            </span>
+            <select class="bloomli-vt__sub-select" data-vt-sub-select aria-label="Subscription frequency">
+              {%- for plan in sp_group.selling_plans -%}
+                <option value="{{ plan.id }}">{{ plan.name }}</option>
+              {%- endfor -%}
+            </select>
+          </label>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="bloomli-vt__footer">
+    <div class="bloomli-vt__total-row">
+      <span class="bloomli-vt__total-label">{{ block.settings.total_label | default: 'Total price:' }}</span>
+      <span class="bloomli-vt__total-amount">
+        <span data-vt-total>{{ unit_price | money }}</span>
+        <span class="bloomli-vt__total-compare" data-vt-compare></span>
+      </span>
+    </div>
+
+    {%- if block.settings.note != blank -%}
+      <div class="bloomli-vt__note">{{ block.settings.note }}</div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} Hidden inputs target the buy-buttons form via the `form` attribute {%- endcomment -%}
+  <input type="hidden"
+         name="quantity"
+         value="{{ block.settings.tier_1_qty | default: 1 }}"
+         form="{{ product_form_id }}"
+         data-vt-qty-input>
+  <input type="hidden"
+         name="selling_plan"
+         value=""
+         form="{{ product_form_id }}"
+         data-vt-sp-input
+         disabled>
+</div>
+
+<style>
+  .bloomli-vt {
+    background: var(--cream, #F8F1E7);
+    border: 1px solid rgba(110, 74, 99, 0.12);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 16px 0;
+    color: var(--charcoal, #2A2622);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .bloomli-vt__eyebrow {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: rgba(110, 74, 99, 0.7);
+    text-align: center;
+    margin: 0 0 6px;
+    font-weight: 500;
+  }
+  .bloomli-vt__title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--charcoal, #2A2622);
+    text-align: center;
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .bloomli-vt__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 0 16px;
+  }
+  .bloomli-vt__card {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border: 1.5px solid rgba(110, 74, 99, 0.12);
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  }
+  .bloomli-vt__card:hover {
+    border-color: rgba(110, 74, 99, 0.4);
+    box-shadow: 0 2px 8px rgba(110, 74, 99, 0.08);
+  }
+  .bloomli-vt__card.is-selected {
+    border-color: var(--aubergine, #6E4A63);
+    background: rgba(110, 74, 99, 0.04);
+  }
+  .bloomli-vt__radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .bloomli-vt__radio-visual {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(110, 74, 99, 0.35);
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color 0.15s ease;
+  }
+  .bloomli-vt__card.is-selected .bloomli-vt__radio-visual,
+  .bloomli-vt__sub-option.is-selected .bloomli-vt__radio-visual {
+    border-color: var(--aubergine, #6E4A63);
+  }
+  .bloomli-vt__card.is-selected .bloomli-vt__radio-visual::after,
+  .bloomli-vt__sub-option.is-selected .bloomli-vt__radio-visual::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: var(--aubergine, #6E4A63);
+  }
+  .bloomli-vt__card-body { min-width: 0; }
+  .bloomli-vt__pills {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0 0 6px;
+  }
+  .bloomli-vt__badge {
+    background: var(--aubergine, #6E4A63);
+    color: var(--cream, #F8F1E7);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .bloomli-vt__tag {
+    background: rgba(110, 74, 99, 0.1);
+    color: var(--aubergine, #6E4A63);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 4px 9px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .bloomli-vt__name {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--charcoal, #2A2622);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+  .bloomli-vt__desc {
+    font-size: 12px;
+    color: rgba(42, 38, 34, 0.55);
+    margin: 3px 0 0;
+    line-height: 1.4;
+  }
+  .bloomli-vt__price { text-align: right; flex-shrink: 0; line-height: 1.2; }
+  .bloomli-vt__price-current {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--charcoal, #2A2622);
+    white-space: nowrap;
+  }
+  .bloomli-vt__price-compare {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(42, 38, 34, 0.4);
+    text-decoration: line-through;
+    white-space: nowrap;
+  }
+  .bloomli-vt__shipping {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 0 0;
+    margin: 6px 0 0;
+    border-top: 1px dashed rgba(110, 74, 99, 0.18);
+    color: var(--aubergine, #6E4A63);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .bloomli-vt__sub {
+    margin: 8px 0 16px;
+  }
+  .bloomli-vt__sub-heading {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: rgba(42, 38, 34, 0.55);
+    margin: 0 0 8px;
+    font-weight: 500;
+  }
+  .bloomli-vt__sub-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .bloomli-vt__sub-option {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border: 1.5px solid rgba(110, 74, 99, 0.12);
+    border-radius: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .bloomli-vt__sub-option:hover { border-color: rgba(110, 74, 99, 0.4); }
+  .bloomli-vt__sub-option.is-selected {
+    border-color: var(--aubergine, #6E4A63);
+    background: rgba(110, 74, 99, 0.04);
+  }
+  .bloomli-vt__sub-label {
+    font-size: 14px;
+    color: var(--charcoal, #2A2622);
+  }
+  .bloomli-vt__sub-savings {
+    font-size: 12px;
+    color: var(--aubergine, #6E4A63);
+    font-weight: 500;
+    margin-left: 4px;
+  }
+  .bloomli-vt__sub-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 1px solid rgba(110, 74, 99, 0.2);
+    border-radius: 8px;
+    padding: 6px 28px 6px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--charcoal, #2A2622);
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236E4A63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    display: none;
+  }
+  .bloomli-vt__sub-option.is-selected[data-sub-mode="subscribe"] .bloomli-vt__sub-select { display: inline-block; }
+  .bloomli-vt__footer {
+    border-top: 1px solid rgba(110, 74, 99, 0.1);
+    padding: 14px 4px 0;
+    margin: 4px 0 0;
+  }
+  .bloomli-vt__total-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 0;
+  }
+  .bloomli-vt__total-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--charcoal, #2A2622);
+  }
+  .bloomli-vt__total-amount {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--charcoal, #2A2622);
+  }
+  .bloomli-vt__total-compare {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(42, 38, 34, 0.4);
+    text-decoration: line-through;
+  }
+  .bloomli-vt__total-compare:empty { display: none; }
+  .bloomli-vt__note {
+    font-size: 11px;
+    color: rgba(42, 38, 34, 0.5);
+    margin: 8px 0 0;
+    text-align: center;
+  }
+
+  @media (max-width: 749px) {
+    .bloomli-vt { padding: 16px; border-radius: 12px; }
+    .bloomli-vt__title { font-size: 20px; }
+    .bloomli-vt__name { font-size: 15px; }
+    .bloomli-vt__price-current { font-size: 14px; }
+    .bloomli-vt__card { padding: 12px 14px; gap: 10px; }
+  }
+</style>
+
+<script>
+  (function () {
+    const root = document.querySelector('[data-bloomli-vt][data-uid="{{ uid }}"]');
+    if (!root) return;
+
+    const cards = root.querySelectorAll('[data-vt-card]');
+    const subOptions = root.querySelectorAll('[data-vt-sub-option]');
+    const subSelect = root.querySelector('[data-vt-sub-select]');
+    const qtyInput = root.querySelector('[data-vt-qty-input]');
+    const spInput = root.querySelector('[data-vt-sp-input]');
+    const totalEl = root.querySelector('[data-vt-total]');
+    const compareEl = root.querySelector('[data-vt-compare]');
+
+    const subPct = parseFloat(root.dataset.subDiscountPct) || 0;
+    const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
+
+    function formatMoney(cents) {
+      if (window.Shopify && window.Shopify.formatMoney) {
+        return window.Shopify.formatMoney(cents, moneyFormat);
+      }
+      // fallback: 2-decimal currency string
+      return (cents / 100).toFixed(2);
+    }
+
+    function getSelectedCard() {
+      return root.querySelector('[data-vt-card].is-selected') || cards[0];
+    }
+    function getSelectedSubMode() {
+      const opt = root.querySelector('[data-vt-sub-option].is-selected');
+      return opt ? opt.dataset.subMode : 'onetime';
+    }
+
+    function updateState() {
+      const card = getSelectedCard();
+      if (!card) return;
+      const oneTimeCents = parseInt(card.dataset.oneTimeCents, 10) || 0;
+      const lineCompareCents = parseInt(card.dataset.lineCompareCents, 10) || 0;
+      const qty = parseInt(card.dataset.quantity, 10) || 1;
+      const subMode = getSelectedSubMode();
+
+      // form values
+      qtyInput.value = qty;
+      if (subMode === 'subscribe' && subSelect) {
+        spInput.value = subSelect.value;
+        spInput.disabled = false;
+      } else {
+        spInput.value = '';
+        spInput.disabled = true;
+      }
+
+      // displayed total
+      let displayCents = oneTimeCents;
+      if (subMode === 'subscribe' && subPct > 0) {
+        displayCents = Math.round(oneTimeCents * (100 - subPct) / 100);
+      }
+
+      if (totalEl) totalEl.textContent = formatMoney(displayCents);
+      if (compareEl) {
+        if (subMode === 'subscribe' && subPct > 0) {
+          compareEl.textContent = formatMoney(oneTimeCents);
+        } else if (lineCompareCents > displayCents) {
+          compareEl.textContent = formatMoney(lineCompareCents);
+        } else {
+          compareEl.textContent = '';
+        }
+      }
+    }
+
+    cards.forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A' || e.target.tagName === 'SELECT') return;
+        cards.forEach(function (c) {
+          c.classList.remove('is-selected');
+          const r = c.querySelector('.bloomli-vt__radio');
+          if (r) r.checked = false;
+        });
+        card.classList.add('is-selected');
+        const radio = card.querySelector('.bloomli-vt__radio');
+        if (radio) radio.checked = true;
+        updateState();
+      });
+    });
+
+    subOptions.forEach(function (opt) {
+      opt.addEventListener('click', function (e) {
+        if (e.target.tagName === 'SELECT' || e.target.tagName === 'OPTION') return;
+        subOptions.forEach(function (o) {
+          o.classList.remove('is-selected');
+          const r = o.querySelector('.bloomli-vt__radio');
+          if (r) r.checked = false;
+        });
+        opt.classList.add('is-selected');
+        const radio = opt.querySelector('.bloomli-vt__radio');
+        if (radio) radio.checked = true;
+        updateState();
+      });
+    });
+
+    if (subSelect) {
+      subSelect.addEventListener('change', updateState);
+      subSelect.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+
+    updateState();
+  })();
+</script>

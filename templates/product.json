@@ -246,9 +246,11 @@
         "item_bA8Mn3": {
           "type": "item",
           "settings": {
+            "image_scale": 100,
+            "is_proof": false,
             "icon": "leaf",
-            "icon_background": "#6E4A63",
-            "icon_color": "#FDFAF7",
+            "icon_background": "#6e4a63",
+            "icon_color": "#fdfaf7",
             "title": "Biotin",
             "text": "The keratin building block - clinically dosed for strand strength you can actually feel."
           }
@@ -256,9 +258,11 @@
         "item_jfjm6c": {
           "type": "item",
           "settings": {
+            "image_scale": 100,
+            "is_proof": false,
             "icon": "palm",
-            "icon_background": "#6E4A63",
-            "icon_color": "#FDFAF7",
+            "icon_background": "#6e4a63",
+            "icon_color": "#fdfaf7",
             "title": "Saw Palmetto",
             "text": "A plant-based DHT balancer that keeps follicles happy at the root."
           }
@@ -266,9 +270,11 @@
         "item_feygtf": {
           "type": "item",
           "settings": {
+            "image_scale": 100,
+            "is_proof": false,
             "icon": "drop",
-            "icon_background": "#6E4A63",
-            "icon_color": "#FDFAF7",
+            "icon_background": "#6e4a63",
+            "icon_color": "#fdfaf7",
             "title": "Marine Collagen",
             "text": "Sustainably sourced amino acids for elasticity and shine."
           }
@@ -276,9 +282,11 @@
         "item_iGiDKc": {
           "type": "item",
           "settings": {
+            "image_scale": 100,
+            "is_proof": false,
             "icon": "root",
-            "icon_background": "#6E4A63",
-            "icon_color": "#FDFAF7",
+            "icon_background": "#6e4a63",
+            "icon_color": "#fdfaf7",
             "title": "Ashwagandha",
             "text": "Adaptogen that quiets stress-related shedding."
           }
@@ -286,9 +294,11 @@
         "item_YBH8pa": {
           "type": "item",
           "settings": {
+            "image_scale": 100,
+            "is_proof": false,
             "icon": "zinc",
-            "icon_background": "#6E4A63",
-            "icon_color": "#FDFAF7",
+            "icon_background": "#6e4a63",
+            "icon_color": "#fdfaf7",
             "title": "Zinc",
             "text": "Essential mineral that supports a calm, healthy scalp environment."
           }
@@ -296,6 +306,8 @@
         "item_DVmArN": {
           "type": "item",
           "settings": {
+            "image_scale": 100,
+            "is_proof": false,
             "icon": "tested",
             "icon_background": "#fdfaf7",
             "icon_color": "#6e4a63",
@@ -315,7 +327,7 @@
       "name": "Bloomli - Formula List",
       "settings": {
         "color_scheme": "",
-        "background_color": "#F2D4D0",
+        "background_color": "#f2d4d0",
         "eyebrow": "The goods inside",
         "heading_line1": "Five ingredients,",
         "heading_line2": "doing the quiet work.",
@@ -332,7 +344,8 @@
         "ingredient_7DVg7K": {
           "type": "ingredient",
           "settings": {
-            "circle_color": "#F5EDE4",
+            "image_scale": 100,
+            "circle_color": "#f5ede4",
             "photo_label": "Raw biotin - powder",
             "title": "Biotin",
             "amount": "2500 MCG"
@@ -341,7 +354,9 @@
         "ingredient_Ytycmp": {
           "type": "ingredient",
           "settings": {
-            "circle_color": "#F5EDE4",
+            "image": "shopify://shop_images/saw_palmetto.png",
+            "image_scale": 100,
+            "circle_color": "#fdfaf7",
             "photo_label": "Saw palmetto - berry",
             "title": "Saw Palmetto",
             "amount": "160 MG"
@@ -350,6 +365,7 @@
         "ingredient_YhRHgG": {
           "type": "ingredient",
           "settings": {
+            "image_scale": 100,
             "circle_color": "#f2d4d0",
             "photo_label": "Marine collagen - flake",
             "title": "Marine Collagen",
@@ -359,7 +375,9 @@
         "ingredient_E3j3DK": {
           "type": "ingredient",
           "settings": {
-            "circle_color": "#F5EDE4",
+            "image": "shopify://shop_images/ashwagandha.png",
+            "image_scale": 100,
+            "circle_color": "#fdfaf7",
             "photo_label": "Ashwagandha - root",
             "title": "Ashwagandha",
             "amount": "300 MG"
@@ -368,6 +386,7 @@
         "ingredient_acHRb3": {
           "type": "ingredient",
           "settings": {
+            "image_scale": 100,
             "circle_color": "#d9cce8",
             "photo_label": "Zinc - mineral",
             "title": "Zinc",
@@ -377,7 +396,8 @@
         "ingredient_cHPHX7": {
           "type": "ingredient",
           "settings": {
-            "circle_color": "#F5EDE4",
+            "image_scale": 100,
+            "circle_color": "#f5ede4",
             "photo_label": "Vitamin D3 - droplet",
             "title": "Vitamin D3",
             "amount": "2000 IU"
@@ -394,7 +414,7 @@
       ],
       "name": "Bloomli - Ing Gallery",
       "settings": {
-        "background_color": "#FDFAF7",
+        "background_color": "#fdfaf7",
         "eyebrow": "Every ingredient, photographed",
         "heading": "Nothing hidden.",
         "image_size": 220,
@@ -439,9 +459,11 @@
       ],
       "name": "Bloomli - Proof Split",
       "settings": {
-        "background_color": "#FDFAF7",
-        "placeholder_color": "#F2D4D0",
+        "background_color": "#fdfaf7",
+        "placeholder_color": "#f2d4d0",
         "image_label": "Editorial - morning ritual - natural light",
+        "image_scale": 100,
+        "image_position": "center center",
         "image_radius": 16,
         "eyebrow": "Clinically dosed - gently made",
         "heading_line1": "Every milligram,",
@@ -457,6 +479,7 @@
         "step_q7Pbng": {
           "type": "step",
           "settings": {
+            "image_scale": 100,
             "icon": "seed",
             "range": "Month 1–3",
             "title": "Foundation",
@@ -466,6 +489,7 @@
         "step_ihr9qU": {
           "type": "step",
           "settings": {
+            "image_scale": 100,
             "icon": "sprout",
             "range": "Month 3–6",
             "title": "Visible Shift",
@@ -475,6 +499,7 @@
         "step_UQiCKB": {
           "type": "step",
           "settings": {
+            "image_scale": 100,
             "icon": "bloom",
             "range": "Month 6+",
             "title": "Full Bloom",
@@ -491,6 +516,12 @@
       "settings": {
         "eyebrow": "Your 6-month journey",
         "heading": "Your ritual, over time.",
+        "circle_size": 100,
+        "icon_size": 64,
+        "show_connector": true,
+        "connector_color": "#d6c7bc",
+        "connector_style": "dashed",
+        "connector_width": 1,
         "padding_top": 128,
         "padding_bottom": 128
       }
@@ -501,13 +532,15 @@
         "photo_itwQBT": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 1",
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
           }
         },
         "photo_rFx7fP": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 2",
             "placeholder_color": "#f2d4d0"
           }
@@ -515,6 +548,7 @@
         "photo_UQecfB": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 3",
             "placeholder_color": "#d9cce8"
           }
@@ -522,20 +556,23 @@
         "photo_HnKE8c": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 4",
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
           }
         },
         "photo_gDhx3U": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 5",
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
           }
         },
         "photo_HkWBVE": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 6",
             "placeholder_color": "#f2d4d0"
           }
@@ -543,6 +580,7 @@
         "photo_jhY4cR": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 7",
             "placeholder_color": "#d9cce8"
           }
@@ -550,20 +588,23 @@
         "photo_iXjxWB": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 8",
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
           }
         },
         "photo_Artdhg": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 9",
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
           }
         },
         "photo_Xj6LgH": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 10",
             "placeholder_color": "#f2d4d0"
           }
@@ -571,6 +612,7 @@
         "photo_fGEqGb": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 11",
             "placeholder_color": "#d9cce8"
           }
@@ -578,8 +620,9 @@
         "photo_zbFfXz": {
           "type": "photo",
           "settings": {
+            "image_scale": 100,
             "label": "Photo 12",
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
           }
         }
       },
@@ -599,7 +642,7 @@
       ],
       "name": "Bloomli - Photo Mosaic",
       "settings": {
-        "background_color": "#FDFAF7",
+        "background_color": "#fdfaf7",
         "eyebrow": "Verified buyers",
         "heading": "Photos from the ritual.",
         "columns_desktop": 6,
@@ -617,6 +660,7 @@
           "type": "product",
           "settings": {
             "product": "test-supplement",
+            "image_scale": 100,
             "title": "Root Ritual Capsules",
             "link": "",
             "price": "$48",
@@ -628,6 +672,7 @@
           "type": "product",
           "settings": {
             "product": "",
+            "image_scale": 100,
             "title": "Root Ritual Strips",
             "link": "",
             "price": "$36",
@@ -639,6 +684,7 @@
           "type": "product",
           "settings": {
             "product": "",
+            "image_scale": 100,
             "title": "Scalp Serum",
             "link": "",
             "price": "$58",
@@ -650,6 +696,7 @@
           "type": "product",
           "settings": {
             "product": "",
+            "image_scale": 100,
             "title": "Starter Duo",
             "link": "",
             "price": "$68",
@@ -666,7 +713,7 @@
       ],
       "name": "Bloomli - Product Picks",
       "settings": {
-        "background_color": "#F5EDE4",
+        "background_color": "#f5ede4",
         "heading": "You may also like",
         "columns_desktop": 4,
         "columns_mobile": "2",

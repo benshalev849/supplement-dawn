@@ -142,6 +142,148 @@
         "padding_bottom": 12
       }
     },
+    "bloomli_formula_gallery_ypjbMe": {
+      "type": "bloomli-formula-gallery",
+      "blocks": {
+        "item_tNiWnW": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/biotin-hair-products-web.png",
+            "image_scale": 100,
+            "circle_color": "#fdfaf7",
+            "icon_color": "#6E4A63",
+            "photo_label": "Raw biotin - powder",
+            "icon": "leaf",
+            "title": "Biotin",
+            "amount": "2500 MCG",
+            "text": "The keratin building block - clinically dosed for strand strength you can actually feel."
+          }
+        },
+        "item_gKbYG8": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_B9_-_Folate.png",
+            "image_scale": 100,
+            "circle_color": "#fdfaf7",
+            "icon_color": "#6E4A63",
+            "photo_label": "Saw palmetto - berry",
+            "icon": "palm",
+            "title": "Saw Palmetto",
+            "amount": "160 MG",
+            "text": "A plant-based DHT balancer that keeps follicles happy at the root."
+          }
+        },
+        "item_6MgTDk": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_D3_-_Cholecalciferol.png",
+            "image_scale": 100,
+            "circle_color": "#fdfaf7",
+            "icon_color": "#6E4A63",
+            "photo_label": "Marine collagen - flake",
+            "icon": "drop",
+            "title": "Marine Collagen",
+            "amount": "500 MG",
+            "text": "Sustainably sourced amino acids for elasticity and shine."
+          }
+        },
+        "item_Yr6eKf": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/zinc_oxide.png",
+            "image_scale": 100,
+            "circle_color": "#fdfaf7",
+            "icon_color": "#6E4A63",
+            "photo_label": "Ashwagandha - root",
+            "icon": "root",
+            "title": "Ashwagandha",
+            "amount": "300 MG",
+            "text": "Adaptogen that quiets stress-related shedding."
+          }
+        },
+        "item_6G4EJH": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/zinc_oxide.png",
+            "image_scale": 100,
+            "circle_color": "#fdfaf7",
+            "icon_color": "#6E4A63",
+            "photo_label": "Zinc - mineral",
+            "icon": "zinc",
+            "title": "Zinc",
+            "amount": "8 MG",
+            "text": "Essential mineral that supports a calm, healthy scalp environment."
+          }
+        },
+        "item_Gw8tdW": {
+          "type": "item",
+          "settings": {
+            "is_proof": true,
+            "image_scale": 100,
+            "circle_color": "#fdfaf7",
+            "icon_color": "#6E4A63",
+            "photo_label": "Raw ingredient",
+            "icon": "spark",
+            "title": "Delightfully tasty",
+            "amount": "2500 MCG",
+            "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet."
+          }
+        },
+        "item_UiY4pK": {
+          "type": "item",
+          "settings": {
+            "is_proof": true,
+            "image_scale": 100,
+            "circle_color": "#fdfaf7",
+            "icon_color": "#6E4A63",
+            "photo_label": "Raw ingredient",
+            "icon": "tested",
+            "title": "Independently verified",
+            "amount": "2500 MCG",
+            "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals."
+          }
+        }
+      },
+      "block_order": [
+        "item_tNiWnW",
+        "item_gKbYG8",
+        "item_6MgTDk",
+        "item_Yr6eKf",
+        "item_6G4EJH",
+        "item_Gw8tdW",
+        "item_UiY4pK"
+      ],
+      "name": "Bloomli - Formula Gallery",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "background_color": "#F2D4D0",
+        "eyebrow": "The goods inside",
+        "heading_line1": "Five ingredients,",
+        "heading_line2": "doing the quiet work.",
+        "copy": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>",
+        "header_alignment": "left",
+        "desktop_columns": "2",
+        "content_width": 1120,
+        "header_width": 600,
+        "heading_size": 52,
+        "heading_size_mobile": 36,
+        "title_size": 26,
+        "title_size_mobile": 22,
+        "image_size": 168,
+        "image_size_mobile": 112,
+        "proof_icon_size": 64,
+        "proof_icon_size_mobile": 56,
+        "column_gap": 56,
+        "row_gap": 48,
+        "padding_top": 112,
+        "padding_bottom": 112
+      }
+    },
     "bloomli_formula_list_zkbzb7": {
       "type": "bloomli-formula-list",
       "blocks": {
@@ -367,7 +509,7 @@
       ],
       "name": "Bloomli - Proof Split",
       "settings": {
-        "background_color": "#fdfaf7",
+        "background_color": "{{ shop.brand.colors.primary[0].background }}",
         "placeholder_color": "#f2d4d0",
         "image_label": "Editorial - morning ritual - natural light",
         "image_scale": 100,
@@ -550,7 +692,7 @@
       ],
       "name": "Bloomli - Photo Mosaic",
       "settings": {
-        "background_color": "#fdfaf7",
+        "background_color": "{{ shop.brand.colors.primary[0].background }}",
         "eyebrow": "Verified buyers",
         "heading": "Photos from the ritual.",
         "columns_desktop": 6,
@@ -647,159 +789,17 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "bloomli_formula_gallery_ypjbMe": {
-      "type": "bloomli-formula-gallery",
-      "blocks": {
-        "item_tNiWnW": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/biotin-hair-products-web.png",
-            "image_scale": 100,
-            "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
-            "photo_label": "Raw biotin - powder",
-            "icon": "leaf",
-            "title": "Biotin",
-            "amount": "2500 MCG",
-            "text": "The keratin building block - clinically dosed for strand strength you can actually feel."
-          }
-        },
-        "item_gKbYG8": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Vitamin_B9_-_Folate.png",
-            "image_scale": 100,
-            "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
-            "photo_label": "Saw palmetto - berry",
-            "icon": "palm",
-            "title": "Saw Palmetto",
-            "amount": "160 MG",
-            "text": "A plant-based DHT balancer that keeps follicles happy at the root."
-          }
-        },
-        "item_6MgTDk": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Vitamin_D3_-_Cholecalciferol.png",
-            "image_scale": 100,
-            "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
-            "photo_label": "Marine collagen - flake",
-            "icon": "drop",
-            "title": "Marine Collagen",
-            "amount": "500 MG",
-            "text": "Sustainably sourced amino acids for elasticity and shine."
-          }
-        },
-        "item_Yr6eKf": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/zinc_oxide.png",
-            "image_scale": 100,
-            "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
-            "photo_label": "Ashwagandha - root",
-            "icon": "root",
-            "title": "Ashwagandha",
-            "amount": "300 MG",
-            "text": "Adaptogen that quiets stress-related shedding."
-          }
-        },
-        "item_6G4EJH": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/zinc_oxide.png",
-            "image_scale": 100,
-            "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
-            "photo_label": "Zinc - mineral",
-            "icon": "zinc",
-            "title": "Zinc",
-            "amount": "8 MG",
-            "text": "Essential mineral that supports a calm, healthy scalp environment."
-          }
-        },
-        "item_Gw8tdW": {
-          "type": "item",
-          "settings": {
-            "is_proof": true,
-            "image_scale": 100,
-            "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
-            "photo_label": "Raw ingredient",
-            "icon": "spark",
-            "title": "Delightfully tasty",
-            "amount": "2500 MCG",
-            "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet."
-          }
-        },
-        "item_UiY4pK": {
-          "type": "item",
-          "settings": {
-            "is_proof": true,
-            "image_scale": 100,
-            "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
-            "photo_label": "Raw ingredient",
-            "icon": "tested",
-            "title": "Independently verified",
-            "amount": "2500 MCG",
-            "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals."
-          }
-        }
-      },
-      "block_order": [
-        "item_tNiWnW",
-        "item_gKbYG8",
-        "item_6MgTDk",
-        "item_Yr6eKf",
-        "item_6G4EJH",
-        "item_Gw8tdW",
-        "item_UiY4pK"
-      ],
-      "name": "Bloomli - Formula Gallery",
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "background_color": "#fdfaf7",
-        "eyebrow": "The goods inside",
-        "heading_line1": "Five ingredients,",
-        "heading_line2": "doing the quiet work.",
-        "copy": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>",
-        "header_alignment": "left",
-        "desktop_columns": "2",
-        "content_width": 1120,
-        "header_width": 600,
-        "heading_size": 52,
-        "heading_size_mobile": 36,
-        "title_size": 26,
-        "title_size_mobile": 22,
-        "image_size": 168,
-        "image_size_mobile": 112,
-        "proof_icon_size": 64,
-        "proof_icon_size_mobile": 56,
-        "column_gap": 56,
-        "row_gap": 48,
-        "padding_top": 112,
-        "padding_bottom": 112
-      }
     }
   },
   "order": [
     "main",
+    "bloomli_formula_gallery_ypjbMe",
     "bloomli_formula_list_zkbzb7",
     "bloomli_ingredient_gallery_LmEEkc",
     "bloomli_proof_split_bhYAhW",
     "bloomli_timeline_qUAhUY",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
-    "related-products",
-    "bloomli_formula_gallery_ypjbMe"
+    "related-products"
   ]
 }

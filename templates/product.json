@@ -151,8 +151,10 @@
             "is_proof": false,
             "image": "shopify://shop_images/biotin-hair-products-web.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
+            "use_custom_icon_color": false,
+            "icon_color": "#6e4a63",
             "photo_label": "Raw biotin - powder",
             "icon": "leaf",
             "title": "Biotin",
@@ -166,8 +168,10 @@
             "is_proof": false,
             "image": "shopify://shop_images/Vitamin_B9_-_Folate.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
+            "use_custom_icon_color": false,
+            "icon_color": "#6e4a63",
             "photo_label": "Saw palmetto - berry",
             "icon": "palm",
             "title": "Saw Palmetto",
@@ -181,8 +185,10 @@
             "is_proof": false,
             "image": "shopify://shop_images/Vitamin_D3_-_Cholecalciferol.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
+            "use_custom_icon_color": false,
+            "icon_color": "#6e4a63",
             "photo_label": "Marine collagen - flake",
             "icon": "drop",
             "title": "Marine Collagen",
@@ -196,8 +202,10 @@
             "is_proof": false,
             "image": "shopify://shop_images/zinc_oxide.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
+            "use_custom_icon_color": false,
+            "icon_color": "#6e4a63",
             "photo_label": "Ashwagandha - root",
             "icon": "root",
             "title": "Ashwagandha",
@@ -211,8 +219,10 @@
             "is_proof": false,
             "image": "shopify://shop_images/zinc_oxide.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
+            "use_custom_icon_color": false,
+            "icon_color": "#6e4a63",
             "photo_label": "Zinc - mineral",
             "icon": "zinc",
             "title": "Zinc",
@@ -225,8 +235,10 @@
           "settings": {
             "is_proof": true,
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
+            "use_custom_icon_color": false,
+            "icon_color": "#6e4a63",
             "photo_label": "Raw ingredient",
             "icon": "spark",
             "title": "Delightfully tasty",
@@ -239,8 +251,10 @@
           "settings": {
             "is_proof": true,
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
-            "icon_color": "#6E4A63",
+            "use_custom_icon_color": false,
+            "icon_color": "#6e4a63",
             "photo_label": "Raw ingredient",
             "icon": "tested",
             "title": "Independently verified",
@@ -260,14 +274,17 @@
       ],
       "name": "Bloomli - Formula Gallery",
       "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "background_color": "#F2D4D0",
+        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
+        "use_custom_background": false,
+        "background_color": "#f2d4d0",
         "eyebrow": "The goods inside",
         "heading_line1": "Five ingredients,",
         "heading_line2": "doing the quiet work.",
         "copy": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>",
         "header_alignment": "left",
         "desktop_columns": "2",
+        "media_background": "surface",
+        "proof_background": "surface",
         "content_width": 1120,
         "header_width": 600,
         "heading_size": 52,
@@ -293,7 +310,9 @@
             "image_scale": 100,
             "is_proof": false,
             "icon": "leaf",
+            "use_custom_icon_background": false,
             "icon_background": "#6e4a63",
+            "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Biotin",
             "text": "The keratin building block - clinically dosed for strand strength you can actually feel."
@@ -305,7 +324,9 @@
             "image_scale": 100,
             "is_proof": false,
             "icon": "palm",
+            "use_custom_icon_background": false,
             "icon_background": "#6e4a63",
+            "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Saw Palmetto",
             "text": "A plant-based DHT balancer that keeps follicles happy at the root."
@@ -317,7 +338,9 @@
             "image_scale": 100,
             "is_proof": false,
             "icon": "drop",
+            "use_custom_icon_background": false,
             "icon_background": "#6e4a63",
+            "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Marine Collagen",
             "text": "Sustainably sourced amino acids for elasticity and shine."
@@ -329,7 +352,9 @@
             "image_scale": 100,
             "is_proof": false,
             "icon": "root",
+            "use_custom_icon_background": false,
             "icon_background": "#6e4a63",
+            "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Ashwagandha",
             "text": "Adaptogen that quiets stress-related shedding."
@@ -341,7 +366,9 @@
             "image_scale": 100,
             "is_proof": false,
             "icon": "zinc",
+            "use_custom_icon_background": false,
             "icon_background": "#6e4a63",
+            "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Zinc",
             "text": "Essential mineral that supports a calm, healthy scalp environment."
@@ -353,7 +380,9 @@
             "image_scale": 100,
             "is_proof": false,
             "icon": "tested",
+            "use_custom_icon_background": false,
             "icon_background": "#fdfaf7",
+            "use_custom_icon_color": false,
             "icon_color": "#6e4a63",
             "title": "Independently verified",
             "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals."
@@ -372,11 +401,14 @@
       "name": "Bloomli - Formula List",
       "settings": {
         "color_scheme": "",
+        "use_custom_background": false,
         "background_color": "#f2d4d0",
         "eyebrow": "The goods inside",
         "heading_line1": "Five ingredients,",
         "heading_line2": "doing the quiet work.",
         "copy": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>",
+        "icon_background_tone": "accent",
+        "proof_icon_background_tone": "surface",
         "icon_size": 64,
         "icon_size_mobile": 56,
         "padding_top": 112,
@@ -391,6 +423,7 @@
           "settings": {
             "image": "shopify://shop_images/biotin.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
             "photo_label": "Raw biotin - powder",
             "title": "Biotin",
@@ -402,6 +435,7 @@
           "settings": {
             "image": "shopify://shop_images/Vitamin_B9_-_Folate.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
             "photo_label": "Saw palmetto - berry",
             "title": "Saw Palmetto",
@@ -413,6 +447,7 @@
           "settings": {
             "image": "shopify://shop_images/Marine_Collagen-powder-Web.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
             "photo_label": "Marine collagen - flake",
             "title": "Marine Collagen",
@@ -424,6 +459,7 @@
           "settings": {
             "image": "shopify://shop_images/Vitamin_D3_-_Cholecalciferol.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
             "photo_label": "Ashwagandha - root",
             "title": "Ashwagandha",
@@ -435,6 +471,7 @@
           "settings": {
             "image": "shopify://shop_images/zinc_oxide.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
             "photo_label": "Zinc - mineral",
             "title": "Zinc",
@@ -446,6 +483,7 @@
           "settings": {
             "image": "shopify://shop_images/Iron.png",
             "image_scale": 100,
+            "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
             "photo_label": "Vitamin D3 - droplet",
             "title": "Vitamin D3",
@@ -464,63 +502,16 @@
       "disabled": true,
       "name": "Bloomli - Ing Gallery",
       "settings": {
+        "color_scheme": "",
+        "use_custom_background": false,
         "background_color": "#fdfaf7",
         "eyebrow": "Every ingredient, photographed",
         "heading": "Nothing hidden.",
+        "circle_background": "surface",
         "image_size": 220,
         "image_size_mobile": 150,
         "padding_top": 112,
         "padding_bottom": 112
-      }
-    },
-    "bloomli_proof_split_bhYAhW": {
-      "type": "bloomli-proof-split",
-      "blocks": {
-        "bullet_zDDhyE": {
-          "type": "bullet",
-          "settings": {
-            "text": "Clinically-dosed actives. No fairy dust."
-          }
-        },
-        "bullet_9GzmFm": {
-          "type": "bullet",
-          "settings": {
-            "text": "Vegan pectin base. No gelatin, no artificial dyes."
-          }
-        },
-        "bullet_f68cpc": {
-          "type": "bullet",
-          "settings": {
-            "text": "Third-party tested for purity and potency."
-          }
-        },
-        "bullet_F7gTNi": {
-          "type": "bullet",
-          "settings": {
-            "text": "Made in a GMP-certified facility in California."
-          }
-        }
-      },
-      "block_order": [
-        "bullet_zDDhyE",
-        "bullet_9GzmFm",
-        "bullet_f68cpc",
-        "bullet_F7gTNi"
-      ],
-      "name": "Bloomli - Proof Split",
-      "settings": {
-        "background_color": "{{ shop.brand.colors.primary[0].background }}",
-        "placeholder_color": "#f2d4d0",
-        "image_label": "Editorial - morning ritual - natural light",
-        "image_scale": 100,
-        "image_position": "center center",
-        "image_radius": 16,
-        "eyebrow": "Clinically dosed - gently made",
-        "heading_line1": "Every milligram,",
-        "heading_line2": "intentional.",
-        "copy": "<p>We formulate at clinical doses - the amounts used in peer-reviewed studies - not the sprinkle-doses you'll find in most gummies. Every batch is independently tested. Nothing added for color, nothing hidden in a proprietary blend.</p>",
-        "padding_top": 104,
-        "padding_bottom": 104
       }
     },
     "bloomli_timeline_qUAhUY": {
@@ -564,16 +555,69 @@
       ],
       "name": "Bloomli — Timeline",
       "settings": {
+        "color_scheme": "",
         "eyebrow": "Your 6-month journey",
         "heading": "Your ritual, over time.",
+        "circle_background": "surface",
         "circle_size": 100,
         "icon_size": 64,
         "show_connector": true,
-        "connector_color": "#d6c7bc",
         "connector_style": "dashed",
         "connector_width": 1,
         "padding_top": 128,
         "padding_bottom": 128
+      }
+    },
+    "bloomli_proof_split_bhYAhW": {
+      "type": "bloomli-proof-split",
+      "blocks": {
+        "bullet_zDDhyE": {
+          "type": "bullet",
+          "settings": {
+            "text": "Clinically-dosed actives. No fairy dust."
+          }
+        },
+        "bullet_9GzmFm": {
+          "type": "bullet",
+          "settings": {
+            "text": "Vegan pectin base. No gelatin, no artificial dyes."
+          }
+        },
+        "bullet_f68cpc": {
+          "type": "bullet",
+          "settings": {
+            "text": "Third-party tested for purity and potency."
+          }
+        },
+        "bullet_F7gTNi": {
+          "type": "bullet",
+          "settings": {
+            "text": "Made in a GMP-certified facility in California."
+          }
+        }
+      },
+      "block_order": [
+        "bullet_zDDhyE",
+        "bullet_9GzmFm",
+        "bullet_f68cpc",
+        "bullet_F7gTNi"
+      ],
+      "name": "Bloomli - Proof Split",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "use_custom_background": false,
+        "background_color": "{{ shop.brand.colors.primary[0].background }}",
+        "media_background": "surface",
+        "image_label": "Editorial - morning ritual - natural light",
+        "image_scale": 100,
+        "image_position": "center center",
+        "image_radius": 16,
+        "eyebrow": "Clinically dosed - gently made",
+        "heading_line1": "Every milligram,",
+        "heading_line2": "intentional.",
+        "copy": "<p>We formulate at clinical doses - the amounts used in peer-reviewed studies - not the sprinkle-doses you'll find in most gummies. Every batch is independently tested. Nothing added for color, nothing hidden in a proprietary blend.</p>",
+        "padding_top": 104,
+        "padding_bottom": 104
       }
     },
     "bloomli_photo_mosaic_dYCUhp": {
@@ -584,6 +628,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 1",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#f5ede4"
           }
         },
@@ -592,6 +637,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 2",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#f2d4d0"
           }
         },
@@ -600,6 +646,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 3",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#d9cce8"
           }
         },
@@ -608,6 +655,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 4",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#f5ede4"
           }
         },
@@ -616,6 +664,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 5",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#f5ede4"
           }
         },
@@ -624,6 +673,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 6",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#f2d4d0"
           }
         },
@@ -632,6 +682,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 7",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#d9cce8"
           }
         },
@@ -640,6 +691,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 8",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#f5ede4"
           }
         },
@@ -648,6 +700,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 9",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#f5ede4"
           }
         },
@@ -656,6 +709,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 10",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#f2d4d0"
           }
         },
@@ -664,6 +718,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 11",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#d9cce8"
           }
         },
@@ -672,6 +727,7 @@
           "settings": {
             "image_scale": 100,
             "label": "Photo 12",
+            "use_custom_placeholder_color": false,
             "placeholder_color": "#f5ede4"
           }
         }
@@ -692,9 +748,12 @@
       ],
       "name": "Bloomli - Photo Mosaic",
       "settings": {
+        "color_scheme": "",
+        "use_custom_background": false,
         "background_color": "{{ shop.brand.colors.primary[0].background }}",
         "eyebrow": "Verified buyers",
         "heading": "Photos from the ritual.",
+        "placeholder_background": "surface",
         "columns_desktop": 6,
         "columns_mobile": "2",
         "gap": 10,
@@ -763,6 +822,8 @@
       ],
       "name": "Bloomli - Product Picks",
       "settings": {
+        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
+        "use_custom_background": false,
         "background_color": "#f5ede4",
         "heading": "You may also like",
         "columns_desktop": 4,
@@ -774,6 +835,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -796,8 +858,8 @@
     "bloomli_formula_gallery_ypjbMe",
     "bloomli_formula_list_zkbzb7",
     "bloomli_ingredient_gallery_LmEEkc",
-    "bloomli_proof_split_bhYAhW",
     "bloomli_timeline_qUAhUY",
+    "bloomli_proof_split_bhYAhW",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
     "related-products"

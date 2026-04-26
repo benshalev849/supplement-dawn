@@ -27,6 +27,9 @@
                 <img
                   class="bloomli-timeline__icon-img"
                   src="{{ block.settings.image | image_url: width: 240 }}"
+                  srcset="{{ block.settings.image | image_url: width: 120 }} 120w,
+                          {{ block.settings.image | image_url: width: 240 }} 240w"
+                  sizes="{{ circle_size }}px"
                   alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
                   width="{{ circle_size }}"
                   height="{{ circle_size }}"

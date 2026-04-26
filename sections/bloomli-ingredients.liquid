@@ -24,6 +24,9 @@
               <img
                 class="bloomli-ing__icon-img"
                 src="{{ block.settings.image | image_url: width: 240 }}"
+                srcset="{{ block.settings.image | image_url: width: 120 }} 120w,
+                        {{ block.settings.image | image_url: width: 240 }} 240w"
+                sizes="(max-width: 749px) {{ section.settings.icon_size_mobile | default: 56 }}px, {{ icon_size }}px"
                 alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
                 width="{{ icon_size }}"
                 height="{{ icon_size }}"

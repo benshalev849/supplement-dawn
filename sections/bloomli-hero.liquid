@@ -46,7 +46,7 @@
           alt="{{ section.settings.editorial_image.alt | default: 'bloomli hero' | escape }}"
           srcset="{{ section.settings.editorial_image | image_url: width: 380 }} 380w,
                   {{ section.settings.editorial_image | image_url: width: 760 }} 760w"
-          sizes="380px"
+          sizes="(max-width: 749px) {{ section.settings.editorial_width_mobile }}vw, 380px"
           loading="eager"
           fetchpriority="high"
           width="380"
@@ -63,6 +63,10 @@
         <img
           class="bloomli-hero__bottle"
           src="{{ section.settings.product_image | image_url: width: 600 }}"
+          srcset="{{ section.settings.product_image | image_url: width: 300 }} 300w,
+                  {{ section.settings.product_image | image_url: width: 600 }} 600w,
+                  {{ section.settings.product_image | image_url: width: 900 }} 900w"
+          sizes="(max-width: 749px) {{ section.settings.bottle_width_mobile }}vw, {{ section.settings.bottle_width_desktop }}px"
           alt="{{ section.settings.product_image.alt | default: 'Root Ritual Gummies' | escape }}"
           loading="lazy"
           width="{{ section.settings.bottle_width_desktop }}"

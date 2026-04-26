@@ -32,6 +32,11 @@
     --bfg-proof-icon-mobile: {{ section.settings.proof_icon_size_mobile }}px;
     --bfg-gap-x: {{ section.settings.column_gap }}px;
     --bfg-gap-y: {{ section.settings.row_gap }}px;
+    --bfg-header-width: {{ section.settings.header_width }}px;
+    --bfg-heading-size: {{ section.settings.heading_size }}px;
+    --bfg-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --bfg-title-size: {{ section.settings.title_size }}px;
+    --bfg-title-size-mobile: {{ section.settings.title_size_mobile }}px;
     padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;
     background: var(--bfg-bg);
   "
@@ -72,6 +77,10 @@
                 {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
                 <img
                   src="{{ block.settings.image | image_url: width: 720 }}"
+                  srcset="{{ block.settings.image | image_url: width: 240 }} 240w,
+                          {{ block.settings.image | image_url: width: 480 }} 480w,
+                          {{ block.settings.image | image_url: width: 720 }} 720w"
+                  sizes="(max-width: 749px) {{ section.settings.image_size_mobile }}px, {{ section.settings.image_size }}px"
                   alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
                   width="{{ section.settings.image_size }}"
                   height="{{ section.settings.image_size }}"
@@ -135,6 +144,9 @@
                   {%- assign proof_image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
                   <img
                     src="{{ block.settings.image | image_url: width: 320 }}"
+                    srcset="{{ block.settings.image | image_url: width: 160 }} 160w,
+                            {{ block.settings.image | image_url: width: 320 }} 320w"
+                    sizes="(max-width: 749px) {{ section.settings.proof_icon_size_mobile }}px, {{ section.settings.proof_icon_size }}px"
                     alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
                     width="{{ section.settings.proof_icon_size }}"
                     height="{{ section.settings.proof_icon_size }}"
@@ -171,237 +183,6 @@
     {%- endif -%}
   </div>
 </section>
-
-<style>
-  .bloomli-formula-gallery__header {
-    max-width: {{ section.settings.header_width }}px;
-    margin: 0 0 66px;
-  }
-
-  .bloomli-formula-gallery__header--center {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .bloomli-formula-gallery__header--right {
-    text-align: right;
-    margin-left: auto;
-  }
-
-  .bloomli-formula-gallery__eyebrow {
-    color: var(--bloomli-accent);
-    margin-bottom: 18px;
-  }
-
-  .bloomli-formula-gallery__heading {
-    font-family: 'Fraunces', serif;
-    font-variation-settings: 'SOFT' 100;
-    font-size: {{ section.settings.heading_size }}px;
-    line-height: 1.05;
-    font-weight: 400;
-    margin: 0 0 24px;
-    color: var(--bloomli-text);
-  }
-
-  .bloomli-formula-gallery__heading span {
-    font-style: italic;
-  }
-
-  .bloomli-formula-gallery__copy {
-    font-size: 17px;
-    line-height: 1.55;
-    color: var(--bloomli-text);
-  }
-
-  .bloomli-formula-gallery__grid {
-    display: grid;
-    gap: var(--bfg-gap-y) var(--bfg-gap-x);
-  }
-
-  .bloomli-formula-gallery__grid--2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .bloomli-formula-gallery__grid--3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .bloomli-formula-gallery__item {
-    display: grid;
-    grid-template-columns: var(--bfg-circle) minmax(0, 1fr);
-    gap: 24px;
-    align-items: center;
-    min-width: 0;
-  }
-
-  .bloomli-formula-gallery__media {
-    width: var(--bfg-circle);
-    aspect-ratio: 1 / 1;
-    border-radius: 999px;
-    overflow: hidden;
-    position: relative;
-    color: var(--bfg-icon-color, var(--bloomli-accent));
-    background-color: var(--bfg-item-bg);
-    background-image: var(--bfg-placeholder-lines, none);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .bloomli-formula-gallery__media img,
-  .bloomli-formula-gallery__proof-media img {
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    object-fit: contain;
-    transform: scale(var(--bfg-image-scale, 1));
-    transform-origin: center;
-    display: block;
-  }
-
-  .bloomli-formula-gallery__placeholder-label {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--bloomli-label-bg);
-    color: var(--bloomli-text-soft);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 9px;
-    white-space: nowrap;
-  }
-
-  .bloomli-formula-gallery__meta {
-    margin-bottom: 12px;
-  }
-
-  .bloomli-formula-gallery__meta h3 {
-    font-family: 'Fraunces', serif;
-    font-size: {{ section.settings.title_size }}px;
-    line-height: 1.12;
-    font-weight: 400;
-    margin: 0 0 8px;
-    color: var(--bloomli-text);
-  }
-
-  .bloomli-formula-gallery__meta span {
-    color: var(--bloomli-text-muted);
-    font-size: 10px;
-  }
-
-  .bloomli-formula-gallery__text {
-    font-size: 15px;
-    line-height: 1.55;
-    color: var(--bloomli-text);
-  }
-
-  .bloomli-formula-gallery__proof-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px 56px;
-    margin-top: 58px;
-    padding-top: 48px;
-    border-top: 1px solid var(--bloomli-line);
-  }
-
-  .bloomli-formula-gallery__proof-item {
-    display: grid;
-    grid-template-columns: var(--bfg-proof-icon) minmax(0, 1fr);
-    gap: 20px;
-    align-items: center;
-    min-width: 0;
-  }
-
-  .bloomli-formula-gallery__proof-media {
-    width: var(--bfg-proof-icon);
-    aspect-ratio: 1 / 1;
-    border-radius: 999px;
-    background: var(--bfg-proof-bg);
-    color: var(--bfg-proof-color);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .bloomli-formula-gallery__proof-title {
-    color: var(--bloomli-accent);
-    font-size: 11px;
-    margin-bottom: 10px;
-  }
-
-  @media (max-width: 989px) {
-    .bloomli-formula-gallery__grid--3 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 749px) {
-    .bloomli-formula-gallery {
-      padding: 64px 20px !important;
-    }
-
-    .bloomli-formula-gallery__header,
-    .bloomli-formula-gallery__header--center,
-    .bloomli-formula-gallery__header--right {
-      text-align: left;
-      margin: 0 0 36px !important;
-      max-width: none !important;
-    }
-
-    .bloomli-formula-gallery__heading {
-      font-size: {{ section.settings.heading_size_mobile }}px !important;
-    }
-
-    .bloomli-formula-gallery__grid,
-    .bloomli-formula-gallery__grid--2,
-    .bloomli-formula-gallery__grid--3 {
-      grid-template-columns: 1fr !important;
-      gap: 28px !important;
-    }
-
-    .bloomli-formula-gallery__item {
-      grid-template-columns: var(--bfg-circle-mobile) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    .bloomli-formula-gallery__media {
-      width: var(--bfg-circle-mobile);
-    }
-
-    .bloomli-formula-gallery__meta h3 {
-      font-size: {{ section.settings.title_size_mobile }}px !important;
-    }
-
-    .bloomli-formula-gallery__proof-grid {
-      grid-template-columns: 1fr !important;
-      gap: 24px !important;
-      margin-top: 36px !important;
-      padding-top: 28px !important;
-    }
-
-    .bloomli-formula-gallery__proof-item {
-      grid-template-columns: var(--bfg-proof-icon-mobile) minmax(0, 1fr);
-      gap: 16px;
-    }
-
-    .bloomli-formula-gallery__proof-media {
-      width: var(--bfg-proof-icon-mobile);
-    }
-  }
-
-  @media (max-width: 420px) {
-    .bloomli-formula-gallery__item {
-      grid-template-columns: 1fr;
-    }
-
-    .bloomli-formula-gallery__media {
-      margin-bottom: 2px;
-    }
-  }
-</style>
 
 {% schema %}
 {

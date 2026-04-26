@@ -221,8 +221,7 @@
          name="selling_plan"
          value=""
          form="{{ product_form_id }}"
-         data-vt-sp-input
-         disabled>
+         data-vt-sp-input>
 </div>
 
 <style>
@@ -494,6 +493,7 @@
 
 <script>
   (function () {
+    function init() {
     const root = document.querySelector('[data-bloomli-vt][data-uid="{{ uid }}"]');
     if (!root) return;
 
@@ -507,6 +507,45 @@
 
     const subPct = parseFloat(root.dataset.subDiscountPct) || 0;
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
+    const productFormId = root.dataset.formId;
+    const productForm = productFormId ? document.getElementById(productFormId) : null;
+
+    // Move our hidden inputs INSIDE the actual <form> so FormData picks them up
+    // reliably (the form="..." attribute association is flaky across browsers).
+    if (productForm) {
+      if (qtyInput && qtyInput.parentNode !== productForm) {
+        productForm.appendChild(qtyInput);
+        qtyInput.removeAttribute('form');
+      }
+      if (spInput && spInput.parentNode !== productForm) {
+        productForm.appendChild(spInput);
+        spInput.removeAttribute('form');
+      }
+
+      // Defensive: neutralize any other quantity inputs in the form (e.g. from
+      // Dawn's quantity_selector block) by stripping their name. Our value wins.
+      productForm.querySelectorAll('input[name="quantity"]').forEach(function (el) {
+        if (el !== qtyInput) {
+          el.dataset.vtSilenced = 'quantity';
+          el.removeAttribute('name');
+        }
+      });
+
+      // formdata event runs when FormData is constructed for submission. Set our
+      // values authoritatively here — overrides anything else.
+      productForm.addEventListener('formdata', function (e) {
+        const card = root.querySelector('[data-vt-card].is-selected') || cards[0];
+        if (card) {
+          e.formData.set('quantity', card.dataset.quantity);
+        }
+        const subOpt = root.querySelector('[data-vt-sub-option].is-selected');
+        if (subOpt && subOpt.dataset.subMode === 'subscribe' && subSelect && subSelect.value) {
+          e.formData.set('selling_plan', subSelect.value);
+        } else {
+          e.formData.delete('selling_plan');
+        }
+      });
+    }
 
     function formatMoney(cents) {
       if (window.Shopify && window.Shopify.formatMoney) {
@@ -532,9 +571,11 @@
       const qty = parseInt(card.dataset.quantity, 10) || 1;
       const subMode = getSelectedSubMode();
 
-      // form values
+      // form values (authoritative override happens in the formdata listener,
+      // but we mirror here for older browsers / observers).
       qtyInput.value = qty;
-      if (subMode === 'subscribe' && subSelect) {
+      qtyInput.disabled = false;
+      if (subMode === 'subscribe' && subSelect && subSelect.value) {
         spInput.value = subSelect.value;
         spInput.disabled = false;
       } else {
@@ -596,5 +637,12 @@
     }
 
     updateState();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
   })();
 </script>

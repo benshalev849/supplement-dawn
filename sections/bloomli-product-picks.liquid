@@ -13,9 +13,10 @@
           <a href="{{ picked_product.url | default: block.settings.link }}" style="display: block; text-decoration: none; color: inherit;">
             <div style="height: {{ section.settings.image_box_height }}px; display: flex; align-items: center; justify-content: center; margin-bottom: 26px;">
               {%- if block.settings.image != blank -%}
-                <img src="{{ block.settings.image | image_url: width: 520 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="260" height="260" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 16px 32px rgba(110,74,99,0.12));">
+                {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
+                <img src="{{ block.settings.image | image_url: width: 520 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="260" height="260" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block; filter: drop-shadow(0 16px 32px rgba(110,74,99,0.12));">
               {%- elsif picked_product.featured_image != blank -%}
-                <img src="{{ picked_product.featured_image | image_url: width: 520 }}" alt="{{ picked_product.featured_image.alt | default: picked_product.title | escape }}" width="260" height="260" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 16px 32px rgba(110,74,99,0.12));">
+                <img src="{{ picked_product.featured_image | image_url: width: 520 }}" alt="{{ picked_product.featured_image.alt | default: picked_product.title | escape }}" width="260" height="260" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block; filter: drop-shadow(0 16px 32px rgba(110,74,99,0.12));">
               {%- else -%}
                 <svg width="180" height="220" viewBox="0 0 180 220" fill="none" aria-hidden="true">
                   <rect x="58" y="18" width="64" height="24" rx="4" fill="#6E4A63"/>
@@ -82,6 +83,7 @@
       "settings": [
         { "type": "product", "id": "product", "label": "Product" },
         { "type": "image_picker", "id": "image", "label": "Custom image override" },
+        { "type": "range", "id": "image_scale", "label": "Uploaded image scale", "min": 70, "max": 140, "step": 5, "default": 100, "unit": "%" },
         { "type": "text", "id": "title", "label": "Custom title" },
         { "type": "url", "id": "link", "label": "Fallback link if no product selected" },
         { "type": "text", "id": "price", "label": "Custom price" },

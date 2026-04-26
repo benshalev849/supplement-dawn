@@ -18,10 +18,10 @@
         {%- if block.settings.is_proof -%}
           {%- continue -%}
         {%- endif -%}
-        <div class="bloomli-formula-list__item" {{ block.shopify_attributes }} style="display: grid; grid-template-columns: {{ section.settings.icon_size }}px 1fr; gap: 20px; align-items: center; padding: 30px 0; border-bottom: 1px solid rgba(110,74,99,0.16); min-width: 0;">
+        <div class="bloomli-formula-list__item" {{ block.shopify_attributes }} style="display: grid; grid-template-columns: {{ section.settings.icon_size }}px 1fr; gap: 20px; align-items: center; padding: 30px 0; min-width: 0;">
           <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {{ block.settings.icon_background }}; color: {{ block.settings.icon_color }}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
             {%- if block.settings.image != blank -%}
-              {%- assign image_scale = block.settings.image_scale | divided_by: 100.0 -%}
+              {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
               <img src="{{ block.settings.image | image_url: width: 240 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.icon_size }}" height="{{ section.settings.icon_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
             {%- else -%}
               <svg width="30" height="30" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -61,7 +61,7 @@
           <div class="bloomli-formula-list__item bloomli-formula-list__item--proof" {{ block.shopify_attributes }} style="display: grid; grid-template-columns: {{ section.settings.icon_size }}px 1fr; gap: 20px; align-items: center; padding: 0; min-width: 0;">
             <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {{ block.settings.icon_background }}; color: {{ block.settings.icon_color }}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
               {%- if block.settings.image != blank -%}
-                {%- assign image_scale = block.settings.image_scale | divided_by: 100.0 -%}
+                {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
                 <img src="{{ block.settings.image | image_url: width: 240 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.icon_size }}" height="{{ section.settings.icon_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
               {%- else -%}
                 <svg width="30" height="30" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

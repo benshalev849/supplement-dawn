@@ -20,12 +20,15 @@
         <div class="bloomli-ing__card" {{ block.shopify_attributes }} style="background: var(--pearl); border-radius: 12px; padding: 24px; text-align: center; aspect-ratio: 1 / 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0;">
           <div class="bloomli-ing__icon" style="margin-bottom: 12px; display: flex; justify-content: center; align-items: center; width: {{ icon_size }}px; height: {{ icon_size }}px;">
             {%- if block.settings.image != blank -%}
+              {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
               <img
                 class="bloomli-ing__icon-img"
                 src="{{ block.settings.image | image_url: width: 240 }}"
                 alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
+                width="{{ icon_size }}"
+                height="{{ icon_size }}"
                 loading="lazy"
-                style="width: 100%; height: 100%; max-width: none; object-fit: contain;"
+                style="width: 100%; height: 100%; max-width: none; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;"
               >
             {%- else -%}
               <svg width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 80 80" fill="none" stroke="#6E4A63" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
@@ -99,7 +102,7 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow badge", "default": "The formula" },
     { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Backed by plants." },
     { "type": "text", "id": "heading_line2", "label": "Heading line 2 (italic)", "default": "Grounded in science." },
-    { "type": "header", "content": "Icon sizing (applies to both SVG and uploaded images)" },
+    { "type": "header", "content": "Icon sizing" },
     { "type": "range", "id": "icon_size", "label": "Icon size — desktop", "min": 32, "max": 140, "step": 2, "default": 72, "unit": "px" },
     { "type": "range", "id": "icon_size_mobile", "label": "Icon size — mobile", "min": 24, "max": 100, "step": 2, "default": 56, "unit": "px" },
     { "type": "header", "content": "Spacing" },
@@ -114,6 +117,7 @@
         { "type": "header", "content": "Icon" },
         { "type": "paragraph", "content": "Upload a transparent PNG/SVG to override the default icon. The image is centered inside the card and scales to fit." },
         { "type": "image_picker", "id": "image", "label": "Custom icon (optional)" },
+        { "type": "range", "id": "image_scale", "label": "Uploaded image scale", "min": 70, "max": 140, "step": 5, "default": 100, "unit": "%" },
         { "type": "select", "id": "botanical", "label": "Default icon (used if no image)", "options": [
           { "value": "biotin", "label": "Biotin (leaf stem)" },
           { "value": "saw", "label": "Saw Palmetto (fan)" },

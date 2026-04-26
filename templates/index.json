@@ -17,7 +17,7 @@
       ],
       "name": "Bloomli — Hero",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_brand_gradient": true,
         "eyebrow": "Clinically-studied hair wellness",
         "headline_line1": "Quiet science,",
@@ -86,7 +86,7 @@
       ],
       "name": "Bloomli — Trust Row",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "padding_top": 56,
         "padding_bottom": 56
       }
@@ -208,7 +208,7 @@
       "type": "bloomli-bundle-promo",
       "name": "Bloomli — Bundle Promo",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
         "eyebrow": "The complete ritual",
         "headline_line1": "Inside & out.",
         "headline_line2": "Save 20%.",

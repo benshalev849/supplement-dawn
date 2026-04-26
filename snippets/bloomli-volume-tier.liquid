@@ -200,7 +200,7 @@
             <select class="bloomli-vt__sub-select" data-vt-sub-select aria-label="Subscription frequency">
               {%- for grp in product.selling_plan_groups -%}
                 {%- for plan in grp.selling_plans -%}
-                  <option value="{{ plan.id }}" data-plan-name="{{ plan.name | escape }}" data-group-name="{{ grp.name | escape }}">{{ plan.name }}</option>
+                  <option value="{{ plan.id }}" data-plan-name="{{ plan.name | escape }}">{{ plan.name }}</option>
                 {%- endfor -%}
               {%- endfor -%}
             </select>
@@ -443,11 +443,7 @@
   .bloomli-vt__sub-select {
     appearance: none;
     -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: #fff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236E4A63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 8px center;
+    background: transparent;
     border: 1px solid rgba(110, 74, 99, 0.2);
     border-radius: 8px;
     padding: 6px 28px 6px 12px;
@@ -455,12 +451,10 @@
     font-size: 13px;
     color: var(--charcoal, #2A2622);
     cursor: pointer;
-    color-scheme: light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236E4A63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
     display: none;
-  }
-  .bloomli-vt__sub-select option {
-    background-color: #fff;
-    color: var(--charcoal, #2A2622);
   }
   .bloomli-vt__sub-option.is-selected[data-sub-mode="subscribe"] .bloomli-vt__sub-select { display: inline-block; }
   .bloomli-vt__footer {
@@ -527,16 +521,6 @@
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const productFormId = root.dataset.formId;
     const productForm = productFormId ? document.getElementById(productFormId) : null;
-    const allPlanOptions = subSelect
-      ? Array.from(subSelect.options).map(function (opt) {
-          return {
-            value: opt.value,
-            planName: opt.dataset.planName || opt.textContent || '',
-            groupName: opt.dataset.groupName || '',
-            label: opt.textContent || ''
-          };
-        })
-      : [];
 
     // Move our hidden inputs INSIDE the actual <form> so FormData picks them up
     // reliably (the form="..." attribute association is flaky across browsers).
@@ -559,13 +543,6 @@
         }
       });
 
-      productForm.querySelectorAll('[name="selling_plan"]').forEach(function (el) {
-        if (el !== spInput) {
-          el.dataset.vtSilenced = 'selling_plan';
-          el.removeAttribute('name');
-        }
-      });
-
       // formdata event runs when FormData is constructed for submission. Set our
       // values authoritatively here — overrides anything else.
       productForm.addEventListener('formdata', function (e) {
@@ -575,14 +552,8 @@
         }
         const subOpt = root.querySelector('[data-vt-sub-option].is-selected');
         if (subOpt && subOpt.dataset.subMode === 'subscribe' && subSelect && subSelect.value) {
-          spInput.setAttribute('name', 'selling_plan');
-          spInput.disabled = false;
-          spInput.value = subSelect.value;
           e.formData.set('selling_plan', subSelect.value);
         } else {
-          spInput.removeAttribute('name');
-          spInput.value = '';
-          spInput.disabled = true;
           e.formData.delete('selling_plan');
         }
       });
@@ -634,36 +605,6 @@
       }
     }
 
-    function rebuildPlansForTier(tierPrefix) {
-      if (!subSelect) return;
-
-      const prefix = (tierPrefix || '').trim();
-      const cleanPrefix = prefix.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
-      const prefixPattern = cleanPrefix ? new RegExp('^' + cleanPrefix + '\\s*[-:–—]?\\s*', 'i') : null;
-
-      subSelect.innerHTML = '';
-
-      allPlanOptions.forEach(function (plan) {
-        const haystack = (plan.groupName + ' ' + plan.planName).trim();
-        const matches = !prefix || haystack.toLowerCase().indexOf(prefix.toLowerCase()) !== -1;
-        if (!matches) return;
-
-        const rawLabel = plan.planName || plan.label || plan.groupName;
-        let label = rawLabel;
-        if (prefixPattern) {
-          label = rawLabel.replace(prefixPattern, '');
-          if (label === rawLabel && plan.groupName) {
-            label = plan.groupName.replace(prefixPattern, '');
-          }
-        }
-
-        const opt = new Option(label || rawLabel, plan.value);
-        opt.dataset.planName = plan.planName;
-        opt.dataset.groupName = plan.groupName;
-        subSelect.appendChild(opt);
-      });
-    }
-
     function updateState() {
       const card = getSelectedCard();
       if (!card) return;
@@ -674,7 +615,7 @@
       const subMode = getSelectedSubMode();
 
       // Filter the subscription dropdown to plans matching this tier
-      rebuildPlansForTier(tierPrefix);
+      filterPlansForTier(tierPrefix);
 
       // Authoritative price math from per-tier % (avoids drift if Liquid
       // pre-render didn't see latest tier settings)
@@ -689,11 +630,9 @@
       qtyInput.value = qty;
       qtyInput.disabled = false;
       if (subMode === 'subscribe' && subSelect && subSelect.value) {
-        spInput.setAttribute('name', 'selling_plan');
         spInput.value = subSelect.value;
         spInput.disabled = false;
       } else {
-        spInput.removeAttribute('name');
         spInput.value = '';
         spInput.disabled = true;
       }

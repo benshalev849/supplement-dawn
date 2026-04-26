@@ -239,12 +239,453 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "bloomli_formula_list_zkbzb7": {
+      "type": "bloomli-formula-list",
+      "blocks": {
+        "item_bA8Mn3": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "icon_background": "#6E4A63",
+            "icon_color": "#FDFAF7",
+            "title": "Biotin",
+            "text": "The keratin building block - clinically dosed for strand strength you can actually feel."
+          }
+        },
+        "item_jfjm6c": {
+          "type": "item",
+          "settings": {
+            "icon": "palm",
+            "icon_background": "#6E4A63",
+            "icon_color": "#FDFAF7",
+            "title": "Saw Palmetto",
+            "text": "A plant-based DHT balancer that keeps follicles happy at the root."
+          }
+        },
+        "item_feygtf": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "icon_background": "#6E4A63",
+            "icon_color": "#FDFAF7",
+            "title": "Marine Collagen",
+            "text": "Sustainably sourced amino acids for elasticity and shine."
+          }
+        },
+        "item_iGiDKc": {
+          "type": "item",
+          "settings": {
+            "icon": "root",
+            "icon_background": "#6E4A63",
+            "icon_color": "#FDFAF7",
+            "title": "Ashwagandha",
+            "text": "Adaptogen that quiets stress-related shedding."
+          }
+        },
+        "item_YBH8pa": {
+          "type": "item",
+          "settings": {
+            "icon": "zinc",
+            "icon_background": "#6E4A63",
+            "icon_color": "#FDFAF7",
+            "title": "Zinc",
+            "text": "Essential mineral that supports a calm, healthy scalp environment."
+          }
+        },
+        "item_DVmArN": {
+          "type": "item",
+          "settings": {
+            "icon": "tested",
+            "icon_background": "#fdfaf7",
+            "icon_color": "#6e4a63",
+            "title": "Independently verified",
+            "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals."
+          }
+        }
+      },
+      "block_order": [
+        "item_bA8Mn3",
+        "item_jfjm6c",
+        "item_feygtf",
+        "item_iGiDKc",
+        "item_YBH8pa",
+        "item_DVmArN"
+      ],
+      "name": "Bloomli - Formula List",
+      "settings": {
+        "color_scheme": "",
+        "background_color": "#F2D4D0",
+        "eyebrow": "The goods inside",
+        "heading_line1": "Five ingredients,",
+        "heading_line2": "doing the quiet work.",
+        "copy": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>",
+        "icon_size": 64,
+        "icon_size_mobile": 56,
+        "padding_top": 112,
+        "padding_bottom": 112
+      }
+    },
+    "bloomli_ingredient_gallery_LmEEkc": {
+      "type": "bloomli-ingredient-gallery",
+      "blocks": {
+        "ingredient_7DVg7K": {
+          "type": "ingredient",
+          "settings": {
+            "circle_color": "#F5EDE4",
+            "photo_label": "Raw biotin - powder",
+            "title": "Biotin",
+            "amount": "2500 MCG"
+          }
+        },
+        "ingredient_Ytycmp": {
+          "type": "ingredient",
+          "settings": {
+            "circle_color": "#F5EDE4",
+            "photo_label": "Saw palmetto - berry",
+            "title": "Saw Palmetto",
+            "amount": "160 MG"
+          }
+        },
+        "ingredient_YhRHgG": {
+          "type": "ingredient",
+          "settings": {
+            "circle_color": "#f2d4d0",
+            "photo_label": "Marine collagen - flake",
+            "title": "Marine Collagen",
+            "amount": "500 MG"
+          }
+        },
+        "ingredient_E3j3DK": {
+          "type": "ingredient",
+          "settings": {
+            "circle_color": "#F5EDE4",
+            "photo_label": "Ashwagandha - root",
+            "title": "Ashwagandha",
+            "amount": "300 MG"
+          }
+        },
+        "ingredient_acHRb3": {
+          "type": "ingredient",
+          "settings": {
+            "circle_color": "#d9cce8",
+            "photo_label": "Zinc - mineral",
+            "title": "Zinc",
+            "amount": "8 MG"
+          }
+        },
+        "ingredient_cHPHX7": {
+          "type": "ingredient",
+          "settings": {
+            "circle_color": "#F5EDE4",
+            "photo_label": "Vitamin D3 - droplet",
+            "title": "Vitamin D3",
+            "amount": "2000 IU"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_7DVg7K",
+        "ingredient_Ytycmp",
+        "ingredient_YhRHgG",
+        "ingredient_E3j3DK",
+        "ingredient_acHRb3",
+        "ingredient_cHPHX7"
+      ],
+      "name": "Bloomli - Ing Gallery",
+      "settings": {
+        "background_color": "#FDFAF7",
+        "eyebrow": "Every ingredient, photographed",
+        "heading": "Nothing hidden.",
+        "image_size": 220,
+        "image_size_mobile": 150,
+        "padding_top": 112,
+        "padding_bottom": 112
+      }
+    },
+    "bloomli_proof_split_bhYAhW": {
+      "type": "bloomli-proof-split",
+      "blocks": {
+        "bullet_zDDhyE": {
+          "type": "bullet",
+          "settings": {
+            "text": "Clinically-dosed actives. No fairy dust."
+          }
+        },
+        "bullet_9GzmFm": {
+          "type": "bullet",
+          "settings": {
+            "text": "Vegan pectin base. No gelatin, no artificial dyes."
+          }
+        },
+        "bullet_f68cpc": {
+          "type": "bullet",
+          "settings": {
+            "text": "Third-party tested for purity and potency."
+          }
+        },
+        "bullet_F7gTNi": {
+          "type": "bullet",
+          "settings": {
+            "text": "Made in a GMP-certified facility in California."
+          }
+        }
+      },
+      "block_order": [
+        "bullet_zDDhyE",
+        "bullet_9GzmFm",
+        "bullet_f68cpc",
+        "bullet_F7gTNi"
+      ],
+      "name": "Bloomli - Proof Split",
+      "settings": {
+        "background_color": "#FDFAF7",
+        "placeholder_color": "#F2D4D0",
+        "image_label": "Editorial - morning ritual - natural light",
+        "image_radius": 16,
+        "eyebrow": "Clinically dosed - gently made",
+        "heading_line1": "Every milligram,",
+        "heading_line2": "intentional.",
+        "copy": "<p>We formulate at clinical doses - the amounts used in peer-reviewed studies - not the sprinkle-doses you'll find in most gummies. Every batch is independently tested. Nothing added for color, nothing hidden in a proprietary blend.</p>",
+        "padding_top": 104,
+        "padding_bottom": 104
+      }
+    },
+    "bloomli_timeline_qUAhUY": {
+      "type": "bloomli-timeline",
+      "blocks": {
+        "step_q7Pbng": {
+          "type": "step",
+          "settings": {
+            "icon": "seed",
+            "range": "Month 1–3",
+            "title": "Foundation",
+            "description": "Nourishment reaches the follicle. Expect less shedding and a healthier scalp feel."
+          }
+        },
+        "step_ihr9qU": {
+          "type": "step",
+          "settings": {
+            "icon": "sprout",
+            "range": "Month 3–6",
+            "title": "Visible Shift",
+            "description": "New growth begins. Many see fuller density at the part line and temples."
+          }
+        },
+        "step_UQiCKB": {
+          "type": "step",
+          "settings": {
+            "icon": "bloom",
+            "range": "Month 6+",
+            "title": "Full Bloom",
+            "description": "Thicker, stronger, shinier hair. Results consolidate with consistent use."
+          }
+        }
+      },
+      "block_order": [
+        "step_q7Pbng",
+        "step_ihr9qU",
+        "step_UQiCKB"
+      ],
+      "name": "Bloomli — Timeline",
+      "settings": {
+        "eyebrow": "Your 6-month journey",
+        "heading": "Your ritual, over time.",
+        "padding_top": 128,
+        "padding_bottom": 128
+      }
+    },
+    "bloomli_photo_mosaic_dYCUhp": {
+      "type": "bloomli-photo-mosaic",
+      "blocks": {
+        "photo_itwQBT": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 1",
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_rFx7fP": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 2",
+            "placeholder_color": "#f2d4d0"
+          }
+        },
+        "photo_UQecfB": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 3",
+            "placeholder_color": "#d9cce8"
+          }
+        },
+        "photo_HnKE8c": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 4",
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_gDhx3U": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 5",
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_HkWBVE": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 6",
+            "placeholder_color": "#f2d4d0"
+          }
+        },
+        "photo_jhY4cR": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 7",
+            "placeholder_color": "#d9cce8"
+          }
+        },
+        "photo_iXjxWB": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 8",
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_Artdhg": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 9",
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_Xj6LgH": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 10",
+            "placeholder_color": "#f2d4d0"
+          }
+        },
+        "photo_fGEqGb": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 11",
+            "placeholder_color": "#d9cce8"
+          }
+        },
+        "photo_zbFfXz": {
+          "type": "photo",
+          "settings": {
+            "label": "Photo 12",
+            "placeholder_color": "#F5EDE4"
+          }
+        }
+      },
+      "block_order": [
+        "photo_itwQBT",
+        "photo_rFx7fP",
+        "photo_UQecfB",
+        "photo_HnKE8c",
+        "photo_gDhx3U",
+        "photo_HkWBVE",
+        "photo_jhY4cR",
+        "photo_iXjxWB",
+        "photo_Artdhg",
+        "photo_Xj6LgH",
+        "photo_fGEqGb",
+        "photo_zbFfXz"
+      ],
+      "name": "Bloomli - Photo Mosaic",
+      "settings": {
+        "background_color": "#FDFAF7",
+        "eyebrow": "Verified buyers",
+        "heading": "Photos from the ritual.",
+        "columns_desktop": 6,
+        "columns_mobile": "2",
+        "gap": 10,
+        "radius": 8,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "bloomli_product_picks_73mXTr": {
+      "type": "bloomli-product-picks",
+      "blocks": {
+        "product_6zDaJg": {
+          "type": "product",
+          "settings": {
+            "product": "test-supplement",
+            "title": "Root Ritual Capsules",
+            "link": "",
+            "price": "$48",
+            "badge": "",
+            "show_stars": true
+          }
+        },
+        "product_d76pfU": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "title": "Root Ritual Strips",
+            "link": "",
+            "price": "$36",
+            "badge": "",
+            "show_stars": true
+          }
+        },
+        "product_NgeLpW": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "title": "Scalp Serum",
+            "link": "",
+            "price": "$58",
+            "badge": "Coming soon",
+            "show_stars": true
+          }
+        },
+        "product_C6yJwD": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "title": "Starter Duo",
+            "link": "",
+            "price": "$68",
+            "badge": "",
+            "show_stars": true
+          }
+        }
+      },
+      "block_order": [
+        "product_6zDaJg",
+        "product_d76pfU",
+        "product_NgeLpW",
+        "product_C6yJwD"
+      ],
+      "name": "Bloomli - Product Picks",
+      "settings": {
+        "background_color": "#F5EDE4",
+        "heading": "You may also like",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_box_height": 240,
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
     }
   },
   "order": [
     "main",
     "image-with-text",
     "multicolumn",
-    "related-products"
+    "related-products",
+    "bloomli_formula_list_zkbzb7",
+    "bloomli_ingredient_gallery_LmEEkc",
+    "bloomli_proof_split_bhYAhW",
+    "bloomli_timeline_qUAhUY",
+    "bloomli_photo_mosaic_dYCUhp",
+    "bloomli_product_picks_73mXTr"
   ]
 }

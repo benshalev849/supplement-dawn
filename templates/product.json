@@ -344,8 +344,9 @@
         "ingredient_7DVg7K": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/biotin.png",
             "image_scale": 100,
-            "circle_color": "#f5ede4",
+            "circle_color": "#fdfaf7",
             "photo_label": "Raw biotin - powder",
             "title": "Biotin",
             "amount": "2500 MCG"
@@ -354,7 +355,7 @@
         "ingredient_Ytycmp": {
           "type": "ingredient",
           "settings": {
-            "image": "shopify://shop_images/saw_palmetto.png",
+            "image": "shopify://shop_images/Vitamin_B9_-_Folate.png",
             "image_scale": 100,
             "circle_color": "#fdfaf7",
             "photo_label": "Saw palmetto - berry",
@@ -365,8 +366,9 @@
         "ingredient_YhRHgG": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Marine_Collagen-powder-Web.png",
             "image_scale": 100,
-            "circle_color": "#f2d4d0",
+            "circle_color": "#fdfaf7",
             "photo_label": "Marine collagen - flake",
             "title": "Marine Collagen",
             "amount": "500 MG"
@@ -375,7 +377,7 @@
         "ingredient_E3j3DK": {
           "type": "ingredient",
           "settings": {
-            "image": "shopify://shop_images/ashwagandha.png",
+            "image": "shopify://shop_images/Vitamin_D3_-_Cholecalciferol.png",
             "image_scale": 100,
             "circle_color": "#fdfaf7",
             "photo_label": "Ashwagandha - root",
@@ -386,8 +388,9 @@
         "ingredient_acHRb3": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/zinc_oxide.png",
             "image_scale": 100,
-            "circle_color": "#d9cce8",
+            "circle_color": "#fdfaf7",
             "photo_label": "Zinc - mineral",
             "title": "Zinc",
             "amount": "8 MG"
@@ -396,8 +399,9 @@
         "ingredient_cHPHX7": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Iron.png",
             "image_scale": 100,
-            "circle_color": "#f5ede4",
+            "circle_color": "#fdfaf7",
             "photo_label": "Vitamin D3 - droplet",
             "title": "Vitamin D3",
             "amount": "2000 IU"

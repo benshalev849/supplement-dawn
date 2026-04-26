@@ -1,13 +1,13 @@
-<section class="bloomli-ing" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--cream);">
+<section class="bloomli-ing bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% case section.settings.card_background %}{% when 'background' %}--bing-card-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bing-card-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bing-card-bg: rgba(var(--color-button), 0.12);{% else %}--bing-card-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;">
   <div style="max-width: 1280px; margin: 0 auto;">
 
     <div class="bloomli-ing__header" style="margin-bottom: 64px; text-align: center;">
       {%- if section.settings.eyebrow != blank -%}
-        <div style="display: inline-block; background: rgba(200,209,190,0.2); padding: 5px 12px; border-radius: 999px; margin-bottom: 18px;">
-          <span class="smallcaps" style="color: #5d6b55; font-size: 11px;">{{ section.settings.eyebrow }}</span>
+        <div style="display: inline-block; background: var(--bloomli-surface); padding: 5px 12px; border-radius: 999px; margin-bottom: 18px;">
+          <span class="smallcaps" style="color: var(--bloomli-accent); font-size: 11px;">{{ section.settings.eyebrow }}</span>
         </div>
       {%- endif -%}
-      <h2 class="bloomli-ing__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; font-weight: 400; max-width: 720px; margin: 0 auto; color: var(--charcoal); line-height: 1.05;">
+      <h2 class="bloomli-ing__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; font-weight: 400; max-width: 720px; margin: 0 auto; color: var(--bloomli-text); line-height: 1.05;">
         {{ section.settings.heading_line1 }}<br><span style="font-style: italic;">{{ section.settings.heading_line2 }}</span>
       </h2>
     </div>
@@ -17,7 +17,7 @@
     {%- assign icon_size = section.settings.icon_size | default: 72 -%}
     <div class="bloomli-ing__grid" style="display: grid; grid-template-columns: repeat({{ desktop_cols }}, 1fr); gap: 16px;">
       {%- for block in section.blocks -%}
-        <div class="bloomli-ing__card" {{ block.shopify_attributes }} style="background: var(--pearl); border-radius: 12px; padding: 24px; text-align: center; aspect-ratio: 1 / 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0;">
+        <div class="bloomli-ing__card" {{ block.shopify_attributes }} style="background: var(--bing-card-bg); border-radius: 12px; padding: 24px; text-align: center; aspect-ratio: 1 / 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0;">
           <div class="bloomli-ing__icon" style="margin-bottom: 12px; display: flex; justify-content: center; align-items: center; width: {{ icon_size }}px; height: {{ icon_size }}px;">
             {%- if block.settings.image != blank -%}
               {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
@@ -31,7 +31,7 @@
                 style="width: 100%; height: 100%; max-width: none; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;"
               >
             {%- else -%}
-              <svg width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 80 80" fill="none" stroke="#6E4A63" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 80 80" fill="none" stroke="currentColor" color="var(--bloomli-accent)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
                 {%- case block.settings.botanical -%}
                   {%- when 'biotin' -%}
                     <path d="M40 10 C 30 25, 30 45, 40 70"/><path d="M40 22 C 30 20, 22 24, 20 32 C 28 34, 36 30, 40 22Z"/><path d="M40 38 C 52 36, 60 40, 62 48 C 54 52, 44 48, 40 38Z"/><path d="M40 54 C 30 52, 22 56, 22 64 C 30 66, 38 62, 40 54Z"/>
@@ -51,8 +51,8 @@
               </svg>
             {%- endif -%}
           </div>
-          <h4 class="bloomli-ing__name" style="font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; margin: 0 0 6px; color: var(--charcoal); line-height: 1.15;">{{ block.settings.name }}</h4>
-          <p class="bloomli-ing__copy" style="font-size: 12px; color: rgba(42,38,34,0.7); line-height: 1.45; margin: 0; word-wrap: break-word; overflow-wrap: break-word;">{{ block.settings.benefit }}</p>
+          <h4 class="bloomli-ing__name" style="font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; margin: 0 0 6px; color: var(--bloomli-text); line-height: 1.15;">{{ block.settings.name }}</h4>
+          <p class="bloomli-ing__copy" style="font-size: 12px; color: var(--bloomli-text-muted); line-height: 1.45; margin: 0; word-wrap: break-word; overflow-wrap: break-word;">{{ block.settings.benefit }}</p>
         </div>
       {%- endfor -%}
     </div>
@@ -99,9 +99,16 @@
   "tag": "div",
   "max_blocks": 6,
   "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow badge", "default": "The formula" },
     { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Backed by plants." },
     { "type": "text", "id": "heading_line2", "label": "Heading line 2 (italic)", "default": "Grounded in science." },
+    { "type": "select", "id": "card_background", "label": "Ingredient card background", "options": [
+      { "value": "surface", "label": "Scheme soft surface" },
+      { "value": "surface_strong", "label": "Scheme stronger surface" },
+      { "value": "background", "label": "Scheme background" },
+      { "value": "accent_soft", "label": "Soft accent" }
+    ], "default": "surface" },
     { "type": "header", "content": "Icon sizing" },
     { "type": "range", "id": "icon_size", "label": "Icon size — desktop", "min": 32, "max": 140, "step": 2, "default": 72, "unit": "px" },
     { "type": "range", "id": "icon_size_mobile", "label": "Icon size — mobile", "min": 24, "max": 100, "step": 2, "default": 56, "unit": "px" },

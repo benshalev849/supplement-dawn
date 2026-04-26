@@ -1,7 +1,31 @@
 <section
-  class="bloomli-formula-gallery color-{{ section.settings.color_scheme }}"
+  class="bloomli-formula-gallery bloomli-section color-{{ section.settings.color_scheme }} gradient"
   style="
-    --bfg-bg: {{ section.settings.background_color }};
+    {%- if section.settings.use_custom_background -%}
+      --bfg-bg: {{ section.settings.background_color }};
+    {%- else -%}
+      --bfg-bg: var(--bloomli-bg);
+    {%- endif -%}
+    {%- case section.settings.media_background -%}
+      {%- when 'background' -%}
+        --bfg-media-bg: var(--bloomli-bg);
+      {%- when 'surface_strong' -%}
+        --bfg-media-bg: var(--bloomli-surface-strong);
+      {%- when 'accent_soft' -%}
+        --bfg-media-bg: rgba(var(--color-button), 0.12);
+      {%- else -%}
+        --bfg-media-bg: var(--bloomli-surface);
+    {%- endcase -%}
+    {%- case section.settings.proof_background -%}
+      {%- when 'background' -%}
+        --bfg-proof-default-bg: var(--bloomli-bg);
+      {%- when 'surface_strong' -%}
+        --bfg-proof-default-bg: var(--bloomli-surface-strong);
+      {%- when 'accent_soft' -%}
+        --bfg-proof-default-bg: rgba(var(--color-button), 0.12);
+      {%- else -%}
+        --bfg-proof-default-bg: var(--bloomli-surface);
+    {%- endcase -%}
     --bfg-circle: {{ section.settings.image_size }}px;
     --bfg-circle-mobile: {{ section.settings.image_size_mobile }}px;
     --bfg-proof-icon: {{ section.settings.proof_icon_size }}px;
@@ -39,9 +63,9 @@
             <div
               class="bloomli-formula-gallery__media"
               style="
-                --bfg-item-bg: {{ block.settings.circle_color }};
-                --bfg-icon-color: {{ block.settings.icon_color }};
-                {% if block.settings.image == blank %}--bfg-placeholder-lines: repeating-linear-gradient(135deg, rgba(110,74,99,0.08) 0 1px, transparent 1px 18px);{% endif %}
+                --bfg-item-bg: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--bfg-media-bg){% endif %};
+                --bfg-icon-color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bloomli-accent){% endif %};
+                {% if block.settings.image == blank %}--bfg-placeholder-lines: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}
               "
             >
               {%- if block.settings.image != blank -%}
@@ -105,7 +129,7 @@
             <article class="bloomli-formula-gallery__proof-item" {{ block.shopify_attributes }}>
               <div
                 class="bloomli-formula-gallery__proof-media"
-                style="--bfg-proof-bg: {{ block.settings.circle_color }}; --bfg-proof-color: {{ block.settings.icon_color }};"
+                style="--bfg-proof-bg: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--bfg-proof-default-bg){% endif %}; --bfg-proof-color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bloomli-accent){% endif %};"
               >
                 {%- if block.settings.image != blank -%}
                   {%- assign proof_image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
@@ -166,7 +190,7 @@
   }
 
   .bloomli-formula-gallery__eyebrow {
-    color: var(--bfg-icon-color, var(--aubergine));
+    color: var(--bloomli-accent);
     margin-bottom: 18px;
   }
 
@@ -177,7 +201,7 @@
     line-height: 1.05;
     font-weight: 400;
     margin: 0 0 24px;
-    color: var(--charcoal);
+    color: var(--bloomli-text);
   }
 
   .bloomli-formula-gallery__heading span {
@@ -187,7 +211,7 @@
   .bloomli-formula-gallery__copy {
     font-size: 17px;
     line-height: 1.55;
-    color: var(--charcoal);
+    color: var(--bloomli-text);
   }
 
   .bloomli-formula-gallery__grid {
@@ -217,7 +241,7 @@
     border-radius: 999px;
     overflow: hidden;
     position: relative;
-    color: var(--aubergine);
+    color: var(--bfg-icon-color, var(--bloomli-accent));
     background-color: var(--bfg-item-bg);
     background-image: var(--bfg-placeholder-lines, none);
     display: flex;
@@ -241,8 +265,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(253,250,247,0.78);
-    color: rgba(110,74,99,0.55);
+    background: var(--bloomli-label-bg);
+    color: var(--bloomli-text-soft);
     padding: 6px 12px;
     border-radius: 4px;
     font-size: 9px;
@@ -259,18 +283,18 @@
     line-height: 1.12;
     font-weight: 400;
     margin: 0 0 8px;
-    color: var(--charcoal);
+    color: var(--bloomli-text);
   }
 
   .bloomli-formula-gallery__meta span {
-    color: rgba(110,74,99,0.72);
+    color: var(--bloomli-text-muted);
     font-size: 10px;
   }
 
   .bloomli-formula-gallery__text {
     font-size: 15px;
     line-height: 1.55;
-    color: var(--charcoal);
+    color: var(--bloomli-text);
   }
 
   .bloomli-formula-gallery__proof-grid {
@@ -279,7 +303,7 @@
     gap: 28px 56px;
     margin-top: 58px;
     padding-top: 48px;
-    border-top: 1px solid rgba(110,74,99,0.16);
+    border-top: 1px solid var(--bloomli-line);
   }
 
   .bloomli-formula-gallery__proof-item {
@@ -303,7 +327,7 @@
   }
 
   .bloomli-formula-gallery__proof-title {
-    color: var(--aubergine);
+    color: var(--bloomli-accent);
     font-size: 11px;
     margin-bottom: 10px;
   }
@@ -385,8 +409,9 @@
   "tag": "div",
   "max_blocks": 12,
   "settings": [
-    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
-    { "type": "color", "id": "background_color", "label": "Background color", "default": "#F2D4D0" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
+    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#F2D4D0" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The goods inside" },
     { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Five ingredients," },
     { "type": "text", "id": "heading_line2", "label": "Heading line 2", "default": "doing the quiet work." },
@@ -400,6 +425,18 @@
       { "value": "2", "label": "Two" },
       { "value": "3", "label": "Three" }
     ], "default": "2" },
+    { "type": "select", "id": "media_background", "label": "Ingredient image background", "options": [
+      { "value": "surface", "label": "Scheme soft surface" },
+      { "value": "surface_strong", "label": "Scheme stronger surface" },
+      { "value": "background", "label": "Scheme background" },
+      { "value": "accent_soft", "label": "Soft accent" }
+    ], "default": "surface" },
+    { "type": "select", "id": "proof_background", "label": "Proof icon background", "options": [
+      { "value": "surface", "label": "Scheme soft surface" },
+      { "value": "surface_strong", "label": "Scheme stronger surface" },
+      { "value": "background", "label": "Scheme background" },
+      { "value": "accent_soft", "label": "Soft accent" }
+    ], "default": "surface" },
     { "type": "range", "id": "content_width", "label": "Content width", "min": 960, "max": 1440, "step": 40, "default": 1120, "unit": "px" },
     { "type": "range", "id": "header_width", "label": "Header width", "min": 440, "max": 840, "step": 40, "default": 600, "unit": "px" },
     { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 36, "max": 72, "step": 2, "default": 52, "unit": "px" },
@@ -423,8 +460,10 @@
         { "type": "checkbox", "id": "is_proof", "label": "Proof item", "default": false },
         { "type": "image_picker", "id": "image", "label": "Ingredient or proof image" },
         { "type": "range", "id": "image_scale", "label": "Uploaded image scale", "min": 70, "max": 150, "step": 5, "default": 100, "unit": "%" },
-        { "type": "color", "id": "circle_color", "label": "Circle / placeholder color", "default": "#FDFAF7" },
-        { "type": "color", "id": "icon_color", "label": "Default icon color", "default": "#6E4A63" },
+        { "type": "checkbox", "id": "use_custom_circle_color", "label": "Override image background", "default": false },
+        { "type": "color", "id": "circle_color", "label": "Custom image background", "default": "#FDFAF7" },
+        { "type": "checkbox", "id": "use_custom_icon_color", "label": "Override default icon color", "default": false },
+        { "type": "color", "id": "icon_color", "label": "Custom icon color", "default": "#6E4A63" },
         { "type": "text", "id": "photo_label", "label": "Placeholder label", "default": "Raw ingredient" },
         { "type": "select", "id": "icon", "label": "Default SVG icon", "options": [
           { "value": "leaf", "label": "Leaf" },
@@ -450,8 +489,8 @@
         { "type": "item", "settings": { "icon": "drop", "title": "Marine Collagen", "amount": "500 MG", "text": "Sustainably sourced amino acids for elasticity and shine.", "photo_label": "Marine collagen - flake" } },
         { "type": "item", "settings": { "icon": "root", "title": "Ashwagandha", "amount": "300 MG", "text": "Adaptogen that quiets stress-related shedding.", "photo_label": "Ashwagandha - root" } },
         { "type": "item", "settings": { "icon": "zinc", "title": "Zinc", "amount": "8 MG", "text": "Essential mineral that supports a calm, healthy scalp environment.", "photo_label": "Zinc - mineral" } },
-        { "type": "item", "settings": { "icon": "spark", "title": "Delightfully tasty", "amount": "", "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.", "circle_color": "#FDFAF7", "is_proof": true } },
-        { "type": "item", "settings": { "icon": "tested", "title": "Independently verified", "amount": "", "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.", "circle_color": "#FDFAF7", "is_proof": true } }
+        { "type": "item", "settings": { "icon": "spark", "title": "Delightfully tasty", "amount": "", "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.", "is_proof": true } },
+        { "type": "item", "settings": { "icon": "tested", "title": "Independently verified", "amount": "", "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.", "is_proof": true } }
       ]
     }
   ]

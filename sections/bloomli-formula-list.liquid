@@ -1,15 +1,15 @@
-<section class="bloomli-formula-list color-{{ section.settings.color_scheme }}" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: {{ section.settings.background_color }};">
+<section class="bloomli-formula-list bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% if section.settings.use_custom_background %}--bfl-bg: {{ section.settings.background_color }};{% else %}--bfl-bg: var(--bloomli-bg);{% endif %}{% case section.settings.icon_background_tone %}{% when 'background' %}--bfl-icon-bg: var(--bloomli-bg);{% when 'surface' %}--bfl-icon-bg: var(--bloomli-surface);{% when 'surface_strong' %}--bfl-icon-bg: var(--bloomli-surface-strong);{% else %}--bfl-icon-bg: var(--bloomli-accent);{% endcase %}{% case section.settings.proof_icon_background_tone %}{% when 'background' %}--bfl-proof-icon-bg: var(--bloomli-bg);{% when 'accent' %}--bfl-proof-icon-bg: var(--bloomli-accent);{% when 'surface_strong' %}--bfl-proof-icon-bg: var(--bloomli-surface-strong);{% else %}--bfl-proof-icon-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--bfl-bg);">
   <div class="bloomli-formula-list__inner" style="max-width: 1080px; margin: 0 auto;">
     <div class="bloomli-formula-list__header" style="max-width: 560px; margin-bottom: 64px;">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
+        <div class="smallcaps" style="color: var(--bloomli-accent); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
-      <h2 class="bloomli-formula-list__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0 0 24px; color: var(--charcoal);">
+      <h2 class="bloomli-formula-list__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0 0 24px; color: var(--bloomli-text);">
         {{ section.settings.heading_line1 }}<br>
         <span style="font-style: italic;">{{ section.settings.heading_line2 }}</span>
       </h2>
       {%- if section.settings.copy != blank -%}
-        <div class="bloomli-formula-list__copy" style="font-size: 17px; line-height: 1.55; color: var(--charcoal);">{{ section.settings.copy }}</div>
+        <div class="bloomli-formula-list__copy" style="font-size: 17px; line-height: 1.55; color: var(--bloomli-text);">{{ section.settings.copy }}</div>
       {%- endif -%}
     </div>
 
@@ -19,7 +19,7 @@
           {%- continue -%}
         {%- endif -%}
         <div class="bloomli-formula-list__item" {{ block.shopify_attributes }} style="display: grid; grid-template-columns: {{ section.settings.icon_size }}px 1fr; gap: 20px; align-items: center; padding: 30px 0; min-width: 0;">
-          <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {{ block.settings.icon_background }}; color: {{ block.settings.icon_color }}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
+          <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {% if block.settings.use_custom_icon_background %}{{ block.settings.icon_background }}{% else %}var(--bfl-icon-bg){% endif %}; color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bloomli-on-accent){% endif %}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
             {%- if block.settings.image != blank -%}
               {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
               <img src="{{ block.settings.image | image_url: width: 240 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.icon_size }}" height="{{ section.settings.icon_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
@@ -38,8 +38,8 @@
             {%- endif -%}
           </div>
           <div>
-            <div class="smallcaps" style="color: var(--aubergine); font-size: 11px; margin-bottom: 10px;">{{ block.settings.title }}</div>
-            <div style="font-size: 15px; line-height: 1.55; color: var(--charcoal);">{{ block.settings.text }}</div>
+            <div class="smallcaps" style="color: var(--bloomli-accent); font-size: 11px; margin-bottom: 10px;">{{ block.settings.title }}</div>
+            <div style="font-size: 15px; line-height: 1.55; color: var(--bloomli-text);">{{ block.settings.text }}</div>
           </div>
         </div>
       {%- endfor -%}
@@ -53,13 +53,13 @@
     {%- endfor -%}
 
     {%- if has_proof -%}
-      <div class="bloomli-formula-list__proof-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; margin-top: 58px; padding-top: 48px; border-top: 1px solid rgba(110,74,99,0.16);">
+      <div class="bloomli-formula-list__proof-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; margin-top: 58px; padding-top: 48px; border-top: 1px solid var(--bloomli-line);">
         {%- for block in section.blocks -%}
           {%- unless block.settings.is_proof -%}
             {%- continue -%}
           {%- endunless -%}
           <div class="bloomli-formula-list__item bloomli-formula-list__item--proof" {{ block.shopify_attributes }} style="display: grid; grid-template-columns: {{ section.settings.icon_size }}px 1fr; gap: 20px; align-items: center; padding: 0; min-width: 0;">
-            <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {{ block.settings.icon_background }}; color: {{ block.settings.icon_color }}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
+            <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {% if block.settings.use_custom_icon_background %}{{ block.settings.icon_background }}{% else %}var(--bfl-proof-icon-bg){% endif %}; color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bloomli-accent){% endif %}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
               {%- if block.settings.image != blank -%}
                 {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
                 <img src="{{ block.settings.image | image_url: width: 240 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.icon_size }}" height="{{ section.settings.icon_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
@@ -78,8 +78,8 @@
               {%- endif -%}
             </div>
             <div>
-              <div class="smallcaps" style="color: var(--aubergine); font-size: 11px; margin-bottom: 10px;">{{ block.settings.title }}</div>
-              <div style="font-size: 15px; line-height: 1.55; color: var(--charcoal);">{{ block.settings.text }}</div>
+              <div class="smallcaps" style="color: var(--bloomli-accent); font-size: 11px; margin-bottom: 10px;">{{ block.settings.title }}</div>
+              <div style="font-size: 15px; line-height: 1.55; color: var(--bloomli-text);">{{ block.settings.text }}</div>
             </div>
           </div>
         {%- endfor -%}
@@ -107,12 +107,25 @@
   "tag": "div",
   "max_blocks": 8,
   "settings": [
-    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
-    { "type": "color", "id": "background_color", "label": "Background color", "default": "#F2D4D0" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
+    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#F2D4D0" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The goods inside" },
     { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Five ingredients," },
     { "type": "text", "id": "heading_line2", "label": "Heading line 2 (italic)", "default": "doing the quiet work." },
     { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>" },
+    { "type": "select", "id": "icon_background_tone", "label": "Ingredient icon background", "options": [
+      { "value": "accent", "label": "Scheme accent" },
+      { "value": "surface", "label": "Scheme soft surface" },
+      { "value": "surface_strong", "label": "Scheme stronger surface" },
+      { "value": "background", "label": "Scheme background" }
+    ], "default": "accent" },
+    { "type": "select", "id": "proof_icon_background_tone", "label": "Proof icon background", "options": [
+      { "value": "surface", "label": "Scheme soft surface" },
+      { "value": "surface_strong", "label": "Scheme stronger surface" },
+      { "value": "background", "label": "Scheme background" },
+      { "value": "accent", "label": "Scheme accent" }
+    ], "default": "surface" },
     { "type": "range", "id": "icon_size", "label": "Icon size desktop", "min": 44, "max": 96, "step": 4, "default": 64, "unit": "px" },
     { "type": "range", "id": "icon_size_mobile", "label": "Icon size mobile", "min": 40, "max": 80, "step": 4, "default": 56, "unit": "px" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 48, "max": 176, "step": 8, "default": 112, "unit": "px" },
@@ -135,8 +148,10 @@
           { "value": "spark", "label": "Spark" },
           { "value": "tested", "label": "Tested badge" }
         ], "default": "leaf" },
-        { "type": "color", "id": "icon_background", "label": "Icon background", "default": "#6E4A63" },
-        { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#FDFAF7" },
+        { "type": "checkbox", "id": "use_custom_icon_background", "label": "Override icon background", "default": false },
+        { "type": "color", "id": "icon_background", "label": "Custom icon background", "default": "#6E4A63" },
+        { "type": "checkbox", "id": "use_custom_icon_color", "label": "Override icon color", "default": false },
+        { "type": "color", "id": "icon_color", "label": "Custom icon color", "default": "#FDFAF7" },
         { "type": "text", "id": "title", "label": "Title", "default": "Biotin" },
         { "type": "textarea", "id": "text", "label": "Text", "default": "The keratin building block - clinically dosed for strand strength you can actually feel." }
       ]
@@ -151,8 +166,8 @@
         { "type": "item", "settings": { "icon": "drop", "title": "Marine Collagen", "text": "Sustainably sourced amino acids for elasticity and shine." } },
         { "type": "item", "settings": { "icon": "root", "title": "Ashwagandha", "text": "Adaptogen that quiets stress-related shedding." } },
         { "type": "item", "settings": { "icon": "zinc", "title": "Zinc", "text": "Essential mineral that supports a calm, healthy scalp environment." } },
-        { "type": "item", "settings": { "icon": "spark", "title": "Delightfully tasty", "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.", "icon_background": "#FDFAF7", "icon_color": "#6E4A63", "is_proof": true } },
-        { "type": "item", "settings": { "icon": "tested", "title": "Independently verified", "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.", "icon_background": "#FDFAF7", "icon_color": "#6E4A63", "is_proof": true } }
+        { "type": "item", "settings": { "icon": "spark", "title": "Delightfully tasty", "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.", "is_proof": true } },
+        { "type": "item", "settings": { "icon": "tested", "title": "Independently verified", "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.", "is_proof": true } }
       ]
     }
   ]

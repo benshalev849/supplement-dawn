@@ -1,30 +1,30 @@
-<section class="bloomli-bundle" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--rose);">
+<section class="bloomli-bundle bloomli-section color-{{ section.settings.color_scheme }} gradient" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;">
   <div class="bloomli-bundle__inner" style="max-width: 900px; margin: 0 auto; text-align: center;">
 
     {%- if section.settings.eyebrow != blank -%}
-      <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 20px;">{{ section.settings.eyebrow }}</div>
+      <div class="smallcaps" style="color: var(--bloomli-accent); margin-bottom: 20px;">{{ section.settings.eyebrow }}</div>
     {%- endif -%}
 
-    <h2 class="bloomli-bundle__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 64px; margin: 0 0 20px; font-weight: 400; color: var(--charcoal); line-height: 1.05;">
+    <h2 class="bloomli-bundle__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 64px; margin: 0 0 20px; font-weight: 400; color: var(--bloomli-text); line-height: 1.05;">
       {{ section.settings.headline_line1 }}<br><span style="font-style: italic;">{{ section.settings.headline_line2 }}</span>
     </h2>
 
     {%- if section.settings.description != blank -%}
-      <p class="bloomli-bundle__copy" style="font-size: 18px; color: var(--charcoal); margin: 0 auto 36px; max-width: 560px; line-height: 1.6;">
+      <p class="bloomli-bundle__copy" style="font-size: 18px; color: var(--bloomli-text); margin: 0 auto 36px; max-width: 560px; line-height: 1.6;">
         {{ section.settings.description }}
       </p>
     {%- endif -%}
 
     <div class="bloomli-bundle__products" style="display: flex; justify-content: center; gap: 24px; margin-bottom: 40px; flex-wrap: nowrap; align-items: flex-end;">
       {%- if section.settings.product_image_1 != blank -%}
-        <img class="bloomli-bundle__product" src="{{ section.settings.product_image_1 | image_url: width: 360 }}" alt="{{ section.settings.product_image_1.alt | escape }}" style="width: 180px; max-width: 45%; height: auto; filter: drop-shadow(0 12px 24px rgba(110,74,99,0.14));">
+        <img class="bloomli-bundle__product" src="{{ section.settings.product_image_1 | image_url: width: 360 }}" alt="{{ section.settings.product_image_1.alt | escape }}" width="180" height="240" loading="lazy" style="width: 180px; max-width: 45%; height: auto; filter: drop-shadow(0 12px 24px var(--bloomli-shadow-color));">
       {%- else -%}
-        <div class="bloomli-bundle__product bloomli-bundle__product--placeholder" style="width: 180px; max-width: 45%; height: 240px; background: rgba(250,244,235,0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(110,74,99,0.5);">Gummies</span></div>
+        <div class="bloomli-bundle__product bloomli-bundle__product--placeholder" style="width: 180px; max-width: 45%; height: 240px; background: var(--bloomli-surface); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bloomli-text-soft);">Gummies</span></div>
       {%- endif -%}
       {%- if section.settings.product_image_2 != blank -%}
-        <img class="bloomli-bundle__product" src="{{ section.settings.product_image_2 | image_url: width: 360 }}" alt="{{ section.settings.product_image_2.alt | escape }}" style="width: 180px; max-width: 45%; height: auto; filter: drop-shadow(0 12px 24px rgba(110,74,99,0.14));">
+        <img class="bloomli-bundle__product" src="{{ section.settings.product_image_2 | image_url: width: 360 }}" alt="{{ section.settings.product_image_2.alt | escape }}" width="180" height="240" loading="lazy" style="width: 180px; max-width: 45%; height: auto; filter: drop-shadow(0 12px 24px var(--bloomli-shadow-color));">
       {%- else -%}
-        <div class="bloomli-bundle__product bloomli-bundle__product--placeholder" style="width: 180px; max-width: 45%; height: 240px; background: rgba(250,244,235,0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(110,74,99,0.5);">Hair Oil</span></div>
+        <div class="bloomli-bundle__product bloomli-bundle__product--placeholder" style="width: 180px; max-width: 45%; height: 240px; background: var(--bloomli-surface); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bloomli-text-soft);">Hair Oil</span></div>
       {%- endif -%}
     </div>
 
@@ -64,6 +64,7 @@
   "name": "Bloomli — Bundle Promo",
   "tag": "div",
   "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The complete ritual" },
     { "type": "text", "id": "headline_line1", "label": "Headline line 1", "default": "Inside & out." },
     { "type": "text", "id": "headline_line2", "label": "Headline line 2 (italic)", "default": "Save 20%." },

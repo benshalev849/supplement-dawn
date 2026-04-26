@@ -1,33 +1,33 @@
-<section class="bloomli-proof-split" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: {{ section.settings.background_color }};">
+<section class="bloomli-proof-split bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% if section.settings.use_custom_background %}--bps-bg: {{ section.settings.background_color }};{% else %}--bps-bg: var(--bloomli-bg);{% endif %}{% case section.settings.media_background %}{% when 'background' %}--bps-media-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bps-media-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bps-media-bg: rgba(var(--color-button), 0.12);{% else %}--bps-media-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--bps-bg);">
   <div class="bloomli-proof-split__inner" style="max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 72px; align-items: center;">
-    <div class="bloomli-proof-split__media" style="aspect-ratio: 2 / 3; border-radius: {{ section.settings.image_radius }}px; overflow: hidden; position: relative; background-color: {{ section.settings.placeholder_color }}; {% if section.settings.image == blank %}background-image: repeating-linear-gradient(135deg, rgba(110,74,99,0.08) 0 1px, transparent 1px 18px);{% endif %}">
+    <div class="bloomli-proof-split__media" style="aspect-ratio: 2 / 3; border-radius: {{ section.settings.image_radius }}px; overflow: hidden; position: relative; background-color: var(--bps-media-bg); {% if section.settings.image == blank %}background-image: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}">
       {%- if section.settings.image != blank -%}
         {%- assign image_scale = section.settings.image_scale | divided_by: 100.0 -%}
         <img src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.image.alt | default: section.settings.heading_line1 | escape }}" width="700" height="1050" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: {{ section.settings.image_position }}; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
       {%- endif -%}
       {%- if section.settings.image_label != blank and section.settings.image == blank -%}
-        <span class="smallcaps" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(253,250,247,0.78); color: rgba(110,74,99,0.55); padding: 8px 16px; border-radius: 4px; font-size: 9px; white-space: nowrap;">{{ section.settings.image_label }}</span>
+        <span class="smallcaps" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: var(--bloomli-label-bg); color: var(--bloomli-text-soft); padding: 8px 16px; border-radius: 4px; font-size: 9px; white-space: nowrap;">{{ section.settings.image_label }}</span>
       {%- endif -%}
     </div>
 
     <div class="bloomli-proof-split__content">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
+        <div class="smallcaps" style="color: var(--bloomli-accent); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
-      <h2 class="bloomli-proof-split__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0 0 26px; color: var(--charcoal);">
+      <h2 class="bloomli-proof-split__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0 0 26px; color: var(--bloomli-text);">
         {{ section.settings.heading_line1 }}<br>
         <span style="font-style: italic;">{{ section.settings.heading_line2 }}</span>
       </h2>
       {%- if section.settings.copy != blank -%}
-        <div class="bloomli-proof-split__copy" style="font-size: 17px; line-height: 1.65; color: var(--charcoal); margin-bottom: 34px;">{{ section.settings.copy }}</div>
+        <div class="bloomli-proof-split__copy" style="font-size: 17px; line-height: 1.65; color: var(--bloomli-text); margin-bottom: 34px;">{{ section.settings.copy }}</div>
       {%- endif -%}
       <div style="display: grid; gap: 18px;">
         {%- for block in section.blocks -%}
           <div {{ block.shopify_attributes }} style="display: grid; grid-template-columns: 22px 1fr; gap: 14px; align-items: start;">
-            <span style="width: 20px; height: 20px; border: 1px solid var(--aubergine); border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: var(--aubergine); margin-top: 2px;">
+            <span style="width: 20px; height: 20px; border: 1px solid var(--bloomli-accent); border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: var(--bloomli-accent); margin-top: 2px;">
               <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4"/></svg>
             </span>
-            <div style="font-size: 15px; line-height: 1.55; color: var(--charcoal);">{{ block.settings.text }}</div>
+            <div style="font-size: 15px; line-height: 1.55; color: var(--bloomli-text);">{{ block.settings.text }}</div>
           </div>
         {%- endfor -%}
       </div>
@@ -49,9 +49,16 @@
   "tag": "div",
   "max_blocks": 6,
   "settings": [
-    { "type": "color", "id": "background_color", "label": "Background color", "default": "#FDFAF7" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
+    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FDFAF7" },
     { "type": "image_picker", "id": "image", "label": "Image" },
-    { "type": "color", "id": "placeholder_color", "label": "Placeholder color", "default": "#F2D4D0" },
+    { "type": "select", "id": "media_background", "label": "Image placeholder background", "options": [
+      { "value": "surface", "label": "Scheme soft surface" },
+      { "value": "surface_strong", "label": "Scheme stronger surface" },
+      { "value": "background", "label": "Scheme background" },
+      { "value": "accent_soft", "label": "Soft accent" }
+    ], "default": "surface" },
     { "type": "text", "id": "image_label", "label": "Placeholder label", "default": "Editorial - morning ritual - natural light" },
     { "type": "range", "id": "image_scale", "label": "Uploaded image zoom", "min": 100, "max": 140, "step": 5, "default": 100, "unit": "%" },
     { "type": "select", "id": "image_position", "label": "Image crop position", "options": [

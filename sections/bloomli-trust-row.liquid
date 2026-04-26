@@ -1,9 +1,9 @@
-<section class="bloomli-trust" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--cream); border-top: 1px solid rgba(110,74,99,0.08); border-bottom: 1px solid rgba(110,74,99,0.08);">
+<section class="bloomli-trust bloomli-section color-{{ section.settings.color_scheme }} gradient" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; border-top: 1px solid var(--bloomli-line-soft); border-bottom: 1px solid var(--bloomli-line-soft);">
   <div class="bloomli-trust__grid" style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;">
 
     {%- for block in section.blocks -%}
-      <div class="bloomli-trust__item" {{ block.shopify_attributes }} style="display: flex; flex-direction: column; align-items: center; gap: 10px; {% unless forloop.first %}border-left: 1px solid rgba(110,74,99,0.1);{% endunless %} padding: 0 12px; min-width: 0;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6E4A63" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+      <div class="bloomli-trust__item" {{ block.shopify_attributes }} style="display: flex; flex-direction: column; align-items: center; gap: 10px; {% unless forloop.first %}border-left: 1px solid var(--bloomli-line-soft);{% endunless %} padding: 0 12px; min-width: 0;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" color="var(--bloomli-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
           {%- case block.settings.icon -%}
             {%- when 'flask' -%}
               <path d="M9 3h6M10 3v6l-5 10a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 19L14 9V3"/><path d="M7.5 14h9"/>
@@ -19,7 +19,7 @@
               <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5 6h14M5 18h14"/>
           {%- endcase -%}
         </svg>
-        <span class="bloomli-trust__label smallcaps" style="color: var(--charcoal); text-align: center; font-size: 11px; word-break: break-word; hyphens: auto;">{{ block.settings.label }}</span>
+        <span class="bloomli-trust__label smallcaps" style="color: var(--bloomli-text); text-align: center; font-size: 11px; word-break: break-word; hyphens: auto;">{{ block.settings.label }}</span>
       </div>
     {%- endfor -%}
 
@@ -55,6 +55,7 @@
   "tag": "div",
   "max_blocks": 4,
   "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 20, "max": 80, "step": 4, "default": 56 },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 20, "max": 80, "step": 4, "default": 56 }
   ],

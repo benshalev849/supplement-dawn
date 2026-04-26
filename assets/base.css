@@ -17,6 +17,28 @@
   --card-shadow: 0 4px 16px rgba(110, 74, 99, 0.06);
 }
 
+.bloomli-section {
+  --bloomli-bg: rgb(var(--color-background));
+  --bloomli-text: rgb(var(--color-foreground));
+  --bloomli-text-muted: rgba(var(--color-foreground), 0.72);
+  --bloomli-text-soft: rgba(var(--color-foreground), 0.55);
+  --bloomli-accent: rgb(var(--color-button));
+  --bloomli-on-accent: rgb(var(--color-button-text));
+  --bloomli-link: rgb(var(--color-secondary-button-text));
+  --bloomli-line: rgba(var(--color-foreground), 0.14);
+  --bloomli-line-soft: rgba(var(--color-foreground), 0.08);
+  --bloomli-surface: rgba(var(--color-foreground), 0.055);
+  --bloomli-surface-strong: rgba(var(--color-foreground), 0.09);
+  --bloomli-label-bg: rgba(var(--color-background), 0.82);
+  --bloomli-shadow-color: rgba(var(--color-shadow), 0.14);
+  background: var(--bloomli-bg);
+  color: var(--bloomli-text);
+}
+
+.bloomli-section .smallcaps {
+  color: var(--bloomli-accent);
+}
+
 /* ---- Mobile-first guard rails: never let any section blow past viewport ---- */
 html, body {
   max-width: 100%;

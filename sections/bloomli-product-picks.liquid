@@ -1,42 +1,42 @@
-<section class="bloomli-product-picks" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: {{ section.settings.background_color }};">
+<section class="bloomli-product-picks bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% if section.settings.use_custom_background %}--bpp-bg: {{ section.settings.background_color }};{% else %}--bpp-bg: var(--bloomli-bg);{% endif %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--bpp-bg);">
   <div style="max-width: 1280px; margin: 0 auto;">
-    <h2 class="bloomli-product-picks__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 46px; line-height: 1.08; font-weight: 400; text-align: center; margin: 0 0 64px; color: var(--charcoal);">{{ section.settings.heading }}</h2>
+    <h2 class="bloomli-product-picks__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 46px; line-height: 1.08; font-weight: 400; text-align: center; margin: 0 0 64px; color: var(--bloomli-text);">{{ section.settings.heading }}</h2>
 
     <div class="bloomli-product-picks__grid" style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0, 1fr)); gap: 38px;">
       {%- for block in section.blocks -%}
         {%- assign picked_product = block.settings.product -%}
         <div class="bloomli-product-picks__card" {{ block.shopify_attributes }} style="min-width: 0; position: relative;">
           {%- if block.settings.badge != blank -%}
-            <div style="position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); z-index: 2; background: var(--aubergine); color: var(--cream); border-radius: 999px; padding: 7px 13px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">{{ block.settings.badge }}</div>
+            <div style="position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); z-index: 2; background: var(--bloomli-accent); color: var(--bloomli-on-accent); border-radius: 999px; padding: 7px 13px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">{{ block.settings.badge }}</div>
           {%- endif -%}
 
           <a href="{{ picked_product.url | default: block.settings.link }}" style="display: block; text-decoration: none; color: inherit;">
             <div style="height: {{ section.settings.image_box_height }}px; display: flex; align-items: center; justify-content: center; margin-bottom: 26px;">
               {%- if block.settings.image != blank -%}
                 {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
-                <img src="{{ block.settings.image | image_url: width: 520 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="260" height="260" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block; filter: drop-shadow(0 16px 32px rgba(110,74,99,0.12));">
+                <img src="{{ block.settings.image | image_url: width: 520 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="260" height="260" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block; filter: drop-shadow(0 16px 32px var(--bloomli-shadow-color));">
               {%- elsif picked_product.featured_image != blank -%}
-                <img src="{{ picked_product.featured_image | image_url: width: 520 }}" alt="{{ picked_product.featured_image.alt | default: picked_product.title | escape }}" width="260" height="260" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block; filter: drop-shadow(0 16px 32px rgba(110,74,99,0.12));">
+                <img src="{{ picked_product.featured_image | image_url: width: 520 }}" alt="{{ picked_product.featured_image.alt | default: picked_product.title | escape }}" width="260" height="260" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block; filter: drop-shadow(0 16px 32px var(--bloomli-shadow-color));">
               {%- else -%}
                 <svg width="180" height="220" viewBox="0 0 180 220" fill="none" aria-hidden="true">
-                  <rect x="58" y="18" width="64" height="24" rx="4" fill="#6E4A63"/>
-                  <rect x="68" y="42" width="44" height="22" fill="#6E4A63" opacity="0.82"/>
-                  <rect x="46" y="62" width="88" height="134" rx="14" fill="#FDFAF7" stroke="#E5D8CE"/>
-                  <rect x="62" y="96" width="56" height="70" rx="4" fill="#6E4A63"/>
-                  <text x="90" y="125" text-anchor="middle" fill="#FDFAF7" font-size="13" font-family="serif">Root</text>
-                  <text x="90" y="143" text-anchor="middle" fill="#FDFAF7" font-size="15" font-family="serif" font-style="italic">Ritual</text>
+                  <rect x="58" y="18" width="64" height="24" rx="4" fill="rgb(var(--color-button))"/>
+                  <rect x="68" y="42" width="44" height="22" fill="rgb(var(--color-button))" opacity="0.82"/>
+                  <rect x="46" y="62" width="88" height="134" rx="14" fill="rgb(var(--color-background))" stroke="rgba(var(--color-foreground),0.14)"/>
+                  <rect x="62" y="96" width="56" height="70" rx="4" fill="rgb(var(--color-button))"/>
+                  <text x="90" y="125" text-anchor="middle" fill="rgb(var(--color-button-text))" font-size="13" font-family="serif">Root</text>
+                  <text x="90" y="143" text-anchor="middle" fill="rgb(var(--color-button-text))" font-size="15" font-family="serif" font-style="italic">Ritual</text>
                 </svg>
               {%- endif -%}
             </div>
 
             <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end;">
               <div>
-                <h3 style="font-family: 'Fraunces', serif; font-size: 21px; line-height: 1.15; font-weight: 400; margin: 0 0 12px; color: var(--charcoal);">{{ block.settings.title | default: picked_product.title }}</h3>
+                <h3 style="font-family: 'Fraunces', serif; font-size: 21px; line-height: 1.15; font-weight: 400; margin: 0 0 12px; color: var(--bloomli-text);">{{ block.settings.title | default: picked_product.title }}</h3>
                 {%- if block.settings.show_stars -%}
-                  <div style="color: var(--aubergine); font-size: 12px; letter-spacing: 1px;" aria-label="Five star rating">★★★★★</div>
+                  <div style="color: var(--bloomli-accent); font-size: 12px; letter-spacing: 1px;" aria-label="Five star rating">★★★★★</div>
                 {%- endif -%}
               </div>
-              <div style="font-size: 14px; color: var(--aubergine); white-space: nowrap;">
+              <div style="font-size: 14px; color: var(--bloomli-accent); white-space: nowrap;">
                 {%- if block.settings.price != blank -%}
                   {{ block.settings.price }}
                 {%- elsif picked_product.price != blank -%}
@@ -65,7 +65,9 @@
   "tag": "div",
   "max_blocks": 8,
   "settings": [
-    { "type": "color", "id": "background_color", "label": "Background color", "default": "#F5EDE4" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
+    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#F5EDE4" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "You may also like" },
     { "type": "range", "id": "columns_desktop", "label": "Columns desktop", "min": 2, "max": 4, "step": 1, "default": 4 },
     { "type": "select", "id": "columns_mobile", "label": "Columns mobile", "options": [

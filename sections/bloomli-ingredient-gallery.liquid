@@ -1,27 +1,27 @@
-<section class="bloomli-ingredient-gallery" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: {{ section.settings.background_color }};">
+<section class="bloomli-ingredient-gallery bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% if section.settings.use_custom_background %}--big-bg: {{ section.settings.background_color }};{% else %}--big-bg: var(--bloomli-bg);{% endif %}{% case section.settings.circle_background %}{% when 'background' %}--big-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--big-circle-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--big-circle-bg: rgba(var(--color-button), 0.12);{% else %}--big-circle-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--big-bg);">
   <div style="max-width: 1120px; margin: 0 auto;">
     <div class="bloomli-ingredient-gallery__header" style="text-align: center; margin-bottom: 64px;">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
+        <div class="smallcaps" style="color: var(--bloomli-accent); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
-      <h2 class="bloomli-ingredient-gallery__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0; color: var(--charcoal);">{{ section.settings.heading }}</h2>
+      <h2 class="bloomli-ingredient-gallery__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0; color: var(--bloomli-text);">{{ section.settings.heading }}</h2>
     </div>
 
     <div class="bloomli-ingredient-gallery__grid" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 72px 88px;">
       {%- for block in section.blocks -%}
         <div class="bloomli-ingredient-gallery__item" {{ block.shopify_attributes }} style="text-align: center; min-width: 0;">
-          <div class="bloomli-ingredient-gallery__media" style="width: {{ section.settings.image_size }}px; max-width: 100%; aspect-ratio: 1 / 1; margin: 0 auto 24px; border-radius: 999px; overflow: hidden; position: relative; background-color: {{ block.settings.circle_color }}; {% if block.settings.image == blank %}background-image: repeating-linear-gradient(135deg, rgba(110,74,99,0.08) 0 1px, transparent 1px 18px);{% endif %}">
+          <div class="bloomli-ingredient-gallery__media" style="width: {{ section.settings.image_size }}px; max-width: 100%; aspect-ratio: 1 / 1; margin: 0 auto 24px; border-radius: 999px; overflow: hidden; position: relative; background-color: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--big-circle-bg){% endif %}; {% if block.settings.image == blank %}background-image: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}">
             {%- if block.settings.image != blank -%}
               {%- assign image_scale = block.settings.image_scale | divided_by: 100.0 -%}
               <img src="{{ block.settings.image | image_url: width: 620 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.image_size }}" height="{{ section.settings.image_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
             {%- endif -%}
             {%- if block.settings.photo_label != blank and block.settings.image == blank -%}
-              <span class="smallcaps" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(253,250,247,0.78); color: rgba(110,74,99,0.55); padding: 6px 14px; border-radius: 4px; font-size: 9px; white-space: nowrap;">{{ block.settings.photo_label }}</span>
+              <span class="smallcaps" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: var(--bloomli-label-bg); color: var(--bloomli-text-soft); padding: 6px 14px; border-radius: 4px; font-size: 9px; white-space: nowrap;">{{ block.settings.photo_label }}</span>
             {%- endif -%}
           </div>
-          <h3 style="font-family: 'Fraunces', serif; font-size: 25px; line-height: 1.1; font-weight: 400; margin: 0 0 10px; color: var(--charcoal);">{{ block.settings.title }}</h3>
+          <h3 style="font-family: 'Fraunces', serif; font-size: 25px; line-height: 1.1; font-weight: 400; margin: 0 0 10px; color: var(--bloomli-text);">{{ block.settings.title }}</h3>
           {%- if block.settings.amount != blank -%}
-            <div class="smallcaps" style="color: rgba(110,74,99,0.72); font-size: 10px;">{{ block.settings.amount }}</div>
+            <div class="smallcaps" style="color: var(--bloomli-text-muted); font-size: 10px;">{{ block.settings.amount }}</div>
           {%- endif -%}
         </div>
       {%- endfor -%}
@@ -45,9 +45,17 @@
   "tag": "div",
   "max_blocks": 9,
   "settings": [
-    { "type": "color", "id": "background_color", "label": "Background color", "default": "#FDFAF7" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
+    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FDFAF7" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Every ingredient, photographed" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Nothing hidden." },
+    { "type": "select", "id": "circle_background", "label": "Ingredient circle background", "options": [
+      { "value": "surface", "label": "Scheme soft surface" },
+      { "value": "surface_strong", "label": "Scheme stronger surface" },
+      { "value": "background", "label": "Scheme background" },
+      { "value": "accent_soft", "label": "Soft accent" }
+    ], "default": "surface" },
     { "type": "range", "id": "image_size", "label": "Circle size desktop", "min": 160, "max": 300, "step": 10, "default": 220, "unit": "px" },
     { "type": "range", "id": "image_size_mobile", "label": "Circle size mobile", "min": 120, "max": 220, "step": 10, "default": 150, "unit": "px" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 48, "max": 176, "step": 8, "default": 112, "unit": "px" },
@@ -60,7 +68,8 @@
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Ingredient photo" },
         { "type": "range", "id": "image_scale", "label": "Uploaded image scale", "min": 70, "max": 140, "step": 5, "default": 100, "unit": "%" },
-        { "type": "color", "id": "circle_color", "label": "Circle / placeholder color", "default": "#FFFFFF" },
+        { "type": "checkbox", "id": "use_custom_circle_color", "label": "Override circle background", "default": false },
+        { "type": "color", "id": "circle_color", "label": "Custom circle background", "default": "#FFFFFF" },
         { "type": "text", "id": "photo_label", "label": "Placeholder label", "default": "Raw ingredient" },
         { "type": "text", "id": "title", "label": "Title", "default": "Biotin" },
         { "type": "text", "id": "amount", "label": "Amount", "default": "2500 MCG" }
@@ -73,9 +82,9 @@
       "blocks": [
         { "type": "ingredient", "settings": { "title": "Biotin", "amount": "2500 MCG", "photo_label": "Raw biotin - powder" } },
         { "type": "ingredient", "settings": { "title": "Saw Palmetto", "amount": "160 MG", "photo_label": "Saw palmetto - berry" } },
-        { "type": "ingredient", "settings": { "title": "Marine Collagen", "amount": "500 MG", "photo_label": "Marine collagen - flake", "circle_color": "#F2D4D0" } },
+        { "type": "ingredient", "settings": { "title": "Marine Collagen", "amount": "500 MG", "photo_label": "Marine collagen - flake" } },
         { "type": "ingredient", "settings": { "title": "Ashwagandha", "amount": "300 MG", "photo_label": "Ashwagandha - root" } },
-        { "type": "ingredient", "settings": { "title": "Zinc", "amount": "8 MG", "photo_label": "Zinc - mineral", "circle_color": "#D9CCE8" } },
+        { "type": "ingredient", "settings": { "title": "Zinc", "amount": "8 MG", "photo_label": "Zinc - mineral" } },
         { "type": "ingredient", "settings": { "title": "Vitamin D3", "amount": "2000 IU", "photo_label": "Vitamin D3 - droplet" } }
       ]
     }

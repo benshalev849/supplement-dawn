@@ -370,194 +370,181 @@ input[type="text"] {
 
 /* ============================================================
    BOGOS — Volume Discount widget overrides
-   Bogos renders inside `.salesbox-*` (free-gift-bogos app) wrappers.
-   We use multiple selector patterns since class names version over time.
-   If styles don't apply, inspect the widget and add a more specific selector.
+   Targets real class names from bogos-io-free-gift app DOM.
    ============================================================ */
 
-/* Container — sit on cream, share the bloomli card aesthetic */
-.salesbox-app-embed,
-.salesbox-volume-discount,
-[class*="salesbox-vd-"]:is(.salesbox-vd-wrapper, .salesbox-vd-container),
-[id*="bogos-volume-discount"] {
+/* Outer widget wrapper */
+.bogos-volume-discount-widget {
   font-family: 'DM Sans', sans-serif !important;
   background: var(--cream) !important;
-  border: 1px solid rgba(110, 74, 99, 0.1) !important;
+  border: 1px solid rgba(110, 74, 99, 0.12) !important;
   border-radius: 16px !important;
   padding: 20px !important;
   margin: 16px 0 !important;
   color: var(--charcoal) !important;
-  box-shadow: var(--card-shadow);
 }
 
-/* Title (e.g. "Save More!") — Fraunces, brand-forward */
-.salesbox-vd-title,
-.salesbox-vd-heading,
-[class*="salesbox-vd"] [class*="title"]:not(input) {
+/* Widget header — title + description */
+.bogos-volume-discount-widget-title {
   font-family: 'Fraunces', serif !important;
   font-variation-settings: "SOFT" 100, "opsz" 144 !important;
   font-weight: 400 !important;
   font-size: 22px !important;
   color: var(--charcoal) !important;
   letter-spacing: -0.01em !important;
-  text-align: left !important;
   margin: 0 0 4px !important;
 }
 
-.salesbox-vd-subtitle,
-[class*="salesbox-vd"] [class*="subtitle"] {
+.bogos-volume-discount-widget-description {
   font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
   text-transform: uppercase !important;
-  font-size: 11px !important;
-  letter-spacing: 0.08em !important;
-  color: rgba(110, 74, 99, 0.7) !important;
-  margin: 0 0 14px !important;
-  font-weight: 500 !important;
+  letter-spacing: 0.07em !important;
+  color: rgba(110, 74, 99, 0.65) !important;
+  margin: 0 0 16px !important;
 }
 
-/* Tier card — clean, hover-able, with a clear selected state */
-.salesbox-vd-item,
-[class*="salesbox-vd-tier"],
-[class*="salesbox-vd"] [class*="option"]:not(input) {
+/* Tier item cards */
+.bogos-volume-discount-item {
   background: #fff !important;
   border: 1.5px solid rgba(110, 74, 99, 0.12) !important;
   border-radius: 12px !important;
   padding: 14px 16px !important;
   margin: 0 0 10px !important;
-  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease !important;
   cursor: pointer !important;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
 }
 
-.salesbox-vd-item:hover,
-[class*="salesbox-vd-tier"]:hover {
+.bogos-volume-discount-item:hover {
   border-color: rgba(110, 74, 99, 0.4) !important;
-  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(110, 74, 99, 0.08) !important;
 }
 
-/* Selected tier */
-.salesbox-vd-item.selected,
-.salesbox-vd-item.active,
-.salesbox-vd-item-active,
-[class*="salesbox-vd-tier"][aria-checked="true"],
-[class*="salesbox-vd-tier"].is-active {
+/* Selected / checked state — Bogos toggles a class or checked input */
+.bogos-volume-discount-item:has(.bogos-volume-discount-tier-input:checked),
+.bogos-volume-discount-item.selected,
+.bogos-volume-discount-item.active {
   border-color: var(--aubergine) !important;
   background: rgba(110, 74, 99, 0.04) !important;
 }
 
-/* Discount badge ("20% OFF") — solid aubergine pill */
-.salesbox-vd-discount,
-.salesbox-vd-badge,
-[class*="salesbox-vd"] [class*="discount-label"],
-[class*="salesbox-vd"] [class*="off-label"] {
-  background: var(--aubergine) !important;
-  color: var(--cream) !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.04em !important;
-  padding: 4px 10px !important;
-  border-radius: 999px !important;
-  text-transform: uppercase !important;
-  display: inline-block !important;
-  border: none !important;
+/* Hide native radio but keep it accessible */
+.bogos-volume-discount-tier-input {
+  accent-color: var(--aubergine) !important;
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0 !important;
 }
 
-/* "Most popular" / "Best value" tag — softer, secondary */
-.salesbox-vd-tag,
-.salesbox-vd-most-popular,
-.salesbox-vd-best-value,
-[class*="salesbox-vd"] [class*="popular"],
-[class*="salesbox-vd"] [class*="best-value"] {
-  background: rgba(110, 74, 99, 0.08) !important;
-  color: var(--aubergine) !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 10px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.06em !important;
-  padding: 3px 8px !important;
-  border-radius: 999px !important;
-  text-transform: uppercase !important;
-  margin-left: 6px !important;
-}
-
-/* Tier label ("Two Months") */
-.salesbox-vd-item-title,
-.salesbox-vd-name,
-[class*="salesbox-vd"] [class*="item-label"] {
+/* Tier name area */
+.bogos-volume-discount-title {
   font-family: 'Fraunces', serif !important;
   font-variation-settings: "SOFT" 100 !important;
   font-size: 18px !important;
   font-weight: 400 !important;
   color: var(--charcoal) !important;
-  margin: 4px 0 0 !important;
   letter-spacing: -0.005em !important;
+  margin: 0 !important;
 }
 
-/* Tier description ("description text") */
-.salesbox-vd-item-description,
-.salesbox-vd-desc {
+.bogos-volume-discount-sub-title {
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 12px !important;
-  color: rgba(42, 38, 34, 0.6) !important;
+  color: rgba(42, 38, 34, 0.55) !important;
   margin: 2px 0 0 !important;
 }
 
-/* Prices */
-.salesbox-vd-price,
-[class*="salesbox-vd"] [class*="final-price"] {
+/* Discount badge ("20% OFF") — solid aubergine pill */
+.bogos-volume-discount-label {
+  background: var(--aubergine) !important;
+  color: var(--cream) !important;
   font-family: 'DM Sans', sans-serif !important;
-  font-size: 18px !important;
+  font-size: 11px !important;
   font-weight: 600 !important;
-  color: var(--charcoal) !important;
+  letter-spacing: 0.05em !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  text-transform: uppercase !important;
+  display: inline-block !important;
+  border: none !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
-.salesbox-vd-compare-price,
-.salesbox-vd-original-price,
-[class*="salesbox-vd"] [class*="compare-price"],
-[class*="salesbox-vd"] [class*="original-price"] {
+/* "Most popular" social-proof tag — softer, translucent aubergine */
+.bogos-volume-discount-tag {
+  background: rgba(110, 74, 99, 0.1) !important;
+  color: var(--aubergine) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  padding: 3px 9px !important;
+  border-radius: 999px !important;
+  text-transform: uppercase !important;
+  border: none !important;
+  display: inline-block !important;
+}
+
+/* Tier label (quantity label like "2 bottles") */
+.bogos-volume-discount-tier-label {
   font-family: 'DM Sans', sans-serif !important;
   font-size: 13px !important;
-  color: rgba(42, 38, 34, 0.45) !important;
-  text-decoration: line-through !important;
-  margin-left: 6px !important;
-  font-weight: 400 !important;
+  color: rgba(42, 38, 34, 0.6) !important;
 }
 
-/* Free shipping callout — tone it down so it's not a full-width banner */
-.salesbox-vd-shipping,
-[class*="salesbox-vd"] [class*="shipping"] {
+/* Prices */
+.bogos-volume-discount-item-discount-price {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: var(--charcoal) !important;
+  margin: 0 !important;
+}
+
+.bogos-volume-discount-item-original-price {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: rgba(42, 38, 34, 0.4) !important;
+  text-decoration: line-through !important;
+  margin-left: 4px !important;
+}
+
+/* Shipping callout */
+.bogos-vl-shipping-container {
   background: transparent !important;
+  border-top: 1px dashed rgba(110, 74, 99, 0.15) !important;
+  padding: 10px 0 0 !important;
+  margin: 8px 0 0 !important;
+}
+
+.bogos-vl-shipping-label {
   color: var(--aubergine) !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 11px !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.06em !important;
-  padding: 6px 0 0 !important;
-  margin: 6px 0 0 !important;
-  border-top: 1px dashed rgba(110, 74, 99, 0.15) !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
 }
 
-/* Total price row — minimal, top divider */
-.salesbox-vd-total,
-.salesbox-vd-summary,
-[class*="salesbox-vd"] [class*="total"]:not(button) {
+/* Total row */
+.bogos-volume-discount-total {
   background: transparent !important;
   border: none !important;
   border-top: 1px solid rgba(110, 74, 99, 0.1) !important;
-  padding: 14px 4px 8px !important;
+  padding: 14px 0 8px !important;
   margin: 6px 0 0 !important;
   font-family: 'DM Sans', sans-serif !important;
   font-size: 14px !important;
   color: var(--charcoal) !important;
 }
 
-/* Add-to-cart button inside the widget — match Dawn's primary button shape */
-.salesbox-vd-button,
-.salesbox-vd-add-to-cart,
-[class*="salesbox-vd"] button[type="submit"],
-[class*="salesbox-vd"] [class*="atc-button"] {
+/* Add-to-cart button — aubergine pill matching Bloomli primary */
+.bogos-volume-discount-button-add {
   background: var(--aubergine) !important;
   color: var(--cream) !important;
   border: none !important;
@@ -571,36 +558,56 @@ input[type="text"] {
   width: 100% !important;
   cursor: pointer !important;
   transition: opacity 0.18s ease, transform 0.18s ease !important;
+  margin-top: 12px !important;
 }
 
-.salesbox-vd-button:hover,
-.salesbox-vd-add-to-cart:hover,
-[class*="salesbox-vd"] button[type="submit"]:hover {
-  opacity: 0.92 !important;
-  transform: translateY(-1px);
+.bogos-volume-discount-button-add:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
 }
 
-/* Hide Bogos's internal subscription selector if Appstle is already showing one
-   (uncomment this block once you've confirmed the duplicate). */
-/*
-.salesbox-vd-subscription,
-[class*="salesbox-vd"] [class*="subscription"] {
-  display: none !important;
+/* Subscription section — clean, minimal */
+.bogos-vl-subscription-section-title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.07em !important;
+  color: rgba(42, 38, 34, 0.5) !important;
+  margin: 16px 0 8px !important;
 }
-*/
+
+.bogos-vl-subscription-container {
+  gap: 8px !important;
+}
+
+.bogos-vl-subscription-one-time,
+.bogos-vl-subscription-multiple {
+  background: #fff !important;
+  border: 1.5px solid rgba(110, 74, 99, 0.12) !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  color: var(--charcoal) !important;
+  cursor: pointer !important;
+  transition: border-color 0.15s ease !important;
+}
+
+.bogos-vl-subscription-one-time:has(input:checked),
+.bogos-vl-subscription-multiple:has(input:checked) {
+  border-color: var(--aubergine) !important;
+  background: rgba(110, 74, 99, 0.04) !important;
+}
 
 @media (max-width: 749px) {
-  .salesbox-app-embed,
-  .salesbox-volume-discount,
-  [class*="salesbox-vd-"]:is(.salesbox-vd-wrapper, .salesbox-vd-container) {
+  .bogos-volume-discount-widget {
     padding: 16px !important;
     border-radius: 12px !important;
   }
-  .salesbox-vd-title { font-size: 18px !important; }
-  .salesbox-vd-item-title { font-size: 16px !important; }
-  .salesbox-vd-price { font-size: 16px !important; }
-  .salesbox-vd-button,
-  .salesbox-vd-add-to-cart { padding: 12px 22px !important; font-size: 14px !important; }
+  .bogos-volume-discount-widget-title { font-size: 18px !important; }
+  .bogos-volume-discount-title { font-size: 16px !important; }
+  .bogos-volume-discount-item-discount-price { font-size: 15px !important; }
+  .bogos-volume-discount-button-add { padding: 12px 22px !important; font-size: 14px !important; }
 }
 
 /* ============================================================

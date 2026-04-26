@@ -17,6 +17,8 @@
       ],
       "name": "Bloomli — Hero",
       "settings": {
+        "color_scheme": "",
+        "use_brand_gradient": true,
         "eyebrow": "Clinically-studied hair wellness",
         "headline_line1": "Quiet science,",
         "headline_line2": "visible results.",
@@ -31,7 +33,17 @@
         "review_score": "4.8",
         "review_count": "2,400+",
         "editorial_image": "shopify://shop_images/hero-editorial.png",
-        "product_image": "shopify://shop_images/hero-bottle.png"
+        "product_image": "shopify://shop_images/hero-bottle.png",
+        "bottle_width_desktop": 400,
+        "bottle_x_desktop": -120,
+        "bottle_y_desktop": 40,
+        "bottle_rotation": -8,
+        "bottle_width_mobile": 90,
+        "bottle_x_mobile": -8,
+        "bottle_y_mobile": 0,
+        "editorial_width_mobile": 56,
+        "editorial_height_mobile": 300,
+        "media_height_mobile": 360
       }
     },
     "bloomli_trust_row_6WztPT": {
@@ -74,6 +86,7 @@
       ],
       "name": "Bloomli — Trust Row",
       "settings": {
+        "color_scheme": "",
         "padding_top": 56,
         "padding_bottom": 56
       }
@@ -84,6 +97,7 @@
         "step_76LWCm": {
           "type": "step",
           "settings": {
+            "image_scale": 100,
             "icon": "seed",
             "range": "Month 1–3",
             "title": "Foundation",
@@ -93,6 +107,7 @@
         "step_egttHe": {
           "type": "step",
           "settings": {
+            "image_scale": 100,
             "icon": "sprout",
             "range": "Month 3–6",
             "title": "Visible Shift",
@@ -102,6 +117,7 @@
         "step_XKBHGh": {
           "type": "step",
           "settings": {
+            "image_scale": 100,
             "icon": "bloom",
             "range": "Month 6+",
             "title": "Full Bloom",
@@ -116,8 +132,15 @@
       ],
       "name": "Bloomli — Timeline",
       "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "eyebrow": "Your 6-month journey",
         "heading": "Your ritual, over time.",
+        "circle_background": "surface",
+        "circle_size": 100,
+        "icon_size": 64,
+        "show_connector": true,
+        "connector_style": "dashed",
+        "connector_width": 1,
         "padding_top": 64,
         "padding_bottom": 64
       }
@@ -128,6 +151,7 @@
         "ingredient_4dWiwa": {
           "type": "ingredient",
           "settings": {
+            "image_scale": 100,
             "botanical": "biotin",
             "name": "Biotin",
             "benefit": "Supports keratin production for stronger strands."
@@ -136,6 +160,7 @@
         "ingredient_WJH7g8": {
           "type": "ingredient",
           "settings": {
+            "image_scale": 100,
             "botanical": "saw",
             "name": "Saw Palmetto",
             "benefit": "Gently helps regulate DHT, a common culprit in thinning."
@@ -144,6 +169,7 @@
         "ingredient_TWN3Jg": {
           "type": "ingredient",
           "settings": {
+            "image_scale": 100,
             "botanical": "marine",
             "name": "Marine Collagen",
             "benefit": "Amino acids for follicle strength and elasticity."
@@ -152,6 +178,7 @@
         "ingredient_cxWFfm": {
           "type": "ingredient",
           "settings": {
+            "image_scale": 100,
             "botanical": "ashwagandha",
             "name": "Ashwagandha",
             "benefit": "Adaptogen that helps calm stress-related shedding."
@@ -166,9 +193,13 @@
       ],
       "name": "Bloomli — Ingredients",
       "settings": {
+        "color_scheme": "",
         "eyebrow": "The formula",
         "heading_line1": "Backed by plants.",
         "heading_line2": "Grounded in science.",
+        "card_background": "surface",
+        "icon_size": 72,
+        "icon_size_mobile": 56,
         "padding_top": 48,
         "padding_bottom": 48
       }
@@ -177,6 +208,7 @@
       "type": "bloomli-bundle-promo",
       "name": "Bloomli — Bundle Promo",
       "settings": {
+        "color_scheme": "",
         "eyebrow": "The complete ritual",
         "headline_line1": "Inside & out.",
         "headline_line2": "Save 20%.",

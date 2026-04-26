@@ -336,8 +336,9 @@
   gap: var(--br-card-gap, 20px);
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-behavior: auto;
   scrollbar-width: none;
   padding-bottom: 2px;
 }

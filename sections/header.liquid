@@ -349,6 +349,15 @@
 
       if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
+      if (
+        scrollTop !== this.currentScrollTop &&
+        this.header.querySelector('header-menu details[open], details-modal details[open]')
+      ) {
+        this.closeMenuDisclosure();
+        this.closeSearchModal();
+        this.preventHide = false;
+      }
+
       if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
         this.header.classList.add('scrolled-past-header');
         if (this.preventHide) return;

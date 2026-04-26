@@ -85,18 +85,6 @@
             "note": ""
           }
         },
-        "bogos_io_free_gift_volume_discount_view_DahX43": {
-          "type": "shopify://apps/bogos-io-free-gift/blocks/volume-discount-view/0432bba6-720a-4e95-be5a-b868386f7aa6",
-          "disabled": true,
-          "settings": {
-            "product": "test-supplement"
-          }
-        },
-        "appstle_subscription_appstle_subscription_product_page_widget_N3QVKB": {
-          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
-          "disabled": true,
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -164,8 +152,6 @@
         "caption",
         "price",
         "volume_tier_LC9DxN",
-        "bogos_io_free_gift_volume_discount_view_DahX43",
-        "appstle_subscription_appstle_subscription_product_page_widget_N3QVKB",
         "variant_picker",
         "buy_buttons",
         "description",

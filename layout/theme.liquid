@@ -363,17 +363,29 @@
     {%- endif -%}
 
     <script>
-      /* Measure announcement bar height so the sticky header sits below it */
+      /* Measure the fixed announcement/header stack so content starts below it. */
       (function () {
-        function setAnnouncementHeight() {
-          var bar = document.querySelector('.shopify-section-group-header-group:not(.section-header)');
+        function setHeaderStackHeight() {
+          var bar = document.querySelector('.announcement-bar-section.shopify-section-group-header-group');
+          var header = document.querySelector('.section-header.shopify-section-group-header-group');
+          var barHeight = bar ? bar.offsetHeight : 0;
+          var headerHeight = header ? header.offsetHeight : 0;
+
           document.documentElement.style.setProperty(
             '--bloomli-announcement-height',
-            bar ? bar.offsetHeight + 'px' : '0px'
+            barHeight + 'px'
+          );
+          document.documentElement.style.setProperty(
+            '--bloomli-header-stack-height',
+            barHeight + headerHeight + 'px'
           );
         }
-        setAnnouncementHeight();
-        window.addEventListener('resize', setAnnouncementHeight);
+
+        setHeaderStackHeight();
+        window.addEventListener('load', setHeaderStackHeight);
+        window.addEventListener('resize', setHeaderStackHeight);
+        document.addEventListener('shopify:section:load', setHeaderStackHeight);
+        document.addEventListener('shopify:section:unload', setHeaderStackHeight);
       })();
     </script>
   </body>

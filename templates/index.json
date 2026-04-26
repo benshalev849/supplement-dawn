@@ -272,7 +272,6 @@
         "review_nLLi94": {
           "type": "review",
           "settings": {
-            "image": "shopify://shop_images/hero-editorial-square.png",
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
@@ -309,7 +308,6 @@
         "review_hbDXrg": {
           "type": "review",
           "settings": {
-            "image": "shopify://shop_images/hero-editorial-square.png",
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
@@ -356,7 +354,7 @@
     "bloomli_trust_row_6WztPT",
     "bloomli_timeline_yFPmqr",
     "bloomli_ingredients_DdjGj4",
-    "bloomli_bundle_promo_mU8URW",
-    "bloomli_reviews_GyTkzh"
+    "bloomli_reviews_GyTkzh",
+    "bloomli_bundle_promo_mU8URW"
   ]
 }

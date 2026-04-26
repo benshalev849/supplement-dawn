@@ -13,15 +13,19 @@
     {%- assign circle_size = section.settings.circle_size | default: 100 -%}
     {%- assign icon_size = section.settings.icon_size | default: 64 -%}
     {%- assign line_top = circle_size | divided_by: 2 -%}
+    {%- assign block_count = section.blocks.size | default: 3 -%}
+    {%- assign line_inset = 100 | divided_by: block_count | divided_by: 2 -%}
 
     <div class="bloomli-timeline__wrap" style="position: relative;">
       <!-- dashed connector line (desktop only) -->
-      <div class="bloomli-timeline__line" aria-hidden="true" style="position: absolute; top: {{ line_top }}px; left: 16.66%; right: 16.66%; height: 0; border-top: 2px dashed rgba(110,74,99,0.35); pointer-events: none; z-index: 0;"></div>
+      {%- if section.settings.show_connector -%}
+        <div class="bloomli-timeline__line" aria-hidden="true" style="position: absolute; top: {{ line_top }}px; left: {{ line_inset }}%; right: {{ line_inset }}%; height: 0; border-top: {{ section.settings.connector_width }}px {{ section.settings.connector_style }} {{ section.settings.connector_color }}; pointer-events: none; z-index: 1;"></div>
+      {%- endif -%}
 
-      <div class="bloomli-timeline__grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+      <div class="bloomli-timeline__grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; z-index: 2;">
         {%- for block in section.blocks -%}
-          <div class="bloomli-timeline__step" {{ block.shopify_attributes }} style="text-align: center; position: relative; z-index: 1; min-width: 0;">
-            <div class="bloomli-timeline__circle" style="width: {{ circle_size }}px; height: {{ circle_size }}px; margin: 0 auto 24px; border-radius: 999px; background: var(--pearl); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(110,74,99,0.1); overflow: hidden;">
+          <div class="bloomli-timeline__step" {{ block.shopify_attributes }} style="text-align: center; position: relative; z-index: 2; min-width: 0;">
+            <div class="bloomli-timeline__circle" style="width: {{ circle_size }}px; height: {{ circle_size }}px; margin: 0 auto 24px; border-radius: 999px; background: var(--pearl); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(110,74,99,0.1); overflow: hidden; position: relative; z-index: 3;">
               {%- if block.settings.image != blank -%}
                 <img
                   class="bloomli-timeline__icon-img"
@@ -86,6 +90,15 @@
     { "type": "header", "content": "Icon sizing (applies to both SVG and uploaded images)" },
     { "type": "range", "id": "circle_size", "label": "Circle size", "min": 60, "max": 180, "step": 4, "default": 100, "unit": "px" },
     { "type": "range", "id": "icon_size", "label": "Icon size inside circle", "min": 24, "max": 160, "step": 2, "default": 64, "unit": "px" },
+    { "type": "header", "content": "Connector line" },
+    { "type": "checkbox", "id": "show_connector", "label": "Show connector line", "default": true },
+    { "type": "color", "id": "connector_color", "label": "Connector color", "default": "#D6C7BC" },
+    { "type": "select", "id": "connector_style", "label": "Connector style", "options": [
+      { "value": "dashed", "label": "Dashed" },
+      { "value": "dotted", "label": "Dotted" },
+      { "value": "solid", "label": "Solid" }
+    ], "default": "dashed" },
+    { "type": "range", "id": "connector_width", "label": "Connector width", "min": 1, "max": 4, "step": 1, "default": 1, "unit": "px" },
     { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 48, "max": 160, "step": 8, "default": 128 },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 48, "max": 160, "step": 8, "default": 128 }

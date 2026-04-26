@@ -15,10 +15,14 @@
 
     <div class="bloomli-formula-list__grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px;">
       {%- for block in section.blocks -%}
+        {%- if block.settings.is_proof -%}
+          {%- continue -%}
+        {%- endif -%}
         <div class="bloomli-formula-list__item" {{ block.shopify_attributes }} style="display: grid; grid-template-columns: {{ section.settings.icon_size }}px 1fr; gap: 20px; align-items: center; padding: 30px 0; border-bottom: 1px solid rgba(110,74,99,0.16); min-width: 0;">
           <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {{ block.settings.icon_background }}; color: {{ block.settings.icon_color }}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
             {%- if block.settings.image != blank -%}
-              <img src="{{ block.settings.image | image_url: width: 180 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.icon_size }}" height="{{ section.settings.icon_size }}" loading="lazy" style="width: 70%; height: 70%; object-fit: contain;">
+              {%- assign image_scale = block.settings.image_scale | divided_by: 100.0 -%}
+              <img src="{{ block.settings.image | image_url: width: 240 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.icon_size }}" height="{{ section.settings.icon_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
             {%- else -%}
               <svg width="30" height="30" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 {%- case block.settings.icon -%}
@@ -40,6 +44,47 @@
         </div>
       {%- endfor -%}
     </div>
+
+    {%- assign has_proof = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.settings.is_proof -%}
+        {%- assign has_proof = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if has_proof -%}
+      <div class="bloomli-formula-list__proof-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; margin-top: 58px; padding-top: 48px; border-top: 1px solid rgba(110,74,99,0.16);">
+        {%- for block in section.blocks -%}
+          {%- unless block.settings.is_proof -%}
+            {%- continue -%}
+          {%- endunless -%}
+          <div class="bloomli-formula-list__item bloomli-formula-list__item--proof" {{ block.shopify_attributes }} style="display: grid; grid-template-columns: {{ section.settings.icon_size }}px 1fr; gap: 20px; align-items: center; padding: 0; min-width: 0;">
+            <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {{ block.settings.icon_background }}; color: {{ block.settings.icon_color }}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
+              {%- if block.settings.image != blank -%}
+                {%- assign image_scale = block.settings.image_scale | divided_by: 100.0 -%}
+                <img src="{{ block.settings.image | image_url: width: 240 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.icon_size }}" height="{{ section.settings.icon_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
+              {%- else -%}
+                <svg width="30" height="30" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  {%- case block.settings.icon -%}
+                    {%- when 'leaf' -%}<path d="M18 56c0-22 18-38 42-38 0 24-16 42-42 42"/><path d="M18 56c10-12 20-22 42-38"/>
+                    {%- when 'palm' -%}<path d="M40 68V28"/><path d="M40 28c-10-11-20-10-28 0"/><path d="M40 28c10-11 20-10 28 0"/><path d="M40 34c-8-7-16-7-22 1"/><path d="M40 34c8-7 16-7 22 1"/>
+                    {%- when 'drop' -%}<path d="M40 68c-12-8-18-18-18-30 0-12 8-22 18-30 10 8 18 18 18 30 0 12-6 22-18 30z"/><path d="M32 44c5-3 11-3 16 0"/>
+                    {%- when 'root' -%}<path d="M40 64V34"/><path d="M40 42c-10-10-18-9-26 0"/><path d="M40 42c10-10 18-9 26 0"/><circle cx="24" cy="56" r="5"/><circle cx="56" cy="56" r="5"/>
+                    {%- when 'zinc' -%}<circle cx="40" cy="40" r="24"/><path d="M28 36h24M28 44h24"/><text x="40" y="44" text-anchor="middle" font-size="11" fill="currentColor" stroke="none">Zn</text>
+                    {%- when 'spark' -%}<path d="M40 12v18M40 50v18M12 40h18M50 40h18"/><path d="M24 24l10 10M46 46l10 10M56 24 46 34M34 46 24 56"/>
+                    {%- when 'tested' -%}<rect x="18" y="12" width="44" height="56" rx="4"/><path d="M26 28h28M26 40h18M26 52h28"/><text x="40" y="62" text-anchor="middle" font-size="8" fill="currentColor" stroke="none">TESTED</text>
+                  {%- endcase -%}
+                </svg>
+              {%- endif -%}
+            </div>
+            <div>
+              <div class="smallcaps" style="color: var(--aubergine); font-size: 11px; margin-bottom: 10px;">{{ block.settings.title }}</div>
+              <div style="font-size: 15px; line-height: 1.55; color: var(--charcoal);">{{ block.settings.text }}</div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -48,7 +93,9 @@
     .bloomli-formula-list { padding: 56px 20px !important; }
     .bloomli-formula-list__header { margin-bottom: 32px !important; }
     .bloomli-formula-list__heading { font-size: 36px !important; }
-    .bloomli-formula-list__grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+    .bloomli-formula-list__grid,
+    .bloomli-formula-list__proof-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+    .bloomli-formula-list__proof-grid { margin-top: 32px !important; padding-top: 24px !important; }
     .bloomli-formula-list__item { grid-template-columns: {{ section.settings.icon_size_mobile }}px 1fr !important; gap: 16px !important; padding: 22px 0 !important; }
     .bloomli-formula-list__icon { width: {{ section.settings.icon_size_mobile }}px !important; height: {{ section.settings.icon_size_mobile }}px !important; }
   }
@@ -77,6 +124,8 @@
       "name": "Ingredient / proof item",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Custom icon image" },
+        { "type": "range", "id": "image_scale", "label": "Uploaded image scale", "min": 70, "max": 140, "step": 5, "default": 100, "unit": "%" },
+        { "type": "checkbox", "id": "is_proof", "label": "Proof item", "default": false },
         { "type": "select", "id": "icon", "label": "Default SVG icon", "options": [
           { "value": "leaf", "label": "Leaf" },
           { "value": "palm", "label": "Palm" },
@@ -102,7 +151,8 @@
         { "type": "item", "settings": { "icon": "drop", "title": "Marine Collagen", "text": "Sustainably sourced amino acids for elasticity and shine." } },
         { "type": "item", "settings": { "icon": "root", "title": "Ashwagandha", "text": "Adaptogen that quiets stress-related shedding." } },
         { "type": "item", "settings": { "icon": "zinc", "title": "Zinc", "text": "Essential mineral that supports a calm, healthy scalp environment." } },
-        { "type": "item", "settings": { "icon": "tested", "title": "Independently verified", "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.", "icon_background": "#FDFAF7", "icon_color": "#6E4A63" } }
+        { "type": "item", "settings": { "icon": "spark", "title": "Delightfully tasty", "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.", "icon_background": "#FDFAF7", "icon_color": "#6E4A63", "is_proof": true } },
+        { "type": "item", "settings": { "icon": "tested", "title": "Independently verified", "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.", "icon_background": "#FDFAF7", "icon_color": "#6E4A63", "is_proof": true } }
       ]
     }
   ]

@@ -334,10 +334,10 @@
   grid-auto-flow: column;
   grid-auto-columns: calc((100% - (var(--br-card-gap, 20px) * 2)) / 3);
   gap: var(--br-card-gap, 20px);
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: none;
   scroll-behavior: auto;
   scrollbar-width: none;
   padding-bottom: 2px;
@@ -469,6 +469,8 @@
   .bloomli-reviews__track {
     grid-auto-columns: minmax(280px, 86%);
     gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
     margin-left: -2px;
     padding-left: 2px;
     padding-right: 20px;
@@ -709,17 +711,27 @@ input[type="text"] {
 /* Targets the announcement bar section in the header group (which has
    shopify-section-group-header-group but NOT section-header) */
 .announcement-bar-section.shopify-section-group-header-group {
-  position: sticky !important;
+  position: fixed !important;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 20;
 }
 
 /* Push the sticky header below the announcement bar.
    --bloomli-announcement-height is set in JS (theme.liquid) */
 .section-header.shopify-section-group-header-group {
-  position: sticky !important;
+  position: fixed !important;
   top: var(--bloomli-announcement-height, 0px) !important;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 19;
+}
+
+#MainContent {
+  padding-top: var(--bloomli-header-stack-height, 0px);
 }
 
 .shopify-section-header-sticky {

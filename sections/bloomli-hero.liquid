@@ -71,12 +71,12 @@
           loading="lazy"
           width="{{ section.settings.bottle_width_desktop }}"
           height="{{ section.settings.bottle_width_desktop | times: section.settings.product_image.height | divided_by: section.settings.product_image.width | round }}"
-          style="position: absolute; left: {{ section.settings.bottle_x_desktop }}px; bottom: {{ section.settings.bottle_y_desktop }}px; transform: rotate({{ section.settings.bottle_rotation }}deg); width: {{ section.settings.bottle_width_desktop }}px; height: auto; max-width: none; object-fit: contain; filter: drop-shadow(0 20px 30px var(--bloomli-shadow-color));"
+          style="position: absolute; left: {{ section.settings.bottle_x_desktop }}px; bottom: {{ section.settings.bottle_y_desktop }}px; transform: rotate({{ section.settings.bottle_rotation }}deg); width: {{ section.settings.bottle_width_desktop }}px; height: auto; max-width: none; object-fit: contain;"
         >
       {%- endif -%}
 
       <!-- Floating blur accent -->
-      <div aria-hidden="true" style="position: absolute; right: -60px; top: 60px; width: 140px; height: 140px; border-radius: 50%; background: var(--bloomli-surface); filter: blur(40px); pointer-events: none;"></div>
+      <div aria-hidden="true" style="position: absolute; right: -60px; top: 60px; width: 140px; height: 140px; border-radius: 50%; background: var(--bloomli-surface); opacity: 0.55; pointer-events: none;"></div>
     </div>
 
   </div>

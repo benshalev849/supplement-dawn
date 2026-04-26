@@ -1,0 +1,459 @@
+<section
+  class="bloomli-formula-gallery color-{{ section.settings.color_scheme }}"
+  style="
+    --bfg-bg: {{ section.settings.background_color }};
+    --bfg-circle: {{ section.settings.image_size }}px;
+    --bfg-circle-mobile: {{ section.settings.image_size_mobile }}px;
+    --bfg-proof-icon: {{ section.settings.proof_icon_size }}px;
+    --bfg-proof-icon-mobile: {{ section.settings.proof_icon_size_mobile }}px;
+    --bfg-gap-x: {{ section.settings.column_gap }}px;
+    --bfg-gap-y: {{ section.settings.row_gap }}px;
+    padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;
+    background: var(--bfg-bg);
+  "
+>
+  <div class="bloomli-formula-gallery__inner" style="max-width: {{ section.settings.content_width }}px; margin: 0 auto;">
+    <div class="bloomli-formula-gallery__header bloomli-formula-gallery__header--{{ section.settings.header_alignment }}">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="smallcaps bloomli-formula-gallery__eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.heading_line1 != blank or section.settings.heading_line2 != blank -%}
+        <h2 class="bloomli-formula-gallery__heading">
+          {{ section.settings.heading_line1 }}
+          {%- if section.settings.heading_line2 != blank -%}
+            <br><span>{{ section.settings.heading_line2 }}</span>
+          {%- endif -%}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.copy != blank -%}
+        <div class="bloomli-formula-gallery__copy">{{ section.settings.copy }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="bloomli-formula-gallery__grid bloomli-formula-gallery__grid--{{ section.settings.desktop_columns }}">
+      {%- for block in section.blocks -%}
+        {%- unless block.settings.is_proof -%}
+          <article class="bloomli-formula-gallery__item" {{ block.shopify_attributes }}>
+            <div
+              class="bloomli-formula-gallery__media"
+              style="
+                --bfg-item-bg: {{ block.settings.circle_color }};
+                --bfg-icon-color: {{ block.settings.icon_color }};
+                {% if block.settings.image == blank %}--bfg-placeholder-lines: repeating-linear-gradient(135deg, rgba(110,74,99,0.08) 0 1px, transparent 1px 18px);{% endif %}
+              "
+            >
+              {%- if block.settings.image != blank -%}
+                {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 720 }}"
+                  alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
+                  width="{{ section.settings.image_size }}"
+                  height="{{ section.settings.image_size }}"
+                  loading="lazy"
+                  style="--bfg-image-scale: {{ image_scale }};"
+                >
+              {%- else -%}
+                <svg width="54" height="54" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  {%- case block.settings.icon -%}
+                    {%- when 'leaf' -%}<path d="M18 56c0-22 18-38 42-38 0 24-16 42-42 42"/><path d="M18 56c10-12 20-22 42-38"/>
+                    {%- when 'palm' -%}<path d="M40 68V28"/><path d="M40 28c-10-11-20-10-28 0"/><path d="M40 28c10-11 20-10 28 0"/><path d="M40 34c-8-7-16-7-22 1"/><path d="M40 34c8-7 16-7 22 1"/>
+                    {%- when 'drop' -%}<path d="M40 68c-12-8-18-18-18-30 0-12 8-22 18-30 10 8 18 18 18 30 0 12-6 22-18 30z"/><path d="M32 44c5-3 11-3 16 0"/>
+                    {%- when 'root' -%}<path d="M40 64V34"/><path d="M40 42c-10-10-18-9-26 0"/><path d="M40 42c10-10 18-9 26 0"/><circle cx="24" cy="56" r="5"/><circle cx="56" cy="56" r="5"/>
+                    {%- when 'zinc' -%}<circle cx="40" cy="40" r="24"/><path d="M28 36h24M28 44h24"/><text x="40" y="44" text-anchor="middle" font-size="11" fill="currentColor" stroke="none">Zn</text>
+                    {%- when 'spark' -%}<path d="M40 12v18M40 50v18M12 40h18M50 40h18"/><path d="M24 24l10 10M46 46l10 10M56 24 46 34M34 46 24 56"/>
+                    {%- when 'tested' -%}<rect x="18" y="12" width="44" height="56" rx="4"/><path d="M26 28h28M26 40h18M26 52h28"/><text x="40" y="62" text-anchor="middle" font-size="8" fill="currentColor" stroke="none">TESTED</text>
+                  {%- endcase -%}
+                </svg>
+                {%- if block.settings.photo_label != blank -%}
+                  <span class="smallcaps bloomli-formula-gallery__placeholder-label">{{ block.settings.photo_label }}</span>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+
+            <div class="bloomli-formula-gallery__body">
+              <div class="bloomli-formula-gallery__meta">
+                {%- if block.settings.title != blank -%}
+                  <h3>{{ block.settings.title }}</h3>
+                {%- endif -%}
+                {%- if block.settings.amount != blank -%}
+                  <span class="smallcaps">{{ block.settings.amount }}</span>
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.text != blank -%}
+                <div class="bloomli-formula-gallery__text">{{ block.settings.text }}</div>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endunless -%}
+      {%- endfor -%}
+    </div>
+
+    {%- assign has_proof = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.settings.is_proof -%}
+        {%- assign has_proof = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if has_proof -%}
+      <div class="bloomli-formula-gallery__proof-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.is_proof -%}
+            <article class="bloomli-formula-gallery__proof-item" {{ block.shopify_attributes }}>
+              <div
+                class="bloomli-formula-gallery__proof-media"
+                style="--bfg-proof-bg: {{ block.settings.circle_color }}; --bfg-proof-color: {{ block.settings.icon_color }};"
+              >
+                {%- if block.settings.image != blank -%}
+                  {%- assign proof_image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
+                  <img
+                    src="{{ block.settings.image | image_url: width: 320 }}"
+                    alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
+                    width="{{ section.settings.proof_icon_size }}"
+                    height="{{ section.settings.proof_icon_size }}"
+                    loading="lazy"
+                    style="--bfg-image-scale: {{ proof_image_scale }};"
+                  >
+                {%- else -%}
+                  <svg width="32" height="32" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    {%- case block.settings.icon -%}
+                      {%- when 'leaf' -%}<path d="M18 56c0-22 18-38 42-38 0 24-16 42-42 42"/><path d="M18 56c10-12 20-22 42-38"/>
+                      {%- when 'palm' -%}<path d="M40 68V28"/><path d="M40 28c-10-11-20-10-28 0"/><path d="M40 28c10-11 20-10 28 0"/><path d="M40 34c-8-7-16-7-22 1"/><path d="M40 34c8-7 16-7 22 1"/>
+                      {%- when 'drop' -%}<path d="M40 68c-12-8-18-18-18-30 0-12 8-22 18-30 10 8 18 18 18 30 0 12-6 22-18 30z"/><path d="M32 44c5-3 11-3 16 0"/>
+                      {%- when 'root' -%}<path d="M40 64V34"/><path d="M40 42c-10-10-18-9-26 0"/><path d="M40 42c10-10 18-9 26 0"/><circle cx="24" cy="56" r="5"/><circle cx="56" cy="56" r="5"/>
+                      {%- when 'zinc' -%}<circle cx="40" cy="40" r="24"/><path d="M28 36h24M28 44h24"/><text x="40" y="44" text-anchor="middle" font-size="11" fill="currentColor" stroke="none">Zn</text>
+                      {%- when 'spark' -%}<path d="M40 12v18M40 50v18M12 40h18M50 40h18"/><path d="M24 24l10 10M46 46l10 10M56 24 46 34M34 46 24 56"/>
+                      {%- when 'tested' -%}<rect x="18" y="12" width="44" height="56" rx="4"/><path d="M26 28h28M26 40h18M26 52h28"/><text x="40" y="62" text-anchor="middle" font-size="8" fill="currentColor" stroke="none">TESTED</text>
+                    {%- endcase -%}
+                  </svg>
+                {%- endif -%}
+              </div>
+
+              <div>
+                {%- if block.settings.title != blank -%}
+                  <div class="smallcaps bloomli-formula-gallery__proof-title">{{ block.settings.title }}</div>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="bloomli-formula-gallery__text">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .bloomli-formula-gallery__header {
+    max-width: {{ section.settings.header_width }}px;
+    margin: 0 0 66px;
+  }
+
+  .bloomli-formula-gallery__header--center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bloomli-formula-gallery__header--right {
+    text-align: right;
+    margin-left: auto;
+  }
+
+  .bloomli-formula-gallery__eyebrow {
+    color: var(--bfg-icon-color, var(--aubergine));
+    margin-bottom: 18px;
+  }
+
+  .bloomli-formula-gallery__heading {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'SOFT' 100;
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.05;
+    font-weight: 400;
+    margin: 0 0 24px;
+    color: var(--charcoal);
+  }
+
+  .bloomli-formula-gallery__heading span {
+    font-style: italic;
+  }
+
+  .bloomli-formula-gallery__copy {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--charcoal);
+  }
+
+  .bloomli-formula-gallery__grid {
+    display: grid;
+    gap: var(--bfg-gap-y) var(--bfg-gap-x);
+  }
+
+  .bloomli-formula-gallery__grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bloomli-formula-gallery__grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .bloomli-formula-gallery__item {
+    display: grid;
+    grid-template-columns: var(--bfg-circle) minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .bloomli-formula-gallery__media {
+    width: var(--bfg-circle);
+    aspect-ratio: 1 / 1;
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    color: var(--aubergine);
+    background-color: var(--bfg-item-bg);
+    background-image: var(--bfg-placeholder-lines, none);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bloomli-formula-gallery__media img,
+  .bloomli-formula-gallery__proof-media img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+    transform: scale(var(--bfg-image-scale, 1));
+    transform-origin: center;
+    display: block;
+  }
+
+  .bloomli-formula-gallery__placeholder-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(253,250,247,0.78);
+    color: rgba(110,74,99,0.55);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+
+  .bloomli-formula-gallery__meta {
+    margin-bottom: 12px;
+  }
+
+  .bloomli-formula-gallery__meta h3 {
+    font-family: 'Fraunces', serif;
+    font-size: {{ section.settings.title_size }}px;
+    line-height: 1.12;
+    font-weight: 400;
+    margin: 0 0 8px;
+    color: var(--charcoal);
+  }
+
+  .bloomli-formula-gallery__meta span {
+    color: rgba(110,74,99,0.72);
+    font-size: 10px;
+  }
+
+  .bloomli-formula-gallery__text {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--charcoal);
+  }
+
+  .bloomli-formula-gallery__proof-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 56px;
+    margin-top: 58px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(110,74,99,0.16);
+  }
+
+  .bloomli-formula-gallery__proof-item {
+    display: grid;
+    grid-template-columns: var(--bfg-proof-icon) minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .bloomli-formula-gallery__proof-media {
+    width: var(--bfg-proof-icon);
+    aspect-ratio: 1 / 1;
+    border-radius: 999px;
+    background: var(--bfg-proof-bg);
+    color: var(--bfg-proof-color);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bloomli-formula-gallery__proof-title {
+    color: var(--aubergine);
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 989px) {
+    .bloomli-formula-gallery__grid--3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 749px) {
+    .bloomli-formula-gallery {
+      padding: 64px 20px !important;
+    }
+
+    .bloomli-formula-gallery__header,
+    .bloomli-formula-gallery__header--center,
+    .bloomli-formula-gallery__header--right {
+      text-align: left;
+      margin: 0 0 36px !important;
+      max-width: none !important;
+    }
+
+    .bloomli-formula-gallery__heading {
+      font-size: {{ section.settings.heading_size_mobile }}px !important;
+    }
+
+    .bloomli-formula-gallery__grid,
+    .bloomli-formula-gallery__grid--2,
+    .bloomli-formula-gallery__grid--3 {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+    }
+
+    .bloomli-formula-gallery__item {
+      grid-template-columns: var(--bfg-circle-mobile) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .bloomli-formula-gallery__media {
+      width: var(--bfg-circle-mobile);
+    }
+
+    .bloomli-formula-gallery__meta h3 {
+      font-size: {{ section.settings.title_size_mobile }}px !important;
+    }
+
+    .bloomli-formula-gallery__proof-grid {
+      grid-template-columns: 1fr !important;
+      gap: 24px !important;
+      margin-top: 36px !important;
+      padding-top: 28px !important;
+    }
+
+    .bloomli-formula-gallery__proof-item {
+      grid-template-columns: var(--bfg-proof-icon-mobile) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .bloomli-formula-gallery__proof-media {
+      width: var(--bfg-proof-icon-mobile);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .bloomli-formula-gallery__item {
+      grid-template-columns: 1fr;
+    }
+
+    .bloomli-formula-gallery__media {
+      margin-bottom: 2px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Bloomli - Formula Gallery",
+  "tag": "div",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#F2D4D0" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The goods inside" },
+    { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Five ingredients," },
+    { "type": "text", "id": "heading_line2", "label": "Heading line 2", "default": "doing the quiet work." },
+    { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>" },
+    { "type": "select", "id": "header_alignment", "label": "Header alignment", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "right", "label": "Right" }
+    ], "default": "left" },
+    { "type": "select", "id": "desktop_columns", "label": "Ingredient columns", "options": [
+      { "value": "2", "label": "Two" },
+      { "value": "3", "label": "Three" }
+    ], "default": "2" },
+    { "type": "range", "id": "content_width", "label": "Content width", "min": 960, "max": 1440, "step": 40, "default": 1120, "unit": "px" },
+    { "type": "range", "id": "header_width", "label": "Header width", "min": 440, "max": 840, "step": 40, "default": 600, "unit": "px" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 36, "max": 72, "step": 2, "default": 52, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 30, "max": 48, "step": 2, "default": 36, "unit": "px" },
+    { "type": "range", "id": "title_size", "label": "Ingredient title desktop", "min": 20, "max": 36, "step": 2, "default": 26, "unit": "px" },
+    { "type": "range", "id": "title_size_mobile", "label": "Ingredient title mobile", "min": 18, "max": 30, "step": 2, "default": 22, "unit": "px" },
+    { "type": "range", "id": "image_size", "label": "Ingredient image desktop", "min": 112, "max": 240, "step": 8, "default": 168, "unit": "px" },
+    { "type": "range", "id": "image_size_mobile", "label": "Ingredient image mobile", "min": 88, "max": 160, "step": 8, "default": 112, "unit": "px" },
+    { "type": "range", "id": "proof_icon_size", "label": "Proof icon desktop", "min": 48, "max": 96, "step": 4, "default": 64, "unit": "px" },
+    { "type": "range", "id": "proof_icon_size_mobile", "label": "Proof icon mobile", "min": 40, "max": 80, "step": 4, "default": 56, "unit": "px" },
+    { "type": "range", "id": "column_gap", "label": "Column gap", "min": 24, "max": 96, "step": 8, "default": 56, "unit": "px" },
+    { "type": "range", "id": "row_gap", "label": "Row gap", "min": 24, "max": 80, "step": 8, "default": 48, "unit": "px" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 48, "max": 176, "step": 8, "default": 112, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 48, "max": 176, "step": 8, "default": 112, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Ingredient / proof",
+      "settings": [
+        { "type": "checkbox", "id": "is_proof", "label": "Proof item", "default": false },
+        { "type": "image_picker", "id": "image", "label": "Ingredient or proof image" },
+        { "type": "range", "id": "image_scale", "label": "Uploaded image scale", "min": 70, "max": 150, "step": 5, "default": 100, "unit": "%" },
+        { "type": "color", "id": "circle_color", "label": "Circle / placeholder color", "default": "#FDFAF7" },
+        { "type": "color", "id": "icon_color", "label": "Default icon color", "default": "#6E4A63" },
+        { "type": "text", "id": "photo_label", "label": "Placeholder label", "default": "Raw ingredient" },
+        { "type": "select", "id": "icon", "label": "Default SVG icon", "options": [
+          { "value": "leaf", "label": "Leaf" },
+          { "value": "palm", "label": "Palm" },
+          { "value": "drop", "label": "Drop" },
+          { "value": "root", "label": "Root" },
+          { "value": "zinc", "label": "Zinc" },
+          { "value": "spark", "label": "Spark" },
+          { "value": "tested", "label": "Tested badge" }
+        ], "default": "leaf" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Biotin" },
+        { "type": "text", "id": "amount", "label": "Amount", "default": "2500 MCG" },
+        { "type": "textarea", "id": "text", "label": "Benefit text", "default": "The keratin building block - clinically dosed for strand strength you can actually feel." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli - Formula Gallery",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "leaf", "title": "Biotin", "amount": "2500 MCG", "text": "The keratin building block - clinically dosed for strand strength you can actually feel.", "photo_label": "Raw biotin - powder" } },
+        { "type": "item", "settings": { "icon": "palm", "title": "Saw Palmetto", "amount": "160 MG", "text": "A plant-based DHT balancer that keeps follicles happy at the root.", "photo_label": "Saw palmetto - berry" } },
+        { "type": "item", "settings": { "icon": "drop", "title": "Marine Collagen", "amount": "500 MG", "text": "Sustainably sourced amino acids for elasticity and shine.", "photo_label": "Marine collagen - flake" } },
+        { "type": "item", "settings": { "icon": "root", "title": "Ashwagandha", "amount": "300 MG", "text": "Adaptogen that quiets stress-related shedding.", "photo_label": "Ashwagandha - root" } },
+        { "type": "item", "settings": { "icon": "zinc", "title": "Zinc", "amount": "8 MG", "text": "Essential mineral that supports a calm, healthy scalp environment.", "photo_label": "Zinc - mineral" } },
+        { "type": "item", "settings": { "icon": "spark", "title": "Delightfully tasty", "amount": "", "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.", "circle_color": "#FDFAF7", "is_proof": true } },
+        { "type": "item", "settings": { "icon": "tested", "title": "Independently verified", "amount": "", "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.", "circle_color": "#FDFAF7", "is_proof": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

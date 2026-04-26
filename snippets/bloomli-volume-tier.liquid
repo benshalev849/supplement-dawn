@@ -15,16 +15,18 @@
 
 {%- liquid
   assign uid = section_id | append: '-' | append: block.id
-  assign sp_group = product.selling_plan_groups | first
+
+  assign total_plans = 0
+  for grp in product.selling_plan_groups
+    assign total_plans = total_plans | plus: grp.selling_plans.size
+  endfor
   assign has_plans = false
-  if sp_group and sp_group.selling_plans.size > 0
+  if total_plans > 0
     assign has_plans = true
   endif
 
   assign unit_price = product.selected_or_first_available_variant.price
   assign unit_compare = product.selected_or_first_available_variant.compare_at_price | default: unit_price
-
-  assign sub_pct = block.settings.subscription_discount_pct | default: 0
 
   assign default_idx = -1
 -%}
@@ -37,7 +39,6 @@
      data-unit-compare="{{ unit_compare }}"
      data-currency="{{ shop.currency }}"
      data-money-format="{{ shop.money_format | escape }}"
-     data-sub-discount-pct="{{ sub_pct }}"
      {{ block.shopify_attributes }}>
 
   {%- if block.settings.eyebrow != blank -%}
@@ -60,6 +61,8 @@
             assign badge = block.settings.tier_1_badge
             assign tag = block.settings.tier_1_tag
             assign discount_pct = block.settings.tier_1_discount_pct | default: 0
+            assign sub_discount_pct = block.settings.tier_1_sub_discount_pct | default: 0
+            assign plan_prefix = block.settings.tier_1_plan_prefix
             assign is_default = block.settings.tier_1_default
             assign show_ship = block.settings.tier_1_show_shipping
           when 2
@@ -70,6 +73,8 @@
             assign badge = block.settings.tier_2_badge
             assign tag = block.settings.tier_2_tag
             assign discount_pct = block.settings.tier_2_discount_pct | default: 0
+            assign sub_discount_pct = block.settings.tier_2_sub_discount_pct | default: 0
+            assign plan_prefix = block.settings.tier_2_plan_prefix
             assign is_default = block.settings.tier_2_default
             assign show_ship = block.settings.tier_2_show_shipping
           when 3
@@ -80,6 +85,8 @@
             assign badge = block.settings.tier_3_badge
             assign tag = block.settings.tier_3_tag
             assign discount_pct = block.settings.tier_3_discount_pct | default: 0
+            assign sub_discount_pct = block.settings.tier_3_sub_discount_pct | default: 0
+            assign plan_prefix = block.settings.tier_3_plan_prefix
             assign is_default = block.settings.tier_3_default
             assign show_ship = block.settings.tier_3_show_shipping
           when 4
@@ -90,6 +97,8 @@
             assign badge = block.settings.tier_4_badge
             assign tag = block.settings.tier_4_tag
             assign discount_pct = block.settings.tier_4_discount_pct | default: 0
+            assign sub_discount_pct = block.settings.tier_4_sub_discount_pct | default: 0
+            assign plan_prefix = block.settings.tier_4_plan_prefix
             assign is_default = block.settings.tier_4_default
             assign show_ship = block.settings.tier_4_show_shipping
         endcase
@@ -112,6 +121,8 @@
                data-tier-index="{{ forloop.index0 }}"
                data-quantity="{{ qty }}"
                data-discount-pct="{{ discount_pct }}"
+               data-sub-discount-pct="{{ sub_discount_pct }}"
+               data-plan-prefix="{{ plan_prefix | escape }}"
                data-one-time-cents="{{ one_time_total_cents }}"
                data-line-compare-cents="{{ line_compare }}">
           <input type="radio"
@@ -187,8 +198,10 @@
               {%- endif -%}
             </span>
             <select class="bloomli-vt__sub-select" data-vt-sub-select aria-label="Subscription frequency">
-              {%- for plan in sp_group.selling_plans -%}
-                <option value="{{ plan.id }}">{{ plan.name }}</option>
+              {%- for grp in product.selling_plan_groups -%}
+                {%- for plan in grp.selling_plans -%}
+                  <option value="{{ plan.id }}" data-plan-name="{{ plan.name | escape }}">{{ plan.name }}</option>
+                {%- endfor -%}
               {%- endfor -%}
             </select>
           </label>
@@ -505,7 +518,6 @@
     const totalEl = root.querySelector('[data-vt-total]');
     const compareEl = root.querySelector('[data-vt-compare]');
 
-    const subPct = parseFloat(root.dataset.subDiscountPct) || 0;
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const productFormId = root.dataset.formId;
     const productForm = productFormId ? document.getElementById(productFormId) : null;
@@ -563,13 +575,55 @@
       return opt ? opt.dataset.subMode : 'onetime';
     }
 
+    function unitPriceCents() {
+      return parseInt(root.dataset.unitPrice, 10) || 0;
+    }
+
+    function filterPlansForTier(tierPrefix) {
+      if (!subSelect) return;
+      const opts = subSelect.querySelectorAll('option');
+      const prefix = (tierPrefix || '').trim();
+      let firstVisible = null;
+      opts.forEach(function (opt) {
+        const planName = (opt.dataset.planName || opt.textContent || '').trim();
+        const matches = !prefix || planName.toLowerCase().indexOf(prefix.toLowerCase()) === 0;
+        opt.hidden = !matches;
+        opt.disabled = !matches;
+        if (matches) {
+          // strip prefix + leading separator from display
+          if (prefix) {
+            const stripped = planName.replace(new RegExp('^' + prefix.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') + '\\s*[-:–—]?\\s*', 'i'), '');
+            opt.textContent = stripped || planName;
+          } else {
+            opt.textContent = planName;
+          }
+          if (!firstVisible) firstVisible = opt;
+        }
+      });
+      if (firstVisible && (subSelect.value === '' || subSelect.selectedOptions[0]?.disabled)) {
+        subSelect.value = firstVisible.value;
+      }
+    }
+
     function updateState() {
       const card = getSelectedCard();
       if (!card) return;
-      const oneTimeCents = parseInt(card.dataset.oneTimeCents, 10) || 0;
-      const lineCompareCents = parseInt(card.dataset.lineCompareCents, 10) || 0;
       const qty = parseInt(card.dataset.quantity, 10) || 1;
+      const tierVolPct = parseFloat(card.dataset.discountPct) || 0;
+      const tierSubPct = parseFloat(card.dataset.subDiscountPct) || 0;
+      const tierPrefix = card.dataset.planPrefix || '';
       const subMode = getSelectedSubMode();
+
+      // Filter the subscription dropdown to plans matching this tier
+      filterPlansForTier(tierPrefix);
+
+      // Authoritative price math from per-tier % (avoids drift if Liquid
+      // pre-render didn't see latest tier settings)
+      const unit = unitPriceCents();
+      const baseLineCents = unit * qty;
+      const oneTimeCents = Math.round(baseLineCents * (100 - tierVolPct) / 100);
+      const subscribeCents = Math.round(baseLineCents * (100 - tierSubPct) / 100);
+      const lineCompareCents = parseInt(card.dataset.lineCompareCents, 10) || baseLineCents;
 
       // form values (authoritative override happens in the formdata listener,
       // but we mirror here for older browsers / observers).
@@ -584,14 +638,11 @@
       }
 
       // displayed total
-      let displayCents = oneTimeCents;
-      if (subMode === 'subscribe' && subPct > 0) {
-        displayCents = Math.round(oneTimeCents * (100 - subPct) / 100);
-      }
+      const displayCents = (subMode === 'subscribe') ? subscribeCents : oneTimeCents;
 
       if (totalEl) totalEl.textContent = formatMoney(displayCents);
       if (compareEl) {
-        if (subMode === 'subscribe' && subPct > 0) {
+        if (subMode === 'subscribe' && subscribeCents < oneTimeCents) {
           compareEl.textContent = formatMoney(oneTimeCents);
         } else if (lineCompareCents > displayCents) {
           compareEl.textContent = formatMoney(lineCompareCents);

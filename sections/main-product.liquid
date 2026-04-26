@@ -88,12 +88,7 @@
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
-                <div
-                  class="bloomli-app-block{% if block.type contains 'bogos-io-free-gift' %} bloomli-app-block--bogos{% elsif block.type contains 'appstle-subscription' %} bloomli-app-block--appstle{% endif %}"
-                  {{ block.shopify_attributes }}
-                >
-                  {% render block %}
-                </div>
+                {% render block %}
               {%- when 'text' -%}
                 <p
                   class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"

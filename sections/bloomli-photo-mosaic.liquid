@@ -1,0 +1,84 @@
+<section class="bloomli-photo-mosaic" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: {{ section.settings.background_color }};">
+  <div style="max-width: 1280px; margin: 0 auto;">
+    <div class="bloomli-photo-mosaic__header" style="text-align: center; margin-bottom: 52px;">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 16px;">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 class="bloomli-photo-mosaic__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 46px; line-height: 1.08; font-weight: 400; margin: 0; color: var(--charcoal);">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="bloomli-photo-mosaic__grid" style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0, 1fr)); gap: {{ section.settings.gap }}px;">
+      {%- for block in section.blocks -%}
+        <div class="bloomli-photo-mosaic__tile" {{ block.shopify_attributes }} style="aspect-ratio: 1 / 1; border-radius: {{ section.settings.radius }}px; overflow: hidden; position: relative; background-color: {{ block.settings.placeholder_color }}; background-image: repeating-linear-gradient(135deg, rgba(110,74,99,0.07) 0 1px, transparent 1px 18px);">
+          {%- if block.settings.image != blank -%}
+            <img src="{{ block.settings.image | image_url: width: 520 }}" alt="{{ block.settings.image.alt | default: block.settings.label | escape }}" width="320" height="320" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+          {%- endif -%}
+          {%- if block.settings.label != blank -%}
+            <span class="smallcaps" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(253,250,247,0.78); color: rgba(110,74,99,0.5); padding: 7px 14px; border-radius: 4px; font-size: 9px; white-space: nowrap;">{{ block.settings.label }}</span>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 749px) {
+    .bloomli-photo-mosaic { padding: 64px 20px !important; }
+    .bloomli-photo-mosaic__header { margin-bottom: 32px !important; }
+    .bloomli-photo-mosaic__heading { font-size: 34px !important; }
+    .bloomli-photo-mosaic__grid { grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0, 1fr)) !important; gap: 10px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Bloomli - Photo Mosaic",
+  "tag": "div",
+  "max_blocks": 16,
+  "settings": [
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#FDFAF7" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Verified buyers" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Photos from the ritual." },
+    { "type": "range", "id": "columns_desktop", "label": "Columns desktop", "min": 3, "max": 6, "step": 1, "default": 6 },
+    { "type": "select", "id": "columns_mobile", "label": "Columns mobile", "options": [
+      { "value": "2", "label": "2" },
+      { "value": "3", "label": "3" }
+    ], "default": "2" },
+    { "type": "range", "id": "gap", "label": "Gap desktop", "min": 0, "max": 24, "step": 2, "default": 10, "unit": "px" },
+    { "type": "range", "id": "radius", "label": "Corner radius", "min": 0, "max": 24, "step": 2, "default": 8, "unit": "px" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 48, "max": 180, "step": 8, "default": 96, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 48, "max": 180, "step": 8, "default": 96, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "label", "label": "Placeholder label", "default": "Photo" },
+        { "type": "color", "id": "placeholder_color", "label": "Placeholder color", "default": "#F5EDE4" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli - Photo Mosaic",
+      "blocks": [
+        { "type": "photo", "settings": { "label": "Photo 1" } },
+        { "type": "photo", "settings": { "label": "Photo 2", "placeholder_color": "#F2D4D0" } },
+        { "type": "photo", "settings": { "label": "Photo 3", "placeholder_color": "#D9CCE8" } },
+        { "type": "photo", "settings": { "label": "Photo 4" } },
+        { "type": "photo", "settings": { "label": "Photo 5" } },
+        { "type": "photo", "settings": { "label": "Photo 6", "placeholder_color": "#F2D4D0" } },
+        { "type": "photo", "settings": { "label": "Photo 7", "placeholder_color": "#D9CCE8" } },
+        { "type": "photo", "settings": { "label": "Photo 8" } },
+        { "type": "photo", "settings": { "label": "Photo 9" } },
+        { "type": "photo", "settings": { "label": "Photo 10", "placeholder_color": "#F2D4D0" } },
+        { "type": "photo", "settings": { "label": "Photo 11", "placeholder_color": "#D9CCE8" } },
+        { "type": "photo", "settings": { "label": "Photo 12" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

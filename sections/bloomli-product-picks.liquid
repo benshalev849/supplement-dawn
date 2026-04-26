@@ -1,0 +1,105 @@
+<section class="bloomli-product-picks" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: {{ section.settings.background_color }};">
+  <div style="max-width: 1280px; margin: 0 auto;">
+    <h2 class="bloomli-product-picks__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 46px; line-height: 1.08; font-weight: 400; text-align: center; margin: 0 0 64px; color: var(--charcoal);">{{ section.settings.heading }}</h2>
+
+    <div class="bloomli-product-picks__grid" style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0, 1fr)); gap: 38px;">
+      {%- for block in section.blocks -%}
+        {%- assign picked_product = block.settings.product -%}
+        <div class="bloomli-product-picks__card" {{ block.shopify_attributes }} style="min-width: 0; position: relative;">
+          {%- if block.settings.badge != blank -%}
+            <div style="position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); z-index: 2; background: var(--aubergine); color: var(--cream); border-radius: 999px; padding: 7px 13px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">{{ block.settings.badge }}</div>
+          {%- endif -%}
+
+          <a href="{{ picked_product.url | default: block.settings.link }}" style="display: block; text-decoration: none; color: inherit;">
+            <div style="height: {{ section.settings.image_box_height }}px; display: flex; align-items: center; justify-content: center; margin-bottom: 26px;">
+              {%- if block.settings.image != blank -%}
+                <img src="{{ block.settings.image | image_url: width: 520 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="260" height="260" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 16px 32px rgba(110,74,99,0.12));">
+              {%- elsif picked_product.featured_image != blank -%}
+                <img src="{{ picked_product.featured_image | image_url: width: 520 }}" alt="{{ picked_product.featured_image.alt | default: picked_product.title | escape }}" width="260" height="260" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 16px 32px rgba(110,74,99,0.12));">
+              {%- else -%}
+                <svg width="180" height="220" viewBox="0 0 180 220" fill="none" aria-hidden="true">
+                  <rect x="58" y="18" width="64" height="24" rx="4" fill="#6E4A63"/>
+                  <rect x="68" y="42" width="44" height="22" fill="#6E4A63" opacity="0.82"/>
+                  <rect x="46" y="62" width="88" height="134" rx="14" fill="#FDFAF7" stroke="#E5D8CE"/>
+                  <rect x="62" y="96" width="56" height="70" rx="4" fill="#6E4A63"/>
+                  <text x="90" y="125" text-anchor="middle" fill="#FDFAF7" font-size="13" font-family="serif">Root</text>
+                  <text x="90" y="143" text-anchor="middle" fill="#FDFAF7" font-size="15" font-family="serif" font-style="italic">Ritual</text>
+                </svg>
+              {%- endif -%}
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end;">
+              <div>
+                <h3 style="font-family: 'Fraunces', serif; font-size: 21px; line-height: 1.15; font-weight: 400; margin: 0 0 12px; color: var(--charcoal);">{{ block.settings.title | default: picked_product.title }}</h3>
+                {%- if block.settings.show_stars -%}
+                  <div style="color: var(--aubergine); font-size: 12px; letter-spacing: 1px;" aria-label="Five star rating">★★★★★</div>
+                {%- endif -%}
+              </div>
+              <div style="font-size: 14px; color: var(--aubergine); white-space: nowrap;">
+                {%- if block.settings.price != blank -%}
+                  {{ block.settings.price }}
+                {%- elsif picked_product.price != blank -%}
+                  {{ picked_product.price | money_without_trailing_zeros }}
+                {%- endif -%}
+              </div>
+            </div>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 749px) {
+    .bloomli-product-picks { padding: 64px 20px !important; }
+    .bloomli-product-picks__heading { font-size: 34px !important; margin-bottom: 36px !important; }
+    .bloomli-product-picks__grid { grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0, 1fr)) !important; gap: 28px 16px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Bloomli - Product Picks",
+  "tag": "div",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#F5EDE4" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "You may also like" },
+    { "type": "range", "id": "columns_desktop", "label": "Columns desktop", "min": 2, "max": 4, "step": 1, "default": 4 },
+    { "type": "select", "id": "columns_mobile", "label": "Columns mobile", "options": [
+      { "value": "1", "label": "1" },
+      { "value": "2", "label": "2" }
+    ], "default": "2" },
+    { "type": "range", "id": "image_box_height", "label": "Image box height", "min": 160, "max": 320, "step": 10, "default": 240, "unit": "px" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 48, "max": 180, "step": 8, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 48, "max": 180, "step": 8, "default": 88, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product card",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "image_picker", "id": "image", "label": "Custom image override" },
+        { "type": "text", "id": "title", "label": "Custom title" },
+        { "type": "url", "id": "link", "label": "Fallback link if no product selected" },
+        { "type": "text", "id": "price", "label": "Custom price" },
+        { "type": "text", "id": "badge", "label": "Badge" },
+        { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli - Product Picks",
+      "blocks": [
+        { "type": "product", "settings": { "title": "Root Ritual Capsules", "price": "$48" } },
+        { "type": "product", "settings": { "title": "Root Ritual Strips", "price": "$36" } },
+        { "type": "product", "settings": { "title": "Scalp Serum", "price": "$58", "badge": "Coming soon" } },
+        { "type": "product", "settings": { "title": "Starter Duo", "price": "$68" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

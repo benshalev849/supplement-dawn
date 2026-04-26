@@ -1,0 +1,82 @@
+<section class="bloomli-ingredient-gallery" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: {{ section.settings.background_color }};">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div class="bloomli-ingredient-gallery__header" style="text-align: center; margin-bottom: 64px;">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 class="bloomli-ingredient-gallery__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0; color: var(--charcoal);">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="bloomli-ingredient-gallery__grid" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 72px 88px;">
+      {%- for block in section.blocks -%}
+        <div class="bloomli-ingredient-gallery__item" {{ block.shopify_attributes }} style="text-align: center; min-width: 0;">
+          <div class="bloomli-ingredient-gallery__media" style="width: {{ section.settings.image_size }}px; max-width: 100%; aspect-ratio: 1 / 1; margin: 0 auto 24px; border-radius: 999px; overflow: hidden; position: relative; background-color: {{ block.settings.circle_color }}; background-image: repeating-linear-gradient(135deg, rgba(110,74,99,0.08) 0 1px, transparent 1px 18px);">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 520 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.image_size }}" height="{{ section.settings.image_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            {%- endif -%}
+            {%- if block.settings.photo_label != blank -%}
+              <span class="smallcaps" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(253,250,247,0.78); color: rgba(110,74,99,0.55); padding: 6px 14px; border-radius: 4px; font-size: 9px; white-space: nowrap;">{{ block.settings.photo_label }}</span>
+            {%- endif -%}
+          </div>
+          <h3 style="font-family: 'Fraunces', serif; font-size: 25px; line-height: 1.1; font-weight: 400; margin: 0 0 10px; color: var(--charcoal);">{{ block.settings.title }}</h3>
+          {%- if block.settings.amount != blank -%}
+            <div class="smallcaps" style="color: rgba(110,74,99,0.72); font-size: 10px;">{{ block.settings.amount }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 749px) {
+    .bloomli-ingredient-gallery { padding: 64px 20px !important; }
+    .bloomli-ingredient-gallery__header { margin-bottom: 36px !important; }
+    .bloomli-ingredient-gallery__heading { font-size: 36px !important; }
+    .bloomli-ingredient-gallery__grid { grid-template-columns: 1fr 1fr !important; gap: 36px 16px !important; }
+    .bloomli-ingredient-gallery__media { width: {{ section.settings.image_size_mobile }}px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Bloomli - Ing Gallery",
+  "tag": "div",
+  "max_blocks": 9,
+  "settings": [
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#FDFAF7" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Every ingredient, photographed" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Nothing hidden." },
+    { "type": "range", "id": "image_size", "label": "Circle size desktop", "min": 160, "max": 300, "step": 10, "default": 220, "unit": "px" },
+    { "type": "range", "id": "image_size_mobile", "label": "Circle size mobile", "min": 120, "max": 220, "step": 10, "default": 150, "unit": "px" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 48, "max": 180, "step": 8, "default": 112, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 48, "max": 180, "step": 8, "default": 112, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Ingredient photo" },
+        { "type": "color", "id": "circle_color", "label": "Placeholder / tint color", "default": "#F5EDE4" },
+        { "type": "text", "id": "photo_label", "label": "Photo label", "default": "Raw ingredient" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Biotin" },
+        { "type": "text", "id": "amount", "label": "Amount", "default": "2500 MCG" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli - Ing Gallery",
+      "blocks": [
+        { "type": "ingredient", "settings": { "title": "Biotin", "amount": "2500 MCG", "photo_label": "Raw biotin - powder" } },
+        { "type": "ingredient", "settings": { "title": "Saw Palmetto", "amount": "160 MG", "photo_label": "Saw palmetto - berry" } },
+        { "type": "ingredient", "settings": { "title": "Marine Collagen", "amount": "500 MG", "photo_label": "Marine collagen - flake", "circle_color": "#F2D4D0" } },
+        { "type": "ingredient", "settings": { "title": "Ashwagandha", "amount": "300 MG", "photo_label": "Ashwagandha - root" } },
+        { "type": "ingredient", "settings": { "title": "Zinc", "amount": "8 MG", "photo_label": "Zinc - mineral", "circle_color": "#D9CCE8" } },
+        { "type": "ingredient", "settings": { "title": "Vitamin D3", "amount": "2000 IU", "photo_label": "Vitamin D3 - droplet" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

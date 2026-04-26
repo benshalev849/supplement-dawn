@@ -1,0 +1,110 @@
+<section class="bloomli-formula-list color-{{ section.settings.color_scheme }}" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: {{ section.settings.background_color }};">
+  <div class="bloomli-formula-list__inner" style="max-width: 1080px; margin: 0 auto;">
+    <div class="bloomli-formula-list__header" style="max-width: 560px; margin-bottom: 64px;">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="smallcaps" style="color: var(--aubergine); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 class="bloomli-formula-list__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0 0 24px; color: var(--charcoal);">
+        {{ section.settings.heading_line1 }}<br>
+        <span style="font-style: italic;">{{ section.settings.heading_line2 }}</span>
+      </h2>
+      {%- if section.settings.copy != blank -%}
+        <div class="bloomli-formula-list__copy" style="font-size: 17px; line-height: 1.55; color: var(--charcoal);">{{ section.settings.copy }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="bloomli-formula-list__grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px;">
+      {%- for block in section.blocks -%}
+        <div class="bloomli-formula-list__item" {{ block.shopify_attributes }} style="display: grid; grid-template-columns: {{ section.settings.icon_size }}px 1fr; gap: 20px; align-items: center; padding: 30px 0; border-bottom: 1px solid rgba(110,74,99,0.16); min-width: 0;">
+          <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {{ block.settings.icon_background }}; color: {{ block.settings.icon_color }}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 180 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.icon_size }}" height="{{ section.settings.icon_size }}" loading="lazy" style="width: 70%; height: 70%; object-fit: contain;">
+            {%- else -%}
+              <svg width="30" height="30" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                {%- case block.settings.icon -%}
+                  {%- when 'leaf' -%}<path d="M18 56c0-22 18-38 42-38 0 24-16 42-42 42"/><path d="M18 56c10-12 20-22 42-38"/>
+                  {%- when 'palm' -%}<path d="M40 68V28"/><path d="M40 28c-10-11-20-10-28 0"/><path d="M40 28c10-11 20-10 28 0"/><path d="M40 34c-8-7-16-7-22 1"/><path d="M40 34c8-7 16-7 22 1"/>
+                  {%- when 'drop' -%}<path d="M40 68c-12-8-18-18-18-30 0-12 8-22 18-30 10 8 18 18 18 30 0 12-6 22-18 30z"/><path d="M32 44c5-3 11-3 16 0"/>
+                  {%- when 'root' -%}<path d="M40 64V34"/><path d="M40 42c-10-10-18-9-26 0"/><path d="M40 42c10-10 18-9 26 0"/><circle cx="24" cy="56" r="5"/><circle cx="56" cy="56" r="5"/>
+                  {%- when 'zinc' -%}<circle cx="40" cy="40" r="24"/><path d="M28 36h24M28 44h24"/><text x="40" y="44" text-anchor="middle" font-size="11" fill="currentColor" stroke="none">Zn</text>
+                  {%- when 'spark' -%}<path d="M40 12v18M40 50v18M12 40h18M50 40h18"/><path d="M24 24l10 10M46 46l10 10M56 24 46 34M34 46 24 56"/>
+                  {%- when 'tested' -%}<rect x="18" y="12" width="44" height="56" rx="4"/><path d="M26 28h28M26 40h18M26 52h28"/><text x="40" y="62" text-anchor="middle" font-size="8" fill="currentColor" stroke="none">TESTED</text>
+                {%- endcase -%}
+              </svg>
+            {%- endif -%}
+          </div>
+          <div>
+            <div class="smallcaps" style="color: var(--aubergine); font-size: 11px; margin-bottom: 10px;">{{ block.settings.title }}</div>
+            <div style="font-size: 15px; line-height: 1.55; color: var(--charcoal);">{{ block.settings.text }}</div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 749px) {
+    .bloomli-formula-list { padding: 56px 20px !important; }
+    .bloomli-formula-list__header { margin-bottom: 32px !important; }
+    .bloomli-formula-list__heading { font-size: 36px !important; }
+    .bloomli-formula-list__grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+    .bloomli-formula-list__item { grid-template-columns: {{ section.settings.icon_size_mobile }}px 1fr !important; gap: 16px !important; padding: 22px 0 !important; }
+    .bloomli-formula-list__icon { width: {{ section.settings.icon_size_mobile }}px !important; height: {{ section.settings.icon_size_mobile }}px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Bloomli - Formula List",
+  "tag": "div",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#F2D4D0" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The goods inside" },
+    { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Five ingredients," },
+    { "type": "text", "id": "heading_line2", "label": "Heading line 2 (italic)", "default": "doing the quiet work." },
+    { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>" },
+    { "type": "range", "id": "icon_size", "label": "Icon size desktop", "min": 44, "max": 96, "step": 4, "default": 64, "unit": "px" },
+    { "type": "range", "id": "icon_size_mobile", "label": "Icon size mobile", "min": 40, "max": 80, "step": 4, "default": 56, "unit": "px" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 48, "max": 180, "step": 8, "default": 112, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 48, "max": 180, "step": 8, "default": 112, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Ingredient / proof item",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Custom icon image" },
+        { "type": "select", "id": "icon", "label": "Default SVG icon", "options": [
+          { "value": "leaf", "label": "Leaf" },
+          { "value": "palm", "label": "Palm" },
+          { "value": "drop", "label": "Drop" },
+          { "value": "root", "label": "Root" },
+          { "value": "zinc", "label": "Zinc" },
+          { "value": "spark", "label": "Spark" },
+          { "value": "tested", "label": "Tested badge" }
+        ], "default": "leaf" },
+        { "type": "color", "id": "icon_background", "label": "Icon background", "default": "#6E4A63" },
+        { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#FDFAF7" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Biotin" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "The keratin building block - clinically dosed for strand strength you can actually feel." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli - Formula List",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "leaf", "title": "Biotin", "text": "The keratin building block - clinically dosed for strand strength you can actually feel." } },
+        { "type": "item", "settings": { "icon": "palm", "title": "Saw Palmetto", "text": "A plant-based DHT balancer that keeps follicles happy at the root." } },
+        { "type": "item", "settings": { "icon": "drop", "title": "Marine Collagen", "text": "Sustainably sourced amino acids for elasticity and shine." } },
+        { "type": "item", "settings": { "icon": "root", "title": "Ashwagandha", "text": "Adaptogen that quiets stress-related shedding." } },
+        { "type": "item", "settings": { "icon": "zinc", "title": "Zinc", "text": "Essential mineral that supports a calm, healthy scalp environment." } },
+        { "type": "item", "settings": { "icon": "tested", "title": "Independently verified", "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.", "icon_background": "#FDFAF7", "icon_color": "#6E4A63" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

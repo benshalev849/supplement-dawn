@@ -283,6 +283,123 @@ a.product__text {
   margin-bottom: 0.5rem;
 }
 
+.bloomli-app-block {
+  --bloomli-app-border: rgba(110, 74, 99, 0.18);
+  --bloomli-app-border-strong: rgba(110, 74, 99, 0.8);
+  --bloomli-app-muted: rgba(42, 38, 34, 0.68);
+  margin: 2.4rem 0;
+  color: var(--charcoal);
+}
+
+.bloomli-app-block,
+.bloomli-app-block * {
+  font-family: 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+.bloomli-app-block::before {
+  display: block;
+  margin-bottom: 1.2rem;
+  color: var(--charcoal);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.08em !important;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.bloomli-app-block--appstle::before {
+  content: 'Purchase option';
+}
+
+.bloomli-app-block--bogos::before {
+  content: 'Quantity bundle';
+}
+
+.bloomli-app-block :is(h1, h2, h3, h4) {
+  margin: 0 0 0.8rem !important;
+  color: var(--charcoal) !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  text-align: left !important;
+}
+
+.bloomli-app-block :is(p, span, small, div) {
+  line-height: 1.4;
+}
+
+.bloomli-app-block :is(label, button, [role='button'], [class*='option'], [class*='Option'], [class*='card'], [class*='Card']) {
+  border-radius: 1.2rem !important;
+}
+
+.bloomli-app-block :is(label, [role='button'], [class*='option'], [class*='Option'], [class*='card'], [class*='Card']):has(input[type='radio']) {
+  border: 0.1rem solid var(--bloomli-app-border) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.bloomli-app-block :is(label, [role='button'], [class*='option'], [class*='Option'], [class*='card'], [class*='Card']):has(input[type='radio']:checked) {
+  border-color: var(--bloomli-app-border-strong) !important;
+  background: rgba(253, 250, 247, 0.48) !important;
+}
+
+.bloomli-app-block input[type='radio'] {
+  accent-color: var(--aubergine);
+}
+
+.bloomli-app-block :is(input[type='radio']::before, input[type='radio']::after) {
+  background: var(--aubergine) !important;
+  border-color: var(--aubergine) !important;
+}
+
+.bloomli-app-block :is([class*='badge'], [class*='Badge'], [class*='discount'], [class*='Discount']) {
+  border-radius: 999px !important;
+  background: var(--aubergine) !important;
+  color: var(--cream) !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  padding: 0.45rem 0.9rem !important;
+}
+
+.bloomli-app-block :is([class*='shipping'], [class*='Shipping'], [class*='freeship'], [class*='Freeship']) {
+  background: rgba(110, 74, 99, 0.08) !important;
+  color: var(--aubergine) !important;
+}
+
+.bloomli-app-block--bogos > * {
+  max-width: none !important;
+}
+
+.bloomli-app-block--bogos :is(h2, h3):first-child,
+.bloomli-app-block--bogos :is(h2, h3):first-child + p {
+  display: none !important;
+}
+
+.bloomli-app-block--bogos :is(button, [type='submit'], [class*='add'], [class*='Add']) {
+  border-radius: 999px !important;
+}
+
+@media screen and (min-width: 750px) {
+  .bloomli-app-block--bogos :is(form, ul, [class*='list'], [class*='List'], [class*='container'], [class*='Container']):has(input[type='radio']) {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .bloomli-app-block--bogos :is(label, [role='button'], [class*='option'], [class*='Option'], [class*='card'], [class*='Card']):has(input[type='radio']) {
+    min-height: 8.8rem;
+    padding: 1.6rem !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .bloomli-app-block :is(label, [role='button'], [class*='option'], [class*='Option'], [class*='card'], [class*='Card']):has(input[type='radio']) {
+    padding: 1.4rem !important;
+  }
+}
+
 .product .price--sold-out .price__badge-sale {
   display: none;
 }

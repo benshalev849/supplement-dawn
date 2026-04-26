@@ -708,14 +708,20 @@ input[type="text"] {
 /* ---- Sticky announcement bar ---- */
 /* Targets the announcement bar section in the header group (which has
    shopify-section-group-header-group but NOT section-header) */
-.shopify-section-group-header-group:not(.section-header) {
-  position: sticky;
+.announcement-bar-section.shopify-section-group-header-group {
+  position: sticky !important;
   top: 0;
-  z-index: 4;
+  z-index: 20;
 }
 
 /* Push the sticky header below the announcement bar.
    --bloomli-announcement-height is set in JS (theme.liquid) */
+.section-header.shopify-section-group-header-group {
+  position: sticky !important;
+  top: var(--bloomli-announcement-height, 0px) !important;
+  z-index: 19;
+}
+
 .shopify-section-header-sticky {
   top: var(--bloomli-announcement-height, 0px) !important;
 }

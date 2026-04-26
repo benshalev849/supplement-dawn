@@ -217,6 +217,136 @@
         "padding_top": 96,
         "padding_bottom": 96
       }
+    },
+    "bloomli_reviews_GyTkzh": {
+      "type": "bloomli-reviews",
+      "blocks": {
+        "review_YfrhBY": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
+            "name": "Priya K.",
+            "meta": "Gummies - 6 months",
+            "verified_label": "Verified"
+          }
+        },
+        "review_cAEHBb": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
+            "name": "Priya K.",
+            "meta": "Gummies - 6 months",
+            "verified_label": "Verified"
+          }
+        },
+        "review_3anYEq": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
+            "name": "Priya K.",
+            "meta": "Gummies - 6 months",
+            "verified_label": "Verified"
+          }
+        },
+        "review_Gpe3h6": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
+            "name": "Priya K.",
+            "meta": "Gummies - 6 months",
+            "verified_label": "Verified"
+          }
+        },
+        "review_nLLi94": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
+            "name": "Priya K.",
+            "meta": "Gummies - 6 months",
+            "verified_label": "Verified"
+          }
+        },
+        "review_zXimdY": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
+            "name": "Priya K.",
+            "meta": "Gummies - 6 months",
+            "verified_label": "Verified"
+          }
+        },
+        "review_48pdbW": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"Less shedding within weeks. I was skeptical - I'm not anymore.\"",
+            "name": "Leah M.",
+            "meta": "Capsules - 4 months",
+            "verified_label": "Verified"
+          }
+        },
+        "review_hbDXrg": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"The strips are my travel secret. I keep them in my bag.\"",
+            "name": "Marisol R.",
+            "meta": "Strips - 3 months",
+            "verified_label": "Verified"
+          }
+        }
+      },
+      "block_order": [
+        "review_YfrhBY",
+        "review_cAEHBb",
+        "review_3anYEq",
+        "review_Gpe3h6",
+        "review_nLLi94",
+        "review_zXimdY",
+        "review_48pdbW",
+        "review_hbDXrg"
+      ],
+      "name": "Bloomli - Reviews",
+      "settings": {
+        "eyebrow": "Verified reviews",
+        "heading": "Real women. Real results.",
+        "show_arrows": true,
+        "background_color": "#F2E7E4",
+        "card_background": "#FDFAF7",
+        "placeholder_color": "#F7F0E9",
+        "text_color": "#2A2622",
+        "accent_color": "#6E4A63",
+        "muted_color": "#7C7169",
+        "content_width": 1200,
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "card_gap": 20,
+        "card_radius": 10,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     }
   },
   "order": [
@@ -224,6 +354,7 @@
     "bloomli_trust_row_6WztPT",
     "bloomli_timeline_yFPmqr",
     "bloomli_ingredients_DdjGj4",
+    "bloomli_reviews_GyTkzh",
     "bloomli_bundle_promo_mU8URW"
   ]
 }

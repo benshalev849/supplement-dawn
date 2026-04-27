@@ -536,7 +536,63 @@
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const productFormId = root.dataset.formId;
     const productForm = productFormId ? document.getElementById(productFormId) : null;
-    let isAddingSubscription = false;
+
+    function syncAppstleWidget(values) {
+      if (!productForm) return;
+
+      const widget = productForm.querySelector('.appstle_sub_widget');
+      if (!widget) return;
+
+      widget.querySelectorAll('[data-vt-silenced="selling_plan"]').forEach(function (el) {
+        el.setAttribute('name', 'selling_plan');
+        delete el.dataset.vtSilenced;
+      });
+
+      if (spInput) {
+        spInput.value = values.selling_plan || '';
+        spInput.disabled = true;
+        spInput.removeAttribute('name');
+      }
+
+      const radios = Array.from(widget.querySelectorAll('input[type="radio"]'));
+      const oneTimeRadio = radios.find(function (radio) { return !radio.value; });
+      const subscriptionRadio =
+        radios.find(function (radio) { return String(radio.value) === String(values.selling_plan); }) ||
+        radios.find(function (radio) { return !!radio.value; });
+      const planSelect = widget.querySelector('select[id^="appstle_selling_plan"], select.appstle_select');
+
+      if (values.selling_plan) {
+        if (planSelect) {
+          planSelect.value = values.selling_plan;
+          planSelect.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+
+        if (oneTimeRadio) {
+          oneTimeRadio.checked = false;
+        }
+
+        if (subscriptionRadio) {
+          subscriptionRadio.value = values.selling_plan;
+          subscriptionRadio.setAttribute('name', 'selling_plan');
+          subscriptionRadio.checked = true;
+          subscriptionRadio.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      } else {
+        radios.forEach(function (radio) {
+          radio.checked = false;
+        });
+
+        if (oneTimeRadio) {
+          oneTimeRadio.setAttribute('name', 'selling_plan');
+          oneTimeRadio.checked = true;
+          oneTimeRadio.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }
+
+      if (window.__bloomliVtDebug) {
+        console.log('[bloomli-vt] synced appstle widget', values);
+      }
+    }
 
     // Move our hidden inputs INSIDE the actual <form> so FormData picks them up
     // reliably (the form="..." attribute association is flaky across browsers).

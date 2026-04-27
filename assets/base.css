@@ -850,27 +850,6 @@ input[type="text"] {
 
 
 /* ============================================================
-   APPSTLE — hide auto-injected product page widget.
-   We use Appstle as the subscription engine but render our own
-   subscription UI inside .bloomli-vt. The Appstle app embed JS
-   still runs (so cart/checkout subscription processing works),
-   but its visual widget is hidden so it doesn't double up.
-   ============================================================ */
-#appstle_subscription_widget,
-.appstle_sub_widget,
-.appstle_subscription_widget,
-.appstle_subscription_wrapper,
-[id^="appstle_subscription_widget"],
-[class*="appstle-subscription-widget"],
-[class*="appstle_subscription_widget"],
-appstle-subscription-widget,
-.appstle-subscription-section,
-.appstle_select_outer_div,
-.appstle_subscription_widget_outer {
-  display: none !important;
-}
-
-/* ============================================================
    END BLOOMLI TOKENS — Dawn defaults below
    ============================================================ */
 

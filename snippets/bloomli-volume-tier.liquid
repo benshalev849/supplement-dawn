@@ -1,10 +1,8 @@
 {%- comment -%}
   Bloomli Volume Tier — block snippet rendered inside main-product.liquid.
 
-  Renders 1-4 quantity tier cards + an optional subscription toggle with frequency dropdown.
-  Sets the buy-buttons form's `quantity` and `selling_plan` fields via shared `form="..."` attribute.
-
-  Reads selling plans from `product.selling_plan_groups` (e.g. populated by Appstle).
+  Renders 1-4 quantity tier cards.
+  Sets the buy-buttons form's `quantity` field via shared `form="..."` attribute.
 
   Accepts:
     block            - block object with all settings
@@ -15,15 +13,6 @@
 
 {%- liquid
   assign uid = section_id | append: '-' | append: block.id
-
-  assign total_plans = 0
-  for grp in product.selling_plan_groups
-    assign total_plans = total_plans | plus: grp.selling_plans.size
-  endfor
-  assign has_plans = false
-  if total_plans > 0
-    assign has_plans = true
-  endif
 
   assign unit_price = product.selected_or_first_available_variant.price
   assign unit_compare = product.selected_or_first_available_variant.compare_at_price | default: unit_price
@@ -62,11 +51,6 @@
             assign badge = block.settings.tier_1_badge
             assign tag = block.settings.tier_1_tag
             assign discount_pct = block.settings.tier_1_discount_pct | default: 0
-            assign sub_discount_pct = block.settings.tier_1_sub_discount_pct | default: 0
-            assign plan_prefix = block.settings.tier_1_plan_prefix
-            if plan_prefix == blank
-              assign plan_prefix = qty | append: '-pack'
-            endif
             assign is_default = block.settings.tier_1_default
             assign show_ship = block.settings.tier_1_show_shipping
           when 2
@@ -77,11 +61,6 @@
             assign badge = block.settings.tier_2_badge
             assign tag = block.settings.tier_2_tag
             assign discount_pct = block.settings.tier_2_discount_pct | default: 0
-            assign sub_discount_pct = block.settings.tier_2_sub_discount_pct | default: 0
-            assign plan_prefix = block.settings.tier_2_plan_prefix
-            if plan_prefix == blank
-              assign plan_prefix = qty | append: '-pack'
-            endif
             assign is_default = block.settings.tier_2_default
             assign show_ship = block.settings.tier_2_show_shipping
           when 3
@@ -92,11 +71,6 @@
             assign badge = block.settings.tier_3_badge
             assign tag = block.settings.tier_3_tag
             assign discount_pct = block.settings.tier_3_discount_pct | default: 0
-            assign sub_discount_pct = block.settings.tier_3_sub_discount_pct | default: 0
-            assign plan_prefix = block.settings.tier_3_plan_prefix
-            if plan_prefix == blank
-              assign plan_prefix = qty | append: '-pack'
-            endif
             assign is_default = block.settings.tier_3_default
             assign show_ship = block.settings.tier_3_show_shipping
           when 4
@@ -107,11 +81,6 @@
             assign badge = block.settings.tier_4_badge
             assign tag = block.settings.tier_4_tag
             assign discount_pct = block.settings.tier_4_discount_pct | default: 0
-            assign sub_discount_pct = block.settings.tier_4_sub_discount_pct | default: 0
-            assign plan_prefix = block.settings.tier_4_plan_prefix
-            if plan_prefix == blank
-              assign plan_prefix = qty | append: '-pack'
-            endif
             assign is_default = block.settings.tier_4_default
             assign show_ship = block.settings.tier_4_show_shipping
         endcase
@@ -135,8 +104,6 @@
                data-tier-index="{{ forloop.index0 }}"
                data-quantity="{{ qty }}"
                data-discount-pct="{{ discount_pct }}"
-               data-sub-discount-pct="{{ sub_discount_pct }}"
-               data-plan-prefix="{{ plan_prefix | escape }}"
                data-one-time-cents="{{ one_time_total_cents }}"
                data-line-compare-cents="{{ line_compare }}">
           <input type="radio"
@@ -188,42 +155,6 @@
     {%- endfor -%}
   </div>
 
-  {%- if block.settings.subscription_enabled -%}
-    <div class="bloomli-vt__sub">
-      {%- if block.settings.subscription_heading != blank -%}
-        <div class="bloomli-vt__sub-heading">{{ block.settings.subscription_heading }}</div>
-      {%- endif -%}
-
-      <div class="bloomli-vt__sub-options" role="radiogroup">
-        <label class="bloomli-vt__sub-option is-selected" data-vt-sub-option data-sub-mode="onetime">
-          <input type="radio" name="bloomli-vt-sub-{{ uid }}" value="onetime" checked class="bloomli-vt__radio">
-          <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
-          <span class="bloomli-vt__sub-label">{{ block.settings.label_one_time | default: 'One-time purchase' }}</span>
-        </label>
-
-        {%- if has_plans -%}
-          <label class="bloomli-vt__sub-option" data-vt-sub-option data-sub-mode="subscribe">
-            <input type="radio" name="bloomli-vt-sub-{{ uid }}" value="subscribe" class="bloomli-vt__radio">
-            <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
-            <span class="bloomli-vt__sub-label">
-              {{ block.settings.label_subscribe | default: 'Subscribe & save' }}
-              <span class="bloomli-vt__sub-savings" data-vt-sub-savings></span>
-            </span>
-            <select class="bloomli-vt__sub-select" data-vt-sub-select aria-label="Subscription frequency">
-              {%- for grp in product.selling_plan_groups -%}
-                {%- for plan in grp.selling_plans -%}
-                  <option value="{{ plan.id }}"
-                          data-group-name="{{ grp.name | escape }}"
-                          data-plan-name="{{ plan.name | escape }}">{{ grp.name }}</option>
-                {%- endfor -%}
-              {%- endfor -%}
-            </select>
-          </label>
-        {%- endif -%}
-      </div>
-    </div>
-  {%- endif -%}
-
   <div class="bloomli-vt__footer">
     <div class="bloomli-vt__total-row">
       <span class="bloomli-vt__total-label">{{ block.settings.total_label | default: 'Total price:' }}</span>
@@ -244,11 +175,6 @@
          value="{{ default_qty }}"
          form="{{ product_form_id }}"
          data-vt-qty-input>
-  <input type="hidden"
-         name="selling_plan"
-         value=""
-         form="{{ product_form_id }}"
-         data-vt-sp-input>
 </div>
 
 <style>
@@ -322,12 +248,10 @@
     position: relative;
     transition: border-color 0.15s ease;
   }
-  .bloomli-vt__card.is-selected .bloomli-vt__radio-visual,
-  .bloomli-vt__sub-option.is-selected .bloomli-vt__radio-visual {
+  .bloomli-vt__card.is-selected .bloomli-vt__radio-visual {
     border-color: var(--aubergine, #6E4A63);
   }
-  .bloomli-vt__card.is-selected .bloomli-vt__radio-visual::after,
-  .bloomli-vt__sub-option.is-selected .bloomli-vt__radio-visual::after {
+  .bloomli-vt__card.is-selected .bloomli-vt__radio-visual::after {
     content: "";
     position: absolute;
     inset: 3px;
@@ -411,66 +335,6 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
-  .bloomli-vt__sub {
-    margin: 8px 0 16px;
-  }
-  .bloomli-vt__sub-heading {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: rgba(42, 38, 34, 0.55);
-    margin: 0 0 8px;
-    font-weight: 500;
-  }
-  .bloomli-vt__sub-options {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .bloomli-vt__sub-option {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 12px;
-    background: #fff;
-    border: 1.5px solid rgba(110, 74, 99, 0.12);
-    border-radius: 10px;
-    padding: 12px 14px;
-    cursor: pointer;
-    transition: border-color 0.15s ease, background 0.15s ease;
-  }
-  .bloomli-vt__sub-option:hover { border-color: rgba(110, 74, 99, 0.4); }
-  .bloomli-vt__sub-option.is-selected {
-    border-color: var(--aubergine, #6E4A63);
-    background: rgba(110, 74, 99, 0.04);
-  }
-  .bloomli-vt__sub-label {
-    font-size: 14px;
-    color: var(--charcoal, #2A2622);
-  }
-  .bloomli-vt__sub-savings {
-    font-size: 12px;
-    color: var(--aubergine, #6E4A63);
-    font-weight: 500;
-    margin-left: 4px;
-  }
-  .bloomli-vt__sub-select {
-    appearance: none;
-    -webkit-appearance: none;
-    background: transparent;
-    border: 1px solid rgba(110, 74, 99, 0.2);
-    border-radius: 8px;
-    padding: 6px 28px 6px 12px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    color: var(--charcoal, #2A2622);
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236E4A63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    display: none;
-  }
-  .bloomli-vt__sub-option.is-selected[data-sub-mode="subscribe"] .bloomli-vt__sub-select { display: inline-block; }
   .bloomli-vt__footer {
     border-top: 1px solid rgba(110, 74, 99, 0.1);
     padding: 14px 4px 0;
@@ -525,28 +389,20 @@
     if (!root) return;
 
     const cards = root.querySelectorAll('[data-vt-card]');
-    const subOptions = root.querySelectorAll('[data-vt-sub-option]');
-    const subSelect = root.querySelector('[data-vt-sub-select]');
     const qtyInput = root.querySelector('[data-vt-qty-input]');
-    const spInput = root.querySelector('[data-vt-sp-input]');
     const totalEl = root.querySelector('[data-vt-total]');
     const compareEl = root.querySelector('[data-vt-compare]');
-    const subSavingsEl = root.querySelector('[data-vt-sub-savings]');
 
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const productFormId = root.dataset.formId;
     const productForm = productFormId ? document.getElementById(productFormId) : null;
-    let syncProductForm = function () { return false; };
+    let syncProductForm = function () {};
     // Move our hidden inputs INSIDE the actual <form> so FormData picks them up
     // reliably (the form="..." attribute association is flaky across browsers).
     if (productForm) {
       if (qtyInput && qtyInput.parentNode !== productForm) {
         productForm.appendChild(qtyInput);
         qtyInput.removeAttribute('form');
-      }
-      if (spInput && spInput.parentNode !== productForm) {
-        productForm.appendChild(spInput);
-        spInput.removeAttribute('form');
       }
 
       // Defensive: neutralize any other quantity inputs in the form (e.g. from
@@ -560,39 +416,14 @@
       // Build the final values from current UI state.
       function currentSubmitValues() {
         const card = root.querySelector('[data-vt-card].is-selected') || cards[0];
-        const checkedSubRadio = root.querySelector('input[name^="bloomli-vt-sub-"]:checked');
-        const checkedSubOpt = checkedSubRadio ? checkedSubRadio.closest('[data-vt-sub-option]') : null;
-        const selectedSubOpt = root.querySelector('[data-vt-sub-option].is-selected');
-        const subOpt = checkedSubOpt || selectedSubOpt;
-        const isSubscribe = !!(
-          subOpt &&
-          (
-            subOpt.dataset.subMode === 'subscribe' ||
-            (checkedSubRadio && checkedSubRadio.value === 'subscribe')
-          )
-        );
-        const selectedPlan = subSelect ? subSelect.selectedOptions[0] : null;
-        const planId = (isSubscribe && selectedPlan && !selectedPlan.disabled) ? selectedPlan.value : '';
         return {
-          quantity: card ? (card.dataset.quantity || '1') : '1',
-          selling_plan: planId,
-          isSubscribe: isSubscribe
+          quantity: card ? (card.dataset.quantity || '1') : '1'
         };
       }
 
       syncProductForm = function (values) {
         qtyInput.value = values.quantity;
         qtyInput.disabled = false;
-
-        if (values.selling_plan) {
-          spInput.value = values.selling_plan;
-          spInput.disabled = false;
-        } else {
-          spInput.value = '';
-          spInput.disabled = true;
-        }
-
-        return true;
       };
 
       productForm.addEventListener('submit', function () {
@@ -608,11 +439,6 @@
         const v = currentSubmitValues();
         syncProductForm(v);
         e.formData.set('quantity', v.quantity);
-        if (v.selling_plan) {
-          e.formData.set('selling_plan', v.selling_plan);
-        } else {
-          e.formData.delete('selling_plan');
-        }
         if (window.__bloomliVtDebug) {
           const dump = {};
           for (const [k, val] of e.formData.entries()) dump[k] = val;
@@ -632,101 +458,8 @@
     function getSelectedCard() {
       return root.querySelector('[data-vt-card].is-selected') || cards[0];
     }
-    function getSelectedSubMode() {
-      const checkedSubRadio = root.querySelector('input[name^="bloomli-vt-sub-"]:checked');
-      const opt = checkedSubRadio ? checkedSubRadio.closest('[data-vt-sub-option]') : root.querySelector('[data-vt-sub-option].is-selected');
-      return opt ? opt.dataset.subMode : 'onetime';
-    }
-
     function unitPriceCents() {
       return parseInt(root.dataset.unitPrice, 10) || 0;
-    }
-
-    function legacyFilterPlansForTier(tierPrefix) {
-      if (!subSelect) return;
-      const opts = subSelect.querySelectorAll('option');
-      const prefix = (tierPrefix || '').trim();
-      let firstVisible = null;
-      opts.forEach(function (opt) {
-        // Match against the SELLING PLAN GROUP name (where the tier marker
-        // lives, e.g. "1-pack Monthly"), falling back to plan name. Appstle
-        // names individual plans generically ("Monthly Subscription") and
-        // puts the tier marker on the group.
-        const matchSource = (opt.dataset.groupName || opt.dataset.planName || opt.textContent || '').trim();
-        const displaySource = (opt.dataset.groupName || opt.dataset.planName || opt.textContent || '').trim();
-        const matches = !prefix || matchSource.toLowerCase().indexOf(prefix.toLowerCase()) === 0;
-        opt.hidden = !matches;
-        opt.disabled = !matches;
-        if (matches) {
-          if (prefix) {
-            const stripped = displaySource.replace(new RegExp('^' + prefix.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') + '\\s*[-:–—]?\\s*', 'i'), '');
-            opt.textContent = stripped || displaySource;
-          } else {
-            opt.textContent = displaySource;
-          }
-          if (!firstVisible) firstVisible = opt;
-        }
-      });
-      if (firstVisible && (subSelect.value === '' || subSelect.selectedOptions[0]?.disabled)) {
-        subSelect.value = firstVisible.value;
-      }
-    }
-
-    function filterPlansForTier(tierPrefix, qty) {
-      if (!subSelect) return;
-      const opts = Array.from(subSelect.querySelectorAll('option'));
-      const prefix = (tierPrefix || '').trim();
-      const selectedBefore = subSelect.value;
-      let firstVisible = null;
-      let preferredVisible = null;
-      let selectedStillVisible = false;
-
-      opts.forEach(function (opt) {
-        if (!opt.dataset.fullLabel) {
-          opt.dataset.fullLabel = (opt.dataset.groupName || opt.dataset.planName || opt.textContent || '').trim();
-        }
-
-        const fullLabel = opt.dataset.fullLabel;
-        const matchSource = (opt.dataset.groupName || opt.dataset.planName || fullLabel).trim().toLowerCase();
-        const matches = !prefix || matchSource.indexOf(prefix.toLowerCase()) === 0;
-
-        opt.hidden = !matches;
-        opt.disabled = !matches;
-
-        if (matches) {
-          const lowerLabel = fullLabel.toLowerCase();
-          const strippedLabel = prefix && lowerLabel.indexOf(prefix.toLowerCase()) === 0
-            ? fullLabel.slice(prefix.length).replace(/^\s*[-:]\s*/, '')
-            : fullLabel;
-          const frequencySource = [
-            opt.dataset.groupName || '',
-            opt.dataset.planName || '',
-            fullLabel
-          ].join(' ').toLowerCase();
-
-          opt.textContent = strippedLabel || fullLabel;
-          if (!firstVisible) firstVisible = opt;
-          if (
-            !preferredVisible &&
-            (
-              frequencySource.indexOf(qty + 'mo') !== -1 ||
-              frequencySource.indexOf(qty + ' mo') !== -1 ||
-              frequencySource.indexOf(qty + '-mo') !== -1 ||
-              frequencySource.indexOf(qty + ' month') !== -1 ||
-              frequencySource.indexOf('every ' + qty) !== -1
-            )
-          ) {
-            preferredVisible = opt;
-          }
-          if (opt.value === selectedBefore) selectedStillVisible = true;
-        } else {
-          opt.textContent = fullLabel;
-        }
-      });
-
-      if (!selectedStillVisible && (preferredVisible || firstVisible)) {
-        subSelect.value = (preferredVisible || firstVisible).value;
-      }
     }
 
     function updateState() {
@@ -734,41 +467,24 @@
       if (!card) return;
       const qty = parseInt(card.dataset.quantity, 10) || 1;
       const tierVolPct = parseFloat(card.dataset.discountPct) || 0;
-      const tierSubPct = parseFloat(card.dataset.subDiscountPct) || 0;
-      const tierPrefix = card.dataset.planPrefix || (qty + '-pack');
-      const subMode = getSelectedSubMode();
-
-      // Filter the subscription dropdown to plans matching this tier
-      filterPlansForTier(tierPrefix, qty);
 
       // Authoritative price math from per-tier % (avoids drift if Liquid
       // pre-render didn't see latest tier settings)
       const unit = unitPriceCents();
       const baseLineCents = unit * qty;
       const oneTimeCents = Math.round(baseLineCents * (100 - tierVolPct) / 100);
-      const subscribeCents = Math.round(baseLineCents * (100 - tierSubPct) / 100);
       const lineCompareCents = parseInt(card.dataset.lineCompareCents, 10) || baseLineCents;
 
       syncProductForm({
-        quantity: String(qty),
-        selling_plan: (subMode === 'subscribe' && subSelect && subSelect.value) ? subSelect.value : '',
-        isSubscribe: subMode === 'subscribe'
+        quantity: String(qty)
       });
 
       // displayed total
-      const displayCents = (subMode === 'subscribe') ? subscribeCents : oneTimeCents;
-
-      if (subSavingsEl) {
-        const roundedPct = Math.round(tierSubPct * 10) / 10;
-        const pctText = Number.isInteger(roundedPct) ? roundedPct.toString() : roundedPct.toFixed(1);
-        subSavingsEl.textContent = tierSubPct > 0 ? ' - save ' + pctText + '%' : '';
-      }
+      const displayCents = oneTimeCents;
 
       if (totalEl) totalEl.textContent = formatMoney(displayCents);
       if (compareEl) {
-        if (subMode === 'subscribe' && subscribeCents < oneTimeCents) {
-          compareEl.textContent = formatMoney(oneTimeCents);
-        } else if (lineCompareCents > displayCents) {
+        if (lineCompareCents > displayCents) {
           compareEl.textContent = formatMoney(lineCompareCents);
         } else {
           compareEl.textContent = '';
@@ -791,35 +507,9 @@
       });
     });
 
-    subOptions.forEach(function (opt) {
-      opt.addEventListener('click', function (e) {
-        if (e.target.tagName === 'SELECT' || e.target.tagName === 'OPTION') return;
-        subOptions.forEach(function (o) {
-          o.classList.remove('is-selected');
-          const r = o.querySelector('.bloomli-vt__radio');
-          if (r) r.checked = false;
-        });
-        opt.classList.add('is-selected');
-        const radio = opt.querySelector('.bloomli-vt__radio');
-        if (radio) radio.checked = true;
-        updateState();
-      });
-    });
-
-    if (subSelect) {
-      subSelect.addEventListener('change', updateState);
-      subSelect.addEventListener('click', function (e) { e.stopPropagation(); });
-    }
-
     if (!root.querySelector('[data-vt-card].is-selected') && cards[0]) {
       cards[0].classList.add('is-selected');
       const radio = cards[0].querySelector('.bloomli-vt__radio');
-      if (radio) radio.checked = true;
-    }
-
-    if (!root.querySelector('[data-vt-sub-option].is-selected') && subOptions[0]) {
-      subOptions[0].classList.add('is-selected');
-      const radio = subOptions[0].querySelector('.bloomli-vt__radio');
       if (radio) radio.checked = true;
     }
 

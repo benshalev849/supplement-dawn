@@ -29,6 +29,7 @@
   assign unit_compare = product.selected_or_first_available_variant.compare_at_price | default: unit_price
 
   assign default_idx = -1
+  assign default_qty = block.settings.tier_1_qty | default: 1
 -%}
 
 <div class="bloomli-vt"
@@ -63,6 +64,9 @@
             assign discount_pct = block.settings.tier_1_discount_pct | default: 0
             assign sub_discount_pct = block.settings.tier_1_sub_discount_pct | default: 0
             assign plan_prefix = block.settings.tier_1_plan_prefix
+            if plan_prefix == blank
+              assign plan_prefix = qty | append: '-pack'
+            endif
             assign is_default = block.settings.tier_1_default
             assign show_ship = block.settings.tier_1_show_shipping
           when 2
@@ -75,6 +79,9 @@
             assign discount_pct = block.settings.tier_2_discount_pct | default: 0
             assign sub_discount_pct = block.settings.tier_2_sub_discount_pct | default: 0
             assign plan_prefix = block.settings.tier_2_plan_prefix
+            if plan_prefix == blank
+              assign plan_prefix = qty | append: '-pack'
+            endif
             assign is_default = block.settings.tier_2_default
             assign show_ship = block.settings.tier_2_show_shipping
           when 3
@@ -87,6 +94,9 @@
             assign discount_pct = block.settings.tier_3_discount_pct | default: 0
             assign sub_discount_pct = block.settings.tier_3_sub_discount_pct | default: 0
             assign plan_prefix = block.settings.tier_3_plan_prefix
+            if plan_prefix == blank
+              assign plan_prefix = qty | append: '-pack'
+            endif
             assign is_default = block.settings.tier_3_default
             assign show_ship = block.settings.tier_3_show_shipping
           when 4
@@ -99,12 +109,16 @@
             assign discount_pct = block.settings.tier_4_discount_pct | default: 0
             assign sub_discount_pct = block.settings.tier_4_sub_discount_pct | default: 0
             assign plan_prefix = block.settings.tier_4_plan_prefix
+            if plan_prefix == blank
+              assign plan_prefix = qty | append: '-pack'
+            endif
             assign is_default = block.settings.tier_4_default
             assign show_ship = block.settings.tier_4_show_shipping
         endcase
 
-        if is_default and default_idx == -1
+        if show and is_default and default_idx == -1
           assign default_idx = forloop.index0
+          assign default_qty = qty
         endif
 
         assign line_compare = unit_price | times: qty
@@ -193,9 +207,7 @@
             <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
             <span class="bloomli-vt__sub-label">
               {{ block.settings.label_subscribe | default: 'Subscribe & save' }}
-              {%- if sub_pct > 0 -%}
-                <span class="bloomli-vt__sub-savings">— save {{ sub_pct }}%</span>
-              {%- endif -%}
+              <span class="bloomli-vt__sub-savings" data-vt-sub-savings></span>
             </span>
             <select class="bloomli-vt__sub-select" data-vt-sub-select aria-label="Subscription frequency">
               {%- for grp in product.selling_plan_groups -%}
@@ -229,7 +241,7 @@
   {%- comment -%} Hidden inputs target the buy-buttons form via the `form` attribute {%- endcomment -%}
   <input type="hidden"
          name="quantity"
-         value="{{ block.settings.tier_1_qty | default: 1 }}"
+         value="{{ default_qty }}"
          form="{{ product_form_id }}"
          data-vt-qty-input>
   <input type="hidden"
@@ -519,6 +531,7 @@
     const spInput = root.querySelector('[data-vt-sp-input]');
     const totalEl = root.querySelector('[data-vt-total]');
     const compareEl = root.querySelector('[data-vt-compare]');
+    const subSavingsEl = root.querySelector('[data-vt-sub-savings]');
 
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const productFormId = root.dataset.formId;
@@ -544,13 +557,20 @@
           el.removeAttribute('name');
         }
       });
+      productForm.querySelectorAll('[name="selling_plan"]').forEach(function (el) {
+        if (el !== spInput) {
+          el.dataset.vtSilenced = 'selling_plan';
+          el.removeAttribute('name');
+        }
+      });
 
       // Build the final values from current UI state.
       function currentSubmitValues() {
         const card = root.querySelector('[data-vt-card].is-selected') || cards[0];
         const subOpt = root.querySelector('[data-vt-sub-option].is-selected');
         const isSubscribe = !!(subOpt && subOpt.dataset.subMode === 'subscribe');
-        const planId = (isSubscribe && subSelect && subSelect.value) ? subSelect.value : '';
+        const selectedPlan = subSelect ? subSelect.selectedOptions[0] : null;
+        const planId = (isSubscribe && selectedPlan && !selectedPlan.disabled) ? selectedPlan.value : '';
         return {
           quantity: card ? (card.dataset.quantity || '1') : '1',
           selling_plan: planId,
@@ -562,6 +582,12 @@
       //    Force-sync our hidden inputs to the current UI state so that any
       //    subsequent FormData(form) call picks them up correctly.
       productForm.addEventListener('submit', function () {
+        productForm.querySelectorAll('[name="selling_plan"]').forEach(function (el) {
+          if (el !== spInput) {
+            el.dataset.vtSilenced = 'selling_plan';
+            el.removeAttribute('name');
+          }
+        });
         const v = currentSubmitValues();
         qtyInput.value = v.quantity;
         qtyInput.disabled = false;
@@ -580,6 +606,12 @@
       // 2) formdata event — overrides values authoritatively in the FormData
       //    that Dawn just constructed. Belt-and-suspenders alongside (1).
       productForm.addEventListener('formdata', function (e) {
+        productForm.querySelectorAll('[name="selling_plan"]').forEach(function (el) {
+          if (el !== spInput) {
+            el.dataset.vtSilenced = 'selling_plan';
+            el.removeAttribute('name');
+          }
+        });
         const v = currentSubmitValues();
         e.formData.set('quantity', v.quantity);
         if (v.selling_plan) {
@@ -615,7 +647,7 @@
       return parseInt(root.dataset.unitPrice, 10) || 0;
     }
 
-    function filterPlansForTier(tierPrefix) {
+    function legacyFilterPlansForTier(tierPrefix) {
       if (!subSelect) return;
       const opts = subSelect.querySelectorAll('option');
       const prefix = (tierPrefix || '').trim();
@@ -645,17 +677,74 @@
       }
     }
 
+    function filterPlansForTier(tierPrefix, qty) {
+      if (!subSelect) return;
+      const opts = Array.from(subSelect.querySelectorAll('option'));
+      const prefix = (tierPrefix || '').trim();
+      const selectedBefore = subSelect.value;
+      let firstVisible = null;
+      let preferredVisible = null;
+      let selectedStillVisible = false;
+
+      opts.forEach(function (opt) {
+        if (!opt.dataset.fullLabel) {
+          opt.dataset.fullLabel = (opt.dataset.groupName || opt.dataset.planName || opt.textContent || '').trim();
+        }
+
+        const fullLabel = opt.dataset.fullLabel;
+        const matchSource = (opt.dataset.groupName || opt.dataset.planName || fullLabel).trim().toLowerCase();
+        const matches = !prefix || matchSource.indexOf(prefix.toLowerCase()) === 0;
+
+        opt.hidden = !matches;
+        opt.disabled = !matches;
+
+        if (matches) {
+          const lowerLabel = fullLabel.toLowerCase();
+          const strippedLabel = prefix && lowerLabel.indexOf(prefix.toLowerCase()) === 0
+            ? fullLabel.slice(prefix.length).replace(/^\s*[-:]\s*/, '')
+            : fullLabel;
+          const frequencySource = [
+            opt.dataset.groupName || '',
+            opt.dataset.planName || '',
+            fullLabel
+          ].join(' ').toLowerCase();
+
+          opt.textContent = strippedLabel || fullLabel;
+          if (!firstVisible) firstVisible = opt;
+          if (
+            !preferredVisible &&
+            (
+              frequencySource.indexOf(qty + 'mo') !== -1 ||
+              frequencySource.indexOf(qty + ' mo') !== -1 ||
+              frequencySource.indexOf(qty + '-mo') !== -1 ||
+              frequencySource.indexOf(qty + ' month') !== -1 ||
+              frequencySource.indexOf('every ' + qty) !== -1
+            )
+          ) {
+            preferredVisible = opt;
+          }
+          if (opt.value === selectedBefore) selectedStillVisible = true;
+        } else {
+          opt.textContent = fullLabel;
+        }
+      });
+
+      if (!selectedStillVisible && (preferredVisible || firstVisible)) {
+        subSelect.value = (preferredVisible || firstVisible).value;
+      }
+    }
+
     function updateState() {
       const card = getSelectedCard();
       if (!card) return;
       const qty = parseInt(card.dataset.quantity, 10) || 1;
       const tierVolPct = parseFloat(card.dataset.discountPct) || 0;
       const tierSubPct = parseFloat(card.dataset.subDiscountPct) || 0;
-      const tierPrefix = card.dataset.planPrefix || '';
+      const tierPrefix = card.dataset.planPrefix || (qty + '-pack');
       const subMode = getSelectedSubMode();
 
       // Filter the subscription dropdown to plans matching this tier
-      filterPlansForTier(tierPrefix);
+      filterPlansForTier(tierPrefix, qty);
 
       // Authoritative price math from per-tier % (avoids drift if Liquid
       // pre-render didn't see latest tier settings)
@@ -679,6 +768,12 @@
 
       // displayed total
       const displayCents = (subMode === 'subscribe') ? subscribeCents : oneTimeCents;
+
+      if (subSavingsEl) {
+        const roundedPct = Math.round(tierSubPct * 10) / 10;
+        const pctText = Number.isInteger(roundedPct) ? roundedPct.toString() : roundedPct.toFixed(1);
+        subSavingsEl.textContent = tierSubPct > 0 ? ' - save ' + pctText + '%' : '';
+      }
 
       if (totalEl) totalEl.textContent = formatMoney(displayCents);
       if (compareEl) {
@@ -725,6 +820,18 @@
     if (subSelect) {
       subSelect.addEventListener('change', updateState);
       subSelect.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+
+    if (!root.querySelector('[data-vt-card].is-selected') && cards[0]) {
+      cards[0].classList.add('is-selected');
+      const radio = cards[0].querySelector('.bloomli-vt__radio');
+      if (radio) radio.checked = true;
+    }
+
+    if (!root.querySelector('[data-vt-sub-option].is-selected') && subOptions[0]) {
+      subOptions[0].classList.add('is-selected');
+      const radio = subOptions[0].querySelector('.bloomli-vt__radio');
+      if (radio) radio.checked = true;
     }
 
     updateState();

@@ -47,7 +47,7 @@
             "tier_1_tag": "",
             "tier_1_discount_pct": 0,
             "tier_1_sub_discount_pct": 10,
-            "tier_1_plan_prefix": "",
+            "tier_1_plan_prefix": "1-pack",
             "tier_1_show_shipping": false,
             "tier_1_default": false,
             "tier_2_show": true,

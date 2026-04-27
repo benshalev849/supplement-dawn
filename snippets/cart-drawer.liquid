@@ -7,9 +7,11 @@
 
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'bloomli-cart-drawer.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'bloomli-cart-drawer.js' | asset_url }}" defer="defer"></script>
 
 <style>
   .drawer {
@@ -62,7 +64,10 @@
         </div>
       {%- endif -%}
       <div class="drawer__header">
-        <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
+        <h2 class="drawer__heading">
+          {{ 'sections.cart.title' | t }}
+          <span class="bloomli-cart-drawer__count">({{ cart.item_count }})</span>
+        </h2>
         <button
           class="drawer__close"
           type="button"
@@ -74,6 +79,31 @@
           </span>
         </button>
       </div>
+      {%- if cart != empty and settings.cart_free_shipping_bar_enabled -%}
+        {%- liquid
+          assign free_shipping_threshold = settings.cart_free_shipping_threshold | default: 100 | times: 100
+          assign free_shipping_remaining = free_shipping_threshold | minus: cart.total_price
+          assign free_shipping_progress = 100
+          if free_shipping_threshold > 0 and free_shipping_remaining > 0
+            assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping_threshold
+          endif
+          if free_shipping_progress > 100
+            assign free_shipping_progress = 100
+          endif
+          assign free_shipping_progress_text = settings.cart_free_shipping_progress_text | default: 'Add [amount] more and get Free Shipping'
+          assign free_shipping_remaining_money = free_shipping_remaining | money
+          assign free_shipping_message = free_shipping_progress_text | replace: '[amount]', free_shipping_remaining_money
+          if free_shipping_remaining <= 0
+            assign free_shipping_message = settings.cart_free_shipping_unlocked_text | default: "Congrats, you've unlocked Free Shipping!"
+          endif
+        -%}
+        <div class="bloomli-cart-shipping" data-bloomli-cart-shipping>
+          <p class="bloomli-cart-shipping__text">{{ free_shipping_message }}</p>
+          <div class="bloomli-cart-shipping__track" aria-hidden="true">
+            <span class="bloomli-cart-shipping__fill" style="width: {{ free_shipping_progress }}%;"></span>
+          </div>
+        </div>
+      {%- endif -%}
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
@@ -216,7 +246,6 @@
                               {%- endfor -%}
                             </dl>
 
-                            <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                           {%- endif -%}
 
                           <ul
@@ -357,9 +386,7 @@
                                     class="hidden"
                                   {% endif %}
                                 >
-                                  <span class="svg-wrapper">
-                                    {{- 'icon-remove.svg' | inline_asset_content -}}
-                                  </span>
+                                  <span class="cart-remove-button__text">Remove</span>
                                 </button>
                               </cart-remove-button>
                             </div>
@@ -459,6 +486,78 @@
                               </span>
                             </div>
                           </quantity-popover>
+
+                          {%- if item.selling_plan_allocation != null -%}
+                            {%- liquid
+                              assign current_selling_plan_id = item.selling_plan_allocation.selling_plan.id
+                              assign frequency_prefix = settings.cart_subscription_frequency_prefix | default: 'Delivers every'
+                              assign savings_prefix = settings.cart_subscription_savings_prefix | default: 'SAVE'
+                            -%}
+                            {%- for selling_plan_group in item.product.selling_plan_groups -%}
+                              {%- liquid
+                                assign group_has_current_plan = false
+                                for selling_plan in selling_plan_group.selling_plans
+                                  if selling_plan.id == current_selling_plan_id
+                                    assign group_has_current_plan = true
+                                  endif
+                                endfor
+                              -%}
+                              {%- if group_has_current_plan -%}
+                                <div class="bloomli-cart-frequency" data-bloomli-cart-frequency>
+                                  <label class="visually-hidden" for="CartDrawer-Frequency-{{ item.index | plus: 1 }}">
+                                    Subscription frequency
+                                  </label>
+                                  <select
+                                    id="CartDrawer-Frequency-{{ item.index | plus: 1 }}"
+                                    class="bloomli-cart-frequency__select"
+                                    data-bloomli-frequency-select
+                                    data-line="{{ item.index | plus: 1 }}"
+                                    data-line-key="{{ item.key }}"
+                                    data-quantity="{{ item.quantity }}"
+                                    aria-label="Subscription frequency"
+                                  >
+                                    {%- for selling_plan in selling_plan_group.selling_plans -%}
+                                      {%- liquid
+                                        assign plan_label = selling_plan.name
+                                        assign plan_option = selling_plan.options | first
+                                        assign plan_option_value = plan_option.value | downcase
+                                        if plan_option_value contains 'month'
+                                          assign month_count = plan_option_value | split: 'month' | first | plus: 0
+                                          if month_count > 0
+                                            assign plan_label = frequency_prefix | append: ' ' | append: month_count | append: ' month'
+                                            unless month_count == 1
+                                              assign plan_label = plan_label | append: 's'
+                                            endunless
+                                          endif
+                                        endif
+
+                                        assign save_label = ''
+                                        assign plan_adjustment = selling_plan.price_adjustments | first
+                                        if plan_adjustment and plan_adjustment.value_type == 'percentage'
+                                          assign save_value = plan_adjustment.value | plus: 0
+                                          if save_value > 0
+                                            assign save_label = savings_prefix | append: ' ' | append: save_value | append: '%'
+                                          endif
+                                        endif
+                                      -%}
+                                      <option
+                                        value="{{ selling_plan.id }}"
+                                        {% if selling_plan.id == current_selling_plan_id %}
+                                          selected
+                                        {% endif %}
+                                      >
+                                        {{ plan_label }}{% if save_label != blank %} {{ save_label }}{% endif %}
+                                      </option>
+                                    {%- endfor -%}
+                                  </select>
+                                  <span class="bloomli-cart-frequency__chevron" aria-hidden="true">
+                                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                                  </span>
+                                </div>
+                                {%- break -%}
+                              {%- endif -%}
+                            {%- endfor -%}
+                          {%- endif -%}
                         </td>
                       </tr>
                     {%- endfor -%}

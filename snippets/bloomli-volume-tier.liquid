@@ -128,13 +128,22 @@
                 assign fallback_plan_id = first_plan.id
               endif
 
-              assign frequency_source = grp.name | append: ' ' | append: first_plan.name | downcase
-              assign frequency_filter_spaced = qty | append: ' mo'
-              assign frequency_filter_dash = qty | append: '-mo'
-              assign frequency_filter_month = qty | append: ' month'
-              assign frequency_filter_every = 'every ' | append: qty
-              if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every
-                assign tier_plan_id = first_plan.id
+              for selling_plan in grp.selling_plans
+                assign frequency_source = grp.name | append: ' ' | append: selling_plan.name | downcase
+                for option in selling_plan.options
+                  assign frequency_source = frequency_source | append: ' ' | append: option.value | downcase
+                endfor
+                assign frequency_filter_spaced = qty | append: ' mo'
+                assign frequency_filter_dash = qty | append: '-mo'
+                assign frequency_filter_month = qty | append: ' month'
+                assign frequency_filter_every = 'every ' | append: qty
+                assign frequency_filter_appstle = qty | append: 'month'
+                if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every or frequency_source contains frequency_filter_appstle
+                  assign tier_plan_id = selling_plan.id
+                  break
+                endif
+              endfor
+              if tier_plan_id != blank
                 break
               endif
             endif

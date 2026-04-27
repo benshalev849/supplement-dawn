@@ -1449,6 +1449,52 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      },
+      {
+        "type": "header",
+        "content": "Free shipping bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_free_shipping_bar_enabled",
+        "label": "Show free shipping progress bar",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "cart_free_shipping_threshold",
+        "label": "Free shipping threshold",
+        "default": 100,
+        "info": "Enter the amount in store currency units, for example 100 for $100."
+      },
+      {
+        "type": "text",
+        "id": "cart_free_shipping_progress_text",
+        "label": "Progress text",
+        "default": "Add [amount] more and get Free Shipping",
+        "info": "Use [amount] where the remaining amount should appear."
+      },
+      {
+        "type": "text",
+        "id": "cart_free_shipping_unlocked_text",
+        "label": "Unlocked text",
+        "default": "Congrats, you've unlocked Free Shipping!"
+      },
+      {
+        "type": "header",
+        "content": "Subscription frequency"
+      },
+      {
+        "type": "text",
+        "id": "cart_subscription_frequency_prefix",
+        "label": "Frequency label prefix",
+        "default": "Delivers every"
+      },
+      {
+        "type": "text",
+        "id": "cart_subscription_savings_prefix",
+        "label": "Savings label prefix",
+        "default": "SAVE"
       }
     ]
   }

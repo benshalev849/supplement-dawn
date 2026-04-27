@@ -567,8 +567,17 @@
       // Build the final values from current UI state.
       function currentSubmitValues() {
         const card = root.querySelector('[data-vt-card].is-selected') || cards[0];
-        const subOpt = root.querySelector('[data-vt-sub-option].is-selected');
-        const isSubscribe = !!(subOpt && subOpt.dataset.subMode === 'subscribe');
+        const checkedSubRadio = root.querySelector('input[name^="bloomli-vt-sub-"]:checked');
+        const checkedSubOpt = checkedSubRadio ? checkedSubRadio.closest('[data-vt-sub-option]') : null;
+        const selectedSubOpt = root.querySelector('[data-vt-sub-option].is-selected');
+        const subOpt = checkedSubOpt || selectedSubOpt;
+        const isSubscribe = !!(
+          subOpt &&
+          (
+            subOpt.dataset.subMode === 'subscribe' ||
+            (checkedSubRadio && checkedSubRadio.value === 'subscribe')
+          )
+        );
         const selectedPlan = subSelect ? subSelect.selectedOptions[0] : null;
         const planId = (isSubscribe && selectedPlan && !selectedPlan.disabled) ? selectedPlan.value : '';
         return {
@@ -757,7 +766,8 @@
       return root.querySelector('[data-vt-card].is-selected') || cards[0];
     }
     function getSelectedSubMode() {
-      const opt = root.querySelector('[data-vt-sub-option].is-selected');
+      const checkedSubRadio = root.querySelector('input[name^="bloomli-vt-sub-"]:checked');
+      const opt = checkedSubRadio ? checkedSubRadio.closest('[data-vt-sub-option]') : root.querySelector('[data-vt-sub-option].is-selected');
       return opt ? opt.dataset.subMode : 'onetime';
     }
 

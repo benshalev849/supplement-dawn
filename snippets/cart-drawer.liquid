@@ -504,6 +504,7 @@
                               -%}
                               {%- if group_has_current_plan -%}
                                 <div class="bloomli-cart-frequency" data-bloomli-cart-frequency>
+                                  {%- assign current_save_label = '' -%}
                                   <label class="visually-hidden" for="CartDrawer-Frequency-{{ item.index | plus: 1 }}">
                                     Subscription frequency
                                   </label>
@@ -546,10 +547,16 @@
                                           selected
                                         {% endif %}
                                       >
-                                        {{ plan_label }}{% if save_label != blank %} {{ save_label }}{% endif %}
+                                        {{ plan_label }}
                                       </option>
+                                      {%- if selling_plan.id == current_selling_plan_id -%}
+                                        {%- assign current_save_label = save_label -%}
+                                      {%- endif -%}
                                     {%- endfor -%}
                                   </select>
+                                  {%- if current_save_label != blank -%}
+                                    <span class="bloomli-cart-frequency__saving">{{ current_save_label }}</span>
+                                  {%- endif -%}
                                   <span class="bloomli-cart-frequency__chevron" aria-hidden="true">
                                     {{- 'icon-caret.svg' | inline_asset_content -}}
                                   </span>

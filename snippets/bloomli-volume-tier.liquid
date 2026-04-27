@@ -581,7 +581,95 @@
       // 1) Capture-phase submit listener — runs BEFORE Dawn's submit handler.
       //    Force-sync our hidden inputs to the current UI state so that any
       //    subsequent FormData(form) call picks them up correctly.
-      productForm.addEventListener('submit', function () {
+      function addSubscriptionToCart(values, submitEvent) {
+        const variantInput = productForm.querySelector('[name="id"]');
+        const variantId = variantInput ? variantInput.value : '';
+        const quantity = parseInt(values.quantity, 10) || 1;
+        const sellingPlan = parseInt(values.selling_plan, 10);
+        const productFormEl = productForm.closest('product-form');
+        const cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+        const submitButton = productFormEl ? productFormEl.querySelector('[type="submit"]') : productForm.querySelector('[type="submit"]');
+        const spinner = productFormEl ? productFormEl.querySelector('.loading__spinner') : null;
+        const errorWrapper = productFormEl ? productFormEl.querySelector('.product-form__error-message-wrapper') : null;
+        const errorMessage = errorWrapper ? errorWrapper.querySelector('.product-form__error-message') : null;
+
+        if (!variantId || !sellingPlan) return;
+
+        if (errorWrapper) errorWrapper.hidden = true;
+        if (submitButton) {
+          submitButton.setAttribute('aria-disabled', true);
+          submitButton.classList.add('loading');
+        }
+        if (spinner) spinner.classList.remove('hidden');
+
+        const body = {
+          items: [{
+            id: Number(variantId),
+            quantity: quantity,
+            selling_plan: sellingPlan
+          }]
+        };
+
+        if (cart && typeof cart.getSectionsToRender === 'function') {
+          body.sections = cart.getSectionsToRender().map(function (section) { return section.id; });
+          body.sections_url = window.location.pathname;
+          if (typeof cart.setActiveElement === 'function') {
+            cart.setActiveElement(document.activeElement);
+          }
+        }
+
+        fetch(window.routes.cart_add_url, {
+          ...fetchConfig(),
+          body: JSON.stringify(body)
+        })
+          .then(function (response) { return response.json(); })
+          .then(function (response) {
+            if (response.status) {
+              if (errorWrapper && errorMessage) {
+                errorMessage.textContent = response.description || response.message || 'Unable to add subscription.';
+                errorWrapper.hidden = false;
+              }
+              return;
+            }
+
+            if (!cart) {
+              window.location = window.routes.cart_url;
+              return;
+            }
+
+            if (typeof publish === 'function' && window.PUB_SUB_EVENTS) {
+              publish(PUB_SUB_EVENTS.cartUpdate, {
+                source: 'bloomli-volume-tier',
+                productVariantId: variantId,
+                cartData: response
+              });
+            }
+
+            if (typeof cart.renderContents === 'function') {
+              cart.renderContents(response);
+            }
+          })
+          .catch(function (error) {
+            console.error(error);
+            if (errorWrapper && errorMessage) {
+              errorMessage.textContent = 'Unable to add subscription. Please try again.';
+              errorWrapper.hidden = false;
+            }
+          })
+          .finally(function () {
+            if (submitButton) {
+              submitButton.classList.remove('loading');
+              submitButton.removeAttribute('aria-disabled');
+            }
+            if (spinner) spinner.classList.add('hidden');
+
+            if (window.CartPerformance && typeof CartPerformance.measureFromEvent === 'function') {
+              CartPerformance.measureFromEvent('add:user-action', submitEvent);
+            }
+          });
+      }
+
+      productForm.addEventListener('submit', function (event) {
         productForm.querySelectorAll('[name="selling_plan"]').forEach(function (el) {
           if (el !== spInput) {
             el.dataset.vtSilenced = 'selling_plan';
@@ -600,6 +688,12 @@
         }
         if (window.__bloomliVtDebug) {
           console.log('[bloomli-vt] submit values', v);
+        }
+
+        if (v.selling_plan) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          addSubscriptionToCart(v, event);
         }
       }, true);
 

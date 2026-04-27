@@ -580,123 +580,20 @@
         };
       }
 
-      // Keep Appstle's hidden native widget aligned with our custom UI.
-      function appstleWidget() {
-        return productForm.querySelector(
-          '.appstle_sub_widget, #appstle_subscription_widget, .appstle_subscription_widget, .appstle_subscription_wrapper, [id^="appstle_subscription_widget"], [class*="appstle-subscription-widget"], [class*="appstle_subscription_widget"]'
-        );
-      }
-
-      function dispatchChange(el) {
-        if (!el) return;
-        el.dispatchEvent(new Event('input', { bubbles: true }));
-        el.dispatchEvent(new Event('change', { bubbles: true }));
-      }
-
-      function optionLooksOneTime(input) {
-        const label = input.closest('label');
-        const source = [
-          input.value || '',
-          input.id || '',
-          input.getAttribute('aria-label') || '',
-          label ? label.textContent : ''
-        ].join(' ').toLowerCase();
-
-        return !input.value || source.indexOf('one') !== -1 || source.indexOf('single') !== -1;
-      }
-
-      function syncAppstleWidget(values) {
-        const widget = appstleWidget();
-        if (!widget) return false;
-
-        // Restore any Appstle controls silenced by older snippet versions.
-        widget.querySelectorAll('[data-vt-silenced="selling_plan"]').forEach(function (el) {
-          el.setAttribute('name', 'selling_plan');
-          delete el.dataset.vtSilenced;
-        });
-
-        const planId = values.selling_plan || '';
-        const radios = Array.from(widget.querySelectorAll('input[type="radio"]'));
-        const oneTimeRadio = radios.find(optionLooksOneTime) || null;
-        const subscribeRadio = radios.find(function (radio) {
-          return radio.value && radio.value === planId;
-        }) || radios.find(function (radio) {
-          return radio.value && radio !== oneTimeRadio;
-        });
-        const planSelect = widget.querySelector('select[name="selling_plan"], select.appstle_select, select[id^="appstle_selling_plan"]');
-
-        if (planSelect && planId && planSelect.value !== planId) {
-          planSelect.value = planId;
-          dispatchChange(planSelect);
-        }
-
-        if (planId) {
-          if (subscribeRadio) {
-            const changed = subscribeRadio.value !== planId || !subscribeRadio.checked;
-            subscribeRadio.value = planId;
-            subscribeRadio.checked = true;
-            if (changed) dispatchChange(subscribeRadio);
-          }
-          if (oneTimeRadio) {
-            const changed = oneTimeRadio.checked;
-            oneTimeRadio.checked = false;
-            if (changed) dispatchChange(oneTimeRadio);
-          }
-        } else {
-          if (oneTimeRadio) {
-            const changed = !oneTimeRadio.checked;
-            oneTimeRadio.checked = true;
-            if (changed) dispatchChange(oneTimeRadio);
-          }
-          if (subscribeRadio) {
-            const changed = subscribeRadio.checked;
-            subscribeRadio.checked = false;
-            if (changed) dispatchChange(subscribeRadio);
-          }
-        }
-
-        return true;
-      }
-
       syncProductForm = function (values) {
-        const appstleSynced = syncAppstleWidget(values);
-
         qtyInput.value = values.quantity;
         qtyInput.disabled = false;
 
-        // Appstle remains the native subscription source when it is present.
-        // Our hidden input only covers the tiny window before Appstle loads.
-        if (values.selling_plan && !appstleSynced) {
+        if (values.selling_plan) {
           spInput.value = values.selling_plan;
           spInput.disabled = false;
         } else {
-          spInput.value = values.selling_plan || '';
+          spInput.value = '';
           spInput.disabled = true;
         }
 
-        return appstleSynced;
+        return true;
       };
-
-      function scheduleAppstleSync(attempt) {
-        if (attempt > 20 || appstleWidget()) return;
-        window.setTimeout(function () {
-          syncProductForm(currentSubmitValues());
-          scheduleAppstleSync(attempt + 1);
-        }, 150);
-      }
-
-      if (window.MutationObserver) {
-        let appstleSyncQueued = false;
-        const observer = new MutationObserver(function () {
-          if (appstleSyncQueued) return;
-          appstleSyncQueued = true;
-          window.requestAnimationFrame(function () {
-            appstleSyncQueued = false;
-            syncProductForm(currentSubmitValues());
-          });
-        });
-        observer.observe(productForm, { childList: true, subtree: true });
-      }
 
       productForm.addEventListener('submit', function () {
         const v = currentSubmitValues();
@@ -722,8 +619,6 @@
           console.log('[bloomli-vt] formdata', dump);
         }
       });
-
-      scheduleAppstleSync(0);
     }
 
     function formatMoney(cents) {

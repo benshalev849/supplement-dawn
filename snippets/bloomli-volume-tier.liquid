@@ -200,7 +200,9 @@
             <select class="bloomli-vt__sub-select" data-vt-sub-select aria-label="Subscription frequency">
               {%- for grp in product.selling_plan_groups -%}
                 {%- for plan in grp.selling_plans -%}
-                  <option value="{{ plan.id }}" data-plan-name="{{ plan.name | escape }}">{{ plan.name }}</option>
+                  <option value="{{ plan.id }}"
+                          data-group-name="{{ grp.name | escape }}"
+                          data-plan-name="{{ plan.name | escape }}">{{ grp.name }}</option>
                 {%- endfor -%}
               {%- endfor -%}
             </select>
@@ -585,17 +587,21 @@
       const prefix = (tierPrefix || '').trim();
       let firstVisible = null;
       opts.forEach(function (opt) {
-        const planName = (opt.dataset.planName || opt.textContent || '').trim();
-        const matches = !prefix || planName.toLowerCase().indexOf(prefix.toLowerCase()) === 0;
+        // Match against the SELLING PLAN GROUP name (where the tier marker
+        // lives, e.g. "1-pack Monthly"), falling back to plan name. Appstle
+        // names individual plans generically ("Monthly Subscription") and
+        // puts the tier marker on the group.
+        const matchSource = (opt.dataset.groupName || opt.dataset.planName || opt.textContent || '').trim();
+        const displaySource = (opt.dataset.groupName || opt.dataset.planName || opt.textContent || '').trim();
+        const matches = !prefix || matchSource.toLowerCase().indexOf(prefix.toLowerCase()) === 0;
         opt.hidden = !matches;
         opt.disabled = !matches;
         if (matches) {
-          // strip prefix + leading separator from display
           if (prefix) {
-            const stripped = planName.replace(new RegExp('^' + prefix.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') + '\\s*[-:–—]?\\s*', 'i'), '');
-            opt.textContent = stripped || planName;
+            const stripped = displaySource.replace(new RegExp('^' + prefix.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') + '\\s*[-:–—]?\\s*', 'i'), '');
+            opt.textContent = stripped || displaySource;
           } else {
-            opt.textContent = planName;
+            opt.textContent = displaySource;
           }
           if (!firstVisible) firstVisible = opt;
         }

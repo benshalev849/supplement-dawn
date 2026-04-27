@@ -1,8 +1,13 @@
 {%- comment -%}
-  Bloomli Volume Tier — block snippet rendered inside main-product.liquid.
+  Bloomli Volume Tier - block snippet rendered inside main-product.liquid.
 
-  Renders 1-4 quantity tier cards.
-  Sets the buy-buttons form's `quantity` field via shared `form="..."` attribute.
+  Renders 1-4 horizontal size cards (Create-Wellness style) plus an optional
+  One-Time / Subscribe toggle. Sets the buy-buttons form's `quantity` and
+  optional `selling_plan` through normal form-associated inputs.
+
+  Tier-to-plan mapping: by default quantity 1 chooses a plan whose group/name
+  contains "1-pack" and "1mo", quantity 2 chooses "2-pack" and "2mo", etc.
+  Per-tier plan filters can override the pack text.
 
   Accepts:
     block            - block object with all settings
@@ -10,6 +15,10 @@
     product_form_id  - id of the buy-buttons form to associate inputs with
     section_id       - parent section id for unique element ids
 {%- endcomment -%}
+
+{{ 'bloomli-volume-tier.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-volume-tier.js' | asset_url }}" defer="defer"></script>
+
 {%- liquid
   assign uid = section_id | append: '-' | append: block.id
 
@@ -17,20 +26,20 @@
   assign unit_compare = product.selected_or_first_available_variant.compare_at_price | default: unit_price
 
   assign default_idx = -1
-  assign default_qty = block.settings.tier_1_qty | default: 1
+  assign default_qty = 1
+  assign subscribe_enabled = block.settings.subscribe_enabled
+  assign default_mode = block.settings.default_mode | default: 'onetime'
 -%}
 
-<div
-  class="bloomli-vt"
-  data-bloomli-vt
-  data-uid="{{ uid }}"
-  data-form-id="{{ product_form_id }}"
-  data-unit-price="{{ unit_price }}"
-  data-unit-compare="{{ unit_compare }}"
-  data-currency="{{ shop.currency }}"
-  data-money-format="{{ shop.money_format | escape }}"
-  {{ block.shopify_attributes }}
->
+<div class="bloomli-vt"
+     data-bloomli-vt
+     data-uid="{{ uid }}"
+     data-form-id="{{ product_form_id }}"
+     data-unit-price="{{ unit_price }}"
+     data-unit-compare="{{ unit_compare }}"
+     data-money-format="{{ shop.money_format | escape }}"
+     {{ block.shopify_attributes }}>
+
   {%- if block.settings.eyebrow != blank -%}
     <div class="bloomli-vt__eyebrow">{{ block.settings.eyebrow }}</div>
   {%- endif -%}
@@ -39,11 +48,7 @@
     <h3 class="bloomli-vt__title">{{ block.settings.heading }}</h3>
   {%- endif -%}
 
-  <div
-    class="bloomli-vt__cards"
-    role="radiogroup"
-    aria-label="{{ block.settings.heading | default: 'Bundle options' | escape }}"
-  >
+  <div class="bloomli-vt__sizes" role="radiogroup" aria-label="{{ block.settings.heading | default: 'Pack size' | escape }}">
     {%- for i in (1..4) -%}
       {%- liquid
         case i
@@ -51,47 +56,92 @@
             assign show = block.settings.tier_1_show
             assign qty = block.settings.tier_1_qty | default: 1
             assign label = block.settings.tier_1_label
-            assign description = block.settings.tier_1_description
+            assign count_text = block.settings.tier_1_count_text | default: block.settings.tier_1_description
+            assign daily_text = block.settings.tier_1_daily_text
+            assign image = block.settings.tier_1_image
             assign badge = block.settings.tier_1_badge
             assign tag = block.settings.tier_1_tag
             assign discount_pct = block.settings.tier_1_discount_pct | default: 0
+            assign sub_discount_pct = block.settings.tier_1_sub_discount_pct | default: 0
+            assign plan_filter = block.settings.tier_1_plan_filter
             assign is_default = block.settings.tier_1_default
-            assign show_ship = block.settings.tier_1_show_shipping
           when 2
             assign show = block.settings.tier_2_show
             assign qty = block.settings.tier_2_qty | default: 2
             assign label = block.settings.tier_2_label
-            assign description = block.settings.tier_2_description
+            assign count_text = block.settings.tier_2_count_text | default: block.settings.tier_2_description
+            assign daily_text = block.settings.tier_2_daily_text
+            assign image = block.settings.tier_2_image
             assign badge = block.settings.tier_2_badge
             assign tag = block.settings.tier_2_tag
             assign discount_pct = block.settings.tier_2_discount_pct | default: 0
+            assign sub_discount_pct = block.settings.tier_2_sub_discount_pct | default: 0
+            assign plan_filter = block.settings.tier_2_plan_filter
             assign is_default = block.settings.tier_2_default
-            assign show_ship = block.settings.tier_2_show_shipping
           when 3
             assign show = block.settings.tier_3_show
             assign qty = block.settings.tier_3_qty | default: 3
             assign label = block.settings.tier_3_label
-            assign description = block.settings.tier_3_description
+            assign count_text = block.settings.tier_3_count_text | default: block.settings.tier_3_description
+            assign daily_text = block.settings.tier_3_daily_text
+            assign image = block.settings.tier_3_image
             assign badge = block.settings.tier_3_badge
             assign tag = block.settings.tier_3_tag
             assign discount_pct = block.settings.tier_3_discount_pct | default: 0
+            assign sub_discount_pct = block.settings.tier_3_sub_discount_pct | default: 0
+            assign plan_filter = block.settings.tier_3_plan_filter
             assign is_default = block.settings.tier_3_default
-            assign show_ship = block.settings.tier_3_show_shipping
           when 4
             assign show = block.settings.tier_4_show
             assign qty = block.settings.tier_4_qty | default: 4
             assign label = block.settings.tier_4_label
-            assign description = block.settings.tier_4_description
+            assign count_text = block.settings.tier_4_count_text | default: block.settings.tier_4_description
+            assign daily_text = block.settings.tier_4_daily_text
+            assign image = block.settings.tier_4_image
             assign badge = block.settings.tier_4_badge
             assign tag = block.settings.tier_4_tag
             assign discount_pct = block.settings.tier_4_discount_pct | default: 0
+            assign sub_discount_pct = block.settings.tier_4_sub_discount_pct | default: 0
+            assign plan_filter = block.settings.tier_4_plan_filter
             assign is_default = block.settings.tier_4_default
-            assign show_ship = block.settings.tier_4_show_shipping
         endcase
 
         if show and is_default and default_idx == -1
           assign default_idx = forloop.index0
           assign default_qty = qty
+        endif
+
+        if plan_filter == blank
+          assign plan_filter = qty | append: '-pack'
+        endif
+
+        assign frequency_filter = qty | append: 'mo'
+        assign tier_plan_id = ''
+        assign fallback_plan_id = ''
+        for grp in product.selling_plan_groups
+          assign grp_name_lower = grp.name | downcase
+          assign filter_lower = plan_filter | downcase
+          if grp_name_lower contains filter_lower
+            assign first_plan = grp.selling_plans | first
+            if first_plan
+              if fallback_plan_id == blank
+                assign fallback_plan_id = first_plan.id
+              endif
+
+              assign frequency_source = grp.name | append: ' ' | append: first_plan.name | downcase
+              assign frequency_filter_spaced = qty | append: ' mo'
+              assign frequency_filter_dash = qty | append: '-mo'
+              assign frequency_filter_month = qty | append: ' month'
+              assign frequency_filter_every = 'every ' | append: qty
+              if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every
+                assign tier_plan_id = first_plan.id
+                break
+              endif
+            endif
+          endif
+        endfor
+        if tier_plan_id == blank
+          assign tier_plan_id = fallback_plan_id
         endif
 
         assign line_compare = unit_price | times: qty
@@ -100,80 +150,121 @@
         endif
         assign one_time_pct_factor = 100 | minus: discount_pct
         assign one_time_total_cents = unit_price | times: qty | times: one_time_pct_factor | divided_by: 100
+
+        assign sub_pct_factor = 100 | minus: sub_discount_pct
+        assign subscribe_total_cents = unit_price | times: qty | times: sub_pct_factor | divided_by: 100
+
+        assign daily_cents = one_time_total_cents | divided_by: qty | divided_by: 30
+        assign auto_daily = daily_cents | money
+        if daily_text == blank
+          assign daily_text = '(' | append: auto_daily | append: ' / Day)'
+        endif
+
+        assign auto_count = qty | times: 30 | append: ' Count'
+        if count_text == blank
+          assign count_text = auto_count
+        endif
+
+        assign display_label = label
+        if display_label == blank
+          assign display_label = qty | append: ' Month'
+        endif
       -%}
 
       {%- if show -%}
-        <label
-          class="bloomli-vt__card{% if forloop.index0 == default_idx %} is-selected{% endif %}"
-          data-vt-card
-          data-tier-index="{{ forloop.index0 }}"
-          data-quantity="{{ qty }}"
-          data-discount-pct="{{ discount_pct }}"
-          data-one-time-cents="{{ one_time_total_cents }}"
-          data-line-compare-cents="{{ line_compare }}"
-        >
-          <input
-            type="radio"
-            name="bloomli-vt-tier-{{ uid }}"
-            value="{{ qty }}"
-            class="bloomli-vt__radio"
-            {% if forloop.index0 == default_idx %}
-              checked
-            {% endif %}
-          >
-          <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+        <label class="bloomli-vt__size{% if forloop.index0 == default_idx %} is-selected{% endif %}"
+               data-vt-size
+               data-tier-index="{{ forloop.index0 }}"
+               data-quantity="{{ qty }}"
+               data-discount-pct="{{ discount_pct }}"
+               data-sub-discount-pct="{{ sub_discount_pct }}"
+               data-plan-id="{{ tier_plan_id }}"
+               data-one-time-cents="{{ one_time_total_cents }}"
+               data-subscribe-cents="{{ subscribe_total_cents }}"
+               data-line-compare-cents="{{ line_compare }}">
 
-          <div class="bloomli-vt__card-body">
-            {%- if badge != blank or tag != blank -%}
-              <div class="bloomli-vt__pills">
-                {%- if badge != blank -%}
-                  <span class="bloomli-vt__badge">{{ badge }}</span>
-                {%- endif -%}
-                {%- if tag != blank -%}
-                  <span class="bloomli-vt__tag">{{ tag }}</span>
-                {%- endif -%}
-              </div>
-            {%- endif -%}
+          {%- if badge != blank -%}
+            <span class="bloomli-vt__size-badge">{{ badge }}</span>
+          {%- endif -%}
 
-            <div class="bloomli-vt__name">{{ label | default: qty | append: ' bottle' }}</div>
+          <input type="radio"
+                 name="bloomli-vt-size-{{ uid }}"
+                 value="{{ qty }}"
+                 class="bloomli-vt__radio-native"
+                 {% if forloop.index0 == default_idx %}checked{% endif %}>
 
-            {%- if description != blank -%}
-              <div class="bloomli-vt__desc">{{ description }}</div>
-            {%- endif -%}
-          </div>
-
-          <div class="bloomli-vt__price">
-            <span class="bloomli-vt__price-current" data-vt-card-price>{{ one_time_total_cents | money }}</span>
-            {%- if line_compare > one_time_total_cents -%}
-              <span class="bloomli-vt__price-compare">{{ line_compare | money }}</span>
+          <div class="bloomli-vt__size-media">
+            {%- if image != blank -%}
+              <img src="{{ image | image_url: width: 320 }}"
+                   alt="{{ image.alt | default: label | escape }}"
+                   width="160"
+                   height="160"
+                   loading="lazy">
+            {%- elsif product.featured_image != blank -%}
+              <img src="{{ product.featured_image | image_url: width: 320 }}"
+                   alt="{{ product.featured_image.alt | default: label | escape }}"
+                   width="160"
+                   height="160"
+                   loading="lazy">
+            {%- else -%}
+              <div class="bloomli-vt__size-media-placeholder" aria-hidden="true"></div>
             {%- endif -%}
           </div>
 
-          {%- if show_ship -%}
-            <div class="bloomli-vt__shipping">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="1" y="3" width="15" height="13"></rect>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                <circle cx="18.5" cy="18.5" r="2.5"></circle>
-              </svg>
-              <span>{{ block.settings.shipping_text | default: 'Free shipping' }}</span>
-            </div>
+          <div class="bloomli-vt__size-body">
+            <div class="bloomli-vt__size-label">{{ display_label }}</div>
+            {%- if count_text != blank -%}
+              <div class="bloomli-vt__size-count">{{ count_text }}</div>
+            {%- endif -%}
+            {%- if daily_text != blank -%}
+              <div class="bloomli-vt__size-daily">{{ daily_text }}</div>
+            {%- endif -%}
+          </div>
+
+          {%- if tag != blank -%}
+            <span class="bloomli-vt__size-tag">{{ tag }}</span>
           {%- endif -%}
         </label>
       {%- endif -%}
     {%- endfor -%}
   </div>
+
+  {%- if subscribe_enabled -%}
+    <div class="bloomli-vt__modes" role="radiogroup" aria-label="Purchase mode">
+      <label class="bloomli-vt__mode{% if default_mode == 'onetime' %} is-selected{% endif %}"
+             data-vt-mode
+             data-mode="onetime">
+        <input type="radio"
+               name="bloomli-vt-mode-{{ uid }}"
+               value="onetime"
+               class="bloomli-vt__radio-native"
+               {% if default_mode == 'onetime' %}checked{% endif %}>
+        <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+        <span class="bloomli-vt__mode-text">
+          <span class="bloomli-vt__mode-title">{{ block.settings.label_one_time | default: 'One-Time Purchase' }}</span>
+          <span class="bloomli-vt__mode-price" data-vt-onetime-price>{{ unit_price | money }}</span>
+        </span>
+      </label>
+
+      <label class="bloomli-vt__mode bloomli-vt__mode--subscribe{% if default_mode == 'subscribe' %} is-selected{% endif %}"
+             data-vt-mode
+             data-mode="subscribe">
+        <input type="radio"
+               name="bloomli-vt-mode-{{ uid }}"
+               value="subscribe"
+               class="bloomli-vt__radio-native"
+               {% if default_mode == 'subscribe' %}checked{% endif %}>
+        <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+        <span class="bloomli-vt__mode-text">
+          <span class="bloomli-vt__mode-title">
+            {{ block.settings.label_subscribe | default: 'Subscribe & Save' }}
+            <span class="bloomli-vt__mode-savings" data-vt-sub-savings></span>
+          </span>
+          <span class="bloomli-vt__mode-price" data-vt-subscribe-price>{{ unit_price | money }}</span>
+        </span>
+      </label>
+    </div>
+  {%- endif -%}
 
   <div class="bloomli-vt__footer">
     <div class="bloomli-vt__total-row">
@@ -189,357 +280,16 @@
     {%- endif -%}
   </div>
 
-  {%- comment -%} Hidden inputs target the buy-buttons form via the `form` attribute {%- endcomment -%}
-  <input
-    type="hidden"
-    name="quantity"
-    value="{{ default_qty }}"
-    form="{{ product_form_id }}"
-    data-vt-qty-input
-  >
+  {%- comment -%} Hidden inputs target Dawn's buy-buttons form through the native `form` attribute. {%- endcomment -%}
+  <input type="hidden"
+         name="quantity"
+         value="{{ default_qty }}"
+         form="{{ product_form_id }}"
+         data-vt-qty-input>
+  <input type="hidden"
+         name="selling_plan"
+         value=""
+         form="{{ product_form_id }}"
+         data-vt-sp-input
+         disabled>
 </div>
-
-<style>
-  .bloomli-vt {
-    background: var(--cream, #f8f1e7);
-    border: 1px solid rgba(110, 74, 99, 0.12);
-    border-radius: 16px;
-    padding: 20px;
-    margin: 16px 0;
-    color: var(--charcoal, #2a2622);
-    font-family: 'DM Sans', sans-serif;
-  }
-  .bloomli-vt__eyebrow {
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    color: rgba(110, 74, 99, 0.7);
-    text-align: center;
-    margin: 0 0 6px;
-    font-weight: 500;
-  }
-  .bloomli-vt__title {
-    font-family: 'Fraunces', serif;
-    font-variation-settings: 'SOFT' 100, 'opsz' 144;
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--charcoal, #2a2622);
-    text-align: center;
-    margin: 0 0 16px;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
-  }
-  .bloomli-vt__cards {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 0 0 16px;
-  }
-  .bloomli-vt__card {
-    position: relative;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 12px;
-    background: #fff;
-    border: 1.5px solid rgba(110, 74, 99, 0.12);
-    border-radius: 12px;
-    padding: 14px 16px;
-    cursor: pointer;
-    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-  }
-  .bloomli-vt__card:hover {
-    border-color: rgba(110, 74, 99, 0.4);
-    box-shadow: 0 2px 8px rgba(110, 74, 99, 0.08);
-  }
-  .bloomli-vt__card.is-selected {
-    border-color: var(--aubergine, #6e4a63);
-    background: rgba(110, 74, 99, 0.04);
-  }
-  .bloomli-vt__radio {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-  .bloomli-vt__radio-visual {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(110, 74, 99, 0.35);
-    flex-shrink: 0;
-    position: relative;
-    transition: border-color 0.15s ease;
-  }
-  .bloomli-vt__card.is-selected .bloomli-vt__radio-visual {
-    border-color: var(--aubergine, #6e4a63);
-  }
-  .bloomli-vt__card.is-selected .bloomli-vt__radio-visual::after {
-    content: '';
-    position: absolute;
-    inset: 3px;
-    border-radius: 50%;
-    background: var(--aubergine, #6e4a63);
-  }
-  .bloomli-vt__card-body {
-    min-width: 0;
-  }
-  .bloomli-vt__pills {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin: 0 0 6px;
-  }
-  .bloomli-vt__badge {
-    background: var(--aubergine, #6e4a63);
-    color: var(--cream, #f8f1e7);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    padding: 4px 10px;
-    border-radius: 999px;
-    text-transform: uppercase;
-    line-height: 1;
-    white-space: nowrap;
-  }
-  .bloomli-vt__tag {
-    background: rgba(110, 74, 99, 0.1);
-    color: var(--aubergine, #6e4a63);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    padding: 4px 9px;
-    border-radius: 999px;
-    text-transform: uppercase;
-    line-height: 1;
-    white-space: nowrap;
-  }
-  .bloomli-vt__name {
-    font-family: 'Fraunces', serif;
-    font-variation-settings: 'SOFT' 100;
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--charcoal, #2a2622);
-    line-height: 1.2;
-    letter-spacing: -0.005em;
-  }
-  .bloomli-vt__desc {
-    font-size: 12px;
-    color: rgba(42, 38, 34, 0.55);
-    margin: 3px 0 0;
-    line-height: 1.4;
-  }
-  .bloomli-vt__price {
-    text-align: right;
-    flex-shrink: 0;
-    line-height: 1.2;
-  }
-  .bloomli-vt__price-current {
-    display: block;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--charcoal, #2a2622);
-    white-space: nowrap;
-  }
-  .bloomli-vt__price-compare {
-    display: block;
-    font-size: 12px;
-    font-weight: 400;
-    color: rgba(42, 38, 34, 0.4);
-    text-decoration: line-through;
-    white-space: nowrap;
-  }
-  .bloomli-vt__shipping {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 0 0;
-    margin: 6px 0 0;
-    border-top: 1px dashed rgba(110, 74, 99, 0.18);
-    color: var(--aubergine, #6e4a63);
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .bloomli-vt__footer {
-    border-top: 1px solid rgba(110, 74, 99, 0.1);
-    padding: 14px 4px 0;
-    margin: 4px 0 0;
-  }
-  .bloomli-vt__total-row {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin: 0;
-  }
-  .bloomli-vt__total-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--charcoal, #2a2622);
-  }
-  .bloomli-vt__total-amount {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 8px;
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--charcoal, #2a2622);
-  }
-  .bloomli-vt__total-compare {
-    font-size: 13px;
-    font-weight: 400;
-    color: rgba(42, 38, 34, 0.4);
-    text-decoration: line-through;
-  }
-  .bloomli-vt__total-compare:empty {
-    display: none;
-  }
-  .bloomli-vt__note {
-    font-size: 11px;
-    color: rgba(42, 38, 34, 0.5);
-    margin: 8px 0 0;
-    text-align: center;
-  }
-
-  @media (max-width: 749px) {
-    .bloomli-vt {
-      padding: 16px;
-      border-radius: 12px;
-    }
-    .bloomli-vt__title {
-      font-size: 20px;
-    }
-    .bloomli-vt__name {
-      font-size: 15px;
-    }
-    .bloomli-vt__price-current {
-      font-size: 14px;
-    }
-    .bloomli-vt__card {
-      padding: 12px 14px;
-      gap: 10px;
-    }
-  }
-</style>
-
-<script>
-  (function () {
-    function init() {
-      const root = document.querySelector('[data-bloomli-vt][data-uid="{{ uid }}"]');
-      if (!root) return;
-
-      const cards = root.querySelectorAll('[data-vt-card]');
-      const qtyInput = root.querySelector('[data-vt-qty-input]');
-      const totalEl = root.querySelector('[data-vt-total]');
-      const compareEl = root.querySelector('[data-vt-compare]');
-
-      const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
-      const productFormId = root.dataset.formId;
-      const quantitySelector = productFormId
-        ? Array.from(document.querySelectorAll('input[name="quantity"]')).find(function (input) {
-            return input !== qtyInput && input.getAttribute('form') === productFormId;
-          })
-        : null;
-
-      function currentSubmitValues() {
-        const card = root.querySelector('[data-vt-card].is-selected') || cards[0];
-        return {
-          quantity: card ? card.dataset.quantity || '1' : '1',
-        };
-      }
-
-      function syncQuantity(values) {
-        const target = quantitySelector || qtyInput;
-        if (!target) return;
-
-        target.value = values.quantity;
-        target.disabled = false;
-
-        if (qtyInput && quantitySelector) {
-          qtyInput.disabled = true;
-        }
-
-      }
-
-      function formatMoney(cents) {
-        if (window.Shopify && window.Shopify.formatMoney) {
-          try {
-            return window.Shopify.formatMoney(cents, moneyFormat);
-          } catch (error) {
-            return (cents / 100).toFixed(2);
-          }
-        }
-        // fallback: 2-decimal currency string
-        return (cents / 100).toFixed(2);
-      }
-
-      function getSelectedCard() {
-        return root.querySelector('[data-vt-card].is-selected') || cards[0];
-      }
-      function unitPriceCents() {
-        return parseInt(root.dataset.unitPrice, 10) || 0;
-      }
-
-      function updateState() {
-        const card = getSelectedCard();
-        if (!card) return;
-        const qty = parseInt(card.dataset.quantity, 10) || 1;
-        const tierVolPct = parseFloat(card.dataset.discountPct) || 0;
-
-        // Authoritative price math from per-tier % (avoids drift if Liquid
-        // pre-render didn't see latest tier settings)
-        const unit = unitPriceCents();
-        const baseLineCents = unit * qty;
-        const oneTimeCents = Math.round((baseLineCents * (100 - tierVolPct)) / 100);
-        const lineCompareCents = parseInt(card.dataset.lineCompareCents, 10) || baseLineCents;
-
-        syncQuantity({
-          quantity: String(qty),
-        });
-
-        // displayed total
-        const displayCents = oneTimeCents;
-
-        if (totalEl) totalEl.textContent = formatMoney(displayCents);
-        if (compareEl) {
-          if (lineCompareCents > displayCents) {
-            compareEl.textContent = formatMoney(lineCompareCents);
-          } else {
-            compareEl.textContent = '';
-          }
-        }
-      }
-
-      cards.forEach(function (card) {
-        card.addEventListener('click', function (e) {
-          if (e.target.tagName === 'A' || e.target.tagName === 'SELECT') return;
-          cards.forEach(function (c) {
-            c.classList.remove('is-selected');
-            const r = c.querySelector('.bloomli-vt__radio');
-            if (r) r.checked = false;
-          });
-          card.classList.add('is-selected');
-          const radio = card.querySelector('.bloomli-vt__radio');
-          if (radio) radio.checked = true;
-          updateState();
-        });
-      });
-
-      if (!root.querySelector('[data-vt-card].is-selected') && cards[0]) {
-        cards[0].classList.add('is-selected');
-        const radio = cards[0].querySelector('.bloomli-vt__radio');
-        if (radio) radio.checked = true;
-      }
-
-      updateState();
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
-</script>

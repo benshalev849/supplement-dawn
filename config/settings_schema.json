@@ -1452,6 +1452,52 @@
       },
       {
         "type": "header",
+        "content": "Cart drawer style"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_accent_color",
+        "label": "Accent color",
+        "default": "#6E4A63"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_accent_text_color",
+        "label": "Accent text color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_soft_background",
+        "label": "Soft background color",
+        "default": "#F8F1E7"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_footer_background",
+        "label": "Footer background color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_subtotal_label",
+        "label": "Subtotal label",
+        "default": "Subtotal"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_checkout_label",
+        "label": "Checkout button label",
+        "default": "Checkout"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_tax_note",
+        "label": "Tax note",
+        "default": "*Taxes, shipping and discounts calculated at checkout."
+      },
+      {
+        "type": "header",
         "content": "Free shipping bar"
       },
       {

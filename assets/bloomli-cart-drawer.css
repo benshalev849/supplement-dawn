@@ -6,14 +6,14 @@
 
 .bloomli-cart-shipping {
   margin: 0 -1.5rem;
-  padding: 1.4rem 1.7rem 1.6rem;
-  background: #FBE3D0;
+  padding: 1.2rem 1.7rem 1.4rem;
+  background: var(--bloomli-cart-soft-bg, #F8F1E7);
 }
 
 .bloomli-cart-shipping__text {
-  margin: 0 0 1.1rem;
+  margin: 0 0 1rem;
   text-align: center;
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   line-height: 1.35;
   color: rgb(var(--color-foreground));
 }
@@ -29,7 +29,7 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: #FF7A1A;
+  background: var(--bloomli-cart-accent, #6E4A63);
   transition: width var(--duration-default) ease;
 }
 
@@ -59,13 +59,13 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 }
 
 .cart-drawer .drawer__header {
-  padding: 1.6rem 0 1.4rem;
+  padding: 1.35rem 0 1.2rem;
 }
 
 .cart-drawer .drawer__heading {
   margin: 0;
   font-family: var(--font-body-family);
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -217,14 +217,14 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 }
 
 .bloomli-cart-frequency__display {
-  min-height: 4.5rem;
+  min-height: 4.2rem;
   width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 0.8rem;
   padding: 0.9rem 1.3rem;
-  border: 0.1rem solid rgb(var(--color-foreground));
+  border: 0.1rem solid rgba(var(--color-foreground), 0.8);
   border-radius: 0.5rem;
   background: #fff;
   color: rgb(var(--color-foreground));
@@ -246,7 +246,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 }
 
 .bloomli-cart-frequency__saving {
-  color: #FF7A1A;
+  color: var(--bloomli-cart-accent, #6E4A63);
   font-size: 1.35rem;
   font-weight: 500;
   line-height: 1;
@@ -266,6 +266,76 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   height: 100%;
 }
 
+.cart-drawer .drawer__footer {
+  margin: 0 -1.5rem;
+  padding: 1.6rem 1.5rem 1.8rem;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  background: var(--bloomli-cart-footer-bg, #fff);
+}
+
+.cart-drawer .cart-drawer__footer {
+  padding: 0;
+}
+
+.cart-drawer__footer > * + *,
+.cart-drawer .drawer__footer > * + * {
+  margin-top: 1.2rem;
+}
+
+.cart-drawer .totals {
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+.cart-drawer .totals__total {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(var(--color-foreground));
+}
+
+.cart-drawer .totals__total-value {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(var(--color-foreground));
+}
+
+.cart-drawer .tax-note {
+  display: block;
+  margin: 0.7rem 0 0;
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+.cart-drawer .cart__ctas {
+  margin-top: 1.4rem;
+}
+
+.cart-drawer .cart__checkout-button {
+  min-height: 5.2rem;
+  border-radius: 0.7rem;
+  background: var(--bloomli-cart-accent, #6E4A63);
+  color: var(--bloomli-cart-accent-contrast, #fff);
+  font-family: var(--font-body-family);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.cart-drawer .cart__checkout-button::before,
+.cart-drawer .cart__checkout-button::after {
+  display: none;
+}
+
 @media screen and (max-width: 749px) {
   .drawer .drawer__inner {
     width: 100vw;
@@ -274,6 +344,10 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 
   .bloomli-cart-shipping {
     margin-inline: -1.5rem;
+  }
+
+  .cart-drawer .drawer__heading {
+    font-size: 1.65rem;
   }
 
   .cart-drawer .cart-item {
@@ -333,7 +407,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   }
 
   .bloomli-cart-frequency__display {
-    min-height: 4.2rem;
+    min-height: 4rem;
     gap: 0.45rem;
     padding-inline: 0.9rem;
     font-size: 1.18rem;
@@ -346,5 +420,10 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   .bloomli-cart-frequency__chevron {
     width: 1.2rem;
     height: 1.2rem;
+  }
+
+  .cart-drawer .totals__total,
+  .cart-drawer .totals__total-value {
+    font-size: 1.65rem;
   }
 }

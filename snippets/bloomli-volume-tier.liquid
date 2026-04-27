@@ -632,6 +632,12 @@
               return;
             }
 
+            const addedItem = response.items ? response.items[0] : response;
+            if (addedItem) {
+              response.key = response.key || addedItem.key;
+              response.id = response.id || addedItem.id;
+            }
+
             if (!cart) {
               window.location = window.routes.cart_url;
               return;

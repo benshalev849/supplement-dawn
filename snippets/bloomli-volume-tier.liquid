@@ -545,18 +545,52 @@
         }
       });
 
-      // formdata event runs when FormData is constructed for submission. Set our
-      // values authoritatively here — overrides anything else.
-      productForm.addEventListener('formdata', function (e) {
+      // Build the final values from current UI state.
+      function currentSubmitValues() {
         const card = root.querySelector('[data-vt-card].is-selected') || cards[0];
-        if (card) {
-          e.formData.set('quantity', card.dataset.quantity);
-        }
         const subOpt = root.querySelector('[data-vt-sub-option].is-selected');
-        if (subOpt && subOpt.dataset.subMode === 'subscribe' && subSelect && subSelect.value) {
-          e.formData.set('selling_plan', subSelect.value);
+        const isSubscribe = !!(subOpt && subOpt.dataset.subMode === 'subscribe');
+        const planId = (isSubscribe && subSelect && subSelect.value) ? subSelect.value : '';
+        return {
+          quantity: card ? (card.dataset.quantity || '1') : '1',
+          selling_plan: planId,
+          isSubscribe: isSubscribe
+        };
+      }
+
+      // 1) Capture-phase submit listener — runs BEFORE Dawn's submit handler.
+      //    Force-sync our hidden inputs to the current UI state so that any
+      //    subsequent FormData(form) call picks them up correctly.
+      productForm.addEventListener('submit', function () {
+        const v = currentSubmitValues();
+        qtyInput.value = v.quantity;
+        qtyInput.disabled = false;
+        if (v.selling_plan) {
+          spInput.value = v.selling_plan;
+          spInput.disabled = false;
+        } else {
+          spInput.value = '';
+          spInput.disabled = true; // disabled inputs are not submitted
+        }
+        if (window.__bloomliVtDebug) {
+          console.log('[bloomli-vt] submit values', v);
+        }
+      }, true);
+
+      // 2) formdata event — overrides values authoritatively in the FormData
+      //    that Dawn just constructed. Belt-and-suspenders alongside (1).
+      productForm.addEventListener('formdata', function (e) {
+        const v = currentSubmitValues();
+        e.formData.set('quantity', v.quantity);
+        if (v.selling_plan) {
+          e.formData.set('selling_plan', v.selling_plan);
         } else {
           e.formData.delete('selling_plan');
+        }
+        if (window.__bloomliVtDebug) {
+          const dump = {};
+          for (const [k, val] of e.formData.entries()) dump[k] = val;
+          console.log('[bloomli-vt] formdata', dump);
         }
       });
     }

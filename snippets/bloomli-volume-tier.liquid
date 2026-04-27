@@ -536,8 +536,7 @@
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const productFormId = root.dataset.formId;
     const productForm = productFormId ? document.getElementById(productFormId) : null;
-    let isAddingSubscription = false;
-
+    let syncProductForm = function () { return false; };
     // Move our hidden inputs INSIDE the actual <form> so FormData picks them up
     // reliably (the form="..." attribute association is flaky across browsers).
     if (productForm) {
@@ -558,13 +557,6 @@
           el.removeAttribute('name');
         }
       });
-      productForm.querySelectorAll('[name="selling_plan"]').forEach(function (el) {
-        if (el !== spInput) {
-          el.dataset.vtSilenced = 'selling_plan';
-          el.removeAttribute('name');
-        }
-      });
-
       // Build the final values from current UI state.
       function currentSubmitValues() {
         const card = root.querySelector('[data-vt-card].is-selected') || cards[0];
@@ -588,263 +580,136 @@
         };
       }
 
-      // 1) Capture-phase submit listener — runs BEFORE Dawn's submit handler.
-      //    Force-sync our hidden inputs to the current UI state so that any
-      //    subsequent FormData(form) call picks them up correctly.
-      function addSubscriptionToCart(values, submitEvent) {
-        if (isAddingSubscription) return;
-        const variantInput = productForm.querySelector('[name="id"]');
-        const variantId = variantInput ? variantInput.value : '';
-        const quantity = parseInt(values.quantity, 10) || 1;
-        const sellingPlan = parseInt(values.selling_plan, 10);
-        const productFormEl = productForm.closest('product-form');
-        const cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-        const submitButton = productFormEl ? productFormEl.querySelector('[type="submit"]') : productForm.querySelector('[type="submit"]');
-        const spinner = productFormEl ? productFormEl.querySelector('.loading__spinner') : null;
-        const errorWrapper = productFormEl ? productFormEl.querySelector('.product-form__error-message-wrapper') : null;
-        const errorMessage = errorWrapper ? errorWrapper.querySelector('.product-form__error-message') : null;
-
-        if (!variantId || !sellingPlan) return;
-
-        isAddingSubscription = true;
-        if (errorWrapper) errorWrapper.hidden = true;
-        if (submitButton) {
-          submitButton.setAttribute('aria-disabled', true);
-          submitButton.classList.add('loading');
-        }
-        if (spinner) spinner.classList.remove('hidden');
-
-        const body = {
-          id: Number(variantId),
-          quantity: quantity,
-          selling_plan: sellingPlan
-        };
-
-        if (window.__bloomliVtDebug) {
-          console.log('[bloomli-vt] xhr add subscription', body);
-        }
-
-        function xhrJson(method, url, payload) {
-          const request = new XMLHttpRequest();
-          request.open(method, url, true);
-          request.setRequestHeader('Accept', 'application/json');
-          if (payload) {
-            request.setRequestHeader('Content-Type', 'application/json');
-          }
-          request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-
-          return new Promise(function (resolve, reject) {
-            request.onload = function () {
-              try {
-                resolve(JSON.parse(request.responseText));
-              } catch (error) {
-                reject(error);
-              }
-            };
-            request.onerror = reject;
-            request.send(payload ? JSON.stringify(payload) : null);
-          });
-        }
-
-        function sellingPlanId(item) {
-          return item && item.selling_plan_allocation && item.selling_plan_allocation.selling_plan
-            ? Number(item.selling_plan_allocation.selling_plan.id)
-            : null;
-        }
-
-        function addSections(payload) {
-          if (cart && typeof cart.getSectionsToRender === 'function') {
-            payload.sections = cart.getSectionsToRender().map(function (section) { return section.id; });
-            payload.sections_url = window.location.pathname;
-          }
-          return payload;
-        }
-
-        function normalizeRenderResponse(response, item) {
-          if (item) {
-            response.key = response.key || item.key;
-            response.id = response.id || item.id;
-          }
-          return response;
-        }
-
-        function enforceSubscriptionLine(addResponse) {
-          return new Promise(function (resolve) {
-            window.setTimeout(resolve, 350);
-          })
-            .then(function () {
-              return xhrJson('GET', window.routes.cart_url + '.js');
-            })
-            .then(function (cartState) {
-              const items = cartState.items || [];
-              let lineIndex = -1;
-              let selectedItem = null;
-
-              items.forEach(function (item, index) {
-                if (lineIndex !== -1 || Number(item.variant_id) !== Number(variantId)) return;
-                lineIndex = index;
-                selectedItem = item;
-              });
-
-              if (!selectedItem) {
-                return addResponse;
-              }
-
-              if (sellingPlanId(selectedItem) === sellingPlan) {
-                return normalizeRenderResponse(addResponse, selectedItem);
-              }
-
-              const changeBody = addSections({
-                line: lineIndex + 1,
-                quantity: selectedItem.quantity || quantity,
-                selling_plan: sellingPlan
-              });
-
-              if (window.__bloomliVtDebug) {
-                console.log('[bloomli-vt] enforcing selling_plan with cart/change', changeBody);
-              }
-
-              return xhrJson('POST', window.routes.cart_change_url, changeBody)
-                .then(function (changeResponse) {
-                  const changedItem = (changeResponse.items || []).find(function (item) {
-                    return Number(item.variant_id) === Number(variantId) && sellingPlanId(item) === sellingPlan;
-                  }) || selectedItem;
-
-                  if (!changeResponse.sections && addResponse.sections) {
-                    changeResponse.sections = addResponse.sections;
-                  }
-
-                  return normalizeRenderResponse(changeResponse, changedItem);
-                });
-            });
-        }
-
-        if (cart && typeof cart.getSectionsToRender === 'function') {
-          body.sections = cart.getSectionsToRender().map(function (section) { return section.id; });
-          body.sections_url = window.location.pathname;
-          if (typeof cart.setActiveElement === 'function') {
-            cart.setActiveElement(document.activeElement);
-          }
-        }
-
-        xhrJson('POST', window.routes.cart_add_url, body)
-          .then(function (response) {
-            if (window.__bloomliVtDebug) {
-              console.log('[bloomli-vt] xhr add response', response);
-            }
-
-            if (response.status) {
-              if (errorWrapper && errorMessage) {
-                errorMessage.textContent = response.description || response.message || 'Unable to add subscription.';
-                errorWrapper.hidden = false;
-              }
-              return;
-            }
-
-            return enforceSubscriptionLine(response);
-          })
-          .then(function (response) {
-            if (!response || response.status) return;
-
-            if (window.__bloomliVtDebug) {
-              console.log('[bloomli-vt] final subscription cart response', response);
-            }
-
-            if (!cart) {
-              window.location = window.routes.cart_url;
-              return;
-            }
-
-            if (typeof publish === 'function' && window.PUB_SUB_EVENTS) {
-              publish(PUB_SUB_EVENTS.cartUpdate, {
-                source: 'bloomli-volume-tier',
-                productVariantId: variantId,
-                cartData: response
-              });
-            }
-
-            if (typeof cart.renderContents === 'function') {
-              cart.renderContents(response);
-            }
-          })
-          .catch(function (error) {
-            console.error(error);
-            if (errorWrapper && errorMessage) {
-              errorMessage.textContent = 'Unable to add subscription. Please try again.';
-              errorWrapper.hidden = false;
-            }
-          })
-          .finally(function () {
-            isAddingSubscription = false;
-            if (submitButton) {
-              submitButton.classList.remove('loading');
-              submitButton.removeAttribute('aria-disabled');
-            }
-            if (spinner) spinner.classList.add('hidden');
-
-            if (window.CartPerformance && typeof CartPerformance.measureFromEvent === 'function') {
-              CartPerformance.measureFromEvent('add:user-action', submitEvent);
-            }
-          });
+      // Keep Appstle's hidden native widget aligned with our custom UI.
+      function appstleWidget() {
+        return productForm.querySelector(
+          '.appstle_sub_widget, #appstle_subscription_widget, .appstle_subscription_widget, .appstle_subscription_wrapper, [id^="appstle_subscription_widget"], [class*="appstle-subscription-widget"], [class*="appstle_subscription_widget"]'
+        );
       }
 
-      const addButton = productForm.querySelector('[name="add"], [type="submit"]');
-      if (addButton) {
-        addButton.addEventListener('click', function (event) {
-          const values = currentSubmitValues();
-
-          if (!values.selling_plan) return;
-
-          event.preventDefault();
-          event.stopImmediatePropagation();
-          addSubscriptionToCart(values, event);
-        }, true);
+      function dispatchChange(el) {
+        if (!el) return;
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.dispatchEvent(new Event('change', { bubbles: true }));
       }
 
-      productForm.addEventListener('submit', function (event) {
-        if (isAddingSubscription) {
-          event.preventDefault();
-          event.stopImmediatePropagation();
-          return;
-        }
+      function optionLooksOneTime(input) {
+        const label = input.closest('label');
+        const source = [
+          input.value || '',
+          input.id || '',
+          input.getAttribute('aria-label') || '',
+          label ? label.textContent : ''
+        ].join(' ').toLowerCase();
 
-        productForm.querySelectorAll('[name="selling_plan"]').forEach(function (el) {
-          if (el !== spInput) {
-            el.dataset.vtSilenced = 'selling_plan';
-            el.removeAttribute('name');
-          }
+        return !input.value || source.indexOf('one') !== -1 || source.indexOf('single') !== -1;
+      }
+
+      function syncAppstleWidget(values) {
+        const widget = appstleWidget();
+        if (!widget) return false;
+
+        // Restore any Appstle controls silenced by older snippet versions.
+        widget.querySelectorAll('[data-vt-silenced="selling_plan"]').forEach(function (el) {
+          el.setAttribute('name', 'selling_plan');
+          delete el.dataset.vtSilenced;
         });
-        const v = currentSubmitValues();
-        qtyInput.value = v.quantity;
+
+        const planId = values.selling_plan || '';
+        const radios = Array.from(widget.querySelectorAll('input[type="radio"]'));
+        const oneTimeRadio = radios.find(optionLooksOneTime) || null;
+        const subscribeRadio = radios.find(function (radio) {
+          return radio.value && radio.value === planId;
+        }) || radios.find(function (radio) {
+          return radio.value && radio !== oneTimeRadio;
+        });
+        const planSelect = widget.querySelector('select[name="selling_plan"], select.appstle_select, select[id^="appstle_selling_plan"]');
+
+        if (planSelect && planId && planSelect.value !== planId) {
+          planSelect.value = planId;
+          dispatchChange(planSelect);
+        }
+
+        if (planId) {
+          if (subscribeRadio) {
+            const changed = subscribeRadio.value !== planId || !subscribeRadio.checked;
+            subscribeRadio.value = planId;
+            subscribeRadio.checked = true;
+            if (changed) dispatchChange(subscribeRadio);
+          }
+          if (oneTimeRadio) {
+            const changed = oneTimeRadio.checked;
+            oneTimeRadio.checked = false;
+            if (changed) dispatchChange(oneTimeRadio);
+          }
+        } else {
+          if (oneTimeRadio) {
+            const changed = !oneTimeRadio.checked;
+            oneTimeRadio.checked = true;
+            if (changed) dispatchChange(oneTimeRadio);
+          }
+          if (subscribeRadio) {
+            const changed = subscribeRadio.checked;
+            subscribeRadio.checked = false;
+            if (changed) dispatchChange(subscribeRadio);
+          }
+        }
+
+        return true;
+      }
+
+      syncProductForm = function (values) {
+        const appstleSynced = syncAppstleWidget(values);
+
+        qtyInput.value = values.quantity;
         qtyInput.disabled = false;
-        if (v.selling_plan) {
-          spInput.value = v.selling_plan;
+
+        // Appstle remains the native subscription source when it is present.
+        // Our hidden input only covers the tiny window before Appstle loads.
+        if (values.selling_plan && !appstleSynced) {
+          spInput.value = values.selling_plan;
           spInput.disabled = false;
         } else {
-          spInput.value = '';
-          spInput.disabled = true; // disabled inputs are not submitted
+          spInput.value = values.selling_plan || '';
+          spInput.disabled = true;
         }
+
+        return appstleSynced;
+      };
+
+      function scheduleAppstleSync(attempt) {
+        if (attempt > 20 || appstleWidget()) return;
+        window.setTimeout(function () {
+          syncProductForm(currentSubmitValues());
+          scheduleAppstleSync(attempt + 1);
+        }, 150);
+      }
+
+      if (window.MutationObserver) {
+        let appstleSyncQueued = false;
+        const observer = new MutationObserver(function () {
+          if (appstleSyncQueued) return;
+          appstleSyncQueued = true;
+          window.requestAnimationFrame(function () {
+            appstleSyncQueued = false;
+            syncProductForm(currentSubmitValues());
+          });
+        });
+        observer.observe(productForm, { childList: true, subtree: true });
+      }
+
+      productForm.addEventListener('submit', function () {
+        const v = currentSubmitValues();
+        syncProductForm(v);
         if (window.__bloomliVtDebug) {
           console.log('[bloomli-vt] submit values', v);
         }
-
-        if (v.selling_plan) {
-          event.preventDefault();
-          event.stopImmediatePropagation();
-          addSubscriptionToCart(v, event);
-        }
       }, true);
 
-      // 2) formdata event — overrides values authoritatively in the FormData
-      //    that Dawn just constructed. Belt-and-suspenders alongside (1).
+      // Dawn still submits normally; this makes its Ajax FormData match our UI.
       productForm.addEventListener('formdata', function (e) {
-        productForm.querySelectorAll('[name="selling_plan"]').forEach(function (el) {
-          if (el !== spInput) {
-            el.dataset.vtSilenced = 'selling_plan';
-            el.removeAttribute('name');
-          }
-        });
         const v = currentSubmitValues();
+        syncProductForm(v);
         e.formData.set('quantity', v.quantity);
         if (v.selling_plan) {
           e.formData.set('selling_plan', v.selling_plan);
@@ -857,6 +722,8 @@
           console.log('[bloomli-vt] formdata', dump);
         }
       });
+
+      scheduleAppstleSync(0);
     }
 
     function formatMoney(cents) {
@@ -987,17 +854,11 @@
       const subscribeCents = Math.round(baseLineCents * (100 - tierSubPct) / 100);
       const lineCompareCents = parseInt(card.dataset.lineCompareCents, 10) || baseLineCents;
 
-      // form values (authoritative override happens in the formdata listener,
-      // but we mirror here for older browsers / observers).
-      qtyInput.value = qty;
-      qtyInput.disabled = false;
-      if (subMode === 'subscribe' && subSelect && subSelect.value) {
-        spInput.value = subSelect.value;
-        spInput.disabled = false;
-      } else {
-        spInput.value = '';
-        spInput.disabled = true;
-      }
+      syncProductForm({
+        quantity: String(qty),
+        selling_plan: (subMode === 'subscribe' && subSelect && subSelect.value) ? subSelect.value : '',
+        isSubscribe: subMode === 'subscribe'
+      });
 
       // displayed total
       const displayCents = (subMode === 'subscribe') ? subscribeCents : oneTimeCents;

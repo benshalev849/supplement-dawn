@@ -857,6 +857,7 @@ input[type="text"] {
    but its visual widget is hidden so it doesn't double up.
    ============================================================ */
 #appstle_subscription_widget,
+.appstle_sub_widget,
 .appstle_subscription_widget,
 .appstle_subscription_wrapper,
 [id^="appstle_subscription_widget"],

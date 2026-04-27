@@ -603,11 +603,9 @@
         if (spinner) spinner.classList.remove('hidden');
 
         const body = {
-          items: [{
-            id: Number(variantId),
-            quantity: quantity,
-            selling_plan: sellingPlan
-          }]
+          id: Number(variantId),
+          quantity: quantity,
+          selling_plan: sellingPlan
         };
 
         if (cart && typeof cart.getSectionsToRender === 'function') {

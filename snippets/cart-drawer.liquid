@@ -386,7 +386,9 @@
                                     class="hidden"
                                   {% endif %}
                                 >
-                                  <span class="cart-remove-button__text">Remove</span>
+                                  <span class="svg-wrapper">
+                                    {{- 'icon-remove.svg' | inline_asset_content -}}
+                                  </span>
                                 </button>
                               </cart-remove-button>
                             </div>
@@ -505,6 +507,7 @@
                               {%- if group_has_current_plan -%}
                                 <div class="bloomli-cart-frequency" data-bloomli-cart-frequency>
                                   {%- assign current_save_label = '' -%}
+                                  {%- assign current_plan_label = item.selling_plan_allocation.selling_plan.name -%}
                                   <label class="visually-hidden" for="CartDrawer-Frequency-{{ item.index | plus: 1 }}">
                                     Subscription frequency
                                   </label>
@@ -551,14 +554,18 @@
                                       </option>
                                       {%- if selling_plan.id == current_selling_plan_id -%}
                                         {%- assign current_save_label = save_label -%}
+                                        {%- assign current_plan_label = plan_label -%}
                                       {%- endif -%}
                                     {%- endfor -%}
                                   </select>
-                                  {%- if current_save_label != blank -%}
-                                    <span class="bloomli-cart-frequency__saving">{{ current_save_label }}</span>
-                                  {%- endif -%}
-                                  <span class="bloomli-cart-frequency__chevron" aria-hidden="true">
-                                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                                  <span class="bloomli-cart-frequency__display" aria-hidden="true">
+                                    <span class="bloomli-cart-frequency__label">{{ current_plan_label }}</span>
+                                    {%- if current_save_label != blank -%}
+                                      <span class="bloomli-cart-frequency__saving">{{ current_save_label }}</span>
+                                    {%- endif -%}
+                                    <span class="bloomli-cart-frequency__chevron">
+                                      {{- 'icon-caret.svg' | inline_asset_content -}}
+                                    </span>
                                   </span>
                                 </div>
                                 {%- break -%}

@@ -608,6 +608,10 @@
           selling_plan: sellingPlan
         };
 
+        if (window.__bloomliVtDebug) {
+          console.log('[bloomli-vt] xhr add subscription', body);
+        }
+
         if (cart && typeof cart.getSectionsToRender === 'function') {
           body.sections = cart.getSectionsToRender().map(function (section) { return section.id; });
           body.sections_url = window.location.pathname;
@@ -616,12 +620,28 @@
           }
         }
 
-        fetch(window.routes.cart_add_url, {
-          ...fetchConfig(),
-          body: JSON.stringify(body)
+        const request = new XMLHttpRequest();
+        request.open('POST', window.routes.cart_add_url, true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.setRequestHeader('Accept', 'application/json');
+        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+        new Promise(function (resolve, reject) {
+          request.onload = function () {
+            try {
+              resolve(JSON.parse(request.responseText));
+            } catch (error) {
+              reject(error);
+            }
+          };
+          request.onerror = reject;
+          request.send(JSON.stringify(body));
         })
-          .then(function (response) { return response.json(); })
           .then(function (response) {
+            if (window.__bloomliVtDebug) {
+              console.log('[bloomli-vt] xhr add response', response);
+            }
+
             if (response.status) {
               if (errorWrapper && errorMessage) {
                 errorMessage.textContent = response.description || response.message || 'Unable to add subscription.';

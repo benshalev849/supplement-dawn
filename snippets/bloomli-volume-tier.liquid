@@ -536,6 +536,7 @@
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const productFormId = root.dataset.formId;
     const productForm = productFormId ? document.getElementById(productFormId) : null;
+    let isAddingSubscription = false;
 
     // Move our hidden inputs INSIDE the actual <form> so FormData picks them up
     // reliably (the form="..." attribute association is flaky across browsers).
@@ -591,6 +592,7 @@
       //    Force-sync our hidden inputs to the current UI state so that any
       //    subsequent FormData(form) call picks them up correctly.
       function addSubscriptionToCart(values, submitEvent) {
+        if (isAddingSubscription) return;
         const variantInput = productForm.querySelector('[name="id"]');
         const variantId = variantInput ? variantInput.value : '';
         const quantity = parseInt(values.quantity, 10) || 1;
@@ -604,6 +606,7 @@
 
         if (!variantId || !sellingPlan) return;
 
+        isAddingSubscription = true;
         if (errorWrapper) errorWrapper.hidden = true;
         if (submitButton) {
           submitButton.setAttribute('aria-disabled', true);
@@ -690,6 +693,7 @@
             }
           })
           .finally(function () {
+            isAddingSubscription = false;
             if (submitButton) {
               submitButton.classList.remove('loading');
               submitButton.removeAttribute('aria-disabled');
@@ -702,7 +706,26 @@
           });
       }
 
+      const addButton = productForm.querySelector('[name="add"], [type="submit"]');
+      if (addButton) {
+        addButton.addEventListener('click', function (event) {
+          const values = currentSubmitValues();
+
+          if (!values.selling_plan) return;
+
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          addSubscriptionToCart(values, event);
+        }, true);
+      }
+
       productForm.addEventListener('submit', function (event) {
+        if (isAddingSubscription) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          return;
+        }
+
         productForm.querySelectorAll('[name="selling_plan"]').forEach(function (el) {
           if (el !== spInput) {
             el.dataset.vtSilenced = 'selling_plan';

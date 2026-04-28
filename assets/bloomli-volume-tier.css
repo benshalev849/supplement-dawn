@@ -294,29 +294,29 @@
   }
 
   .bloomli-vt__size {
-    grid-template-columns: minmax(70px, 34%) minmax(0, 1fr);
-    min-height: 96px;
-    gap: 8px;
-    padding: 10px;
+    grid-template-columns: minmax(46px, 38%) minmax(0, 1fr);
+    min-height: 82px;
+    gap: 6px;
+    padding: 9px 7px;
   }
 
   .bloomli-vt__size.is-selected {
-    padding: 9px;
+    padding: 8px 6px;
   }
 
   .bloomli-vt__size-label {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .bloomli-vt__size-count,
   .bloomli-vt__size-daily {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .bloomli-vt__size-badge,
   .bloomli-vt__size-tag {
-    font-size: 9px;
-    padding: 3px 7px;
+    font-size: 8px;
+    padding: 3px 6px;
   }
 
   .bloomli-vt__mode {
@@ -329,7 +329,11 @@
   }
 
   .bloomli-vt__sizes {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px;
+  }
+
+  .bloomli-vt__sizes:has(.bloomli-vt__size:nth-child(4)) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

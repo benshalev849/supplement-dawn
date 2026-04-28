@@ -210,7 +210,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   align-items: baseline;
   justify-content: flex-end;
   gap: 0.8rem;
-  flex-direction: row;
+  flex-direction: row !important;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
@@ -595,15 +595,15 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   }
 
   .cart-drawer .cart-item {
-    grid-template-columns: var(--bloomli-cart-image-size, 124px) minmax(0, 1fr);
-    grid-template-rows: auto auto auto auto;
+    grid-template-columns: minmax(11.8rem, var(--bloomli-cart-image-size, 124px)) minmax(9rem, 1fr);
+    grid-template-rows: auto auto auto;
     gap: var(--bloomli-cart-item-row-gap, 6px) var(--bloomli-cart-item-column-gap, 12px);
     padding: 1rem;
   }
 
   .cart-drawer .cart-item__media {
     grid-column: 1;
-    grid-row: 1 / 3;
+    grid-row: 1 / 2;
   }
 
   .bloomli-cart-media-stack {
@@ -631,6 +631,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
     justify-self: end;
     align-self: center;
     padding-top: var(--bloomli-cart-price-top-offset, 0);
+    min-width: max-content;
   }
 
   .cart-drawer .cart-item__discounted-prices {
@@ -638,17 +639,17 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   }
 
   .cart-drawer .cart-quantity {
-    width: 12.6rem;
+    width: min(11.8rem, 100%);
   }
 
   .cart-drawer .cart-items .cart-item__quantity {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 2;
   }
 
   .cart-drawer .bloomli-cart-frequency-cell {
     grid-column: 1 / -1;
-    grid-row: 4;
+    grid-row: 3;
     padding-top: var(--bloomli-cart-frequency-top-spacing, 6px);
   }
 
@@ -686,7 +687,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 
 @media screen and (max-width: 480px) {
   .cart-drawer .cart-item {
-    grid-template-columns: var(--bloomli-cart-image-size, 124px) minmax(0, 1fr);
+    grid-template-columns: minmax(11.4rem, var(--bloomli-cart-image-size, 124px)) minmax(8.6rem, 1fr);
   }
 
   .bloomli-cart-media-stack {
@@ -694,7 +695,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   }
 
   .cart-drawer .cart-quantity {
-    width: 12rem;
+    width: 11.4rem;
   }
 
   .bloomli-cart-frequency__toggle {

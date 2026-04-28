@@ -1675,6 +1675,26 @@
         "default": 17
       },
       {
+        "type": "range",
+        "id": "cart_drawer_quantity_offer_font_size",
+        "label": "Offer button font size",
+        "min": 10,
+        "max": 15,
+        "step": 1,
+        "unit": "px",
+        "default": 12
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_quantity_offer_height",
+        "label": "Offer button height",
+        "min": 28,
+        "max": 44,
+        "step": 1,
+        "unit": "px",
+        "default": 32
+      },
+      {
         "type": "text",
         "id": "cart_drawer_subtotal_label",
         "label": "Subtotal label",

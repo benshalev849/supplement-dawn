@@ -47,6 +47,8 @@
       --bloomli-cart-frequency-top-spacing: {{ settings.cart_drawer_frequency_top_spacing | default: 6 }}px;
       --bloomli-cart-price-top-offset: {{ settings.cart_drawer_price_top_offset | default: 0 }}px;
       --bloomli-cart-checkout-radius: {{ settings.cart_drawer_checkout_radius | default: 8 }}px;
+      --bloomli-cart-offer-height: {{ settings.cart_drawer_quantity_offer_height | default: 32 }}px;
+      --bloomli-cart-offer-font-size: {{ settings.cart_drawer_quantity_offer_font_size | default: 12 }}px;
     "
   >
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
@@ -193,7 +195,7 @@
                           headers="CartDrawer-ColumnProductImage"
                         >
                           {% if item.image %}
-                            <a href="{{ item.url }}" class="cart-item__link bloomli-cart-media-link" aria-label="{{ item.product.title | escape }}">
+                            <a href="{{ item.url }}" class="bloomli-cart-media-link" aria-label="{{ item.product.title | escape }}">
                               {%- render 'bloomli-product-image-stack',
                                 image: item.image,
                                 product: item.product,
@@ -530,31 +532,31 @@
                           <div class="bloomli-cart-offers" data-bloomli-cart-offers>
                             <button
                               type="button"
-                              class="bloomli-cart-offer{% if item.quantity == 3 %} is-active{% endif %}"
+                              class="bloomli-cart-offer{% if item.quantity >= 3 %} is-active{% endif %}"
                               data-bloomli-cart-quantity-offer
                               data-line="{{ item.index | plus: 1 }}"
                               data-quantity="3"
-                              {% if item.quantity == 3 or can_update_line == false %}disabled{% endif %}
+                              {% if item.quantity >= 3 or can_update_line == false %}disabled{% endif %}
                             >
                               Buy 3 save {{ offer_3_savings }}%
                             </button>
                             <button
                               type="button"
-                              class="bloomli-cart-offer{% if item.quantity == 4 %} is-active{% endif %}"
+                              class="bloomli-cart-offer{% if item.quantity >= 4 %} is-active{% endif %}"
                               data-bloomli-cart-quantity-offer
                               data-line="{{ item.index | plus: 1 }}"
                               data-quantity="4"
-                              {% if item.quantity == 4 or can_update_line == false %}disabled{% endif %}
+                              {% if item.quantity >= 4 or can_update_line == false %}disabled{% endif %}
                             >
                               Buy 4 save {{ offer_4_savings }}%
                             </button>
                             <button
                               type="button"
-                              class="bloomli-cart-offer{% if item.quantity == 5 %} is-active{% endif %}"
+                              class="bloomli-cart-offer{% if item.quantity >= 5 %} is-active{% endif %}"
                               data-bloomli-cart-quantity-offer
                               data-line="{{ item.index | plus: 1 }}"
                               data-quantity="5"
-                              {% if item.quantity == 5 or can_update_line == false %}disabled{% endif %}
+                              {% if item.quantity >= 5 or can_update_line == false %}disabled{% endif %}
                             >
                               Buy 5 save {{ offer_5_savings }}%
                             </button>

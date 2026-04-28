@@ -101,9 +101,12 @@
           endif
           assign free_shipping_progress_text = settings.cart_free_shipping_progress_text | default: 'Add [amount] more and get Free Shipping'
           assign free_shipping_remaining_money = free_shipping_remaining | money
-          assign free_shipping_message = free_shipping_progress_text | replace: '[amount]', free_shipping_remaining_money
+          assign free_shipping_remaining_markup = '<strong>' | append: free_shipping_remaining_money | append: '</strong>'
+          assign free_shipping_message = free_shipping_progress_text | replace: '[amount]', free_shipping_remaining_markup
           if free_shipping_remaining <= 0
             assign free_shipping_message = settings.cart_free_shipping_unlocked_text | default: "Congrats, you've unlocked Free Shipping!"
+            assign free_shipping_message = free_shipping_message | replace: 'Free Shipping', '<strong>Free Shipping</strong>'
+            assign free_shipping_message = free_shipping_message | replace: 'FREE SHIPPING', '<strong>FREE SHIPPING</strong>'
           endif
         -%}
         <div class="bloomli-cart-shipping" data-bloomli-cart-shipping>
@@ -173,14 +176,24 @@
                           {% if item.image %}
                             {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                             <a href="{{ item.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true"> </a>
-                            <img
-                              class="cart-item__image"
-                              src="{{ item.image | image_url: width: 300 }}"
-                              alt="{{ item.image.alt | escape }}"
-                              loading="lazy"
-                              width="150"
-                              height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
-                            >
+                            {%- liquid
+                              assign image_stack_count = item.quantity
+                              if image_stack_count > 3
+                                assign image_stack_count = 3
+                              endif
+                            -%}
+                            <div class="bloomli-cart-media-stack bloomli-cart-media-stack--{{ image_stack_count }}">
+                              {%- for image_index in (1..image_stack_count) -%}
+                                <img
+                                  class="cart-item__image bloomli-cart-media-stack__image"
+                                  src="{{ item.image | image_url: width: 360 }}"
+                                  alt="{{ item.image.alt | escape }}"
+                                  loading="lazy"
+                                  width="180"
+                                  height="{{ 180 | divided_by: item.image.aspect_ratio | ceil }}"
+                                >
+                              {%- endfor -%}
+                            </div>
                           {% endif %}
                         </td>
 
@@ -192,27 +205,6 @@
                           <a href="{{ item.url }}" class="cart-item__name h4 break">
                             {{- item.product.title | escape -}}
                           </a>
-
-                          {%- if item.original_price != item.final_price -%}
-                            <div class="cart-item__discounted-prices">
-                              <span class="visually-hidden">
-                                {{ 'products.product.price.regular_price' | t }}
-                              </span>
-                              <s class="cart-item__old-price product-option">
-                                {{- item.original_price | money -}}
-                              </s>
-                              <span class="visually-hidden">
-                                {{ 'products.product.price.sale_price' | t }}
-                              </span>
-                              <strong class="cart-item__final-price product-option">
-                                {{ item.final_price | money }}
-                              </strong>
-                            </div>
-                          {%- else -%}
-                            <div class="product-option">
-                              {{ item.original_price | money }}
-                            </div>
-                          {%- endif -%}
 
                           {%- if item.product.has_only_default_variant == false
                             or item.properties.size != 0
@@ -274,13 +266,22 @@
                         <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
                           {%- render 'loading-spinner' -%}
                           <div class="cart-item__price-wrapper">
-                            {%- if item.original_line_price != item.final_line_price -%}
+                            {%- liquid
+                              assign line_compare_price = item.original_line_price
+                              if item.selling_plan_allocation != null
+                                assign line_compare_price = item.variant.price | times: item.quantity
+                                if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
+                                  assign line_compare_price = item.variant.compare_at_price | times: item.quantity
+                                endif
+                              endif
+                            -%}
+                            {%- if line_compare_price > item.final_line_price -%}
                               <div class="cart-item__discounted-prices">
                                 <span class="visually-hidden">
                                   {{ 'products.product.price.regular_price' | t }}
                                 </span>
                                 <s class="cart-item__old-price price price--end">
-                                  {{ item.original_line_price | money }}
+                                  {{ line_compare_price | money }}
                                 </s>
                                 <span class="visually-hidden">
                                   {{ 'products.product.price.sale_price' | t }}
@@ -497,8 +498,14 @@
                               </span>
                             </div>
                           </quantity-popover>
+                        </td>
 
                           {%- if item.selling_plan_allocation != null -%}
+                            <td
+                              class="bloomli-cart-frequency-cell"
+                              role="cell"
+                              headers="CartDrawer-ColumnQuantity"
+                            >
                             {%- liquid
                               assign current_selling_plan_id = item.selling_plan_allocation.selling_plan.id
                               assign frequency_prefix = settings.cart_subscription_frequency_prefix | default: 'Delivers every'
@@ -523,11 +530,12 @@
                                   <select
                                     id="CartDrawer-Frequency-{{ item.index | plus: 1 }}"
                                     class="bloomli-cart-frequency__select"
+                                    tabindex="-1"
+                                    aria-hidden="true"
                                     data-bloomli-frequency-select
                                     data-line="{{ item.index | plus: 1 }}"
                                     data-line-key="{{ item.key }}"
                                     data-quantity="{{ item.quantity }}"
-                                    aria-label="Subscription frequency"
                                   >
                                     {%- for selling_plan in selling_plan_group.selling_plans -%}
                                       {%- liquid
@@ -569,7 +577,13 @@
                                       {%- endif -%}
                                     {%- endfor -%}
                                   </select>
-                                  <span class="bloomli-cart-frequency__display" aria-hidden="true">
+                                  <button
+                                    type="button"
+                                    class="bloomli-cart-frequency__toggle"
+                                    data-bloomli-frequency-toggle
+                                    aria-expanded="false"
+                                    aria-controls="CartDrawer-FrequencyMenu-{{ item.index | plus: 1 }}"
+                                  >
                                     <span class="bloomli-cart-frequency__label">{{ current_plan_label }}</span>
                                     {%- if current_save_label != blank -%}
                                       <span class="bloomli-cart-frequency__saving">{{ current_save_label }}</span>
@@ -577,13 +591,61 @@
                                     <span class="bloomli-cart-frequency__chevron">
                                       {{- 'icon-caret.svg' | inline_asset_content -}}
                                     </span>
-                                  </span>
+                                  </button>
+                                  <ul
+                                    id="CartDrawer-FrequencyMenu-{{ item.index | plus: 1 }}"
+                                    class="bloomli-cart-frequency__menu"
+                                    data-bloomli-frequency-menu
+                                    hidden
+                                  >
+                                    {%- for selling_plan in selling_plan_group.selling_plans -%}
+                                      {%- liquid
+                                        assign plan_label = selling_plan.name
+                                        assign plan_option = selling_plan.options | first
+                                        assign plan_option_value = plan_option.value | downcase
+                                        if plan_option_value contains 'month'
+                                          assign month_count = plan_option_value | split: 'month' | first | plus: 0
+                                          if month_count > 0
+                                            assign plan_label = frequency_prefix | append: ' ' | append: month_count | append: ' month'
+                                            unless month_count == 1
+                                              assign plan_label = plan_label | append: 's'
+                                            endunless
+                                          endif
+                                        endif
+
+                                        assign save_label = ''
+                                        assign plan_adjustment = selling_plan.price_adjustments | first
+                                        if plan_adjustment and plan_adjustment.value_type == 'percentage'
+                                          assign save_value = plan_adjustment.value | plus: 0
+                                          if save_value > 0
+                                            assign save_label = savings_prefix | append: ' ' | append: save_value | append: '%'
+                                          endif
+                                        endif
+                                      -%}
+                                      <li class="bloomli-cart-frequency__menu-item">
+                                        <button
+                                          type="button"
+                                          class="bloomli-cart-frequency__option{% if selling_plan.id == current_selling_plan_id %} is-selected{% endif %}"
+                                          data-bloomli-frequency-option
+                                          data-selling-plan="{{ selling_plan.id }}"
+                                          data-label="{{ plan_label | escape }}"
+                                          data-saving="{{ save_label | escape }}"
+                                        >
+                                          <span class="bloomli-cart-frequency__check" aria-hidden="true">&#10003;</span>
+                                          <span class="bloomli-cart-frequency__option-label">{{ plan_label }}</span>
+                                          {%- if save_label != blank -%}
+                                            <span class="bloomli-cart-frequency__option-saving">{{ save_label }}</span>
+                                          {%- endif -%}
+                                        </button>
+                                      </li>
+                                    {%- endfor -%}
+                                  </ul>
                                 </div>
                                 {%- break -%}
                               {%- endif -%}
                             {%- endfor -%}
+                            </td>
                           {%- endif -%}
-                        </td>
                       </tr>
                     {%- endfor -%}
                   </tbody>
@@ -637,9 +699,43 @@
             {%- endif -%}
           </div>
 
+          {%- liquid
+            assign bloomli_cart_compare_price = 0
+            for item in cart.items
+              assign bloomli_line_compare_price = item.original_line_price
+              if item.selling_plan_allocation != null
+                assign bloomli_line_compare_price = item.variant.price | times: item.quantity
+                if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
+                  assign bloomli_line_compare_price = item.variant.compare_at_price | times: item.quantity
+                endif
+              endif
+
+              if bloomli_line_compare_price < item.final_line_price
+                assign bloomli_line_compare_price = item.final_line_price
+              endif
+
+              assign bloomli_cart_compare_price = bloomli_cart_compare_price | plus: bloomli_line_compare_price
+            endfor
+
+            if bloomli_cart_compare_price < cart.original_total_price
+              assign bloomli_cart_compare_price = cart.original_total_price
+            endif
+
+            assign bloomli_cart_savings_percent = 0
+            if bloomli_cart_compare_price > cart.total_price
+              assign bloomli_cart_savings_percent = bloomli_cart_compare_price | minus: cart.total_price | times: 100 | divided_by: bloomli_cart_compare_price
+            endif
+          -%}
+
           <div class="totals" role="status">
             <h2 class="totals__total">{{ settings.cart_drawer_subtotal_label | default: 'Subtotal' }}</h2>
-            <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+            <p class="totals__total-value">
+              {%- if bloomli_cart_compare_price > cart.total_price -%}
+                <span class="bloomli-cart-subtotal-save">{{ bloomli_cart_savings_percent }}% off</span>
+                <s class="bloomli-cart-subtotal-compare">{{ bloomli_cart_compare_price | money }}</s>
+              {%- endif -%}
+              <span class="bloomli-cart-subtotal-final">{{ cart.total_price | money_with_currency }}</span>
+            </p>
           </div>
 
           <small class="tax-note caption-large">

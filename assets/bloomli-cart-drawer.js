@@ -71,8 +71,26 @@
     }
   }
 
-  function updateFrequency(select) {
+  function setMenuOpen(wrapper, open) {
+    if (!wrapper) return;
+
+    const toggle = wrapper.querySelector('[data-bloomli-frequency-toggle]');
+    const menu = wrapper.querySelector('[data-bloomli-frequency-menu]');
+
+    wrapper.classList.toggle('is-open', open);
+    if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (menu) menu.hidden = !open;
+  }
+
+  function closeFrequencyMenus(exceptWrapper) {
+    document.querySelectorAll('[data-bloomli-cart-frequency].is-open').forEach(function (wrapper) {
+      if (wrapper !== exceptWrapper) setMenuOpen(wrapper, false);
+    });
+  }
+
+  function updateFrequency(select, selectedOptionOverride) {
     const wrapper = select.closest('[data-bloomli-cart-frequency]');
+    const item = select.closest('.cart-item');
     const sellingPlan = select.value;
     const line = parseInt(select.dataset.line, 10);
     const quantity = parseInt(select.dataset.quantity, 10);
@@ -80,13 +98,15 @@
     const previousOption = Array.from(select.options).find(function (option) {
       return option.value === previousValue;
     });
-    const selectedOption = select.options[select.selectedIndex];
+    const selectedOption = selectedOptionOverride || select.options[select.selectedIndex];
 
     if (!sellingPlan || !line || !quantity) return;
 
     if (wrapper) wrapper.classList.add('is-updating');
+    if (item) item.classList.add('is-updating');
     setFrequencyDisplay(select, selectedOption);
     select.disabled = true;
+    closeFrequencyMenus();
 
     const body = JSON.stringify({
       line: line,
@@ -123,6 +143,7 @@
         if (document.body.contains(select)) {
           select.disabled = false;
           if (wrapper) wrapper.classList.remove('is-updating');
+          if (item) item.classList.remove('is-updating');
         }
       });
   }
@@ -139,6 +160,47 @@
     },
     true
   );
+
+  document.addEventListener('click', function (event) {
+    const toggle = event.target.closest('[data-bloomli-frequency-toggle]');
+    const option = event.target.closest('[data-bloomli-frequency-option]');
+
+    if (toggle) {
+      const wrapper = toggle.closest('[data-bloomli-cart-frequency]');
+      const shouldOpen = !wrapper.classList.contains('is-open');
+
+      event.preventDefault();
+      closeFrequencyMenus(wrapper);
+      setMenuOpen(wrapper, shouldOpen);
+      return;
+    }
+
+    if (option) {
+      const wrapper = option.closest('[data-bloomli-cart-frequency]');
+      const select = wrapper ? wrapper.querySelector('[data-bloomli-frequency-select]') : null;
+      if (!select) return;
+
+      event.preventDefault();
+
+      select.dataset.previousValue = select.value;
+      select.value = option.dataset.sellingPlan;
+
+      wrapper.querySelectorAll('[data-bloomli-frequency-option]').forEach(function (button) {
+        button.classList.toggle('is-selected', button === option);
+      });
+
+      updateFrequency(select, option);
+      return;
+    }
+
+    if (!event.target.closest('[data-bloomli-cart-frequency]')) {
+      closeFrequencyMenus();
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeFrequencyMenus();
+  });
 
   document.addEventListener(
     'focusin',

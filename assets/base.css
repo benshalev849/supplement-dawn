@@ -852,56 +852,60 @@ input[type="text"] {
 /* ============================================================
    Decorative-image scroll-capture fix.
 
-   Editorial/decorative images and inline SVGs in Bloomli sections can
-   accidentally enter the browser's native drag flow when the user clicks
-   slightly while scrolling — wheel events get redirected to the drag
-   handle until they release or click elsewhere. Symptom: scroll stalls
-   or moves at OS-default speed while hovering a hero/timeline/placeholder
-   image. Disabling drag and pointer-events on inner img/svg lets wheel
-   events flow to the page scroller cleanly.
+   Two distinct symptoms this addresses:
+   (1) Scroll stalls completely until the user clicks elsewhere — caused
+       by the browser entering native drag mode on an image/svg/div the
+       cursor brushed during a slight click motion. Fix: make the whole
+       decorative element + descendants pointer-events:none so wheel
+       events pass through to the page scroller untouched.
+   (2) Scroll feels "super slow" when scrolling past large rounded images
+       with big box-shadows — caused by the GPU re-painting the shadow
+       on every frame. Fix: promote those elements to their own
+       compositor layer with transform/will-change so the rendered
+       texture is reused.
+
+   Containers and their entire decorative subtree (no clickable children
+   live inside these — they're purely visual).
    ============================================================ */
-.bloomli-photo-mosaic__tile,
-.bloomli-product-picks__card,
-.bloomli-bundle__product--placeholder,
-.bloomli-formula-gallery__placeholder,
-.bloomli-vt__size-media-placeholder,
 .bloomli-hero__media,
-.bloomli-hero__editorial--placeholder,
+.bloomli-hero__media *,
 .bloomli-timeline__circle,
-.placeholder,
-.placeholder-svg {
+.bloomli-timeline__circle *,
+.bloomli-photo-mosaic__tile,
+.bloomli-photo-mosaic__tile *,
+.bloomli-product-picks__card .bloomli-product-picks__media,
+.bloomli-product-picks__card .bloomli-product-picks__media *,
+.bloomli-bundle__product--placeholder,
+.bloomli-bundle__product--placeholder *,
+.bloomli-formula-gallery__placeholder,
+.bloomli-formula-gallery__placeholder *,
+.bloomli-formula-gallery__media,
+.bloomli-formula-gallery__media *,
+.bloomli-ingredient-gallery__media,
+.bloomli-ingredient-gallery__media *,
+.bloomli-ingredients__icon,
+.bloomli-ingredients__icon *,
+.bloomli-vt__size-media,
+.bloomli-vt__size-media *,
+.bloomli-proof-split__media,
+.bloomli-proof-split__media * {
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
   user-drag: none;
+  pointer-events: none;
 }
-.bloomli-photo-mosaic__tile img,
-.bloomli-photo-mosaic__tile svg,
-.bloomli-product-picks__card img,
-.bloomli-product-picks__card svg,
-.bloomli-bundle__product,
-.bloomli-bundle__product--placeholder img,
-.bloomli-formula-gallery__placeholder img,
-.bloomli-formula-gallery__media img,
-.bloomli-formula-gallery__media svg,
-.bloomli-ingredient-gallery__media img,
-.bloomli-ingredient-gallery__media svg,
-.bloomli-ingredients__icon img,
-.bloomli-ingredients__icon svg,
+
+/* Promote heavy-paint elements (large rounded images with big box-shadows
+   or border-radius) to their own GPU layer so scrolling past them doesn't
+   force a re-paint of the shadow every frame. */
 .bloomli-hero__editorial,
 .bloomli-hero__bottle,
-.bloomli-vt__size-media img,
-.bloomli-vt__size-media svg,
-.bloomli-timeline__icon-img,
-.bloomli-timeline__icon-svg,
-.bloomli-timeline__circle img,
-.bloomli-timeline__circle svg,
-.bloomli-proof-split__media img,
-.placeholder-svg svg,
-img.placeholder-svg {
-  -webkit-user-drag: none;
-  user-drag: none;
-  pointer-events: none;
+.bloomli-timeline__circle,
+.bloomli-photo-mosaic__tile {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* ============================================================

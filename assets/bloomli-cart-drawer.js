@@ -16,17 +16,58 @@
   }
 
   function replaceCartSections(parsedState) {
-    getSections().forEach(function (section) {
-      const target = section.selector ? document.querySelector(section.selector) : document.getElementById(section.id);
-      if (!target || !parsedState.sections[section.id]) return;
+    const cartDrawerSection = parsedState.sections['cart-drawer'];
+    if (cartDrawerSection) {
+      const html = new DOMParser().parseFromString(cartDrawerSection, 'text/html');
+      const replacements = [
+        ['.drawer__header', '.drawer__header'],
+        ['[data-bloomli-cart-shipping]', '[data-bloomli-cart-shipping]'],
+        ['cart-drawer-items', 'cart-drawer-items'],
+        ['.drawer__footer', '.drawer__footer'],
+      ];
 
-      target.innerHTML = getSectionInnerHTML(parsedState.sections[section.id], section.selector);
-    });
+      replacements.forEach(function (pair) {
+        const target = document.querySelector(pair[0]);
+        const source = html.querySelector(pair[1]);
 
-    const cartDrawer = document.querySelector('cart-drawer');
-    const overlay = document.getElementById('CartDrawer-Overlay');
-    if (cartDrawer && overlay) {
-      overlay.addEventListener('click', cartDrawer.close.bind(cartDrawer));
+        if (target && source) {
+          target.replaceWith(source);
+        } else if (target && !source && pair[0] === '[data-bloomli-cart-shipping]') {
+          target.remove();
+        }
+      });
+    }
+
+    const cartIconSection = parsedState.sections['cart-icon-bubble'];
+    const cartIcon = document.getElementById('cart-icon-bubble');
+    if (cartIconSection && cartIcon) {
+      cartIcon.innerHTML = getSectionInnerHTML(cartIconSection);
+    }
+  }
+
+  function setFrequencyDisplay(select, option) {
+    const wrapper = select.closest('[data-bloomli-cart-frequency]');
+    if (!wrapper || !option) return;
+
+    const label = wrapper.querySelector('.bloomli-cart-frequency__label');
+    const saving = wrapper.querySelector('.bloomli-cart-frequency__saving');
+    const optionLabel = option.dataset.label || option.textContent.trim();
+    const optionSaving = option.dataset.saving || '';
+
+    if (label) label.textContent = optionLabel;
+
+    if (optionSaving) {
+      if (saving) {
+        saving.textContent = optionSaving;
+      } else {
+        const savingEl = document.createElement('span');
+        savingEl.className = 'bloomli-cart-frequency__saving';
+        savingEl.textContent = optionSaving;
+        const chevron = wrapper.querySelector('.bloomli-cart-frequency__chevron');
+        if (chevron) chevron.before(savingEl);
+      }
+    } else if (saving) {
+      saving.remove();
     }
   }
 
@@ -36,10 +77,15 @@
     const line = parseInt(select.dataset.line, 10);
     const quantity = parseInt(select.dataset.quantity, 10);
     const previousValue = select.dataset.previousValue || select.defaultValue;
+    const previousOption = Array.from(select.options).find(function (option) {
+      return option.value === previousValue;
+    });
+    const selectedOption = select.options[select.selectedIndex];
 
     if (!sellingPlan || !line || !quantity) return;
 
-    if (wrapper) wrapper.classList.add('is-loading');
+    if (wrapper) wrapper.classList.add('is-updating');
+    setFrequencyDisplay(select, selectedOption);
     select.disabled = true;
 
     const body = JSON.stringify({
@@ -61,6 +107,7 @@
 
         if (parsedState.errors) {
           select.value = previousValue;
+          setFrequencyDisplay(select, previousOption);
           return;
         }
 
@@ -68,13 +115,14 @@
       })
       .catch(function () {
         select.value = previousValue;
+        setFrequencyDisplay(select, previousOption);
         const errors = document.getElementById('CartDrawer-CartErrors');
         if (errors && window.cartStrings) errors.textContent = window.cartStrings.error;
       })
       .finally(function () {
         if (document.body.contains(select)) {
           select.disabled = false;
-          if (wrapper) wrapper.classList.remove('is-loading');
+          if (wrapper) wrapper.classList.remove('is-updating');
         }
       });
   }

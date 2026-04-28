@@ -555,6 +555,8 @@
                                       -%}
                                       <option
                                         value="{{ selling_plan.id }}"
+                                        data-label="{{ plan_label | escape }}"
+                                        data-saving="{{ save_label | escape }}"
                                         {% if selling_plan.id == current_selling_plan_id %}
                                           selected
                                         {% endif %}

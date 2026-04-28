@@ -145,6 +145,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 }
 
 .cart-drawer .cart-item__details {
+  position: relative;
   grid-column: 2;
   grid-row: 1;
   padding-left: 0;
@@ -155,7 +156,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 .cart-drawer .cart-item__name {
   display: block;
   font-family: var(--bloomli-cart-ui-font);
-  font-size: var(--bloomli-cart-body-size, 15px) !important;
+  font-size: var(--bloomli-cart-product-name-size, 15px) !important;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 0;
@@ -242,7 +243,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 
 .cart-drawer .cart-item cart-remove-button {
   position: absolute;
-  top: 1.55rem;
+  top: -0.35rem;
   right: 0;
   z-index: 2;
 }
@@ -306,7 +307,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   border-radius: 0.55rem;
   background: #fff;
   color: rgb(var(--color-foreground));
-  font-size: var(--bloomli-cart-body-size, 15px);
+  font-size: var(--bloomli-cart-frequency-size, 15px);
   line-height: 1.2;
   cursor: pointer;
   text-align: left;
@@ -327,7 +328,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 
 .bloomli-cart-frequency__saving {
   color: var(--bloomli-cart-accent, #6E4A63);
-  font-size: calc(var(--bloomli-cart-body-size, 15px) - 1px);
+  font-size: calc(var(--bloomli-cart-frequency-size, 15px) - 1px);
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
@@ -384,7 +385,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   background: transparent;
   color: rgba(var(--color-foreground), 0.55);
   font: inherit;
-  font-size: calc(var(--bloomli-cart-body-size, 15px) - 1px);
+  font-size: calc(var(--bloomli-cart-frequency-size, 15px) - 1px);
   font-weight: 700;
   line-height: 1.2;
   text-align: left;
@@ -528,7 +529,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   display: block;
   margin: 1rem 0 0;
   text-align: center;
-  font-size: 11px;
+  font-size: var(--bloomli-cart-tax-note-size, 11px);
   line-height: 1.35;
   color: rgba(var(--color-foreground), 0.72);
 }
@@ -590,9 +591,13 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
     padding-right: 3.6rem;
   }
 
+  .cart-drawer .cart-item cart-remove-button {
+    top: -0.45rem;
+  }
+
   .cart-drawer .cart-item__name {
     max-width: none;
-    font-size: var(--bloomli-cart-body-size, 15px) !important;
+    font-size: var(--bloomli-cart-product-name-size, 15px) !important;
   }
 
   .cart-drawer .cart-item__totals {
@@ -629,11 +634,11 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
     grid-template-columns: minmax(0, 1fr) auto auto;
     gap: 0.55rem;
     padding-inline: 1rem;
-    font-size: var(--bloomli-cart-body-size, 15px) !important;
+    font-size: var(--bloomli-cart-frequency-size, 15px) !important;
   }
 
   .bloomli-cart-frequency__saving {
-    font-size: calc(var(--bloomli-cart-body-size, 15px) - 1px);
+    font-size: calc(var(--bloomli-cart-frequency-size, 15px) - 1px);
   }
 
   .cart-drawer .totals {
@@ -670,11 +675,11 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
     min-height: 4rem;
     gap: 0.45rem;
     padding-inline: 0.9rem;
-    font-size: var(--bloomli-cart-body-size, 15px) !important;
+    font-size: var(--bloomli-cart-frequency-size, 15px) !important;
   }
 
   .bloomli-cart-frequency__saving {
-    font-size: calc(var(--bloomli-cart-body-size, 15px) - 1px);
+    font-size: calc(var(--bloomli-cart-frequency-size, 15px) - 1px);
   }
 
   .bloomli-cart-frequency__chevron {

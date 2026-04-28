@@ -62,6 +62,7 @@
             assign image = block.settings.tier_1_image
             assign badge = block.settings.tier_1_badge
             assign tag = block.settings.tier_1_tag
+            assign show_shipping = block.settings.tier_1_show_shipping
             assign discount_pct = block.settings.tier_1_discount_pct | default: 0
             assign sub_discount_pct = block.settings.tier_1_sub_discount_pct | default: 0
             assign plan_filter = block.settings.tier_1_plan_filter
@@ -75,6 +76,7 @@
             assign image = block.settings.tier_2_image
             assign badge = block.settings.tier_2_badge
             assign tag = block.settings.tier_2_tag
+            assign show_shipping = block.settings.tier_2_show_shipping
             assign discount_pct = block.settings.tier_2_discount_pct | default: 0
             assign sub_discount_pct = block.settings.tier_2_sub_discount_pct | default: 0
             assign plan_filter = block.settings.tier_2_plan_filter
@@ -88,6 +90,7 @@
             assign image = block.settings.tier_3_image
             assign badge = block.settings.tier_3_badge
             assign tag = block.settings.tier_3_tag
+            assign show_shipping = block.settings.tier_3_show_shipping
             assign discount_pct = block.settings.tier_3_discount_pct | default: 0
             assign sub_discount_pct = block.settings.tier_3_sub_discount_pct | default: 0
             assign plan_filter = block.settings.tier_3_plan_filter
@@ -101,6 +104,7 @@
             assign image = block.settings.tier_4_image
             assign badge = block.settings.tier_4_badge
             assign tag = block.settings.tier_4_tag
+            assign show_shipping = block.settings.tier_4_show_shipping
             assign discount_pct = block.settings.tier_4_discount_pct | default: 0
             assign sub_discount_pct = block.settings.tier_4_sub_discount_pct | default: 0
             assign plan_filter = block.settings.tier_4_plan_filter
@@ -226,6 +230,10 @@
 
           {%- if tag != blank -%}
             <span class="bloomli-vt__size-tag">{{ tag }}</span>
+          {%- endif -%}
+
+          {%- if show_shipping and block.settings.shipping_text != blank -%}
+            <span class="bloomli-vt__shipping-pill">{{ block.settings.shipping_text }}</span>
           {%- endif -%}
         </label>
       {%- endif -%}

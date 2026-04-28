@@ -107,6 +107,24 @@
   z-index: 2;
 }
 
+.bloomli-vt__shipping-pill {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  max-width: calc(100% - 16px);
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--aubergine, #6E4A63);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
 .bloomli-vt__size-media {
   width: 100%;
   max-width: 112px;
@@ -325,9 +343,15 @@
   }
 
   .bloomli-vt__size-badge,
-  .bloomli-vt__size-tag {
+  .bloomli-vt__size-tag,
+  .bloomli-vt__shipping-pill {
     font-size: 8px;
     padding: 3px 6px;
+  }
+
+  .bloomli-vt__shipping-pill {
+    top: 6px;
+    right: 6px;
   }
 
   .bloomli-vt__mode {

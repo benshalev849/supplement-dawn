@@ -242,7 +242,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 
 .cart-drawer .cart-item cart-remove-button {
   position: absolute;
-  top: 1.6rem;
+  top: 1.55rem;
   right: 0;
   z-index: 2;
 }
@@ -587,7 +587,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   .cart-drawer .cart-item__details {
     grid-column: 2;
     grid-row: 1;
-    padding-right: 3rem;
+    padding-right: 3.6rem;
   }
 
   .cart-drawer .cart-item__name {

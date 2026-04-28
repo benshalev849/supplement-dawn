@@ -109,7 +109,7 @@
 
 .bloomli-vt__size-media {
   width: 100%;
-  max-width: 96px;
+  max-width: 112px;
   aspect-ratio: 1 / 0.92;
   display: flex;
   align-items: center;
@@ -294,23 +294,34 @@
   }
 
   .bloomli-vt__size {
-    grid-template-columns: minmax(46px, 38%) minmax(0, 1fr);
-    min-height: 82px;
-    gap: 6px;
-    padding: 9px 7px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    min-height: 190px;
+    gap: 8px;
+    padding: 10px 9px;
   }
 
   .bloomli-vt__size.is-selected {
-    padding: 8px 6px;
+    padding: 9px 8px;
+  }
+
+  .bloomli-vt__size-media {
+    max-width: none;
+    aspect-ratio: 1 / 0.78;
+  }
+
+  .bloomli-vt__size-stack {
+    --bloomli-product-stack-image-size: 104%;
   }
 
   .bloomli-vt__size-label {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .bloomli-vt__size-count,
   .bloomli-vt__size-daily {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .bloomli-vt__size-badge,

@@ -850,6 +850,43 @@ input[type="text"] {
 
 
 /* ============================================================
+   Placeholder scroll-capture fix.
+
+   Placeholders that contain inline SVGs or background-image gradients can
+   accidentally enter the browser's native drag flow when the user clicks
+   slightly while scrolling, which intercepts wheel events until they
+   release or click elsewhere. Disabling drag and user-select on these
+   elements (and their inner img/svg) lets wheel events pass through
+   cleanly to the page scroller.
+   ============================================================ */
+.bloomli-photo-mosaic__tile,
+.bloomli-product-picks__card,
+.bloomli-bundle__product--placeholder,
+.bloomli-formula-gallery__placeholder,
+.bloomli-vt__size-media-placeholder,
+.placeholder,
+.placeholder-svg {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+.bloomli-photo-mosaic__tile img,
+.bloomli-photo-mosaic__tile svg,
+.bloomli-product-picks__card img,
+.bloomli-product-picks__card svg,
+.bloomli-bundle__product,
+.bloomli-bundle__product--placeholder img,
+.bloomli-formula-gallery__placeholder img,
+.bloomli-vt__size-media img,
+.placeholder-svg svg,
+img.placeholder-svg {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
+/* ============================================================
    END BLOOMLI TOKENS — Dawn defaults below
    ============================================================ */
 

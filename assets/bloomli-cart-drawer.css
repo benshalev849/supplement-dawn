@@ -26,7 +26,7 @@
 .bloomli-cart-shipping {
   margin: 0 -1.5rem;
   padding: 1.2rem 1.7rem 1.4rem;
-  background: var(--bloomli-cart-shipping-bg, #F2D4D0);
+  background: var(--bloomli-cart-shipping-bg, #F3E1E5);
 }
 
 .bloomli-cart-shipping__text {
@@ -191,7 +191,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   font-family: var(--bloomli-cart-ui-font) !important;
   font-variation-settings: normal !important;
   font-size: var(--bloomli-cart-product-name-size, 15px) !important;
-  font-weight: 800;
+  font-weight: 800 !important;
   line-height: 1.25;
   letter-spacing: 0;
   word-break: normal;

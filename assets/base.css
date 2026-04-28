@@ -6,15 +6,19 @@
 :root {
   --cream: #FDFAF7;
   --pearl: #F5EDE4;
-  --rose: #F2D4D0;
+  --rose: #F3E1E5;
   --lavender: #D9CCE8;
+  --color-primary-action: #B23A6F;
+  --color-editorial-accent: #8A6678;
+  --color-wellness-accent: #6F7A5A;
+  --color-soft-blush: #F3E1E5;
   --aubergine: #B23A6F;
   --aubergine-deep: #563C55;
   --charcoal: #2A2622;
-  --sage: #C8D1BE;
-  --brand-gradient: linear-gradient(135deg, #F2D4D0 0%, #D9CCE8 100%);
-  --soft-shadow: 0 8px 24px rgba(178, 58, 111, 0.08);
-  --card-shadow: 0 4px 16px rgba(178, 58, 111, 0.06);
+  --sage: #6F7A5A;
+  --brand-gradient: linear-gradient(135deg, var(--color-soft-blush) 0%, #D9CCE8 100%);
+  --soft-shadow: 0 8px 24px rgba(138, 102, 120, 0.08);
+  --card-shadow: 0 4px 16px rgba(138, 102, 120, 0.06);
 }
 
 .bloomli-section {
@@ -24,6 +28,10 @@
   --bloomli-text-soft: rgba(var(--color-foreground), 0.55);
   --bloomli-accent: rgb(var(--color-button));
   --bloomli-on-accent: rgb(var(--color-button-text));
+  --bloomli-primary-action: var(--color-primary-action);
+  --bloomli-editorial-accent: var(--color-editorial-accent);
+  --bloomli-wellness-accent: var(--color-wellness-accent);
+  --bloomli-soft-blush: var(--color-soft-blush);
   --bloomli-link: rgb(var(--color-secondary-button-text));
   --bloomli-line: rgba(var(--color-foreground), 0.14);
   --bloomli-line-soft: rgba(var(--color-foreground), 0.08);
@@ -36,7 +44,7 @@
 }
 
 .bloomli-section .smallcaps {
-  color: var(--bloomli-accent);
+  color: var(--bloomli-editorial-accent);
 }
 
 /* ---- Bloomli formula gallery ---- */
@@ -57,7 +65,7 @@
 }
 
 .bloomli-formula-gallery__eyebrow {
-  color: var(--bloomli-accent);
+  color: var(--bfg-eyebrow-color, var(--bloomli-editorial-accent));
   margin-bottom: 18px;
 }
 
@@ -108,7 +116,7 @@
   border-radius: 999px;
   overflow: hidden;
   position: relative;
-  color: var(--bfg-icon-color, var(--bloomli-accent));
+  color: var(--bfg-icon-color, var(--bloomli-wellness-accent));
   background-color: var(--bfg-item-bg);
   background-image: var(--bfg-placeholder-lines, none);
   display: flex;
@@ -154,7 +162,7 @@
 }
 
 .bloomli-formula-gallery__meta span {
-  color: var(--bloomli-text-muted);
+  color: var(--bfg-small-label-color, var(--bloomli-editorial-accent));
   font-size: 10px;
 }
 
@@ -194,7 +202,7 @@
 }
 
 .bloomli-formula-gallery__proof-title {
-  color: var(--bloomli-accent);
+  color: var(--bfg-eyebrow-color, var(--bloomli-editorial-accent));
   font-size: 11px;
   margin-bottom: 10px;
 }
@@ -353,7 +361,7 @@
   border-radius: var(--br-radius);
   padding: 20px;
   min-width: 0;
-  box-shadow: 0 18px 48px rgba(178, 58, 111, 0.08);
+  box-shadow: 0 18px 48px rgba(138, 102, 120, 0.08);
 }
 
 .bloomli-reviews__media {
@@ -362,7 +370,7 @@
   overflow: hidden;
   position: relative;
   background-color: var(--br-placeholder);
-  background-image: repeating-linear-gradient(135deg, rgba(178, 58, 111, 0.06) 0 1px, transparent 1px 18px);
+  background-image: repeating-linear-gradient(135deg, rgba(138, 102, 120, 0.06) 0 1px, transparent 1px 18px);
   margin-bottom: 24px;
 }
 
@@ -386,7 +394,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   background: rgba(253, 250, 247, 0.78);
-  color: rgba(178, 58, 111, 0.5);
+  color: rgba(138, 102, 120, 0.5);
   padding: 7px 14px;
   border-radius: 4px;
   font-size: 9px;
@@ -435,7 +443,7 @@
   align-items: center;
   gap: 5px;
   border-radius: 999px;
-  background: rgba(178, 58, 111, 0.06);
+  background: rgba(138, 102, 120, 0.06);
   color: var(--br-accent);
   padding: 6px 10px;
   font-size: 9px;
@@ -2376,7 +2384,7 @@ shopify-accelerated-checkout-cart {
   font-size: 1.4rem;
   display: flex;
   align-items: center;
-  color: rgb(var(--color-link));
+  color: var(--color-editorial-accent);
   margin-left: 0;
   padding-left: 0;
   min-height: 4.4rem;

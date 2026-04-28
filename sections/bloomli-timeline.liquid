@@ -1,9 +1,9 @@
-<section class="bloomli-timeline bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% case section.settings.circle_background %}{% when 'background' %}--timeline-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--timeline-circle-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--timeline-circle-bg: rgba(var(--color-button), 0.12);{% else %}--timeline-circle-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;">
+<section class="bloomli-timeline bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--timeline-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --timeline-icon-color: {{ section.settings.timeline_icon_color | default: '#6F7A5A' }}; {% case section.settings.circle_background %}{% when 'background' %}--timeline-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--timeline-circle-bg: #F1EDE8;{% when 'accent_soft' %}--timeline-circle-bg: var(--bloomli-soft-blush);{% else %}--timeline-circle-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;">
   <div style="max-width: 1280px; margin: 0 auto;">
 
     <div class="bloomli-timeline__header" style="text-align: center; margin-bottom: 80px;">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--bloomli-accent); margin-bottom: 14px;">{{ section.settings.eyebrow }}</div>
+        <div class="smallcaps" style="color: var(--timeline-eyebrow-color); margin-bottom: 14px;">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
       <h2 class="bloomli-timeline__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 56px; font-weight: 400; color: var(--bloomli-text); margin: 0; line-height: 1.05;">
         {{ section.settings.heading }}
@@ -37,7 +37,7 @@
                   style="width: 100%; height: 100%; max-width: none; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;"
                 >
               {%- else -%}
-                <svg class="bloomli-timeline__icon-svg" width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 80 80" fill="none" stroke="currentColor" color="var(--bloomli-accent)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="bloomli-timeline__icon-svg" width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 80 80" fill="none" stroke="currentColor" color="var(--timeline-icon-color)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
                   {%- case block.settings.icon -%}
                     {%- when 'seed' -%}
                       <ellipse cx="40" cy="44" rx="12" ry="18"/><path d="M40 26 Q 48 22, 56 26"/><path d="M40 44 L40 60"/>
@@ -49,7 +49,7 @@
                 </svg>
               {%- endif -%}
             </div>
-            <div class="smallcaps" style="color: var(--bloomli-accent); margin-bottom: 10px;">{{ block.settings.range }}</div>
+            <div class="smallcaps" style="color: var(--timeline-eyebrow-color); margin-bottom: 10px;">{{ block.settings.range }}</div>
             <h3 class="bloomli-timeline__title" style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; margin: 0 0 12px; color: var(--bloomli-text); line-height: 1.15;">{{ block.settings.title }}</h3>
             <p class="bloomli-timeline__copy" style="font-size: 15px; color: var(--bloomli-text-muted); line-height: 1.6; max-width: 300px; margin: 0 auto; word-wrap: break-word; overflow-wrap: break-word;">{{ block.settings.description }}</p>
           </div>
@@ -105,6 +105,8 @@
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Your 6-month journey" },
+    { "type": "color", "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
+    { "type": "color", "id": "timeline_icon_color", "label": "Timeline icon color", "default": "#6F7A5A" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Your ritual, over time." },
     { "type": "select", "id": "circle_background", "label": "Icon circle background", "options": [
       { "value": "surface", "label": "Scheme soft surface" },

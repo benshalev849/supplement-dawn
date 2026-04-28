@@ -30,6 +30,9 @@
     --bfg-circle-mobile: {{ section.settings.image_size_mobile }}px;
     --bfg-proof-icon: {{ section.settings.proof_icon_size }}px;
     --bfg-proof-icon-mobile: {{ section.settings.proof_icon_size_mobile }}px;
+    --bfg-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }};
+    --bfg-icon-default-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }};
+    --bfg-small-label-color: {{ section.settings.small_label_color | default: '#8A6678' }};
     --bfg-gap-x: {{ section.settings.column_gap }}px;
     --bfg-gap-y: {{ section.settings.row_gap }}px;
     --bfg-header-width: {{ section.settings.header_width }}px;
@@ -69,7 +72,7 @@
               class="bloomli-formula-gallery__media"
               style="
                 --bfg-item-bg: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--bfg-media-bg){% endif %};
-                --bfg-icon-color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bloomli-accent){% endif %};
+                --bfg-icon-color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bfg-icon-default-color){% endif %};
                 {% if block.settings.image == blank %}--bfg-placeholder-lines: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}
               "
             >
@@ -138,7 +141,7 @@
             <article class="bloomli-formula-gallery__proof-item" {{ block.shopify_attributes }}>
               <div
                 class="bloomli-formula-gallery__proof-media"
-                style="--bfg-proof-bg: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--bfg-proof-default-bg){% endif %}; --bfg-proof-color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bloomli-accent){% endif %};"
+                style="--bfg-proof-bg: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--bfg-proof-default-bg){% endif %}; --bfg-proof-color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bfg-icon-default-color){% endif %};"
               >
                 {%- if block.settings.image != blank -%}
                   {%- assign proof_image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
@@ -192,8 +195,11 @@
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
-    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#F2D4D0" },
+    { "type": "color", "id": "background_color", "label": "Section background color", "default": "#F3E1E5" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The goods inside" },
+    { "type": "color", "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
+    { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
+    { "type": "color", "id": "small_label_color", "label": "Small label color", "default": "#8A6678" },
     { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Five ingredients," },
     { "type": "text", "id": "heading_line2", "label": "Heading line 2", "default": "doing the quiet work." },
     { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>" },
@@ -244,7 +250,7 @@
         { "type": "checkbox", "id": "use_custom_circle_color", "label": "Override image background", "default": false },
         { "type": "color", "id": "circle_color", "label": "Custom image background", "default": "#FDFAF7" },
         { "type": "checkbox", "id": "use_custom_icon_color", "label": "Override default icon color", "default": false },
-        { "type": "color", "id": "icon_color", "label": "Custom icon color", "default": "#B23A6F" },
+        { "type": "color", "id": "icon_color", "label": "Custom icon color", "default": "#6F7A5A" },
         { "type": "text", "id": "photo_label", "label": "Placeholder label", "default": "Raw ingredient" },
         { "type": "select", "id": "icon", "label": "Default SVG icon", "options": [
           { "value": "leaf", "label": "Leaf" },

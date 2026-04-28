@@ -1,10 +1,10 @@
-<section class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% if section.settings.use_brand_gradient %}background: var(--brand-gradient);{% endif %} min-height: {{ section.settings.min_height }}px; position: relative; overflow: hidden;">
+<section class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--hero-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; {% if section.settings.use_brand_gradient %}background: var(--brand-gradient);{% endif %} min-height: {{ section.settings.min_height }}px; position: relative; overflow: hidden;">
   <div class="bloomli-hero__inner" style="max-width: 1280px; margin: 0 auto; padding: 96px 48px; display: grid; grid-template-columns: 55fr 45fr; gap: 48px; align-items: center; min-height: {{ section.settings.min_height }}px;">
 
     <!-- Left: copy -->
     <div class="bloomli-hero__copy" style="min-width: 0;">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--bloomli-accent); margin-bottom: 24px;">{{ section.settings.eyebrow }}</div>
+        <div class="smallcaps" style="color: var(--hero-eyebrow-color); margin-bottom: 24px;">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
 
       <h1 class="bloomli-hero__headline" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100, 'opsz' 144; font-size: 88px; line-height: 0.98; margin-bottom: 28px; letter-spacing: -0.02em; font-weight: 400; color: var(--bloomli-text); word-wrap: break-word;">
@@ -29,7 +29,7 @@
 
       {%- if section.settings.show_reviews -%}
         <div class="bloomli-hero__reviews" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-          <span style="color: var(--bloomli-accent); font-size: 16px; letter-spacing: -1px;" aria-hidden="true">★★★★★</span>
+          <span style="color: var(--hero-eyebrow-color); font-size: 16px; letter-spacing: -1px;" aria-hidden="true">★★★★★</span>
           <span style="font-size: 14px; color: var(--bloomli-text);">
             <strong style="font-weight: 500;">{{ section.settings.review_score }}</strong> from {{ section.settings.review_count }} reviews
           </span>
@@ -130,6 +130,7 @@
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_brand_gradient", "label": "Use Bloomli brand gradient", "default": true },
     { "type": "text",     "id": "eyebrow",        "label": "Eyebrow",                 "default": "Clinically-studied hair wellness" },
+    { "type": "color",    "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
     { "type": "text",     "id": "headline_line1",  "label": "Headline line 1",         "default": "Quiet science," },
     { "type": "text",     "id": "headline_line2",  "label": "Headline line 2 (italic)", "default": "visible results." },
     { "type": "textarea", "id": "subtext",         "label": "Subtext",                 "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },

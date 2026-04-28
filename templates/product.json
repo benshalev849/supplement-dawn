@@ -204,7 +204,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#B23A6F",
+            "icon_color": "#6F7A5A",
             "photo_label": "Raw biotin - powder",
             "icon": "leaf",
             "title": "Biotin",
@@ -221,7 +221,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#B23A6F",
+            "icon_color": "#6F7A5A",
             "photo_label": "Saw palmetto - berry",
             "icon": "palm",
             "title": "Saw Palmetto",
@@ -238,7 +238,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#B23A6F",
+            "icon_color": "#6F7A5A",
             "photo_label": "Marine collagen - flake",
             "icon": "drop",
             "title": "Marine Collagen",
@@ -255,7 +255,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#B23A6F",
+            "icon_color": "#6F7A5A",
             "photo_label": "Ashwagandha - root",
             "icon": "root",
             "title": "Ashwagandha",
@@ -272,7 +272,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#B23A6F",
+            "icon_color": "#6F7A5A",
             "photo_label": "Zinc - mineral",
             "icon": "zinc",
             "title": "Zinc",
@@ -288,7 +288,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#B23A6F",
+            "icon_color": "#6F7A5A",
             "photo_label": "Raw ingredient",
             "icon": "spark",
             "title": "Delightfully tasty",
@@ -304,7 +304,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#B23A6F",
+            "icon_color": "#6F7A5A",
             "photo_label": "Raw ingredient",
             "icon": "tested",
             "title": "Independently verified",
@@ -326,7 +326,7 @@
       "settings": {
         "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
         "use_custom_background": false,
-        "background_color": "#f2d4d0",
+        "background_color": "#F3E1E5",
         "eyebrow": "The goods inside",
         "heading_line1": "Five ingredients,",
         "heading_line2": "doing the quiet work.",
@@ -361,7 +361,7 @@
             "is_proof": false,
             "icon": "leaf",
             "use_custom_icon_background": false,
-            "icon_background": "#B23A6F",
+            "icon_background": "#F1EDE8",
             "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Biotin",
@@ -375,7 +375,7 @@
             "is_proof": false,
             "icon": "palm",
             "use_custom_icon_background": false,
-            "icon_background": "#B23A6F",
+            "icon_background": "#F1EDE8",
             "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Saw Palmetto",
@@ -389,7 +389,7 @@
             "is_proof": false,
             "icon": "drop",
             "use_custom_icon_background": false,
-            "icon_background": "#B23A6F",
+            "icon_background": "#F1EDE8",
             "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Marine Collagen",
@@ -403,7 +403,7 @@
             "is_proof": false,
             "icon": "root",
             "use_custom_icon_background": false,
-            "icon_background": "#B23A6F",
+            "icon_background": "#F1EDE8",
             "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Ashwagandha",
@@ -417,7 +417,7 @@
             "is_proof": false,
             "icon": "zinc",
             "use_custom_icon_background": false,
-            "icon_background": "#B23A6F",
+            "icon_background": "#F1EDE8",
             "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Zinc",
@@ -433,7 +433,7 @@
             "use_custom_icon_background": false,
             "icon_background": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#B23A6F",
+            "icon_color": "#6F7A5A",
             "title": "Independently verified",
             "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals."
           }
@@ -452,7 +452,7 @@
       "settings": {
         "color_scheme": "",
         "use_custom_background": false,
-        "background_color": "#f2d4d0",
+        "background_color": "#F3E1E5",
         "eyebrow": "The goods inside",
         "heading_line1": "Five ingredients,",
         "heading_line2": "doing the quiet work.",
@@ -688,7 +688,7 @@
             "image_scale": 100,
             "label": "Photo 2",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#f2d4d0"
+            "placeholder_color": "#F3E1E5"
           }
         },
         "photo_UQecfB": {
@@ -724,7 +724,7 @@
             "image_scale": 100,
             "label": "Photo 6",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#f2d4d0"
+            "placeholder_color": "#F3E1E5"
           }
         },
         "photo_jhY4cR": {
@@ -760,7 +760,7 @@
             "image_scale": 100,
             "label": "Photo 10",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#f2d4d0"
+            "placeholder_color": "#F3E1E5"
           }
         },
         "photo_fGEqGb": {

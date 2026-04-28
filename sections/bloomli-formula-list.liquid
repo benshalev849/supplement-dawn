@@ -1,8 +1,8 @@
-<section class="bloomli-formula-list bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% if section.settings.use_custom_background %}--bfl-bg: {{ section.settings.background_color }};{% else %}--bfl-bg: var(--bloomli-bg);{% endif %}{% case section.settings.icon_background_tone %}{% when 'background' %}--bfl-icon-bg: var(--bloomli-bg);{% when 'surface' %}--bfl-icon-bg: var(--bloomli-surface);{% when 'surface_strong' %}--bfl-icon-bg: var(--bloomli-surface-strong);{% else %}--bfl-icon-bg: var(--bloomli-accent);{% endcase %}{% case section.settings.proof_icon_background_tone %}{% when 'background' %}--bfl-proof-icon-bg: var(--bloomli-bg);{% when 'accent' %}--bfl-proof-icon-bg: var(--bloomli-accent);{% when 'surface_strong' %}--bfl-proof-icon-bg: var(--bloomli-surface-strong);{% else %}--bfl-proof-icon-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--bfl-bg);">
+<section class="bloomli-formula-list bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bfl-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --bfl-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bfl-bg: {{ section.settings.background_color }};{% else %}--bfl-bg: var(--bloomli-bg);{% endif %}{% case section.settings.icon_background_tone %}{% when 'background' %}--bfl-icon-bg: var(--bloomli-bg);{% when 'surface' %}--bfl-icon-bg: #F1EDE8;{% when 'surface_strong' %}--bfl-icon-bg: var(--bloomli-surface-strong);{% else %}--bfl-icon-bg: #F1EDE8;{% endcase %}{% case section.settings.proof_icon_background_tone %}{% when 'background' %}--bfl-proof-icon-bg: var(--bloomli-bg);{% when 'accent' %}--bfl-proof-icon-bg: #F1EDE8;{% when 'surface_strong' %}--bfl-proof-icon-bg: var(--bloomli-surface-strong);{% else %}--bfl-proof-icon-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--bfl-bg);">
   <div class="bloomli-formula-list__inner" style="max-width: 1080px; margin: 0 auto;">
     <div class="bloomli-formula-list__header" style="max-width: 560px; margin-bottom: 64px;">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--bloomli-accent); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
+        <div class="smallcaps" style="color: var(--bfl-eyebrow-color); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
       <h2 class="bloomli-formula-list__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0 0 24px; color: var(--bloomli-text);">
         {{ section.settings.heading_line1 }}<br>
@@ -19,7 +19,7 @@
           {%- continue -%}
         {%- endif -%}
         <div class="bloomli-formula-list__item" {{ block.shopify_attributes }} style="display: grid; grid-template-columns: {{ section.settings.icon_size }}px 1fr; gap: 20px; align-items: center; padding: 30px 0; min-width: 0;">
-          <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {% if block.settings.use_custom_icon_background %}{{ block.settings.icon_background }}{% else %}var(--bfl-icon-bg){% endif %}; color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bloomli-on-accent){% endif %}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
+          <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {% if block.settings.use_custom_icon_background %}{{ block.settings.icon_background }}{% else %}var(--bfl-icon-bg){% endif %}; color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bfl-icon-color){% endif %}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
             {%- if block.settings.image != blank -%}
               {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
               <img src="{{ block.settings.image | image_url: width: 240 }}" srcset="{{ block.settings.image | image_url: width: 120 }} 120w, {{ block.settings.image | image_url: width: 240 }} 240w" sizes="(max-width: 749px) {{ section.settings.icon_size_mobile }}px, {{ section.settings.icon_size }}px" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.icon_size }}" height="{{ section.settings.icon_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
@@ -38,7 +38,7 @@
             {%- endif -%}
           </div>
           <div>
-            <div class="smallcaps" style="color: var(--bloomli-accent); font-size: 11px; margin-bottom: 10px;">{{ block.settings.title }}</div>
+            <div class="smallcaps" style="color: var(--bfl-eyebrow-color); font-size: 11px; margin-bottom: 10px;">{{ block.settings.title }}</div>
             <div style="font-size: 15px; line-height: 1.55; color: var(--bloomli-text);">{{ block.settings.text }}</div>
           </div>
         </div>
@@ -59,7 +59,7 @@
             {%- continue -%}
           {%- endunless -%}
           <div class="bloomli-formula-list__item bloomli-formula-list__item--proof" {{ block.shopify_attributes }} style="display: grid; grid-template-columns: {{ section.settings.icon_size }}px 1fr; gap: 20px; align-items: center; padding: 0; min-width: 0;">
-            <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {% if block.settings.use_custom_icon_background %}{{ block.settings.icon_background }}{% else %}var(--bfl-proof-icon-bg){% endif %}; color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bloomli-accent){% endif %}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
+            <div class="bloomli-formula-list__icon" style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; border-radius: 999px; background: {% if block.settings.use_custom_icon_background %}{{ block.settings.icon_background }}{% else %}var(--bfl-proof-icon-bg){% endif %}; color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bfl-icon-color){% endif %}; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
               {%- if block.settings.image != blank -%}
                 {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
                 <img src="{{ block.settings.image | image_url: width: 240 }}" srcset="{{ block.settings.image | image_url: width: 120 }} 120w, {{ block.settings.image | image_url: width: 240 }} 240w" sizes="(max-width: 749px) {{ section.settings.icon_size_mobile }}px, {{ section.settings.icon_size }}px" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.icon_size }}" height="{{ section.settings.icon_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
@@ -78,7 +78,7 @@
               {%- endif -%}
             </div>
             <div>
-              <div class="smallcaps" style="color: var(--bloomli-accent); font-size: 11px; margin-bottom: 10px;">{{ block.settings.title }}</div>
+              <div class="smallcaps" style="color: var(--bfl-eyebrow-color); font-size: 11px; margin-bottom: 10px;">{{ block.settings.title }}</div>
               <div style="font-size: 15px; line-height: 1.55; color: var(--bloomli-text);">{{ block.settings.text }}</div>
             </div>
           </div>
@@ -109,8 +109,10 @@
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
-    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#F2D4D0" },
+    { "type": "color", "id": "background_color", "label": "Section background color", "default": "#F3E1E5" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The goods inside" },
+    { "type": "color", "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
+    { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
     { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Five ingredients," },
     { "type": "text", "id": "heading_line2", "label": "Heading line 2 (italic)", "default": "doing the quiet work." },
     { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>" },
@@ -119,7 +121,7 @@
       { "value": "surface", "label": "Scheme soft surface" },
       { "value": "surface_strong", "label": "Scheme stronger surface" },
       { "value": "background", "label": "Scheme background" }
-    ], "default": "accent" },
+    ], "default": "surface" },
     { "type": "select", "id": "proof_icon_background_tone", "label": "Proof icon background", "options": [
       { "value": "surface", "label": "Scheme soft surface" },
       { "value": "surface_strong", "label": "Scheme stronger surface" },
@@ -149,9 +151,9 @@
           { "value": "tested", "label": "Tested badge" }
         ], "default": "leaf" },
         { "type": "checkbox", "id": "use_custom_icon_background", "label": "Override icon background", "default": false },
-        { "type": "color", "id": "icon_background", "label": "Custom icon background", "default": "#B23A6F" },
+        { "type": "color", "id": "icon_background", "label": "Custom icon background", "default": "#F1EDE8" },
         { "type": "checkbox", "id": "use_custom_icon_color", "label": "Override icon color", "default": false },
-        { "type": "color", "id": "icon_color", "label": "Custom icon color", "default": "#FDFAF7" },
+        { "type": "color", "id": "icon_color", "label": "Custom icon color", "default": "#6F7A5A" },
         { "type": "text", "id": "title", "label": "Title", "default": "Biotin" },
         { "type": "textarea", "id": "text", "label": "Text", "default": "The keratin building block - clinically dosed for strand strength you can actually feel." }
       ]

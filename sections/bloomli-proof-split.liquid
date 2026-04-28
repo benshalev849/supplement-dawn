@@ -1,4 +1,4 @@
-<section class="bloomli-proof-split bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% if section.settings.use_custom_background %}--bps-bg: {{ section.settings.background_color }};{% else %}--bps-bg: var(--bloomli-bg);{% endif %}{% case section.settings.media_background %}{% when 'background' %}--bps-media-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bps-media-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bps-media-bg: rgba(var(--color-button), 0.12);{% else %}--bps-media-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--bps-bg);">
+<section class="bloomli-proof-split bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bps-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --bps-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bps-bg: {{ section.settings.background_color }};{% else %}--bps-bg: var(--bloomli-bg);{% endif %}{% case section.settings.media_background %}{% when 'background' %}--bps-media-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bps-media-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bps-media-bg: var(--bloomli-soft-blush);{% else %}--bps-media-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--bps-bg);">
   <div class="bloomli-proof-split__inner" style="max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 72px; align-items: center;">
     <div class="bloomli-proof-split__media" style="aspect-ratio: 2 / 3; border-radius: {{ section.settings.image_radius }}px; overflow: hidden; position: relative; background-color: var(--bps-media-bg); {% if section.settings.image == blank %}background-image: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}">
       {%- if section.settings.image != blank -%}
@@ -12,7 +12,7 @@
 
     <div class="bloomli-proof-split__content">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--bloomli-accent); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
+        <div class="smallcaps" style="color: var(--bps-eyebrow-color); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
       <h2 class="bloomli-proof-split__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0 0 26px; color: var(--bloomli-text);">
         {{ section.settings.heading_line1 }}<br>
@@ -24,7 +24,7 @@
       <div style="display: grid; gap: 18px;">
         {%- for block in section.blocks -%}
           <div {{ block.shopify_attributes }} style="display: grid; grid-template-columns: 22px 1fr; gap: 14px; align-items: start;">
-            <span style="width: 20px; height: 20px; border: 1px solid var(--bloomli-accent); border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: var(--bloomli-accent); margin-top: 2px;">
+            <span style="width: 20px; height: 20px; border: 1px solid var(--bps-icon-color); border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: var(--bps-icon-color); margin-top: 2px;">
               <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4"/></svg>
             </span>
             <div style="font-size: 15px; line-height: 1.55; color: var(--bloomli-text);">{{ block.settings.text }}</div>
@@ -52,6 +52,8 @@
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
     { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FDFAF7" },
+    { "type": "color", "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
+    { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "select", "id": "media_background", "label": "Image placeholder background", "options": [
       { "value": "surface", "label": "Scheme soft surface" },

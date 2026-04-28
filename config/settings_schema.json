@@ -1562,6 +1562,36 @@
       },
       {
         "type": "range",
+        "id": "cart_drawer_item_row_gap",
+        "label": "Product row vertical spacing",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 6
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_item_column_gap",
+        "label": "Product row horizontal spacing",
+        "min": 6,
+        "max": 28,
+        "step": 1,
+        "unit": "px",
+        "default": 8
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_frequency_top_spacing",
+        "label": "Subscription box top spacing",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 6
+      },
+      {
+        "type": "range",
         "id": "cart_drawer_checkout_radius",
         "label": "Checkout button corner radius",
         "min": 0,

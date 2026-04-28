@@ -153,6 +153,17 @@
         </span>
       </button>
     </div>
+    {%- if media_count > 1 and hide_mobile_slider != true -%}
+      <div class="product__media-bullets" role="tablist" aria-label="Product image navigation" data-media-bullets data-section-id="{{ section.id }}">
+        {%- for i in (1..media_count) -%}
+          <button type="button"
+                  class="product__media-bullet"
+                  aria-label="Go to image {{ forloop.index }} of {{ media_count }}"
+                  aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+                  data-bullet-index="{{ forloop.index0 }}"></button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
   </slider-component>
   {%- if first_3d_model -%}
     <button

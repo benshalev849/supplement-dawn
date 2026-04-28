@@ -153,6 +153,8 @@
     const offers = button.closest('[data-bloomli-cart-offers]');
     const line = parseInt(button.dataset.line, 10);
     const quantity = parseInt(button.dataset.quantity, 10);
+    const sellingPlanQty = Math.min(Math.max(quantity, 1), 5);
+    const sellingPlan = offers ? offers.getAttribute('data-selling-plan-qty-' + sellingPlanQty) : '';
 
     if (!line || !quantity) return;
 
@@ -163,14 +165,18 @@
       });
     }
 
-    const body = JSON.stringify({
+    const payload = {
       line: line,
       quantity: quantity,
       sections: getSections().map(function (section) {
         return section.id;
       }),
       sections_url: window.location.pathname,
-    });
+    };
+
+    if (sellingPlan) payload.selling_plan = sellingPlan;
+
+    const body = JSON.stringify(payload);
 
     fetch(routes.cart_change_url, { ...fetchConfig(), ...{ body } })
       .then(function (response) {

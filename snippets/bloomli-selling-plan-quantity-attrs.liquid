@@ -1,0 +1,57 @@
+{%- comment -%}
+  Outputs data attributes mapping cart quantities to Appstle selling plans.
+  Used only for subscription cart lines so quantity changes keep the matching
+  pack discount plan. Quantities above 5 should use the 5-pack plan in JS.
+
+  Accepts:
+    item - cart line item
+{%- endcomment -%}
+
+{%- if item.selling_plan_allocation != null -%}
+  {%- for target_qty in (1..5) -%}
+    {%- liquid
+      assign target_plan_id = ''
+      assign fallback_plan_id = ''
+      assign plan_filter = target_qty | append: '-pack'
+      assign frequency_filter = target_qty | append: 'mo'
+      assign frequency_filter_spaced = target_qty | append: ' mo'
+      assign frequency_filter_dash = target_qty | append: '-mo'
+      assign frequency_filter_month = target_qty | append: ' month'
+      assign frequency_filter_every = 'every ' | append: target_qty
+      assign frequency_filter_appstle = target_qty | append: 'month'
+
+      for selling_plan_group in item.product.selling_plan_groups
+        assign group_name_lower = selling_plan_group.name | downcase
+        if group_name_lower contains plan_filter
+          assign first_plan = selling_plan_group.selling_plans | first
+          if first_plan and fallback_plan_id == blank
+            assign fallback_plan_id = first_plan.id
+          endif
+
+          for selling_plan in selling_plan_group.selling_plans
+            assign frequency_source = selling_plan_group.name | append: ' ' | append: selling_plan.name | downcase
+            for option in selling_plan.options
+              assign frequency_source = frequency_source | append: ' ' | append: option.value | downcase
+            endfor
+
+            if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every or frequency_source contains frequency_filter_appstle
+              assign target_plan_id = selling_plan.id
+              break
+            endif
+          endfor
+
+          if target_plan_id != blank
+            break
+          endif
+        endif
+      endfor
+
+      if target_plan_id == blank
+        assign target_plan_id = fallback_plan_id
+      endif
+    -%}
+    {%- if target_plan_id != blank -%}
+      data-selling-plan-qty-{{ target_qty }}="{{ target_plan_id }}"
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

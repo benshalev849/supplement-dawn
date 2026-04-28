@@ -388,6 +388,7 @@
                                     max="{{ bloomli_quantity_max }}"
                                     step="{{ item.variant.quantity_rule.increment }}"
                                     {% # theme-check-enable %}
+                                    {% render 'bloomli-selling-plan-quantity-attrs', item: item %}
                                     aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
                                     id="Drawer-quantity-{{ item.index | plus: 1 }}"
                                     data-index="{{ item.index | plus: 1 }}"
@@ -552,7 +553,11 @@
                               assign can_update_line = false
                             endif
                           -%}
-                          <div class="bloomli-cart-offers" data-bloomli-cart-offers>
+                          <div
+                            class="bloomli-cart-offers"
+                            data-bloomli-cart-offers
+                            {% render 'bloomli-selling-plan-quantity-attrs', item: item %}
+                          >
                             <button
                               type="button"
                               class="bloomli-cart-offer{% if item.quantity >= 3 %} is-active{% endif %}"

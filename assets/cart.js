@@ -87,6 +87,14 @@ class CartItems extends HTMLElement {
     this.validateQuantity(event);
   }
 
+  getSellingPlanForQuantity(event, quantity) {
+    const source = event && event.target;
+    if (!source || typeof source.getAttribute !== 'function' || quantity < 1) return '';
+
+    const planQuantity = Math.min(Math.max(parseInt(quantity, 10) || 1, 1), 5);
+    return source.getAttribute(`data-selling-plan-qty-${planQuantity}`) || '';
+  }
+
   onCartUpdate() {
     if (this.tagName === 'CART-DRAWER-ITEMS') {
       return fetch(`${routes.cart_url}?section_id=cart-drawer`)
@@ -150,12 +158,17 @@ class CartItems extends HTMLElement {
 
     this.enableLoading(line);
 
-    const body = JSON.stringify({
+    const bodyData = {
       line,
       quantity,
       sections: this.getSectionsToRender().map((section) => section.section),
       sections_url: window.location.pathname,
-    });
+    };
+
+    const sellingPlan = this.getSellingPlanForQuantity(event, quantity);
+    if (sellingPlan) bodyData.selling_plan = sellingPlan;
+
+    const body = JSON.stringify(bodyData);
 
     fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
       .then((response) => {

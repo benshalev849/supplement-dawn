@@ -135,9 +135,9 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   gap: var(--bloomli-cart-item-row-gap, 6px) var(--bloomli-cart-item-column-gap, 12px);
   margin: 0 0 1rem;
   padding: 1.2rem;
-  border: 0.1rem solid var(--bloomli-cart-border, #E8DED8);
-  border-radius: 1.4rem;
-  background: var(--bloomli-cart-product-card-bg, #FFFDFC);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .cart-drawer .cart-items td {
@@ -204,7 +204,8 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   color: var(--bloomli-cart-accent, #6E4A63);
 }
 
-.cart-drawer .cart-item__discounted-prices {
+.cart-drawer .cart-item__discounted-prices,
+.cart-drawer .cart-item__price-wrapper .cart-item__discounted-prices {
   display: inline-flex;
   align-items: baseline;
   justify-content: flex-end;

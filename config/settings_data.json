@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/Logo_Option_1_0b811ba7-6853-4805-8640-f577a7c8aaad.png",
+    "logo": "shopify://shop_images/test.png",
     "logo_width": 90,
     "favicon": "shopify://shop_images/Favicon_Option_1_37742c7a-48f2-46df-9ab7-b3eec27da05d.png",
     "type_header_font": "assistant_n4",
@@ -181,15 +181,15 @@
           "background": "#fdfaf7",
           "background_gradient": "",
           "text": "#2a2622",
-          "button": "#B23A6F",
+          "button": "#b23a6f",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#B23A6F",
-          "shadow": "#B23A6F"
+          "secondary_button_label": "#b23a6f",
+          "shadow": "#b23a6f"
         }
       },
       "scheme-1afb05ae-0853-4a94-bf34-086c591158ef": {
         "settings": {
-          "background": "#B23A6F",
+          "background": "#b23a6f",
           "background_gradient": "",
           "text": "#fdfaf7",
           "button": "#121212",
@@ -203,9 +203,9 @@
           "background": "#f2d4d0",
           "background_gradient": "",
           "text": "#2a2622",
-          "button": "#B23A6F",
+          "button": "#b23a6f",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#B23A6F",
+          "secondary_button_label": "#b23a6f",
           "shadow": "#121212"
         }
       },
@@ -214,10 +214,10 @@
           "background": "#f5ede4",
           "background_gradient": "",
           "text": "#2a2622",
-          "button": "#B23A6F",
+          "button": "#b23a6f",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#B23A6F",
-          "shadow": "#B23A6F"
+          "secondary_button_label": "#b23a6f",
+          "shadow": "#b23a6f"
         }
       },
       "scheme-01c44ec4-967b-4473-9cb3-3f01ea860bfd": {
@@ -225,10 +225,10 @@
           "background": "#d9cce8",
           "background_gradient": "",
           "text": "#2a2622",
-          "button": "#B23A6F",
+          "button": "#b23a6f",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#B23A6F",
-          "shadow": "#B23A6F"
+          "secondary_button_label": "#b23a6f",
+          "shadow": "#b23a6f"
         }
       }
     }

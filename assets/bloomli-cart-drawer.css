@@ -177,6 +177,15 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   border-radius: 0.7rem;
 }
 
+.cart-drawer .bloomli-cart-media-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: contain;
+  background: var(--bloomli-cart-product-bg, #fff);
+}
+
 .bloomli-cart-media-stack {
   width: min(var(--bloomli-cart-image-size, 124px), 10.4rem);
   --bloomli-product-stack-bg: var(--bloomli-cart-product-bg, #fff);

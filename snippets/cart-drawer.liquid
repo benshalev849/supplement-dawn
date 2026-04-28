@@ -196,14 +196,14 @@
                         >
                           {% if item.image %}
                             <a href="{{ item.url }}" class="bloomli-cart-media-link" aria-label="{{ item.product.title | escape }}">
-                              {%- render 'bloomli-product-image-stack',
-                                image: item.image,
-                                product: item.product,
-                                count: item.quantity,
-                                alt: item.product.title,
-                                class: 'bloomli-cart-media-stack cart-item__image',
-                                width: 520
-                              -%}
+                              <img
+                                src="{{ item.image | image_url: width: 520 }}"
+                                class="cart-item__image bloomli-cart-media-image"
+                                alt="{{ item.image.alt | default: item.product.title | escape }}"
+                                loading="lazy"
+                                width="260"
+                                height="{{ 260 | divided_by: item.image.aspect_ratio | ceil }}"
+                              >
                             </a>
                           {% endif %}
                         </td>

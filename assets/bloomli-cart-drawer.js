@@ -148,6 +148,61 @@
       });
   }
 
+  function updateLineQuantity(button) {
+    const item = button.closest('.cart-item');
+    const offers = button.closest('[data-bloomli-cart-offers]');
+    const line = parseInt(button.dataset.line, 10);
+    const quantity = parseInt(button.dataset.quantity, 10);
+
+    if (!line || !quantity) return;
+
+    if (item) item.classList.add('is-updating');
+    if (offers) {
+      offers.querySelectorAll('[data-bloomli-cart-quantity-offer]').forEach(function (offerButton) {
+        offerButton.disabled = true;
+      });
+    }
+
+    const body = JSON.stringify({
+      line: line,
+      quantity: quantity,
+      sections: getSections().map(function (section) {
+        return section.id;
+      }),
+      sections_url: window.location.pathname,
+    });
+
+    fetch(routes.cart_change_url, { ...fetchConfig(), ...{ body } })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (state) {
+        const parsedState = JSON.parse(state);
+
+        if (parsedState.errors) {
+          const errors = document.getElementById('CartDrawer-CartErrors');
+          if (errors && window.cartStrings) errors.textContent = window.cartStrings.error;
+          return;
+        }
+
+        replaceCartSections(parsedState);
+      })
+      .catch(function () {
+        const errors = document.getElementById('CartDrawer-CartErrors');
+        if (errors && window.cartStrings) errors.textContent = window.cartStrings.error;
+      })
+      .finally(function () {
+        if (document.body.contains(button)) {
+          if (item) item.classList.remove('is-updating');
+          if (offers) {
+            offers.querySelectorAll('[data-bloomli-cart-quantity-offer]').forEach(function (offerButton) {
+              offerButton.disabled = offerButton.classList.contains('is-active');
+            });
+          }
+        }
+      });
+  }
+
   document.addEventListener(
     'change',
     function (event) {
@@ -164,6 +219,13 @@
   document.addEventListener('click', function (event) {
     const toggle = event.target.closest('[data-bloomli-frequency-toggle]');
     const option = event.target.closest('[data-bloomli-frequency-option]');
+    const quantityOffer = event.target.closest('[data-bloomli-cart-quantity-offer]');
+
+    if (quantityOffer) {
+      event.preventDefault();
+      updateLineQuantity(quantityOffer);
+      return;
+    }
 
     if (toggle) {
       const wrapper = toggle.closest('[data-bloomli-cart-frequency]');

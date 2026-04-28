@@ -193,16 +193,16 @@
                           headers="CartDrawer-ColumnProductImage"
                         >
                           {% if item.image %}
-                            {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
-                            <a href="{{ item.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true"> </a>
-                            {%- render 'bloomli-product-image-stack',
-                              image: item.image,
-                              product: item.product,
-                              count: item.quantity,
-                              alt: item.product.title,
-                              class: 'bloomli-cart-media-stack cart-item__image',
-                              width: 520
-                            -%}
+                            <a href="{{ item.url }}" class="cart-item__link bloomli-cart-media-link" aria-label="{{ item.product.title | escape }}">
+                              {%- render 'bloomli-product-image-stack',
+                                image: item.image,
+                                product: item.product,
+                                count: item.quantity,
+                                alt: item.product.title,
+                                class: 'bloomli-cart-media-stack cart-item__image',
+                                width: 520
+                              -%}
+                            </a>
                           {% endif %}
                         </td>
 
@@ -511,6 +511,54 @@
                               </span>
                             </div>
                           </quantity-popover>
+                        </td>
+
+                        <td
+                          class="bloomli-cart-offers-cell"
+                          role="cell"
+                          headers="CartDrawer-ColumnQuantity"
+                        >
+                          {%- liquid
+                            assign offer_3_savings = settings.cart_drawer_quantity_offer_3_savings | default: 7
+                            assign offer_4_savings = settings.cart_drawer_quantity_offer_4_savings | default: 12
+                            assign offer_5_savings = settings.cart_drawer_quantity_offer_5_savings | default: 17
+                            assign can_update_line = true
+                            if item.instructions and item.instructions.can_update_quantity == false
+                              assign can_update_line = false
+                            endif
+                          -%}
+                          <div class="bloomli-cart-offers" data-bloomli-cart-offers>
+                            <button
+                              type="button"
+                              class="bloomli-cart-offer{% if item.quantity == 3 %} is-active{% endif %}"
+                              data-bloomli-cart-quantity-offer
+                              data-line="{{ item.index | plus: 1 }}"
+                              data-quantity="3"
+                              {% if item.quantity == 3 or can_update_line == false %}disabled{% endif %}
+                            >
+                              Buy 3 save {{ offer_3_savings }}%
+                            </button>
+                            <button
+                              type="button"
+                              class="bloomli-cart-offer{% if item.quantity == 4 %} is-active{% endif %}"
+                              data-bloomli-cart-quantity-offer
+                              data-line="{{ item.index | plus: 1 }}"
+                              data-quantity="4"
+                              {% if item.quantity == 4 or can_update_line == false %}disabled{% endif %}
+                            >
+                              Buy 4 save {{ offer_4_savings }}%
+                            </button>
+                            <button
+                              type="button"
+                              class="bloomli-cart-offer{% if item.quantity == 5 %} is-active{% endif %}"
+                              data-bloomli-cart-quantity-offer
+                              data-line="{{ item.index | plus: 1 }}"
+                              data-quantity="5"
+                              {% if item.quantity == 5 or can_update_line == false %}disabled{% endif %}
+                            >
+                              Buy 5 save {{ offer_5_savings }}%
+                            </button>
+                          </div>
                         </td>
 
                           {%- if item.selling_plan_allocation != null -%}

@@ -84,6 +84,19 @@ cart-items .title-wrapper-with-link {
   height: 100%;
 }
 
+.cart-item__media-link {
+  position: static;
+  width: fit-content;
+  height: auto;
+  max-width: 100%;
+  text-decoration: none;
+}
+
+.cart-item__media-link:focus-visible {
+  outline: 0.2rem solid var(--color-primary-action, rgb(var(--color-foreground)));
+  outline-offset: 0.3rem;
+}
+
 .cart-item__name {
   text-decoration: none;
   display: block;

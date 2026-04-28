@@ -1641,6 +1641,40 @@
         "default": 8
       },
       {
+        "type": "header",
+        "content": "Quantity offer buttons"
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_quantity_offer_3_savings",
+        "label": "Buy 3 savings percent",
+        "min": 0,
+        "max": 80,
+        "step": 1,
+        "unit": "%",
+        "default": 7
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_quantity_offer_4_savings",
+        "label": "Buy 4 savings percent",
+        "min": 0,
+        "max": 80,
+        "step": 1,
+        "unit": "%",
+        "default": 12
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_quantity_offer_5_savings",
+        "label": "Buy 5 savings percent",
+        "min": 0,
+        "max": 80,
+        "step": 1,
+        "unit": "%",
+        "default": 17
+      },
+      {
         "type": "text",
         "id": "cart_drawer_subtotal_label",
         "label": "Subtotal label",

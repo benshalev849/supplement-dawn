@@ -7,7 +7,8 @@
 }
 
 .cart-drawer :where(h1, h2, h3, h4, h5, h6, p, a, span, small, button, input, select, textarea, dt, dd, li) {
-  font-family: var(--bloomli-cart-ui-font);
+  font-family: var(--bloomli-cart-ui-font) !important;
+  font-variation-settings: normal !important;
   letter-spacing: 0;
 }
 
@@ -180,7 +181,8 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 .cart-drawer .cart-item__name {
   grid-column: 1;
   display: block;
-  font-family: var(--bloomli-cart-ui-font);
+  font-family: var(--bloomli-cart-ui-font) !important;
+  font-variation-settings: normal !important;
   font-size: var(--bloomli-cart-product-name-size, 15px) !important;
   font-weight: 800;
   line-height: 1.25;

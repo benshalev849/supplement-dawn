@@ -218,6 +218,11 @@
                       if item.variant.quantity_price_breaks.size > 0
                         assign has_vol_pricing = true
                       endif
+
+                      assign bloomli_quantity_max = 15
+                      if item.variant.quantity_rule.max != null and item.variant.quantity_rule.max < bloomli_quantity_max
+                        assign bloomli_quantity_max = item.variant.quantity_rule.max
+                      endif
                     -%}
                     <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}">
                       <quantity-popover>
@@ -262,9 +267,7 @@
                                 data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
                                 min="0"
                                 data-min="{{ item.variant.quantity_rule.min }}"
-                                {% if item.variant.quantity_rule.max != null %}
-                                  max="{{ item.variant.quantity_rule.max }}"
-                                {% endif %}
+                                max="{{ bloomli_quantity_max }}"
                                 step="{{ item.variant.quantity_rule.increment }}"
                                 {% # theme-check-enable %}
                                 aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"

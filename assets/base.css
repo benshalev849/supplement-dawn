@@ -734,6 +734,24 @@ label,
   font-style: var(--font-commerce-ui-style, var(--font-body-style));
 }
 
+.cart-drawer :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5, a, p, span, small, button, input, select, label, dt, dd, li),
+.cart-items :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5, a, p, span, small, button, input, select, label, dt, dd, li),
+.cart-notification :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5, a, p, span, small, button, input, select, label),
+.bloomli-vt :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5, button, input, select, label, span, p),
+.product-form :is(button, input, select, label, span, p, .price, .badge),
+.product__info-container :is(.price, .badge, .product-form__submit, .quantity, .quantity__input, .quantity__button, .product__tax, .product__inventory, .product-form__input, .shopify-payment-button__button),
+.card-wrapper :is(.card__heading, .price, .badge, .quick-add__submit),
+.quick-add :is(button, input, select, label),
+.facets :is(button, input, select, label, span),
+.mobile-facets :is(button, input, select, label, span),
+.accordion :is(summary, button, label),
+.shopify-payment-button :is(button),
+.recipient-form :is(button, input, select, label, textarea) {
+  font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
+  font-style: var(--font-commerce-ui-style, var(--font-body-style)) !important;
+  font-variation-settings: normal !important;
+}
+
 /* ---- Collection hero — gradient is a layout/brand decision, not a scheme color ---- */
 .collection-hero {
   background: var(--brand-gradient) !important;

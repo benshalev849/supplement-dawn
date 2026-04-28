@@ -10,6 +10,13 @@
   {% render 'quantity-input' variant: variant %}
 {% endcomment %}
 
+{%- liquid
+  assign bloomli_quantity_max = 15
+  if variant.quantity_rule.max != null and variant.quantity_rule.max < bloomli_quantity_max
+    assign bloomli_quantity_max = variant.quantity_rule.max
+  endif
+-%}
+
 <quantity-input class="quantity cart-quantity">
   <button class="quantity__button" name="minus" type="button" data-target="decrement-{{ variant.id }}">
     <span class="visually-hidden">
@@ -27,9 +34,7 @@
     data-cart-quantity="{{ cart | item_count_for_variant: variant.id }}"
     min="{{ min }}"
     data-min="{{ variant.quantity_rule.min }}"
-    {% if variant.quantity_rule.max != null %}
-      max="{{ variant.quantity_rule.max }}"
-    {% endif %}
+    max="{{ bloomli_quantity_max }}"
     step="{{ variant.quantity_rule.increment }}"
     {% # theme-check-enable %}
     aria-label="{{ 'products.product.quantity.input_label' | t: product: variant.title | escape }}"

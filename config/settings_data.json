@@ -122,7 +122,13 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "cart_drawer_heading_font_size": 20,
+    "cart_drawer_body_font_size": 15,
+    "cart_drawer_price_font_size": 15,
+    "cart_drawer_product_image_size": 120,
+    "cart_drawer_checkout_radius": 20,
     "cart_free_shipping_threshold": 100,
+    "cart_subscription_frequency_prefix": "Delivers every",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

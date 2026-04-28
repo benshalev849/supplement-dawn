@@ -38,7 +38,7 @@
 .bloomli-vt__size {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(74px, 40%) minmax(0, 1fr);
+  grid-template-columns: 44% minmax(0, 1fr);
   align-items: center;
   gap: 12px;
   min-height: 108px;
@@ -133,6 +133,16 @@
   align-items: center;
   justify-content: center;
   margin: 0;
+}
+
+@media (min-width: 750px) {
+  .bloomli-vt__size {
+    grid-template-columns: minmax(92px, 44%) minmax(0, 1fr);
+  }
+
+  .bloomli-vt__size-media {
+    justify-self: start;
+  }
 }
 
 .bloomli-vt__size-stack {

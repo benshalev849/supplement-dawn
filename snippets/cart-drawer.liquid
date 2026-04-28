@@ -306,17 +306,17 @@
                             {%- if line_compare_price > item.final_line_price -%}
                               <div class="cart-item__discounted-prices">
                                 <span class="visually-hidden">
-                                  {{ 'products.product.price.sale_price' | t }}
-                                </span>
-                                <span class="price price--end">
-                                  {{ item.final_line_price | money }}
-                                </span>
-                                <span class="visually-hidden">
                                   {{ 'products.product.price.regular_price' | t }}
                                 </span>
                                 <s class="cart-item__old-price price price--end">
                                   {{ line_compare_price | money }}
                                 </s>
+                                <span class="visually-hidden">
+                                  {{ 'products.product.price.sale_price' | t }}
+                                </span>
+                                <span class="price price--end">
+                                  {{ item.final_line_price | money }}
+                                </span>
                               </div>
                             {%- else -%}
                               <span class="price price--end">
@@ -762,10 +762,7 @@
               disabled
             {% endif %}
           >
-            <span class="bloomli-cart-checkout-lock" aria-hidden="true">
-              {{- 'icon-lock.svg' | inline_asset_content -}}
-            </span>
-            <span>{{ settings.cart_drawer_checkout_label | default: 'Secure Checkout' }}</span>
+            {{ settings.cart_drawer_checkout_label | default: 'CHECKOUT' }}
           </button>
           <small class="tax-note caption-large">
             {{ settings.cart_drawer_tax_note | default: '*Taxes, shipping and discounts calculated at checkout.' }}

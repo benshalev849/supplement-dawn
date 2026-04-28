@@ -1644,7 +1644,7 @@
         "type": "text",
         "id": "cart_drawer_checkout_label",
         "label": "Checkout button label",
-        "default": "Secure Checkout"
+        "default": "CHECKOUT"
       },
       {
         "type": "text",

@@ -1,0 +1,52 @@
+{%- comment -%}
+  Renders a repeated product image stack for bundle/quantity visuals.
+
+  Accepts:
+    image - preferred image object
+    product - fallback product object
+    count - number of items to visualize, capped at 3
+    alt - optional alt text
+    class - optional additional class
+    width - optional image request width
+{%- endcomment -%}
+
+{%- liquid
+  assign stack_count = count | default: 1 | plus: 0
+  if stack_count < 1
+    assign stack_count = 1
+  endif
+  if stack_count > 3
+    assign stack_count = 3
+  endif
+
+  assign stack_image = image
+  if stack_image == blank and product != blank
+    assign stack_image = product.featured_image
+  endif
+
+  assign image_width = width | default: 420
+  assign stack_alt = alt
+  if stack_alt == blank and stack_image != blank
+    assign stack_alt = stack_image.alt
+  endif
+  if stack_alt == blank and product != blank
+    assign stack_alt = product.title
+  endif
+-%}
+
+<div class="bloomli-product-stack bloomli-product-stack--{{ stack_count }}{% if class != blank %} {{ class }}{% endif %}">
+  {%- if stack_image != blank -%}
+    {%- for image_index in (1..stack_count) -%}
+      <img
+        class="bloomli-product-stack__image"
+        src="{{ stack_image | image_url: width: image_width }}"
+        alt="{{ stack_alt | escape }}"
+        loading="lazy"
+        width="{{ image_width | divided_by: 2 }}"
+        height="{{ image_width | divided_by: 2 | divided_by: stack_image.aspect_ratio | ceil }}"
+      >
+    {%- endfor -%}
+  {%- else -%}
+    <span class="bloomli-product-stack__placeholder" aria-hidden="true"></span>
+  {%- endif -%}
+</div>

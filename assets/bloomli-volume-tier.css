@@ -108,27 +108,16 @@
 .bloomli-vt__size-media {
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: var(--cream, #F8F1E7);
-  border-radius: 10px;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 0 10px;
 }
 
-.bloomli-vt__size-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-.bloomli-vt__size-media-placeholder {
-  width: 60%;
-  height: 60%;
-  background: linear-gradient(135deg, rgba(110, 74, 99, 0.08), rgba(110, 74, 99, 0.18));
-  border-radius: 8px;
+.bloomli-vt__size-stack {
+  --bloomli-product-stack-bg: #fff;
+  --bloomli-product-stack-radius: 10px;
+  --bloomli-product-stack-image-size: 90%;
 }
 
 .bloomli-vt__size-body {

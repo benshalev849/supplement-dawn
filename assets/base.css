@@ -896,16 +896,16 @@ input[type="text"] {
   pointer-events: none;
 }
 
-/* Promote heavy-paint elements (large rounded images with big box-shadows
-   or border-radius) to their own GPU layer so scrolling past them doesn't
-   force a re-paint of the shadow every frame. */
-.bloomli-hero__editorial,
-.bloomli-hero__bottle,
+/* Hero/timeline use overflow: hidden to clip decorative imagery, which Chrome
+   treats as a "non-fast scrollable region": wheel events sent to main thread
+   for hit-test, then DOM walk-up to find the real scroll target. That walk-up
+   is the visible scroll-stuck/slow-scroll. `contain: paint` clips visually
+   the same way but flags the element as a containment boundary so Chrome
+   keeps wheel events on the compositor thread. */
+.bloomli-hero,
 .bloomli-timeline__circle,
 .bloomli-photo-mosaic__tile {
-  transform: translateZ(0);
-  will-change: transform;
-  backface-visibility: hidden;
+  contain: paint;
 }
 
 /* ============================================================

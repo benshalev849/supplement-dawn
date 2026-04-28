@@ -7,6 +7,7 @@
 
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'bloomli-product-stack.css' | asset_url | stylesheet_tag }}
 {{ 'bloomli-cart-drawer.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
@@ -27,7 +28,13 @@
       --bloomli-cart-accent: {{ settings.cart_drawer_accent_color | default: '#6E4A63' }};
       --bloomli-cart-accent-contrast: {{ settings.cart_drawer_accent_text_color | default: '#FFFFFF' }};
       --bloomli-cart-soft-bg: {{ settings.cart_drawer_soft_background | default: '#F8F1E7' }};
+      --bloomli-cart-shipping-bg: {{ settings.cart_drawer_shipping_background | default: '#F2D4D0' }};
+      --bloomli-cart-product-bg: {{ settings.cart_drawer_product_background | default: '#FFFFFF' }};
       --bloomli-cart-footer-bg: {{ settings.cart_drawer_footer_background | default: '#FFFFFF' }};
+      --bloomli-cart-heading-size: {{ settings.cart_drawer_heading_font_size | default: 20 }}px;
+      --bloomli-cart-body-size: {{ settings.cart_drawer_body_font_size | default: 15 }}px;
+      --bloomli-cart-price-size: {{ settings.cart_drawer_price_font_size | default: 17 }}px;
+      --bloomli-cart-image-size: {{ settings.cart_drawer_product_image_size | default: 116 }}px;
     "
   >
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
@@ -176,24 +183,14 @@
                           {% if item.image %}
                             {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                             <a href="{{ item.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true"> </a>
-                            {%- liquid
-                              assign image_stack_count = item.quantity
-                              if image_stack_count > 3
-                                assign image_stack_count = 3
-                              endif
+                            {%- render 'bloomli-product-image-stack',
+                              image: item.image,
+                              product: item.product,
+                              count: item.quantity,
+                              alt: item.product.title,
+                              class: 'bloomli-cart-media-stack cart-item__image',
+                              width: 520
                             -%}
-                            <div class="bloomli-cart-media-stack bloomli-cart-media-stack--{{ image_stack_count }}">
-                              {%- for image_index in (1..image_stack_count) -%}
-                                <img
-                                  class="cart-item__image bloomli-cart-media-stack__image"
-                                  src="{{ item.image | image_url: width: 360 }}"
-                                  alt="{{ item.image.alt | escape }}"
-                                  loading="lazy"
-                                  width="180"
-                                  height="{{ 180 | divided_by: item.image.aspect_ratio | ceil }}"
-                                >
-                              {%- endfor -%}
-                            </div>
                           {% endif %}
                         </td>
 

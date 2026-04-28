@@ -17,6 +17,7 @@
 {%- endcomment -%}
 
 {{ 'bloomli-volume-tier.css' | asset_url | stylesheet_tag }}
+{{ 'bloomli-product-stack.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'bloomli-volume-tier.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
@@ -203,21 +204,14 @@
                  {% if forloop.index0 == default_idx %}checked{% endif %}>
 
           <div class="bloomli-vt__size-media">
-            {%- if image != blank -%}
-              <img src="{{ image | image_url: width: 320 }}"
-                   alt="{{ image.alt | default: label | escape }}"
-                   width="160"
-                   height="160"
-                   loading="lazy">
-            {%- elsif product.featured_image != blank -%}
-              <img src="{{ product.featured_image | image_url: width: 320 }}"
-                   alt="{{ product.featured_image.alt | default: label | escape }}"
-                   width="160"
-                   height="160"
-                   loading="lazy">
-            {%- else -%}
-              <div class="bloomli-vt__size-media-placeholder" aria-hidden="true"></div>
-            {%- endif -%}
+            {%- render 'bloomli-product-image-stack',
+              image: image,
+              product: product,
+              count: qty,
+              alt: display_label,
+              class: 'bloomli-vt__size-stack',
+              width: 460
+            -%}
           </div>
 
           <div class="bloomli-vt__size-body">

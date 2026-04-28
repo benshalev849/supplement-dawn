@@ -76,8 +76,15 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 }
 
 .drawer .drawer__inner {
-  width: 62rem;
+  width: 100vw;
   max-width: 100vw;
+}
+
+@media screen and (min-width: 750px) {
+  .drawer .drawer__inner {
+    width: var(--bloomli-cart-drawer-width, 500px);
+    max-width: 100vw;
+  }
 }
 
 .cart-drawer .drawer__inner {

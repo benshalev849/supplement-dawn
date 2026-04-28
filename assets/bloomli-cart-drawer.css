@@ -177,10 +177,10 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 .cart-drawer .cart-item__totals {
   grid-column: 3;
   grid-row: 2;
-  align-self: end;
+  align-self: center;
   align-items: flex-end;
   padding-left: 0;
-  padding-top: 0;
+  padding-top: var(--bloomli-cart-price-top-offset, 0);
 }
 
 .cart-drawer .cart-item__price-wrapper .price {
@@ -607,9 +607,10 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 
   .cart-drawer .cart-item__totals {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 2;
     justify-self: end;
     align-self: center;
+    padding-top: var(--bloomli-cart-price-top-offset, 0);
   }
 
   .cart-drawer .cart-item__discounted-prices {

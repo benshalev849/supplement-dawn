@@ -1592,6 +1592,16 @@
       },
       {
         "type": "range",
+        "id": "cart_drawer_price_top_offset",
+        "label": "Price vertical offset",
+        "min": -20,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 0
+      },
+      {
+        "type": "range",
         "id": "cart_drawer_checkout_radius",
         "label": "Checkout button corner radius",
         "min": 0,

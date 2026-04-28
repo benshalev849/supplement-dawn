@@ -850,20 +850,24 @@ input[type="text"] {
 
 
 /* ============================================================
-   Placeholder scroll-capture fix.
+   Decorative-image scroll-capture fix.
 
-   Placeholders that contain inline SVGs or background-image gradients can
+   Editorial/decorative images and inline SVGs in Bloomli sections can
    accidentally enter the browser's native drag flow when the user clicks
-   slightly while scrolling, which intercepts wheel events until they
-   release or click elsewhere. Disabling drag and user-select on these
-   elements (and their inner img/svg) lets wheel events pass through
-   cleanly to the page scroller.
+   slightly while scrolling — wheel events get redirected to the drag
+   handle until they release or click elsewhere. Symptom: scroll stalls
+   or moves at OS-default speed while hovering a hero/timeline/placeholder
+   image. Disabling drag and pointer-events on inner img/svg lets wheel
+   events flow to the page scroller cleanly.
    ============================================================ */
 .bloomli-photo-mosaic__tile,
 .bloomli-product-picks__card,
 .bloomli-bundle__product--placeholder,
 .bloomli-formula-gallery__placeholder,
 .bloomli-vt__size-media-placeholder,
+.bloomli-hero__media,
+.bloomli-hero__editorial--placeholder,
+.bloomli-timeline__circle,
 .placeholder,
 .placeholder-svg {
   user-select: none;
@@ -878,7 +882,21 @@ input[type="text"] {
 .bloomli-bundle__product,
 .bloomli-bundle__product--placeholder img,
 .bloomli-formula-gallery__placeholder img,
+.bloomli-formula-gallery__media img,
+.bloomli-formula-gallery__media svg,
+.bloomli-ingredient-gallery__media img,
+.bloomli-ingredient-gallery__media svg,
+.bloomli-ingredients__icon img,
+.bloomli-ingredients__icon svg,
+.bloomli-hero__editorial,
+.bloomli-hero__bottle,
 .bloomli-vt__size-media img,
+.bloomli-vt__size-media svg,
+.bloomli-timeline__icon-img,
+.bloomli-timeline__icon-svg,
+.bloomli-timeline__circle img,
+.bloomli-timeline__circle svg,
+.bloomli-proof-split__media img,
 .placeholder-svg svg,
 img.placeholder-svg {
   -webkit-user-drag: none;

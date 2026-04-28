@@ -8,13 +8,13 @@
   --pearl: #F5EDE4;
   --rose: #F2D4D0;
   --lavender: #D9CCE8;
-  --aubergine: #6E4A63;
+  --aubergine: #B23A6F;
   --aubergine-deep: #563C55;
   --charcoal: #2A2622;
   --sage: #C8D1BE;
   --brand-gradient: linear-gradient(135deg, #F2D4D0 0%, #D9CCE8 100%);
-  --soft-shadow: 0 8px 24px rgba(110, 74, 99, 0.08);
-  --card-shadow: 0 4px 16px rgba(110, 74, 99, 0.06);
+  --soft-shadow: 0 8px 24px rgba(178, 58, 111, 0.08);
+  --card-shadow: 0 4px 16px rgba(178, 58, 111, 0.06);
 }
 
 .bloomli-section {
@@ -353,7 +353,7 @@
   border-radius: var(--br-radius);
   padding: 20px;
   min-width: 0;
-  box-shadow: 0 18px 48px rgba(110, 74, 99, 0.08);
+  box-shadow: 0 18px 48px rgba(178, 58, 111, 0.08);
 }
 
 .bloomli-reviews__media {
@@ -362,7 +362,7 @@
   overflow: hidden;
   position: relative;
   background-color: var(--br-placeholder);
-  background-image: repeating-linear-gradient(135deg, rgba(110, 74, 99, 0.06) 0 1px, transparent 1px 18px);
+  background-image: repeating-linear-gradient(135deg, rgba(178, 58, 111, 0.06) 0 1px, transparent 1px 18px);
   margin-bottom: 24px;
 }
 
@@ -386,7 +386,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   background: rgba(253, 250, 247, 0.78);
-  color: rgba(110, 74, 99, 0.5);
+  color: rgba(178, 58, 111, 0.5);
   padding: 7px 14px;
   border-radius: 4px;
   font-size: 9px;
@@ -435,7 +435,7 @@
   align-items: center;
   gap: 5px;
   border-radius: 999px;
-  background: rgba(110, 74, 99, 0.06);
+  background: rgba(178, 58, 111, 0.06);
   color: var(--br-accent);
   padding: 6px 10px;
   font-size: 9px;
@@ -494,7 +494,7 @@ img, video {
 
 /* ---- Typography (mandatory: Google Fonts can't be set via Shopify UI) ---- */
 body {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -522,7 +522,7 @@ h6,
 .smallcaps,
 .caption-with-letter-spacing,
 .caption-large {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
   text-transform: uppercase !important;
   letter-spacing: 0.08em !important;
   font-weight: 500 !important;
@@ -536,7 +536,7 @@ h6,
 .product-form__submit {
   border-radius: 999px !important;
   padding: 16px 32px !important;
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
   font-weight: 500 !important;
   font-size: 15px !important;
   letter-spacing: 0 !important;
@@ -592,7 +592,7 @@ h6,
 
 .header__menu-item,
 .header__menu-item span {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
   font-size: 15px !important;
   font-weight: 500 !important;
   text-transform: none !important;
@@ -643,14 +643,14 @@ h6,
 
 .selling-plan-selector__option input:checked+label {
   border-color: var(--aubergine) !important;
-  background: rgba(110, 74, 99, 0.03) !important;
+  background: rgba(178, 58, 111, 0.03) !important;
 }
 
 /* ---- Facets — shape & font only; active state uses --aubergine ---- */
 .facets__summary {
   border-radius: 999px !important;
   padding: 8px 16px !important;
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
 }
 
 .facets__summary[aria-expanded="true"],
@@ -681,7 +681,57 @@ h6,
 .field__input,
 input[type="email"],
 input[type="text"] {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
+}
+
+button,
+.button,
+.shopify-payment-button__button,
+input,
+select,
+textarea,
+label,
+.field__label,
+.form__label,
+.price,
+.badge,
+.product-form,
+.product-form__input,
+.product-form__submit,
+.product__tax,
+.product__inventory,
+.product__pickup-availabilities,
+.cart-drawer,
+.cart-items,
+.cart-count-bubble,
+.quantity,
+.quantity__input,
+.quantity__button,
+.discounts,
+.caption,
+.caption-with-letter-spacing,
+.accordion__title,
+.summary__title,
+.facets,
+.facet-filters,
+.mobile-facets,
+.predictive-search,
+.card-information,
+.quick-add,
+.pickup-availability,
+.recipient-form,
+.shopify-challenge__container,
+.bloomli-vt,
+.bloomli-cart-shipping,
+.bloomli-cart-frequency,
+.bloomli-benefit,
+.bloomli-benefits,
+.bloomli-trust,
+.bloomli-pdp-trust,
+.bloomli-formula,
+.bloomli-reviews {
+  font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
+  font-style: var(--font-commerce-ui-style, var(--font-body-style));
 }
 
 /* ---- Collection hero — gradient is a layout/brand decision, not a scheme color ---- */

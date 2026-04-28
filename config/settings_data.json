@@ -15,6 +15,7 @@
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
+    "type_commerce_font": "montserrat_n4",
     "body_scale": 100,
     "page_width": 1200,
     "spacing_sections": 0,
@@ -122,7 +123,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
-    "cart_drawer_accent_color": "#6E4A63",
+    "cart_drawer_accent_color": "#B23A6F",
     "cart_drawer_accent_text_color": "#FDFAF7",
     "cart_drawer_text_color": "#2A2622",
     "cart_drawer_soft_background": "#FDFAF7",
@@ -180,15 +181,15 @@
           "background": "#fdfaf7",
           "background_gradient": "",
           "text": "#2a2622",
-          "button": "#6e4a63",
+          "button": "#B23A6F",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#6e4a63",
-          "shadow": "#6e4a63"
+          "secondary_button_label": "#B23A6F",
+          "shadow": "#B23A6F"
         }
       },
       "scheme-1afb05ae-0853-4a94-bf34-086c591158ef": {
         "settings": {
-          "background": "#6e4a63",
+          "background": "#B23A6F",
           "background_gradient": "",
           "text": "#fdfaf7",
           "button": "#121212",
@@ -202,9 +203,9 @@
           "background": "#f2d4d0",
           "background_gradient": "",
           "text": "#2a2622",
-          "button": "#6e4a63",
+          "button": "#B23A6F",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#6e4a63",
+          "secondary_button_label": "#B23A6F",
           "shadow": "#121212"
         }
       },
@@ -213,10 +214,10 @@
           "background": "#f5ede4",
           "background_gradient": "",
           "text": "#2a2622",
-          "button": "#6e4a63",
+          "button": "#B23A6F",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#6e4a63",
-          "shadow": "#6e4a63"
+          "secondary_button_label": "#B23A6F",
+          "shadow": "#B23A6F"
         }
       },
       "scheme-01c44ec4-967b-4473-9cb3-3f01ea860bfd": {
@@ -224,10 +225,10 @@
           "background": "#d9cce8",
           "background_gradient": "",
           "text": "#2a2622",
-          "button": "#6e4a63",
+          "button": "#B23A6F",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#6e4a63",
-          "shadow": "#6e4a63"
+          "secondary_button_label": "#B23A6F",
+          "shadow": "#B23A6F"
         }
       }
     }
@@ -295,6 +296,7 @@
       "type_header_font": "assistant_n4",
       "heading_scale": 100,
       "type_body_font": "assistant_n4",
+      "type_commerce_font": "montserrat_n4",
       "body_scale": 100,
       "page_width": 1200,
       "spacing_sections": 0,

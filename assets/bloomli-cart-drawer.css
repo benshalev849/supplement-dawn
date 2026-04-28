@@ -539,13 +539,16 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 }
 
 .cart-drawer .bloomli-cart-subtotal-final {
-  color: var(--bloomli-cart-text, #2A2622);
+  color: var(--bloomli-cart-accent, #B23A6F);
+  font-family: var(--bloomli-cart-ui-font) !important;
+  font-weight: 800;
   white-space: nowrap;
 }
 
 .cart-drawer .totals__total {
   margin: 0;
-  font-family: var(--bloomli-cart-ui-font);
+  font-family: var(--bloomli-cart-ui-font) !important;
+  font-variation-settings: normal !important;
   font-size: var(--bloomli-cart-heading-size, 20px) !important;
   font-weight: 700;
   line-height: 1.2;
@@ -555,7 +558,8 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 
 .cart-drawer .totals__total-value {
   margin: 0;
-  font-family: var(--bloomli-cart-ui-font);
+  font-family: var(--bloomli-cart-ui-font) !important;
+  font-variation-settings: normal !important;
   font-size: var(--bloomli-cart-price-size, 17px) !important;
   font-weight: 700;
   line-height: 1.2;
@@ -569,7 +573,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 
 .cart-drawer .tax-note {
   display: block;
-  margin: 1rem 0 0;
+  margin: 1.2rem 0 0;
   text-align: center;
   font-size: var(--bloomli-cart-tax-note-size, 11px) !important;
   line-height: 1.35;
@@ -578,6 +582,9 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 
 .cart-drawer .cart__ctas {
   margin-top: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cart-drawer .cart__checkout-button {
@@ -590,7 +597,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
-  width: 100%;
+  width: min(88%, 52rem);
 }
 
 .cart-drawer .cart__checkout-button::before,

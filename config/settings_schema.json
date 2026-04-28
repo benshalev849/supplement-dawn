@@ -1464,31 +1464,55 @@
         "type": "color",
         "id": "cart_drawer_accent_text_color",
         "label": "Accent text color",
-        "default": "#FFFFFF"
+        "default": "#FDFAF7"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_text_color",
+        "label": "Main text color",
+        "default": "#2A2622"
       },
       {
         "type": "color",
         "id": "cart_drawer_soft_background",
-        "label": "Soft background color",
-        "default": "#F8F1E7"
+        "label": "Cart background color",
+        "default": "#FDFAF7"
       },
       {
         "type": "color",
         "id": "cart_drawer_shipping_background",
         "label": "Free shipping background color",
-        "default": "#F2D4D0"
+        "default": "#F5E0DC"
       },
       {
         "type": "color",
         "id": "cart_drawer_product_background",
         "label": "Product image background color",
-        "default": "#FFFFFF"
+        "default": "#FFFDFC"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_product_card_background",
+        "label": "Product card background color",
+        "default": "#FFFDFC"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_border_color",
+        "label": "Border and divider color",
+        "default": "#E8DED8"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_compare_price_color",
+        "label": "Compare-at price color",
+        "default": "#9A8F89"
       },
       {
         "type": "color",
         "id": "cart_drawer_footer_background",
         "label": "Footer background color",
-        "default": "#FFFFFF"
+        "default": "#FDFAF7"
       },
       {
         "type": "range",
@@ -1620,7 +1644,7 @@
         "type": "text",
         "id": "cart_drawer_checkout_label",
         "label": "Checkout button label",
-        "default": "Checkout"
+        "default": "Secure Checkout"
       },
       {
         "type": "text",

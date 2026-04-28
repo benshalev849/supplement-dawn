@@ -1,12 +1,13 @@
 {%- comment -%}
   Bloomli Volume Tier - block snippet rendered inside main-product.liquid.
 
-  Renders 1-4 horizontal size cards (Create-Wellness style) plus an optional
+  Renders 1-5 horizontal size cards (Create-Wellness style) plus an optional
   One-Time / Subscribe toggle. Sets the buy-buttons form's `quantity` and
   optional `selling_plan` through normal form-associated inputs.
 
-  Tier-to-plan mapping: by default quantity 1 chooses a plan whose group/name
-  contains "1-pack" and "1mo", quantity 2 chooses "2-pack" and "2mo", etc.
+  Tier-to-plan mapping: by default quantity N chooses a plan whose group/name
+  contains "{N}-pack" and "{N}mo". For quantity 6+ (e.g. a 6-pack tier), the
+  filter falls back to "5-pack" since Appstle plans only go up to 5-pack.
   Per-tier plan filters can override the pack text.
 
   Accepts:
@@ -30,6 +31,9 @@
   assign default_qty = 1
   assign subscribe_enabled = block.settings.subscribe_enabled
   assign default_mode = block.settings.default_mode | default: 'onetime'
+  assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 10 | plus: 0
+  assign discount_badge_template = block.settings.discount_badge_template | default: 'SAVE [percent]%'
+  assign subscription_extra_template = block.settings.subscription_extra_label_template | default: 'an extra [percent]%'
 -%}
 
 <div class="bloomli-vt"
@@ -38,6 +42,9 @@
      data-form-id="{{ product_form_id }}"
      data-unit-price="{{ unit_price }}"
      data-unit-compare="{{ unit_compare }}"
+     data-subscription-discount-pct="{{ subscription_discount_pct }}"
+     data-discount-badge-template="{{ discount_badge_template | escape }}"
+     data-subscription-extra-template="{{ subscription_extra_template | escape }}"
      data-money-format="{{ shop.money_format | escape }}"
      {{ block.shopify_attributes }}>
 
@@ -50,7 +57,7 @@
   {%- endif -%}
 
   <div class="bloomli-vt__sizes" role="radiogroup" aria-label="{{ block.settings.heading | default: 'Pack size' | escape }}">
-    {%- for i in (1..4) -%}
+    {%- for i in (1..5) -%}
       {%- liquid
         case i
           when 1
@@ -64,7 +71,7 @@
             assign tag = block.settings.tier_1_tag
             assign show_shipping = block.settings.tier_1_show_shipping
             assign discount_pct = block.settings.tier_1_discount_pct | default: 0
-            assign sub_discount_pct = block.settings.tier_1_sub_discount_pct | default: 0
+            assign sub_discount_pct = subscription_discount_pct
             assign plan_filter = block.settings.tier_1_plan_filter
             assign is_default = block.settings.tier_1_default
           when 2
@@ -78,7 +85,7 @@
             assign tag = block.settings.tier_2_tag
             assign show_shipping = block.settings.tier_2_show_shipping
             assign discount_pct = block.settings.tier_2_discount_pct | default: 0
-            assign sub_discount_pct = block.settings.tier_2_sub_discount_pct | default: 0
+            assign sub_discount_pct = subscription_discount_pct
             assign plan_filter = block.settings.tier_2_plan_filter
             assign is_default = block.settings.tier_2_default
           when 3
@@ -92,7 +99,7 @@
             assign tag = block.settings.tier_3_tag
             assign show_shipping = block.settings.tier_3_show_shipping
             assign discount_pct = block.settings.tier_3_discount_pct | default: 0
-            assign sub_discount_pct = block.settings.tier_3_sub_discount_pct | default: 0
+            assign sub_discount_pct = subscription_discount_pct
             assign plan_filter = block.settings.tier_3_plan_filter
             assign is_default = block.settings.tier_3_default
           when 4
@@ -106,9 +113,23 @@
             assign tag = block.settings.tier_4_tag
             assign show_shipping = block.settings.tier_4_show_shipping
             assign discount_pct = block.settings.tier_4_discount_pct | default: 0
-            assign sub_discount_pct = block.settings.tier_4_sub_discount_pct | default: 0
+            assign sub_discount_pct = subscription_discount_pct
             assign plan_filter = block.settings.tier_4_plan_filter
             assign is_default = block.settings.tier_4_default
+          when 5
+            assign show = block.settings.tier_5_show
+            assign qty = block.settings.tier_5_qty | default: 5
+            assign label = block.settings.tier_5_label
+            assign count_text = block.settings.tier_5_count_text | default: block.settings.tier_5_description
+            assign daily_text = block.settings.tier_5_daily_text
+            assign image = block.settings.tier_5_image
+            assign badge = block.settings.tier_5_badge
+            assign tag = block.settings.tier_5_tag
+            assign show_shipping = block.settings.tier_5_show_shipping
+            assign discount_pct = block.settings.tier_5_discount_pct | default: 0
+            assign sub_discount_pct = subscription_discount_pct
+            assign plan_filter = block.settings.tier_5_plan_filter
+            assign is_default = block.settings.tier_5_default
         endcase
 
         if show and is_default and default_idx == -1
@@ -117,10 +138,18 @@
         endif
 
         if plan_filter == blank
-          assign plan_filter = qty | append: '-pack'
+          assign plan_filter_qty = qty
+          if plan_filter_qty > 5
+            assign plan_filter_qty = 5
+          endif
+          assign plan_filter = plan_filter_qty | append: '-pack'
         endif
 
-        assign frequency_filter = qty | append: 'mo'
+        assign frequency_qty = qty
+        if frequency_qty > 5
+          assign frequency_qty = 5
+        endif
+        assign frequency_filter = frequency_qty | append: 'mo'
         assign tier_plan_id = ''
         assign fallback_plan_id = ''
         for grp in product.selling_plan_groups
@@ -138,11 +167,11 @@
                 for option in selling_plan.options
                   assign frequency_source = frequency_source | append: ' ' | append: option.value | downcase
                 endfor
-                assign frequency_filter_spaced = qty | append: ' mo'
-                assign frequency_filter_dash = qty | append: '-mo'
-                assign frequency_filter_month = qty | append: ' month'
-                assign frequency_filter_every = 'every ' | append: qty
-                assign frequency_filter_appstle = qty | append: 'month'
+                assign frequency_filter_spaced = frequency_qty | append: ' mo'
+                assign frequency_filter_dash = frequency_qty | append: '-mo'
+                assign frequency_filter_month = frequency_qty | append: ' month'
+                assign frequency_filter_every = 'every ' | append: frequency_qty
+                assign frequency_filter_appstle = frequency_qty | append: 'month'
                 if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every or frequency_source contains frequency_filter_appstle
                   assign tier_plan_id = selling_plan.id
                   break
@@ -162,11 +191,14 @@
         if unit_compare > unit_price
           assign line_compare = unit_compare | times: qty
         endif
-        assign one_time_pct_factor = 100 | minus: discount_pct
-        assign one_time_total_cents = unit_price | times: qty | times: one_time_pct_factor | divided_by: 100
+        assign one_time_pct_factor = 100.0 | minus: discount_pct
+        assign one_time_total_cents = unit_price | times: qty | times: one_time_pct_factor | divided_by: 100.0
 
-        assign sub_pct_factor = 100 | minus: sub_discount_pct
-        assign subscribe_total_cents = unit_price | times: qty | times: sub_pct_factor | divided_by: 100
+        assign subscription_pct_factor = 100.0 | minus: sub_discount_pct
+        assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
+        assign subscribe_total_cents = unit_price | times: qty | times: compounded_pct_factor | divided_by: 100.0
+        assign rounded_discount_pct = discount_pct | round
+        assign dynamic_badge = discount_badge_template | replace: '[percent]', rounded_discount_pct | replace: '[qty]', qty
 
         assign daily_cents = one_time_total_cents | divided_by: qty | divided_by: 30
         assign auto_daily = daily_cents | money
@@ -197,8 +229,18 @@
                data-subscribe-cents="{{ subscribe_total_cents }}"
                data-line-compare-cents="{{ line_compare }}">
 
-          {%- if badge != blank -%}
-            <span class="bloomli-vt__size-badge">{{ badge }}</span>
+          {%- if discount_pct > 0 or badge != blank -%}
+            <span
+              class="bloomli-vt__size-badge"
+              data-vt-discount-badge
+              data-manual-badge="{{ badge | escape }}"
+            >
+              {%- if discount_pct > 0 -%}
+                {{ dynamic_badge }}
+              {%- else -%}
+                {{ badge }}
+              {%- endif -%}
+            </span>
           {%- endif -%}
 
           <input type="radio"

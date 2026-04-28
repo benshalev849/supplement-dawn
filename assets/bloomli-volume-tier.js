@@ -16,6 +16,24 @@
     return (cents / 100).toFixed(2);
   }
 
+  // Volume and subscription discounts compound because each discount reduces
+  // the remaining price, rather than adding percentages together directly.
+  function getCompoundedDiscount(volumeDiscount, subscriptionDiscount) {
+    const volumeMultiplier = 1 - volumeDiscount / 100;
+    const subscriptionMultiplier = 1 - subscriptionDiscount / 100;
+    return (1 - volumeMultiplier * subscriptionMultiplier) * 100;
+  }
+
+  function formatDiscount(percent) {
+    return String(Math.round(percent || 0));
+  }
+
+  function formatTemplate(template, replacements) {
+    return Object.keys(replacements).reduce(function (label, key) {
+      return label.split('[' + key + ']').join(replacements[key]);
+    }, template || '');
+  }
+
   function initRoot(root) {
     if (!root || root.dataset.bloomliVtInitialized === 'true') return;
     root.dataset.bloomliVtInitialized = 'true';
@@ -31,6 +49,9 @@
     const subSavingsEl = root.querySelector('[data-vt-sub-savings]');
 
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
+    const discountBadgeTemplate = root.dataset.discountBadgeTemplate || 'SAVE [percent]%';
+    const subscriptionExtraTemplate = root.dataset.subscriptionExtraTemplate || 'an extra [percent]%';
+    const subscriptionDiscount = parseFloat(root.dataset.subscriptionDiscountPct) || 0;
     const productFormId = root.dataset.formId;
     const quantitySelector = productFormId
       ? Array.from(document.querySelectorAll('input[name="quantity"]')).find(function (input) {
@@ -67,16 +88,16 @@
       const oneTimeCents = parseInt(size.dataset.oneTimeCents, 10) || 0;
       const subscribeCents = parseInt(size.dataset.subscribeCents, 10) || oneTimeCents;
       const lineCompareCents = parseInt(size.dataset.lineCompareCents, 10) || oneTimeCents;
-      const subPct = parseFloat(size.dataset.subDiscountPct) || 0;
+      const subPct = parseFloat(size.dataset.subDiscountPct) || subscriptionDiscount;
 
       if (oneTimePriceEl) oneTimePriceEl.textContent = formatMoney(oneTimeCents, moneyFormat);
       if (subscribePriceEl) subscribePriceEl.textContent = formatMoney(subscribeCents, moneyFormat);
 
       if (subSavingsEl) {
         if (subPct > 0) {
-          const rounded = Math.round(subPct * 10) / 10;
-          const pctText = Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
-          subSavingsEl.textContent = '- save ' + pctText + '%';
+          subSavingsEl.textContent = formatTemplate(subscriptionExtraTemplate, {
+            percent: formatDiscount(subPct),
+          });
         } else {
           subSavingsEl.textContent = '';
         }
@@ -118,6 +139,28 @@
           compareEl.textContent = '';
         }
       }
+
+      sizes.forEach(function (sizeOption) {
+        const badge = sizeOption.querySelector('[data-vt-discount-badge]');
+        if (!badge) return;
+
+        const qtyForLabel = parseInt(sizeOption.dataset.quantity, 10) || 1;
+        const volumeDiscount = parseFloat(sizeOption.dataset.discountPct) || 0;
+        const manualBadge = badge.dataset.manualBadge || '';
+        const displayDiscount =
+          effectiveMode === 'subscribe' && sizeOption.dataset.planId
+            ? getCompoundedDiscount(volumeDiscount, subPct)
+            : volumeDiscount;
+
+        if (displayDiscount > 0) {
+          badge.textContent = formatTemplate(discountBadgeTemplate, {
+            qty: String(qtyForLabel),
+            percent: formatDiscount(displayDiscount),
+          });
+        } else {
+          badge.textContent = manualBadge;
+        }
+      });
 
       modes.forEach(function (modeOption) {
         if (modeOption.dataset.mode !== 'subscribe') return;

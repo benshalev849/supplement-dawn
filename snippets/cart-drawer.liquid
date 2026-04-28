@@ -521,9 +521,32 @@
                           headers="CartDrawer-ColumnQuantity"
                         >
                           {%- liquid
-                            assign offer_3_savings = settings.cart_drawer_quantity_offer_3_savings | default: 7
-                            assign offer_4_savings = settings.cart_drawer_quantity_offer_4_savings | default: 12
-                            assign offer_5_savings = settings.cart_drawer_quantity_offer_5_savings | default: 17
+                            assign offer_label_template = settings.cart_drawer_quantity_offer_label_template | default: 'BUY [qty] SAVE [percent]%'
+                            assign cart_subscription_discount = settings.cart_drawer_subscription_discount_pct | default: 10 | plus: 0
+                            assign offer_3_volume_savings = settings.cart_drawer_quantity_offer_3_savings | default: 15 | plus: 0
+                            assign offer_4_volume_savings = settings.cart_drawer_quantity_offer_4_savings | default: 18 | plus: 0
+                            assign offer_5_volume_savings = settings.cart_drawer_quantity_offer_5_savings | default: 20 | plus: 0
+                            assign offer_3_savings = offer_3_volume_savings
+                            assign offer_4_savings = offer_4_volume_savings
+                            assign offer_5_savings = offer_5_volume_savings
+                            if item.selling_plan_allocation != null
+                              comment
+                                Volume and subscription discounts compound: 15% + 10% displays as 24%, not 25%.
+                              endcomment
+                              assign subscription_factor = 100.0 | minus: cart_subscription_discount
+                              assign offer_3_factor = 100.0 | minus: offer_3_volume_savings | times: subscription_factor | divided_by: 100.0
+                              assign offer_4_factor = 100.0 | minus: offer_4_volume_savings | times: subscription_factor | divided_by: 100.0
+                              assign offer_5_factor = 100.0 | minus: offer_5_volume_savings | times: subscription_factor | divided_by: 100.0
+                              assign offer_3_savings = 100.0 | minus: offer_3_factor
+                              assign offer_4_savings = 100.0 | minus: offer_4_factor
+                              assign offer_5_savings = 100.0 | minus: offer_5_factor
+                            endif
+                            assign offer_3_rounded = offer_3_savings | round
+                            assign offer_4_rounded = offer_4_savings | round
+                            assign offer_5_rounded = offer_5_savings | round
+                            assign offer_3_label = offer_label_template | replace: '[qty]', '3' | replace: '[percent]', offer_3_rounded
+                            assign offer_4_label = offer_label_template | replace: '[qty]', '4' | replace: '[percent]', offer_4_rounded
+                            assign offer_5_label = offer_label_template | replace: '[qty]', '5' | replace: '[percent]', offer_5_rounded
                             assign can_update_line = true
                             if item.instructions and item.instructions.can_update_quantity == false
                               assign can_update_line = false
@@ -538,7 +561,7 @@
                               data-quantity="3"
                               {% if item.quantity >= 3 or can_update_line == false %}disabled{% endif %}
                             >
-                              Buy 3 save {{ offer_3_savings }}%
+                              {{ offer_3_label }}
                             </button>
                             <button
                               type="button"
@@ -548,7 +571,7 @@
                               data-quantity="4"
                               {% if item.quantity >= 4 or can_update_line == false %}disabled{% endif %}
                             >
-                              Buy 4 save {{ offer_4_savings }}%
+                              {{ offer_4_label }}
                             </button>
                             <button
                               type="button"
@@ -558,7 +581,7 @@
                               data-quantity="5"
                               {% if item.quantity >= 5 or can_update_line == false %}disabled{% endif %}
                             >
-                              Buy 5 save {{ offer_5_savings }}%
+                              {{ offer_5_label }}
                             </button>
                           </div>
                         </td>

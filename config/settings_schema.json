@@ -1647,32 +1647,46 @@
       {
         "type": "range",
         "id": "cart_drawer_quantity_offer_3_savings",
-        "label": "Buy 3 savings percent",
+        "label": "Buy 3 volume savings percent",
         "min": 0,
         "max": 80,
         "step": 1,
         "unit": "%",
-        "default": 7
+        "default": 15
       },
       {
         "type": "range",
         "id": "cart_drawer_quantity_offer_4_savings",
-        "label": "Buy 4 savings percent",
+        "label": "Buy 4 volume savings percent",
         "min": 0,
         "max": 80,
         "step": 1,
         "unit": "%",
-        "default": 12
+        "default": 18
       },
       {
         "type": "range",
         "id": "cart_drawer_quantity_offer_5_savings",
-        "label": "Buy 5 savings percent",
+        "label": "Buy 5 volume savings percent",
         "min": 0,
         "max": 80,
         "step": 1,
         "unit": "%",
-        "default": 17
+        "default": 20
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_subscription_discount_pct",
+        "label": "Subscription discount percent",
+        "default": "10",
+        "info": "Compounded with volume savings for subscription cart lines."
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_quantity_offer_label_template",
+        "label": "Offer button label template",
+        "default": "BUY [qty] SAVE [percent]%",
+        "info": "Use [qty] and [percent]. Keep this short for mobile."
       },
       {
         "type": "range",

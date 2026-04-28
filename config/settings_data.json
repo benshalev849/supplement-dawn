@@ -136,7 +136,7 @@
     "cart_drawer_heading_font_size": 20,
     "cart_drawer_body_font_size": 15,
     "cart_drawer_price_font_size": 15,
-    "cart_drawer_product_name_font_size": 17,
+    "cart_drawer_product_name_font_size": 14,
     "cart_drawer_tax_note_font_size": 9,
     "cart_drawer_product_image_size": 120,
     "cart_drawer_checkout_radius": 20,

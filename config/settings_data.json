@@ -141,7 +141,7 @@
     "cart_drawer_product_image_size": 120,
     "cart_drawer_checkout_radius": 20,
     "cart_drawer_checkout_label": "CHECKOUT",
-    "cart_free_shipping_threshold": 100,
+    "cart_free_shipping_threshold": 50,
     "cart_subscription_frequency_prefix": "Delivers every",
     "sections": {
       "main-password-header": {
@@ -183,13 +183,13 @@
           "text": "#2a2622",
           "button": "#b23a6f",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#8A6678",
-          "shadow": "#8A6678"
+          "secondary_button_label": "#b23a6f",
+          "shadow": "#b23a6f"
         }
       },
       "scheme-1afb05ae-0853-4a94-bf34-086c591158ef": {
         "settings": {
-          "background": "#8A6678",
+          "background": "#b23a6f",
           "background_gradient": "",
           "text": "#fdfaf7",
           "button": "#121212",
@@ -200,12 +200,12 @@
       },
       "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f": {
         "settings": {
-          "background": "#F3E1E5",
+          "background": "#f3e1e5",
           "background_gradient": "",
           "text": "#2a2622",
           "button": "#b23a6f",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#8A6678",
+          "secondary_button_label": "#8a6678",
           "shadow": "#121212"
         }
       },
@@ -216,8 +216,8 @@
           "text": "#2a2622",
           "button": "#b23a6f",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#8A6678",
-          "shadow": "#8A6678"
+          "secondary_button_label": "#8a6678",
+          "shadow": "#8a6678"
         }
       },
       "scheme-01c44ec4-967b-4473-9cb3-3f01ea860bfd": {
@@ -227,8 +227,8 @@
           "text": "#2a2622",
           "button": "#b23a6f",
           "button_label": "#fdfaf7",
-          "secondary_button_label": "#8A6678",
-          "shadow": "#8A6678"
+          "secondary_button_label": "#8a6678",
+          "shadow": "#8a6678"
         }
       }
     }

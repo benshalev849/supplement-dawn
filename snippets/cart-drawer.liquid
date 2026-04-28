@@ -34,7 +34,8 @@
       --bloomli-cart-heading-size: {{ settings.cart_drawer_heading_font_size | default: 20 }}px;
       --bloomli-cart-body-size: {{ settings.cart_drawer_body_font_size | default: 15 }}px;
       --bloomli-cart-price-size: {{ settings.cart_drawer_price_font_size | default: 17 }}px;
-      --bloomli-cart-image-size: {{ settings.cart_drawer_product_image_size | default: 116 }}px;
+      --bloomli-cart-image-size: {{ settings.cart_drawer_product_image_size | default: 124 }}px;
+      --bloomli-cart-checkout-radius: {{ settings.cart_drawer_checkout_radius | default: 8 }}px;
     "
   >
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
@@ -734,10 +735,6 @@
               <span class="bloomli-cart-subtotal-final">{{ cart.total_price | money_with_currency }}</span>
             </p>
           </div>
-
-          <small class="tax-note caption-large">
-            {{ settings.cart_drawer_tax_note | default: '*Taxes, shipping and discounts calculated at checkout.' }}
-          </small>
         </div>
 
         <!-- CTAs -->
@@ -755,6 +752,9 @@
           >
             {{ settings.cart_drawer_checkout_label | default: 'Checkout' }}
           </button>
+          <small class="tax-note caption-large">
+            {{ settings.cart_drawer_tax_note | default: '*Taxes, shipping and discounts calculated at checkout.' }}
+          </small>
         </div>
       </div>
     </div>

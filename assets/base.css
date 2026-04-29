@@ -1087,8 +1087,8 @@ label,
 .product__media-bullet {
   appearance: none;
   -webkit-appearance: none;
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   border-radius: 999px;
   background: rgba(110, 74, 99, 0.25);
   border: 0;
@@ -1098,7 +1098,7 @@ label,
   transition: width 0.25s ease, background-color 0.25s ease;
 }
 .product__media-bullet[aria-current="true"] {
-  width: 18px;
+  width: 22px;
   background: var(--aubergine, #6E4A63);
 }
 .product__media-bullet:hover {

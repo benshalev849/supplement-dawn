@@ -1,17 +1,7 @@
 /* ---- Mobile-first guard rails: never let any section blow past viewport ---- */
-html,
-body {
+html, body {
   max-width: 100%;
-}
-
-body {
-  overflow-x: clip;
-}
-
-@supports not (overflow: clip) {
-  body {
-    overflow-x: hidden;
-  }
+  overflow-x: hidden;
 }
 
 img, video {

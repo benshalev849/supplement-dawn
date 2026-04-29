@@ -928,6 +928,11 @@ label,
 /* ============================================================
    Decorative-image scroll-capture fix.
 
+   Bloomli custom media now follows Dawn's image-section pattern: wrappers
+   stay normal layout boxes, while img/svg pixels are passive and
+   non-draggable so they cannot become the scroll target.
+
+   Historical notes:
    Two distinct symptoms this addresses:
    (1) Scroll stalls completely until the user clicks elsewhere — caused
        by the browser entering native drag mode on an image/svg/div the
@@ -944,42 +949,26 @@ label,
    live inside these — they're purely visual).
    ============================================================ */
 .bloomli-hero__media,
-.bloomli-hero__media *,
 .bloomli-timeline__circle,
-.bloomli-timeline__circle *,
 .bloomli-photo-mosaic__tile,
-.bloomli-photo-mosaic__tile *,
 .bloomli-product-picks__card .bloomli-product-picks__media,
-.bloomli-product-picks__card .bloomli-product-picks__media *,
 .bloomli-bundle__product,
-.bloomli-bundle__product *,
 .bloomli-bundle__product--placeholder,
-.bloomli-bundle__product--placeholder *,
 .bloomli-formula-gallery__placeholder,
-.bloomli-formula-gallery__placeholder *,
 .bloomli-formula-gallery__media,
-.bloomli-formula-gallery__media *,
 .bloomli-formula-gallery__proof-media,
-.bloomli-formula-gallery__proof-media *,
 .bloomli-formula-list__icon,
-.bloomli-formula-list__icon *,
 .bloomli-ingredient-gallery__media,
-.bloomli-ingredient-gallery__media *,
 .bloomli-ingredients__icon,
-.bloomli-ingredients__icon *,
 .bloomli-ing__icon,
-.bloomli-ing__icon *,
 .bloomli-reviews__media,
-.bloomli-reviews__media *,
 .bloomli-vt__size-media,
-.bloomli-vt__size-media *,
-.bloomli-proof-split__media,
-.bloomli-proof-split__media * {
+.bloomli-proof-split__media {
+  isolation: isolate;
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
   user-drag: none;
-  pointer-events: none;
   touch-action: pan-y pinch-zoom;
 }
 
@@ -993,6 +982,20 @@ label,
   user-drag: none;
   user-select: none;
   -webkit-user-select: none;
+}
+
+/* Any visual asset inside our custom Bloomli blocks should be transparent to
+   pointer hit-testing. The containing link/button/card can still receive
+   clicks, but the image/SVG itself cannot become the scroll or drag target. */
+:is([class^='bloomli-'], [class*=' bloomli-']) :is(img, svg, picture),
+:is(img, svg, picture)[class^='bloomli-'],
+:is(img, svg, picture)[class*=' bloomli-'] {
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 /* Hero/timeline use overflow: hidden to clip decorative imagery, which Chrome

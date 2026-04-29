@@ -264,6 +264,7 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'bloomli-sections.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -370,31 +371,6 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <script>
-      /* Measure the fixed announcement/header stack so content starts below it. */
-      (function () {
-        function setHeaderStackHeight() {
-          var bar = document.querySelector('.announcement-bar-section.shopify-section-group-header-group');
-          var header = document.querySelector('.section-header.shopify-section-group-header-group');
-          var barHeight = bar ? bar.offsetHeight : 0;
-          var headerHeight = header ? header.offsetHeight : 0;
-
-          document.documentElement.style.setProperty(
-            '--bloomli-announcement-height',
-            barHeight + 'px'
-          );
-          document.documentElement.style.setProperty(
-            '--bloomli-header-stack-height',
-            barHeight + headerHeight + 'px'
-          );
-        }
-
-        setHeaderStackHeight();
-        window.addEventListener('load', setHeaderStackHeight);
-        window.addEventListener('resize', setHeaderStackHeight);
-        document.addEventListener('shopify:section:load', setHeaderStackHeight);
-        document.addEventListener('shopify:section:unload', setHeaderStackHeight);
-      })();
-    </script>
+    <script src="{{ 'bloomli-theme.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>

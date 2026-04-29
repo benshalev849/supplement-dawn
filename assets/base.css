@@ -951,16 +951,26 @@ label,
 .bloomli-photo-mosaic__tile *,
 .bloomli-product-picks__card .bloomli-product-picks__media,
 .bloomli-product-picks__card .bloomli-product-picks__media *,
+.bloomli-bundle__product,
+.bloomli-bundle__product *,
 .bloomli-bundle__product--placeholder,
 .bloomli-bundle__product--placeholder *,
 .bloomli-formula-gallery__placeholder,
 .bloomli-formula-gallery__placeholder *,
 .bloomli-formula-gallery__media,
 .bloomli-formula-gallery__media *,
+.bloomli-formula-gallery__proof-media,
+.bloomli-formula-gallery__proof-media *,
+.bloomli-formula-list__icon,
+.bloomli-formula-list__icon *,
 .bloomli-ingredient-gallery__media,
 .bloomli-ingredient-gallery__media *,
 .bloomli-ingredients__icon,
 .bloomli-ingredients__icon *,
+.bloomli-ing__icon,
+.bloomli-ing__icon *,
+.bloomli-reviews__media,
+.bloomli-reviews__media *,
 .bloomli-vt__size-media,
 .bloomli-vt__size-media *,
 .bloomli-proof-split__media,
@@ -970,6 +980,19 @@ label,
   -webkit-user-drag: none;
   user-drag: none;
   pointer-events: none;
+  touch-action: pan-y pinch-zoom;
+}
+
+/* Stop images/SVGs in custom Bloomli sections from entering native drag mode
+   during scroll without disabling links or buttons that contain them. */
+.bloomli-section img,
+.bloomli-section svg,
+.bloomli-reviews img,
+.bloomli-reviews svg {
+  -webkit-user-drag: none;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* Hero/timeline use overflow: hidden to clip decorative imagery, which Chrome
@@ -979,9 +1002,35 @@ label,
    the same way but flags the element as a containment boundary so Chrome
    keeps wheel events on the compositor thread. */
 .bloomli-hero,
+.bloomli-hero__media,
 .bloomli-timeline__circle,
-.bloomli-photo-mosaic__tile {
+.bloomli-photo-mosaic__tile,
+.bloomli-formula-gallery__media,
+.bloomli-formula-gallery__proof-media,
+.bloomli-ingredient-gallery__media,
+.bloomli-proof-split__media,
+.bloomli-reviews__media {
   contain: paint;
+}
+
+.bloomli-hero__media,
+.bloomli-photo-mosaic__tile,
+.bloomli-formula-gallery__media,
+.bloomli-formula-gallery__proof-media,
+.bloomli-ingredient-gallery__media,
+.bloomli-proof-split__media,
+.bloomli-reviews__media,
+.bloomli-product-picks__media,
+.bloomli-bundle__product {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+@media (min-width: 750px) {
+  .bloomli-reviews__track {
+    pointer-events: none;
+    touch-action: pan-y pinch-zoom;
+  }
 }
 
 /* ============================================================
@@ -1026,7 +1075,7 @@ label,
     gap: 6px;
     padding: 6px 12px;
     position: absolute;
-    bottom: 16px;
+    bottom: 28px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;

@@ -11,7 +11,7 @@
           {%- endif -%}
 
           <a href="{{ picked_product.url | default: block.settings.link }}" style="display: block; text-decoration: none; color: inherit;">
-            <div style="height: {{ section.settings.image_box_height }}px; display: flex; align-items: center; justify-content: center; margin-bottom: 26px;">
+            <div class="bloomli-product-picks__media" style="height: {{ section.settings.image_box_height }}px; display: flex; align-items: center; justify-content: center; margin-bottom: 26px;">
               {%- if block.settings.image != blank -%}
                 {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
                 <img src="{{ block.settings.image | image_url: width: 520 }}" srcset="{{ block.settings.image | image_url: width: 240 }} 240w, {{ block.settings.image | image_url: width: 360 }} 360w, {{ block.settings.image | image_url: width: 520 }} 520w" sizes="(max-width: 749px) calc((100vw - 72px) / {{ section.settings.columns_mobile }}), 260px" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="260" height="260" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block; filter: drop-shadow(0 16px 32px var(--bloomli-shadow-color));">

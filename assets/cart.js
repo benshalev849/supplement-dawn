@@ -265,10 +265,14 @@ class CartItems extends HTMLElement {
     const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
     mainCartItems.classList.add('cart__items--disabled');
 
+    const cartDrawerLineItem = this.querySelector(`#CartDrawer-Item-${line}`);
+    if (cartDrawerLineItem) cartDrawerLineItem.classList.add('is-updating');
+
     const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading__spinner`);
     const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading__spinner`);
+    const spinnerElements = this.tagName === 'CART-DRAWER-ITEMS' ? cartItemElements : [...cartItemElements, ...cartDrawerItemElements];
 
-    [...cartItemElements, ...cartDrawerItemElements].forEach((overlay) => overlay.classList.remove('hidden'));
+    spinnerElements.forEach((overlay) => overlay.classList.remove('hidden'));
 
     document.activeElement.blur();
     this.lineItemStatusElement.setAttribute('aria-hidden', false);
@@ -277,6 +281,9 @@ class CartItems extends HTMLElement {
   disableLoading(line) {
     const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
     mainCartItems.classList.remove('cart__items--disabled');
+
+    const cartDrawerLineItem = this.querySelector(`#CartDrawer-Item-${line}`);
+    if (cartDrawerLineItem) cartDrawerLineItem.classList.remove('is-updating');
 
     const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading__spinner`);
     const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading__spinner`);

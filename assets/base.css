@@ -1024,7 +1024,15 @@ label,
     align-items: center;
     justify-content: center;
     gap: 6px;
-    padding: 14px 0 6px;
+    padding: 6px 12px;
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 999px;
   }
 }
 .product__media-bullet {

@@ -42,7 +42,6 @@
         src="{{ stack_image | image_url: width: image_width }}"
         alt="{{ stack_alt | escape }}"
         loading="lazy"
-        draggable="false"
         width="{{ image_width | divided_by: 2 }}"
         height="{{ image_width | divided_by: 2 | divided_by: stack_image.aspect_ratio | ceil }}"
       >

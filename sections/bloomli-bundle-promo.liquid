@@ -28,7 +28,7 @@
       {%- endif -%}
     </div>
 
-    {%- if section.settings.cta_label != blank -%}
+    {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
       <div class="bloomli-bundle__cta-wrap color-{{ section.settings.button_color_scheme }}" style="background: transparent; display: inline-block;">
         <a href="{{ section.settings.cta_url }}" class="button button--primary">{{ section.settings.cta_label }}</a>
       </div>

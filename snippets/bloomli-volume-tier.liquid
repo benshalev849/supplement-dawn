@@ -1,4 +1,4 @@
-{%- comment -%}
+{% doc %}
   Bloomli Volume Tier - block snippet rendered inside main-product.liquid.
 
   Renders 1-5 horizontal size cards (Create-Wellness style) plus an optional
@@ -10,12 +10,14 @@
   filter falls back to "5-pack" since Appstle plans only go up to 5-pack.
   Per-tier plan filters can override the pack text.
 
-  Accepts:
-    block            - block object with all settings
-    product          - current product
-    product_form_id  - id of the buy-buttons form to associate inputs with
-    section_id       - parent section id for unique element ids
-{%- endcomment -%}
+  @param {block} block - Block object with all settings.
+  @param {product} product - Current product.
+  @param {string} product_form_id - ID of the buy-buttons form to associate inputs with.
+  @param {string} section_id - Parent section ID for unique element IDs.
+
+  @example
+  {% render 'bloomli-volume-tier', block: block, product: product, product_form_id: product_form_id, section_id: section.id %}
+{% enddoc %}
 
 {{ 'bloomli-volume-tier.css' | asset_url | stylesheet_tag }}
 {{ 'bloomli-product-stack.css' | asset_url | stylesheet_tag }}

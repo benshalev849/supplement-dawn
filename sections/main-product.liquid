@@ -496,7 +496,18 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
-                {%- render 'bloomli-pdp-trust' -%}
+                {%- if block.settings.show_pdp_trust -%}
+                  {%- render 'bloomli-pdp-trust',
+                    trust_1_icon: block.settings.trust_1_icon,
+                    trust_1_text: block.settings.trust_1_text,
+                    trust_2_icon: block.settings.trust_2_icon,
+                    trust_2_text: block.settings.trust_2_text,
+                    trust_3_icon: block.settings.trust_3_icon,
+                    trust_3_text: block.settings.trust_3_text,
+                    trust_4_icon: block.settings.trust_4_icon,
+                    trust_4_text: block.settings.trust_4_text
+                  -%}
+                {%- endif -%}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -735,14 +746,6 @@
       </script>
       <script src="{{ 'product-model.js' | asset_url }}" defer></script>
     {%- endif -%}
-
-    {%- liquid
-      if product.selected_or_first_available_variant.featured_media
-        assign seo_media = product.selected_or_first_available_variant.featured_media
-      else
-        assign seo_media = product.featured_media
-      endif
-    -%}
 
     <script type="application/ld+json">
       {{ product | structured_data }}
@@ -1038,6 +1041,88 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "header",
+          "content": "Bloomli trust row"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_pdp_trust",
+          "label": "Show PDP trust row",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "trust_1_icon",
+          "label": "Trust item 1 icon",
+          "options": [
+            { "value": "truck", "label": "Truck" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "leaf", "label": "Leaf" }
+          ],
+          "default": "truck"
+        },
+        {
+          "type": "text",
+          "id": "trust_1_text",
+          "label": "Trust item 1 text",
+          "default": "Free shipping"
+        },
+        {
+          "type": "select",
+          "id": "trust_2_icon",
+          "label": "Trust item 2 icon",
+          "options": [
+            { "value": "truck", "label": "Truck" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "leaf", "label": "Leaf" }
+          ],
+          "default": "refresh"
+        },
+        {
+          "type": "text",
+          "id": "trust_2_text",
+          "label": "Trust item 2 text",
+          "default": "Cancel anytime"
+        },
+        {
+          "type": "select",
+          "id": "trust_3_icon",
+          "label": "Trust item 3 icon",
+          "options": [
+            { "value": "truck", "label": "Truck" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "leaf", "label": "Leaf" }
+          ],
+          "default": "shield"
+        },
+        {
+          "type": "text",
+          "id": "trust_3_text",
+          "label": "Trust item 3 text",
+          "default": "30-day guarantee"
+        },
+        {
+          "type": "select",
+          "id": "trust_4_icon",
+          "label": "Trust item 4 icon",
+          "options": [
+            { "value": "truck", "label": "Truck" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "leaf", "label": "Leaf" }
+          ],
+          "default": "leaf"
+        },
+        {
+          "type": "text",
+          "id": "trust_4_text",
+          "label": "Trust item 4 text",
+          "default": "Vegan & clean"
         }
       ]
     },

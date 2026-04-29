@@ -1,28 +1,56 @@
-{% comment %}
-  PDP trust icons row (4 items).
-  Usage: {% render 'bloomli-pdp-trust' %}
-{% endcomment %}
+{% doc %}
+  Renders the PDP trust icon row under the buy buttons.
+
+  @param {string} [trust_1_icon] - First trust item icon.
+  @param {string} [trust_1_text] - First trust item label.
+  @param {string} [trust_2_icon] - Second trust item icon.
+  @param {string} [trust_2_text] - Second trust item label.
+  @param {string} [trust_3_icon] - Third trust item icon.
+  @param {string} [trust_3_text] - Third trust item label.
+  @param {string} [trust_4_icon] - Fourth trust item icon.
+  @param {string} [trust_4_text] - Fourth trust item label.
+
+  @example
+  {% render 'bloomli-pdp-trust', trust_1_text: 'Free shipping' %}
+{% enddoc %}
 
 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 20px 0 32px;">
 
-  {% assign trust_items = 'truck|Free shipping,refresh|Cancel anytime,shield|30-day guarantee,leaf|Vegan & clean' | split: ',' %}
-  {% for item in trust_items %}
-    {% assign parts = item | split: '|' %}
-    <div style="text-align: center;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-wellness-accent, #6F7A5A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;">
-        {% case parts[0] %}
-          {% when 'truck' %}
-            <path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/>
-          {% when 'refresh' %}
-            <path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/>
-          {% when 'shield' %}
-            <path d="M12 3l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z"/>
-          {% when 'leaf' %}
-            <path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z"/><path d="M5 19c4-4 8-8 14-14"/>
-        {% endcase %}
-      </svg>
-      <div style="font-size: 10px; color: rgba(42,38,34,0.65); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; font-family: var(--font-commerce-ui, var(--font-body-family));">{{ parts[1] }}</div>
-    </div>
-  {% endfor %}
+  {%- for item_index in (1..4) -%}
+    {%- liquid
+      case item_index
+        when 1
+          assign item_icon = trust_1_icon | default: 'truck'
+          assign item_text = trust_1_text | default: 'Free shipping'
+        when 2
+          assign item_icon = trust_2_icon | default: 'refresh'
+          assign item_text = trust_2_text | default: 'Cancel anytime'
+        when 3
+          assign item_icon = trust_3_icon | default: 'shield'
+          assign item_text = trust_3_text | default: '30-day guarantee'
+        when 4
+          assign item_icon = trust_4_icon | default: 'leaf'
+          assign item_text = trust_4_text | default: 'Vegan & clean'
+      endcase
+    -%}
+
+    {%- if item_text != blank -%}
+      <div style="text-align: center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-wellness-accent, #6F7A5A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;" aria-hidden="true" focusable="false">
+          {% case item_icon %}
+            {% when 'truck' %}
+              <path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/>
+            {% when 'refresh' %}
+              <path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/>
+            {% when 'shield' %}
+              <path d="M12 3l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z"/>
+            {% when 'leaf' %}
+              <path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z"/><path d="M5 19c4-4 8-8 14-14"/>
+          {% endcase %}
+        </svg>
+        <div style="font-size: 10px; color: rgba(42,38,34,0.65); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; font-family: var(--font-commerce-ui, var(--font-body-family));">{{ item_text }}</div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
 
 </div>

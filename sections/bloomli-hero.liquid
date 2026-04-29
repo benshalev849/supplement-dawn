@@ -19,17 +19,17 @@
       {%- endif -%}
 
       <div class="bloomli-hero__ctas color-{{ section.settings.button_color_scheme }}" style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; background: transparent;">
-        {%- if section.settings.cta_primary_label != blank -%}
+        {%- if section.settings.cta_primary_label != blank and section.settings.cta_primary_url != blank -%}
           <a href="{{ section.settings.cta_primary_url }}" class="button button--primary">{{ section.settings.cta_primary_label }}</a>
         {%- endif -%}
-        {%- if section.settings.cta_secondary_label != blank -%}
+        {%- if section.settings.cta_secondary_label != blank and section.settings.cta_secondary_url != blank -%}
           <a href="{{ section.settings.cta_secondary_url }}" class="button button--secondary">{{ section.settings.cta_secondary_label }}</a>
         {%- endif -%}
       </div>
 
       {%- if section.settings.show_reviews -%}
         <div class="bloomli-hero__reviews" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-          <span style="color: var(--hero-eyebrow-color); font-size: 16px; letter-spacing: -1px;" aria-hidden="true">★★★★★</span>
+          <span style="color: var(--hero-eyebrow-color); font-size: 16px; letter-spacing: -1px;" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           <span style="font-size: 14px; color: var(--bloomli-text);">
             <strong style="font-weight: 500;">{{ section.settings.review_score }}</strong> from {{ section.settings.review_count }} reviews
           </span>
@@ -49,9 +49,10 @@
           sizes="(max-width: 749px) {{ section.settings.editorial_width_mobile }}vw, 380px"
           loading="eager"
           fetchpriority="high"
+          decoding="async"
           width="380"
           height="520"
-          style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; object-fit: cover; box-shadow: 0 24px 60px var(--bloomli-shadow-color);"
+          style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; object-fit: cover; box-shadow: 0 16px 32px var(--bloomli-shadow-color);"
         >
       {%- else -%}
         <div class="bloomli-hero__editorial bloomli-hero__editorial--placeholder" style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; background: var(--bloomli-surface); display: flex; align-items: center; justify-content: center;">
@@ -68,7 +69,7 @@
                   {{ section.settings.product_image | image_url: width: 900 }} 900w"
           sizes="(max-width: 749px) {{ section.settings.bottle_width_mobile }}vw, {{ section.settings.bottle_width_desktop }}px"
           alt="{{ section.settings.product_image.alt | default: 'Root Ritual Gummies' | escape }}"
-          loading="lazy"
+          loading="lazy" decoding="async"
           width="{{ section.settings.bottle_width_desktop }}"
           height="{{ section.settings.bottle_width_desktop | times: section.settings.product_image.height | divided_by: section.settings.product_image.width | round }}"
           style="position: absolute; left: {{ section.settings.bottle_x_desktop }}px; bottom: {{ section.settings.bottle_y_desktop }}px; transform: rotate({{ section.settings.bottle_rotation }}deg); width: {{ section.settings.bottle_width_desktop }}px; height: auto; max-width: none; object-fit: contain;"

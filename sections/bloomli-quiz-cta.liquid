@@ -17,7 +17,7 @@
       </p>
     {%- endif -%}
 
-    {%- if section.settings.cta_label != blank -%}
+    {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
       <a href="{{ section.settings.cta_url }}" class="button bloomli-quiz__cta">
         {{ section.settings.cta_label }}
       </a>

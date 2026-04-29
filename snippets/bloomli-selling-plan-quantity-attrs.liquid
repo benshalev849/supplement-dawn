@@ -1,11 +1,13 @@
-{%- comment -%}
+{% doc %}
   Outputs data attributes mapping cart quantities to Appstle selling plans.
   Used only for subscription cart lines so quantity changes keep the matching
-  pack discount plan. Quantities above 5 should use the 5-pack plan in JS.
+  pack discount plan. Quantities above 5 use the 5-pack plan in JavaScript.
 
-  Accepts:
-    item - cart line item
-{%- endcomment -%}
+  @param {line_item} item - Cart line item.
+
+  @example
+  {% render 'bloomli-selling-plan-quantity-attrs', item: item %}
+{% enddoc %}
 
 {%- if item.selling_plan_allocation != null -%}
   {%- for target_qty in (1..5) -%}

@@ -1,14 +1,16 @@
-{%- comment -%}
-  Renders a repeated product image stack for bundle/quantity visuals.
+{% doc %}
+  Renders a repeated product image stack for bundle and quantity visuals.
 
-  Accepts:
-    image - preferred image object
-    product - fallback product object
-    count - number of items to visualize, capped at 3
-    alt - optional alt text
-    class - optional additional class
-    width - optional image request width
-{%- endcomment -%}
+  @param {image} [image] - Preferred image object.
+  @param {product} [product] - Fallback product object.
+  @param {number} [count] - Number of items to visualize, capped at 3.
+  @param {string} [alt] - Optional alt text.
+  @param {string} [class] - Optional additional class.
+  @param {number} [width] - Optional image request width.
+
+  @example
+  {% render 'bloomli-product-image-stack', product: product, count: 3 %}
+{% enddoc %}
 
 {%- liquid
   assign stack_count = count | default: 1 | plus: 0

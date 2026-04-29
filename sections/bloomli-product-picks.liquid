@@ -5,12 +5,17 @@
     <div class="bloomli-product-picks__grid" style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0, 1fr)); gap: 38px;">
       {%- for block in section.blocks -%}
         {%- assign picked_product = block.settings.product -%}
+        {%- assign card_url = picked_product.url | default: block.settings.link -%}
         <div class="bloomli-product-picks__card" {{ block.shopify_attributes }} style="min-width: 0; position: relative;">
           {%- if block.settings.badge != blank -%}
             <div style="position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); z-index: 2; background: var(--bloomli-accent); color: var(--bloomli-on-accent); border-radius: 999px; padding: 7px 13px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">{{ block.settings.badge }}</div>
           {%- endif -%}
 
-          <a href="{{ picked_product.url | default: block.settings.link }}" style="display: block; text-decoration: none; color: inherit;">
+          {%- if card_url != blank -%}
+            <a href="{{ card_url }}" style="display: block; text-decoration: none; color: inherit;">
+          {%- else -%}
+            <div style="display: block; text-decoration: none; color: inherit;">
+          {%- endif -%}
             <div class="bloomli-product-picks__media" style="height: {{ section.settings.image_box_height }}px; display: flex; align-items: center; justify-content: center; margin-bottom: 26px;">
               {%- if block.settings.image != blank -%}
                 {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
@@ -33,7 +38,7 @@
               <div>
                 <h3 style="font-family: 'Fraunces', serif; font-size: 21px; line-height: 1.15; font-weight: 400; margin: 0 0 12px; color: var(--bloomli-text);">{{ block.settings.title | default: picked_product.title }}</h3>
                 {%- if block.settings.show_stars -%}
-                  <div style="color: var(--bloomli-accent); font-size: 12px; letter-spacing: 1px;" aria-label="Five star rating">★★★★★</div>
+                  <div style="color: var(--bloomli-accent); font-size: 12px; letter-spacing: 1px;" aria-label="Five star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 {%- endif -%}
               </div>
               <div style="font-size: 14px; color: var(--bloomli-accent); white-space: nowrap;">
@@ -44,7 +49,11 @@
                 {%- endif -%}
               </div>
             </div>
-          </a>
+          {%- if card_url != blank -%}
+            </a>
+          {%- else -%}
+            </div>
+          {%- endif -%}
         </div>
       {%- endfor -%}
     </div>

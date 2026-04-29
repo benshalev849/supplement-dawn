@@ -39,8 +39,22 @@
   --bloomli-surface-strong: rgba(var(--color-foreground), 0.09);
   --bloomli-label-bg: rgba(var(--color-background), 0.82);
   --bloomli-shadow-color: rgba(var(--color-shadow), 0.14);
+  position: relative;
+  height: auto;
+  min-height: auto;
+  overflow: visible;
+  overscroll-behavior: auto;
+  touch-action: pan-y;
   background: var(--bloomli-bg);
   color: var(--bloomli-text);
+}
+
+.bloomli-section :is(img, picture) {
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
 }
 
 .bloomli-section .smallcaps {
@@ -114,7 +128,7 @@
   width: var(--bfg-circle);
   aspect-ratio: 1 / 1;
   border-radius: 999px;
-  overflow: hidden;
+  overflow: clip;
   position: relative;
   color: var(--bfg-icon-color, var(--bloomli-wellness-accent));
   background-color: var(--bfg-item-bg);
@@ -195,7 +209,7 @@
   border-radius: 999px;
   background: var(--bfg-proof-bg);
   color: var(--bfg-proof-color);
-  overflow: hidden;
+  overflow: clip;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,8 +357,8 @@
   grid-auto-columns: calc((100% - (var(--br-card-gap, 20px) * 2)) / 3);
   gap: var(--br-card-gap, 20px);
   overflow-x: hidden;
-  overflow-y: hidden;
-  overscroll-behavior-x: contain;
+  overflow-y: visible;
+  overscroll-behavior: auto;
   scroll-snap-type: none;
   scroll-behavior: auto;
   scrollbar-width: none;
@@ -367,7 +381,7 @@
 .bloomli-reviews__media {
   aspect-ratio: 1 / 1;
   border-radius: calc(var(--br-radius) - 2px);
-  overflow: hidden;
+  overflow: clip;
   position: relative;
   background-color: var(--br-placeholder);
   background-image: repeating-linear-gradient(135deg, rgba(138, 102, 120, 0.06) 0 1px, transparent 1px 18px);

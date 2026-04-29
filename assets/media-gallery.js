@@ -10,6 +10,13 @@ if (!customElements.get('media-gallery')) {
           thumbnails: this.querySelector('[id^="GalleryThumbnails"]'),
         };
         this.mql = window.matchMedia('(min-width: 750px)');
+
+        this.bullets = Array.from(this.querySelectorAll('[data-media-bullets] [data-bullet-index]'));
+        if (this.bullets.length) {
+          this.bullets.forEach((bullet) => bullet.addEventListener('click', this.onBulletClick.bind(this)));
+          this.elements.viewer.addEventListener('slideChanged', this.onSlideChangedBullets.bind(this));
+        }
+
         if (!this.elements.thumbnails) return;
 
         this.elements.viewer.addEventListener('slideChanged', debounce(this.onSlideChanged.bind(this), 500));
@@ -19,6 +26,20 @@ if (!customElements.get('media-gallery')) {
             .addEventListener('click', this.setActiveMedia.bind(this, mediaToSwitch.dataset.target, false));
         });
         if (this.dataset.desktopLayout.includes('thumbnail') && this.mql.matches) this.removeListSemantic();
+      }
+
+      onBulletClick(event) {
+        const index = parseInt(event.currentTarget.dataset.bulletIndex, 10);
+        const slides = this.elements.viewer.sliderItemsToShow;
+        if (!slides || !slides[index]) return;
+        this.elements.viewer.slider.scrollTo({ left: slides[index].offsetLeft, behavior: 'smooth' });
+      }
+
+      onSlideChangedBullets(event) {
+        const currentIndex = event.detail.currentPage - 1;
+        this.bullets.forEach((bullet, i) => {
+          bullet.setAttribute('aria-current', i === currentIndex ? 'true' : 'false');
+        });
       }
 
       onSlideChanged(event) {

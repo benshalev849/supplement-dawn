@@ -963,6 +963,7 @@ label,
 .bloomli-ing__icon,
 .bloomli-reviews__media,
 .bloomli-vt__size-media,
+.bloomli-product-stack,
 .bloomli-proof-split__media {
   isolation: isolate;
   user-select: none;
@@ -1012,6 +1013,7 @@ label,
 .bloomli-formula-gallery__proof-media,
 .bloomli-ingredient-gallery__media,
 .bloomli-proof-split__media,
+.bloomli-product-stack,
 .bloomli-reviews__media {
   contain: paint;
 }

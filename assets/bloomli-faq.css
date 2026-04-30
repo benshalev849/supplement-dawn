@@ -1,0 +1,196 @@
+.bloomli-faq {
+  background: var(--bf-background);
+  color: var(--bf-text);
+  padding: var(--bf-padding-top) 48px var(--bf-padding-bottom);
+}
+
+.bloomli-faq__inner {
+  max-width: var(--bf-content-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, var(--bf-image-width));
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+
+.bloomli-faq--image-left .bloomli-faq__media {
+  order: -1;
+}
+
+.bloomli-faq__eyebrow {
+  margin: 0 0 14px;
+  color: var(--bf-accent);
+}
+
+.bloomli-faq__heading {
+  margin: 0;
+  color: var(--bf-text);
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  font-size: clamp(34px, 4vw, var(--bf-heading-size));
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+}
+
+.bloomli-faq__intro {
+  max-width: 62rem;
+  margin: 18px 0 0;
+  color: var(--bf-muted);
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: var(--bf-body-size);
+  line-height: 1.6;
+}
+
+.bloomli-faq__items {
+  margin-top: 34px;
+  border-top: 1px solid var(--bf-border);
+}
+
+.bloomli-faq__item {
+  border-bottom: 1px solid var(--bf-border);
+}
+
+.bloomli-faq__question {
+  width: 100%;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--bf-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+  text-align: left;
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: var(--bf-question-size);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.bloomli-faq__question:focus-visible {
+  outline: 2px solid var(--bf-accent);
+  outline-offset: 4px;
+}
+
+.bloomli-faq__plus {
+  position: relative;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  color: var(--bf-accent);
+}
+
+.bloomli-faq__plus::before,
+.bloomli-faq__plus::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.bloomli-faq__plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.bloomli-faq__question[aria-expanded='true'] .bloomli-faq__plus::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.bloomli-faq__panel {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 260ms ease, opacity 220ms ease;
+}
+
+.bloomli-faq__panel:not([hidden]) {
+  opacity: 1;
+}
+
+.bloomli-faq__panel-inner {
+  padding: 0 44px 22px 0;
+  color: var(--bf-muted);
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: var(--bf-body-size);
+  line-height: 1.65;
+}
+
+.bloomli-faq__panel-inner > :first-child {
+  margin-top: 0;
+}
+
+.bloomli-faq__panel-inner > :last-child {
+  margin-bottom: 0;
+}
+
+.bloomli-faq__media {
+  border-radius: var(--bf-radius);
+  overflow: hidden;
+  background: var(--bf-media-background);
+}
+
+.bloomli-faq__image,
+.bloomli-faq__placeholder {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bloomli-faq__placeholder {
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(135deg, rgba(138, 102, 120, 0.12), rgba(111, 122, 90, 0.1));
+}
+
+@media (max-width: 989px) {
+  .bloomli-faq {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .bloomli-faq__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .bloomli-faq__media {
+    order: -1;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 749px) {
+  .bloomli-faq {
+    padding-top: var(--bf-padding-top);
+    padding-bottom: var(--bf-padding-bottom);
+  }
+
+  .bloomli-faq__items {
+    margin-top: 28px;
+  }
+
+  .bloomli-faq__question {
+    padding: 18px 0;
+    font-size: calc(var(--bf-question-size) - 1px);
+  }
+
+  .bloomli-faq__panel-inner {
+    padding-right: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloomli-faq__panel,
+  .bloomli-faq__plus::before,
+  .bloomli-faq__plus::after {
+    transition: none;
+  }
+}

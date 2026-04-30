@@ -172,14 +172,14 @@
   }
 
   .bloomli-vt__size-label {
-    font-size: 13.5px;
+    font-size: 12px;
     line-height: 1.1;
     white-space: nowrap;
   }
 
   .bloomli-vt__size-count,
   .bloomli-vt__size-daily {
-    font-size: 10.5px;
+    font-size: 9.5px;
     line-height: 1.25;
   }
 }

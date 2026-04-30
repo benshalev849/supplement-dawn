@@ -207,65 +207,60 @@
         "padding_bottom": 12
       }
     },
-    "collapsible_content_faq": {
-      "type": "collapsible-content",
+    "bloomli_timeline_qUAhUY": {
+      "type": "bloomli-timeline",
       "blocks": {
-        "faq_row_1": {
-          "type": "collapsible_row",
+        "step_q7Pbng": {
+          "type": "step",
           "settings": {
-            "heading": "How long until I see results?",
-            "icon": "none",
-            "row_content": "<p>Most customers notice reduced shedding within 4–6 weeks. Visible new growth typically appears at the 3-month mark. For best results, take consistently for at least 90 days.</p>",
-            "page": ""
+            "image_scale": 100,
+            "icon": "seed",
+            "range": "Month 1–3",
+            "title": "Foundation",
+            "description": "Nourishment reaches the follicle. Expect less shedding and a healthier scalp feel."
           }
         },
-        "faq_row_2": {
-          "type": "collapsible_row",
+        "step_ihr9qU": {
+          "type": "step",
           "settings": {
-            "heading": "How many gummies do I take per day?",
-            "icon": "none",
-            "row_content": "<p>Take 2 gummies daily, ideally with a meal. Each pouch is a 30-day supply.</p>",
-            "page": ""
+            "image_scale": 100,
+            "icon": "sprout",
+            "range": "Month 3–6",
+            "title": "Visible Shift",
+            "description": "New growth begins. Many see fuller density at the part line and temples."
           }
         },
-        "faq_row_3": {
-          "type": "collapsible_row",
+        "step_UQiCKB": {
+          "type": "step",
           "settings": {
-            "heading": "Are there any allergens or animal products?",
-            "icon": "none",
-            "row_content": "<p>Root Ritual gummies are vegan — we use a pectin base instead of gelatin. They contain no gluten, dairy, or artificial dyes. Check the label for a full ingredient list if you have specific sensitivities.</p>",
-            "page": ""
-          }
-        },
-        "faq_row_4": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "What is your return policy?",
-            "icon": "none",
-            "row_content": "<p>We offer a 30-day satisfaction guarantee on your first order. If you’re not happy, reach out to our team and we’ll make it right.</p>",
-            "page": ""
+            "image_scale": 100,
+            "icon": "bloom",
+            "range": "Month 6+",
+            "title": "Full Bloom",
+            "description": "Thicker, stronger, shinier hair. Results consolidate with consistent use."
           }
         }
       },
       "block_order": [
-        "faq_row_1",
-        "faq_row_2",
-        "faq_row_3",
-        "faq_row_4"
+        "step_q7Pbng",
+        "step_ihr9qU",
+        "step_UQiCKB"
       ],
+      "name": "Bloomli — Timeline",
       "settings": {
-        "caption": "",
-        "heading": "Frequently asked questions",
-        "heading_size": "h2",
-        "heading_alignment": "left",
-        "layout": "row",
-        "container_color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "open_first_collapsible_row": true,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "color_scheme": "",
+        "eyebrow": "Your 6-month journey",
+        "eyebrow_accent_color": "#8a6678",
+        "timeline_icon_color": "#6f7a5a",
+        "heading": "Your ritual, over time.",
+        "circle_background": "surface",
+        "circle_size": 100,
+        "icon_size": 64,
+        "show_connector": true,
+        "connector_style": "dashed",
+        "connector_width": 1,
+        "padding_top": 128,
+        "padding_bottom": 128
       }
     },
     "bloomli_formula_gallery_ypjbMe": {
@@ -430,277 +425,65 @@
         "padding_bottom": 112
       }
     },
-    "bloomli_formula_list_zkbzb7": {
-      "type": "bloomli-formula-list",
+    "collapsible_content_faq": {
+      "type": "collapsible-content",
       "blocks": {
-        "item_bA8Mn3": {
-          "type": "item",
+        "faq_row_1": {
+          "type": "collapsible_row",
           "settings": {
-            "image_scale": 100,
-            "is_proof": false,
-            "icon": "leaf",
-            "use_custom_icon_background": false,
-            "icon_background": "#f1ede8",
-            "use_custom_icon_color": false,
-            "icon_color": "#fdfaf7",
-            "title": "Biotin",
-            "text": "The keratin building block - clinically dosed for strand strength you can actually feel."
+            "heading": "How long until I see results?",
+            "icon": "none",
+            "row_content": "<p>Most customers notice reduced shedding within 4–6 weeks. Visible new growth typically appears at the 3-month mark. For best results, take consistently for at least 90 days.</p>",
+            "page": ""
           }
         },
-        "item_jfjm6c": {
-          "type": "item",
+        "faq_row_2": {
+          "type": "collapsible_row",
           "settings": {
-            "image_scale": 100,
-            "is_proof": false,
-            "icon": "palm",
-            "use_custom_icon_background": false,
-            "icon_background": "#f1ede8",
-            "use_custom_icon_color": false,
-            "icon_color": "#fdfaf7",
-            "title": "Saw Palmetto",
-            "text": "A plant-based DHT balancer that keeps follicles happy at the root."
+            "heading": "How many gummies do I take per day?",
+            "icon": "none",
+            "row_content": "<p>Take 2 gummies daily, ideally with a meal. Each pouch is a 30-day supply.</p>",
+            "page": ""
           }
         },
-        "item_feygtf": {
-          "type": "item",
+        "faq_row_3": {
+          "type": "collapsible_row",
           "settings": {
-            "image_scale": 100,
-            "is_proof": false,
-            "icon": "drop",
-            "use_custom_icon_background": false,
-            "icon_background": "#f1ede8",
-            "use_custom_icon_color": false,
-            "icon_color": "#fdfaf7",
-            "title": "Marine Collagen",
-            "text": "Sustainably sourced amino acids for elasticity and shine."
+            "heading": "Are there any allergens or animal products?",
+            "icon": "none",
+            "row_content": "<p>Root Ritual gummies are vegan — we use a pectin base instead of gelatin. They contain no gluten, dairy, or artificial dyes. Check the label for a full ingredient list if you have specific sensitivities.</p>",
+            "page": ""
           }
         },
-        "item_iGiDKc": {
-          "type": "item",
+        "faq_row_4": {
+          "type": "collapsible_row",
           "settings": {
-            "image_scale": 100,
-            "is_proof": false,
-            "icon": "root",
-            "use_custom_icon_background": false,
-            "icon_background": "#f1ede8",
-            "use_custom_icon_color": false,
-            "icon_color": "#fdfaf7",
-            "title": "Ashwagandha",
-            "text": "Adaptogen that quiets stress-related shedding."
-          }
-        },
-        "item_YBH8pa": {
-          "type": "item",
-          "settings": {
-            "image_scale": 100,
-            "is_proof": false,
-            "icon": "zinc",
-            "use_custom_icon_background": false,
-            "icon_background": "#f1ede8",
-            "use_custom_icon_color": false,
-            "icon_color": "#fdfaf7",
-            "title": "Zinc",
-            "text": "Essential mineral that supports a calm, healthy scalp environment."
-          }
-        },
-        "item_DVmArN": {
-          "type": "item",
-          "settings": {
-            "image_scale": 100,
-            "is_proof": false,
-            "icon": "tested",
-            "use_custom_icon_background": false,
-            "icon_background": "#fdfaf7",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "title": "Independently verified",
-            "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals."
+            "heading": "What is your return policy?",
+            "icon": "none",
+            "row_content": "<p>We offer a 30-day satisfaction guarantee on your first order. If you’re not happy, reach out to our team and we’ll make it right.</p>",
+            "page": ""
           }
         }
       },
       "block_order": [
-        "item_bA8Mn3",
-        "item_jfjm6c",
-        "item_feygtf",
-        "item_iGiDKc",
-        "item_YBH8pa",
-        "item_DVmArN"
+        "faq_row_1",
+        "faq_row_2",
+        "faq_row_3",
+        "faq_row_4"
       ],
-      "disabled": true,
-      "name": "Bloomli - Formula List",
       "settings": {
-        "color_scheme": "",
-        "use_custom_background": false,
-        "background_color": "#f3e1e5",
-        "eyebrow": "The goods inside",
-        "eyebrow_accent_color": "#8a6678",
-        "icon_accent_color": "#6f7a5a",
-        "heading_line1": "Five ingredients,",
-        "heading_line2": "doing the quiet work.",
-        "copy": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>",
-        "icon_background_tone": "accent",
-        "proof_icon_background_tone": "surface",
-        "icon_size": 64,
-        "icon_size_mobile": 56,
-        "padding_top": 112,
-        "padding_bottom": 112
-      }
-    },
-    "bloomli_ingredient_gallery_LmEEkc": {
-      "type": "bloomli-ingredient-gallery",
-      "blocks": {
-        "ingredient_7DVg7K": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/biotin.png",
-            "image_scale": 100,
-            "use_custom_circle_color": false,
-            "circle_color": "#fdfaf7",
-            "photo_label": "Raw biotin - powder",
-            "title": "Biotin",
-            "amount": "2500 MCG"
-          }
-        },
-        "ingredient_Ytycmp": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/Vitamin_B9_-_Folate.png",
-            "image_scale": 100,
-            "use_custom_circle_color": false,
-            "circle_color": "#fdfaf7",
-            "photo_label": "Saw palmetto - berry",
-            "title": "Saw Palmetto",
-            "amount": "160 MG"
-          }
-        },
-        "ingredient_YhRHgG": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/Marine_Collagen-powder-Web.png",
-            "image_scale": 100,
-            "use_custom_circle_color": false,
-            "circle_color": "#fdfaf7",
-            "photo_label": "Marine collagen - flake",
-            "title": "Marine Collagen",
-            "amount": "500 MG"
-          }
-        },
-        "ingredient_E3j3DK": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/Vitamin_D3_-_Cholecalciferol.png",
-            "image_scale": 100,
-            "use_custom_circle_color": false,
-            "circle_color": "#fdfaf7",
-            "photo_label": "Ashwagandha - root",
-            "title": "Ashwagandha",
-            "amount": "300 MG"
-          }
-        },
-        "ingredient_acHRb3": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/zinc_oxide.png",
-            "image_scale": 100,
-            "use_custom_circle_color": false,
-            "circle_color": "#fdfaf7",
-            "photo_label": "Zinc - mineral",
-            "title": "Zinc",
-            "amount": "8 MG"
-          }
-        },
-        "ingredient_cHPHX7": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/Iron.png",
-            "image_scale": 100,
-            "use_custom_circle_color": false,
-            "circle_color": "#fdfaf7",
-            "photo_label": "Vitamin D3 - droplet",
-            "title": "Vitamin D3",
-            "amount": "2000 IU"
-          }
-        }
-      },
-      "block_order": [
-        "ingredient_7DVg7K",
-        "ingredient_Ytycmp",
-        "ingredient_YhRHgG",
-        "ingredient_E3j3DK",
-        "ingredient_acHRb3",
-        "ingredient_cHPHX7"
-      ],
-      "disabled": true,
-      "name": "Bloomli - Ing Gallery",
-      "settings": {
-        "color_scheme": "",
-        "use_custom_background": false,
-        "background_color": "#fdfaf7",
-        "eyebrow": "Every ingredient, photographed",
-        "eyebrow_accent_color": "#8a6678",
-        "small_label_color": "#8a6678",
-        "heading": "Nothing hidden.",
-        "circle_background": "surface",
-        "image_size": 220,
-        "image_size_mobile": 150,
-        "padding_top": 112,
-        "padding_bottom": 112
-      }
-    },
-    "bloomli_timeline_qUAhUY": {
-      "type": "bloomli-timeline",
-      "blocks": {
-        "step_q7Pbng": {
-          "type": "step",
-          "settings": {
-            "image_scale": 100,
-            "icon": "seed",
-            "range": "Month 1–3",
-            "title": "Foundation",
-            "description": "Nourishment reaches the follicle. Expect less shedding and a healthier scalp feel."
-          }
-        },
-        "step_ihr9qU": {
-          "type": "step",
-          "settings": {
-            "image_scale": 100,
-            "icon": "sprout",
-            "range": "Month 3–6",
-            "title": "Visible Shift",
-            "description": "New growth begins. Many see fuller density at the part line and temples."
-          }
-        },
-        "step_UQiCKB": {
-          "type": "step",
-          "settings": {
-            "image_scale": 100,
-            "icon": "bloom",
-            "range": "Month 6+",
-            "title": "Full Bloom",
-            "description": "Thicker, stronger, shinier hair. Results consolidate with consistent use."
-          }
-        }
-      },
-      "block_order": [
-        "step_q7Pbng",
-        "step_ihr9qU",
-        "step_UQiCKB"
-      ],
-      "name": "Bloomli — Timeline",
-      "settings": {
-        "color_scheme": "",
-        "eyebrow": "Your 6-month journey",
-        "eyebrow_accent_color": "#8a6678",
-        "timeline_icon_color": "#6f7a5a",
-        "heading": "Your ritual, over time.",
-        "circle_background": "surface",
-        "circle_size": 100,
-        "icon_size": 64,
-        "show_connector": true,
-        "connector_style": "dashed",
-        "connector_width": 1,
-        "padding_top": 128,
-        "padding_bottom": 128
+        "caption": "",
+        "heading": "Frequently asked questions",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "row",
+        "container_color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "bloomli_proof_split_bhYAhW": {
@@ -992,11 +775,9 @@
   },
   "order": [
     "main",
-    "collapsible_content_faq",
-    "bloomli_formula_gallery_ypjbMe",
-    "bloomli_formula_list_zkbzb7",
-    "bloomli_ingredient_gallery_LmEEkc",
     "bloomli_timeline_qUAhUY",
+    "bloomli_formula_gallery_ypjbMe",
+    "collapsible_content_faq",
     "bloomli_proof_split_bhYAhW",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",

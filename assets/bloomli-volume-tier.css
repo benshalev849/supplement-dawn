@@ -137,37 +137,48 @@
 
 @media (min-width: 750px) {
   .bloomli-vt {
-    width: min(720px, calc(100vw - 48px));
+    width: min(500px, calc(100vw - 48px));
     max-width: none;
   }
 
   .bloomli-vt__sizes {
-    grid-template-columns: repeat(3, minmax(205px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .bloomli-vt__sizes:has(.bloomli-vt__size:nth-child(4)) {
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 
   .bloomli-vt__size {
-    grid-template-columns: minmax(88px, 42%) minmax(90px, 1fr);
+    grid-template-columns: minmax(58px, 38%) minmax(0, 1fr);
     align-items: center;
-    min-height: 116px;
-    padding: 14px 16px;
+    gap: 8px;
+    min-height: 86px;
+    padding: 10px 12px;
   }
 
   .bloomli-vt__size.is-selected {
-    padding: 13px 15px;
+    padding: 9px 11px;
   }
 
   .bloomli-vt__size-media {
     justify-self: start;
-    max-width: 128px;
+    max-width: 78px;
+  }
+
+  .bloomli-vt__size-stack {
+    --bloomli-product-stack-image-size: 100%;
   }
 
   .bloomli-vt__size-label {
+    font-size: 16px;
     white-space: nowrap;
+  }
+
+  .bloomli-vt__size-count,
+  .bloomli-vt__size-daily {
+    font-size: 11px;
   }
 }
 

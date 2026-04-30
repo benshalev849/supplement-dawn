@@ -367,6 +367,17 @@ a.product__text {
   max-width: 44rem;
 }
 
+@media screen and (min-width: 750px) {
+  .product__info-container .product-form__buttons {
+    max-width: 51.5rem;
+  }
+
+  .product__info-container .product-form__submit,
+  .product__info-container .shopify-payment-button__button {
+    min-height: 5rem;
+  }
+}
+
 .product--no-media .product__info-container > modal-opener {
   display: block;
   text-align: center;

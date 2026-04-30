@@ -59,7 +59,7 @@
   {%- endif -%}
 
   <div class="bloomli-vt__sizes" role="radiogroup" aria-label="{{ block.settings.heading | default: 'Pack size' | escape }}">
-    {%- for i in (1..5) -%}
+    {%- for i in (1..5) reversed -%}
       {%- liquid
         case i
           when 1

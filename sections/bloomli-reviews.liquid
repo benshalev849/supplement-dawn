@@ -13,6 +13,7 @@
     --br-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
     --br-card-gap: {{ section.settings.card_gap }}px;
     --br-scroll-duration: {{ section.settings.scroll_duration }}s;
+    --br-mobile-card-width: {{ section.settings.mobile_card_width | default: 82 }}vw;
     padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;
     background: var(--br-bg);
   "
@@ -31,8 +32,8 @@
 
     </div>
 
-    <div class="bloomli-reviews__viewport">
-      <div class="bloomli-reviews__track" data-bloomli-reviews-track>
+    <div class="bloomli-reviews__viewport" aria-label="{{ section.settings.heading | default: 'Customer reviews' | escape }}">
+      <div class="bloomli-reviews__track">
         <div class="bloomli-reviews__group">
           {%- for block in section.blocks -%}
             {%- render 'bloomli-review-card', block: block -%}
@@ -70,6 +71,7 @@
     { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 30, "max": 46, "step": 2, "default": 36, "unit": "px" },
     { "type": "range", "id": "card_gap", "label": "Card gap desktop", "min": 16, "max": 40, "step": 4, "default": 20, "unit": "px" },
     { "type": "range", "id": "scroll_duration", "label": "Carousel speed", "info": "Higher numbers move more slowly.", "min": 30, "max": 120, "step": 5, "default": 70, "unit": "s" },
+    { "type": "range", "id": "mobile_card_width", "label": "Mobile card width", "min": 70, "max": 90, "step": 2, "default": 82, "unit": "vw" },
     { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 4, "max": 20, "step": 2, "default": 10, "unit": "px" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 56, "max": 160, "step": 8, "default": 96, "unit": "px" },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 56, "max": 160, "step": 8, "default": 96, "unit": "px" }

@@ -309,6 +309,8 @@
 .bloomli-reviews__viewport {
   overflow-x: hidden;
   overflow-y: hidden;
+  pointer-events: none;
+  user-select: none;
 }
 
 .bloomli-reviews__track {
@@ -320,7 +322,10 @@
 }
 
 .bloomli-reviews__viewport:hover .bloomli-reviews__track,
-.bloomli-reviews__viewport:focus-within .bloomli-reviews__track {
+.bloomli-reviews__viewport:focus-within .bloomli-reviews__track,
+.bloomli-reviews__track:hover,
+.bloomli-reviews__track:focus-within,
+.bloomli-reviews__track:active {
   animation-play-state: paused;
 }
 
@@ -338,6 +343,7 @@
   padding: 20px;
   min-width: 0;
   box-shadow: 0 18px 48px rgba(138, 102, 120, 0.08);
+  pointer-events: auto;
 }
 
 .bloomli-reviews__media {
@@ -462,7 +468,7 @@
   }
 
   .bloomli-reviews__card {
-    flex-basis: min(280px, 82vw);
+    flex-basis: var(--br-mobile-card-width, 82vw);
   }
 
   .bloomli-reviews__card {

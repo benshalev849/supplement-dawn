@@ -16,14 +16,6 @@
     return (cents / 100).toFixed(2);
   }
 
-  // Volume and subscription discounts compound because each discount reduces
-  // the remaining price, rather than adding percentages together directly.
-  function getCompoundedDiscount(volumeDiscount, subscriptionDiscount) {
-    const volumeMultiplier = 1 - volumeDiscount / 100;
-    const subscriptionMultiplier = 1 - subscriptionDiscount / 100;
-    return (1 - volumeMultiplier * subscriptionMultiplier) * 100;
-  }
-
   function formatDiscount(percent) {
     return String(Math.round(percent || 0));
   }
@@ -147,10 +139,7 @@
         const qtyForLabel = parseInt(sizeOption.dataset.quantity, 10) || 1;
         const volumeDiscount = parseFloat(sizeOption.dataset.discountPct) || 0;
         const manualBadge = badge.dataset.manualBadge || '';
-        const displayDiscount =
-          effectiveMode === 'subscribe' && sizeOption.dataset.planId
-            ? getCompoundedDiscount(volumeDiscount, subPct)
-            : volumeDiscount;
+        const displayDiscount = volumeDiscount;
 
         if (displayDiscount > 0) {
           badge.textContent = formatTemplate(discountBadgeTemplate, {

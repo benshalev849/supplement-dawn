@@ -226,7 +226,7 @@
         endif
         assign subscribe_daily_text = '(' | append: auto_subscribe_daily | append: ' / Day)'
 
-        assign auto_count = qty | times: 30 | append: ' Count'
+        assign auto_count = qty | times: 60 | append: ' Count'
         if count_text == blank
           assign count_text = auto_count
         endif
@@ -404,6 +404,7 @@
         disabled
       >
       <button
+        id="ProductSubmitButton-{{ section_id }}"
         type="submit"
         name="add"
         class="bloomli-vt__custom-submit product-form__submit"

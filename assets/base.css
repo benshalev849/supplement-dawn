@@ -310,7 +310,6 @@
   overflow-x: hidden;
   overflow-y: hidden;
   user-select: none;
-  touch-action: pan-y;
 }
 
 .bloomli-reviews__track {
@@ -323,10 +322,8 @@
 
 .bloomli-reviews__viewport:hover .bloomli-reviews__track,
 .bloomli-reviews__viewport:focus-within .bloomli-reviews__track,
-.bloomli-reviews__viewport:active .bloomli-reviews__track,
 .bloomli-reviews__track:hover,
-.bloomli-reviews__track:focus-within,
-.bloomli-reviews__track:active {
+.bloomli-reviews__track:focus-within {
   animation-play-state: paused;
 }
 

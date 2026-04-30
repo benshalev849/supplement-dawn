@@ -53,6 +53,12 @@
      data-sold-out-label="{{ sold_out_label | escape }}"
      data-money-format="{{ shop.money_format | escape }}"
      style="
+       --bloomli-vt-save-badge-bg: {{ block.settings.save_badge_background | default: '#8A6678' }};
+       --bloomli-vt-save-badge-text: {{ block.settings.save_badge_text_color | default: '#FDFAF7' }};
+       --bloomli-vt-tier-tag-bg: {{ block.settings.tier_tag_background | default: '#8A6678' }};
+       --bloomli-vt-tier-tag-text: {{ block.settings.tier_tag_text_color | default: '#FDFAF7' }};
+       --bloomli-vt-shipping-pill-bg: {{ block.settings.shipping_pill_background | default: '#8A6678' }};
+       --bloomli-vt-shipping-pill-text: {{ block.settings.shipping_pill_text_color | default: '#FDFAF7' }};
        --bloomli-vt-desktop-title-size: {{ block.settings.desktop_tier_title_size | default: 11 }}px;
        --bloomli-vt-desktop-count-size: {{ block.settings.desktop_tier_count_size | default: 9 }}px;
        --bloomli-vt-desktop-daily-size: {{ block.settings.desktop_tier_daily_size | default: 9 }}px;

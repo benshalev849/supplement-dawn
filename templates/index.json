@@ -11,10 +11,7 @@
   "sections": {
     "bloomli_hero_7dR8fN": {
       "type": "bloomli-hero",
-      "custom_css": [
-        "@media (min-width: 750px) {.bloomli-hero__media img:last-of-type {left: -120px !important; bottom: 40px !important; width: 400px !important; transform: rotate(-8deg) !important; }}",
-        "@media (max-width: 749px) {.bloomli-hero__media img:last-of-type {left: 50px !important; bottom: 40px !important; width: 700px !important; transform: rotate(-8deg) !important; }}"
-      ],
+      "custom_css": [],
       "name": "Bloomli — Hero",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
@@ -33,6 +30,8 @@
         "show_reviews": true,
         "review_score": "4.8",
         "review_count": "2,400+",
+        "editorial_image": "shopify://shop_images/hero-editorial.png",
+        "editorial_placeholder_label": "Editorial photo",
         "bottle_width_desktop": 400,
         "bottle_x_desktop": -120,
         "bottle_y_desktop": 40,
@@ -40,7 +39,7 @@
         "bottle_width_mobile": 90,
         "bottle_x_mobile": -8,
         "bottle_y_mobile": 0,
-        "editorial_width_mobile": 56,
+        "editorial_width_mobile": 44,
         "editorial_height_mobile": 300,
         "media_height_mobile": 360
       }
@@ -351,6 +350,8 @@
         "button_color_scheme": "",
         "cta_label": "Shop the Duo — $74",
         "cta_url": "",
+        "product_image_1_placeholder_label": "Gummies",
+        "product_image_2_placeholder_label": "Hair Oil",
         "padding_top": 96,
         "padding_bottom": 96
       }

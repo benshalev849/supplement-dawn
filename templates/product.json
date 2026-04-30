@@ -118,25 +118,10 @@
         },
         "variant_picker": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true,
-            "show_pdp_trust": true,
-            "trust_1_icon": "truck",
-            "trust_1_text": "Free shipping",
-            "trust_2_icon": "refresh",
-            "trust_2_text": "Cancel anytime",
-            "trust_3_icon": "shield",
-            "trust_3_text": "30-day guarantee",
-            "trust_4_icon": "leaf",
-            "trust_4_text": "Vegan & clean"
           }
         },
         "description": {
@@ -193,7 +178,6 @@
         "price",
         "volume_tier_LC9DxN",
         "variant_picker",
-        "buy_buttons",
         "description",
         "collapsible-row-0",
         "collapsible-row-1",

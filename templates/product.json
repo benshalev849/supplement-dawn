@@ -214,7 +214,7 @@
         "heading": "Frequently asked questions",
         "heading_size": "h2",
         "heading_alignment": "left",
-        "layout": "none",
+        "layout": "row",
         "container_color_scheme": "scheme-2",
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "open_first_collapsible_row": true,

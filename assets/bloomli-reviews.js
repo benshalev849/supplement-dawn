@@ -2,7 +2,7 @@
   if (window.BloomliReviewsScriptLoaded) return;
   window.BloomliReviewsScriptLoaded = true;
 
-  const AUTOPLAY_DELAY = 6500;
+  const AUTOPLAY_SPEED = 18;
 
   function initReviews(root) {
     root.querySelectorAll('.bloomli-reviews').forEach((section) => {
@@ -11,43 +11,75 @@
       const track = section.querySelector('[data-bloomli-reviews-track]');
       const prev = section.querySelector('[data-bloomli-reviews-prev]');
       const next = section.querySelector('[data-bloomli-reviews-next]');
-      if (!track || !prev || !next) return;
+      if (!track) return;
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let autoplayTimer = null;
+      const originalCards = Array.from(track.querySelectorAll('.bloomli-reviews__card'));
+      let animationFrame = null;
+      let lastFrameTime = null;
+      let loopWidth = 0;
 
       const scrollByCard = (direction) => {
-        const firstCard = track.querySelector('.bloomli-reviews__card');
+        const firstCard = originalCards[0] || track.querySelector('.bloomli-reviews__card');
         const gap = parseFloat(getComputedStyle(track).columnGap || 0);
         const distance = firstCard ? firstCard.getBoundingClientRect().width + gap : track.clientWidth;
+
+        if (direction < 0 && track.scrollLeft <= 2 && loopWidth > 0) {
+          track.scrollLeft = loopWidth;
+        }
+
         track.scrollBy({ left: distance * direction, behavior: 'smooth' });
       };
 
-      const scrollNext = () => {
+      const measureLoop = () => {
+        const firstClone = track.querySelector('[data-bloomli-review-clone="true"]');
+        loopWidth = firstClone ? firstClone.offsetLeft : 0;
+      };
+
+      const cloneCards = () => {
+        if (originalCards.length < 2 || track.querySelector('[data-bloomli-review-clone="true"]')) return;
+
+        originalCards.forEach((card) => {
+          const clone = card.cloneNode(true);
+          clone.setAttribute('aria-hidden', 'true');
+          clone.setAttribute('data-bloomli-review-clone', 'true');
+          clone.querySelectorAll('[id]').forEach((element) => element.removeAttribute('id'));
+          track.appendChild(clone);
+        });
+
+        measureLoop();
+      };
+
+      const tick = (timestamp) => {
         if (!track.isConnected) {
-          window.clearInterval(autoplayTimer);
-          autoplayTimer = null;
+          window.cancelAnimationFrame(animationFrame);
+          animationFrame = null;
           return;
         }
 
-        const remainingScroll = track.scrollWidth - track.clientWidth - track.scrollLeft;
-        if (remainingScroll <= 4) {
-          track.scrollTo({ left: 0, behavior: 'smooth' });
-          return;
+        if (lastFrameTime !== null && loopWidth > 0) {
+          const elapsed = timestamp - lastFrameTime;
+          track.scrollLeft += (AUTOPLAY_SPEED * elapsed) / 1000;
+
+          if (track.scrollLeft >= loopWidth) {
+            track.scrollLeft -= loopWidth;
+          }
         }
 
-        scrollByCard(1);
+        lastFrameTime = timestamp;
+        animationFrame = window.requestAnimationFrame(tick);
       };
 
       const stopAutoplay = () => {
-        if (!autoplayTimer) return;
-        window.clearInterval(autoplayTimer);
-        autoplayTimer = null;
+        if (!animationFrame) return;
+        window.cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+        lastFrameTime = null;
       };
 
       const startAutoplay = () => {
-        if (prefersReducedMotion || autoplayTimer || track.scrollWidth <= track.clientWidth) return;
-        autoplayTimer = window.setInterval(scrollNext, AUTOPLAY_DELAY);
+        if (prefersReducedMotion || animationFrame || loopWidth <= 0) return;
+        animationFrame = window.requestAnimationFrame(tick);
       };
 
       const restartAutoplay = () => {
@@ -55,20 +87,27 @@
         startAutoplay();
       };
 
-      prev.addEventListener('click', () => {
-        scrollByCard(-1);
-        restartAutoplay();
-      });
-      next.addEventListener('click', () => {
-        scrollByCard(1);
-        restartAutoplay();
-      });
+      if (prev) {
+        prev.addEventListener('click', () => {
+          scrollByCard(-1);
+          restartAutoplay();
+        });
+      }
+
+      if (next) {
+        next.addEventListener('click', () => {
+          scrollByCard(1);
+          restartAutoplay();
+        });
+      }
 
       section.addEventListener('mouseenter', stopAutoplay);
       section.addEventListener('mouseleave', startAutoplay);
       section.addEventListener('focusin', stopAutoplay);
       section.addEventListener('focusout', startAutoplay);
+      window.addEventListener('resize', measureLoop);
 
+      cloneCards();
       startAutoplay();
       section.dataset.bloomliReviewsReady = 'true';
     });

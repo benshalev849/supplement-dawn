@@ -1266,7 +1266,7 @@
   padding-top: 0;
 }
 
-/* Replace caret chevron with + / × */
+/* Replace caret chevron with animated + that rotates to × */
 .collapsible-row-layout .accordion .icon-caret {
   display: none;
 }
@@ -1280,10 +1280,17 @@
   margin-left: auto;
   padding-left: 1rem;
   color: rgb(var(--color-foreground));
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .collapsible-row-layout .accordion details[open] > summary::after {
-  content: '×';
+  transform: rotate(45deg);
+}
+
+/* Content slide — JS sets inline height/opacity; these are the base defaults */
+.collapsible-row-layout .accordion .accordion__content {
+  overflow: hidden;
 }
 
 /* Remove hover underline from the title in row layout */

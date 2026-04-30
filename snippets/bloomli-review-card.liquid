@@ -1,0 +1,67 @@
+{%- liquid
+  assign is_clone = is_clone | default: false
+  assign image_scale = block.settings.image_scale | divided_by: 100.0
+  assign image_style = '--br-image-scale: ' | append: image_scale | append: ';'
+  assign image_alt = block.settings.image.alt | default: block.settings.name
+-%}
+
+<article
+  class="bloomli-reviews__card"
+  {% if is_clone %}
+    aria-hidden="true"
+  {% else %}
+    {{ block.shopify_attributes }}
+  {% endif %}
+>
+  <div class="bloomli-reviews__media">
+    {%- if block.settings.image != blank -%}
+      {{
+        block.settings.image
+        | image_url: width: 760
+        | image_tag:
+          alt: image_alt,
+          widths: '320, 520, 760',
+          sizes: '(max-width: 749px) 86vw, (max-width: 989px) 50vw, 33vw',
+          loading: 'lazy',
+          decoding: 'async',
+          style: image_style
+      }}
+    {%- endif -%}
+
+    {%- if block.settings.image == blank and block.settings.photo_label != blank -%}
+      <span class="smallcaps bloomli-reviews__photo-label">{{ block.settings.photo_label }}</span>
+    {%- endif -%}
+  </div>
+
+  <div class="bloomli-reviews__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+    {%- for index in (1..5) -%}
+      {%- if index <= block.settings.rating -%}
+        <span aria-hidden="true">&#9733;</span>
+      {%- else -%}
+        <span class="bloomli-reviews__star-empty" aria-hidden="true">&#9733;</span>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if block.settings.quote != blank -%}
+    <blockquote class="bloomli-reviews__quote">{{ block.settings.quote }}</blockquote>
+  {%- endif -%}
+
+  <div class="bloomli-reviews__footer">
+    <div>
+      {%- if block.settings.name != blank -%}
+        <div class="bloomli-reviews__name">{{ block.settings.name }}</div>
+      {%- endif -%}
+      {%- if block.settings.meta != blank -%}
+        <div class="bloomli-reviews__meta">{{ block.settings.meta }}</div>
+      {%- endif -%}
+    </div>
+
+    {%- if block.settings.verified_label != blank -%}
+      <div class="smallcaps bloomli-reviews__verified">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4"/></svg>
+        {{ block.settings.verified_label }}
+      </div>
+    {%- endif -%}
+  </div>
+</article>

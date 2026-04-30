@@ -1,0 +1,824 @@
+{% layout none %}
+<style>
+  .bloomli-bfw {
+    --blush: #f7e3e8;
+    --blush-soft: #fbf1f3;
+    --berry: #b23a6f;
+    --berry-dark: #7d254d;
+    --charcoal: #2a2622;
+    --muted: #75656b;
+    --cream: #fffaf7;
+    --white: #ffffff;
+    --line: rgba(42, 38, 34, 0.12);
+
+    color: var(--charcoal);
+    background: var(--cream);
+    font-family: inherit;
+    overflow: hidden;
+  }
+
+  .bloomli-bfw * {
+    box-sizing: border-box;
+  }
+
+  .bloomli-bfw a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .bfw-container {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+  }
+
+  .bfw-eyebrow {
+    margin: 0 0 14px;
+    color: var(--berry);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+  .bfw-hero {
+    padding: 90px 0 78px;
+    background:
+      radial-gradient(circle at 88% 16%, rgba(178, 58, 111, 0.13), transparent 30%),
+      linear-gradient(135deg, #fffaf7 0%, #f7e3e8 100%);
+  }
+
+  .bfw-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 58px;
+    align-items: center;
+  }
+
+  .bfw-hero h1 {
+    margin: 0;
+    max-width: 760px;
+    font-size: clamp(44px, 6vw, 78px);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+  }
+
+  .bfw-hero h1 em {
+    font-style: italic;
+    color: var(--berry-dark);
+  }
+
+  .bfw-hero-text {
+    margin: 24px 0 0;
+    max-width: 640px;
+    color: var(--muted);
+    font-size: 19px;
+    line-height: 1.65;
+  }
+
+  .bfw-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+  }
+
+  .bfw-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .bfw-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .bfw-btn-primary {
+    background: var(--berry);
+    color: #fff !important;
+  }
+
+  .bfw-btn-secondary {
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid var(--line);
+    color: var(--charcoal) !important;
+  }
+
+  .bfw-visual {
+    position: relative;
+    min-height: 470px;
+    border-radius: 34px;
+    background:
+      radial-gradient(circle at 20% 18%, rgba(255,255,255,0.95), transparent 30%),
+      linear-gradient(145deg, #f4d5dd, #fff7f3);
+    border: 1px solid rgba(255,255,255,0.85);
+    box-shadow: 0 28px 80px rgba(104, 52, 73, 0.14);
+    overflow: hidden;
+  }
+
+  .bfw-orbit {
+    position: absolute;
+    inset: 38px;
+    border: 1px solid rgba(178, 58, 111, 0.18);
+    border-radius: 999px;
+    transform: rotate(-12deg);
+  }
+
+  .bfw-product-card {
+    position: absolute;
+    background: rgba(255, 250, 247, 0.88);
+    border: 1px solid rgba(255,255,255,0.95);
+    box-shadow: 0 18px 45px rgba(104, 52, 73, 0.14);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 18px;
+    width: 170px;
+    z-index: 2;
+  }
+
+  .bfw-product-card strong {
+    display: block;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+
+  .bfw-product-card span {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .bfw-product-card.one {
+    top: 54px;
+    left: 54px;
+  }
+
+  .bfw-product-card.two {
+    top: 86px;
+    right: 42px;
+  }
+
+  .bfw-product-card.three {
+    bottom: 74px;
+    left: 42px;
+  }
+
+  .bfw-product-card.four {
+    bottom: 46px;
+    right: 58px;
+  }
+
+  .bfw-center-mark {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 180px;
+    height: 180px;
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(255,255,255,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 28px;
+    color: var(--berry-dark);
+    font-size: 28px;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    font-weight: 650;
+    box-shadow: 0 18px 45px rgba(104, 52, 73, 0.12);
+    z-index: 3;
+  }
+
+  .bfw-section {
+    padding: 86px 0;
+  }
+
+  .bfw-centered {
+    max-width: 790px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+
+  .bfw-centered h2,
+  .bfw-split h2 {
+    margin: 0;
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+  }
+
+  .bfw-centered p {
+    margin: 18px auto 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  .bfw-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .bfw-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    padding: 30px;
+    min-height: 250px;
+    box-shadow: 0 18px 44px rgba(42, 38, 34, 0.05);
+  }
+
+  .bfw-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 18px;
+    background: var(--blush);
+    color: var(--berry);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    font-size: 24px;
+  }
+
+  .bfw-card h3 {
+    margin: 0 0 10px;
+    font-size: 23px;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    font-weight: 650;
+  }
+
+  .bfw-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .bfw-soft {
+    background: var(--blush-soft);
+  }
+
+  .bfw-split {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 54px;
+    align-items: center;
+  }
+
+  .bfw-split p {
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .bfw-highlight-box {
+    border-radius: 34px;
+    background: linear-gradient(145deg, #fff, #f8e4e9);
+    padding: 34px;
+    border: 1px solid rgba(42,38,34,0.08);
+  }
+
+  .bfw-highlight-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .bfw-highlight-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.68);
+    border: 1px solid rgba(42,38,34,0.07);
+  }
+
+  .bfw-check {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    border-radius: 50%;
+    background: var(--berry);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  .bfw-highlight-item strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+
+  .bfw-highlight-item span {
+    display: block;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .bfw-products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .bfw-product {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    padding: 28px;
+    min-height: 240px;
+  }
+
+  .bfw-product-number {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background: var(--blush);
+    color: var(--berry-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+
+  .bfw-product h3 {
+    margin: 0 0 9px;
+    font-size: 21px;
+    letter-spacing: -0.03em;
+  }
+
+  .bfw-product p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .bfw-quote {
+    padding: 82px 0;
+    background: var(--charcoal);
+    color: #fff;
+    text-align: center;
+  }
+
+  .bfw-quote blockquote {
+    max-width: 870px;
+    margin: 0 auto;
+    font-size: clamp(32px, 4vw, 58px);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+  }
+
+  .bfw-quote p {
+    max-width: 660px;
+    margin: 22px auto 0;
+    color: rgba(255,255,255,0.72);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .bfw-cta {
+    padding: 92px 0;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(178, 58, 111, 0.12), transparent 24%),
+      linear-gradient(135deg, #f7e3e8 0%, #fffaf7 100%);
+  }
+
+  .bfw-cta-box {
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255,255,255,0.62);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 36px;
+    padding: 54px 34px;
+    box-shadow: 0 24px 70px rgba(104, 52, 73, 0.12);
+  }
+
+  .bfw-cta-box h2 {
+    margin: 0;
+    font-size: clamp(36px, 4vw, 60px);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+  }
+
+  .bfw-cta-box p {
+    max-width: 640px;
+    margin: 18px auto 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  .bfw-disclaimer {
+    max-width: 880px;
+    margin: 34px auto 0;
+    color: rgba(42,38,34,0.58);
+    font-size: 12px;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  @media (max-width: 980px) {
+    .bfw-hero-grid,
+    .bfw-split {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .bfw-cards,
+    .bfw-products {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bfw-visual {
+      min-height: 440px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .bfw-container {
+      width: min(100% - 24px, 1180px);
+    }
+
+    .bfw-hero {
+      padding: 62px 0 52px;
+    }
+
+    .bfw-hero h1 {
+      font-size: 43px;
+    }
+
+    .bfw-hero-text,
+    .bfw-centered p,
+    .bfw-split p,
+    .bfw-cta-box p {
+      font-size: 16px;
+    }
+
+    .bfw-section {
+      padding: 62px 0;
+    }
+
+    .bfw-cards,
+    .bfw-products {
+      grid-template-columns: 1fr;
+    }
+
+    .bfw-card,
+    .bfw-product,
+    .bfw-highlight-box {
+      padding: 24px;
+      border-radius: 22px;
+    }
+
+    .bfw-actions {
+      flex-direction: column;
+    }
+
+    .bfw-btn {
+      width: 100%;
+    }
+
+    .bfw-visual {
+      min-height: 520px;
+    }
+
+    .bfw-product-card {
+      width: 150px;
+      padding: 15px;
+    }
+
+    .bfw-product-card.one {
+      top: 28px;
+      left: 18px;
+    }
+
+    .bfw-product-card.two {
+      top: 104px;
+      right: 18px;
+    }
+
+    .bfw-product-card.three {
+      bottom: 116px;
+      left: 18px;
+    }
+
+    .bfw-product-card.four {
+      bottom: 28px;
+      right: 18px;
+    }
+
+    .bfw-center-mark {
+      width: 150px;
+      height: 150px;
+      font-size: 23px;
+    }
+
+    .bfw-cta-box {
+      padding: 42px 22px;
+      border-radius: 28px;
+    }
+  }
+</style>
+
+<div class="bloomli-bfw">
+
+  <section class="bfw-hero">
+    <div class="bfw-container bfw-hero-grid">
+      <div>
+        <p class="bfw-eyebrow">The Bloomli Philosophy</p>
+        <h1>Beauty support for the way women actually live.</h1>
+
+        <p class="bfw-hero-text">
+          Bloomli was created for women who want their hair and beauty routine to feel simple, beautiful, and consistent — not overwhelming.
+        </p>
+
+        <p class="bfw-hero-text">
+          From daily supplements to nourishing hair care, our approach is built around supporting beauty from within while caring for what shows on the outside.
+        </p>
+
+        <div class="bfw-actions">
+          <a class="bfw-btn bfw-btn-primary" href="/collections/all">Shop Bloomli</a>
+          <a class="bfw-btn bfw-btn-secondary" href="#bloomli-approach">Our Approach</a>
+        </div>
+      </div>
+
+      <div class="bfw-visual" aria-label="Bloomli beauty and hair wellness system">
+        <div class="bfw-orbit"></div>
+
+        <div class="bfw-product-card one">
+          <strong>Gummies</strong>
+          <span>Simple daily beauty support that feels easy to love.</span>
+        </div>
+
+        <div class="bfw-product-card two">
+          <strong>Pills</strong>
+          <span>Focused formulas for women’s beauty and wellness routines.</span>
+        </div>
+
+        <div class="bfw-product-card three">
+          <strong>Strips</strong>
+          <span>Convenient on-the-go support for busy daily life.</span>
+        </div>
+
+        <div class="bfw-product-card four">
+          <strong>Hair Oil</strong>
+          <span>Nourishing external care for your hair ritual.</span>
+        </div>
+
+        <div class="bfw-center-mark">
+          Bloomli<br>Beauty<br>Ritual
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bfw-section" id="bloomli-approach">
+    <div class="bfw-container">
+      <div class="bfw-centered">
+        <p class="bfw-eyebrow">Beauty From Within</p>
+        <h2>A softer approach to hair, beauty, and women’s wellness.</h2>
+        <p>
+          We believe beauty is not just one product, one step, or one quick fix. It is a routine — the small things you do consistently to feel more confident, cared for, and like yourself.
+        </p>
+      </div>
+
+      <div class="bfw-cards">
+        <div class="bfw-card">
+          <div class="bfw-icon">✦</div>
+          <h3>Nourish from within</h3>
+          <p>
+            Our supplements are designed to support your beauty routine from the inside out with daily formats that fit different lifestyles.
+          </p>
+        </div>
+
+        <div class="bfw-card">
+          <div class="bfw-icon">♡</div>
+          <h3>Care on the outside</h3>
+          <p>
+            Our hair care products are made to complement your routine with simple, nourishing steps that feel beautiful to use.
+          </p>
+        </div>
+
+        <div class="bfw-card">
+          <div class="bfw-icon">☼</div>
+          <h3>Make consistency easy</h3>
+          <p>
+            Beauty support works best when it becomes part of your life. Bloomli is built to make that routine feel simple, pretty, and realistic.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bfw-section bfw-soft">
+    <div class="bfw-container bfw-split">
+      <div>
+        <p class="bfw-eyebrow">Our Mission</p>
+        <h2>Helping women feel more confident in their daily beauty routine.</h2>
+
+        <p>
+          Hair and beauty can feel emotional. Some days your routine feels effortless, and other days it feels like nothing is working. Bloomli exists to make beauty care feel less complicated and more supportive.
+        </p>
+
+        <p>
+          Our mission is to create products that fit into real routines — products that help women care for their hair, beauty, and wellness in a way that feels consistent, elevated, and easy to come back to.
+        </p>
+      </div>
+
+      <div class="bfw-highlight-box">
+        <div class="bfw-highlight-list">
+          <div class="bfw-highlight-item">
+            <div class="bfw-check">✓</div>
+            <div>
+              <strong>Designed for real routines</strong>
+              <span>Simple products made for daily life, not complicated beauty systems.</span>
+            </div>
+          </div>
+
+          <div class="bfw-highlight-item">
+            <div class="bfw-check">✓</div>
+            <div>
+              <strong>Hair-first beauty support</strong>
+              <span>A focus on helping women support healthy-looking hair as part of a larger beauty routine.</span>
+            </div>
+          </div>
+
+          <div class="bfw-highlight-item">
+            <div class="bfw-check">✓</div>
+            <div>
+              <strong>Inside and outside care</strong>
+              <span>Supplements and topical hair care designed to work together as a complete ritual.</span>
+            </div>
+          </div>
+
+          <div class="bfw-highlight-item">
+            <div class="bfw-check">✓</div>
+            <div>
+              <strong>Premium, feminine, approachable</strong>
+              <span>Beauty wellness that feels clean, modern, and easy to understand.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bfw-section">
+    <div class="bfw-container">
+      <div class="bfw-centered">
+        <p class="bfw-eyebrow">The Bloomli System</p>
+        <h2>Different formats, one beauty ritual.</h2>
+        <p>
+          Bloomli is built as a hair and beauty wellness brand, not just a single supplement. Each product format is made to support a different part of your routine.
+        </p>
+      </div>
+
+      <div class="bfw-products">
+        <div class="bfw-product">
+          <div class="bfw-product-number">1</div>
+          <h3>Gummies</h3>
+          <p>
+            A delicious, easy daily option for women who want their beauty routine to feel simple and enjoyable.
+          </p>
+        </div>
+
+        <div class="bfw-product">
+          <div class="bfw-product-number">2</div>
+          <h3>Pills</h3>
+          <p>
+            A more classic supplement format for focused beauty and wellness support.
+          </p>
+        </div>
+
+        <div class="bfw-product">
+          <div class="bfw-product-number">3</div>
+          <h3>Strips</h3>
+          <p>
+            A convenient beauty-support format designed for busy routines and on-the-go lifestyles.
+          </p>
+        </div>
+
+        <div class="bfw-product">
+          <div class="bfw-product-number">4</div>
+          <h3>Hair Oil</h3>
+          <p>
+            A nourishing external ritual made to support the look and feel of cared-for hair.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bfw-quote">
+    <div class="bfw-container">
+      <blockquote>
+        Beauty is not about doing everything. It is about finding the routine you can keep coming back to.
+      </blockquote>
+      <p>
+        Bloomli makes hair and beauty wellness feel simple, feminine, and consistent — one daily ritual at a time.
+      </p>
+    </div>
+  </section>
+
+  <section class="bfw-section bfw-soft">
+    <div class="bfw-container bfw-split">
+      <div>
+        <p class="bfw-eyebrow">What We Believe</p>
+        <h2>Support, not pressure.</h2>
+
+        <p>
+          Bloomli is not about chasing perfection. It is about helping women feel supported in the everyday routines that make them feel more confident.
+        </p>
+
+        <p>
+          Whether it is a supplement you take daily, a strip you keep in your bag, or a hair oil you use as part of your weekly ritual, every Bloomli product is created to make beauty care feel easier to stay consistent with.
+        </p>
+      </div>
+
+      <div class="bfw-highlight-box">
+        <div class="bfw-highlight-list">
+          <div class="bfw-highlight-item">
+            <div class="bfw-check">✓</div>
+            <div>
+              <strong>No complicated routines</strong>
+              <span>Beauty wellness should feel clear, simple, and realistic.</span>
+            </div>
+          </div>
+
+          <div class="bfw-highlight-item">
+            <div class="bfw-check">✓</div>
+            <div>
+              <strong>No overnight-fix promises</strong>
+              <span>We believe in daily care, consistency, and routines that build over time.</span>
+            </div>
+          </div>
+
+          <div class="bfw-highlight-item">
+            <div class="bfw-check">✓</div>
+            <div>
+              <strong>No harsh, clinical feeling</strong>
+              <span>Bloomli is beauty wellness made to feel soft, premium, and approachable.</span>
+            </div>
+          </div>
+
+          <div class="bfw-highlight-item">
+            <div class="bfw-check">✓</div>
+            <div>
+              <strong>Made for women’s lives</strong>
+              <span>Products that fit into morning routines, night routines, travel bags, and real schedules.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bfw-cta">
+    <div class="bfw-container">
+      <div class="bfw-cta-box">
+        <p class="bfw-eyebrow">Start Your Ritual</p>
+        <h2>Hair and beauty support, made easier to love.</h2>
+
+        <p>
+          Explore Bloomli’s growing collection of hair, beauty, and women’s wellness products designed for daily consistency inside and out.
+        </p>
+
+        <div class="bfw-actions" style="justify-content:center;">
+          <a class="bfw-btn bfw-btn-primary" href="/collections/all">Shop Bloomli</a>
+          <a class="bfw-btn bfw-btn-secondary" href="/pages/quality-standards">View Quality Standards</a>
+        </div>
+      </div>
+
+      <p class="bfw-disclaimer">
+        *These statements have not been evaluated by the Food and Drug Administration. Bloomli supplement products are not intended to diagnose, treat, cure, or prevent any disease. Results may vary. Use all products as directed.
+      </p>
+    </div>
+  </section>
+
+</div>

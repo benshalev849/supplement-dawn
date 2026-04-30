@@ -20,7 +20,7 @@
     --bf-padding-bottom: {{ section.settings.padding_bottom }}px;
   "
 >
-  <div class="bloomli-faq__inner color-{{ section.settings.container_color_scheme }} gradient">
+  <div class="bloomli-faq__inner">
     <div class="bloomli-faq__content">
       {%- if section.settings.eyebrow != blank -%}
         <p class="smallcaps bloomli-faq__eyebrow">{{ section.settings.eyebrow }}</p>
@@ -44,7 +44,7 @@
               assign panel_id = 'BloomliFaqPanel-' | append: section.id | append: '-' | append: block.id
               assign is_open = block.settings.open_by_default
             -%}
-            <div class="bloomli-faq__item" {{ block.shopify_attributes }}>
+            <div class="bloomli-faq__item color-{{ section.settings.container_color_scheme }} gradient" {{ block.shopify_attributes }}>
               <button
                 id="{{ button_id }}"
                 class="bloomli-faq__question"

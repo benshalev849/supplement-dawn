@@ -136,12 +136,22 @@
 }
 
 @media (min-width: 750px) {
+  .bloomli-vt__sizes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .bloomli-vt__sizes:has(.bloomli-vt__size:nth-child(4)) {
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  }
+
   .bloomli-vt__size {
-    grid-template-columns: minmax(92px, 44%) minmax(0, 1fr);
+    grid-template-columns: minmax(74px, 42%) minmax(0, 1fr);
+    align-items: center;
   }
 
   .bloomli-vt__size-media {
     justify-self: start;
+    max-width: 128px;
   }
 }
 

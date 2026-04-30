@@ -84,19 +84,6 @@
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
-          {%- liquid
-            assign has_buy_buttons = false
-            for product_block in section.blocks
-              if product_block.type == 'buy_buttons'
-                assign has_buy_buttons = true
-                break
-              endif
-            endfor
-            assign render_volume_tier_form = true
-            if has_buy_buttons
-              assign render_volume_tier_form = false
-            endif
-          -%}
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
@@ -498,9 +485,7 @@
                 {%- render 'bloomli-volume-tier',
                   block: block,
                   product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  render_product_form: render_volume_tier_form
+                  section_id: section.id
                 -%}
               {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons',

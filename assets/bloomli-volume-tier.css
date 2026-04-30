@@ -242,7 +242,7 @@
   gap: 12px;
   background: #fff;
   border: 1.5px solid rgba(178, 58, 111, 0.15);
-  border-radius: 12px;
+  border-radius: 12px !important;
   padding: 12px 14px;
   cursor: pointer;
   transition: border-color 0.15s ease, background 0.15s ease, opacity 0.15s ease;
@@ -384,7 +384,7 @@
   width: 100%;
   min-height: 5rem;
   margin: 18px 0 0;
-  padding: 0 28px;
+  padding: 0 28px !important;
   border: 1.5px solid var(--aubergine, #B23A6F);
   border-radius: 12px;
   background: var(--aubergine, #B23A6F);
@@ -412,6 +412,9 @@
 
 .bloomli-vt__custom-submit .loading__spinner {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 1.8rem;
 }
 

@@ -207,6 +207,68 @@
         "padding_bottom": 12
       }
     },
+    "collapsible_content_faq": {
+      "type": "collapsible-content",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently asked questions",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "open_first_collapsible_row": true,
+        "image": "",
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 60
+      },
+      "blocks": {
+        "faq_row_1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long until I see results?",
+            "icon": "none",
+            "row_content": "<p>Most customers notice reduced shedding within 4–6 weeks. Visible new growth typically appears at the 3-month mark. For best results, take consistently for at least 90 days.</p>",
+            "page": ""
+          }
+        },
+        "faq_row_2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How many gummies do I take per day?",
+            "icon": "none",
+            "row_content": "<p>Take 2 gummies daily, ideally with a meal. Each pouch is a 30-day supply.</p>",
+            "page": ""
+          }
+        },
+        "faq_row_3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are there any allergens or animal products?",
+            "icon": "none",
+            "row_content": "<p>Root Ritual gummies are vegan — we use a pectin base instead of gelatin. They contain no gluten, dairy, or artificial dyes. Check the label for a full ingredient list if you have specific sensitivities.</p>",
+            "page": ""
+          }
+        },
+        "faq_row_4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your return policy?",
+            "icon": "none",
+            "row_content": "<p>We offer a 30-day satisfaction guarantee on your first order. If you’re not happy, reach out to our team and we’ll make it right.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_row_1",
+        "faq_row_2",
+        "faq_row_3",
+        "faq_row_4"
+      ]
+    },
     "bloomli_formula_gallery_ypjbMe": {
       "type": "bloomli-formula-gallery",
       "blocks": {
@@ -931,6 +993,7 @@
   },
   "order": [
     "main",
+    "collapsible_content_faq",
     "bloomli_formula_gallery_ypjbMe",
     "bloomli_formula_list_zkbzb7",
     "bloomli_ingredient_gallery_LmEEkc",

@@ -441,7 +441,7 @@
 
 @keyframes bloomli-reviews-marquee {
   to {
-    transform: translateX(-50%);
+    transform: translateX(-20%);
   }
 }
 

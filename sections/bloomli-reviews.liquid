@@ -40,11 +40,13 @@
         </div>
 
         {%- if section.blocks.size > 0 -%}
-          <div class="bloomli-reviews__group" aria-hidden="true">
-            {%- for block in section.blocks -%}
-              {%- render 'bloomli-review-card', block: block, is_clone: true -%}
-            {%- endfor -%}
-          </div>
+          {%- for clone_group in (1..4) -%}
+            <div class="bloomli-reviews__group" aria-hidden="true">
+              {%- for block in section.blocks -%}
+                {%- render 'bloomli-review-card', block: block, is_clone: true -%}
+              {%- endfor -%}
+            </div>
+          {%- endfor -%}
         {%- endif -%}
       </div>
     </div>

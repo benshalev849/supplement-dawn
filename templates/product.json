@@ -209,21 +209,6 @@
     },
     "collapsible_content_faq": {
       "type": "collapsible-content",
-      "settings": {
-        "caption": "",
-        "heading": "Frequently asked questions",
-        "heading_size": "h2",
-        "heading_alignment": "left",
-        "layout": "row",
-        "container_color_scheme": "scheme-2",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "open_first_collapsible_row": true,
-        "image": "",
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 60,
-        "padding_bottom": 60
-      },
       "blocks": {
         "faq_row_1": {
           "type": "collapsible_row",
@@ -267,7 +252,21 @@
         "faq_row_2",
         "faq_row_3",
         "faq_row_4"
-      ]
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Frequently asked questions",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "row",
+        "container_color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     },
     "bloomli_formula_gallery_ypjbMe": {
       "type": "bloomli-formula-gallery",

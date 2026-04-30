@@ -137,7 +137,7 @@
 
 @media (min-width: 750px) {
   .bloomli-vt {
-    width: min(500px, calc(100vw - 48px));
+    width: min(49rem, calc(100vw - 48px));
     max-width: none;
   }
 
@@ -154,17 +154,17 @@
     grid-template-columns: minmax(58px, 38%) minmax(0, 1fr);
     align-items: center;
     gap: 8px;
-    min-height: 86px;
-    padding: 10px 12px;
+    min-height: 82px;
+    padding: 9px 11px;
   }
 
   .bloomli-vt__size.is-selected {
-    padding: 9px 11px;
+    padding: 8px 10px;
   }
 
   .bloomli-vt__size-media {
     justify-self: start;
-    max-width: 78px;
+    max-width: 70px;
   }
 
   .bloomli-vt__size-stack {
@@ -172,13 +172,15 @@
   }
 
   .bloomli-vt__size-label {
-    font-size: 16px;
+    font-size: 13.5px;
+    line-height: 1.1;
     white-space: nowrap;
   }
 
   .bloomli-vt__size-count,
   .bloomli-vt__size-daily {
-    font-size: 11px;
+    font-size: 10.5px;
+    line-height: 1.25;
   }
 }
 

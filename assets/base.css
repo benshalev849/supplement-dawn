@@ -320,11 +320,11 @@
   will-change: transform;
 }
 
-.bloomli-reviews__viewport:hover .bloomli-reviews__track,
-.bloomli-reviews__viewport:focus-within .bloomli-reviews__track,
-.bloomli-reviews__track:hover,
-.bloomli-reviews__track:focus-within {
-  animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+  .bloomli-reviews__viewport:hover .bloomli-reviews__track,
+  .bloomli-reviews__viewport:focus-within .bloomli-reviews__track {
+    animation-play-state: paused;
+  }
 }
 
 .bloomli-reviews__group {

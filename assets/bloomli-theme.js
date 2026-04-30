@@ -25,42 +25,52 @@
       if (!content || content.dataset.bloomliAnim) return;
       content.dataset.bloomliAnim = '1';
 
+      // Sync icon class with any server-rendered open state
+      if (details.open) details.classList.add('is-open');
+
       details.querySelector('summary').addEventListener('click', function (e) {
         e.preventDefault();
 
         if (details.open) {
-          // Closing: pin height then slide to 0
+          // ── Closing ──────────────────────────────────────────────────
+          // Toggle icon immediately — not after animation
+          details.classList.remove('is-open');
+
+          // Pin height at current measured value, then force reflow so
+          // browser commits it before we start the transition to 0.
           content.style.height = content.scrollHeight + 'px';
           content.style.overflow = 'hidden';
-          requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-              content.style.transition = 'height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease';
-              content.style.height = '0';
-              content.style.opacity = '0';
-            });
-          });
-          content.addEventListener('transitionend', function handler(e) {
-            if (e.propertyName !== 'height') return;
+          content.getBoundingClientRect(); // sync reflow — no rAF lag
+
+          content.style.transition = 'height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease';
+          content.style.height = '0';
+          content.style.opacity = '0';
+
+          content.addEventListener('transitionend', function handler(ev) {
+            if (ev.propertyName !== 'height') return;
             content.removeEventListener('transitionend', handler);
             details.removeAttribute('open');
             content.style.cssText = '';
           });
+
         } else {
-          // Opening: stamp open, measure, slide from 0
+          // ── Opening ──────────────────────────────────────────────────
+          details.classList.add('is-open'); // icon starts rotating immediately
+
           details.setAttribute('open', '');
           var targetH = content.scrollHeight;
+
           content.style.height = '0';
           content.style.opacity = '0';
           content.style.overflow = 'hidden';
-          requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-              content.style.transition = 'height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease';
-              content.style.height = targetH + 'px';
-              content.style.opacity = '1';
-            });
-          });
-          content.addEventListener('transitionend', function handler(e) {
-            if (e.propertyName !== 'height') return;
+          content.getBoundingClientRect(); // sync reflow
+
+          content.style.transition = 'height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease';
+          content.style.height = targetH + 'px';
+          content.style.opacity = '1';
+
+          content.addEventListener('transitionend', function handler(ev) {
+            if (ev.propertyName !== 'height') return;
             content.removeEventListener('transitionend', handler);
             content.style.cssText = '';
           });

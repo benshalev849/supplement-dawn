@@ -1266,34 +1266,36 @@
   padding-top: 0;
 }
 
-/* Replace caret chevron with animated + that rotates to × */
+/* Replace caret chevron with animated + that rotates 45deg */
 .collapsible-row-layout .accordion .icon-caret {
   display: none;
 }
 
 .collapsible-row-layout .accordion details > summary::after {
   content: '+';
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 300;
   line-height: 1;
   flex-shrink: 0;
   margin-left: auto;
-  padding-left: 1rem;
+  padding-left: 1.2rem;
   color: rgb(var(--color-foreground));
   display: inline-block;
+  /* is-open class toggled at click start — not tied to [open] attr */
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.collapsible-row-layout .accordion details[open] > summary::after {
+.collapsible-row-layout .accordion details.is-open > summary::after {
   transform: rotate(45deg);
 }
 
-/* Content slide — JS sets inline height/opacity; these are the base defaults */
+/* Content slide: remove margin so it doesn't jump when [open] is removed */
 .collapsible-row-layout .accordion .accordion__content {
   overflow: hidden;
+  margin-bottom: 0;
 }
 
-/* Remove hover underline from the title in row layout */
+/* Remove hover underline in row layout */
 .collapsible-row-layout .collapsible-content summary:hover .accordion__title {
   text-decoration: none;
 }

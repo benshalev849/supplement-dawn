@@ -112,11 +112,11 @@
             "tier_5_default": false,
             "subscribe_enabled": true,
             "subscription_discount_pct": "10",
-            "subscription_extra_label_template": "an extra [percent]%",
+            "subscription_extra_label_template": "Save 10%",
             "discount_badge_template": "SAVE [percent]%",
             "default_mode": "onetime",
             "label_one_time": "One-Time Purchase",
-            "label_subscribe": "Subscribe & Save",
+            "label_subscribe": "Subscribe &",
             "total_label": "Total price:",
             "shipping_text": "Free shipping",
             "note": ""

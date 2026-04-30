@@ -6,14 +6,9 @@
 -%}
 
 <section
-  class="bloomli-faq bloomli-faq--image-{{ section.settings.image_position }}"
+  class="bloomli-faq bloomli-faq--image-{{ section.settings.image_position }} color-{{ section.settings.color_scheme }} gradient"
   data-bloomli-faq
   style="
-    --bf-background: {{ section.settings.background_color }};
-    --bf-media-background: {{ section.settings.media_background_color }};
-    --bf-text: {{ section.settings.text_color }};
-    --bf-muted: {{ section.settings.muted_color }};
-    --bf-accent: {{ section.settings.accent_color }};
     --bf-border: {{ section.settings.border_color }};
     --bf-content-width: {{ section.settings.content_width }}px;
     --bf-image-width: {{ section.settings.image_width }}px;
@@ -25,7 +20,7 @@
     --bf-padding-bottom: {{ section.settings.padding_bottom }}px;
   "
 >
-  <div class="bloomli-faq__inner">
+  <div class="bloomli-faq__inner color-{{ section.settings.container_color_scheme }} gradient">
     <div class="bloomli-faq__content">
       {%- if section.settings.eyebrow != blank -%}
         <p class="smallcaps bloomli-faq__eyebrow">{{ section.settings.eyebrow }}</p>
@@ -161,37 +156,19 @@
     },
     {
       "type": "header",
-      "content": "Colors"
+      "content": "Color schemes"
     },
     {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background",
-      "default": "#FDFAF7"
+      "type": "color_scheme",
+      "id": "container_color_scheme",
+      "label": "Container color scheme",
+      "default": "scheme-4"
     },
     {
-      "type": "color",
-      "id": "media_background_color",
-      "label": "Image background",
-      "default": "#F3E1E5"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text",
-      "default": "#2A2622"
-    },
-    {
-      "type": "color",
-      "id": "muted_color",
-      "label": "Body text",
-      "default": "#7C7169"
-    },
-    {
-      "type": "color",
-      "id": "accent_color",
-      "label": "Accent",
-      "default": "#8A6678"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section color scheme",
+      "default": "scheme-1"
     },
     {
       "type": "color",

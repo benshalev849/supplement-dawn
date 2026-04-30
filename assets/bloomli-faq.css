@@ -1,6 +1,5 @@
 .bloomli-faq {
-  background: var(--bf-background);
-  color: var(--bf-text);
+  color: rgb(var(--color-foreground));
   padding: var(--bf-padding-top) 48px var(--bf-padding-bottom);
 }
 
@@ -11,6 +10,8 @@
   grid-template-columns: minmax(0, 1fr) minmax(280px, var(--bf-image-width));
   gap: clamp(32px, 6vw, 80px);
   align-items: center;
+  padding: clamp(28px, 4vw, 56px);
+  border-radius: var(--bf-radius);
 }
 
 .bloomli-faq--image-left .bloomli-faq__media {
@@ -19,12 +20,12 @@
 
 .bloomli-faq__eyebrow {
   margin: 0 0 14px;
-  color: var(--bf-accent);
+  color: rgba(var(--color-foreground), 0.72);
 }
 
 .bloomli-faq__heading {
   margin: 0;
-  color: var(--bf-text);
+  color: rgb(var(--color-foreground));
   font-family: 'Fraunces', serif;
   font-variation-settings: "SOFT" 100, "opsz" 144;
   font-size: clamp(34px, 4vw, var(--bf-heading-size));
@@ -36,7 +37,7 @@
 .bloomli-faq__intro {
   max-width: 62rem;
   margin: 18px 0 0;
-  color: var(--bf-muted);
+  color: rgba(var(--color-foreground), 0.76);
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: var(--bf-body-size);
   line-height: 1.6;
@@ -56,7 +57,7 @@
   appearance: none;
   border: 0;
   background: transparent;
-  color: var(--bf-text);
+  color: rgb(var(--color-foreground));
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -71,7 +72,7 @@
 }
 
 .bloomli-faq__question:focus-visible {
-  outline: 2px solid var(--bf-accent);
+  outline: 2px solid rgba(var(--color-foreground), 0.45);
   outline-offset: 4px;
 }
 
@@ -80,7 +81,8 @@
   flex: 0 0 20px;
   width: 20px;
   height: 20px;
-  color: var(--bf-accent);
+  color: rgb(var(--color-foreground));
+  transition: transform 240ms ease;
 }
 
 .bloomli-faq__plus::before,
@@ -94,16 +96,15 @@
   border-radius: 999px;
   background: currentColor;
   transform: translate(-50%, -50%);
-  transition: transform 220ms ease, opacity 220ms ease;
+  transition: transform 240ms ease;
 }
 
 .bloomli-faq__plus::after {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.bloomli-faq__question[aria-expanded='true'] .bloomli-faq__plus::after {
-  opacity: 0;
-  transform: translate(-50%, -50%) rotate(0deg);
+.bloomli-faq__question[aria-expanded='true'] .bloomli-faq__plus {
+  transform: rotate(45deg);
 }
 
 .bloomli-faq__panel {
@@ -119,7 +120,7 @@
 
 .bloomli-faq__panel-inner {
   padding: 0 44px 22px 0;
-  color: var(--bf-muted);
+  color: rgba(var(--color-foreground), 0.76);
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: var(--bf-body-size);
   line-height: 1.65;
@@ -136,7 +137,7 @@
 .bloomli-faq__media {
   border-radius: var(--bf-radius);
   overflow: hidden;
-  background: var(--bf-media-background);
+  background: rgba(var(--color-foreground), 0.05);
 }
 
 .bloomli-faq__image,
@@ -148,7 +149,7 @@
 
 .bloomli-faq__placeholder {
   aspect-ratio: 4 / 5;
-  background: linear-gradient(135deg, rgba(138, 102, 120, 0.12), rgba(111, 122, 90, 0.1));
+  background: linear-gradient(135deg, rgba(var(--color-foreground), 0.1), rgba(var(--color-foreground), 0.04));
 }
 
 @media (max-width: 989px) {
@@ -189,6 +190,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .bloomli-faq__panel,
+  .bloomli-faq__plus,
   .bloomli-faq__plus::before,
   .bloomli-faq__plus::after {
     transition: none;

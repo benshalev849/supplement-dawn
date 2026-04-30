@@ -17,6 +17,16 @@
 
         button.addEventListener('click', function () {
           var shouldOpen = button.getAttribute('aria-expanded') !== 'true';
+
+          // Close every other open item in this section before opening a new one
+          if (shouldOpen) {
+            section.querySelectorAll('[data-bloomli-faq-button][aria-expanded="true"]').forEach(function (other) {
+              if (other === button) return;
+              var otherPanel = document.getElementById(other.getAttribute('aria-controls'));
+              if (otherPanel) setPanelState(other, otherPanel, false, reducedMotion);
+            });
+          }
+
           setPanelState(button, panel, shouldOpen, reducedMotion);
         });
       });

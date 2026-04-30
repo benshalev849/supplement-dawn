@@ -1242,3 +1242,51 @@
     margin-bottom: 40px;
   }
 }
+
+/* ── FAQ collapsible rows: 3D card style ─────────────────────────── */
+.collapsible-row-layout .accordion {
+  border-radius: 12px;
+  border: 1.5px solid rgba(var(--color-foreground), 0.1);
+  box-shadow: 0 4px 0 0 rgba(var(--color-foreground), 0.08);
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.15s ease;
+}
+
+.collapsible-row-layout .accordion:hover {
+  box-shadow: 0 4px 0 0 rgba(var(--color-foreground), 0.14);
+}
+
+.collapsible-row-layout .accordion summary,
+.collapsible-row-layout .accordion .accordion__content {
+  padding: 1.6rem 2rem;
+}
+
+.collapsible-row-layout .accordion .accordion__content {
+  padding-top: 0;
+}
+
+/* Replace caret chevron with + / × */
+.collapsible-row-layout .accordion .icon-caret {
+  display: none;
+}
+
+.collapsible-row-layout .accordion details > summary::after {
+  content: '+';
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: 1rem;
+  color: rgb(var(--color-foreground));
+}
+
+.collapsible-row-layout .accordion details[open] > summary::after {
+  content: '×';
+}
+
+/* Remove hover underline from the title in row layout */
+.collapsible-row-layout .collapsible-content summary:hover .accordion__title {
+  text-decoration: none;
+}

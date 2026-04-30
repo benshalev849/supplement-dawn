@@ -72,7 +72,9 @@
       if (!productForm) return null;
 
       const productFormElement = productForm.closest('product-form');
-      return productFormElement ? productFormElement.querySelector('.product-form__submit') : null;
+      if (!productFormElement) return null;
+
+      return productFormElement.querySelector('.product-form__submit') || productFormElement.querySelector('[data-vt-submit-button]');
     }
 
     function syncSubmitButton() {
@@ -110,7 +112,7 @@
 
       customSubmitButton.addEventListener('click', function (event) {
         const originalSubmitButton = getOriginalSubmitButton();
-        if (!originalSubmitButton) return;
+        if (!originalSubmitButton || originalSubmitButton === customSubmitButton) return;
 
         event.preventDefault();
         if (customSubmitButton.disabled || customSubmitButton.getAttribute('aria-disabled') === 'true') return;

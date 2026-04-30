@@ -294,6 +294,10 @@
 }
 
 .bloomli-vt__mode-title {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
   font-size: 14px;
   color: var(--charcoal, #2A2622);
   font-weight: 500;
@@ -303,17 +307,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: 6px;
-  padding: 4px 9px;
-  border-radius: 999px;
+  margin-left: 0;
+  padding: 5px 11px;
+  border-radius: 4px;
   background: var(--bloomli-vt-save-badge-bg, #B23A6F);
   color: var(--bloomli-vt-save-badge-text, #FDFAF7);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  vertical-align: middle;
 }
 
 .bloomli-vt__mode-savings:empty {

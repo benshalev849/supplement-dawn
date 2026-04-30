@@ -14,6 +14,7 @@
   @param {product} product - Current product.
   @param {string} product_form_id - ID of the buy-buttons form to associate inputs with.
   @param {string} section_id - Parent section ID for unique element IDs.
+  @param {boolean} render_product_form - Whether to render the native product form inside this block.
 
   @example
   {% render 'bloomli-volume-tier', block: block, product: product, product_form_id: product_form_id, section_id: section.id %}
@@ -360,25 +361,67 @@
     {%- endif -%}
   </div>
 
-  <button
-    type="submit"
-    name="add"
-    class="bloomli-vt__custom-submit"
-    form="{{ product_form_id }}"
-    data-vt-submit-button
-    {% unless product.selected_or_first_available_variant.available %}
-      disabled
-    {% endunless %}
-  >
-    <span data-vt-submit-text>
-      {%- if product.selected_or_first_available_variant.available -%}
-        {{ add_to_cart_label }}
-      {%- else -%}
-        {{ sold_out_label }}
-      {%- endif -%}
-    </span>
-    {%- render 'loading-spinner' -%}
-  </button>
+  {%- capture bloomli_submit_button -%}
+    <button
+      type="submit"
+      name="add"
+      class="bloomli-vt__custom-submit"
+      {% unless render_product_form %}
+        form="{{ product_form_id }}"
+      {% endunless %}
+      data-vt-submit-button
+      {% unless product.selected_or_first_available_variant.available %}
+        disabled
+      {% endunless %}
+    >
+      <span data-vt-submit-text>
+        {%- if product.selected_or_first_available_variant.available -%}
+          {{ add_to_cart_label }}
+        {%- else -%}
+          {{ sold_out_label }}
+        {%- endif -%}
+      </span>
+      {%- render 'loading-spinner' -%}
+    </button>
+  {%- endcapture -%}
+
+  {%- if render_product_form -%}
+    <product-form
+      class="product-form bloomli-vt__product-form"
+      data-hide-errors="false"
+      data-section-id="{{ section_id }}"
+    >
+      <div class="product-form__error-message-wrapper" role="alert" hidden>
+        <span class="svg-wrapper">
+          {{- 'icon-error.svg' | inline_asset_content -}}
+        </span>
+        <span class="product-form__error-message"></span>
+      </div>
+
+      {%- form 'product',
+        product,
+        id: product_form_id,
+        class: 'form',
+        novalidate: 'novalidate',
+        data-type: 'add-to-cart-form'
+      -%}
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.selected_or_first_available_variant.id }}"
+          {% if product.selected_or_first_available_variant.available == false
+            or product.selected_or_first_available_variant == null
+          %}
+            disabled
+          {% endif %}
+          class="product-variant-id"
+        >
+        {{ bloomli_submit_button }}
+      {%- endform -%}
+    </product-form>
+  {%- else -%}
+    {{ bloomli_submit_button }}
+  {%- endif -%}
 
   {%- comment -%} Hidden inputs target Dawn's buy-buttons form through the native `form` attribute. {%- endcomment -%}
   <input type="hidden"

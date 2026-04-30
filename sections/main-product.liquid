@@ -84,6 +84,19 @@
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
+          {%- liquid
+            assign has_buy_buttons = false
+            for product_block in section.blocks
+              if product_block.type == 'buy_buttons'
+                assign has_buy_buttons = true
+                break
+              endif
+            endfor
+            assign render_volume_tier_form = true
+            if has_buy_buttons
+              assign render_volume_tier_form = false
+            endif
+          -%}
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
@@ -486,7 +499,8 @@
                   block: block,
                   product: product,
                   product_form_id: product_form_id,
-                  section_id: section.id
+                  section_id: section.id,
+                  render_product_form: render_volume_tier_form
                 -%}
               {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons',
@@ -1021,7 +1035,7 @@
           ]
         },
         { "type": "text", "id": "label_one_time", "label": "One-time label", "default": "One-Time Purchase" },
-        { "type": "text", "id": "label_subscribe", "label": "Subscribe label", "default": "Subscribe & Save" },
+        { "type": "text", "id": "label_subscribe", "label": "Subscribe label", "default": "Subscribe &" },
         { "type": "header", "content": "Footer" },
         { "type": "text", "id": "total_label", "label": "Total label", "default": "Total price:" },
         { "type": "text", "id": "shipping_text", "label": "Shipping pill text", "default": "Free shipping" },

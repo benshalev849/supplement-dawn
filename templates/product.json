@@ -116,7 +116,7 @@
             "discount_badge_template": "SAVE [percent]%",
             "default_mode": "onetime",
             "label_one_time": "One-Time Purchase",
-            "label_subscribe": "Subscribe & Save",
+            "label_subscribe": "Subscribe &",
             "total_label": "Total price:",
             "shipping_text": "Free shipping",
             "note": ""

@@ -1,7 +1,7 @@
 .accordion summary {
   display: flex;
   position: relative;
-  line-height: 1;
+  line-height: 1.35;
   padding: 1.5rem 0;
 }
 
@@ -12,6 +12,40 @@
 
 .accordion .summary__title + .icon-caret {
   height: calc(var(--font-heading-scale) * 0.6rem);
+}
+
+.accordion__plus {
+  position: relative;
+  align-self: center;
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  margin-left: auto;
+  flex: 0 0 2rem;
+  color: rgb(var(--color-foreground));
+}
+
+.accordion__plus::before,
+.accordion__plus::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.4rem;
+  height: 0.1rem;
+  border-radius: 999px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.accordion__plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.accordion details[open] > summary .accordion__plus::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 0;
 }
 
 .accordion + .accordion {
@@ -31,6 +65,12 @@
   max-width: calc(100% - 6rem);
   min-height: 1.6rem;
   margin: 0;
+  font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
+  font-size: 1.5rem;
+  font-style: var(--font-commerce-ui-style, var(--font-body-style)) !important;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.35;
   word-break: break-word;
 }
 
@@ -51,6 +91,31 @@
   word-break: break-word;
   overflow-x: auto;
   padding: 0 0.6rem;
+}
+
+.accordion.is-bloomli-animated .accordion__content {
+  overflow: hidden;
+  transition: height 0.34s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.24s ease, transform 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: height, opacity, transform;
+}
+
+.accordion.is-bloomli-animated details:not([open]) .accordion__content {
+  height: 0;
+  opacity: 0;
+  transform: translateY(-0.6rem);
+}
+
+.accordion.is-bloomli-animated details[open] .accordion__content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion__plus::before,
+  .accordion__plus::after,
+  .accordion.is-bloomli-animated .accordion__content {
+    transition: none;
+  }
 }
 
 .accordion__content img {

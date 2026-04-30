@@ -425,65 +425,79 @@
         "padding_bottom": 112
       }
     },
-    "collapsible_content_faq": {
-      "type": "collapsible-content",
+    "bloomli_faq_N48arU": {
+      "type": "bloomli-faq",
       "blocks": {
-        "faq_row_1": {
-          "type": "collapsible_row",
+        "question_yXD6xy": {
+          "type": "question",
           "settings": {
-            "heading": "How long until I see results?",
-            "icon": "none",
-            "row_content": "<p>Most customers notice reduced shedding within 4–6 weeks. Visible new growth typically appears at the 3-month mark. For best results, take consistently for at least 90 days.</p>",
-            "page": ""
+            "question": "How long does Bloomli take to work?",
+            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
+            "open_by_default": false
           }
         },
-        "faq_row_2": {
-          "type": "collapsible_row",
+        "question_UfFpyj": {
+          "type": "question",
           "settings": {
-            "heading": "How many gummies do I take per day?",
-            "icon": "none",
-            "row_content": "<p>Take 2 gummies daily, ideally with a meal. Each pouch is a 30-day supply.</p>",
-            "page": ""
+            "question": "Can I take it every day?",
+            "answer": "<p>Yes. Bloomli is designed as a daily ritual. Always follow the product directions and your clinician's guidance if you have a specific concern.</p>",
+            "open_by_default": false
           }
         },
-        "faq_row_3": {
-          "type": "collapsible_row",
+        "question_DbFafF": {
+          "type": "question",
           "settings": {
-            "heading": "Are there any allergens or animal products?",
-            "icon": "none",
-            "row_content": "<p>Root Ritual gummies are vegan — we use a pectin base instead of gelatin. They contain no gluten, dairy, or artificial dyes. Check the label for a full ingredient list if you have specific sensitivities.</p>",
-            "page": ""
+            "question": "Is this section editable?",
+            "answer": "<p>Yes. You can edit each question, answer, colors, typography, spacing, and the image from the Shopify theme editor.</p>",
+            "open_by_default": false
           }
         },
-        "faq_row_4": {
-          "type": "collapsible_row",
+        "question_kxfkwW": {
+          "type": "question",
           "settings": {
-            "heading": "What is your return policy?",
-            "icon": "none",
-            "row_content": "<p>We offer a 30-day satisfaction guarantee on your first order. If you’re not happy, reach out to our team and we’ll make it right.</p>",
-            "page": ""
+            "question": "How long does Bloomli take to work?",
+            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_h3AWWX": {
+          "type": "question",
+          "settings": {
+            "question": "How long does Bloomli take to work?",
+            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
+            "open_by_default": false
           }
         }
       },
       "block_order": [
-        "faq_row_1",
-        "faq_row_2",
-        "faq_row_3",
-        "faq_row_4"
+        "question_yXD6xy",
+        "question_UfFpyj",
+        "question_DbFafF",
+        "question_kxfkwW",
+        "question_h3AWWX"
       ],
+      "name": "Bloomli - FAQ",
       "settings": {
-        "caption": "",
-        "heading": "Frequently asked questions",
-        "heading_size": "h2",
-        "heading_alignment": "left",
-        "layout": "row",
-        "container_color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "open_first_collapsible_row": true,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "eyebrow": "FAQ",
+        "heading": "Questions, answered.",
+        "intro": "<p>Everything you need to know before making Bloomli part of your routine.</p>",
+        "image_alt": "",
+        "show_placeholder": false,
+        "image_position": "right",
+        "background_color": "#FDFAF7",
+        "media_background_color": "#F3E1E5",
+        "text_color": "#2A2622",
+        "muted_color": "#7C7169",
+        "accent_color": "#8A6678",
+        "border_color": "#E8DED8",
+        "content_width": 1180,
+        "image_width": 460,
+        "corner_radius": 16,
+        "heading_size": 48,
+        "question_size": 17,
+        "body_size": 15,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "bloomli_proof_split_bhYAhW": {
@@ -777,7 +791,7 @@
     "main",
     "bloomli_timeline_qUAhUY",
     "bloomli_formula_gallery_ypjbMe",
-    "collapsible_content_faq",
+    "bloomli_faq_N48arU",
     "bloomli_proof_split_bhYAhW",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",

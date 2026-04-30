@@ -36,6 +36,8 @@
   assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 10 | plus: 0
   assign discount_badge_template = block.settings.discount_badge_template | default: 'SAVE [percent]%'
   assign subscription_extra_template = block.settings.subscription_extra_label_template | default: 'an extra [percent]%'
+  assign add_to_cart_label = block.settings.add_to_cart_label | default: 'Add to cart'
+  assign sold_out_label = block.settings.sold_out_label | default: 'Sold out'
 -%}
 
 <div class="bloomli-vt"
@@ -47,7 +49,14 @@
      data-subscription-discount-pct="{{ subscription_discount_pct }}"
      data-discount-badge-template="{{ discount_badge_template | escape }}"
      data-subscription-extra-template="{{ subscription_extra_template | escape }}"
+     data-add-to-cart-label="{{ add_to_cart_label | escape }}"
+     data-sold-out-label="{{ sold_out_label | escape }}"
      data-money-format="{{ shop.money_format | escape }}"
+     style="
+       --bloomli-vt-desktop-title-size: {{ block.settings.desktop_tier_title_size | default: 11 }}px;
+       --bloomli-vt-desktop-count-size: {{ block.settings.desktop_tier_count_size | default: 9 }}px;
+       --bloomli-vt-desktop-daily-size: {{ block.settings.desktop_tier_daily_size | default: 9 }}px;
+     "
      {{ block.shopify_attributes }}>
 
   {%- if block.settings.eyebrow != blank -%}
@@ -330,10 +339,30 @@
       </span>
     </div>
 
-    {%- if block.settings.note != blank -%}
+  {%- if block.settings.note != blank -%}
       <div class="bloomli-vt__note">{{ block.settings.note }}</div>
     {%- endif -%}
   </div>
+
+  <button
+    type="submit"
+    name="add"
+    class="bloomli-vt__custom-submit"
+    form="{{ product_form_id }}"
+    data-vt-submit-button
+    {% unless product.selected_or_first_available_variant.available %}
+      disabled
+    {% endunless %}
+  >
+    <span data-vt-submit-text>
+      {%- if product.selected_or_first_available_variant.available -%}
+        {{ add_to_cart_label }}
+      {%- else -%}
+        {{ sold_out_label }}
+      {%- endif -%}
+    </span>
+    {%- render 'loading-spinner' -%}
+  </button>
 
   {%- comment -%} Hidden inputs target Dawn's buy-buttons form through the native `form` attribute. {%- endcomment -%}
   <input type="hidden"

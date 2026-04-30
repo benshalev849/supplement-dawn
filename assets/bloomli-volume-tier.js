@@ -47,10 +47,14 @@
     const oneTimePriceEl = root.querySelector('[data-vt-onetime-price]');
     const subscribePriceEl = root.querySelector('[data-vt-subscribe-price]');
     const subSavingsEl = root.querySelector('[data-vt-sub-savings]');
+    const customSubmitButton = root.querySelector('[data-vt-submit-button]');
+    const customSubmitText = root.querySelector('[data-vt-submit-text]');
 
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const discountBadgeTemplate = root.dataset.discountBadgeTemplate || 'SAVE [percent]%';
     const subscriptionExtraTemplate = root.dataset.subscriptionExtraTemplate || 'an extra [percent]%';
+    const customAddToCartLabel = root.dataset.addToCartLabel || '';
+    const customSoldOutLabel = root.dataset.soldOutLabel || '';
     const subscriptionDiscount = parseFloat(root.dataset.subscriptionDiscountPct) || 0;
     const productFormId = root.dataset.formId;
     const quantitySelector = productFormId
@@ -58,6 +62,76 @@
           return input !== qtyInput && input.getAttribute('form') === productFormId;
         })
       : null;
+
+    function getProductForm() {
+      return productFormId ? document.getElementById(productFormId) : null;
+    }
+
+    function getOriginalSubmitButton() {
+      const productForm = getProductForm();
+      if (!productForm) return null;
+
+      const productFormElement = productForm.closest('product-form');
+      return productFormElement ? productFormElement.querySelector('.product-form__submit') : null;
+    }
+
+    function syncSubmitButton() {
+      if (!customSubmitButton) return;
+
+      const originalSubmitButton = getOriginalSubmitButton();
+      if (!originalSubmitButton) return;
+
+      const originalText = originalSubmitButton.querySelector('span');
+      const isDisabled =
+        originalSubmitButton.disabled || originalSubmitButton.getAttribute('aria-disabled') === 'true';
+      const isSoldOut = originalSubmitButton.disabled;
+      const isLoading = originalSubmitButton.classList.contains('loading');
+
+      customSubmitButton.disabled = isSoldOut;
+      customSubmitButton.toggleAttribute('aria-disabled', isDisabled);
+      customSubmitButton.classList.toggle('loading', isLoading);
+
+      const customSpinner = customSubmitButton.querySelector('.loading__spinner');
+      if (customSpinner) customSpinner.classList.toggle('hidden', !isLoading);
+
+      if (customSubmitText) {
+        if (isSoldOut && customSoldOutLabel) {
+          customSubmitText.textContent = customSoldOutLabel;
+        } else if (customAddToCartLabel) {
+          customSubmitText.textContent = customAddToCartLabel;
+        } else if (originalText && originalText.textContent.trim()) {
+          customSubmitText.textContent = originalText.textContent.trim();
+        }
+      }
+    }
+
+    function bindCustomSubmitButton() {
+      if (!customSubmitButton) return;
+
+      customSubmitButton.addEventListener('click', function (event) {
+        const originalSubmitButton = getOriginalSubmitButton();
+        if (!originalSubmitButton) return;
+
+        event.preventDefault();
+        if (customSubmitButton.disabled || customSubmitButton.getAttribute('aria-disabled') === 'true') return;
+
+        originalSubmitButton.click();
+        syncSubmitButton();
+      });
+
+      const productForm = getProductForm();
+      const productFormElement = productForm ? productForm.closest('product-form') : null;
+      if (productFormElement) {
+        const observer = new MutationObserver(syncSubmitButton);
+        observer.observe(productFormElement, {
+          attributes: true,
+          childList: true,
+          subtree: true,
+        });
+      }
+
+      syncSubmitButton();
+    }
 
     function getSelectedSize() {
       return root.querySelector('[data-vt-size].is-selected') || sizes[0];
@@ -173,6 +247,8 @@
           modeOption.classList.remove('is-disabled');
         }
       });
+
+      syncSubmitButton();
     }
 
     sizes.forEach(function (size) {
@@ -214,6 +290,7 @@
     }
 
     updateState();
+    bindCustomSubmitButton();
   }
 
   function init(scope) {

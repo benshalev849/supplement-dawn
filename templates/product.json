@@ -39,6 +39,11 @@
           "settings": {
             "eyebrow": "Best Offers",
             "heading": "Save More!",
+            "add_to_cart_label": "Add to cart",
+            "sold_out_label": "Sold out",
+            "desktop_tier_title_size": 13,
+            "desktop_tier_count_size": 11,
+            "desktop_tier_daily_size": 9,
             "tier_1_show": true,
             "tier_1_qty": 1,
             "tier_1_label": "1 Month",
@@ -122,7 +127,16 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": true,
+            "show_pdp_trust": true,
+            "trust_1_icon": "truck",
+            "trust_1_text": "Free shipping",
+            "trust_2_icon": "refresh",
+            "trust_2_text": "Cancel anytime",
+            "trust_3_icon": "shield",
+            "trust_3_text": "30-day guarantee",
+            "trust_4_icon": "leaf",
+            "trust_4_text": "Vegan & clean"
           }
         },
         "description": {
@@ -215,7 +229,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
+            "icon_color": "#6f7a5a",
             "photo_label": "Raw biotin - powder",
             "icon": "leaf",
             "title": "Biotin",
@@ -232,7 +246,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
+            "icon_color": "#6f7a5a",
             "photo_label": "Saw palmetto - berry",
             "icon": "palm",
             "title": "Saw Palmetto",
@@ -249,7 +263,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
+            "icon_color": "#6f7a5a",
             "photo_label": "Marine collagen - flake",
             "icon": "drop",
             "title": "Marine Collagen",
@@ -266,7 +280,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
+            "icon_color": "#6f7a5a",
             "photo_label": "Ashwagandha - root",
             "icon": "root",
             "title": "Ashwagandha",
@@ -283,7 +297,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
+            "icon_color": "#6f7a5a",
             "photo_label": "Zinc - mineral",
             "icon": "zinc",
             "title": "Zinc",
@@ -299,7 +313,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
+            "icon_color": "#6f7a5a",
             "photo_label": "Raw ingredient",
             "icon": "spark",
             "title": "Delightfully tasty",
@@ -315,7 +329,7 @@
             "use_custom_circle_color": true,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
+            "icon_color": "#6f7a5a",
             "photo_label": "Raw ingredient",
             "icon": "tested",
             "title": "Independently verified",
@@ -337,8 +351,11 @@
       "settings": {
         "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
         "use_custom_background": false,
-        "background_color": "#F3E1E5",
+        "background_color": "#f3e1e5",
         "eyebrow": "The goods inside",
+        "eyebrow_accent_color": "#8a6678",
+        "icon_accent_color": "#6f7a5a",
+        "small_label_color": "#8a6678",
         "heading_line1": "Five ingredients,",
         "heading_line2": "doing the quiet work.",
         "copy": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>",
@@ -372,7 +389,7 @@
             "is_proof": false,
             "icon": "leaf",
             "use_custom_icon_background": false,
-            "icon_background": "#F1EDE8",
+            "icon_background": "#f1ede8",
             "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Biotin",
@@ -386,7 +403,7 @@
             "is_proof": false,
             "icon": "palm",
             "use_custom_icon_background": false,
-            "icon_background": "#F1EDE8",
+            "icon_background": "#f1ede8",
             "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Saw Palmetto",
@@ -400,7 +417,7 @@
             "is_proof": false,
             "icon": "drop",
             "use_custom_icon_background": false,
-            "icon_background": "#F1EDE8",
+            "icon_background": "#f1ede8",
             "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Marine Collagen",
@@ -414,7 +431,7 @@
             "is_proof": false,
             "icon": "root",
             "use_custom_icon_background": false,
-            "icon_background": "#F1EDE8",
+            "icon_background": "#f1ede8",
             "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Ashwagandha",
@@ -428,7 +445,7 @@
             "is_proof": false,
             "icon": "zinc",
             "use_custom_icon_background": false,
-            "icon_background": "#F1EDE8",
+            "icon_background": "#f1ede8",
             "use_custom_icon_color": false,
             "icon_color": "#fdfaf7",
             "title": "Zinc",
@@ -444,7 +461,7 @@
             "use_custom_icon_background": false,
             "icon_background": "#fdfaf7",
             "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
+            "icon_color": "#6f7a5a",
             "title": "Independently verified",
             "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals."
           }
@@ -463,8 +480,10 @@
       "settings": {
         "color_scheme": "",
         "use_custom_background": false,
-        "background_color": "#F3E1E5",
+        "background_color": "#f3e1e5",
         "eyebrow": "The goods inside",
+        "eyebrow_accent_color": "#8a6678",
+        "icon_accent_color": "#6f7a5a",
         "heading_line1": "Five ingredients,",
         "heading_line2": "doing the quiet work.",
         "copy": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>",
@@ -567,6 +586,8 @@
         "use_custom_background": false,
         "background_color": "#fdfaf7",
         "eyebrow": "Every ingredient, photographed",
+        "eyebrow_accent_color": "#8a6678",
+        "small_label_color": "#8a6678",
         "heading": "Nothing hidden.",
         "circle_background": "surface",
         "image_size": 220,
@@ -618,6 +639,8 @@
       "settings": {
         "color_scheme": "",
         "eyebrow": "Your 6-month journey",
+        "eyebrow_accent_color": "#8a6678",
+        "timeline_icon_color": "#6f7a5a",
         "heading": "Your ritual, over time.",
         "circle_background": "surface",
         "circle_size": 100,
@@ -668,6 +691,8 @@
         "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
         "use_custom_background": false,
         "background_color": "{{ shop.brand.colors.primary[0].background }}",
+        "eyebrow_accent_color": "#8a6678",
+        "icon_accent_color": "#6f7a5a",
         "media_background": "surface",
         "image_label": "Editorial - morning ritual - natural light",
         "image_scale": 100,
@@ -699,7 +724,7 @@
             "image_scale": 100,
             "label": "Photo 2",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F3E1E5"
+            "placeholder_color": "#f3e1e5"
           }
         },
         "photo_UQecfB": {
@@ -735,7 +760,7 @@
             "image_scale": 100,
             "label": "Photo 6",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F3E1E5"
+            "placeholder_color": "#f3e1e5"
           }
         },
         "photo_jhY4cR": {
@@ -771,7 +796,7 @@
             "image_scale": 100,
             "label": "Photo 10",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F3E1E5"
+            "placeholder_color": "#f3e1e5"
           }
         },
         "photo_fGEqGb": {

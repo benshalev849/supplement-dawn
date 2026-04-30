@@ -307,33 +307,20 @@
 }
 
 .bloomli-reviews__viewport {
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
-  overscroll-behavior-x: contain;
-  overscroll-behavior-y: auto;
-  scrollbar-width: none;
-  touch-action: pan-x pan-y;
-  cursor: grab;
-}
-
-.bloomli-reviews__viewport:active {
-  cursor: grabbing;
-}
-
-.bloomli-reviews__viewport::-webkit-scrollbar {
-  display: none;
 }
 
 .bloomli-reviews__track {
   display: flex;
+  flex-wrap: nowrap;
   width: max-content;
   animation: bloomli-reviews-marquee var(--br-scroll-duration, 70s) linear infinite;
   will-change: transform;
 }
 
 .bloomli-reviews__viewport:hover .bloomli-reviews__track,
-.bloomli-reviews__viewport:focus-within .bloomli-reviews__track,
-.bloomli-reviews__viewport:active .bloomli-reviews__track {
+.bloomli-reviews__viewport:focus-within .bloomli-reviews__track {
   animation-play-state: paused;
 }
 
@@ -440,8 +427,12 @@
 }
 
 @keyframes bloomli-reviews-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
   to {
-    transform: translateX(-20%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 

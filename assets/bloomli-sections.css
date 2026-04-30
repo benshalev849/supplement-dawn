@@ -1276,12 +1276,16 @@
   font-size: 2.4rem;
   font-weight: 300;
   line-height: 1;
+  color: rgb(var(--color-foreground));
+  /* Fixed square so transform-origin is a true center, not a text glyph edge */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
   flex-shrink: 0;
   margin-left: auto;
-  padding-left: 1.2rem;
-  color: rgb(var(--color-foreground));
-  display: inline-block;
-  /* is-open class toggled at click start — not tied to [open] attr */
+  transform-origin: center center;
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1289,10 +1293,11 @@
   transform: rotate(45deg);
 }
 
-/* Content slide: remove margin so it doesn't jump when [open] is removed */
+/* Content slide: border-box ensures height:0 clips padding too — no padding sliver */
 .collapsible-row-layout .accordion .accordion__content {
   overflow: hidden;
   margin-bottom: 0;
+  box-sizing: border-box;
 }
 
 /* Remove hover underline in row layout */

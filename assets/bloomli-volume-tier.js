@@ -171,7 +171,7 @@
         if (subPct > 0) {
           subSavingsEl.textContent = formatTemplate(subscriptionExtraTemplate, {
             percent: formatDiscount(subPct),
-          });
+          }).trim();
         } else {
           subSavingsEl.textContent = '';
         }
@@ -234,6 +234,18 @@
         } else {
           badge.textContent = manualBadge;
         }
+      });
+
+      sizes.forEach(function (sizeOption) {
+        const daily = sizeOption.querySelector('[data-vt-daily]');
+        if (!daily) return;
+
+        const nextDaily =
+          effectiveMode === 'subscribe' && sizeOption.dataset.planId
+            ? daily.dataset.subscribeDaily
+            : daily.dataset.onetimeDaily;
+
+        if (nextDaily) daily.textContent = nextDaily;
       });
 
       modes.forEach(function (modeOption) {

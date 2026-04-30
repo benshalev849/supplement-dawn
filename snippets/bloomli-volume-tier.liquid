@@ -53,7 +53,7 @@
      data-sold-out-label="{{ sold_out_label | escape }}"
      data-money-format="{{ shop.money_format | escape }}"
      style="
-       --bloomli-vt-save-badge-bg: {{ block.settings.save_badge_background | default: '#8A6678' }};
+       --bloomli-vt-save-badge-bg: {{ block.settings.save_badge_background | default: '#B23A6F' }};
        --bloomli-vt-save-badge-text: {{ block.settings.save_badge_text_color | default: '#FDFAF7' }};
        --bloomli-vt-tier-tag-bg: {{ block.settings.tier_tag_background | default: '#8A6678' }};
        --bloomli-vt-tier-tag-text: {{ block.settings.tier_tag_text_color | default: '#FDFAF7' }};
@@ -218,10 +218,13 @@
         assign dynamic_badge = discount_badge_template | replace: '[percent]', rounded_discount_pct | replace: '[qty]', qty
 
         assign daily_cents = one_time_total_cents | divided_by: qty | divided_by: 30
+        assign subscribe_daily_cents = subscribe_total_cents | divided_by: qty | divided_by: 30
         assign auto_daily = daily_cents | money
+        assign auto_subscribe_daily = subscribe_daily_cents | money
         if daily_text == blank
           assign daily_text = '(' | append: auto_daily | append: ' / Day)'
         endif
+        assign subscribe_daily_text = '(' | append: auto_subscribe_daily | append: ' / Day)'
 
         assign auto_count = qty | times: 30 | append: ' Count'
         if count_text == blank
@@ -283,7 +286,14 @@
               <div class="bloomli-vt__size-count">{{ count_text }}</div>
             {%- endif -%}
             {%- if daily_text != blank -%}
-              <div class="bloomli-vt__size-daily">{{ daily_text }}</div>
+              <div
+                class="bloomli-vt__size-daily"
+                data-vt-daily
+                data-onetime-daily="{{ daily_text | escape }}"
+                data-subscribe-daily="{{ subscribe_daily_text | escape }}"
+              >
+                {{ daily_text }}
+              </div>
             {%- endif -%}
           </div>
 
@@ -327,7 +337,7 @@
         <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
         <span class="bloomli-vt__mode-text">
           <span class="bloomli-vt__mode-title">
-            {{ block.settings.label_subscribe | default: 'Subscribe & Save' }}
+            {{ block.settings.label_subscribe | default: 'Subscribe &' }}
             <span class="bloomli-vt__mode-savings" data-vt-sub-savings></span>
           </span>
           <span class="bloomli-vt__mode-price" data-vt-subscribe-price>{{ unit_price | money }}</span>

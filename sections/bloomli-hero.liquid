@@ -1,24 +1,40 @@
-<section class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--hero-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; {% if section.settings.use_brand_gradient %}background: var(--brand-gradient);{% endif %} min-height: {{ section.settings.min_height }}px; position: relative; overflow: hidden;">
-  <div class="bloomli-hero__inner" style="max-width: 1280px; margin: 0 auto; padding: 96px 48px; display: grid; grid-template-columns: 55fr 45fr; gap: 48px; align-items: center; min-height: {{ section.settings.min_height }}px;">
+<section
+  class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}"
+  style="
+    --hero-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }};
+    --hero-min-height: {{ section.settings.min_height }}px;
+    --hero-bottle-width-desktop: {{ section.settings.bottle_width_desktop }}px;
+    --hero-bottle-x-desktop: {{ section.settings.bottle_x_desktop }}px;
+    --hero-bottle-y-desktop: {{ section.settings.bottle_y_desktop }}px;
+    --hero-bottle-rotation: {{ section.settings.bottle_rotation }}deg;
+    --hero-bottle-width-mobile: {{ section.settings.bottle_width_mobile }}%;
+    --hero-bottle-x-mobile: {{ section.settings.bottle_x_mobile }}%;
+    --hero-bottle-y-mobile: {{ section.settings.bottle_y_mobile }}px;
+    --hero-editorial-width-mobile: {{ section.settings.editorial_width_mobile }}%;
+    --hero-editorial-height-mobile: {{ section.settings.editorial_height_mobile }}px;
+    --hero-editorial-radius-mobile: {{ section.settings.editorial_height_mobile | divided_by: 2 }}px;
+    --hero-media-height-mobile: {{ section.settings.media_height_mobile }}px;
+  "
+>
+  <div class="bloomli-hero__inner">
 
-    <!-- Left: copy -->
-    <div class="bloomli-hero__copy" style="min-width: 0;">
+    <div class="bloomli-hero__copy">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--hero-eyebrow-color); margin-bottom: 24px;">{{ section.settings.eyebrow }}</div>
+        <div class="smallcaps bloomli-hero__eyebrow">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
 
-      <h1 class="bloomli-hero__headline" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100, 'opsz' 144; font-size: 88px; line-height: 0.98; margin-bottom: 28px; letter-spacing: -0.02em; font-weight: 400; color: var(--bloomli-text); word-wrap: break-word;">
+      <h1 class="bloomli-hero__headline">
         {{ section.settings.headline_line1 }}<br>
-        <span style="font-style: italic;">{{ section.settings.headline_line2 }}</span>
+        <span>{{ section.settings.headline_line2 }}</span>
       </h1>
 
       {%- if section.settings.subtext != blank -%}
-        <p class="bloomli-hero__subtext" style="font-size: 18px; color: var(--bloomli-text); max-width: 440px; margin-bottom: 36px; line-height: 1.55;">
+        <p class="bloomli-hero__subtext">
           {{ section.settings.subtext }}
         </p>
       {%- endif -%}
 
-      <div class="bloomli-hero__ctas color-{{ section.settings.button_color_scheme }}" style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; background: transparent;">
+      <div class="bloomli-hero__ctas color-{{ section.settings.button_color_scheme }}">
         {%- if section.settings.cta_primary_label != blank and section.settings.cta_primary_url != blank -%}
           <a href="{{ section.settings.cta_primary_url }}" class="button button--primary">{{ section.settings.cta_primary_label }}</a>
         {%- endif -%}
@@ -28,98 +44,56 @@
       </div>
 
       {%- if section.settings.show_reviews -%}
-        <div class="bloomli-hero__reviews" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-          <span style="color: var(--hero-eyebrow-color); font-size: 16px; letter-spacing: -1px;" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <span style="font-size: 14px; color: var(--bloomli-text);">
-            <strong style="font-weight: 500;">{{ section.settings.review_score }}</strong> from {{ section.settings.review_count }} reviews
+        <div class="bloomli-hero__reviews">
+          <span class="bloomli-hero__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="bloomli-hero__review-text">
+            <strong>{{ section.settings.review_score }}</strong> from {{ section.settings.review_count }} reviews
           </span>
         </div>
       {%- endif -%}
     </div>
 
-    <!-- Right: images -->
-    <div class="bloomli-hero__media" style="position: relative; height: 540px;">
+    <div class="bloomli-hero__media">
       {%- if section.settings.editorial_image != blank -%}
-        <img
-          class="bloomli-hero__editorial"
-          src="{{ section.settings.editorial_image | image_url: width: 760 }}"
-          alt="{{ section.settings.editorial_image.alt | default: 'bloomli hero' | escape }}"
-          srcset="{{ section.settings.editorial_image | image_url: width: 380 }} 380w,
-                  {{ section.settings.editorial_image | image_url: width: 760 }} 760w"
-          sizes="(max-width: 749px) {{ section.settings.editorial_width_mobile }}vw, 380px"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          width="380"
-          height="520"
-          style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; object-fit: cover; box-shadow: 0 16px 32px var(--bloomli-shadow-color);"
-        >
+        {%- assign editorial_alt = section.settings.editorial_image.alt | default: section.settings.headline_line1 -%}
+        {{
+          section.settings.editorial_image
+          | image_url: width: 760
+          | image_tag:
+            class: 'bloomli-hero__editorial',
+            alt: editorial_alt,
+            widths: '380, 760',
+            sizes: '(max-width: 749px) 56vw, 380px',
+            loading: 'eager',
+            fetchpriority: 'high',
+            decoding: 'async'
+        }}
       {%- else -%}
-        <div class="bloomli-hero__editorial bloomli-hero__editorial--placeholder" style="position: absolute; right: 0; top: 0; width: 380px; height: 520px; border-radius: 220px; background: var(--bloomli-surface); display: flex; align-items: center; justify-content: center;">
-          <span style="font-family: var(--font-commerce-ui, var(--font-body-family)); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bloomli-text-soft);">Editorial photo</span>
+        <div class="bloomli-hero__editorial bloomli-hero__editorial--placeholder">
+          <span>{{ section.settings.editorial_placeholder_label }}</span>
         </div>
       {%- endif -%}
 
       {%- if section.settings.product_image != blank -%}
-        <img
-          class="bloomli-hero__bottle"
-          src="{{ section.settings.product_image | image_url: width: 600 }}"
-          srcset="{{ section.settings.product_image | image_url: width: 300 }} 300w,
-                  {{ section.settings.product_image | image_url: width: 600 }} 600w,
-                  {{ section.settings.product_image | image_url: width: 900 }} 900w"
-          sizes="(max-width: 749px) {{ section.settings.bottle_width_mobile }}vw, {{ section.settings.bottle_width_desktop }}px"
-          alt="{{ section.settings.product_image.alt | default: 'Root Ritual Gummies' | escape }}"
-          loading="lazy" decoding="async"
-          width="{{ section.settings.bottle_width_desktop }}"
-          height="{{ section.settings.bottle_width_desktop | times: section.settings.product_image.height | divided_by: section.settings.product_image.width | round }}"
-          style="position: absolute; left: {{ section.settings.bottle_x_desktop }}px; bottom: {{ section.settings.bottle_y_desktop }}px; transform: rotate({{ section.settings.bottle_rotation }}deg); width: {{ section.settings.bottle_width_desktop }}px; height: auto; max-width: none; object-fit: contain;"
-        >
+        {%- assign product_image_alt = section.settings.product_image.alt | default: section.settings.headline_line1 -%}
+        {{
+          section.settings.product_image
+          | image_url: width: 900
+          | image_tag:
+            class: 'bloomli-hero__bottle',
+            alt: product_image_alt,
+            widths: '300, 600, 900',
+            sizes: '(max-width: 749px) 90vw, 400px',
+            loading: 'lazy',
+            decoding: 'async'
+        }}
       {%- endif -%}
 
-      <!-- Floating blur accent -->
-      <div aria-hidden="true" style="position: absolute; right: -60px; top: 60px; width: 140px; height: 140px; border-radius: 50%; background: var(--bloomli-surface); opacity: 0.55; pointer-events: none;"></div>
+      <div class="bloomli-hero__blur-accent" aria-hidden="true"></div>
     </div>
 
   </div>
 </section>
-
-<style>
-  /* Make sure the wrapping color-scheme div doesn't paint a background over the gradient hero */
-  .bloomli-hero__ctas { background: transparent !important; }
-
-  /* Bottle: opt out of the global img max-width clamp so % widths can scale freely */
-  .bloomli-hero__bottle { max-width: none !important; }
-
-  @media (max-width: 749px) {
-    .bloomli-hero { min-height: unset !important; }
-    .bloomli-hero__inner {
-      grid-template-columns: 1fr !important;
-      padding: 40px 16px 48px !important;
-      min-height: unset !important;
-      gap: 24px !important;
-    }
-    .bloomli-hero__headline { font-size: 44px !important; line-height: 1.02 !important; margin-bottom: 16px !important; }
-    .bloomli-hero__subtext { font-size: 15px !important; margin-bottom: 24px !important; max-width: 100% !important; }
-    .bloomli-hero__ctas { gap: 8px !important; margin-bottom: 20px !important; }
-    .bloomli-hero__ctas .button { padding: 12px 22px !important; font-size: 14px !important; }
-    .bloomli-hero__media {
-      height: {{ section.settings.media_height_mobile }}px !important;
-      margin-top: 12px;
-    }
-    .bloomli-hero__editorial {
-      width: {{ section.settings.editorial_width_mobile }}% !important;
-      max-width: none !important;
-      height: {{ section.settings.editorial_height_mobile }}px !important;
-      border-radius: {{ section.settings.editorial_height_mobile | divided_by: 2 }}px !important;
-      right: 0 !important;
-    }
-    .bloomli-hero__bottle {
-      width: {{ section.settings.bottle_width_mobile }}% !important;
-      left: {{ section.settings.bottle_x_mobile }}% !important;
-      bottom: {{ section.settings.bottle_y_mobile }}px !important;
-    }
-  }
-</style>
 
 {% schema %}
 {
@@ -148,6 +122,7 @@
     { "type": "text",     "id": "review_count",  "label": "Count",              "default": "2,400+" },
     { "type": "header", "content": "Images" },
     { "type": "image_picker", "id": "editorial_image", "label": "Editorial image (tall pill crop)" },
+    { "type": "text", "id": "editorial_placeholder_label", "label": "Editorial placeholder label", "default": "Editorial photo" },
     { "type": "image_picker", "id": "product_image",   "label": "Product image (transparent PNG)" },
     { "type": "header", "content": "Bottle — desktop" },
     { "type": "range", "id": "bottle_width_desktop", "label": "Bottle width", "min": 80, "max": 600, "step": 10, "default": 400, "unit": "px" },

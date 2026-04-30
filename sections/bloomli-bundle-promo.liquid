@@ -1,63 +1,44 @@
-<section class="bloomli-bundle bloomli-section color-{{ section.settings.color_scheme }} gradient" style="padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;">
-  <div class="bloomli-bundle__inner" style="max-width: 900px; margin: 0 auto; text-align: center;">
+<section
+  class="bloomli-bundle bloomli-section color-{{ section.settings.color_scheme }} gradient"
+  style="--bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="bloomli-bundle__inner">
 
     {%- if section.settings.eyebrow != blank -%}
-      <div class="smallcaps" style="color: var(--bloomli-accent); margin-bottom: 20px;">{{ section.settings.eyebrow }}</div>
+      <div class="smallcaps bloomli-bundle__eyebrow">{{ section.settings.eyebrow }}</div>
     {%- endif -%}
 
-    <h2 class="bloomli-bundle__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 64px; margin: 0 0 20px; font-weight: 400; color: var(--bloomli-text); line-height: 1.05;">
-      {{ section.settings.headline_line1 }}<br><span style="font-style: italic;">{{ section.settings.headline_line2 }}</span>
+    <h2 class="bloomli-bundle__heading">
+      {{ section.settings.headline_line1 }}<br><span>{{ section.settings.headline_line2 }}</span>
     </h2>
 
     {%- if section.settings.description != blank -%}
-      <p class="bloomli-bundle__copy" style="font-size: 18px; color: var(--bloomli-text); margin: 0 auto 36px; max-width: 560px; line-height: 1.6;">
+      <p class="bloomli-bundle__copy">
         {{ section.settings.description }}
       </p>
     {%- endif -%}
 
-    <div class="bloomli-bundle__products" style="display: flex; justify-content: center; gap: 24px; margin-bottom: 40px; flex-wrap: nowrap; align-items: flex-end;">
+    <div class="bloomli-bundle__products">
       {%- if section.settings.product_image_1 != blank -%}
-        <img class="bloomli-bundle__product" src="{{ section.settings.product_image_1 | image_url: width: 360 }}" srcset="{{ section.settings.product_image_1 | image_url: width: 180 }} 180w, {{ section.settings.product_image_1 | image_url: width: 360 }} 360w" sizes="(max-width: 749px) 44vw, 180px" alt="{{ section.settings.product_image_1.alt | escape }}" width="180" height="240" loading="lazy" style="width: 180px; max-width: 45%; height: auto; filter: drop-shadow(0 12px 24px var(--bloomli-shadow-color));">
+        {{ section.settings.product_image_1 | image_url: width: 360 | image_tag: class: 'bloomli-bundle__product', widths: '180, 360', sizes: '(max-width: 749px) 44vw, 180px', loading: 'lazy', decoding: 'async' }}
       {%- else -%}
-        <div class="bloomli-bundle__product bloomli-bundle__product--placeholder" style="width: 180px; max-width: 45%; height: 240px; background: var(--bloomli-surface); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bloomli-text-soft);">Gummies</span></div>
+        <div class="bloomli-bundle__product bloomli-bundle__product--placeholder"><span>{{ section.settings.product_image_1_placeholder_label }}</span></div>
       {%- endif -%}
       {%- if section.settings.product_image_2 != blank -%}
-        <img class="bloomli-bundle__product" src="{{ section.settings.product_image_2 | image_url: width: 360 }}" srcset="{{ section.settings.product_image_2 | image_url: width: 180 }} 180w, {{ section.settings.product_image_2 | image_url: width: 360 }} 360w" sizes="(max-width: 749px) 44vw, 180px" alt="{{ section.settings.product_image_2.alt | escape }}" width="180" height="240" loading="lazy" style="width: 180px; max-width: 45%; height: auto; filter: drop-shadow(0 12px 24px var(--bloomli-shadow-color));">
+        {{ section.settings.product_image_2 | image_url: width: 360 | image_tag: class: 'bloomli-bundle__product', widths: '180, 360', sizes: '(max-width: 749px) 44vw, 180px', loading: 'lazy', decoding: 'async' }}
       {%- else -%}
-        <div class="bloomli-bundle__product bloomli-bundle__product--placeholder" style="width: 180px; max-width: 45%; height: 240px; background: var(--bloomli-surface); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bloomli-text-soft);">Hair Oil</span></div>
+        <div class="bloomli-bundle__product bloomli-bundle__product--placeholder"><span>{{ section.settings.product_image_2_placeholder_label }}</span></div>
       {%- endif -%}
     </div>
 
     {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
-      <div class="bloomli-bundle__cta-wrap color-{{ section.settings.button_color_scheme }}" style="background: transparent; display: inline-block;">
+      <div class="bloomli-bundle__cta-wrap color-{{ section.settings.button_color_scheme }}">
         <a href="{{ section.settings.cta_url }}" class="button button--primary">{{ section.settings.cta_label }}</a>
       </div>
     {%- endif -%}
 
   </div>
 </section>
-
-<style>
-  .bloomli-bundle__cta-wrap { background: transparent !important; }
-
-  @media (max-width: 749px) {
-    .bloomli-bundle {
-      padding: 56px 16px !important;
-    }
-    .bloomli-bundle__heading { font-size: 36px !important; }
-    .bloomli-bundle__copy { font-size: 15px !important; margin-bottom: 28px !important; }
-    .bloomli-bundle__products {
-      gap: 12px !important;
-      margin-bottom: 28px !important;
-      flex-wrap: nowrap !important;
-    }
-    .bloomli-bundle__product {
-      width: 44% !important;
-      max-width: 150px !important;
-    }
-    .bloomli-bundle__cta-wrap .button { padding: 12px 22px !important; font-size: 14px !important; }
-  }
-</style>
 
 {% schema %}
 {
@@ -73,7 +54,9 @@
     { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop the Duo — $74" },
     { "type": "url", "id": "cta_url", "label": "CTA URL" },
     { "type": "image_picker", "id": "product_image_1", "label": "Product image 1 (gummies)" },
+    { "type": "text", "id": "product_image_1_placeholder_label", "label": "Product image 1 placeholder label", "default": "Gummies" },
     { "type": "image_picker", "id": "product_image_2", "label": "Product image 2 (oil)" },
+    { "type": "text", "id": "product_image_2_placeholder_label", "label": "Product image 2 placeholder label", "default": "Hair Oil" },
     { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 48, "max": 160, "step": 8, "default": 96 },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 48, "max": 160, "step": 8, "default": 96 }
   ],

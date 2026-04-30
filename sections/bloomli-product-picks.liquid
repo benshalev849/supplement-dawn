@@ -1,27 +1,53 @@
-<section class="bloomli-product-picks bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% if section.settings.use_custom_background %}--bpp-bg: {{ section.settings.background_color }};{% else %}--bpp-bg: var(--bloomli-bg);{% endif %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--bpp-bg);">
-  <div style="max-width: 1280px; margin: 0 auto;">
-    <h2 class="bloomli-product-picks__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 46px; line-height: 1.08; font-weight: 400; text-align: center; margin: 0 0 64px; color: var(--bloomli-text);">{{ section.settings.heading }}</h2>
+<section
+  class="bloomli-product-picks bloomli-section color-{{ section.settings.color_scheme }} gradient"
+  style="{% if section.settings.use_custom_background %}--bpp-bg: {{ section.settings.background_color }};{% else %}--bpp-bg: var(--bloomli-bg);{% endif %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bpp-columns-desktop: {{ section.settings.columns_desktop }}; --bpp-columns-mobile: {{ section.settings.columns_mobile }}; --bpp-image-box-height: {{ section.settings.image_box_height }}px;"
+>
+  <div class="bloomli-section__inner">
+    <h2 class="bloomli-product-picks__heading">{{ section.settings.heading }}</h2>
 
-    <div class="bloomli-product-picks__grid" style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0, 1fr)); gap: 38px;">
+    <div class="bloomli-product-picks__grid">
       {%- for block in section.blocks -%}
         {%- assign picked_product = block.settings.product -%}
         {%- assign card_url = picked_product.url | default: block.settings.link -%}
-        <div class="bloomli-product-picks__card" {{ block.shopify_attributes }} style="min-width: 0; position: relative;">
+        <div class="bloomli-product-picks__card" {{ block.shopify_attributes }}>
           {%- if block.settings.badge != blank -%}
-            <div style="position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); z-index: 2; background: var(--bloomli-accent); color: var(--bloomli-on-accent); border-radius: 999px; padding: 7px 13px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">{{ block.settings.badge }}</div>
+            <div class="bloomli-product-picks__badge">{{ block.settings.badge }}</div>
           {%- endif -%}
 
           {%- if card_url != blank -%}
-            <a href="{{ card_url }}" style="display: block; text-decoration: none; color: inherit;">
+            <a href="{{ card_url }}" class="bloomli-product-picks__link">
           {%- else -%}
-            <div style="display: block; text-decoration: none; color: inherit;">
+            <div class="bloomli-product-picks__link">
           {%- endif -%}
-            <div class="bloomli-product-picks__media" style="height: {{ section.settings.image_box_height }}px; display: flex; align-items: center; justify-content: center; margin-bottom: 26px;">
+            <div class="bloomli-product-picks__media">
               {%- if block.settings.image != blank -%}
                 {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
-                <img src="{{ block.settings.image | image_url: width: 520 }}" srcset="{{ block.settings.image | image_url: width: 240 }} 240w, {{ block.settings.image | image_url: width: 360 }} 360w, {{ block.settings.image | image_url: width: 520 }} 520w" sizes="(max-width: 749px) calc((100vw - 72px) / {{ section.settings.columns_mobile }}), 260px" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="260" height="260" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block; filter: drop-shadow(0 16px 32px var(--bloomli-shadow-color));">
+                {%- assign image_style = '--bpp-image-scale: ' | append: image_scale | append: ';' -%}
+                {%- assign image_alt = block.settings.image.alt | default: block.settings.title -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 520
+                  | image_tag:
+                    class: 'bloomli-product-picks__image',
+                    alt: image_alt,
+                    widths: '240, 360, 520',
+                    sizes: '(max-width: 749px) 50vw, 260px',
+                    loading: 'lazy', decoding: 'async',
+                    style: image_style
+                }}
               {%- elsif picked_product.featured_image != blank -%}
-                <img src="{{ picked_product.featured_image | image_url: width: 520 }}" srcset="{{ picked_product.featured_image | image_url: width: 240 }} 240w, {{ picked_product.featured_image | image_url: width: 360 }} 360w, {{ picked_product.featured_image | image_url: width: 520 }} 520w" sizes="(max-width: 749px) calc((100vw - 72px) / {{ section.settings.columns_mobile }}), 260px" alt="{{ picked_product.featured_image.alt | default: picked_product.title | escape }}" width="260" height="260" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block; filter: drop-shadow(0 16px 32px var(--bloomli-shadow-color));">
+                {%- assign product_image_alt = picked_product.featured_image.alt | default: picked_product.title -%}
+                {{
+                  picked_product.featured_image
+                  | image_url: width: 520
+                  | image_tag:
+                    class: 'bloomli-product-picks__image',
+                    alt: product_image_alt,
+                    widths: '240, 360, 520',
+                    sizes: '(max-width: 749px) 50vw, 260px',
+                    loading: 'lazy',
+                    decoding: 'async'
+                }}
               {%- else -%}
                 <svg width="180" height="220" viewBox="0 0 180 220" fill="none" aria-hidden="true">
                   <rect x="58" y="18" width="64" height="24" rx="4" fill="rgb(var(--color-button))"/>
@@ -34,14 +60,14 @@
               {%- endif -%}
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end;">
+            <div class="bloomli-product-picks__meta">
               <div>
-                <h3 style="font-family: 'Fraunces', serif; font-size: 21px; line-height: 1.15; font-weight: 400; margin: 0 0 12px; color: var(--bloomli-text);">{{ block.settings.title | default: picked_product.title }}</h3>
+                <h3 class="bloomli-product-picks__title">{{ block.settings.title | default: picked_product.title }}</h3>
                 {%- if block.settings.show_stars -%}
-                  <div style="color: var(--bloomli-accent); font-size: 12px; letter-spacing: 1px;" aria-label="Five star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <div class="bloomli-product-picks__stars" aria-label="Five star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 {%- endif -%}
               </div>
-              <div style="font-size: 14px; color: var(--bloomli-accent); white-space: nowrap;">
+              <div class="bloomli-product-picks__price">
                 {%- if block.settings.price != blank -%}
                   {{ block.settings.price }}
                 {%- elsif picked_product.price != blank -%}
@@ -59,14 +85,6 @@
     </div>
   </div>
 </section>
-
-<style>
-  @media (max-width: 749px) {
-    .bloomli-product-picks { padding: 64px 20px !important; }
-    .bloomli-product-picks__heading { font-size: 34px !important; margin-bottom: 36px !important; }
-    .bloomli-product-picks__grid { grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0, 1fr)) !important; gap: 28px 16px !important; }
-  }
-</style>
 
 {% schema %}
 {

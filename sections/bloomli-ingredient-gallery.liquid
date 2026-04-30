@@ -1,43 +1,45 @@
-<section class="bloomli-ingredient-gallery bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--big-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --big-small-label-color: {{ section.settings.small_label_color | default: '#8A6678' }}; {% if section.settings.use_custom_background %}--big-bg: {{ section.settings.background_color }};{% else %}--big-bg: var(--bloomli-bg);{% endif %}{% case section.settings.circle_background %}{% when 'background' %}--big-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--big-circle-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--big-circle-bg: var(--bloomli-soft-blush);{% else %}--big-circle-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--big-bg);">
-  <div style="max-width: 1120px; margin: 0 auto;">
-    <div class="bloomli-ingredient-gallery__header" style="text-align: center; margin-bottom: 64px;">
+<section class="bloomli-ingredient-gallery bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--big-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --big-small-label-color: {{ section.settings.small_label_color | default: '#8A6678' }}; {% if section.settings.use_custom_background %}--big-bg: {{ section.settings.background_color }};{% else %}--big-bg: var(--bloomli-bg);{% endif %}{% case section.settings.circle_background %}{% when 'background' %}--big-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--big-circle-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--big-circle-bg: var(--bloomli-soft-blush);{% else %}--big-circle-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --big-image-size: {{ section.settings.image_size }}px; --big-image-size-mobile: {{ section.settings.image_size_mobile }}px;">
+  <div class="bloomli-section__inner" style="--bloomli-section-width: 1120px;">
+    <div class="bloomli-ingredient-gallery__header">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--big-eyebrow-color); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
+        <div class="smallcaps bloomli-ingredient-gallery__eyebrow">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
-      <h2 class="bloomli-ingredient-gallery__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0; color: var(--bloomli-text);">{{ section.settings.heading }}</h2>
+      <h2 class="bloomli-ingredient-gallery__heading">{{ section.settings.heading }}</h2>
     </div>
 
-    <div class="bloomli-ingredient-gallery__grid" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 72px 88px;">
+    <div class="bloomli-ingredient-gallery__grid">
       {%- for block in section.blocks -%}
-        <div class="bloomli-ingredient-gallery__item" {{ block.shopify_attributes }} style="text-align: center; min-width: 0;">
-          <div class="bloomli-ingredient-gallery__media" style="width: {{ section.settings.image_size }}px; max-width: 100%; aspect-ratio: 1 / 1; margin: 0 auto 24px; border-radius: 999px; overflow: hidden; position: relative; background-color: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--big-circle-bg){% endif %}; {% if block.settings.image == blank %}background-image: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}">
+        <div class="bloomli-ingredient-gallery__item" {{ block.shopify_attributes }}>
+          <div class="bloomli-ingredient-gallery__media" style="--big-item-bg: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--big-circle-bg){% endif %}; {% if block.settings.image == blank %}--big-placeholder-lines: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}">
             {%- if block.settings.image != blank -%}
               {%- assign image_scale = block.settings.image_scale | divided_by: 100.0 -%}
-            <img src="{{ block.settings.image | image_url: width: 620 }}" srcset="{{ block.settings.image | image_url: width: 240 }} 240w, {{ block.settings.image | image_url: width: 420 }} 420w, {{ block.settings.image | image_url: width: 620 }} 620w" sizes="(max-width: 749px) {{ section.settings.image_size_mobile }}px, {{ section.settings.image_size }}px" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="{{ section.settings.image_size }}" height="{{ section.settings.image_size }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
+              {%- assign image_style = '--big-image-scale: ' | append: image_scale | append: ';' -%}
+              {%- assign image_alt = block.settings.image.alt | default: block.settings.title -%}
+              {{
+                block.settings.image
+                | image_url: width: 620
+                | image_tag:
+                  class: 'bloomli-ingredient-gallery__image',
+                  alt: image_alt,
+                  widths: '240, 420, 620',
+                  sizes: '(max-width: 749px) 150px, 220px',
+                  loading: 'lazy', decoding: 'async',
+                  style: image_style
+              }}
             {%- endif -%}
             {%- if block.settings.photo_label != blank and block.settings.image == blank -%}
-              <span class="smallcaps" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: var(--bloomli-label-bg); color: var(--bloomli-text-soft); padding: 6px 14px; border-radius: 4px; font-size: 9px; white-space: nowrap;">{{ block.settings.photo_label }}</span>
+              <span class="smallcaps bloomli-section-placeholder-label">{{ block.settings.photo_label }}</span>
             {%- endif -%}
           </div>
-          <h3 style="font-family: 'Fraunces', serif; font-size: 25px; line-height: 1.1; font-weight: 400; margin: 0 0 10px; color: var(--bloomli-text);">{{ block.settings.title }}</h3>
+          <h3 class="bloomli-ingredient-gallery__title">{{ block.settings.title }}</h3>
           {%- if block.settings.amount != blank -%}
-            <div class="smallcaps" style="color: var(--big-small-label-color); font-size: 10px;">{{ block.settings.amount }}</div>
+            <div class="smallcaps bloomli-ingredient-gallery__amount">{{ block.settings.amount }}</div>
           {%- endif -%}
         </div>
       {%- endfor -%}
     </div>
   </div>
 </section>
-
-<style>
-  @media (max-width: 749px) {
-    .bloomli-ingredient-gallery { padding: 64px 20px !important; }
-    .bloomli-ingredient-gallery__header { margin-bottom: 36px !important; }
-    .bloomli-ingredient-gallery__heading { font-size: 36px !important; }
-    .bloomli-ingredient-gallery__grid { grid-template-columns: 1fr 1fr !important; gap: 36px 16px !important; }
-    .bloomli-ingredient-gallery__media { width: {{ section.settings.image_size_mobile }}px !important; }
-  }
-</style>
 
 {% schema %}
 {

@@ -1,47 +1,51 @@
-<section class="bloomli-proof-split bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bps-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --bps-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bps-bg: {{ section.settings.background_color }};{% else %}--bps-bg: var(--bloomli-bg);{% endif %}{% case section.settings.media_background %}{% when 'background' %}--bps-media-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bps-media-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bps-media-bg: var(--bloomli-soft-blush);{% else %}--bps-media-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px; background: var(--bps-bg);">
-  <div class="bloomli-proof-split__inner" style="max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 72px; align-items: center;">
-    <div class="bloomli-proof-split__media" style="aspect-ratio: 2 / 3; border-radius: {{ section.settings.image_radius }}px; overflow: hidden; position: relative; background-color: var(--bps-media-bg); {% if section.settings.image == blank %}background-image: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}">
+<section class="bloomli-proof-split bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bps-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --bps-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bps-bg: {{ section.settings.background_color }};{% else %}--bps-bg: var(--bloomli-bg);{% endif %}{% case section.settings.media_background %}{% when 'background' %}--bps-media-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bps-media-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bps-media-bg: var(--bloomli-soft-blush);{% else %}--bps-media-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bps-image-radius: {{ section.settings.image_radius }}px; --bps-image-position: {{ section.settings.image_position }};">
+  <div class="bloomli-proof-split__inner">
+    <div class="bloomli-proof-split__media" style="{% if section.settings.image == blank %}--bps-placeholder-lines: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}">
       {%- if section.settings.image != blank -%}
         {%- assign image_scale = section.settings.image_scale | divided_by: 100.0 -%}
-        <img src="{{ section.settings.image | image_url: width: 900 }}" srcset="{{ section.settings.image | image_url: width: 500 }} 500w, {{ section.settings.image | image_url: width: 700 }} 700w, {{ section.settings.image | image_url: width: 900 }} 900w, {{ section.settings.image | image_url: width: 1200 }} 1200w" sizes="(max-width: 749px) calc(100vw - 40px), 50vw" alt="{{ section.settings.image.alt | default: section.settings.heading_line1 | escape }}" width="700" height="1050" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: {{ section.settings.image_position }}; transform: scale({{ image_scale }}); transform-origin: center; display: block;">
+        {%- assign image_style = '--bps-image-scale: ' | append: image_scale | append: ';' -%}
+        {%- assign image_alt = section.settings.image.alt | default: section.settings.heading_line1 -%}
+        {{
+          section.settings.image
+          | image_url: width: 1200
+          | image_tag:
+            class: 'bloomli-proof-split__image',
+            alt: image_alt,
+            widths: '500, 700, 900, 1200',
+            sizes: '(max-width: 749px) calc(100vw - 40px), 50vw',
+            loading: 'lazy', decoding: 'async',
+            style: image_style
+        }}
       {%- endif -%}
       {%- if section.settings.image_label != blank and section.settings.image == blank -%}
-        <span class="smallcaps" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: var(--bloomli-label-bg); color: var(--bloomli-text-soft); padding: 8px 16px; border-radius: 4px; font-size: 9px; white-space: nowrap;">{{ section.settings.image_label }}</span>
+        <span class="smallcaps bloomli-section-placeholder-label">{{ section.settings.image_label }}</span>
       {%- endif -%}
     </div>
 
     <div class="bloomli-proof-split__content">
       {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps" style="color: var(--bps-eyebrow-color); margin-bottom: 18px;">{{ section.settings.eyebrow }}</div>
+        <div class="smallcaps bloomli-proof-split__eyebrow">{{ section.settings.eyebrow }}</div>
       {%- endif -%}
-      <h2 class="bloomli-proof-split__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; line-height: 1.05; font-weight: 400; margin: 0 0 26px; color: var(--bloomli-text);">
+      <h2 class="bloomli-proof-split__heading">
         {{ section.settings.heading_line1 }}<br>
-        <span style="font-style: italic;">{{ section.settings.heading_line2 }}</span>
+        <span>{{ section.settings.heading_line2 }}</span>
       </h2>
       {%- if section.settings.copy != blank -%}
-        <div class="bloomli-proof-split__copy" style="font-size: 17px; line-height: 1.65; color: var(--bloomli-text); margin-bottom: 34px;">{{ section.settings.copy }}</div>
+        <div class="bloomli-proof-split__copy">{{ section.settings.copy }}</div>
       {%- endif -%}
-      <div style="display: grid; gap: 18px;">
+      <div class="bloomli-proof-split__bullets">
         {%- for block in section.blocks -%}
-          <div {{ block.shopify_attributes }} style="display: grid; grid-template-columns: 22px 1fr; gap: 14px; align-items: start;">
-            <span style="width: 20px; height: 20px; border: 1px solid var(--bps-icon-color); border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: var(--bps-icon-color); margin-top: 2px;">
+          <div class="bloomli-proof-split__bullet" {{ block.shopify_attributes }}>
+            <span class="bloomli-proof-split__check">
               <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4"/></svg>
             </span>
-            <div style="font-size: 15px; line-height: 1.55; color: var(--bloomli-text);">{{ block.settings.text }}</div>
+            <div class="bloomli-proof-split__bullet-text">{{ block.settings.text }}</div>
           </div>
         {%- endfor -%}
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  @media (max-width: 749px) {
-    .bloomli-proof-split { padding: 64px 20px !important; }
-    .bloomli-proof-split__inner { grid-template-columns: 1fr !important; gap: 36px !important; }
-    .bloomli-proof-split__heading { font-size: 36px !important; }
-  }
-</style>
 
 {% schema %}
 {

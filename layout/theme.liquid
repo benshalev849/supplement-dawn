@@ -34,6 +34,7 @@
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'bloomli-theme.js' | asset_url }}" defer="defer"></script>
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
@@ -57,6 +58,7 @@
       {{ settings.type_commerce_font | font_face: font_display: 'swap' }}
       {{ commerce_font_bold | font_face: font_display: 'swap' }}
 
+      {% assign scheme_classes = '' %}
       {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
         {% if forloop.index == 1 -%}
@@ -264,8 +266,8 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ 'bloomli-sections.css' | asset_url | stylesheet_tag: preload: true }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
-    <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
 
     {%- if settings.cart_type == 'drawer' -%}
       <link rel="stylesheet" href="{{ 'component-cart-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -273,13 +275,6 @@
       <link rel="stylesheet" href="{{ 'component-totals.css' | asset_url }}" media="print" onload="this.media='all'">
       <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
       <link rel="stylesheet" href="{{ 'component-discounts.css' | asset_url }}" media="print" onload="this.media='all'">
-      <noscript>
-        {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
-        {{ 'component-cart.css' | asset_url | stylesheet_tag }}
-        {{ 'component-totals.css' | asset_url | stylesheet_tag }}
-        {{ 'component-price.css' | asset_url | stylesheet_tag }}
-        {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
-      </noscript>
     {%- endif -%}
 
     {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
@@ -378,31 +373,5 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <script>
-      /* Measure the fixed announcement/header stack so content starts below it. */
-      (function () {
-        function setHeaderStackHeight() {
-          var bar = document.querySelector('.announcement-bar-section.shopify-section-group-header-group');
-          var header = document.querySelector('.section-header.shopify-section-group-header-group');
-          var barHeight = bar ? bar.offsetHeight : 0;
-          var headerHeight = header ? header.offsetHeight : 0;
-
-          document.documentElement.style.setProperty(
-            '--bloomli-announcement-height',
-            barHeight + 'px'
-          );
-          document.documentElement.style.setProperty(
-            '--bloomli-header-stack-height',
-            barHeight + headerHeight + 'px'
-          );
-        }
-
-        setHeaderStackHeight();
-        window.addEventListener('load', setHeaderStackHeight);
-        window.addEventListener('resize', setHeaderStackHeight);
-        document.addEventListener('shopify:section:load', setHeaderStackHeight);
-        document.addEventListener('shopify:section:unload', setHeaderStackHeight);
-      })();
-    </script>
   </body>
 </html>

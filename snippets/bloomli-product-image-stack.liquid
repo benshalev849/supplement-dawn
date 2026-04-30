@@ -39,14 +39,16 @@
 <div class="bloomli-product-stack bloomli-product-stack--{{ stack_count }}{% if class != blank %} {{ class }}{% endif %}">
   {%- if stack_image != blank -%}
     {%- for image_index in (1..stack_count) -%}
-      <img
-        class="bloomli-product-stack__image"
-        src="{{ stack_image | image_url: width: image_width }}"
-        alt="{{ stack_alt | escape }}"
-        loading="lazy"
-        width="{{ image_width | divided_by: 2 }}"
-        height="{{ image_width | divided_by: 2 | divided_by: stack_image.aspect_ratio | ceil }}"
-      >
+      {{
+        stack_image
+        | image_url: width: image_width
+        | image_tag:
+          class: 'bloomli-product-stack__image',
+          alt: stack_alt,
+          loading: 'lazy', decoding: 'async',
+          widths: '180, 280, 420',
+          sizes: '(max-width: 749px) 42vw, 180px'
+      }}
     {%- endfor -%}
   {%- else -%}
     <span class="bloomli-product-stack__placeholder" aria-hidden="true"></span>

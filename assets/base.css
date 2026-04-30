@@ -944,12 +944,12 @@ label,
   left: auto !important;
   right: 1.2rem !important;
   background-color: #fff !important;
-  border-color: rgba(110, 74, 99, 0.18) !important;
-  color: var(--aubergine, #6E4A63) !important;
+  border-color: rgba(178, 58, 111, 0.18) !important;
+  color: var(--aubergine, #B23A6F) !important;
 }
 .product__modal-opener .product__media-icon .icon,
 .product__modal-opener .product__media-icon svg {
-  color: var(--aubergine, #6E4A63);
+  color: var(--aubergine, #B23A6F);
   fill: currentColor;
   stroke: currentColor;
 }
@@ -992,7 +992,7 @@ label,
   width: 5px;
   height: 5px;
   border-radius: 999px;
-  background: rgba(110, 74, 99, 0.25);
+  background: rgba(178, 58, 111, 0.25);
   border: 0;
   padding: 0;
   margin: 0;
@@ -1001,13 +1001,13 @@ label,
 }
 .product__media-bullet[aria-current="true"] {
   width: 22px;
-  background: var(--aubergine, #6E4A63);
+  background: var(--aubergine, #B23A6F);
 }
 .product__media-bullet:hover {
-  background: rgba(110, 74, 99, 0.45);
+  background: rgba(178, 58, 111, 0.45);
 }
 .product__media-bullet[aria-current="true"]:hover {
-  background: var(--aubergine, #6E4A63);
+  background: var(--aubergine, #B23A6F);
 }
 
 /* ============================================================

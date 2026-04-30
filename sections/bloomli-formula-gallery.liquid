@@ -78,18 +78,18 @@
             >
               {%- if block.settings.image != blank -%}
                 {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
-                <img
-                  src="{{ block.settings.image | image_url: width: 720 }}"
-                  srcset="{{ block.settings.image | image_url: width: 240 }} 240w,
-                          {{ block.settings.image | image_url: width: 480 }} 480w,
-                          {{ block.settings.image | image_url: width: 720 }} 720w"
-                  sizes="(max-width: 749px) {{ section.settings.image_size_mobile }}px, {{ section.settings.image_size }}px"
-                  alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
-                  width="{{ section.settings.image_size }}"
-                  height="{{ section.settings.image_size }}"
-                  loading="lazy"
-                  style="--bfg-image-scale: {{ image_scale }};"
-                >
+                {%- assign image_style = '--bfg-image-scale: ' | append: image_scale | append: ';' -%}
+                {%- assign image_alt = block.settings.image.alt | default: block.settings.title -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 720
+                  | image_tag:
+                    alt: image_alt,
+                    widths: '240, 480, 720',
+                    sizes: '(max-width: 749px) 150px, 220px',
+                    loading: 'lazy', decoding: 'async',
+                    style: image_style
+                }}
               {%- else -%}
                 <svg width="54" height="54" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   {%- case block.settings.icon -%}
@@ -145,17 +145,18 @@
               >
                 {%- if block.settings.image != blank -%}
                   {%- assign proof_image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
-                  <img
-                    src="{{ block.settings.image | image_url: width: 320 }}"
-                    srcset="{{ block.settings.image | image_url: width: 160 }} 160w,
-                            {{ block.settings.image | image_url: width: 320 }} 320w"
-                    sizes="(max-width: 749px) {{ section.settings.proof_icon_size_mobile }}px, {{ section.settings.proof_icon_size }}px"
-                    alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
-                    width="{{ section.settings.proof_icon_size }}"
-                    height="{{ section.settings.proof_icon_size }}"
-                    loading="lazy"
-                    style="--bfg-image-scale: {{ proof_image_scale }};"
-                  >
+                  {%- assign proof_image_style = '--bfg-image-scale: ' | append: proof_image_scale | append: ';' -%}
+                  {%- assign proof_image_alt = block.settings.image.alt | default: block.settings.title -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 320
+                    | image_tag:
+                      alt: proof_image_alt,
+                      widths: '160, 320',
+                      sizes: '(max-width: 749px) 56px, 72px',
+                      loading: 'lazy', decoding: 'async',
+                      style: proof_image_style
+                  }}
                 {%- else -%}
                   <svg width="32" height="32" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     {%- case block.settings.icon -%}

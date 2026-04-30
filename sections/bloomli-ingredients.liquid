@@ -1,40 +1,41 @@
-<section class="bloomli-ing bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bing-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --bing-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% case section.settings.card_background %}{% when 'background' %}--bing-card-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bing-card-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bing-card-bg: var(--bloomli-soft-blush);{% else %}--bing-card-bg: var(--bloomli-surface);{% endcase %} padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;">
-  <div style="max-width: 1280px; margin: 0 auto;">
+<section class="bloomli-ing bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bing-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --bing-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% case section.settings.card_background %}{% when 'background' %}--bing-card-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bing-card-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bing-card-bg: var(--bloomli-soft-blush);{% else %}--bing-card-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bing-icon-size: {{ section.settings.icon_size | default: 72 }}px; --bing-icon-size-mobile: {{ section.settings.icon_size_mobile | default: 56 }}px;">
+  <div class="bloomli-section__inner">
 
-    <div class="bloomli-ing__header" style="margin-bottom: 64px; text-align: center;">
+    <div class="bloomli-ing__header">
       {%- if section.settings.eyebrow != blank -%}
-        <div style="display: inline-block; background: var(--bloomli-surface); padding: 5px 12px; border-radius: 999px; margin-bottom: 18px;">
-          <span class="smallcaps" style="color: var(--bing-eyebrow-color); font-size: 11px;">{{ section.settings.eyebrow }}</span>
+        <div class="bloomli-ing__eyebrow-badge">
+          <span class="smallcaps bloomli-ing__eyebrow">{{ section.settings.eyebrow }}</span>
         </div>
       {%- endif -%}
-      <h2 class="bloomli-ing__heading" style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 100; font-size: 52px; font-weight: 400; max-width: 720px; margin: 0 auto; color: var(--bloomli-text); line-height: 1.05;">
-        {{ section.settings.heading_line1 }}<br><span style="font-style: italic;">{{ section.settings.heading_line2 }}</span>
+      <h2 class="bloomli-ing__heading">
+        {{ section.settings.heading_line1 }}<br><span>{{ section.settings.heading_line2 }}</span>
       </h2>
     </div>
 
     {%- assign block_count = section.blocks.size -%}
     {%- assign desktop_cols = block_count | at_most: 4 -%}
     {%- assign icon_size = section.settings.icon_size | default: 72 -%}
-    <div class="bloomli-ing__grid" style="display: grid; grid-template-columns: repeat({{ desktop_cols }}, 1fr); gap: 16px;">
+    <div class="bloomli-ing__grid" style="--bing-columns: {{ desktop_cols }};">
       {%- for block in section.blocks -%}
-        <div class="bloomli-ing__card" {{ block.shopify_attributes }} style="background: var(--bing-card-bg); border-radius: 12px; padding: 24px; text-align: center; aspect-ratio: 1 / 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0;">
-          <div class="bloomli-ing__icon" style="margin-bottom: 12px; display: flex; justify-content: center; align-items: center; width: {{ icon_size }}px; height: {{ icon_size }}px;">
+        <div class="bloomli-ing__card" {{ block.shopify_attributes }}>
+          <div class="bloomli-ing__icon">
             {%- if block.settings.image != blank -%}
               {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
-              <img
-                class="bloomli-ing__icon-img"
-                src="{{ block.settings.image | image_url: width: 240 }}"
-                srcset="{{ block.settings.image | image_url: width: 120 }} 120w,
-                        {{ block.settings.image | image_url: width: 240 }} 240w"
-                sizes="(max-width: 749px) {{ section.settings.icon_size_mobile | default: 56 }}px, {{ icon_size }}px"
-                alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
-                width="{{ icon_size }}"
-                height="{{ icon_size }}"
-                loading="lazy"
-                style="width: 100%; height: 100%; max-width: none; object-fit: contain; transform: scale({{ image_scale }}); transform-origin: center; display: block;"
-              >
+              {%- assign image_style = '--bing-image-scale: ' | append: image_scale | append: ';' -%}
+              {%- assign image_alt = block.settings.image.alt | default: block.settings.name -%}
+              {{
+                block.settings.image
+                | image_url: width: 240
+                | image_tag:
+                  class: 'bloomli-ing__icon-img',
+                  alt: image_alt,
+                  widths: '120, 240',
+                  sizes: '(max-width: 749px) 56px, 72px',
+                  loading: 'lazy', decoding: 'async',
+                  style: image_style
+              }}
             {%- else -%}
-              <svg width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 80 80" fill="none" stroke="currentColor" color="var(--bing-icon-color)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="bloomli-ing__icon-svg" width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
                 {%- case block.settings.botanical -%}
                   {%- when 'biotin' -%}
                     <path d="M40 10 C 30 25, 30 45, 40 70"/><path d="M40 22 C 30 20, 22 24, 20 32 C 28 34, 36 30, 40 22Z"/><path d="M40 38 C 52 36, 60 40, 62 48 C 54 52, 44 48, 40 38Z"/><path d="M40 54 C 30 52, 22 56, 22 64 C 30 66, 38 62, 40 54Z"/>
@@ -54,47 +55,14 @@
               </svg>
             {%- endif -%}
           </div>
-          <h4 class="bloomli-ing__name" style="font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; margin: 0 0 6px; color: var(--bloomli-text); line-height: 1.15;">{{ block.settings.name }}</h4>
-          <p class="bloomli-ing__copy" style="font-size: 12px; color: var(--bloomli-text-muted); line-height: 1.45; margin: 0; word-wrap: break-word; overflow-wrap: break-word;">{{ block.settings.benefit }}</p>
+          <h4 class="bloomli-ing__name">{{ block.settings.name }}</h4>
+          <p class="bloomli-ing__copy">{{ block.settings.benefit }}</p>
         </div>
       {%- endfor -%}
     </div>
 
   </div>
 </section>
-
-<style>
-  .bloomli-ing__icon-img { max-width: none !important; }
-
-  @media (max-width: 749px) {
-    .bloomli-ing {
-      padding-left: 16px !important;
-      padding-right: 16px !important;
-      padding-top: 56px !important;
-      padding-bottom: 56px !important;
-    }
-    .bloomli-ing__grid {
-      grid-template-columns: 1fr 1fr !important;
-      gap: 12px !important;
-    }
-    .bloomli-ing__card {
-      padding: 16px !important;
-    }
-    .bloomli-ing__icon {
-      width: {{ section.settings.icon_size_mobile | default: 56 }}px !important;
-      height: {{ section.settings.icon_size_mobile | default: 56 }}px !important;
-      margin-bottom: 8px !important;
-    }
-    .bloomli-ing__icon svg {
-      width: {{ section.settings.icon_size_mobile | default: 56 }}px !important;
-      height: {{ section.settings.icon_size_mobile | default: 56 }}px !important;
-    }
-    .bloomli-ing__heading { font-size: 30px !important; }
-    .bloomli-ing__name { font-size: 16px !important; }
-    .bloomli-ing__copy { font-size: 11px !important; }
-    .bloomli-ing__header { margin-bottom: 36px !important; }
-  }
-</style>
 
 {% schema %}
 {

@@ -46,18 +46,18 @@
           <div class="bloomli-reviews__media">
             {%- if block.settings.image != blank -%}
               {%- assign image_scale = block.settings.image_scale | divided_by: 100.0 -%}
-              <img
-                src="{{ block.settings.image | image_url: width: 760 }}"
-                srcset="{{ block.settings.image | image_url: width: 320 }} 320w,
-                        {{ block.settings.image | image_url: width: 520 }} 520w,
-                        {{ block.settings.image | image_url: width: 760 }} 760w"
-                sizes="(max-width: 749px) 86vw, (max-width: 989px) calc((100vw - {{ section.settings.card_gap }}px) / 2), calc(({{ section.settings.content_width }}px - {{ section.settings.card_gap | times: 2 }}px) / 3)"
-                alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
-                width="680"
-                height="680"
-                loading="lazy"
-                style="--br-image-scale: {{ image_scale }};"
-              >
+              {%- assign image_style = '--br-image-scale: ' | append: image_scale | append: ';' -%}
+              {%- assign image_alt = block.settings.image.alt | default: block.settings.name -%}
+              {{
+                block.settings.image
+                | image_url: width: 760
+                | image_tag:
+                  alt: image_alt,
+                  widths: '320, 520, 760',
+                  sizes: '(max-width: 749px) 86vw, (max-width: 989px) 50vw, 33vw',
+                  loading: 'lazy', decoding: 'async',
+                  style: image_style
+              }}
             {%- endif -%}
 
             {%- if block.settings.image == blank and block.settings.photo_label != blank -%}

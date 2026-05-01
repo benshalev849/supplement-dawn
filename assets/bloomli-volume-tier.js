@@ -39,8 +39,6 @@
     const oneTimePriceEl = root.querySelector('[data-vt-onetime-price]');
     const subscribePriceEl = root.querySelector('[data-vt-subscribe-price]');
     const subSavingsEl = root.querySelector('[data-vt-sub-savings]');
-    const modeDailySubscribeEl = root.querySelector('[data-vt-mode-subscribe-daily]');
-    const modeDailyOnetimeEl = root.querySelector('[data-vt-mode-onetime-daily]');
     const modeSubInfoEl = root.querySelector('[data-vt-mode-sub-info]');
     const modeOnetimeInfoEl = root.querySelector('[data-vt-mode-onetime-info]');
     const modeSubCompareEl = root.querySelector('[data-vt-mode-subscribe-compare]');
@@ -100,9 +98,6 @@
 
       const subDailyStr = sizeDaily ? (sizeDaily.dataset.subscribeDaily || '') : '';
       const onetimeDailyStr = sizeDaily ? (sizeDaily.dataset.onetimeDaily || '') : '';
-
-      if (modeDailySubscribeEl) modeDailySubscribeEl.textContent = subDailyStr;
-      if (modeDailyOnetimeEl) modeDailyOnetimeEl.textContent = onetimeDailyStr;
 
       // Info line: "<strong>1 Month</strong> · 60 Count · ($0.81 / Day)"
       const subInfoHTML = sizeLabel

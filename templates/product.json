@@ -811,7 +811,7 @@
         "handle_color": "#b23a6f",
         "divider_color": "#fdfaf7",
         "aspect_ratio": "3 / 4",
-        "max_width": 1040,
+        "max_width": 500,
         "corner_radius": 20,
         "heading_size": 52,
         "heading_size_mobile": 36,

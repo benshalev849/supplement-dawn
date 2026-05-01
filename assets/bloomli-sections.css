@@ -1009,9 +1009,11 @@
   max-width: 1180px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 460px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 460px);
   gap: clamp(32px, 6vw, 80px);
   align-items: center;
+  padding: clamp(28px, 4vw, 56px);
+  border-radius: var(--bps-image-radius);
 }
 
 .bloomli-proof-split__media {
@@ -1086,6 +1088,11 @@
 }
 
 @media (max-width: 989px) {
+  .bloomli-proof-split {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
   .bloomli-proof-split__inner {
     grid-template-columns: 1fr;
   }

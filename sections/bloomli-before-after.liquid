@@ -1,0 +1,427 @@
+{{ 'bloomli-before-after.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-before-after.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign before_alt = section.settings.before_alt | default: section.settings.before_image.alt | default: section.settings.before_label
+  assign after_alt = section.settings.after_alt | default: section.settings.after_image.alt | default: section.settings.after_label
+-%}
+
+<section
+  class="bloomli-before-after color-{{ section.settings.color_scheme }} gradient"
+  data-bloomli-before-after
+  style="
+    --bba-position: {{ section.settings.initial_position }}%;
+    --bba-max-width: {{ section.settings.max_width }}px;
+    --bba-aspect-ratio: {{ section.settings.aspect_ratio }};
+    --bba-radius: {{ section.settings.corner_radius }}px;
+    --bba-eyebrow-color: {{ section.settings.eyebrow_accent_color }};
+    --bba-label-bg: {{ section.settings.label_background }};
+    --bba-label-text: {{ section.settings.label_text_color }};
+    --bba-handle-color: {{ section.settings.handle_color }};
+    --bba-line-color: {{ section.settings.divider_color }};
+    --bba-image-position: {{ section.settings.image_position }};
+    --bba-heading-size: {{ section.settings.heading_size }}px;
+    --bba-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --bba-body-size: {{ section.settings.body_size }}px;
+    --bba-body-size-mobile: {{ section.settings.body_size_mobile }}px;
+    --bba-padding-top: {{ section.settings.padding_top }}px;
+    --bba-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --bba-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --bba-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="bloomli-before-after__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.copy != blank -%}
+      <div class="bloomli-before-after__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="smallcaps bloomli-before-after__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="bloomli-before-after__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.copy != blank -%}
+          <div class="bloomli-before-after__copy rte">
+            {{ section.settings.copy }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="bloomli-before-after__frame">
+      <div class="bloomli-before-after__after">
+        {%- if section.settings.after_image != blank -%}
+          {{
+            section.settings.after_image
+            | image_url: width: 1800
+            | image_tag:
+              class: 'bloomli-before-after__image',
+              alt: after_alt,
+              widths: '375, 550, 750, 1100, 1400, 1800',
+              sizes: '(max-width: 749px) calc(100vw - 40px), min(100vw - 96px, 1040px)',
+              loading: 'lazy',
+              decoding: 'async'
+          }}
+        {%- else -%}
+          <div class="bloomli-before-after__placeholder">{{ section.settings.after_placeholder }}</div>
+        {%- endif -%}
+      </div>
+
+      <div class="bloomli-before-after__before">
+        {%- if section.settings.before_image != blank -%}
+          {{
+            section.settings.before_image
+            | image_url: width: 1800
+            | image_tag:
+              class: 'bloomli-before-after__image',
+              alt: before_alt,
+              widths: '375, 550, 750, 1100, 1400, 1800',
+              sizes: '(max-width: 749px) calc(100vw - 40px), min(100vw - 96px, 1040px)',
+              loading: 'lazy',
+              decoding: 'async'
+          }}
+        {%- else -%}
+          <div class="bloomli-before-after__placeholder">{{ section.settings.before_placeholder }}</div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_labels -%}
+        <div class="bloomli-before-after__labels" aria-hidden="true">
+          <span class="bloomli-before-after__label">{{ section.settings.before_label }}</span>
+          <span class="bloomli-before-after__label">{{ section.settings.after_label }}</span>
+        </div>
+      {%- endif -%}
+
+      <label class="visually-hidden" for="BloomliBeforeAfter-{{ section.id }}">
+        {{ section.settings.slider_label }}
+      </label>
+      <input
+        id="BloomliBeforeAfter-{{ section.id }}"
+        class="bloomli-before-after__range"
+        type="range"
+        min="0"
+        max="100"
+        step="1"
+        value="{{ section.settings.initial_position }}"
+        aria-label="{{ section.settings.slider_label | escape }}"
+        data-bloomli-before-after-range
+      >
+      <span class="bloomli-before-after__handle" aria-hidden="true"></span>
+    </div>
+
+    {%- if section.settings.caption != blank -%}
+      <div class="bloomli-before-after__caption">
+        {{ section.settings.caption }}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli - Before After",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Real routine progress"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_accent_color",
+      "label": "Eyebrow accent color",
+      "default": "#8A6678"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Before and after, side by side."
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Copy",
+      "default": "<p>Slide to compare visible progress from a consistent Bloomli supplement routine.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image"
+    },
+    {
+      "type": "text",
+      "id": "before_alt",
+      "label": "Before image alt text"
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "text",
+      "id": "before_placeholder",
+      "label": "Before placeholder text",
+      "default": "Before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "text",
+      "id": "after_alt",
+      "label": "After image alt text"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After label",
+      "default": "After"
+    },
+    {
+      "type": "text",
+      "id": "after_placeholder",
+      "label": "After placeholder text",
+      "default": "After image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image crop position",
+      "options": [
+        {
+          "value": "center center",
+          "label": "Center"
+        },
+        {
+          "value": "center top",
+          "label": "Top"
+        },
+        {
+          "value": "center bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "left center",
+          "label": "Left"
+        },
+        {
+          "value": "right center",
+          "label": "Right"
+        }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "range",
+      "id": "initial_position",
+      "label": "Initial slider position",
+      "min": 10,
+      "max": 90,
+      "step": 1,
+      "default": 50,
+      "unit": "%"
+    },
+    {
+      "type": "text",
+      "id": "slider_label",
+      "label": "Accessible slider label",
+      "default": "Compare before and after images"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_labels",
+      "label": "Show before and after labels",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "label_background",
+      "label": "Label background",
+      "default": "#B23A6F"
+    },
+    {
+      "type": "color",
+      "id": "label_text_color",
+      "label": "Label text",
+      "default": "#FDFAF7"
+    },
+    {
+      "type": "color",
+      "id": "handle_color",
+      "label": "Handle color",
+      "default": "#B23A6F"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider and handle icon",
+      "default": "#FDFAF7"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        {
+          "value": "16 / 10",
+          "label": "Wide"
+        },
+        {
+          "value": "4 / 5",
+          "label": "Portrait"
+        },
+        {
+          "value": "1 / 1",
+          "label": "Square"
+        },
+        {
+          "value": "3 / 4",
+          "label": "Tall"
+        }
+      ],
+      "default": "16 / 10"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 720,
+      "max": 1320,
+      "step": 20,
+      "default": 1040,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size desktop",
+      "min": 34,
+      "max": 72,
+      "step": 2,
+      "default": 52,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size mobile",
+      "min": 28,
+      "max": 48,
+      "step": 2,
+      "default": 36,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "body_size",
+      "label": "Body size desktop",
+      "min": 14,
+      "max": 22,
+      "step": 1,
+      "default": 17,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "body_size_mobile",
+      "label": "Body size mobile",
+      "min": 13,
+      "max": 18,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "textarea",
+      "id": "caption",
+      "label": "Caption",
+      "default": "Results vary. Before and after photos should represent real customers and be used only with permission."
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top desktop",
+      "min": 40,
+      "max": 176,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom desktop",
+      "min": 40,
+      "max": 176,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile",
+      "min": 32,
+      "max": 120,
+      "step": 8,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile",
+      "min": 32,
+      "max": 120,
+      "step": 8,
+      "default": 64,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli - Before After"
+    }
+  ]
+}
+{% endschema %}

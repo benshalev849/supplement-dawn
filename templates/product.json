@@ -557,7 +557,7 @@
         "photo_itwQBT": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Selfie_1.png",
+            "image": "shopify://shop_images/Model_Holding_Gummy_1.png",
             "image_scale": 100,
             "label": "Photo 1",
             "use_custom_placeholder_color": false,
@@ -567,7 +567,7 @@
         "photo_rFx7fP": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Gummy_Selfie_1_e003776d-1b0d-4c50-9281-b57d3c1cb483.png",
+            "image": "shopify://shop_images/Client_Result_Selfie_11.png",
             "image_scale": 100,
             "label": "Photo 2",
             "use_custom_placeholder_color": false,
@@ -577,6 +577,7 @@
         "photo_UQecfB": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Model_Eating_Gummy_1.png",
             "image_scale": 100,
             "label": "Photo 3",
             "use_custom_placeholder_color": false,
@@ -586,6 +587,7 @@
         "photo_HnKE8c": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_6.png",
             "image_scale": 100,
             "label": "Photo 4",
             "use_custom_placeholder_color": false,
@@ -595,6 +597,7 @@
         "photo_gDhx3U": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_1.png",
             "image_scale": 100,
             "label": "Photo 5",
             "use_custom_placeholder_color": false,
@@ -614,6 +617,7 @@
         "photo_jhY4cR": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_13.png",
             "image_scale": 100,
             "label": "Photo 7",
             "use_custom_placeholder_color": false,
@@ -623,6 +627,7 @@
         "photo_iXjxWB": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Product_Display_1.png",
             "image_scale": 100,
             "label": "Photo 8",
             "use_custom_placeholder_color": false,
@@ -642,6 +647,7 @@
         "photo_Xj6LgH": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_7.png",
             "image_scale": 100,
             "label": "Photo 10",
             "use_custom_placeholder_color": false,
@@ -661,6 +667,7 @@
         "photo_zbFfXz": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Selfie_1_af7f5ff3-629c-4859-965b-b0a6575c80f3.png",
             "image_scale": 100,
             "label": "Photo 12",
             "use_custom_placeholder_color": false,

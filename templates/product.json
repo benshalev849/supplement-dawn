@@ -557,6 +557,7 @@
         "photo_itwQBT": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Selfie_1.png",
             "image_scale": 100,
             "label": "Photo 1",
             "use_custom_placeholder_color": false,
@@ -566,6 +567,7 @@
         "photo_rFx7fP": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_1_e003776d-1b0d-4c50-9281-b57d3c1cb483.png",
             "image_scale": 100,
             "label": "Photo 2",
             "use_custom_placeholder_color": false,
@@ -629,6 +631,7 @@
         "photo_Artdhg": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_2.png",
             "image_scale": 100,
             "label": "Photo 9",
             "use_custom_placeholder_color": false,
@@ -647,6 +650,7 @@
         "photo_fGEqGb": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_3.png",
             "image_scale": 100,
             "label": "Photo 11",
             "use_custom_placeholder_color": false,

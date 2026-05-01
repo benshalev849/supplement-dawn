@@ -228,13 +228,18 @@
   }
 }
 
-/* "Select Your Offer" section label */
+/* Section labels — "Select Your Size:" and "Select Your Offer" */
 .bloomli-vt__section-label {
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 14px;
   font-weight: 700;
   color: var(--charcoal, #2A2622);
-  margin: 16px 0 10px;
+  margin: 24px 0 10px;
+}
+
+.bloomli-vt__section-label--size {
+  margin-top: 0;
+  margin-bottom: 12px;
 }
 
 .bloomli-vt__modes {
@@ -244,11 +249,11 @@
   margin: 0 0 14px;
 }
 
-/* Base card (one-time purchase) */
+/* Base card */
 .bloomli-vt__mode {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   background: #fff;
   border: 1.5px solid rgba(178, 58, 111, 0.15);
@@ -256,6 +261,12 @@
   padding: 12px 14px;
   cursor: pointer;
   transition: border-color 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+}
+
+/* Keep radio-visual vertically centered with first text line */
+.bloomli-vt__mode .bloomli-vt__radio-visual {
+  margin-top: 1px;
+  flex-shrink: 0;
 }
 
 .bloomli-vt__mode:hover {
@@ -291,18 +302,17 @@
   background: rgba(178, 58, 111, 0.05);
 }
 
-/* Full-width "Most Popular" bar */
+/* Full-width bar — now the card title */
 .bloomli-vt__mode-bar {
   display: block;
   width: 100%;
-  padding: 8px 14px;
+  padding: 12px 16px;
   background: var(--aubergine, #B23A6F);
   color: #FDFAF7;
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   text-align: center;
   line-height: 1;
   pointer-events: none;
@@ -323,13 +333,31 @@
   gap: 12px;
 }
 
-/* Left side: title + savings badge */
-.bloomli-vt__mode-info {
+/* Subscribe card: info line (e.g. "1 Month · 60 Count") */
+.bloomli-vt__mode-info-line {
   flex: 1;
   min-width: 0;
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--charcoal, #2A2622);
+  line-height: 1.3;
 }
 
-/* Right side: price + per-day stacked */
+.bloomli-vt__mode-info-line:empty {
+  display: none;
+}
+
+/* One-time card: middle column (title + info + savings) */
+.bloomli-vt__mode-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* Right side: compare + price stacked, then per-day */
 .bloomli-vt__mode-prices {
   display: flex;
   flex-direction: column;
@@ -338,21 +366,59 @@
   flex-shrink: 0;
 }
 
+/* Compare-at + price on same line */
+.bloomli-vt__mode-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+.bloomli-vt__mode-compare {
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(42, 38, 34, 0.42);
+  text-decoration: line-through;
+  white-space: nowrap;
+}
+
+.bloomli-vt__mode-compare:empty {
+  display: none;
+}
+
 .bloomli-vt__mode-daily {
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 11px;
   color: rgba(42, 38, 34, 0.52);
   white-space: nowrap;
+  text-align: right;
 }
 
 .bloomli-vt__mode-daily:empty {
   display: none;
 }
 
+/* "You're saving $X" */
+.bloomli-vt__mode-savings-text {
+  display: block;
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--aubergine, #B23A6F);
+  margin-top: 5px;
+  line-height: 1.2;
+}
+
+.bloomli-vt__mode-savings-text:empty {
+  display: none;
+  margin-top: 0;
+}
+
 /* Perks list inside subscribe card */
 .bloomli-vt__mode-perks {
   list-style: none;
-  margin: 10px 0 2px 30px;
+  margin: 8px 0 2px 0;
   padding: 0;
   display: flex;
   flex-direction: column;

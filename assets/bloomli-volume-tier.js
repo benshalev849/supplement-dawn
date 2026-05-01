@@ -41,6 +41,12 @@
     const subSavingsEl = root.querySelector('[data-vt-sub-savings]');
     const modeDailySubscribeEl = root.querySelector('[data-vt-mode-subscribe-daily]');
     const modeDailyOnetimeEl = root.querySelector('[data-vt-mode-onetime-daily]');
+    const modeSubInfoEl = root.querySelector('[data-vt-mode-sub-info]');
+    const modeOnetimeInfoEl = root.querySelector('[data-vt-mode-onetime-info]');
+    const modeSubCompareEl = root.querySelector('[data-vt-mode-subscribe-compare]');
+    const modeSubSavingsEl = root.querySelector('[data-vt-mode-subscribe-savings]');
+    const modeOnetimeCompareEl = root.querySelector('[data-vt-mode-onetime-compare]');
+    const modeOnetimeSavingsEl = root.querySelector('[data-vt-mode-onetime-savings]');
 
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const discountBadgeTemplate = root.dataset.discountBadgeTemplate || 'SAVE [percent]%';
@@ -88,9 +94,41 @@
       if (subscribePriceEl) subscribePriceEl.textContent = formatMoney(subscribeCents, moneyFormat);
 
       const sizeDaily = size.querySelector('[data-vt-daily]');
-      if (sizeDaily) {
-        if (modeDailySubscribeEl) modeDailySubscribeEl.textContent = sizeDaily.dataset.subscribeDaily || '';
-        if (modeDailyOnetimeEl) modeDailyOnetimeEl.textContent = sizeDaily.dataset.onetimeDaily || '';
+      const sizeLabel = size.dataset.sizeLabel || '';
+      const sizeCount = size.dataset.sizeCount || '';
+
+      const subDailyStr = sizeDaily ? (sizeDaily.dataset.subscribeDaily || '') : '';
+      const onetimeDailyStr = sizeDaily ? (sizeDaily.dataset.onetimeDaily || '') : '';
+
+      if (modeDailySubscribeEl) modeDailySubscribeEl.textContent = subDailyStr;
+      if (modeDailyOnetimeEl) modeDailyOnetimeEl.textContent = onetimeDailyStr;
+
+      // Info line: "1 Month · 60 Count"
+      const infoText = [sizeLabel, sizeCount].filter(Boolean).join(' · ');
+      if (modeSubInfoEl) modeSubInfoEl.textContent = infoText;
+      if (modeOnetimeInfoEl) modeOnetimeInfoEl.textContent = infoText;
+
+      // Compare-at and savings (round to nearest dollar, strip decimals)
+      function savingsText(savingsCents) {
+        if (savingsCents <= 0) return '';
+        const formatted = formatMoney(Math.round(savingsCents / 100) * 100, moneyFormat);
+        return "You're saving " + formatted.replace(/[.,]00$/, '');
+      }
+
+      if (lineCompareCents > subscribeCents) {
+        if (modeSubCompareEl) modeSubCompareEl.textContent = formatMoney(lineCompareCents, moneyFormat);
+        if (modeSubSavingsEl) modeSubSavingsEl.textContent = savingsText(lineCompareCents - subscribeCents);
+      } else {
+        if (modeSubCompareEl) modeSubCompareEl.textContent = '';
+        if (modeSubSavingsEl) modeSubSavingsEl.textContent = '';
+      }
+
+      if (lineCompareCents > oneTimeCents) {
+        if (modeOnetimeCompareEl) modeOnetimeCompareEl.textContent = formatMoney(lineCompareCents, moneyFormat);
+        if (modeOnetimeSavingsEl) modeOnetimeSavingsEl.textContent = savingsText(lineCompareCents - oneTimeCents);
+      } else {
+        if (modeOnetimeCompareEl) modeOnetimeCompareEl.textContent = '';
+        if (modeOnetimeSavingsEl) modeOnetimeSavingsEl.textContent = '';
       }
 
       if (subSavingsEl) {

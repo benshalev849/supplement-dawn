@@ -604,6 +604,7 @@
         "photo_HkWBVE": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_4.png",
             "image_scale": 100,
             "label": "Photo 6",
             "use_custom_placeholder_color": false,

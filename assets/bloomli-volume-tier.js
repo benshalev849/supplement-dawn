@@ -103,10 +103,12 @@
       if (modeDailySubscribeEl) modeDailySubscribeEl.textContent = subDailyStr;
       if (modeDailyOnetimeEl) modeDailyOnetimeEl.textContent = onetimeDailyStr;
 
-      // Info line: "1 Month · 60 Count"
-      const infoText = [sizeLabel, sizeCount].filter(Boolean).join(' · ');
-      if (modeSubInfoEl) modeSubInfoEl.textContent = infoText;
-      if (modeOnetimeInfoEl) modeOnetimeInfoEl.textContent = infoText;
+      // Info line: "<strong>1 Month</strong> · 60 Count"
+      const infoHTML = sizeLabel
+        ? '<strong>' + sizeLabel + '</strong>' + (sizeCount ? ' · ' + sizeCount : '')
+        : sizeCount;
+      if (modeSubInfoEl) modeSubInfoEl.innerHTML = infoHTML;
+      if (modeOnetimeInfoEl) modeOnetimeInfoEl.innerHTML = infoHTML;
 
       // Compare-at and savings (round to nearest dollar, strip decimals)
       function savingsText(savingsCents) {

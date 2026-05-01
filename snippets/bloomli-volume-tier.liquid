@@ -335,16 +335,17 @@
                    class="bloomli-vt__radio-native"
                    {% if default_mode == 'subscribe' %}checked{% endif %}>
             <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
-            <span class="bloomli-vt__mode-info-line" data-vt-mode-sub-info></span>
+            <span class="bloomli-vt__mode-title">{{ block.settings.label_subscribe | default: 'Subscribe & Save' }}</span>
             <div class="bloomli-vt__mode-prices">
               <div class="bloomli-vt__mode-price-row">
                 <span class="bloomli-vt__mode-compare" data-vt-mode-subscribe-compare></span>
                 <span class="bloomli-vt__mode-price" data-vt-subscribe-price>{{ unit_price | money }}</span>
               </div>
               <span class="bloomli-vt__mode-daily" data-vt-mode-subscribe-daily></span>
+              <span class="bloomli-vt__mode-savings-text" data-vt-mode-subscribe-savings></span>
             </div>
           </div>
-          <span class="bloomli-vt__mode-savings-text" data-vt-mode-subscribe-savings></span>
+          <span class="bloomli-vt__mode-info-line" data-vt-mode-sub-info></span>
           {%- if block.settings.subscribe_show_perks != false -%}
             <ul class="bloomli-vt__mode-perks" aria-hidden="true">
               {%- if subscribe_perk_1 != blank -%}
@@ -373,7 +374,6 @@
         <div class="bloomli-vt__mode-body">
           <span class="bloomli-vt__mode-title">{{ block.settings.label_one_time | default: 'One-Time Purchase' }}</span>
           <span class="bloomli-vt__mode-info-line" data-vt-mode-onetime-info></span>
-          <span class="bloomli-vt__mode-savings-text" data-vt-mode-onetime-savings></span>
         </div>
         <div class="bloomli-vt__mode-prices">
           <div class="bloomli-vt__mode-price-row">
@@ -381,6 +381,7 @@
             <span class="bloomli-vt__mode-price" data-vt-onetime-price>{{ unit_price | money }}</span>
           </div>
           <span class="bloomli-vt__mode-daily" data-vt-mode-onetime-daily></span>
+          <span class="bloomli-vt__mode-savings-text" data-vt-mode-onetime-savings></span>
         </div>
       </label>
 

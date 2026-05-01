@@ -58,6 +58,8 @@
   touch-action: pan-y;
 }
 
+.bloomli-before-after__after,
+.bloomli-before-after__before,
 .bloomli-before-after__image,
 .bloomli-before-after__placeholder {
   position: absolute;

@@ -49,7 +49,7 @@
       </div>
     {%- endif -%}
 
-    <div class="bloomli-before-after__frame">
+    <div class="bloomli-before-after__frame" data-bloomli-before-after-frame>
       <div class="bloomli-before-after__after">
         {%- if section.settings.after_image != blank -%}
           {{
@@ -289,32 +289,32 @@
       "label": "Image aspect ratio",
       "options": [
         {
-          "value": "16 / 10",
-          "label": "Wide"
-        },
-        {
           "value": "4 / 5",
           "label": "Portrait"
+        },
+        {
+          "value": "3 / 4",
+          "label": "Tall"
         },
         {
           "value": "1 / 1",
           "label": "Square"
         },
         {
-          "value": "3 / 4",
-          "label": "Tall"
+          "value": "16 / 10",
+          "label": "Wide"
         }
       ],
-      "default": "16 / 10"
+      "default": "4 / 5"
     },
     {
       "type": "range",
       "id": "max_width",
       "label": "Max width",
-      "min": 720,
+      "min": 360,
       "max": 1320,
       "step": 20,
-      "default": 1040,
+      "default": 620,
       "unit": "px"
     },
     {

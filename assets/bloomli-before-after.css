@@ -55,7 +55,13 @@
   background: rgba(var(--color-foreground), 0.05);
   box-shadow: 0 20px 56px rgba(var(--color-foreground), 0.1);
   isolation: isolate;
+  /* horizontal: block horizontal browser pan so the range input can capture it */
   touch-action: pan-y;
+}
+
+/* vertical: block vertical browser pan (page scroll) so JS can capture it */
+.bloomli-before-after--vertical .bloomli-before-after__frame {
+  touch-action: pan-x;
 }
 
 .bloomli-before-after__after,
@@ -107,12 +113,26 @@
 
 .bloomli-before-after__labels {
   position: absolute;
-  inset: 18px 18px auto;
   z-index: 5;
   display: flex;
-  justify-content: space-between;
   gap: 12px;
   pointer-events: none;
+}
+
+/* Horizontal: labels sit top-left and top-right */
+.bloomli-before-after--horizontal .bloomli-before-after__labels {
+  inset: 18px 18px auto;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Vertical: before label top-left, after label bottom-left */
+.bloomli-before-after--vertical .bloomli-before-after__labels {
+  inset: 18px auto 18px 18px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .bloomli-before-after__label {
@@ -194,7 +214,12 @@
   touch-action: pan-y;
 }
 
+/* vertical: range input is horizontal so it can't drive vertical interaction.
+   Disable its pointer events — the frame's JS handles everything instead.
+   Keyboard events still work (pointer-events doesn't affect keyboard). */
 .bloomli-before-after--vertical .bloomli-before-after__range {
+  pointer-events: none;
+  touch-action: pan-x;
   cursor: ns-resize;
 }
 

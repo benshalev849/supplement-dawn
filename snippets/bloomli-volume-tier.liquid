@@ -35,7 +35,6 @@
   assign default_mode = block.settings.default_mode | default: 'onetime'
   assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 10 | plus: 0
   assign discount_badge_template = block.settings.discount_badge_template | default: 'SAVE [percent]%'
-  assign subscription_extra_template = block.settings.subscription_extra_label_template | default: 'an extra [percent]%'
   assign add_to_cart_label = block.settings.add_to_cart_label | default: 'Add to cart'
   assign sold_out_label = block.settings.sold_out_label | default: 'Sold out'
 -%}
@@ -48,7 +47,8 @@
      data-unit-compare="{{ unit_compare }}"
      data-subscription-discount-pct="{{ subscription_discount_pct }}"
      data-discount-badge-template="{{ discount_badge_template | escape }}"
-     data-subscription-extra-template="{{ subscription_extra_template | escape }}"
+     data-savings-prefix="{{ block.settings.savings_label_prefix | default: "You're saving " | escape }}"
+     data-savings-suffix="{{ block.settings.savings_label_suffix | default: '$' | escape }}"
      data-add-to-cart-label="{{ add_to_cart_label | escape }}"
      data-sold-out-label="{{ sold_out_label | escape }}"
      data-money-format="{{ shop.money_format | escape }}"
@@ -382,6 +382,20 @@
           </div>
           <span class="bloomli-vt__mode-daily" data-vt-mode-onetime-daily></span>
           <span class="bloomli-vt__mode-savings-text" data-vt-mode-onetime-savings></span>
+        </div>
+        <div class="bloomli-vt__onetime-accordion" aria-hidden="true">
+          <div class="bloomli-vt__onetime-accordion-inner">
+            <div class="bloomli-vt__onetime-caveats">
+              {%- assign caveat_1 = block.settings.onetime_caveat_1 | default: 'No extra subscribe & save discount' -%}
+              {%- assign caveat_2 = block.settings.onetime_caveat_2 | default: 'Free shipping unlocks at 3 packs' -%}
+              {%- if caveat_1 != blank -%}
+                <span class="bloomli-vt__onetime-caveat">○ {{ caveat_1 }}</span>
+              {%- endif -%}
+              {%- if caveat_2 != blank -%}
+                <span class="bloomli-vt__onetime-caveat">○ {{ caveat_2 }}</span>
+              {%- endif -%}
+            </div>
+          </div>
         </div>
       </label>
 

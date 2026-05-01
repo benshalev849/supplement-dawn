@@ -50,8 +50,9 @@
 
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const discountBadgeTemplate = root.dataset.discountBadgeTemplate || 'SAVE [percent]%';
-    const subscriptionExtraTemplate = root.dataset.subscriptionExtraTemplate || 'an extra [percent]%';
     const subscriptionDiscount = parseFloat(root.dataset.subscriptionDiscountPct) || 0;
+    const savingsPrefix = root.dataset.savingsPrefix || "You're saving ";
+    const savingsSuffix = root.dataset.savingsSuffix || '$';
     const productFormId = root.dataset.formId;
     const quantitySelector = productFormId
       ? Array.from(document.querySelectorAll('input[name="quantity"]')).find(function (input) {
@@ -103,18 +104,26 @@
       if (modeDailySubscribeEl) modeDailySubscribeEl.textContent = subDailyStr;
       if (modeDailyOnetimeEl) modeDailyOnetimeEl.textContent = onetimeDailyStr;
 
-      // Info line: "<strong>1 Month</strong> · 60 Count"
-      const infoHTML = sizeLabel
-        ? '<strong>' + sizeLabel + '</strong>' + (sizeCount ? ' · ' + sizeCount : '')
-        : sizeCount;
-      if (modeSubInfoEl) modeSubInfoEl.innerHTML = infoHTML;
-      if (modeOnetimeInfoEl) modeOnetimeInfoEl.innerHTML = infoHTML;
+      // Info line: "<strong>1 Month</strong> · 60 Count · ($0.81 / Day)"
+      const subInfoHTML = sizeLabel
+        ? '<strong>' + sizeLabel + '</strong>'
+          + (sizeCount ? ' · ' + sizeCount : '')
+          + (subDailyStr ? ' · ' + subDailyStr : '')
+        : sizeCount + (subDailyStr ? ' · ' + subDailyStr : '');
+      if (modeSubInfoEl) modeSubInfoEl.innerHTML = subInfoHTML;
 
-      // Compare-at and savings (round to nearest dollar, strip decimals)
+      const onetimeInfoHTML = sizeLabel
+        ? '<strong>' + sizeLabel + '</strong>'
+          + (sizeCount ? ' · ' + sizeCount : '')
+          + (onetimeDailyStr ? ' · ' + onetimeDailyStr : '')
+        : sizeCount + (onetimeDailyStr ? ' · ' + onetimeDailyStr : '');
+      if (modeOnetimeInfoEl) modeOnetimeInfoEl.innerHTML = onetimeInfoHTML;
+
+      // Savings: prefix + whole dollar amount + suffix (e.g. "You're saving 11$")
       function savingsText(savingsCents) {
-        if (savingsCents <= 0) return '';
-        const formatted = formatMoney(Math.round(savingsCents / 100) * 100, moneyFormat);
-        return "You're saving " + formatted.replace(/[.,]00$/, '');
+        if (savingsCents <= 50) return '';
+        const dollars = Math.round(savingsCents / 100);
+        return savingsPrefix + dollars + savingsSuffix;
       }
 
       if (lineCompareCents > subscribeCents) {
@@ -131,16 +140,6 @@
       } else {
         if (modeOnetimeCompareEl) modeOnetimeCompareEl.textContent = '';
         if (modeOnetimeSavingsEl) modeOnetimeSavingsEl.textContent = '';
-      }
-
-      if (subSavingsEl) {
-        if (subPct > 0) {
-          subSavingsEl.textContent = formatTemplate(subscriptionExtraTemplate, {
-            percent: formatDiscount(subPct),
-          }).trim();
-        } else {
-          subSavingsEl.textContent = '';
-        }
       }
 
       if (mode === 'subscribe' && !planId) {

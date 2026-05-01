@@ -1015,22 +1015,18 @@
 }
 
 .bloomli-proof-split__media {
-  aspect-ratio: 3 / 4;
   border-radius: var(--bps-image-radius);
   overflow: hidden;
-  position: relative;
   background-color: var(--bps-media-bg);
   background-image: var(--bps-placeholder-lines, none);
 }
 
 .bloomli-proof-split__image {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: var(--bps-image-position);
+  height: auto;
   transform: scale(var(--bps-image-scale, 1));
   transform-origin: center;
-  display: block;
 }
 
 .bloomli-proof-split__eyebrow {
@@ -1089,13 +1085,23 @@
   color: var(--bloomli-text);
 }
 
+@media (max-width: 989px) {
+  .bloomli-proof-split__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .bloomli-proof-split__media {
+    order: -1;
+    max-width: 520px;
+  }
+}
+
 @media (max-width: 749px) {
   .bloomli-proof-split {
     padding: 64px 20px;
   }
 
   .bloomli-proof-split__inner {
-    grid-template-columns: 1fr;
     gap: 36px;
   }
 

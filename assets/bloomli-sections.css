@@ -1006,16 +1006,16 @@
 }
 
 .bloomli-proof-split__inner {
-  max-width: 1120px;
+  max-width: 1180px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  gap: 72px;
+  grid-template-columns: minmax(0, 1fr) 460px;
+  gap: clamp(32px, 6vw, 80px);
   align-items: center;
 }
 
 .bloomli-proof-split__media {
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 3 / 4;
   border-radius: var(--bps-image-radius);
   overflow: hidden;
   position: relative;

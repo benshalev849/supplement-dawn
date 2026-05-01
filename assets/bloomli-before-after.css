@@ -79,6 +79,7 @@
   object-fit: cover;
   object-position: var(--bba-image-position);
   user-select: none;
+  -webkit-user-drag: none;
   pointer-events: none;
 }
 
@@ -189,17 +190,20 @@
 }
 
 .bloomli-before-after__handle::after {
-  content: "";
+  content: '↔';
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 18px;
-  height: 18px;
   transform: translate(-50%, -50%);
-  background:
-    linear-gradient(45deg, transparent 0 42%, var(--bba-line-color) 42% 58%, transparent 58% 100%),
-    linear-gradient(-45deg, transparent 0 42%, var(--bba-line-color) 42% 58%, transparent 58% 100%);
+  font-size: 18px;
+  line-height: 1;
+  color: var(--bba-line-color);
+  background: none;
   opacity: 0.96;
+}
+
+.bloomli-before-after--vertical .bloomli-before-after__handle::after {
+  content: '↕';
 }
 
 .bloomli-before-after__range {
@@ -256,8 +260,12 @@
     font-size: var(--bba-body-size-mobile);
   }
 
-  .bloomli-before-after__labels {
+  .bloomli-before-after--horizontal .bloomli-before-after__labels {
     inset: 12px 12px auto;
+  }
+
+  .bloomli-before-after--vertical .bloomli-before-after__labels {
+    inset: 12px auto 12px 12px;
   }
 
   .bloomli-before-after__label {

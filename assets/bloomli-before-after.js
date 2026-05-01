@@ -1,7 +1,8 @@
 (() => {
   const selector = '[data-bloomli-before-after]';
 
-  const clamp = (value) => Math.max(0, Math.min(100, Number(value) || 50));
+  // Use isNaN guard — Number(0) is falsy so "|| 50" would wrongly snap 0% to 50%
+  const clamp = (value) => { const n = parseFloat(value); return Math.max(0, Math.min(100, isNaN(n) ? 50 : n)); };
 
   const update = (section, input) => {
     section.style.setProperty('--bba-position', `${clamp(input.value)}%`);

@@ -4,12 +4,16 @@
 {%- liquid
   assign before_alt = section.settings.before_alt | default: section.settings.before_image.alt | default: section.settings.before_label
   assign after_alt = section.settings.after_alt | default: section.settings.after_image.alt | default: section.settings.after_label
+  assign effective_direction = section.settings.slider_direction
+  if section.settings.aspect_ratio == '16 / 10'
+    assign effective_direction = 'horizontal'
+  endif
 -%}
 
 <section
-  class="bloomli-before-after bloomli-before-after--{{ section.settings.slider_direction }} color-{{ section.settings.color_scheme }} gradient"
+  class="bloomli-before-after bloomli-before-after--{{ effective_direction }} color-{{ section.settings.color_scheme }} gradient"
   data-bloomli-before-after
-  data-bloomli-before-after-direction="{{ section.settings.slider_direction }}"
+  data-bloomli-before-after-direction="{{ effective_direction }}"
   style="
     --bba-position: {{ section.settings.initial_position }}%;
     --bba-max-width: {{ section.settings.max_width }}px;
@@ -64,7 +68,8 @@
               widths: '375, 550, 750, 1100, 1400, 1800',
               sizes: '(max-width: 749px) calc(100vw - 40px), min(100vw - 96px, 1040px)',
               loading: 'lazy',
-              decoding: 'async'
+              decoding: 'async',
+              draggable: 'false'
           }}
         {%- else -%}
           <div class="bloomli-before-after__placeholder">{{ section.settings.after_placeholder }}</div>
@@ -82,7 +87,8 @@
               widths: '375, 550, 750, 1100, 1400, 1800',
               sizes: '(max-width: 749px) calc(100vw - 40px), min(100vw - 96px, 1040px)',
               loading: 'lazy',
-              decoding: 'async'
+              decoding: 'async',
+              draggable: 'false'
           }}
         {%- else -%}
           <div class="bloomli-before-after__placeholder">{{ section.settings.before_placeholder }}</div>

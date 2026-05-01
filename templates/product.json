@@ -802,7 +802,7 @@
         "after_placeholder": "After image",
         "image_position": "center center",
         "slider_direction": "horizontal",
-        "initial_position": 40,
+        "initial_position": 50,
         "slider_label": "Compare before and after images",
         "show_labels": true,
         "use_custom_accent_colors": false,

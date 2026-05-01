@@ -707,6 +707,47 @@
         "padding_bottom": 96
       }
     },
+    "bloomli_before_after_U7dPaV": {
+      "type": "bloomli-before-after",
+      "name": "Bloomli - Before After",
+      "settings": {
+        "color_scheme": "",
+        "eyebrow": "Real routine progress",
+        "eyebrow_accent_color": "#8a6678",
+        "heading": "Before and after, side by side.",
+        "copy": "<p>Slide to compare visible progress from a consistent Bloomli supplement routine.</p>",
+        "before_image": "shopify://shop_images/Before_1_5f374fa5-d56d-4ff1-bf71-ca291ba6dd62.png",
+        "before_alt": "",
+        "before_label": "Before",
+        "before_placeholder": "Before image",
+        "after_image": "shopify://shop_images/After_1_Test_fa1d92ff-f9bf-43ad-9902-873c638582e6.png",
+        "after_alt": "",
+        "after_label": "After",
+        "after_placeholder": "After image",
+        "image_position": "center center",
+        "slider_direction": "horizontal",
+        "initial_position": 50,
+        "slider_label": "Compare before and after images",
+        "show_labels": true,
+        "use_custom_accent_colors": false,
+        "label_background": "#b23a6f",
+        "label_text_color": "#fdfaf7",
+        "handle_color": "#b23a6f",
+        "divider_color": "#fdfaf7",
+        "aspect_ratio": "4 / 5",
+        "max_width": 500,
+        "corner_radius": 20,
+        "heading_size": 52,
+        "heading_size_mobile": 36,
+        "body_size": 17,
+        "body_size_mobile": 15,
+        "caption": "Results May Vary.",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64
+      }
+    },
     "bloomli_product_picks_73mXTr": {
       "type": "bloomli-product-picks",
       "blocks": {
@@ -796,47 +837,6 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "bloomli_before_after_U7dPaV": {
-      "type": "bloomli-before-after",
-      "name": "Bloomli - Before After",
-      "settings": {
-        "color_scheme": "",
-        "eyebrow": "Real routine progress",
-        "eyebrow_accent_color": "#8a6678",
-        "heading": "Before and after, side by side.",
-        "copy": "<p>Slide to compare visible progress from a consistent Bloomli supplement routine.</p>",
-        "before_image": "shopify://shop_images/Before_1_5f374fa5-d56d-4ff1-bf71-ca291ba6dd62.png",
-        "before_alt": "",
-        "before_label": "Before",
-        "before_placeholder": "Before image",
-        "after_image": "shopify://shop_images/After_1_Test_fa1d92ff-f9bf-43ad-9902-873c638582e6.png",
-        "after_alt": "",
-        "after_label": "After",
-        "after_placeholder": "After image",
-        "image_position": "center center",
-        "slider_direction": "horizontal",
-        "initial_position": 50,
-        "slider_label": "Compare before and after images",
-        "show_labels": true,
-        "use_custom_accent_colors": false,
-        "label_background": "#b23a6f",
-        "label_text_color": "#fdfaf7",
-        "handle_color": "#b23a6f",
-        "divider_color": "#fdfaf7",
-        "aspect_ratio": "4 / 5",
-        "max_width": 500,
-        "corner_radius": 20,
-        "heading_size": 52,
-        "heading_size_mobile": 36,
-        "body_size": 17,
-        "body_size_mobile": 15,
-        "caption": "Results May Vary.",
-        "padding_top": 96,
-        "padding_bottom": 96,
-        "padding_top_mobile": 64,
-        "padding_bottom_mobile": 64
-      }
     }
   },
   "order": [
@@ -845,9 +845,9 @@
     "bloomli_formula_gallery_ypjbMe",
     "bloomli_faq_N48arU",
     "bloomli_proof_split_bhYAhW",
+    "bloomli_before_after_U7dPaV",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
-    "related-products",
-    "bloomli_before_after_U7dPaV"
+    "related-products"
   ]
 }

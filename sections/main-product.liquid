@@ -1013,14 +1013,20 @@
           "type": "select",
           "id": "default_mode",
           "label": "Default purchase mode",
-          "default": "onetime",
+          "default": "subscribe",
           "options": [
             { "value": "onetime", "label": "One-time" },
             { "value": "subscribe", "label": "Subscribe" }
           ]
         },
         { "type": "text", "id": "label_one_time", "label": "One-time label", "default": "One-Time Purchase" },
-        { "type": "text", "id": "label_subscribe", "label": "Subscribe label", "default": "Subscribe &" },
+        { "type": "text", "id": "label_subscribe", "label": "Subscribe label", "default": "Subscribe & Save" },
+        { "type": "header", "content": "Subscribe card" },
+        { "type": "text", "id": "subscribe_popular_pill", "label": "\"Most Popular\" pill text", "default": "Most Popular · Get an extra 10% off", "info": "Leave blank to hide the pill." },
+        { "type": "checkbox", "id": "subscribe_show_perks", "label": "Show perks list", "default": true },
+        { "type": "text", "id": "subscribe_perk_1", "label": "Perk 1", "default": "30-day money-back guarantee" },
+        { "type": "text", "id": "subscribe_perk_2", "label": "Perk 2", "default": "Free shipping on every delivery" },
+        { "type": "text", "id": "subscribe_perk_3", "label": "Perk 3", "default": "Pause or cancel anytime, no fees" },
         { "type": "header", "content": "Footer" },
         { "type": "text", "id": "total_label", "label": "Total label", "default": "Total price:" },
         { "type": "text", "id": "shipping_text", "label": "Shipping pill text", "default": "Free shipping" },

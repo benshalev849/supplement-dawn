@@ -310,7 +310,51 @@
   </div>
 
   {%- if subscribe_enabled -%}
+    {%- liquid
+      assign subscribe_popular_pill = block.settings.subscribe_popular_pill | default: 'Most Popular · Get an extra 10% off'
+      assign subscribe_perk_1 = block.settings.subscribe_perk_1 | default: '30-day money-back guarantee'
+      assign subscribe_perk_2 = block.settings.subscribe_perk_2 | default: 'Free shipping on every delivery'
+      assign subscribe_perk_3 = block.settings.subscribe_perk_3 | default: 'Pause or cancel anytime, no fees'
+    -%}
+
     <div class="bloomli-vt__modes" role="radiogroup" aria-label="Purchase mode">
+
+      <label class="bloomli-vt__mode bloomli-vt__mode--subscribe{% if default_mode == 'subscribe' %} is-selected{% endif %}"
+             data-vt-mode
+             data-mode="subscribe">
+        {%- if subscribe_popular_pill != blank -%}
+          <span class="bloomli-vt__mode-popular" aria-hidden="true">{{ subscribe_popular_pill }}</span>
+        {%- endif -%}
+        <div class="bloomli-vt__mode-row">
+          <input type="radio"
+                 name="bloomli-vt-mode-{{ uid }}"
+                 value="subscribe"
+                 class="bloomli-vt__radio-native"
+                 {% if default_mode == 'subscribe' %}checked{% endif %}>
+          <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+          <span class="bloomli-vt__mode-text">
+            <span class="bloomli-vt__mode-title">
+              {{ block.settings.label_subscribe | default: 'Subscribe & Save' }}
+              <span class="bloomli-vt__mode-savings" data-vt-sub-savings></span>
+            </span>
+            <span class="bloomli-vt__mode-price" data-vt-subscribe-price>{{ unit_price | money }}</span>
+          </span>
+        </div>
+        {%- if block.settings.subscribe_show_perks != false -%}
+          <ul class="bloomli-vt__mode-perks" aria-hidden="true">
+            {%- if subscribe_perk_1 != blank -%}
+              <li class="bloomli-vt__mode-perk">{{ subscribe_perk_1 }}</li>
+            {%- endif -%}
+            {%- if subscribe_perk_2 != blank -%}
+              <li class="bloomli-vt__mode-perk">{{ subscribe_perk_2 }}</li>
+            {%- endif -%}
+            {%- if subscribe_perk_3 != blank -%}
+              <li class="bloomli-vt__mode-perk">{{ subscribe_perk_3 }}</li>
+            {%- endif -%}
+          </ul>
+        {%- endif -%}
+      </label>
+
       <label class="bloomli-vt__mode{% if default_mode == 'onetime' %} is-selected{% endif %}"
              data-vt-mode
              data-mode="onetime">
@@ -326,23 +370,6 @@
         </span>
       </label>
 
-      <label class="bloomli-vt__mode bloomli-vt__mode--subscribe{% if default_mode == 'subscribe' %} is-selected{% endif %}"
-             data-vt-mode
-             data-mode="subscribe">
-        <input type="radio"
-               name="bloomli-vt-mode-{{ uid }}"
-               value="subscribe"
-               class="bloomli-vt__radio-native"
-               {% if default_mode == 'subscribe' %}checked{% endif %}>
-        <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
-        <span class="bloomli-vt__mode-text">
-          <span class="bloomli-vt__mode-title">
-            {{ block.settings.label_subscribe | default: 'Subscribe &' }}
-            <span class="bloomli-vt__mode-savings" data-vt-sub-savings></span>
-          </span>
-          <span class="bloomli-vt__mode-price" data-vt-subscribe-price>{{ unit_price | money }}</span>
-        </span>
-      </label>
     </div>
   {%- endif -%}
 

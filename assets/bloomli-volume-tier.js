@@ -39,6 +39,8 @@
     const oneTimePriceEl = root.querySelector('[data-vt-onetime-price]');
     const subscribePriceEl = root.querySelector('[data-vt-subscribe-price]');
     const subSavingsEl = root.querySelector('[data-vt-sub-savings]');
+    const modeDailySubscribeEl = root.querySelector('[data-vt-mode-subscribe-daily]');
+    const modeDailyOnetimeEl = root.querySelector('[data-vt-mode-onetime-daily]');
 
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const discountBadgeTemplate = root.dataset.discountBadgeTemplate || 'SAVE [percent]%';
@@ -84,6 +86,12 @@
 
       if (oneTimePriceEl) oneTimePriceEl.textContent = formatMoney(oneTimeCents, moneyFormat);
       if (subscribePriceEl) subscribePriceEl.textContent = formatMoney(subscribeCents, moneyFormat);
+
+      const sizeDaily = size.querySelector('[data-vt-daily]');
+      if (sizeDaily) {
+        if (modeDailySubscribeEl) modeDailySubscribeEl.textContent = sizeDaily.dataset.subscribeDaily || '';
+        if (modeDailyOnetimeEl) modeDailyOnetimeEl.textContent = sizeDaily.dataset.onetimeDaily || '';
+      }
 
       if (subSavingsEl) {
         if (subPct > 0) {

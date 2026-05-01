@@ -228,6 +228,15 @@
   }
 }
 
+/* "Select Your Offer" section label */
+.bloomli-vt__section-label {
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--charcoal, #2A2622);
+  margin: 16px 0 10px;
+}
+
 .bloomli-vt__modes {
   display: flex;
   flex-direction: column;
@@ -235,6 +244,7 @@
   margin: 0 0 14px;
 }
 
+/* Base card (one-time purchase) */
 .bloomli-vt__mode {
   position: relative;
   display: flex;
@@ -254,7 +264,7 @@
 
 .bloomli-vt__mode.is-selected {
   border-color: var(--aubergine, #B23A6F);
-  background: rgba(178, 58, 111, 0.04);
+  background: rgba(178, 58, 111, 0.05);
 }
 
 .bloomli-vt__mode.is-disabled {
@@ -262,44 +272,81 @@
   pointer-events: none;
 }
 
-/* Subscribe card: column layout so perks sit below the radio row */
+/* Subscribe card: column layout with full-width bar at top */
 .bloomli-vt__mode--subscribe {
   flex-direction: column;
   align-items: stretch;
   gap: 0;
-  margin-top: 18px;
-  background: rgba(178, 58, 111, 0.04);
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.bloomli-vt__mode--subscribe:hover {
+  border-color: rgba(178, 58, 111, 0.4);
 }
 
 .bloomli-vt__mode--subscribe.is-selected {
-  background: rgba(178, 58, 111, 0.08);
+  border-color: var(--aubergine, #B23A6F);
+  background: rgba(178, 58, 111, 0.05);
 }
 
-/* Inner row: radio + label + price (same layout as one-time card) */
+/* Full-width "Most Popular" bar */
+.bloomli-vt__mode-bar {
+  display: block;
+  width: 100%;
+  padding: 8px 14px;
+  background: var(--aubergine, #B23A6F);
+  color: #FDFAF7;
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Content area below bar */
+.bloomli-vt__mode-inner {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Row: radio + info + prices */
 .bloomli-vt__mode-row {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Floating "Most Popular" pill above subscribe card */
-.bloomli-vt__mode-popular {
-  position: absolute;
-  top: -13px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  background: var(--aubergine, #B23A6F);
-  color: #FDFAF7;
+/* Left side: title + savings badge */
+.bloomli-vt__mode-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Right side: price + per-day stacked */
+.bloomli-vt__mode-prices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.bloomli-vt__mode-daily {
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  padding: 4px 14px;
-  border-radius: 999px;
-  line-height: 1;
-  pointer-events: none;
+  font-size: 11px;
+  color: rgba(42, 38, 34, 0.52);
+  white-space: nowrap;
+}
+
+.bloomli-vt__mode-daily:empty {
+  display: none;
 }
 
 /* Perks list inside subscribe card */
@@ -315,7 +362,7 @@
 .bloomli-vt__mode-perk {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 12px;
   color: rgba(42, 38, 34, 0.72);
@@ -361,38 +408,29 @@
   background: var(--aubergine, #B23A6F);
 }
 
-.bloomli-vt__mode-text {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-width: 0;
-}
-
 .bloomli-vt__mode-title {
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
   font-size: 14px;
+  font-weight: 600;
   color: var(--charcoal, #2A2622);
-  font-weight: 500;
+  line-height: 1.2;
 }
 
 .bloomli-vt__mode-savings {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: 0;
-  padding: 5px 11px;
+  padding: 4px 10px;
   border-radius: 4px;
   background: var(--bloomli-vt-save-badge-bg, #B23A6F);
   color: var(--bloomli-vt-save-badge-text, #FDFAF7);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
@@ -402,7 +440,7 @@
 
 .bloomli-vt__mode-price {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--charcoal, #2A2622);
   white-space: nowrap;
 }
@@ -552,6 +590,14 @@
   }
 
   .bloomli-vt__mode {
+    padding: 10px 12px;
+  }
+
+  .bloomli-vt__mode--subscribe {
+    padding: 0;
+  }
+
+  .bloomli-vt__mode-inner {
     padding: 10px 12px;
   }
 

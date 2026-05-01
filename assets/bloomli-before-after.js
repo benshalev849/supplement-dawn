@@ -12,9 +12,12 @@
     if (!frame) return;
 
     const rect = frame.getBoundingClientRect();
-    if (!rect.width) return;
+    const direction = section.dataset.bloomliBeforeAfterDirection || 'horizontal';
+    if (!rect.width || !rect.height) return;
 
-    const percent = ((event.clientX - rect.left) / rect.width) * 100;
+    const percent = direction === 'vertical'
+      ? ((event.clientY - rect.top) / rect.height) * 100
+      : ((event.clientX - rect.left) / rect.width) * 100;
     input.value = String(clamp(percent));
     update(section, input);
   };

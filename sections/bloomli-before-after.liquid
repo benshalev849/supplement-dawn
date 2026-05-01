@@ -7,18 +7,21 @@
 -%}
 
 <section
-  class="bloomli-before-after color-{{ section.settings.color_scheme }} gradient"
+  class="bloomli-before-after bloomli-before-after--{{ section.settings.slider_direction }} color-{{ section.settings.color_scheme }} gradient"
   data-bloomli-before-after
+  data-bloomli-before-after-direction="{{ section.settings.slider_direction }}"
   style="
     --bba-position: {{ section.settings.initial_position }}%;
     --bba-max-width: {{ section.settings.max_width }}px;
     --bba-aspect-ratio: {{ section.settings.aspect_ratio }};
     --bba-radius: {{ section.settings.corner_radius }}px;
     --bba-eyebrow-color: {{ section.settings.eyebrow_accent_color }};
-    --bba-label-bg: {{ section.settings.label_background }};
-    --bba-label-text: {{ section.settings.label_text_color }};
-    --bba-handle-color: {{ section.settings.handle_color }};
-    --bba-line-color: {{ section.settings.divider_color }};
+    {%- if section.settings.use_custom_accent_colors -%}
+      --bba-label-bg: {{ section.settings.label_background }};
+      --bba-label-text: {{ section.settings.label_text_color }};
+      --bba-handle-color: {{ section.settings.handle_color }};
+      --bba-line-color: {{ section.settings.divider_color }};
+    {%- endif -%}
     --bba-image-position: {{ section.settings.image_position }};
     --bba-heading-size: {{ section.settings.heading_size }}px;
     --bba-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
@@ -234,6 +237,22 @@
       "content": "Slider"
     },
     {
+      "type": "select",
+      "id": "slider_direction",
+      "label": "Slider direction",
+      "options": [
+        {
+          "value": "vertical",
+          "label": "Top to bottom"
+        },
+        {
+          "value": "horizontal",
+          "label": "Left to right"
+        }
+      ],
+      "default": "vertical"
+    },
+    {
       "type": "range",
       "id": "initial_position",
       "label": "Initial slider position",
@@ -256,27 +275,33 @@
       "default": true
     },
     {
+      "type": "checkbox",
+      "id": "use_custom_accent_colors",
+      "label": "Override color scheme accents",
+      "default": false
+    },
+    {
       "type": "color",
       "id": "label_background",
-      "label": "Label background",
+      "label": "Custom label background",
       "default": "#B23A6F"
     },
     {
       "type": "color",
       "id": "label_text_color",
-      "label": "Label text",
+      "label": "Custom label text",
       "default": "#FDFAF7"
     },
     {
       "type": "color",
       "id": "handle_color",
-      "label": "Handle color",
+      "label": "Custom handle color",
       "default": "#B23A6F"
     },
     {
       "type": "color",
       "id": "divider_color",
-      "label": "Divider and handle icon",
+      "label": "Custom divider and handle icon",
       "default": "#FDFAF7"
     },
     {

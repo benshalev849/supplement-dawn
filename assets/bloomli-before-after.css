@@ -101,6 +101,10 @@
   clip-path: inset(0 calc(100% - var(--bba-position)) 0 0);
 }
 
+.bloomli-before-after--vertical .bloomli-before-after__before {
+  clip-path: inset(0 0 calc(100% - var(--bba-position)) 0);
+}
+
 .bloomli-before-after__labels {
   position: absolute;
   inset: 18px 18px auto;
@@ -138,6 +142,16 @@
   transform: translateX(-50%);
   background: var(--bba-line-color);
   pointer-events: none;
+}
+
+.bloomli-before-after--vertical .bloomli-before-after__handle {
+  top: var(--bba-position);
+  bottom: auto;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 2px;
+  transform: translateY(-50%);
 }
 
 .bloomli-before-after__handle::before {
@@ -178,6 +192,10 @@
   opacity: 0;
   cursor: ew-resize;
   touch-action: pan-y;
+}
+
+.bloomli-before-after--vertical .bloomli-before-after__range {
+  cursor: ns-resize;
 }
 
 .bloomli-before-after__range:focus-visible + .bloomli-before-after__handle::before {

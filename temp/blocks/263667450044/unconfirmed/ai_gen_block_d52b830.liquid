@@ -1,6 +1,1146 @@
+{% doc %}
+  @prompt
+    Create a comparison table section inspired by a wellness supplement brand. The table compares a featured product (highlighted with a dark forest green header column, #1a3a2a background, white text) against competitor categories: Multivitamins, Probiotics, Greens. Rows include: Vitamins, Minerals, Prebiotics, Probiotics, Greens & Superfoods, Antioxidants, Digestive Enzymes. Use green checkmark circle icons for supported features and grey X circle icons for unsupported ones. The featured product column has all green checkmarks. Style should feel premium, clean, and wellness-focused with a light background, subtle row dividers, and bold column headers. Make all text, icons, column headers, and the featured product label customizable via section settings. Add a footnote text field at the bottom. Fully responsive.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-comparison-table-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding }}px;
+    border-radius: {{ block.settings.border_radius }}px;
+  }
+
+  .ai-comparison-table__wrapper-{{ ai_gen_id }} {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ai-comparison-table__table-{{ ai_gen_id }} {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+  }
+
+  .ai-comparison-table__header-{{ ai_gen_id }} {
+    background-color: transparent;
+  }
+
+  .ai-comparison-table__header-cell-{{ ai_gen_id }} {
+    padding: {{ block.settings.cell_padding }}px;
+    text-align: center;
+    font-weight: 700;
+    font-size: {{ block.settings.header_font_size }}px;
+    color: {{ block.settings.header_text_color }};
+    border-bottom: {{ block.settings.divider_thickness }}px solid {{ block.settings.divider_color }};
+  }
+
+  .ai-comparison-table__header-cell-{{ ai_gen_id }}:first-child {
+    text-align: left;
+    color: {{ block.settings.row_label_color }};
+    font-weight: 600;
+  }
+
+  .ai-comparison-table__featured-header-{{ ai_gen_id }} {
+    background-color: {{ block.settings.featured_bg_color }};
+    color: {{ block.settings.featured_text_color }};
+    border-radius: {{ block.settings.featured_border_radius }}px {{ block.settings.featured_border_radius }}px 0 0;
+    position: relative;
+  }
+
+  .ai-comparison-table__row-{{ ai_gen_id }} {
+    border-bottom: {{ block.settings.divider_thickness }}px solid {{ block.settings.divider_color }};
+  }
+
+  .ai-comparison-table__row-{{ ai_gen_id }}:last-child {
+    border-bottom: none;
+  }
+
+  .ai-comparison-table__cell-{{ ai_gen_id }} {
+    padding: {{ block.settings.cell_padding }}px;
+    text-align: center;
+    font-size: {{ block.settings.body_font_size }}px;
+    color: {{ block.settings.body_text_color }};
+  }
+
+  .ai-comparison-table__cell-{{ ai_gen_id }}:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: {{ block.settings.row_label_color }};
+  }
+
+  .ai-comparison-table__featured-cell-{{ ai_gen_id }} {
+    background-color: {{ block.settings.featured_cell_bg_color }};
+  }
+
+  .ai-comparison-table__icon-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+  }
+
+  .ai-comparison-table__icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-comparison-table__footnote-{{ ai_gen_id }} {
+    margin-top: {{ block.settings.footnote_spacing }}px;
+    font-size: {{ block.settings.footnote_font_size }}px;
+    color: {{ block.settings.footnote_color }};
+    text-align: {{ block.settings.footnote_alignment }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-comparison-table-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding | times: 0.6 }}px;
+    }
+
+    .ai-comparison-table__header-cell-{{ ai_gen_id }} {
+      font-size: {{ block.settings.header_font_size | times: 0.85 }}px;
+      padding: {{ block.settings.cell_padding | times: 0.7 }}px;
+    }
+
+    .ai-comparison-table__cell-{{ ai_gen_id }} {
+      font-size: {{ block.settings.body_font_size | times: 0.85 }}px;
+      padding: {{ block.settings.cell_padding | times: 0.7 }}px;
+    }
+
+    .ai-comparison-table__icon-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size | times: 0.8 }}px;
+      height: {{ block.settings.icon_size | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-comparison-table-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-comparison-table__wrapper-{{ ai_gen_id }}">
+    <table class="ai-comparison-table__table-{{ ai_gen_id }}">
+      <thead class="ai-comparison-table__header-{{ ai_gen_id }}">
+        <tr>
+          <th class="ai-comparison-table__header-cell-{{ ai_gen_id }}"></th>
+          <th class="ai-comparison-table__header-cell-{{ ai_gen_id }} ai-comparison-table__featured-header-{{ ai_gen_id }}">
+            {{ block.settings.featured_label }}
+          </th>
+          <th class="ai-comparison-table__header-cell-{{ ai_gen_id }}">{{ block.settings.competitor_1_label }}</th>
+          <th class="ai-comparison-table__header-cell-{{ ai_gen_id }}">{{ block.settings.competitor_2_label }}</th>
+          <th class="ai-comparison-table__header-cell-{{ ai_gen_id }}">{{ block.settings.competitor_3_label }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="ai-comparison-table__row-{{ ai_gen_id }}">
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">{{ block.settings.row_1_label }}</td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }} ai-comparison-table__featured-cell-{{ ai_gen_id }}">
+            {% if block.settings.row_1_featured %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_1_competitor_1 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_1_competitor_2 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_1_competitor_3 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+        </tr>
+        <tr class="ai-comparison-table__row-{{ ai_gen_id }}">
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">{{ block.settings.row_2_label }}</td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }} ai-comparison-table__featured-cell-{{ ai_gen_id }}">
+            {% if block.settings.row_2_featured %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_2_competitor_1 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_2_competitor_2 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_2_competitor_3 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+        </tr>
+        <tr class="ai-comparison-table__row-{{ ai_gen_id }}">
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">{{ block.settings.row_3_label }}</td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }} ai-comparison-table__featured-cell-{{ ai_gen_id }}">
+            {% if block.settings.row_3_featured %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_3_competitor_1 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_3_competitor_2 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_3_competitor_3 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+        </tr>
+        <tr class="ai-comparison-table__row-{{ ai_gen_id }}">
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">{{ block.settings.row_4_label }}</td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }} ai-comparison-table__featured-cell-{{ ai_gen_id }}">
+            {% if block.settings.row_4_featured %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_4_competitor_1 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_4_competitor_2 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_4_competitor_3 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+        </tr>
+        <tr class="ai-comparison-table__row-{{ ai_gen_id }}">
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">{{ block.settings.row_5_label }}</td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }} ai-comparison-table__featured-cell-{{ ai_gen_id }}">
+            {% if block.settings.row_5_featured %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_5_competitor_1 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_5_competitor_2 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_5_competitor_3 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+        </tr>
+        <tr class="ai-comparison-table__row-{{ ai_gen_id }}">
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">{{ block.settings.row_6_label }}</td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }} ai-comparison-table__featured-cell-{{ ai_gen_id }}">
+            {% if block.settings.row_6_featured %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_6_competitor_1 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_6_competitor_2 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_6_competitor_3 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+        </tr>
+        <tr class="ai-comparison-table__row-{{ ai_gen_id }}">
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">{{ block.settings.row_7_label }}</td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }} ai-comparison-table__featured-cell-{{ ai_gen_id }}">
+            {% if block.settings.row_7_featured %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_7_competitor_1 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_7_competitor_2 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+          <td class="ai-comparison-table__cell-{{ ai_gen_id }}">
+            {% if block.settings.row_7_competitor_3 %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.checkmark_color }}"/>
+                  <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            {% else %}
+              <span class="ai-comparison-table__icon-{{ ai_gen_id }}">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="{{ block.settings.x_color }}"/>
+                  <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {% if block.settings.footnote != blank %}
+    <div class="ai-comparison-table__footnote-{{ ai_gen_id }}">
+      {{ block.settings.footnote }}
+    </div>
+  {% endif %}
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Comparison table",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Container padding",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "cell_padding",
+      "label": "Cell padding",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Container border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Column headers"
+    },
+    {
+      "type": "text",
+      "id": "featured_label",
+      "label": "Featured product label",
+      "default": "Our Complete Formula"
+    },
+    {
+      "type": "text",
+      "id": "competitor_1_label",
+      "label": "Competitor 1 label",
+      "default": "Multivitamins"
+    },
+    {
+      "type": "text",
+      "id": "competitor_2_label",
+      "label": "Competitor 2 label",
+      "default": "Probiotics"
+    },
+    {
+      "type": "text",
+      "id": "competitor_3_label",
+      "label": "Competitor 3 label",
+      "default": "Greens"
+    },
+    {
+      "type": "header",
+      "content": "Row 1"
+    },
+    {
+      "type": "text",
+      "id": "row_1_label",
+      "label": "Label",
+      "default": "Vitamins"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_1_featured",
+      "label": "Featured product",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_1_competitor_1",
+      "label": "Competitor 1",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_1_competitor_2",
+      "label": "Competitor 2",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "row_1_competitor_3",
+      "label": "Competitor 3",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Row 2"
+    },
+    {
+      "type": "text",
+      "id": "row_2_label",
+      "label": "Label",
+      "default": "Minerals"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_2_featured",
+      "label": "Featured product",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_2_competitor_1",
+      "label": "Competitor 1",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_2_competitor_2",
+      "label": "Competitor 2",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "row_2_competitor_3",
+      "label": "Competitor 3",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Row 3"
+    },
+    {
+      "type": "text",
+      "id": "row_3_label",
+      "label": "Label",
+      "default": "Prebiotics"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_3_featured",
+      "label": "Featured product",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_3_competitor_1",
+      "label": "Competitor 1",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "row_3_competitor_2",
+      "label": "Competitor 2",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_3_competitor_3",
+      "label": "Competitor 3",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Row 4"
+    },
+    {
+      "type": "text",
+      "id": "row_4_label",
+      "label": "Label",
+      "default": "Probiotics"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_4_featured",
+      "label": "Featured product",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_4_competitor_1",
+      "label": "Competitor 1",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "row_4_competitor_2",
+      "label": "Competitor 2",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_4_competitor_3",
+      "label": "Competitor 3",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Row 5"
+    },
+    {
+      "type": "text",
+      "id": "row_5_label",
+      "label": "Label",
+      "default": "Greens & Superfoods"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_5_featured",
+      "label": "Featured product",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_5_competitor_1",
+      "label": "Competitor 1",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "row_5_competitor_2",
+      "label": "Competitor 2",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "row_5_competitor_3",
+      "label": "Competitor 3",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Row 6"
+    },
+    {
+      "type": "text",
+      "id": "row_6_label",
+      "label": "Label",
+      "default": "Antioxidants"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_6_featured",
+      "label": "Featured product",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_6_competitor_1",
+      "label": "Competitor 1",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "row_6_competitor_2",
+      "label": "Competitor 2",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "row_6_competitor_3",
+      "label": "Competitor 3",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Row 7"
+    },
+    {
+      "type": "text",
+      "id": "row_7_label",
+      "label": "Label",
+      "default": "Digestive Enzymes"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_7_featured",
+      "label": "Featured product",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "row_7_competitor_1",
+      "label": "Competitor 1",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "row_7_competitor_2",
+      "label": "Competitor 2",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "row_7_competitor_3",
+      "label": "Competitor 3",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#fdfaf7"
+    },
+    {
+      "type": "color",
+      "id": "featured_bg_color",
+      "label": "Featured header background",
+      "default": "#1a3a2a"
+    },
+    {
+      "type": "color",
+      "id": "featured_text_color",
+      "label": "Featured header text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "featured_cell_bg_color",
+      "label": "Featured column background",
+      "default": "#f5f9f7"
+    },
+    {
+      "type": "color",
+      "id": "header_text_color",
+      "label": "Header text",
+      "default": "#2a2622"
+    },
+    {
+      "type": "color",
+      "id": "body_text_color",
+      "label": "Body text",
+      "default": "#2a2622"
+    },
+    {
+      "type": "color",
+      "id": "row_label_color",
+      "label": "Row label text",
+      "default": "#2a2622"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider",
+      "default": "#e8ded8"
+    },
+    {
+      "type": "color",
+      "id": "checkmark_color",
+      "label": "Checkmark icon",
+      "default": "#2d7a4f"
+    },
+    {
+      "type": "color",
+      "id": "x_color",
+      "label": "X icon",
+      "default": "#9a8f89"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "header_font_size",
+      "label": "Header font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "body_font_size",
+      "label": "Body font size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Dividers"
+    },
+    {
+      "type": "range",
+      "id": "divider_thickness",
+      "label": "Divider thickness",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "featured_border_radius",
+      "label": "Featured header radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Footnote"
+    },
+    {
+      "type": "textarea",
+      "id": "footnote",
+      "label": "Footnote text"
+    },
+    {
+      "type": "range",
+      "id": "footnote_font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "footnote_color",
+      "label": "Text color",
+      "default": "#9a8f89"
+    },
+    {
+      "type": "select",
+      "id": "footnote_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "footnote_spacing",
+      "label": "Top spacing",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison table"
+    }
+  ]
+}
 {% endschema %}

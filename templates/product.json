@@ -801,7 +801,7 @@
         "after_label": "After",
         "after_placeholder": "After image",
         "image_position": "center center",
-        "slider_direction": "vertical",
+        "slider_direction": "horizontal",
         "initial_position": 50,
         "slider_label": "Compare before and after images",
         "show_labels": true,

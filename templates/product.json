@@ -481,6 +481,7 @@
         "eyebrow": "FAQ",
         "heading": "Questions, answered.",
         "intro": "<p>Everything you need to know before making Bloomli part of your routine.</p>",
+        "image": "shopify://shop_images/Model_Eating_Gummy_1_776f04a1-a795-418c-b1ba-47563a85fff9.png",
         "image_alt": "",
         "show_placeholder": false,
         "image_position": "right",
@@ -538,7 +539,8 @@
         "background_color": "{{ shop.brand.colors.primary[0].background }}",
         "eyebrow_accent_color": "#8a6678",
         "icon_accent_color": "#6f7a5a",
-        "media_background": "surface",
+        "image": "shopify://shop_images/Model_Holding_Gummy_2.png",
+        "media_background": "background",
         "image_label": "Editorial - morning ritual - natural light",
         "image_scale": 100,
         "image_position": "center center",
@@ -557,6 +559,7 @@
         "photo_itwQBT": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Model_Holding_Gummy_1.png",
             "image_scale": 100,
             "label": "Photo 1",
             "use_custom_placeholder_color": false,
@@ -566,6 +569,7 @@
         "photo_rFx7fP": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_11.png",
             "image_scale": 100,
             "label": "Photo 2",
             "use_custom_placeholder_color": false,
@@ -575,6 +579,7 @@
         "photo_UQecfB": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Model_Eating_Gummy_1.png",
             "image_scale": 100,
             "label": "Photo 3",
             "use_custom_placeholder_color": false,
@@ -584,6 +589,7 @@
         "photo_HnKE8c": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_6.png",
             "image_scale": 100,
             "label": "Photo 4",
             "use_custom_placeholder_color": false,
@@ -593,6 +599,7 @@
         "photo_gDhx3U": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_1.png",
             "image_scale": 100,
             "label": "Photo 5",
             "use_custom_placeholder_color": false,
@@ -602,6 +609,7 @@
         "photo_HkWBVE": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_4.png",
             "image_scale": 100,
             "label": "Photo 6",
             "use_custom_placeholder_color": false,
@@ -611,6 +619,7 @@
         "photo_jhY4cR": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_13.png",
             "image_scale": 100,
             "label": "Photo 7",
             "use_custom_placeholder_color": false,
@@ -620,6 +629,7 @@
         "photo_iXjxWB": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Product_Display_1.png",
             "image_scale": 100,
             "label": "Photo 8",
             "use_custom_placeholder_color": false,
@@ -629,6 +639,7 @@
         "photo_Artdhg": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_2.png",
             "image_scale": 100,
             "label": "Photo 9",
             "use_custom_placeholder_color": false,
@@ -638,6 +649,7 @@
         "photo_Xj6LgH": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_7.png",
             "image_scale": 100,
             "label": "Photo 10",
             "use_custom_placeholder_color": false,
@@ -647,6 +659,7 @@
         "photo_fGEqGb": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_3.png",
             "image_scale": 100,
             "label": "Photo 11",
             "use_custom_placeholder_color": false,
@@ -656,6 +669,7 @@
         "photo_zbFfXz": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Selfie_1_af7f5ff3-629c-4859-965b-b0a6575c80f3.png",
             "image_scale": 100,
             "label": "Photo 12",
             "use_custom_placeholder_color": false,
@@ -691,6 +705,47 @@
         "radius": 8,
         "padding_top": 96,
         "padding_bottom": 96
+      }
+    },
+    "bloomli_before_after_U7dPaV": {
+      "type": "bloomli-before-after",
+      "name": "Bloomli - Before After",
+      "settings": {
+        "color_scheme": "",
+        "eyebrow": "Real routine progress",
+        "eyebrow_accent_color": "#8a6678",
+        "heading": "Before and after, side by side.",
+        "copy": "<p>Slide to compare visible progress from a consistent Bloomli supplement routine.</p>",
+        "before_image": "shopify://shop_images/Before_1_5f374fa5-d56d-4ff1-bf71-ca291ba6dd62.png",
+        "before_alt": "",
+        "before_label": "Before",
+        "before_placeholder": "Before image",
+        "after_image": "shopify://shop_images/After_1_Test_fa1d92ff-f9bf-43ad-9902-873c638582e6.png",
+        "after_alt": "",
+        "after_label": "After",
+        "after_placeholder": "After image",
+        "image_position": "center center",
+        "slider_direction": "horizontal",
+        "initial_position": 50,
+        "slider_label": "Compare before and after images",
+        "show_labels": true,
+        "use_custom_accent_colors": false,
+        "label_background": "#b23a6f",
+        "label_text_color": "#fdfaf7",
+        "handle_color": "#b23a6f",
+        "divider_color": "#fdfaf7",
+        "aspect_ratio": "4 / 5",
+        "max_width": 500,
+        "corner_radius": 20,
+        "heading_size": 52,
+        "heading_size_mobile": 36,
+        "body_size": 17,
+        "body_size_mobile": 15,
+        "caption": "Results May Vary.",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64
       }
     },
     "bloomli_product_picks_73mXTr": {
@@ -782,47 +837,6 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "bloomli_before_after_U7dPaV": {
-      "type": "bloomli-before-after",
-      "name": "Bloomli - Before After",
-      "settings": {
-        "color_scheme": "",
-        "eyebrow": "Real routine progress",
-        "eyebrow_accent_color": "#8a6678",
-        "heading": "Before and after, side by side.",
-        "copy": "<p>Slide to compare visible progress from a consistent Bloomli supplement routine.</p>",
-        "before_image": "shopify://shop_images/Before_1_5f374fa5-d56d-4ff1-bf71-ca291ba6dd62.png",
-        "before_alt": "",
-        "before_label": "Before",
-        "before_placeholder": "Before image",
-        "after_image": "shopify://shop_images/After_1_de170240-39c0-4689-9d54-9a172be9d2f5.png",
-        "after_alt": "",
-        "after_label": "After",
-        "after_placeholder": "After image",
-        "image_position": "center center",
-        "slider_direction": "horizontal",
-        "initial_position": 50,
-        "slider_label": "Compare before and after images",
-        "show_labels": true,
-        "use_custom_accent_colors": false,
-        "label_background": "#b23a6f",
-        "label_text_color": "#fdfaf7",
-        "handle_color": "#b23a6f",
-        "divider_color": "#fdfaf7",
-        "aspect_ratio": "4 / 5",
-        "max_width": 500,
-        "corner_radius": 20,
-        "heading_size": 52,
-        "heading_size_mobile": 36,
-        "body_size": 17,
-        "body_size_mobile": 15,
-        "caption": "Results May Vary.",
-        "padding_top": 96,
-        "padding_bottom": 96,
-        "padding_top_mobile": 64,
-        "padding_bottom_mobile": 64
-      }
     }
   },
   "order": [
@@ -831,9 +845,9 @@
     "bloomli_formula_gallery_ypjbMe",
     "bloomli_faq_N48arU",
     "bloomli_proof_split_bhYAhW",
+    "bloomli_before_after_U7dPaV",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
-    "related-products",
-    "bloomli_before_after_U7dPaV"
+    "related-products"
   ]
 }

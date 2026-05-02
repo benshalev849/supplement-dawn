@@ -687,18 +687,15 @@
     font-size: 11px;
   }
 
-  .bloomli-vt__size-badge,
-  .bloomli-vt__size-tag {
+  .bloomli-vt__size-badge {
     font-size: 11px;
     padding: 5px 10px;
-  }
-
-  .bloomli-vt__size-badge {
     top: -13px;
   }
 
   .bloomli-vt__size-tag {
-    bottom: -13px;
+    font-size: 8px;
+    padding: 3px 6px;
   }
 
   .bloomli-vt__shipping-pill {
@@ -739,7 +736,7 @@
   }
 
   .bloomli-vt__mode-info-line {
-    font-size: 13px;
+    font-size: 11px;
     margin-top: 4px;
   }
 
@@ -757,6 +754,18 @@
   .bloomli-vt__onetime-caveats {
     margin-left: 30px;
     gap: 10px;
+  }
+
+  .bloomli-vt__mode--subscribe .bloomli-vt__mode-inner {
+    padding-bottom: 20px;
+  }
+
+  .bloomli-vt__mode--subscribe .bloomli-vt__mode-info-line {
+    margin-top: 8px;
+  }
+
+  .bloomli-vt__mode--subscribe .bloomli-vt__mode-perks {
+    margin-top: 17px;
   }
 
   .bloomli-vt__sizes {

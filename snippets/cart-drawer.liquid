@@ -298,11 +298,8 @@
                           <div class="cart-item__price-wrapper">
                             {%- liquid
                               assign line_compare_price = item.original_line_price
-                              if item.selling_plan_allocation != null
-                                assign line_compare_price = item.variant.price | times: item.quantity
-                                if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
-                                  assign line_compare_price = item.variant.compare_at_price | times: item.quantity
-                                endif
+                              if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
+                                assign line_compare_price = item.variant.compare_at_price | times: item.quantity
                               endif
                             -%}
                             {%- if line_compare_price > item.final_line_price -%}

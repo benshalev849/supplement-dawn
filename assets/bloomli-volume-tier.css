@@ -424,11 +424,11 @@
 /* Perks list inside subscribe card */
 .bloomli-vt__mode-perks {
   list-style: none;
-  margin: 8px 0 2px 30px;
+  margin: 10px 0 4px 30px;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
 }
 
 .bloomli-vt__mode-perk {
@@ -436,8 +436,8 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 13px;
-  color: rgba(42, 38, 34, 0.82);
+  font-size: 14px;
+  color: rgba(42, 38, 34, 0.85);
   line-height: 1.3;
 }
 
@@ -476,16 +476,36 @@
 
 .bloomli-vt__onetime-caveats {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px 18px;
-  padding: 8px 0 2px;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 0 4px;
 }
 
 .bloomli-vt__onetime-caveat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 11px;
-  color: rgba(42, 38, 34, 0.52);
+  font-size: 14px;
+  color: rgba(42, 38, 34, 0.72);
   line-height: 1.3;
+}
+
+.bloomli-vt__onetime-caveat::before {
+  content: '';
+  flex-shrink: 0;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: var(--bloomli-vt-caveat-x-color, #D94040);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cline x1='5' y1='5' x2='19' y2='19' stroke='black' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='5' x2='5' y2='19' stroke='black' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cline x1='5' y1='5' x2='19' y2='19' stroke='black' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='5' x2='5' y2='19' stroke='black' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
 }
 
 .bloomli-vt__radio-visual {
@@ -707,11 +727,12 @@
 
   .bloomli-vt__mode-perks {
     margin-left: 28px;
-    gap: 5px;
+    gap: 8px;
   }
 
-  .bloomli-vt__mode-perk {
-    font-size: 11px;
+  .bloomli-vt__mode-perk,
+  .bloomli-vt__onetime-caveat {
+    font-size: 13px;
   }
 
   .bloomli-vt__sizes {

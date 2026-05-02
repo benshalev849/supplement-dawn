@@ -39,6 +39,7 @@
     const oneTimePriceEl = root.querySelector('[data-vt-onetime-price]');
     const subscribePriceEl = root.querySelector('[data-vt-subscribe-price]');
     const subSavingsEl = root.querySelector('[data-vt-sub-savings]');
+    const barEl = root.querySelector('[data-vt-mode-bar]');
     const modeSubInfoEl = root.querySelector('[data-vt-mode-sub-info]');
     const modeOnetimeInfoEl = root.querySelector('[data-vt-mode-onetime-info]');
     const modeSubCompareEl = root.querySelector('[data-vt-mode-subscribe-compare]');
@@ -137,6 +138,17 @@
         if (modeOnetimeSavingsEl) modeOnetimeSavingsEl.textContent = '';
       }
 
+      // Dynamic bar text: "Most Popular · Get [percent]% Off"
+      if (barEl) {
+        const barTemplate = barEl.dataset.barTemplate || '';
+        if (lineCompareCents > subscribeCents && lineCompareCents > 0) {
+          const subPct = Math.round((lineCompareCents - subscribeCents) / lineCompareCents * 100);
+          if (subPct > 0) {
+            barEl.textContent = formatTemplate(barTemplate, { percent: String(subPct) });
+          }
+        }
+      }
+
       if (mode === 'subscribe' && !planId) {
         setMode('onetime');
       }
@@ -181,7 +193,15 @@
         const qtyForLabel = parseInt(sizeOption.dataset.quantity, 10) || 1;
         const volumeDiscount = parseFloat(sizeOption.dataset.discountPct) || 0;
         const manualBadge = badge.dataset.manualBadge || '';
-        const displayDiscount = volumeDiscount;
+
+        let displayDiscount = volumeDiscount;
+        if (effectiveMode === 'subscribe' && sizeOption.dataset.planId) {
+          const sizeSubscribeCents = parseInt(sizeOption.dataset.subscribeCents, 10) || 0;
+          const sizeLineCompareCents = parseInt(sizeOption.dataset.lineCompareCents, 10) || 0;
+          if (sizeLineCompareCents > sizeSubscribeCents && sizeLineCompareCents > 0) {
+            displayDiscount = (sizeLineCompareCents - sizeSubscribeCents) / sizeLineCompareCents * 100;
+          }
+        }
 
         if (displayDiscount > 0) {
           badge.textContent = formatTemplate(discountBadgeTemplate, {

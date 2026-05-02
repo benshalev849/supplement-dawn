@@ -325,7 +325,7 @@
              data-vt-mode
              data-mode="subscribe">
         {%- if subscribe_popular_bar != blank -%}
-          <span class="bloomli-vt__mode-bar" aria-hidden="true">{{ subscribe_popular_bar }}</span>
+          <span class="bloomli-vt__mode-bar" aria-hidden="true" data-vt-mode-bar data-bar-template="{{ subscribe_popular_bar | escape }}">{{ subscribe_popular_bar }}</span>
         {%- endif -%}
         <div class="bloomli-vt__mode-inner">
           <div class="bloomli-vt__mode-row">
@@ -387,10 +387,10 @@
               {%- assign caveat_1 = block.settings.onetime_caveat_1 | default: 'No extra subscribe & save discount' -%}
               {%- assign caveat_2 = block.settings.onetime_caveat_2 | default: 'Free shipping unlocks at 3 packs' -%}
               {%- if caveat_1 != blank -%}
-                <span class="bloomli-vt__onetime-caveat">○ {{ caveat_1 }}</span>
+                <span class="bloomli-vt__onetime-caveat">{{ caveat_1 }}</span>
               {%- endif -%}
               {%- if caveat_2 != blank -%}
-                <span class="bloomli-vt__onetime-caveat">○ {{ caveat_2 }}</span>
+                <span class="bloomli-vt__onetime-caveat">{{ caveat_2 }}</span>
               {%- endif -%}
             </div>
           </div>

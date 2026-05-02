@@ -140,6 +140,7 @@
     "cart_drawer_tax_note_font_size": 9,
     "cart_drawer_product_image_size": 120,
     "cart_drawer_checkout_radius": 20,
+    "cart_drawer_subscription_discount_pct": "23",
     "cart_drawer_checkout_label": "CHECKOUT",
     "cart_free_shipping_threshold": 65,
     "cart_subscription_frequency_prefix": "Delivers every",

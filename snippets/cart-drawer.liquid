@@ -542,6 +542,24 @@
                               assign offer_4_savings = 100.0 | minus: offer_4_factor
                               assign offer_5_savings = 100.0 | minus: offer_5_factor
                             endif
+                            if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
+                              assign bloomli_compare_unit = item.variant.compare_at_price | times: 1.0
+                              assign bloomli_vol3_factor = 100.0 | minus: offer_3_volume_savings | divided_by: 100.0
+                              assign bloomli_vol4_factor = 100.0 | minus: offer_4_volume_savings | divided_by: 100.0
+                              assign bloomli_vol5_factor = 100.0 | minus: offer_5_volume_savings | divided_by: 100.0
+                              assign bloomli_discounted3 = item.variant.price | times: bloomli_vol3_factor
+                              assign bloomli_discounted4 = item.variant.price | times: bloomli_vol4_factor
+                              assign bloomli_discounted5 = item.variant.price | times: bloomli_vol5_factor
+                              if item.selling_plan_allocation != null
+                                assign bloomli_sub_factor = 100.0 | minus: cart_subscription_discount | divided_by: 100.0
+                                assign bloomli_discounted3 = bloomli_discounted3 | times: bloomli_sub_factor
+                                assign bloomli_discounted4 = bloomli_discounted4 | times: bloomli_sub_factor
+                                assign bloomli_discounted5 = bloomli_discounted5 | times: bloomli_sub_factor
+                              endif
+                              assign offer_3_savings = bloomli_compare_unit | minus: bloomli_discounted3 | times: 100.0 | divided_by: bloomli_compare_unit
+                              assign offer_4_savings = bloomli_compare_unit | minus: bloomli_discounted4 | times: 100.0 | divided_by: bloomli_compare_unit
+                              assign offer_5_savings = bloomli_compare_unit | minus: bloomli_discounted5 | times: 100.0 | divided_by: bloomli_compare_unit
+                            endif
                             assign offer_3_rounded = offer_3_savings | round
                             assign offer_4_rounded = offer_4_savings | round
                             assign offer_5_rounded = offer_5_savings | round
@@ -647,6 +665,12 @@
                                         assign plan_adjustment = selling_plan.price_adjustments | first
                                         if plan_adjustment and plan_adjustment.value_type == 'percentage'
                                           assign save_value = plan_adjustment.value | plus: 0
+                                          if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
+                                            assign bloomli_sub_factor = 100.0 | minus: save_value | divided_by: 100.0
+                                            assign bloomli_sub_unit = item.variant.price | times: bloomli_sub_factor
+                                            assign bloomli_compare_u = item.variant.compare_at_price | times: 1.0
+                                            assign save_value = bloomli_compare_u | minus: bloomli_sub_unit | times: 100.0 | divided_by: bloomli_compare_u | round
+                                          endif
                                           if save_value > 0
                                             assign save_label = savings_prefix | append: ' ' | append: save_value | append: '%'
                                           endif
@@ -708,6 +732,12 @@
                                         assign plan_adjustment = selling_plan.price_adjustments | first
                                         if plan_adjustment and plan_adjustment.value_type == 'percentage'
                                           assign save_value = plan_adjustment.value | plus: 0
+                                          if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
+                                            assign bloomli_sub_factor = 100.0 | minus: save_value | divided_by: 100.0
+                                            assign bloomli_sub_unit = item.variant.price | times: bloomli_sub_factor
+                                            assign bloomli_compare_u = item.variant.compare_at_price | times: 1.0
+                                            assign save_value = bloomli_compare_u | minus: bloomli_sub_unit | times: 100.0 | divided_by: bloomli_compare_u | round
+                                          endif
                                           if save_value > 0
                                             assign save_label = savings_prefix | append: ' ' | append: save_value | append: '%'
                                           endif
@@ -794,11 +824,8 @@
             assign bloomli_cart_compare_price = 0
             for item in cart.items
               assign bloomli_line_compare_price = item.original_line_price
-              if item.selling_plan_allocation != null
-                assign bloomli_line_compare_price = item.variant.price | times: item.quantity
-                if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
-                  assign bloomli_line_compare_price = item.variant.compare_at_price | times: item.quantity
-                endif
+              if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
+                assign bloomli_line_compare_price = item.variant.compare_at_price | times: item.quantity
               endif
 
               if bloomli_line_compare_price < item.final_line_price

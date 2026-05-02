@@ -46,6 +46,10 @@
     const modeSubSavingsEl = root.querySelector('[data-vt-mode-subscribe-savings]');
     const modeOnetimeCompareEl = root.querySelector('[data-vt-mode-onetime-compare]');
     const modeOnetimeSavingsEl = root.querySelector('[data-vt-mode-onetime-savings]');
+    const atc = root.querySelector('[data-vt-atc]');
+    const atcHome = root.querySelector('[data-vt-atc-home]');
+    const mobileAtcSlots = root.querySelectorAll('[data-vt-mobile-atc-slot]');
+    const mobileMedia = window.matchMedia ? window.matchMedia('(max-width: 749px)') : null;
 
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const discountBadgeTemplate = root.dataset.discountBadgeTemplate || 'SAVE [percent]%';
@@ -76,6 +80,33 @@
         const radio = mode.querySelector('.bloomli-vt__radio-native');
         if (radio) radio.checked = selected;
       });
+    }
+
+    function placeAddToCart() {
+      if (!atc || !atcHome) return;
+
+      const isMobile = mobileMedia ? mobileMedia.matches : window.innerWidth < 750;
+      mobileAtcSlots.forEach(function (slot) {
+        slot.classList.remove('has-button');
+      });
+
+      if (!isMobile) {
+        if (atc.previousElementSibling !== atcHome) {
+          atcHome.after(atc);
+        }
+        return;
+      }
+
+      const selectedMode = getSelectedMode();
+      const slot = root.querySelector('[data-vt-mobile-atc-slot="' + selectedMode + '"]');
+
+      if (slot && atc.parentNode !== slot) {
+        slot.appendChild(atc);
+      }
+
+      if (slot) {
+        slot.classList.add('has-button');
+      }
     }
 
     function updateState() {
@@ -236,6 +267,8 @@
           modeOption.classList.remove('is-disabled');
         }
       });
+
+      placeAddToCart();
     }
 
     sizes.forEach(function (size) {
@@ -257,13 +290,24 @@
     });
 
     modes.forEach(function (mode) {
-      mode.addEventListener('click', function () {
+      mode.addEventListener('click', function (event) {
+        if (event.target.closest('[data-vt-atc]')) return;
         if (mode.getAttribute('aria-disabled') === 'true') return;
 
         setMode(mode.dataset.mode);
         updateState();
       });
     });
+
+    if (mobileMedia) {
+      if (mobileMedia.addEventListener) {
+        mobileMedia.addEventListener('change', placeAddToCart);
+      } else if (mobileMedia.addListener) {
+        mobileMedia.addListener(placeAddToCart);
+      }
+    } else {
+      window.addEventListener('resize', placeAddToCart);
+    }
 
     if (!root.querySelector('[data-vt-size].is-selected') && sizes[0]) {
       sizes[0].classList.add('is-selected');

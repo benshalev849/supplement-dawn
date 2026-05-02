@@ -104,7 +104,7 @@
             "tier_5_show_shipping": false,
             "tier_5_default": false,
             "subscribe_enabled": true,
-            "subscription_discount_pct": "10",
+            "subscription_discount_pct": "23",
             "subscription_extra_label_template": "An Extra  10%!",
             "discount_badge_template": "SAVE [percent]%",
             "default_mode": "subscribe",

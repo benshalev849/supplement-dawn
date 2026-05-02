@@ -33,7 +33,7 @@
           "settings": {
             "eyebrow": "Best Offers",
             "heading": "Select Your Size:",
-            "add_to_cart_label": "Add to cart",
+            "add_to_cart_label": "Start your journey",
             "sold_out_label": "Sold out",
             "save_badge_background": "#b23a6f",
             "save_badge_text_color": "#fdfaf7",
@@ -106,7 +106,6 @@
             "tier_5_default": false,
             "subscribe_enabled": true,
             "subscription_discount_pct": "23",
-            "subscription_extra_label_template": "An Extra  10%!",
             "discount_badge_template": "SAVE [percent]%",
             "default_mode": "subscribe",
             "offer_section_label": "Select Your Offer:",
@@ -117,6 +116,10 @@
             "subscribe_perk_1": "30-day money-back guarantee",
             "subscribe_perk_2": "Free shipping on every delivery",
             "subscribe_perk_3": "Pause or cancel anytime, no fees",
+            "savings_label_prefix": "You're saving",
+            "savings_label_suffix": "$",
+            "onetime_caveat_1": "One Time Discount",
+            "onetime_caveat_2": "Free shipping unlocks at 3 packs",
             "total_label": "Total price:",
             "shipping_text": "Free shipping",
             "note": ""

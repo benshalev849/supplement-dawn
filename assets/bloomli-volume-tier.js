@@ -4,6 +4,187 @@
     return;
   }
 
+  const MOBILE_LAYOUT_FIX_CSS = `
+    @media (max-width: 749px) {
+      .bloomli-vt__modes {
+        gap: 10px;
+      }
+
+      .bloomli-vt__mode-inner {
+        padding: 18px 18px 18px;
+      }
+
+      .bloomli-vt__mode--subscribe .bloomli-vt__mode-inner {
+        padding-bottom: 18px;
+      }
+
+      .bloomli-vt__mode-row {
+        display: grid;
+        grid-template-columns: 22px minmax(0, 1fr) auto;
+        column-gap: 12px;
+        align-items: start;
+      }
+
+      .bloomli-vt__mode .bloomli-vt__radio-visual {
+        grid-column: 1;
+        grid-row: 1;
+        width: 20px;
+        height: 20px;
+        margin-top: 4px !important;
+      }
+
+      .bloomli-vt__mode-title-stack {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .bloomli-vt__mode-title {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+        white-space: nowrap;
+        font-size: 18px;
+        line-height: 1.15;
+        font-weight: 800;
+      }
+
+      .bloomli-vt__mode--subscribe .bloomli-vt__mode-title {
+        font-size: 20px;
+      }
+
+      .bloomli-vt__mode-prices {
+        grid-column: 3;
+        grid-row: 1;
+        align-self: start;
+        gap: 4px;
+        padding-top: 0;
+      }
+
+      .bloomli-vt__mode-price {
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1.15;
+      }
+
+      .bloomli-vt__mode-compare {
+        font-size: 13px;
+      }
+
+      .bloomli-vt__mode-savings-text {
+        font-size: 13px;
+        margin-top: 6px;
+        line-height: 1.15;
+      }
+
+      .bloomli-vt__mode-info-line {
+        margin-left: 34px;
+        margin-top: 7px;
+        font-size: 14px;
+        line-height: 1.25;
+        color: rgba(42, 38, 34, 0.78);
+      }
+
+      .bloomli-vt__mode-title-stack .bloomli-vt__mode-info-line {
+        margin-left: 0;
+        margin-top: 0;
+      }
+
+      .bloomli-vt__mode-info-line strong {
+        color: var(--charcoal, #2A2622);
+        font-weight: 800;
+      }
+
+      .bloomli-vt__mode-perks {
+        margin: 18px 0 0 34px;
+        gap: 14px;
+        overflow: hidden;
+        max-height: 320px;
+        opacity: 1;
+        transition: max-height 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms ease, margin-top 180ms ease;
+      }
+
+      .bloomli-vt__mode--subscribe:not(.is-selected) .bloomli-vt__mode-perks {
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+      }
+
+      .bloomli-vt__mode-perk,
+      .bloomli-vt__onetime-caveat {
+        font-size: 16px;
+        line-height: 1.35;
+        gap: 10px;
+        color: rgba(42, 38, 34, 0.82);
+      }
+
+      .bloomli-vt__mode-perk::before,
+      .bloomli-vt__onetime-caveat::before {
+        width: 17px;
+        height: 17px;
+      }
+
+      .bloomli-vt__onetime-caveats {
+        margin-left: 34px;
+        padding: 14px 0 2px;
+        gap: 14px;
+      }
+
+      .bloomli-vt__mobile-atc-slot.has-button {
+        display: block;
+        margin-top: 20px;
+        padding-top: 0;
+      }
+
+      .bloomli-vt__mobile-atc-slot.has-button .bloomli-vt__product-form {
+        display: block;
+        width: 100%;
+      }
+
+      .bloomli-vt__mobile-atc-slot.has-button .bloomli-vt__custom-submit {
+        margin-top: 0;
+        width: 100%;
+      }
+
+      .bloomli-vt__custom-submit {
+        min-height: 4.8rem;
+        margin: 0;
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .bloomli-vt__size-badge {
+        font-size: 12px;
+        padding: 6px 13px;
+        top: -14px;
+        left: 14px;
+        border-radius: 5px;
+      }
+
+      .bloomli-vt__size-tag {
+        font-size: 10px;
+        padding: 5px 10px;
+        bottom: -11px;
+        right: 10px;
+        border-radius: 5px;
+        font-weight: 800;
+      }
+    }
+  `;
+
+  function injectMobileLayoutFixStyles() {
+    if (document.getElementById('bloomli-vt-mobile-layout-fixes')) return;
+
+    const style = document.createElement('style');
+    style.id = 'bloomli-vt-mobile-layout-fixes';
+    style.textContent = MOBILE_LAYOUT_FIX_CSS;
+    document.head.appendChild(style);
+  }
+
   function formatMoney(cents, moneyFormat) {
     if (window.Shopify && window.Shopify.formatMoney) {
       try {
@@ -131,7 +312,6 @@
       const subDailyStr = sizeDaily ? (sizeDaily.dataset.subscribeDaily || '') : '';
       const onetimeDailyStr = sizeDaily ? (sizeDaily.dataset.onetimeDaily || '') : '';
 
-      // Info line: "<strong>1 Month</strong> · 60 Count · ($0.81 / Day)"
       const subInfoHTML = sizeLabel
         ? '<strong>' + sizeLabel + '</strong>'
           + (sizeCount ? ' · ' + sizeCount : '')
@@ -146,7 +326,6 @@
         : sizeCount + (onetimeDailyStr ? ' · ' + onetimeDailyStr : '');
       if (modeOnetimeInfoEl) modeOnetimeInfoEl.innerHTML = onetimeInfoHTML;
 
-      // Savings: prefix + whole dollar amount + suffix (e.g. "You're saving 11$")
       function savingsText(savingsCents) {
         if (savingsCents <= 50) return '';
         const dollars = Math.round(savingsCents / 100);
@@ -163,13 +342,11 @@
 
       if (lineCompareCents > oneTimeCents) {
         if (modeOnetimeCompareEl) modeOnetimeCompareEl.textContent = formatMoney(lineCompareCents, moneyFormat);
-        if (modeOnetimeSavingsEl) modeOnetimeSavingsEl.textContent = savingsText(lineCompareCents - oneTimeCents);
-      } else {
-        if (modeOnetimeCompareEl) modeOnetimeCompareEl.textContent = '';
-        if (modeOnetimeSavingsEl) modeOnetimeSavingsEl.textContent = '';
+      } else if (modeOnetimeCompareEl) {
+        modeOnetimeCompareEl.textContent = '';
       }
+      if (modeOnetimeSavingsEl) modeOnetimeSavingsEl.textContent = '';
 
-      // Dynamic bar text: "Most Popular · Get [percent]% Off"
       if (barEl) {
         const barTemplate = barEl.dataset.barTemplate || '';
         if (lineCompareCents > subscribeCents && lineCompareCents > 0) {
@@ -324,6 +501,7 @@
   }
 
   function init(scope) {
+    injectMobileLayoutFixStyles();
     const root = scope && scope.querySelectorAll ? scope : document;
     root.querySelectorAll('[data-bloomli-vt]').forEach(initRoot);
   }

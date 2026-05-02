@@ -403,6 +403,10 @@
   margin-top: 0;
 }
 
+.bloomli-vt__mode--onetime .bloomli-vt__mode-savings-text {
+  display: none;
+}
+
 /* Perks list inside subscribe card */
 .bloomli-vt__mode-perks {
   list-style: none;
@@ -684,13 +688,22 @@
   }
 
   .bloomli-vt__size-badge,
-  .bloomli-vt__size-tag,
-  .bloomli-vt__shipping-pill {
-    font-size: 8px;
-    padding: 3px 6px;
+  .bloomli-vt__size-tag {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .bloomli-vt__size-badge {
+    top: -13px;
+  }
+
+  .bloomli-vt__size-tag {
+    bottom: -13px;
   }
 
   .bloomli-vt__shipping-pill {
+    font-size: 9px;
+    padding: 3px 7px;
     top: 6px;
     right: 6px;
   }
@@ -704,23 +717,46 @@
     padding: 0;
   }
 
-  .bloomli-vt__mode-inner {
-    padding: 10px 12px;
+  .bloomli-vt__mode-bar {
+    font-size: 14px;
+    padding: 10px 16px;
   }
 
-  .bloomli-vt__mode-title,
+  .bloomli-vt__mode-inner {
+    padding: 12px 14px;
+  }
+
+  .bloomli-vt__mode-title {
+    font-size: 15px;
+  }
+
+  .bloomli-vt__mode--subscribe .bloomli-vt__mode-title {
+    font-size: 18px;
+  }
+
   .bloomli-vt__mode-price {
-    font-size: 14px;
+    font-size: 15px;
+  }
+
+  .bloomli-vt__mode-info-line {
+    font-size: 13px;
+    margin-top: 4px;
   }
 
   .bloomli-vt__mode-perks {
-    margin-left: 28px;
-    gap: 8px;
+    margin-left: 30px;
+    margin-top: 12px;
+    gap: 10px;
   }
 
   .bloomli-vt__mode-perk,
   .bloomli-vt__onetime-caveat {
-    font-size: 13px;
+    font-size: 14px;
+  }
+
+  .bloomli-vt__onetime-caveats {
+    margin-left: 30px;
+    gap: 10px;
   }
 
   .bloomli-vt__sizes {

@@ -335,10 +335,7 @@
                    class="bloomli-vt__radio-native"
                    {% if default_mode == 'subscribe' %}checked{% endif %}>
             <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
-            <div class="bloomli-vt__mode-title-stack">
-              <span class="bloomli-vt__mode-title">{{ block.settings.label_subscribe | default: 'Subscribe & Save' }}</span>
-              <span class="bloomli-vt__mode-info-line" data-vt-mode-sub-info></span>
-            </div>
+            <span class="bloomli-vt__mode-title">{{ block.settings.label_subscribe | default: 'Subscribe & Save' }}</span>
             <div class="bloomli-vt__mode-prices">
               <div class="bloomli-vt__mode-price-row">
                 <span class="bloomli-vt__mode-compare" data-vt-mode-subscribe-compare></span>
@@ -347,6 +344,7 @@
               <span class="bloomli-vt__mode-savings-text" data-vt-mode-subscribe-savings></span>
             </div>
           </div>
+          <span class="bloomli-vt__mode-info-line" data-vt-mode-sub-info></span>
           {%- if block.settings.subscribe_show_perks != false -%}
             <ul class="bloomli-vt__mode-perks" aria-hidden="true">
               {%- if subscribe_perk_1 != blank -%}

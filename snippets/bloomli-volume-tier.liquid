@@ -364,34 +364,36 @@
       <label class="bloomli-vt__mode bloomli-vt__mode--onetime{% if default_mode == 'onetime' %} is-selected{% endif %}"
              data-vt-mode
              data-mode="onetime">
-        <input type="radio"
-               name="bloomli-vt-mode-{{ uid }}"
-               value="onetime"
-               class="bloomli-vt__radio-native"
-               {% if default_mode == 'onetime' %}checked{% endif %}>
-        <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
-        <div class="bloomli-vt__mode-body">
-          <span class="bloomli-vt__mode-title">{{ block.settings.label_one_time | default: 'One-Time Purchase' }}</span>
-          <span class="bloomli-vt__mode-info-line" data-vt-mode-onetime-info></span>
-        </div>
-        <div class="bloomli-vt__mode-prices">
-          <div class="bloomli-vt__mode-price-row">
-            <span class="bloomli-vt__mode-compare" data-vt-mode-onetime-compare></span>
-            <span class="bloomli-vt__mode-price" data-vt-onetime-price>{{ unit_price | money }}</span>
+        <div class="bloomli-vt__mode-inner">
+          <div class="bloomli-vt__mode-row">
+            <input type="radio"
+                   name="bloomli-vt-mode-{{ uid }}"
+                   value="onetime"
+                   class="bloomli-vt__radio-native"
+                   {% if default_mode == 'onetime' %}checked{% endif %}>
+            <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+            <span class="bloomli-vt__mode-title">{{ block.settings.label_one_time | default: 'One-Time Purchase' }}</span>
+            <div class="bloomli-vt__mode-prices">
+              <div class="bloomli-vt__mode-price-row">
+                <span class="bloomli-vt__mode-compare" data-vt-mode-onetime-compare></span>
+                <span class="bloomli-vt__mode-price" data-vt-onetime-price>{{ unit_price | money }}</span>
+              </div>
+              <span class="bloomli-vt__mode-savings-text" data-vt-mode-onetime-savings></span>
+            </div>
           </div>
-          <span class="bloomli-vt__mode-savings-text" data-vt-mode-onetime-savings></span>
-        </div>
-        <div class="bloomli-vt__onetime-accordion" aria-hidden="true">
-          <div class="bloomli-vt__onetime-accordion-inner">
-            <div class="bloomli-vt__onetime-caveats">
-              {%- assign caveat_1 = block.settings.onetime_caveat_1 | default: 'No extra subscribe & save discount' -%}
-              {%- assign caveat_2 = block.settings.onetime_caveat_2 | default: 'Free shipping unlocks at 3 packs' -%}
-              {%- if caveat_1 != blank -%}
-                <span class="bloomli-vt__onetime-caveat">{{ caveat_1 }}</span>
-              {%- endif -%}
-              {%- if caveat_2 != blank -%}
-                <span class="bloomli-vt__onetime-caveat">{{ caveat_2 }}</span>
-              {%- endif -%}
+          <span class="bloomli-vt__mode-info-line" data-vt-mode-onetime-info></span>
+          <div class="bloomli-vt__onetime-accordion" aria-hidden="true">
+            <div class="bloomli-vt__onetime-accordion-inner">
+              <div class="bloomli-vt__onetime-caveats">
+                {%- assign caveat_1 = block.settings.onetime_caveat_1 | default: 'One Time Discount' -%}
+                {%- assign caveat_2 = block.settings.onetime_caveat_2 | default: 'Free shipping unlocks at 3 packs' -%}
+                {%- if caveat_1 != blank -%}
+                  <span class="bloomli-vt__onetime-caveat">{{ caveat_1 }}</span>
+                {%- endif -%}
+                {%- if caveat_2 != blank -%}
+                  <span class="bloomli-vt__onetime-caveat">{{ caveat_2 }}</span>
+                {%- endif -%}
+              </div>
             </div>
           </div>
         </div>

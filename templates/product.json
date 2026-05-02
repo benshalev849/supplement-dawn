@@ -112,7 +112,7 @@
             "offer_section_label": "Select Your Offer:",
             "label_one_time": "One-Time Purchase",
             "label_subscribe": "Subscribe & Save",
-            "subscribe_popular_pill": "Most Popular · Get an extra 10% off",
+            "subscribe_popular_pill": "Most Popular · Get [percent]% off",
             "subscribe_show_perks": true,
             "subscribe_perk_1": "30-day money-back guarantee",
             "subscribe_perk_2": "Free shipping on every delivery",

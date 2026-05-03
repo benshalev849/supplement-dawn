@@ -1,62 +1,63 @@
-# Graph Report - .  (2026-05-03)
+# Graph Report - supplement-dawn  (2026-05-03)
 
 ## Corpus Check
-- Corpus is ~29,891 words - fits in a single context window. You may not need a graph.
+- 36 files · ~29,891 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 - 580 nodes · 782 edges · 48 communities detected
 - Extraction: 86% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 110 edges (avg confidence: 0.82)
-- Token cost: 1,850 input · 980 output
+- Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Global UI Components|Global UI Components]]
-- [[_COMMUNITY_Modal & Drawer Interactions|Modal & Drawer Interactions]]
-- [[_COMMUNITY_Cart & Product Info|Cart & Product Info]]
-- [[_COMMUNITY_Scroll Animations|Scroll Animations]]
-- [[_COMMUNITY_Quick Order List|Quick Order List]]
-- [[_COMMUNITY_Cart Items Core|Cart Items Core]]
-- [[_COMMUNITY_Slider & Slideshow|Slider & Slideshow]]
-- [[_COMMUNITY_Predictive Search|Predictive Search]]
-- [[_COMMUNITY_Theme Documentation|Theme Documentation]]
-- [[_COMMUNITY_E-commerce & Brand Icons|E-commerce & Brand Icons]]
-- [[_COMMUNITY_Bloomli Cart Drawer|Bloomli Cart Drawer]]
-- [[_COMMUNITY_Bulk Quick Add|Bulk Quick Add]]
-- [[_COMMUNITY_Localization Form|Localization Form]]
-- [[_COMMUNITY_Dietary & Promo Icons|Dietary & Promo Icons]]
-- [[_COMMUNITY_Cart Drawer|Cart Drawer]]
-- [[_COMMUNITY_Recipient Gift Form|Recipient Gift Form]]
-- [[_COMMUNITY_Media Gallery|Media Gallery]]
-- [[_COMMUNITY_Cart Notification|Cart Notification]]
-- [[_COMMUNITY_Bulk Add Component|Bulk Add Component]]
-- [[_COMMUNITY_Quick Add Modal|Quick Add Modal]]
-- [[_COMMUNITY_Lifestyle & Product Icons|Lifestyle & Product Icons]]
-- [[_COMMUNITY_Details Disclosure|Details Disclosure]]
-- [[_COMMUNITY_Social Media Icons|Social Media Icons]]
-- [[_COMMUNITY_Main Search|Main Search]]
-- [[_COMMUNITY_Price Per Item|Price Per Item]]
-- [[_COMMUNITY_Product & Ingredient Icons|Product & Ingredient Icons]]
-- [[_COMMUNITY_Customer Addresses|Customer Addresses]]
-- [[_COMMUNITY_Image Magnifier|Image Magnifier]]
-- [[_COMMUNITY_Quantity Input|Quantity Input]]
-- [[_COMMUNITY_Before After Slider|Before After Slider]]
-- [[_COMMUNITY_Bloomli Theme Accordion|Bloomli Theme Accordion]]
-- [[_COMMUNITY_Product Modal|Product Modal]]
-- [[_COMMUNITY_Bloomli FAQ|Bloomli FAQ]]
-- [[_COMMUNITY_Core Shopping Icons|Core Shopping Icons]]
-- [[_COMMUNITY_Navigation Icons|Navigation Icons]]
-- [[_COMMUNITY_UI Status Icons|UI Status Icons]]
-- [[_COMMUNITY_Laundry Care Icons|Laundry Care Icons]]
-- [[_COMMUNITY_UI Action Icons|UI Action Icons]]
-- [[_COMMUNITY_Apparel & Sizing Icons|Apparel & Sizing Icons]]
-- [[_COMMUNITY_Product Care Icons|Product Care Icons]]
-- [[_COMMUNITY_Email Banner Assets|Email Banner Assets]]
-- [[_COMMUNITY_Direction Icons|Direction Icons]]
-- [[_COMMUNITY_Checkmark Icons|Checkmark Icons]]
-- [[_COMMUNITY_Copy Icons|Copy Icons]]
-- [[_COMMUNITY_Close Icons|Close Icons]]
-- [[_COMMUNITY_Media Controls|Media Controls]]
-- [[_COMMUNITY_Pinterest & Share|Pinterest & Share]]
-- [[_COMMUNITY_Shipping & Returns|Shipping & Returns]]
+- [[_COMMUNITY_Community 0|Community 0]]
+- [[_COMMUNITY_Community 1|Community 1]]
+- [[_COMMUNITY_Community 2|Community 2]]
+- [[_COMMUNITY_Community 3|Community 3]]
+- [[_COMMUNITY_Community 4|Community 4]]
+- [[_COMMUNITY_Community 5|Community 5]]
+- [[_COMMUNITY_Community 6|Community 6]]
+- [[_COMMUNITY_Community 7|Community 7]]
+- [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 9|Community 9]]
+- [[_COMMUNITY_Community 10|Community 10]]
+- [[_COMMUNITY_Community 11|Community 11]]
+- [[_COMMUNITY_Community 12|Community 12]]
+- [[_COMMUNITY_Community 13|Community 13]]
+- [[_COMMUNITY_Community 14|Community 14]]
+- [[_COMMUNITY_Community 15|Community 15]]
+- [[_COMMUNITY_Community 16|Community 16]]
+- [[_COMMUNITY_Community 17|Community 17]]
+- [[_COMMUNITY_Community 18|Community 18]]
+- [[_COMMUNITY_Community 19|Community 19]]
+- [[_COMMUNITY_Community 20|Community 20]]
+- [[_COMMUNITY_Community 21|Community 21]]
+- [[_COMMUNITY_Community 22|Community 22]]
+- [[_COMMUNITY_Community 23|Community 23]]
+- [[_COMMUNITY_Community 24|Community 24]]
+- [[_COMMUNITY_Community 25|Community 25]]
+- [[_COMMUNITY_Community 26|Community 26]]
+- [[_COMMUNITY_Community 27|Community 27]]
+- [[_COMMUNITY_Community 28|Community 28]]
+- [[_COMMUNITY_Community 29|Community 29]]
+- [[_COMMUNITY_Community 32|Community 32]]
+- [[_COMMUNITY_Community 33|Community 33]]
+- [[_COMMUNITY_Community 35|Community 35]]
+- [[_COMMUNITY_Community 37|Community 37]]
+- [[_COMMUNITY_Community 38|Community 38]]
+- [[_COMMUNITY_Community 39|Community 39]]
+- [[_COMMUNITY_Community 40|Community 40]]
+- [[_COMMUNITY_Community 42|Community 42]]
+- [[_COMMUNITY_Community 43|Community 43]]
+- [[_COMMUNITY_Community 44|Community 44]]
+- [[_COMMUNITY_Community 46|Community 46]]
+- [[_COMMUNITY_Community 47|Community 47]]
+- [[_COMMUNITY_Community 48|Community 48]]
+- [[_COMMUNITY_Community 49|Community 49]]
+- [[_COMMUNITY_Community 50|Community 50]]
+- [[_COMMUNITY_Community 51|Community 51]]
+- [[_COMMUNITY_Community 52|Community 52]]
+- [[_COMMUNITY_Community 53|Community 53]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `PredictiveSearch` - 23 edges
@@ -122,123 +123,123 @@
 
 ## Communities (55 total, 18 thin omitted)
 
-### Community 0 - "Global UI Components"
+### Community 0 - "Community 0"
 Cohesion: 0.05
 Nodes (11): AccountIcon, BulkModal, CartPerformance, DeferredMedia, HTMLUpdateUtility, ModalDialog, ModalOpener, pauseAllMedia() (+3 more)
 
-### Community 1 - "Modal & Drawer Interactions"
+### Community 1 - "Community 1"
 Cohesion: 0.08
 Nodes (13): DetailsModal, getFocusableElements(), HeaderDrawer, MenuDrawer, removeTrapFocus(), trapFocus(), constructor(), fetchAvailability() (+5 more)
 
-### Community 2 - "Cart & Product Info"
+### Community 2 - "Community 2"
 Cohesion: 0.08
 Nodes (15): buildRequestUrlWithParams(), connectedCallback(), handleOptionValueChange(), handleSwapProduct(), handleUpdateProductInfo(), initializeProductSwapUtility(), initQuantityHandlers(), renderProductInfo() (+7 more)
 
-### Community 3 - "Scroll Animations"
+### Community 3 - "Community 3"
 Cohesion: 0.09
 Nodes (4): initializeScrollAnimationTrigger(), FacetFiltersForm, FacetRemove, PriceRange
 
-### Community 4 - "Quick Order List"
+### Community 4 - "Community 4"
 Cohesion: 0.1
 Nodes (21): cleanErrorMessageOnType(), connectedCallback(), constructor(), getSectionsToRender(), getTotalBar(), handleScrollIntoView(), handleSwitchVariantOnEnter(), initEventListeners() (+13 more)
 
-### Community 5 - "Cart Items Core"
+### Community 5 - "Community 5"
 Cohesion: 0.1
 Nodes (5): CartItems, CartRemoveButton, constructor(), debounce(), SearchForm
 
-### Community 8 - "Theme Documentation"
+### Community 8 - "Community 8"
 Cohesion: 0.14
 Nodes (19): Shopify Dawn License, Contributing Guide, Dawn Theme, GitHub Actions CI, HTML-First JavaScript-Only-As-Needed Approach, Shopify Lighthouse CI Action, Online Store 2.0, Progressive Enhancement (+11 more)
 
-### Community 9 - "E-commerce & Brand Icons"
+### Community 9 - "Community 9"
 Cohesion: 0.14
 Nodes (18): E-Commerce / Shopping Icons Group, Platform Branding Icons Group, UI Feedback Icons Group, UI Shapes / Structural Elements Group, Shoe Icon, Shopify Logo Icon, Person Silhouette / User Account Icon, Star / Rating Icon (+10 more)
 
-### Community 10 - "Bloomli Cart Drawer"
+### Community 10 - "Community 10"
 Cohesion: 0.21
 Nodes (11): closeFrequencyMenus(), getSectionInnerHTML(), getSections(), replaceCartSections(), setFrequencyDisplay(), setMenuOpen(), updateFrequency(), updateLineQuantity() (+3 more)
 
-### Community 11 - "Bulk Quick Add"
+### Community 11 - "Community 11"
 Cohesion: 0.23
 Nodes (8): constructor(), getSectionsToRender(), getSectionsUrl(), listenForActiveInput(), listenForKeydown(), renderSections(), selectProgressBar(), updateMultipleQty()
 
-### Community 12 - "Localization Form"
+### Community 12 - "Community 12"
 Cohesion: 0.21
 Nodes (7): closeSelector(), filterCountries(), hidePanel(), normalizeString(), onContainerKeyUp(), openSelector(), resetFilter()
 
-### Community 13 - "Dietary & Promo Icons"
+### Community 13 - "Community 13"
 Cohesion: 0.21
 Nodes (14): Dietary / Allergen Claim Icons, E-commerce Action / Interaction Icons, Product / Marketing Claim Icons, Discount / Price Tag Icon, Eye / Visibility Icon, Fire / Trending / Hot Icon, Gluten-Free Dietary Badge Icon, Heart / Wishlist / Favourite Icon (+6 more)
 
-### Community 15 - "Recipient Gift Form"
+### Community 15 - "Community 15"
 Cohesion: 0.31
 Nodes (10): clearErrorMessage(), clearInputFields(), constructor(), disableableFields(), disableInputFields(), displayErrorMessage(), enableInputFields(), inputFields() (+2 more)
 
-### Community 16 - "Media Gallery"
+### Community 16 - "Community 16"
 Cohesion: 0.29
 Nodes (8): announceLiveRegion(), constructor(), onSlideChanged(), playActiveMedia(), preventStickyHeader(), removeListSemantic(), setActiveMedia(), setActiveThumbnail()
 
-### Community 19 - "Quick Add Modal"
+### Community 19 - "Community 19"
 Cohesion: 0.31
 Nodes (6): preprocessHTML(), preventDuplicatedIDs(), preventVariantURLSwitching(), removeDOMElements(), removeGalleryListSemantic(), updateImageSizes()
 
-### Community 20 - "Lifestyle & Product Icons"
+### Community 20 - "Community 20"
 Cohesion: 0.2
 Nodes (10): Padlock Icon, Paw Print Icon, Pepper Icon, Perfume Bottle Icon, Plant / Leaf Icon, Price Tag Icon, Question Mark / Help Icon, Recycle Icon (+2 more)
 
-### Community 22 - "Social Media Icons"
+### Community 22 - "Community 22"
 Cohesion: 0.25
 Nodes (9): Social Media Share Icons, Facebook Social Media Icon, Instagram Social Media Icon, Snapchat Social Media Icon, TikTok Social Media Icon, Tumblr Social Media Icon, Twitter / X Social Media Icon, Vimeo Social Media Icon (+1 more)
 
-### Community 24 - "Price Per Item"
+### Community 24 - "Community 24"
 Cohesion: 0.36
 Nodes (6): connectedCallback(), constructor(), getCartQuantity(), getVolumePricingArray(), onInputChange(), updatePricePerItem()
 
-### Community 25 - "Product & Ingredient Icons"
+### Community 25 - "Community 25"
 Cohesion: 0.29
 Nodes (8): Icon: 3D Model, Icon: Apple (Fruit), Icon: Banana (Fruit), Icon: Bottle (Supplement Container), Icon: Box (3D Package), Icon: Carrot (Vegetable), Icon: Dairy Free (Badge/Dietary Label), Icon: Dairy (Milk Jug/Bottle Badge)
 
-### Community 27 - "Image Magnifier"
+### Community 27 - "Community 27"
 Cohesion: 0.43
 Nodes (4): createOverlay(), magnify(), prepareOverlay(), toggleLoadingSpinner()
 
-### Community 29 - "Before After Slider"
+### Community 29 - "Community 29"
 Cohesion: 0.6
 Nodes (4): clamp(), initSection(), update(), updateFromPointer()
 
-### Community 32 - "Bloomli Theme Accordion"
+### Community 32 - "Community 32"
 Cohesion: 0.6
 Nodes (3): closeAccordion(), initAccordions(), openAccordion()
 
-### Community 35 - "Bloomli FAQ"
+### Community 35 - "Community 35"
 Cohesion: 0.83
 Nodes (3): finishAfterTransition(), initFaq(), setPanelState()
 
-### Community 37 - "Core Shopping Icons"
+### Community 37 - "Community 37"
 Cohesion: 0.5
 Nodes (4): Icon: Account (User Profile), Icon: Cart Empty, Icon: Cart (Shopping Bag), Icon: Chat Bubble (Message/Support)
 
-### Community 38 - "Navigation Icons"
+### Community 38 - "Community 38"
 Cohesion: 0.5
 Nodes (4): UI Navigation Icons, Filter / Sort Controls Icon, Hamburger / Navigation Menu Icon, Map Pin / Location Icon
 
-### Community 39 - "UI Status Icons"
+### Community 39 - "Community 39"
 Cohesion: 0.83
 Nodes (4): UI Status / Feedback Icons, Error / Alert Status Icon, Info / Tooltip Icon, Inventory / Stock Status Indicator Icon
 
-### Community 40 - "Laundry Care Icons"
+### Community 40 - "Community 40"
 Cohesion: 0.67
 Nodes (4): Laundry / Material Care Icons, Dryer / Laundry Care Icon, Iron / Laundry Care Icon, Leather / Material Care Icon
 
-### Community 42 - "UI Action Icons"
+### Community 42 - "Community 42"
 Cohesion: 1.0
 Nodes (3): Plus / Add Icon, Remove / Trash Icon, Reset / Close Icon
 
-### Community 43 - "Apparel & Sizing Icons"
+### Community 43 - "Community 43"
 Cohesion: 1.0
 Nodes (3): Pants Icon, Ruler / Measurement Icon, Shirt / T-Shirt Icon
 
-### Community 44 - "Product Care Icons"
+### Community 44 - "Community 44"
 Cohesion: 1.0
 Nodes (3): Product / Care Instructions Icons Group, Snowflake / Cold Storage Icon, Washing / Care Instructions Icon
 
@@ -256,15 +257,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Shoe Icon` and `Arch Shape Clip Path Mask`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `debounce()` connect `Cart Items Core` to `Global UI Components`, `Media Gallery`, `Bulk Quick Add`?**
+- **Why does `debounce()` connect `Community 5` to `Community 0`, `Community 16`, `Community 11`?**
   _High betweenness centrality (0.109) - this node is a cross-community bridge._
-- **Why does `subscribe()` connect `Cart & Product Info` to `Price Per Item`, `Quantity Input`, `Quick Order List`?**
+- **Why does `subscribe()` connect `Community 2` to `Community 24`, `Community 28`, `Community 4`?**
   _High betweenness centrality (0.099) - this node is a cross-community bridge._
-- **Why does `fetchConfig()` connect `Bloomli Cart Drawer` to `Global UI Components`, `Bulk Quick Add`, `Quick Order List`, `Cart Items Core`?**
+- **Why does `fetchConfig()` connect `Community 10` to `Community 0`, `Community 11`, `Community 4`, `Community 5`?**
   _High betweenness centrality (0.084) - this node is a cross-community bridge._
 - **What connects `Shopify Dawn License`, `Online Store 2.0`, `Progressive Enhancement` to the rest of the system?**
   _47 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Global UI Components` be split into smaller, more focused modules?**
+- **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05 - nodes in this community are weakly interconnected._
-- **Should `Modal & Drawer Interactions` be split into smaller, more focused modules?**
+- **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._

@@ -1,0 +1,498 @@
+{
+  "nodes": [
+    {
+      "id": "license_shopify_license",
+      "label": "Shopify Dawn License",
+      "file_type": "document",
+      "source_file": "LICENSE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Shopify Inc.",
+      "contributor": null
+    },
+    {
+      "id": "readme_dawn_theme",
+      "label": "Dawn Theme",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": "https://github.com/Shopify/dawn",
+      "captured_at": null,
+      "author": "Shopify Inc.",
+      "contributor": null
+    },
+    {
+      "id": "readme_html_first_approach",
+      "label": "HTML-First JavaScript-Only-As-Needed Approach",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": "line 14",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_online_store_2",
+      "label": "Online Store 2.0",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": "line 14",
+      "source_url": "https://www.shopify.com/partners/blog/shopify-online-store",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_progressive_enhancement",
+      "label": "Progressive Enhancement",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": "line 16",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_server_rendered",
+      "label": "Server-Rendered with Liquid",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": "line 18",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_shopify_cli",
+      "label": "Shopify CLI",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 53-57",
+      "source_url": "https://github.com/Shopify/shopify-cli",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_theme_check",
+      "label": "Theme Check",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 59-68",
+      "source_url": "https://github.com/shopify/theme-check",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_github_actions",
+      "label": "GitHub Actions CI",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 71-73",
+      "source_url": "https://github.com/features/actions",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_lighthouse_ci_action",
+      "label": "Shopify Lighthouse CI Action",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 75-77",
+      "source_url": "https://github.com/Shopify/lighthouse-ci-action",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_theme_check_action",
+      "label": "Shopify Theme Check Action",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 79-81",
+      "source_url": "https://github.com/Shopify/theme-check-action",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_theme_store",
+      "label": "Shopify Theme Store",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 91-95",
+      "source_url": "https://themes.shopify.com/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_contributing_guide",
+      "label": "Contributing Guide",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 83-85",
+      "source_url": "https://github.com/Shopify/dawn/blob/main/.github/CONTRIBUTING.md",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "releasenotes_dawn_1541",
+      "label": "Dawn v15.4.1 Release Notes",
+      "file_type": "document",
+      "source_file": "release-notes.md",
+      "source_location": "line 1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "releasenotes_performance_monitoring",
+      "label": "Performance Monitoring Improvements",
+      "file_type": "rationale",
+      "source_file": "release-notes.md",
+      "source_location": "line 1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "translation_config",
+      "label": "Translation Configuration",
+      "file_type": "document",
+      "source_file": "translation.yml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "translation_buyer_component",
+      "label": "Buyer Translation Component",
+      "file_type": "document",
+      "source_file": "translation.yml",
+      "source_location": "line 7-12",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "translation_merchant_component",
+      "label": "Merchant Translation Component",
+      "file_type": "document",
+      "source_file": "translation.yml",
+      "source_location": "line 13-19",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "translation_themes_translations_team",
+      "label": "Shopify Themes Translations Team",
+      "file_type": "document",
+      "source_file": "translation.yml",
+      "source_location": "line 11,18",
+      "source_url": null,
+      "captured_at": null,
+      "author": "@Shopify/themes-translations",
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "readme_dawn_theme",
+      "target": "license_shopify_license",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 99",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_contributing_guide",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 21",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_html_first_approach",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 14",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_online_store_2",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 14",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_progressive_enhancement",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 16",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_server_rendered",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 18",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_shopify_cli",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 53",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_theme_check",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 59",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_github_actions",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 71",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_lighthouse_ci_action",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 75",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_theme_check_action",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 79",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dawn_theme",
+      "target": "readme_theme_store",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 91",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_github_actions",
+      "target": "readme_lighthouse_ci_action",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 75",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_github_actions",
+      "target": "readme_theme_check_action",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 79",
+      "weight": 1.0
+    },
+    {
+      "source": "releasenotes_dawn_1541",
+      "target": "readme_dawn_theme",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "release-notes.md",
+      "source_location": "line 1",
+      "weight": 1.0
+    },
+    {
+      "source": "releasenotes_dawn_1541",
+      "target": "releasenotes_performance_monitoring",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "release-notes.md",
+      "source_location": "line 1",
+      "weight": 1.0
+    },
+    {
+      "source": "releasenotes_performance_monitoring",
+      "target": "readme_lighthouse_ci_action",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "release-notes.md",
+      "source_location": "line 1",
+      "weight": 0.75
+    },
+    {
+      "source": "translation_config",
+      "target": "readme_dawn_theme",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "translation.yml",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "translation_config",
+      "target": "translation_buyer_component",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "translation.yml",
+      "source_location": "line 7-12",
+      "weight": 1.0
+    },
+    {
+      "source": "translation_config",
+      "target": "translation_merchant_component",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "translation.yml",
+      "source_location": "line 13-19",
+      "weight": 1.0
+    },
+    {
+      "source": "translation_buyer_component",
+      "target": "translation_themes_translations_team",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "translation.yml",
+      "source_location": "line 11",
+      "weight": 1.0
+    },
+    {
+      "source": "translation_merchant_component",
+      "target": "translation_themes_translations_team",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "translation.yml",
+      "source_location": "line 18",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_html_first_approach",
+      "target": "readme_server_rendered",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "README.md",
+      "source_location": "line 14-18",
+      "weight": 0.65
+    },
+    {
+      "source": "readme_theme_check",
+      "target": "readme_theme_check_action",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 79-81",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "ci_quality_pipeline",
+      "label": "CI Quality Pipeline: GitHub Actions, Lighthouse CI, Theme Check Action",
+      "nodes": [
+        "readme_github_actions",
+        "readme_lighthouse_ci_action",
+        "readme_theme_check_action"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md"
+    },
+    {
+      "id": "dawn_design_principles",
+      "label": "Dawn Core Design Principles: HTML-First, Progressive Enhancement, Server-Rendered",
+      "nodes": [
+        "readme_html_first_approach",
+        "readme_progressive_enhancement",
+        "readme_server_rendered"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md"
+    },
+    {
+      "id": "translation_ownership",
+      "label": "Translation Ownership: Buyer Component, Merchant Component, Themes Translations Team",
+      "nodes": [
+        "translation_buyer_component",
+        "translation_merchant_component",
+        "translation_themes_translations_team"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "translation.yml"
+    }
+  ],
+  "input_tokens": 1850,
+  "output_tokens": 980
+}

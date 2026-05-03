@@ -1,0 +1,710 @@
+{
+  "nodes": [
+    {
+      "id": "icon_shoe",
+      "label": "Shoe Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-shoe.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_shopify",
+      "label": "Shopify Logo Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-shopify.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_silhouette",
+      "label": "Person Silhouette / User Account Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-silhouette.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_snapchat",
+      "label": "Snapchat Social Media Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-snapchat.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_snowflake",
+      "label": "Snowflake / Cold Storage Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-snowflake.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_star",
+      "label": "Star / Rating Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-star.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_stopwatch",
+      "label": "Stopwatch / Timer Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-stopwatch.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_success",
+      "label": "Success / Confirmation Circle Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-success.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_tick",
+      "label": "Tick / Checkmark Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-tick.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_tiktok",
+      "label": "TikTok Social Media Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-tiktok.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_truck",
+      "label": "Delivery Truck / Shipping Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-truck.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_tumblr",
+      "label": "Tumblr Social Media Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-tumblr.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_twitter",
+      "label": "Twitter / X Social Media Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-twitter.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_unavailable",
+      "label": "Unavailable / Error X Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-unavailable.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_vimeo",
+      "label": "Vimeo Social Media Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-vimeo.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_washing",
+      "label": "Washing / Care Instructions Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-washing.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_youtube",
+      "label": "YouTube Social Media Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-youtube.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_zoom",
+      "label": "Zoom In / Magnify Search Icon",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/icon-zoom.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "loading_spinner",
+      "label": "Loading Spinner Animation",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/loading-spinner.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "mask_arch",
+      "label": "Arch Shape Clip Path Mask",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/mask-arch.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "square",
+      "label": "Square / Checkbox Outline Shape",
+      "file_type": "image/svg+xml",
+      "source_file": "assets/square.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "sparkle_gif",
+      "label": "Sparkle Decorative Animation",
+      "file_type": "image/gif",
+      "source_file": "assets/sparkle.gif",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_social_media_icons",
+      "label": "Social Media Icons Group",
+      "file_type": "concept",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_ui_feedback_icons",
+      "label": "UI Feedback Icons Group",
+      "file_type": "concept",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_ecommerce_icons",
+      "label": "E-Commerce / Shopping Icons Group",
+      "file_type": "concept",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_product_care_icons",
+      "label": "Product / Care Instructions Icons Group",
+      "file_type": "concept",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_ui_shapes",
+      "label": "UI Shapes / Structural Elements Group",
+      "file_type": "concept",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_platform_branding",
+      "label": "Platform Branding Icons Group",
+      "file_type": "concept",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "icon_snapchat",
+      "target": "category_social_media_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-snapchat.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_tiktok",
+      "target": "category_social_media_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-tiktok.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_tumblr",
+      "target": "category_social_media_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-tumblr.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_twitter",
+      "target": "category_social_media_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-twitter.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_vimeo",
+      "target": "category_social_media_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-vimeo.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_youtube",
+      "target": "category_social_media_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-youtube.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_success",
+      "target": "category_ui_feedback_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-success.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_tick",
+      "target": "category_ui_feedback_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-tick.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_unavailable",
+      "target": "category_ui_feedback_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-unavailable.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_star",
+      "target": "category_ui_feedback_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-star.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "loading_spinner",
+      "target": "category_ui_feedback_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/loading-spinner.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_success",
+      "target": "icon_tick",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-success.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_unavailable",
+      "target": "icon_success",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-unavailable.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_truck",
+      "target": "category_ecommerce_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-truck.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_shoe",
+      "target": "category_ecommerce_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-shoe.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_silhouette",
+      "target": "category_ecommerce_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-silhouette.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_zoom",
+      "target": "category_ecommerce_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-zoom.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_star",
+      "target": "category_ecommerce_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-star.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_stopwatch",
+      "target": "category_ecommerce_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-stopwatch.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_washing",
+      "target": "category_product_care_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-washing.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_snowflake",
+      "target": "category_product_care_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-snowflake.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_washing",
+      "target": "icon_snowflake",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-washing.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "mask_arch",
+      "target": "category_ui_shapes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/mask-arch.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "square",
+      "target": "category_ui_shapes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/square.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "sparkle_gif",
+      "target": "category_ui_shapes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/sparkle.gif",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_shopify",
+      "target": "category_platform_branding",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-shopify.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_zoom",
+      "target": "category_ui_shapes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-zoom.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "mask_arch",
+      "target": "icon_shoe",
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.2,
+      "source_file": "assets/mask-arch.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_shopify",
+      "target": "category_ecommerce_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-shopify.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "loading_spinner",
+      "target": "category_ui_shapes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/loading-spinner.svg",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "social_media_icons_group",
+      "label": "Social Media Icons: Snapchat, TikTok, Tumblr, Twitter, Vimeo, YouTube",
+      "nodes": [
+        "icon_snapchat",
+        "icon_tiktok",
+        "icon_tumblr",
+        "icon_twitter",
+        "icon_vimeo",
+        "icon_youtube",
+        "category_social_media_icons"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": null
+    },
+    {
+      "id": "ui_feedback_icons_group",
+      "label": "UI Feedback Icons: Success, Tick, Unavailable, Star, Loading Spinner",
+      "nodes": [
+        "icon_success",
+        "icon_tick",
+        "icon_unavailable",
+        "icon_star",
+        "loading_spinner",
+        "category_ui_feedback_icons"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": null
+    },
+    {
+      "id": "ecommerce_icons_group",
+      "label": "E-Commerce Icons: Shoe, Shopify, Silhouette, Truck, Zoom, Star, Stopwatch",
+      "nodes": [
+        "icon_shoe",
+        "icon_shopify",
+        "icon_silhouette",
+        "icon_truck",
+        "icon_zoom",
+        "icon_star",
+        "icon_stopwatch",
+        "category_ecommerce_icons"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null
+    },
+    {
+      "id": "product_care_icons_group",
+      "label": "Product Care Icons: Washing, Snowflake",
+      "nodes": [
+        "icon_washing",
+        "icon_snowflake",
+        "category_product_care_icons"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null
+    },
+    {
+      "id": "ui_shapes_group",
+      "label": "UI Shapes / Structural Elements: Mask Arch, Square, Sparkle GIF, Loading Spinner, Zoom",
+      "nodes": [
+        "mask_arch",
+        "square",
+        "sparkle_gif",
+        "loading_spinner",
+        "icon_zoom",
+        "category_ui_shapes"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null
+    },
+    {
+      "id": "platform_branding_group",
+      "label": "Platform Branding: Shopify Logo",
+      "nodes": [
+        "icon_shopify",
+        "category_platform_branding"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-shopify.svg"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

@@ -1,0 +1,575 @@
+{
+  "nodes": [
+    {
+      "id": "email_signup_banner_background_mobile_bg",
+      "label": "Email Signup Banner Background (Mobile)",
+      "file_type": "image",
+      "source_file": "assets/email-signup-banner-background-mobile.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "email_signup_banner_background_bg",
+      "label": "Email Signup Banner Background (Desktop)",
+      "file_type": "image",
+      "source_file": "assets/email-signup-banner-background.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_3d_model_icon",
+      "label": "Icon: 3D Model",
+      "file_type": "image",
+      "source_file": "assets/icon-3d-model.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_account_icon",
+      "label": "Icon: Account (User Profile)",
+      "file_type": "image",
+      "source_file": "assets/icon-account.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_apple_icon",
+      "label": "Icon: Apple (Fruit)",
+      "file_type": "image",
+      "source_file": "assets/icon-apple.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_arrow_icon",
+      "label": "Icon: Arrow (Right-pointing)",
+      "file_type": "image",
+      "source_file": "assets/icon-arrow.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_banana_icon",
+      "label": "Icon: Banana (Fruit)",
+      "file_type": "image",
+      "source_file": "assets/icon-banana.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_bottle_icon",
+      "label": "Icon: Bottle (Supplement Container)",
+      "file_type": "image",
+      "source_file": "assets/icon-bottle.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_box_icon",
+      "label": "Icon: Box (3D Package)",
+      "file_type": "image",
+      "source_file": "assets/icon-box.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_caret_icon",
+      "label": "Icon: Caret (Dropdown Chevron)",
+      "file_type": "image",
+      "source_file": "assets/icon-caret.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_carrot_icon",
+      "label": "Icon: Carrot (Vegetable)",
+      "file_type": "image",
+      "source_file": "assets/icon-carrot.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_cart_empty_icon",
+      "label": "Icon: Cart Empty",
+      "file_type": "image",
+      "source_file": "assets/icon-cart-empty.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_cart_icon",
+      "label": "Icon: Cart (Shopping Bag)",
+      "file_type": "image",
+      "source_file": "assets/icon-cart.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_chat_bubble_icon",
+      "label": "Icon: Chat Bubble (Message/Support)",
+      "file_type": "image",
+      "source_file": "assets/icon-chat-bubble.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_check_mark_icon",
+      "label": "Icon: Check Mark (Checkbox with Border)",
+      "file_type": "image",
+      "source_file": "assets/icon-check-mark.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_checkmark_icon",
+      "label": "Icon: Checkmark (Simple Tick)",
+      "file_type": "image",
+      "source_file": "assets/icon-checkmark.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_clipboard_icon",
+      "label": "Icon: Clipboard (Notes/List)",
+      "file_type": "image",
+      "source_file": "assets/icon-clipboard.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_close_small_icon",
+      "label": "Icon: Close Small (X Dismiss)",
+      "file_type": "image",
+      "source_file": "assets/icon-close-small.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_close_icon",
+      "label": "Icon: Close (X Dismiss Large)",
+      "file_type": "image",
+      "source_file": "assets/icon-close.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_copy_icon",
+      "label": "Icon: Copy (Duplicate Document)",
+      "file_type": "image",
+      "source_file": "assets/icon-copy.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_dairy_free_icon",
+      "label": "Icon: Dairy Free (Badge/Dietary Label)",
+      "file_type": "image",
+      "source_file": "assets/icon-dairy-free.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_dairy_icon",
+      "label": "Icon: Dairy (Milk Jug/Bottle Badge)",
+      "file_type": "image",
+      "source_file": "assets/icon-dairy.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "email_signup_banner_background_mobile_bg",
+      "target": "email_signup_banner_background_bg",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/email-signup-banner-background-mobile.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_cart_empty_icon",
+      "target": "icon_cart_icon",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-cart-empty.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_check_mark_icon",
+      "target": "icon_checkmark_icon",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-check-mark.svg",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "icon_close_small_icon",
+      "target": "icon_close_icon",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-close-small.svg",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "icon_clipboard_icon",
+      "target": "icon_copy_icon",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-clipboard.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon_dairy_free_icon",
+      "target": "icon_dairy_icon",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-dairy-free.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_apple_icon",
+      "target": "icon_banana_icon",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-apple.svg",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "icon_apple_icon",
+      "target": "icon_carrot_icon",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-apple.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon_banana_icon",
+      "target": "icon_carrot_icon",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-banana.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon_bottle_icon",
+      "target": "icon_box_icon",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-bottle.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon_arrow_icon",
+      "target": "icon_caret_icon",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-arrow.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon_bottle_icon",
+      "target": "icon_dairy_icon",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-bottle.svg",
+      "source_location": null,
+      "weight": 0.65
+    },
+    {
+      "source": "icon_apple_icon",
+      "target": "icon_dairy_free_icon",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-apple.svg",
+      "source_location": null,
+      "weight": 0.65
+    },
+    {
+      "source": "icon_3d_model_icon",
+      "target": "icon_box_icon",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "source_file": "assets/icon-3d-model.svg",
+      "source_location": null,
+      "weight": 0.55
+    },
+    {
+      "source": "icon_cart_icon",
+      "target": "icon_account_icon",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-cart.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon_chat_bubble_icon",
+      "target": "icon_account_icon",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-chat-bubble.svg",
+      "source_location": null,
+      "weight": 0.65
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "group_email_signup_banner_backgrounds",
+      "label": "Email Signup Banner Backgrounds",
+      "nodes": [
+        "email_signup_banner_background_mobile_bg",
+        "email_signup_banner_background_bg"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/email-signup-banner-background.svg"
+    },
+    {
+      "id": "group_food_icons",
+      "label": "Food & Ingredient Icons (Supplement Flavor/Ingredient Indicators)",
+      "nodes": [
+        "icon_apple_icon",
+        "icon_banana_icon",
+        "icon_carrot_icon"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-apple.svg"
+    },
+    {
+      "id": "group_dietary_badge_icons",
+      "label": "Dietary & Ingredient Badge Icons",
+      "nodes": [
+        "icon_dairy_icon",
+        "icon_dairy_free_icon"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-dairy.svg"
+    },
+    {
+      "id": "group_product_container_icons",
+      "label": "Product Container Icons (Supplement Packaging)",
+      "nodes": [
+        "icon_bottle_icon",
+        "icon_box_icon"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-bottle.svg"
+    },
+    {
+      "id": "group_ui_navigation_icons",
+      "label": "UI Navigation Icons",
+      "nodes": [
+        "icon_arrow_icon",
+        "icon_caret_icon"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-arrow.svg"
+    },
+    {
+      "id": "group_ui_dismiss_icons",
+      "label": "UI Dismiss / Close Icons",
+      "nodes": [
+        "icon_close_icon",
+        "icon_close_small_icon"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-close.svg"
+    },
+    {
+      "id": "group_ui_confirmation_icons",
+      "label": "UI Confirmation / Success Icons",
+      "nodes": [
+        "icon_check_mark_icon",
+        "icon_checkmark_icon"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-check-mark.svg"
+    },
+    {
+      "id": "group_ui_copy_paste_icons",
+      "label": "UI Copy / Clipboard Icons",
+      "nodes": [
+        "icon_clipboard_icon",
+        "icon_copy_icon"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-clipboard.svg"
+    },
+    {
+      "id": "group_ecommerce_ui_icons",
+      "label": "E-Commerce Core UI Icons",
+      "nodes": [
+        "icon_account_icon",
+        "icon_cart_icon",
+        "icon_cart_empty_icon",
+        "icon_chat_bubble_icon"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-cart.svg"
+    },
+    {
+      "id": "group_accordion_icons",
+      "label": "Accordion / Expandable Section Icons",
+      "nodes": [
+        "icon_apple_icon",
+        "icon_banana_icon",
+        "icon_bottle_icon",
+        "icon_box_icon",
+        "icon_carrot_icon",
+        "icon_chat_bubble_icon",
+        "icon_check_mark_icon",
+        "icon_clipboard_icon",
+        "icon_dairy_icon",
+        "icon_dairy_free_icon"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-apple.svg"
+    },
+    {
+      "id": "group_all_chunk02_assets",
+      "label": "All Chunk 02 Theme Assets",
+      "nodes": [
+        "email_signup_banner_background_mobile_bg",
+        "email_signup_banner_background_bg",
+        "icon_3d_model_icon",
+        "icon_account_icon",
+        "icon_apple_icon",
+        "icon_arrow_icon",
+        "icon_banana_icon",
+        "icon_bottle_icon",
+        "icon_box_icon",
+        "icon_caret_icon",
+        "icon_carrot_icon",
+        "icon_cart_empty_icon",
+        "icon_cart_icon",
+        "icon_chat_bubble_icon",
+        "icon_check_mark_icon",
+        "icon_checkmark_icon",
+        "icon_clipboard_icon",
+        "icon_close_small_icon",
+        "icon_close_icon",
+        "icon_copy_icon",
+        "icon_dairy_free_icon",
+        "icon_dairy_icon"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/email-signup-banner-background.svg"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

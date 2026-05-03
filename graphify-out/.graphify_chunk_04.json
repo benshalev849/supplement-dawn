@@ -1,0 +1,527 @@
+{
+  "nodes": [
+    {
+      "id": "icon-padlock_security",
+      "label": "Padlock Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-padlock.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-pants_apparel",
+      "label": "Pants Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-pants.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-pause_media",
+      "label": "Pause Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-pause.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-paw-print_pet",
+      "label": "Paw Print Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-paw-print.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-pepper_food",
+      "label": "Pepper Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-pepper.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-perfume_beauty",
+      "label": "Perfume Bottle Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-perfume.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-pinterest_social",
+      "label": "Pinterest Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-pinterest.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-plane_shipping",
+      "label": "Airplane / Shipping Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-plane.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-plant_nature",
+      "label": "Plant / Leaf Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-plant.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-play_media",
+      "label": "Play Button Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-play.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-plus_ui",
+      "label": "Plus / Add Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-plus.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-price-tag_ecommerce",
+      "label": "Price Tag Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-price-tag.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-question-mark_ui",
+      "label": "Question Mark / Help Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-question-mark.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-recycle_sustainability",
+      "label": "Recycle Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-recycle.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-remove_ui",
+      "label": "Remove / Trash Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-remove.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-reset_ui",
+      "label": "Reset / Close Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-reset.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-return_ecommerce",
+      "label": "Return / Back Arrow Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-return.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-ruler_sizing",
+      "label": "Ruler / Measurement Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-ruler.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-search_ui",
+      "label": "Search / Magnifier Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-search.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-serving-dish_food",
+      "label": "Serving Dish / Cloche Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-serving-dish.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-share_social",
+      "label": "Share Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-share.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-shirt_apparel",
+      "label": "Shirt / T-Shirt Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-shirt.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "icon-pants_apparel",
+      "target": "icon-shirt_apparel",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-pants.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-play_media",
+      "target": "icon-pause_media",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-play.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-pepper_food",
+      "target": "icon-serving-dish_food",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-pepper.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-pinterest_social",
+      "target": "icon-share_social",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-pinterest.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-plus_ui",
+      "target": "icon-remove_ui",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-plus.svg",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "icon-plus_ui",
+      "target": "icon-reset_ui",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-plus.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon-padlock_security",
+      "target": "icon-price-tag_ecommerce",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-padlock.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon-plane_shipping",
+      "target": "icon-return_ecommerce",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-plane.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-recycle_sustainability",
+      "target": "icon-plant_nature",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-recycle.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon-ruler_sizing",
+      "target": "icon-pants_apparel",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-ruler.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-ruler_sizing",
+      "target": "icon-shirt_apparel",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-ruler.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-question-mark_ui",
+      "target": "icon-padlock_security",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "source_file": "assets/icon-question-mark.svg",
+      "source_location": null,
+      "weight": 0.55
+    },
+    {
+      "source": "icon-paw-print_pet",
+      "target": "icon-plant_nature",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-paw-print.svg",
+      "source_location": null,
+      "weight": 0.65
+    },
+    {
+      "source": "icon-perfume_beauty",
+      "target": "icon-price-tag_ecommerce",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-perfume.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon-search_ui",
+      "target": "icon-question-mark_ui",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-search.svg",
+      "source_location": null,
+      "weight": 0.65
+    },
+    {
+      "source": "icon-remove_ui",
+      "target": "icon-reset_ui",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-remove.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon-plant_nature",
+      "target": "icon-pepper_food",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-plant.svg",
+      "source_location": null,
+      "weight": 0.65
+    },
+    {
+      "source": "icon-serving-dish_food",
+      "target": "icon-price-tag_ecommerce",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-serving-dish.svg",
+      "source_location": null,
+      "weight": 0.65
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "apparel_icons_group",
+      "label": "Apparel / Clothing Icons",
+      "nodes": ["icon-pants_apparel", "icon-shirt_apparel", "icon-ruler_sizing"],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-pants.svg"
+    },
+    {
+      "id": "media_control_icons_group",
+      "label": "Media Control Icons",
+      "nodes": ["icon-play_media", "icon-pause_media"],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-play.svg"
+    },
+    {
+      "id": "social_sharing_icons_group",
+      "label": "Social Media and Sharing Icons",
+      "nodes": ["icon-pinterest_social", "icon-share_social"],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-pinterest.svg"
+    },
+    {
+      "id": "ui_control_icons_group",
+      "label": "UI Control and Action Icons",
+      "nodes": ["icon-plus_ui", "icon-remove_ui", "icon-reset_ui", "icon-search_ui", "icon-question-mark_ui"],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-plus.svg"
+    },
+    {
+      "id": "ecommerce_icons_group",
+      "label": "Ecommerce and Shopping Icons",
+      "nodes": ["icon-padlock_security", "icon-price-tag_ecommerce", "icon-return_ecommerce", "icon-plane_shipping"],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-price-tag.svg"
+    },
+    {
+      "id": "nature_sustainability_icons_group",
+      "label": "Nature and Sustainability Icons",
+      "nodes": ["icon-plant_nature", "icon-recycle_sustainability", "icon-paw-print_pet"],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-plant.svg"
+    },
+    {
+      "id": "food_ingredient_icons_group",
+      "label": "Food and Ingredient Icons",
+      "nodes": ["icon-pepper_food", "icon-serving-dish_food"],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-pepper.svg"
+    },
+    {
+      "id": "beauty_lifestyle_icons_group",
+      "label": "Beauty and Lifestyle Product Icons",
+      "nodes": ["icon-perfume_beauty", "icon-paw-print_pet"],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-perfume.svg"
+    },
+    {
+      "id": "accordion_icon_class_group",
+      "label": "Accordion UI Class Icons",
+      "nodes": [
+        "icon-pants_apparel",
+        "icon-paw-print_pet",
+        "icon-pepper_food",
+        "icon-perfume_beauty",
+        "icon-plane_shipping",
+        "icon-plant_nature",
+        "icon-price-tag_ecommerce",
+        "icon-question-mark_ui",
+        "icon-recycle_sustainability",
+        "icon-return_ecommerce",
+        "icon-ruler_sizing",
+        "icon-serving-dish_food",
+        "icon-shirt_apparel"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-pants.svg"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

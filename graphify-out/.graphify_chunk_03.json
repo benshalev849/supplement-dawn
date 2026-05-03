@@ -1,0 +1,762 @@
+{
+  "nodes": [
+    {
+      "id": "icon-discount_discount",
+      "label": "Discount / Price Tag Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-discount.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-dryer_dryer",
+      "label": "Dryer / Laundry Care Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-dryer.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-error_error",
+      "label": "Error / Alert Status Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-error.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-eye_eye",
+      "label": "Eye / Visibility Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-eye.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-facebook_facebook",
+      "label": "Facebook Social Media Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-facebook.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-filter_filter",
+      "label": "Filter / Sort Controls Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-filter.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-fire_fire",
+      "label": "Fire / Trending / Hot Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-fire.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-gluten-free_gluten_free",
+      "label": "Gluten-Free Dietary Badge Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-gluten-free.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-hamburger_hamburger",
+      "label": "Hamburger / Navigation Menu Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-hamburger.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-heart_heart",
+      "label": "Heart / Wishlist / Favourite Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-heart.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-info_info",
+      "label": "Info / Tooltip Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-info.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-instagram_instagram",
+      "label": "Instagram Social Media Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-instagram.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-inventory-status_inventory_status",
+      "label": "Inventory / Stock Status Indicator Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-inventory-status.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-iron_iron",
+      "label": "Iron / Laundry Care Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-iron.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-leaf_leaf",
+      "label": "Leaf / Natural / Organic Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-leaf.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-leather_leather",
+      "label": "Leather / Material Care Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-leather.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-lightning-bolt_lightning_bolt",
+      "label": "Lightning Bolt / Energy / Speed Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-lightning-bolt.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-lipstick_lipstick",
+      "label": "Lipstick / Beauty Product Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-lipstick.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-lock_lock",
+      "label": "Lock / Secure Checkout Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-lock.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-map-pin_map_pin",
+      "label": "Map Pin / Location Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-map-pin.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-minus_minus",
+      "label": "Minus / Decrease Quantity Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-minus.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon-nut-free_nut_free",
+      "label": "Nut-Free Dietary Badge Icon",
+      "file_type": "image",
+      "source_file": "assets/icon-nut-free.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_dietary_icons",
+      "label": "Dietary / Allergen Claim Icons",
+      "file_type": "image",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_social_media_icons",
+      "label": "Social Media Share Icons",
+      "file_type": "image",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_ui_status_icons",
+      "label": "UI Status / Feedback Icons",
+      "file_type": "image",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_navigation_icons",
+      "label": "UI Navigation Icons",
+      "file_type": "image",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_product_marketing_icons",
+      "label": "Product / Marketing Claim Icons",
+      "file_type": "image",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_laundry_care_icons",
+      "label": "Laundry / Material Care Icons",
+      "file_type": "image",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "category_ecommerce_action_icons",
+      "label": "E-commerce Action / Interaction Icons",
+      "file_type": "image",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "icon-gluten-free_gluten_free",
+      "target": "category_dietary_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-gluten-free.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-nut-free_nut_free",
+      "target": "category_dietary_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-nut-free.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-gluten-free_gluten_free",
+      "target": "icon-nut-free_nut_free",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-gluten-free.svg",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "icon-facebook_facebook",
+      "target": "category_social_media_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-facebook.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-instagram_instagram",
+      "target": "category_social_media_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-instagram.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-facebook_facebook",
+      "target": "icon-instagram_instagram",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-facebook.svg",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "icon-error_error",
+      "target": "category_ui_status_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-error.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-info_info",
+      "target": "category_ui_status_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-info.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-inventory-status_inventory_status",
+      "target": "category_ui_status_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-inventory-status.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-error_error",
+      "target": "icon-info_info",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-error.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-hamburger_hamburger",
+      "target": "category_navigation_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-hamburger.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-filter_filter",
+      "target": "category_navigation_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-filter.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-map-pin_map_pin",
+      "target": "category_navigation_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-map-pin.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-leaf_leaf",
+      "target": "category_product_marketing_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-leaf.svg",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "icon-fire_fire",
+      "target": "category_product_marketing_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-fire.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-lightning-bolt_lightning_bolt",
+      "target": "category_product_marketing_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-lightning-bolt.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-discount_discount",
+      "target": "category_product_marketing_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-discount.svg",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "icon-leaf_leaf",
+      "target": "icon-fire_fire",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-leaf.svg",
+      "source_location": null,
+      "weight": 0.65
+    },
+    {
+      "source": "icon-fire_fire",
+      "target": "icon-lightning-bolt_lightning_bolt",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-fire.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon-dryer_dryer",
+      "target": "category_laundry_care_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-dryer.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-iron_iron",
+      "target": "category_laundry_care_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "assets/icon-iron.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon-leather_leather",
+      "target": "category_laundry_care_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-leather.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon-dryer_dryer",
+      "target": "icon-iron_iron",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-dryer.svg",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "icon-heart_heart",
+      "target": "category_ecommerce_action_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-heart.svg",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "icon-lock_lock",
+      "target": "category_ecommerce_action_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-lock.svg",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "icon-minus_minus",
+      "target": "category_ecommerce_action_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-minus.svg",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "icon-eye_eye",
+      "target": "category_ecommerce_action_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-eye.svg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "icon-lipstick_lipstick",
+      "target": "category_product_marketing_icons",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-lipstick.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon-heart_heart",
+      "target": "icon-lock_lock",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "source_file": "assets/icon-heart.svg",
+      "source_location": null,
+      "weight": 0.55
+    },
+    {
+      "source": "icon-discount_discount",
+      "target": "icon-heart_heart",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-discount.svg",
+      "source_location": null,
+      "weight": 0.65
+    },
+    {
+      "source": "icon-leaf_leaf",
+      "target": "icon-gluten-free_gluten_free",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-leaf.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon-leaf_leaf",
+      "target": "icon-nut-free_nut_free",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-leaf.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "icon-inventory-status_inventory_status",
+      "target": "icon-error_error",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "assets/icon-inventory-status.svg",
+      "source_location": null,
+      "weight": 0.65
+    },
+    {
+      "source": "icon-fire_fire",
+      "target": "icon-discount_discount",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-fire.svg",
+      "source_location": null,
+      "weight": 0.75
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "group_dietary_allergen_badges",
+      "label": "Dietary and Allergen Claim Badge Icons",
+      "nodes": [
+        "icon-gluten-free_gluten_free",
+        "icon-nut-free_nut_free",
+        "icon-leaf_leaf"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-gluten-free.svg"
+    },
+    {
+      "id": "group_social_media_share",
+      "label": "Social Media Share Icons Group",
+      "nodes": [
+        "icon-facebook_facebook",
+        "icon-instagram_instagram"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-facebook.svg"
+    },
+    {
+      "id": "group_ui_status_feedback",
+      "label": "UI Status and Feedback Icons Group",
+      "nodes": [
+        "icon-error_error",
+        "icon-info_info",
+        "icon-inventory-status_inventory_status"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "assets/icon-error.svg"
+    },
+    {
+      "id": "group_laundry_care",
+      "label": "Laundry and Material Care Icons Group",
+      "nodes": [
+        "icon-dryer_dryer",
+        "icon-iron_iron",
+        "icon-leather_leather"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-dryer.svg"
+    },
+    {
+      "id": "group_product_marketing_claims",
+      "label": "Product Marketing and Energy Claim Icons",
+      "nodes": [
+        "icon-fire_fire",
+        "icon-lightning-bolt_lightning_bolt",
+        "icon-discount_discount",
+        "icon-lipstick_lipstick"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-fire.svg"
+    },
+    {
+      "id": "group_ecommerce_actions",
+      "label": "E-commerce Shopper Action Icons",
+      "nodes": [
+        "icon-heart_heart",
+        "icon-lock_lock",
+        "icon-minus_minus",
+        "icon-eye_eye",
+        "icon-filter_filter",
+        "icon-hamburger_hamburger"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "assets/icon-heart.svg"
+    },
+    {
+      "id": "group_location_navigation",
+      "label": "Location and Navigation Icons",
+      "nodes": [
+        "icon-map-pin_map_pin",
+        "icon-hamburger_hamburger"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "assets/icon-map-pin.svg"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

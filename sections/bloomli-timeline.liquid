@@ -21,19 +21,19 @@
       <div class="bloomli-timeline__grid">
         {%- for block in section.blocks -%}
           <div class="bloomli-timeline__step" {{ block.shopify_attributes }}>
-            <div class="bloomli-timeline__circle">
+            <div class="bloomli-timeline__circle{% if block.settings.image != blank %} bloomli-timeline__circle--has-image{% endif %}">
               {%- if block.settings.image != blank -%}
                 {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
                 {%- assign image_style = '--timeline-image-scale: ' | append: image_scale | append: ';' -%}
                 {%- assign image_alt = block.settings.image.alt | default: block.settings.title -%}
                 {{
                   block.settings.image
-                  | image_url: width: 240
+                  | image_url: width: 660
                   | image_tag:
                     class: 'bloomli-timeline__icon-img',
                     alt: image_alt,
-                    widths: '120, 240',
-                    sizes: '100px',
+                    widths: '220, 330, 660',
+                    sizes: '(max-width: 749px) 220px, 330px',
                     loading: 'lazy', decoding: 'async',
                     style: image_style
                 }}
@@ -78,9 +78,9 @@
       { "value": "background", "label": "Scheme background" },
       { "value": "accent_soft", "label": "Soft accent" }
     ], "default": "surface" },
-    { "type": "header", "content": "Icon sizing" },
-    { "type": "range", "id": "circle_size", "label": "Circle size", "min": 60, "max": 180, "step": 4, "default": 100, "unit": "px" },
-    { "type": "range", "id": "icon_size", "label": "Icon size inside circle", "min": 24, "max": 160, "step": 2, "default": 64, "unit": "px" },
+    { "type": "header", "content": "Image / icon sizing" },
+    { "type": "range", "id": "circle_size", "label": "Image card size", "min": 60, "max": 340, "step": 4, "default": 280, "unit": "px" },
+    { "type": "range", "id": "icon_size", "label": "Icon size inside card (SVG fallback)", "min": 24, "max": 280, "step": 4, "default": 160, "unit": "px" },
     { "type": "header", "content": "Connector line" },
     { "type": "checkbox", "id": "show_connector", "label": "Show connector line", "default": true },
     { "type": "select", "id": "connector_style", "label": "Connector style", "options": [
@@ -116,6 +116,7 @@
   ],
   "presets": [{
     "name": "Bloomli — Timeline",
+    "settings": { "circle_size": 280, "icon_size": 160 },
     "blocks": [
       { "type": "step", "settings": { "icon": "seed", "range": "Month 1–3", "title": "Foundation", "description": "Nourishment reaches the follicle. Expect less shedding and a healthier scalp feel." } },
       { "type": "step", "settings": { "icon": "sprout", "range": "Month 3–6", "title": "Visible Shift", "description": "New growth begins. Many see fuller density at the part line and temples." } },

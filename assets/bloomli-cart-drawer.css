@@ -803,7 +803,7 @@ cart-drawer.drawer .drawer__inner {
 
 .cart-drawer .bloomli-cart-subscription-upsell__heading {
   max-width: 100% !important;
-  font-size: 1.2rem !important;
+  font-size: 1.35rem !important;
   font-weight: 800 !important;
   line-height: 1.15 !important;
   white-space: nowrap !important;
@@ -909,7 +909,7 @@ cart-drawer.drawer .drawer__inner {
 
   .cart-drawer .bloomli-cart-subscription-upsell__heading {
     max-width: 100% !important;
-    font-size: 1.08rem !important;
+    font-size: 1.35rem !important;
     font-weight: 800 !important;
     line-height: 1.12 !important;
     white-space: nowrap !important;

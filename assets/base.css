@@ -609,7 +609,7 @@ h6,
 }
 
 .cart-count-bubble {
-  border-radius: 999px !important;
+  border-radius: 6px !important;
 }
 
 /* ---- Cards — shape & transition only; bg color comes from global card scheme ---- */
@@ -657,7 +657,7 @@ h6,
 
 /* ---- Facets — shape & font only; active state uses --aubergine ---- */
 .facets__summary {
-  border-radius: 999px !important;
+  border-radius: 6px !important;
   padding: 8px 16px !important;
   font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
 }

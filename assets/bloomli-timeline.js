@@ -39,7 +39,7 @@
         return;
       }
 
-      var progress = isMobile ? getMobileProgress(section, viewportHeight) : getDesktopProgress(rect, viewportHeight);
+      var progress = isMobile ? getMobileProgress(section, viewportHeight) : getDesktopProgress(section, viewportHeight);
 
       section.style.setProperty('--journey-progress', progress * 100 + '%');
       if (isMobile) {
@@ -59,11 +59,13 @@
     return clamp((start - progressRect.top) / (start - end));
   }
 
-  function getDesktopProgress(rect, viewportHeight) {
-    var start = viewportHeight * 0.95;
-    var end = viewportHeight * 0.82 - rect.height;
+  function getDesktopProgress(section, viewportHeight) {
+    var progressTarget = section.querySelector('.bloomli-timeline__grid') || section;
+    var progressRect = progressTarget.getBoundingClientRect();
+    var start = viewportHeight * 0.78;
+    var end = viewportHeight * 0.58 - progressRect.height;
 
-    return clamp((start - rect.top) / (start - end));
+    return clamp((start - progressRect.top) / (start - end));
   }
 
   function setReachedStepsFromLine(section, progress) {
@@ -90,8 +92,6 @@
   function setReachedSteps(section, progress) {
     var steps = section.querySelectorAll('.bloomli-journey__step');
     var lastIndex = Math.max(steps.length - 1, 1);
-    var reachOffset = steps.length > 2 ? 0.08 : 0.025;
-
     if (progress <= 0.001) {
       steps.forEach(function (step) {
         step.classList.remove('is-reached');
@@ -101,7 +101,14 @@
 
     steps.forEach(function (step, index) {
       var threshold = index / lastIndex;
-      step.classList.toggle('is-reached', progress + reachOffset >= threshold);
+
+      if (index === 0) {
+        threshold = 0.015;
+      } else if (index === lastIndex) {
+        threshold = 0.84;
+      }
+
+      step.classList.toggle('is-reached', progress >= threshold);
     });
   }
 

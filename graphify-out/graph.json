@@ -910,7 +910,7 @@
       "label": "setReachedStepsFromLine()",
       "file_type": "code",
       "source_file": "bloomli-timeline.js",
-      "source_location": "L69",
+      "source_location": "L71",
       "id": "assets_bloomli_timeline_setreachedstepsfromline",
       "community": 24,
       "norm_label": "setreachedstepsfromline()"
@@ -919,7 +919,7 @@
       "label": "setReachedSteps()",
       "file_type": "code",
       "source_file": "bloomli-timeline.js",
-      "source_location": "L90",
+      "source_location": "L92",
       "id": "assets_bloomli_timeline_setreachedsteps",
       "community": 24,
       "norm_label": "setreachedsteps()"
@@ -928,7 +928,7 @@
       "label": "requestUpdate()",
       "file_type": "code",
       "source_file": "bloomli-timeline.js",
-      "source_location": "L108",
+      "source_location": "L115",
       "id": "assets_bloomli_timeline_requestupdate",
       "community": 24,
       "norm_label": "requestupdate()"

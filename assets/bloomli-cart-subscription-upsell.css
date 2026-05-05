@@ -232,7 +232,9 @@
   }
 
   .cart-drawer .bloomli-cart-subscription-upsell__heading {
-    font-size: 1.24rem;
+    max-width: 100%;
+    font-size: 1.16rem;
+    line-height: 1.15;
   }
 }
 
@@ -243,6 +245,10 @@
 
   .cart-drawer .bloomli-cart-subscription-upsell__benefits {
     grid-template-columns: 1fr;
+  }
+
+  .cart-drawer .bloomli-cart-subscription-upsell__heading {
+    font-size: 1.08rem;
   }
 }
 

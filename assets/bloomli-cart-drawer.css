@@ -825,10 +825,20 @@ cart-drawer.drawer .drawer__inner {
     min-width: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .cart-drawer .drawer__footer {
+    margin: 0;
+    padding: 1.2rem 1rem 1.4rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .bloomli-cart-shipping {
-    margin-inline: -1.5rem;
+    margin-inline: 0;
+    padding-inline: 1rem;
   }
 
   .cart-drawer .drawer__heading {
@@ -838,6 +848,7 @@ cart-drawer.drawer .drawer__inner {
   .cart-drawer .cart-item {
     grid-template-columns: minmax(8.4rem, min(var(--bloomli-cart-image-size, 124px), 10.4rem)) minmax(7.8rem, 1fr) auto;
     grid-template-rows: auto auto auto auto auto;
+    padding: 0.8rem 0.75rem 1rem;
   }
 
   .cart-drawer .cart-item__media {
@@ -924,11 +935,27 @@ cart-drawer.drawer .drawer__inner {
   }
 
   .cart-drawer .totals {
+    width: 100%;
+    min-width: 0;
     gap: 0.9rem 1.2rem;
   }
 
+  .cart-drawer .totals__total {
+    min-width: max-content;
+  }
+
   .cart-drawer .totals__total-value {
+    min-width: 0;
+    max-width: 100%;
     text-align: right;
+    justify-self: end;
+    flex-wrap: wrap;
+  }
+
+  .cart-drawer .bloomli-cart-subtotal-prices {
+    max-width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
   }
 
   .cart-drawer .bloomli-cart-subtotal-final {
@@ -940,7 +967,7 @@ cart-drawer.drawer .drawer__inner {
   .cart-drawer .cart-item {
     grid-template-columns: minmax(7.4rem, min(22vw, var(--bloomli-cart-image-size, 124px))) minmax(7.8rem, 1fr) auto;
     column-gap: 0.6rem;
-    padding: 1rem 0.9rem 1.15rem 0.7rem;
+    padding: 0.8rem 0.75rem 1rem;
   }
 
   .cart-drawer .bloomli-cart-pack-promo {

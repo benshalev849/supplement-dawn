@@ -33,7 +33,7 @@
   left: 50%;
   width: 1.4rem;
   height: 0.1rem;
-  border-radius: 999px;
+  border-radius 6px;
   background: currentColor;
   transform: translate(-50%, -50%);
   transition: transform 0.28s ease, opacity 0.28s ease;

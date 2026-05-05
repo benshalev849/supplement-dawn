@@ -116,7 +116,7 @@
   z-index: 2;
   max-width: calc(100% - 16px);
   padding: 4px 8px;
-  border-radius: 999px;
+  border-radius 6px;
   background: var(--bloomli-vt-shipping-pill-bg, #8A6678);
   color: var(--bloomli-vt-shipping-pill-text, #FDFAF7);
   font-size: 10px;

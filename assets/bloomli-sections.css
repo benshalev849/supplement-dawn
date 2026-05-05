@@ -488,7 +488,7 @@
   z-index: 2;
   background: var(--bloomli-accent);
   color: var(--bloomli-on-accent);
-  border-radius: 999px;
+  border-radius 6px;
   padding: 7px 13px;
   font-size: 10px;
   font-weight: 700;
@@ -669,7 +669,7 @@
   max-width: 100%;
   aspect-ratio: 1 / 1;
   margin: 0 auto 24px;
-  border-radius: 999px;
+  border-radius 6px;
   overflow: hidden;
   position: relative;
   background-color: var(--big-item-bg);
@@ -736,7 +736,7 @@
   display: inline-block;
   background: var(--bloomli-surface);
   padding: 5px 12px;
-  border-radius: 999px;
+  border-radius 6px;
   margin-bottom: 18px;
 }
 
@@ -932,7 +932,7 @@
 .bloomli-formula-list__icon {
   width: var(--bfl-icon-size);
   height: var(--bfl-icon-size);
-  border-radius: 999px;
+  border-radius 6px;
   background: var(--bfl-item-icon-bg);
   color: var(--bfl-item-icon-color);
   display: flex;
@@ -1073,7 +1073,7 @@
   width: 20px;
   height: 20px;
   border: 1px solid var(--bps-icon-color);
-  border-radius: 999px;
+  border-radius 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1165,7 +1165,7 @@
   width: var(--timeline-circle-size);
   height: var(--timeline-circle-size);
   margin: 0 auto 24px;
-  border-radius: 999px;
+  border-radius 6px;
   background: var(--timeline-circle-bg);
   display: flex;
   align-items: center;

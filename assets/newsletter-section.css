@@ -58,17 +58,17 @@
 }
 
 .newsletter__form-block .field {
-  border-radius: 999px;
+  border-radius 6px;
 }
 
 .newsletter__form-block .field:before,
 .newsletter__form-block .field:after,
 .newsletter__form-block .field:hover.field:after {
-  border-radius: 999px;
+  border-radius 6px;
 }
 
 .newsletter__form-block .field__input {
-  border-radius: 999px;
+  border-radius 6px;
   height: 6.4rem;
   padding-left: 2.4rem;
   padding-right: 5.4rem;

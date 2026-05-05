@@ -135,20 +135,43 @@
       const subDailyStr = sizeDaily ? (sizeDaily.dataset.subscribeDaily || '') : '';
       const onetimeDailyStr = sizeDaily ? (sizeDaily.dataset.onetimeDaily || '') : '';
 
-      // Info line: "<strong>1 Month</strong> · 60 Count · ($0.81 / Day)"
-      const subInfoHTML = sizeLabel
-        ? '<strong>' + sizeLabel + '</strong>'
-          + (sizeCount ? ' · ' + sizeCount : '')
-          + (subDailyStr ? ' · ' + subDailyStr : '')
-        : sizeCount + (subDailyStr ? ' · ' + subDailyStr : '');
-      if (modeSubInfoEl) modeSubInfoEl.innerHTML = subInfoHTML;
+      function escapeHTML(value) {
+        return String(value || '').replace(/[&<>"']/g, function (character) {
+          return {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;',
+          }[character];
+        });
+      }
 
-      const onetimeInfoHTML = sizeLabel
-        ? '<strong>' + sizeLabel + '</strong>'
-          + (sizeCount ? ' · ' + sizeCount : '')
-          + (onetimeDailyStr ? ' · ' + onetimeDailyStr : '')
-        : sizeCount + (onetimeDailyStr ? ' · ' + onetimeDailyStr : '');
-      if (modeOnetimeInfoEl) modeOnetimeInfoEl.innerHTML = onetimeInfoHTML;
+      function compactDailyText(dailyText) {
+        return String(dailyText || '')
+          .replace(/[()]/g, '')
+          .replace(/\s*\/\s*/g, '/')
+          .replace(/\bday\b/i, 'day')
+          .trim();
+      }
+
+      function modeInfoHTML(label, count, dailyText) {
+        const labelHTML = label ? '<strong>' + escapeHTML(label) + '</strong>' : '';
+        const countHTML = count ? (label ? ' &middot; ' : '') + escapeHTML(count) : '';
+        const desktopDailyHTML = dailyText
+          ? (label || count ? ' &middot; ' : '') + escapeHTML(dailyText)
+          : '';
+        const mobileDailyHTML = dailyText ? escapeHTML(compactDailyText(dailyText)) : '';
+
+        return '<span class="bloomli-vt__mode-info-main">' + labelHTML + countHTML + '</span>'
+          + (dailyText
+            ? '<span class="bloomli-vt__mode-info-daily-desktop">' + desktopDailyHTML + '</span>'
+              + '<span class="bloomli-vt__mode-info-daily-mobile">' + mobileDailyHTML + '</span>'
+            : '');
+      }
+
+      if (modeSubInfoEl) modeSubInfoEl.innerHTML = modeInfoHTML(sizeLabel, sizeCount, subDailyStr);
+      if (modeOnetimeInfoEl) modeOnetimeInfoEl.innerHTML = modeInfoHTML(sizeLabel, sizeCount, onetimeDailyStr);
 
       // Savings: prefix + whole dollar amount + suffix (e.g. "You're saving 11$")
       function savingsText(savingsCents) {

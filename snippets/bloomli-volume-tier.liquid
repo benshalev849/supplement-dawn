@@ -347,21 +347,21 @@
             <span class="bloomli-vt__mode-info-line" data-vt-mode-sub-info></span>
             <span class="bloomli-vt__mode-savings-text" data-vt-mode-subscribe-savings></span>
           </div>
+          {%- if block.settings.subscribe_show_perks != false -%}
+            <ul class="bloomli-vt__mode-perks">
+              {%- if subscribe_perk_1 != blank -%}
+                <li class="bloomli-vt__mode-perk">{{ subscribe_perk_1 }}</li>
+              {%- endif -%}
+              {%- if subscribe_perk_2 != blank -%}
+                <li class="bloomli-vt__mode-perk">{{ subscribe_perk_2 }}</li>
+              {%- endif -%}
+              {%- if subscribe_perk_3 != blank -%}
+                <li class="bloomli-vt__mode-perk">{{ subscribe_perk_3 }}</li>
+              {%- endif -%}
+            </ul>
+          {%- endif -%}
           <div class="bloomli-vt__subscribe-accordion" aria-hidden="true">
             <div class="bloomli-vt__subscribe-accordion-inner">
-              {%- if block.settings.subscribe_show_perks != false -%}
-                <ul class="bloomli-vt__mode-perks">
-                  {%- if subscribe_perk_1 != blank -%}
-                    <li class="bloomli-vt__mode-perk">{{ subscribe_perk_1 }}</li>
-                  {%- endif -%}
-                  {%- if subscribe_perk_2 != blank -%}
-                    <li class="bloomli-vt__mode-perk">{{ subscribe_perk_2 }}</li>
-                  {%- endif -%}
-                  {%- if subscribe_perk_3 != blank -%}
-                    <li class="bloomli-vt__mode-perk">{{ subscribe_perk_3 }}</li>
-                  {%- endif -%}
-                </ul>
-              {%- endif -%}
               <div class="bloomli-vt__mobile-atc-slot" data-vt-mobile-atc-slot="subscribe"></div>
             </div>
           </div>

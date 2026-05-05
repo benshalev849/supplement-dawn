@@ -18,6 +18,7 @@
     document.querySelectorAll(selector).forEach(function (section) {
       if (reducedMotion.matches) {
         section.style.setProperty('--journey-progress', '100%');
+        setReachedSteps(section, 1);
         return;
       }
 
@@ -26,19 +27,32 @@
 
       if (rect.top >= viewportHeight) {
         section.style.setProperty('--journey-progress', '0%');
+        setReachedSteps(section, 0);
         return;
       }
 
       if (rect.bottom <= 0) {
         section.style.setProperty('--journey-progress', '100%');
+        setReachedSteps(section, 1);
         return;
       }
 
-      var start = viewportHeight * 0.75;
-      var end = viewportHeight * 0.25 - rect.height;
+      var start = viewportHeight * 0.9;
+      var end = viewportHeight * 0.55 - rect.height;
       var progress = clamp((start - rect.top) / (start - end));
 
       section.style.setProperty('--journey-progress', progress * 100 + '%');
+      setReachedSteps(section, progress);
+    });
+  }
+
+  function setReachedSteps(section, progress) {
+    var steps = section.querySelectorAll('.bloomli-journey__step');
+    var lastIndex = Math.max(steps.length - 1, 1);
+
+    steps.forEach(function (step, index) {
+      var threshold = index / lastIndex;
+      step.classList.toggle('is-reached', progress + 0.025 >= threshold);
     });
   }
 

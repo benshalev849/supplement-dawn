@@ -1,4 +1,6 @@
-<section class="bloomli-timeline bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--timeline-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --timeline-icon-color: {{ section.settings.timeline_icon_color | default: '#6F7A5A' }}; {% case section.settings.circle_background %}{% when 'background' %}--timeline-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--timeline-circle-bg: #F1EDE8;{% when 'accent_soft' %}--timeline-circle-bg: var(--bloomli-soft-blush);{% else %}--timeline-circle-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;">
+<script src="{{ 'bloomli-timeline.js' | asset_url }}" defer="defer"></script>
+
+<section class="bloomli-timeline bloomli-journey bloomli-section color-{{ section.settings.color_scheme }} gradient" data-bloomli-journey style="--journey-progress: 0%; --journey-progress-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --timeline-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --timeline-icon-color: {{ section.settings.timeline_icon_color | default: '#6F7A5A' }}; {% case section.settings.circle_background %}{% when 'background' %}--timeline-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--timeline-circle-bg: #F1EDE8;{% when 'accent_soft' %}--timeline-circle-bg: var(--bloomli-soft-blush);{% else %}--timeline-circle-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;">
   <div class="bloomli-section__inner">
 
     <div class="bloomli-timeline__header">
@@ -22,10 +24,15 @@
     {%- assign connector_style = section.settings.connector_style | default: 'dashed' -%}
     {%- assign connector_width = section.settings.connector_width | default: 1 -%}
 
-    <div class="bloomli-timeline__wrap{% unless section.settings.show_connector %} bloomli-timeline__wrap--no-line{% endunless %}" style="--timeline-circle-size: {{ circle_size }}px; --timeline-line-top: {{ line_top }}px; --timeline-gap: 32px; --timeline-line-color: {{ connector_color }}; --timeline-line-width: {{ connector_width }}px; --timeline-line-style: {{ connector_style }};">
+    <div class="bloomli-timeline__wrap bloomli-journey__wrap{% unless section.settings.show_connector %} bloomli-timeline__wrap--no-line{% endunless %}" style="--timeline-circle-size: {{ circle_size }}px; --timeline-line-top: {{ line_top }}px; --timeline-gap: 32px; --timeline-line-color: {{ connector_color }}; --timeline-line-width: {{ connector_width }}px; --timeline-line-style: {{ connector_style }};">
+      {%- if section.settings.show_connector -%}
+        <div class="bloomli-timeline__track bloomli-journey__track" aria-hidden="true">
+          <span class="bloomli-timeline__progress bloomli-journey__progress"></span>
+        </div>
+      {%- endif -%}
       <div class="bloomli-timeline__grid">
         {%- for block in section.blocks -%}
-          <div class="bloomli-timeline__step" {{ block.shopify_attributes }}>
+          <div class="bloomli-timeline__step bloomli-journey__step" {{ block.shopify_attributes }}>
             <div class="bloomli-timeline__circle{% if block.settings.image != blank %} bloomli-timeline__circle--has-image{% endif %}">
               {%- if block.settings.image != blank -%}
                 {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}

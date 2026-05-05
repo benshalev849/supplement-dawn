@@ -624,7 +624,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L1",
       "id": "bloomli_cart_drawer_js",
-      "community": 6,
+      "community": 10,
       "norm_label": "bloomli-cart-drawer.js"
     },
     {
@@ -633,7 +633,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L2",
       "id": "assets_bloomli_cart_drawer_getsections",
-      "community": 6,
+      "community": 10,
       "norm_label": "getsections()"
     },
     {
@@ -642,7 +642,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L14",
       "id": "assets_bloomli_cart_drawer_getsectioninnerhtml",
-      "community": 6,
+      "community": 10,
       "norm_label": "getsectioninnerhtml()"
     },
     {
@@ -651,7 +651,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L18",
       "id": "assets_bloomli_cart_drawer_replacecartsections",
-      "community": 6,
+      "community": 10,
       "norm_label": "replacecartsections()"
     },
     {
@@ -660,7 +660,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L48",
       "id": "assets_bloomli_cart_drawer_setfrequencydisplay",
-      "community": 6,
+      "community": 10,
       "norm_label": "setfrequencydisplay()"
     },
     {
@@ -669,7 +669,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L74",
       "id": "assets_bloomli_cart_drawer_setmenuopen",
-      "community": 6,
+      "community": 10,
       "norm_label": "setmenuopen()"
     },
     {
@@ -678,7 +678,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L85",
       "id": "assets_bloomli_cart_drawer_closefrequencymenus",
-      "community": 6,
+      "community": 10,
       "norm_label": "closefrequencymenus()"
     },
     {
@@ -687,7 +687,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L91",
       "id": "assets_bloomli_cart_drawer_updatefrequency",
-      "community": 6,
+      "community": 10,
       "norm_label": "updatefrequency()"
     },
     {
@@ -696,7 +696,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L151",
       "id": "assets_bloomli_cart_drawer_updatelinequantity",
-      "community": 6,
+      "community": 10,
       "norm_label": "updatelinequantity()"
     },
     {
@@ -705,7 +705,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L1",
       "id": "bloomli_cart_subscription_upsell_js",
-      "community": 6,
+      "community": 20,
       "norm_label": "bloomli-cart-subscription-upsell.js"
     },
     {
@@ -714,7 +714,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L5",
       "id": "assets_bloomli_cart_subscription_upsell_getsectioninnerhtml",
-      "community": 6,
+      "community": 20,
       "norm_label": "getsectioninnerhtml()"
     },
     {
@@ -723,7 +723,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L11",
       "id": "assets_bloomli_cart_subscription_upsell_getrequestedsections",
-      "community": 6,
+      "community": 20,
       "norm_label": "getrequestedsections()"
     },
     {
@@ -732,7 +732,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L26",
       "id": "assets_bloomli_cart_subscription_upsell_replacecartdrawersections",
-      "community": 6,
+      "community": 20,
       "norm_label": "replacecartdrawersections()"
     },
     {
@@ -741,7 +741,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L50",
       "id": "assets_bloomli_cart_subscription_upsell_replacemaincartsections",
-      "community": 6,
+      "community": 20,
       "norm_label": "replacemaincartsections()"
     },
     {
@@ -750,7 +750,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L74",
       "id": "assets_bloomli_cart_subscription_upsell_replacecarticon",
-      "community": 6,
+      "community": 20,
       "norm_label": "replacecarticon()"
     },
     {
@@ -759,7 +759,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L81",
       "id": "assets_bloomli_cart_subscription_upsell_showcarterror",
-      "community": 6,
+      "community": 20,
       "norm_label": "showcarterror()"
     },
     {
@@ -768,7 +768,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L86",
       "id": "assets_bloomli_cart_subscription_upsell_setloading",
-      "community": 6,
+      "community": 20,
       "norm_label": "setloading()"
     },
     {
@@ -777,7 +777,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L99",
       "id": "assets_bloomli_cart_subscription_upsell_upgradeline",
-      "community": 6,
+      "community": 20,
       "norm_label": "upgradeline()"
     },
     {
@@ -860,6 +860,42 @@
       "id": "assets_bloomli_theme_closeaccordion",
       "community": 31,
       "norm_label": "closeaccordion()"
+    },
+    {
+      "label": "bloomli-timeline.js",
+      "file_type": "code",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L1",
+      "id": "bloomli_timeline_js",
+      "community": 35,
+      "norm_label": "bloomli-timeline.js"
+    },
+    {
+      "label": "clamp()",
+      "file_type": "code",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L11",
+      "id": "assets_bloomli_timeline_clamp",
+      "community": 35,
+      "norm_label": "clamp()"
+    },
+    {
+      "label": "update()",
+      "file_type": "code",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L15",
+      "id": "assets_bloomli_timeline_update",
+      "community": 35,
+      "norm_label": "update()"
+    },
+    {
+      "label": "requestUpdate()",
+      "file_type": "code",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L45",
+      "id": "assets_bloomli_timeline_requestupdate",
+      "community": 35,
+      "norm_label": "requestupdate()"
     },
     {
       "label": "bloomli-volume-tier.js",
@@ -1047,7 +1083,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L1",
       "id": "cart_notification_js",
-      "community": 17,
+      "community": 1,
       "norm_label": "cart-notification.js"
     },
     {
@@ -1056,7 +1092,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L1",
       "id": "assets_cart_notification_cartnotification",
-      "community": 17,
+      "community": 1,
       "norm_label": "cartnotification"
     },
     {
@@ -1065,7 +1101,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L2",
       "id": "assets_cart_notification_cartnotification_constructor",
-      "community": 17,
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -1074,7 +1110,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L15",
       "id": "assets_cart_notification_cartnotification_open",
-      "community": 17,
+      "community": 1,
       "norm_label": ".open()"
     },
     {
@@ -1083,7 +1119,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L30",
       "id": "assets_cart_notification_cartnotification_close",
-      "community": 17,
+      "community": 1,
       "norm_label": ".close()"
     },
     {
@@ -1092,7 +1128,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L37",
       "id": "assets_cart_notification_cartnotification_rendercontents",
-      "community": 17,
+      "community": 1,
       "norm_label": ".rendercontents()"
     },
     {
@@ -1101,7 +1137,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L50",
       "id": "assets_cart_notification_cartnotification_getsectionstorender",
-      "community": 17,
+      "community": 1,
       "norm_label": ".getsectionstorender()"
     },
     {
@@ -1110,7 +1146,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L65",
       "id": "assets_cart_notification_cartnotification_getsectioninnerhtml",
-      "community": 17,
+      "community": 1,
       "norm_label": ".getsectioninnerhtml()"
     },
     {
@@ -1119,7 +1155,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L69",
       "id": "assets_cart_notification_cartnotification_handlebodyclick",
-      "community": 17,
+      "community": 1,
       "norm_label": ".handlebodyclick()"
     },
     {
@@ -1128,7 +1164,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L78",
       "id": "assets_cart_notification_cartnotification_setactiveelement",
-      "community": 17,
+      "community": 1,
       "norm_label": ".setactiveelement()"
     },
     {
@@ -1317,7 +1353,7 @@
       "source_file": "constants.js",
       "source_location": "L1",
       "id": "constants_js",
-      "community": 53,
+      "community": 54,
       "norm_label": "constants.js"
     },
     {
@@ -2019,7 +2055,7 @@
       "source_file": "global.js",
       "source_location": "L303",
       "id": "assets_global_fetchconfig",
-      "community": 6,
+      "community": 10,
       "norm_label": "fetchconfig()"
     },
     {
@@ -2280,7 +2316,7 @@
       "source_file": "global.js",
       "source_location": "L728",
       "id": "assets_global_slidercomponent",
-      "community": 7,
+      "community": 6,
       "norm_label": "slidercomponent"
     },
     {
@@ -2289,7 +2325,7 @@
       "source_file": "global.js",
       "source_location": "L729",
       "id": "assets_global_slidercomponent_constructor",
-      "community": 7,
+      "community": 6,
       "norm_label": ".constructor()"
     },
     {
@@ -2298,7 +2334,7 @@
       "source_file": "global.js",
       "source_location": "L750",
       "id": "assets_global_slidercomponent_initpages",
-      "community": 7,
+      "community": 6,
       "norm_label": ".initpages()"
     },
     {
@@ -2307,7 +2343,7 @@
       "source_file": "global.js",
       "source_location": "L761",
       "id": "assets_global_slidercomponent_resetpages",
-      "community": 7,
+      "community": 6,
       "norm_label": ".resetpages()"
     },
     {
@@ -2316,7 +2352,7 @@
       "source_file": "global.js",
       "source_location": "L766",
       "id": "assets_global_slidercomponent_update",
-      "community": 7,
+      "community": 6,
       "norm_label": ".update()"
     },
     {
@@ -2325,7 +2361,7 @@
       "source_file": "global.js",
       "source_location": "L805",
       "id": "assets_global_slidercomponent_isslidevisible",
-      "community": 7,
+      "community": 6,
       "norm_label": ".isslidevisible()"
     },
     {
@@ -2334,7 +2370,7 @@
       "source_file": "global.js",
       "source_location": "L810",
       "id": "assets_global_slidercomponent_onbuttonclick",
-      "community": 7,
+      "community": 6,
       "norm_label": ".onbuttonclick()"
     },
     {
@@ -2343,7 +2379,7 @@
       "source_file": "global.js",
       "source_location": "L820",
       "id": "assets_global_slidercomponent_setslideposition",
-      "community": 7,
+      "community": 6,
       "norm_label": ".setslideposition()"
     },
     {
@@ -2352,7 +2388,7 @@
       "source_file": "global.js",
       "source_location": "L829",
       "id": "assets_global_slideshowcomponent",
-      "community": 7,
+      "community": 6,
       "norm_label": "slideshowcomponent"
     },
     {
@@ -2361,7 +2397,7 @@
       "source_file": "global.js",
       "source_location": "L830",
       "id": "assets_global_slideshowcomponent_constructor",
-      "community": 7,
+      "community": 6,
       "norm_label": ".constructor()"
     },
     {
@@ -2370,7 +2406,7 @@
       "source_file": "global.js",
       "source_location": "L871",
       "id": "assets_global_slideshowcomponent_setautoplay",
-      "community": 7,
+      "community": 6,
       "norm_label": ".setautoplay()"
     },
     {
@@ -2379,7 +2415,7 @@
       "source_file": "global.js",
       "source_location": "L888",
       "id": "assets_global_slideshowcomponent_onbuttonclick",
-      "community": 7,
+      "community": 6,
       "norm_label": ".onbuttonclick()"
     },
     {
@@ -2388,7 +2424,7 @@
       "source_file": "global.js",
       "source_location": "L912",
       "id": "assets_global_slideshowcomponent_setslideposition",
-      "community": 7,
+      "community": 6,
       "norm_label": ".setslideposition()"
     },
     {
@@ -2397,7 +2433,7 @@
       "source_file": "global.js",
       "source_location": "L921",
       "id": "assets_global_slideshowcomponent_update",
-      "community": 7,
+      "community": 6,
       "norm_label": ".update()"
     },
     {
@@ -2406,7 +2442,7 @@
       "source_file": "global.js",
       "source_location": "L936",
       "id": "assets_global_slideshowcomponent_autoplaytoggle",
-      "community": 7,
+      "community": 6,
       "norm_label": ".autoplaytoggle()"
     },
     {
@@ -2415,7 +2451,7 @@
       "source_file": "global.js",
       "source_location": "L942",
       "id": "assets_global_slideshowcomponent_focusouthandling",
-      "community": 7,
+      "community": 6,
       "norm_label": ".focusouthandling()"
     },
     {
@@ -2424,7 +2460,7 @@
       "source_file": "global.js",
       "source_location": "L953",
       "id": "assets_global_slideshowcomponent_focusinhandling",
-      "community": 7,
+      "community": 6,
       "norm_label": ".focusinhandling()"
     },
     {
@@ -2433,7 +2469,7 @@
       "source_file": "global.js",
       "source_location": "L967",
       "id": "assets_global_slideshowcomponent_play",
-      "community": 7,
+      "community": 6,
       "norm_label": ".play()"
     },
     {
@@ -2442,7 +2478,7 @@
       "source_file": "global.js",
       "source_location": "L973",
       "id": "assets_global_slideshowcomponent_pause",
-      "community": 7,
+      "community": 6,
       "norm_label": ".pause()"
     },
     {
@@ -2451,7 +2487,7 @@
       "source_file": "global.js",
       "source_location": "L978",
       "id": "assets_global_slideshowcomponent_toggleplaybuttonstate",
-      "community": 7,
+      "community": 6,
       "norm_label": ".toggleplaybuttonstate()"
     },
     {
@@ -2460,7 +2496,7 @@
       "source_file": "global.js",
       "source_location": "L988",
       "id": "assets_global_slideshowcomponent_autorotateslides",
-      "community": 7,
+      "community": 6,
       "norm_label": ".autorotateslides()"
     },
     {
@@ -2469,7 +2505,7 @@
       "source_file": "global.js",
       "source_location": "L996",
       "id": "assets_global_slideshowcomponent_setslidevisibility",
-      "community": 7,
+      "community": 6,
       "norm_label": ".setslidevisibility()"
     },
     {
@@ -2478,7 +2514,7 @@
       "source_file": "global.js",
       "source_location": "L1018",
       "id": "assets_global_slideshowcomponent_applyanimationtoannouncementbar",
-      "community": 7,
+      "community": 6,
       "norm_label": ".applyanimationtoannouncementbar()"
     },
     {
@@ -2487,7 +2523,7 @@
       "source_file": "global.js",
       "source_location": "L1049",
       "id": "assets_global_slideshowcomponent_linktoslide",
-      "community": 7,
+      "community": 6,
       "norm_label": ".linktoslide()"
     },
     {
@@ -2631,7 +2667,7 @@
       "source_file": "global.js",
       "source_location": "L1200",
       "id": "assets_global_bulkadd",
-      "community": 18,
+      "community": 17,
       "norm_label": "bulkadd"
     },
     {
@@ -2640,7 +2676,7 @@
       "source_file": "global.js",
       "source_location": "L1203",
       "id": "assets_global_bulkadd_constructor",
-      "community": 18,
+      "community": 17,
       "norm_label": ".constructor()"
     },
     {
@@ -2649,7 +2685,7 @@
       "source_file": "global.js",
       "source_location": "L1210",
       "id": "assets_global_bulkadd_startqueue",
-      "community": 18,
+      "community": 17,
       "norm_label": ".startqueue()"
     },
     {
@@ -2658,7 +2694,7 @@
       "source_file": "global.js",
       "source_location": "L1224",
       "id": "assets_global_bulkadd_sendrequest",
-      "community": 18,
+      "community": 17,
       "norm_label": ".sendrequest()"
     },
     {
@@ -2667,7 +2703,7 @@
       "source_file": "global.js",
       "source_location": "L1236",
       "id": "assets_global_bulkadd_setrequeststarted",
-      "community": 18,
+      "community": 17,
       "norm_label": ".setrequeststarted()"
     },
     {
@@ -2676,7 +2712,7 @@
       "source_file": "global.js",
       "source_location": "L1240",
       "id": "assets_global_bulkadd_requeststarted",
-      "community": 18,
+      "community": 17,
       "norm_label": ".requeststarted()"
     },
     {
@@ -2685,7 +2721,7 @@
       "source_file": "global.js",
       "source_location": "L1244",
       "id": "assets_global_bulkadd_resetquantityinput",
-      "community": 18,
+      "community": 17,
       "norm_label": ".resetquantityinput()"
     },
     {
@@ -2694,7 +2730,7 @@
       "source_file": "global.js",
       "source_location": "L1250",
       "id": "assets_global_bulkadd_setvalidity",
-      "community": 18,
+      "community": 17,
       "norm_label": ".setvalidity()"
     },
     {
@@ -2703,7 +2739,7 @@
       "source_file": "global.js",
       "source_location": "L1257",
       "id": "assets_global_bulkadd_validatequantity",
-      "community": 18,
+      "community": 17,
       "norm_label": ".validatequantity()"
     },
     {
@@ -2712,7 +2748,7 @@
       "source_file": "global.js",
       "source_location": "L1275",
       "id": "assets_global_bulkadd_getsectioninnerhtml",
-      "community": 18,
+      "community": 17,
       "norm_label": ".getsectioninnerhtml()"
     },
     {
@@ -3216,7 +3252,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L1",
       "id": "predictive_search_js",
-      "community": 8,
+      "community": 7,
       "norm_label": "predictive-search.js"
     },
     {
@@ -3225,7 +3261,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L1",
       "id": "assets_predictive_search_predictivesearch",
-      "community": 8,
+      "community": 7,
       "norm_label": "predictivesearch"
     },
     {
@@ -3234,7 +3270,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L2",
       "id": "assets_predictive_search_predictivesearch_constructor",
-      "community": 8,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -3243,7 +3279,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L14",
       "id": "assets_predictive_search_predictivesearch_setupeventlisteners",
-      "community": 8,
+      "community": 7,
       "norm_label": ".setupeventlisteners()"
     },
     {
@@ -3252,7 +3288,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L23",
       "id": "assets_predictive_search_predictivesearch_getquery",
-      "community": 8,
+      "community": 7,
       "norm_label": ".getquery()"
     },
     {
@@ -3261,7 +3297,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L27",
       "id": "assets_predictive_search_predictivesearch_onchange",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onchange()"
     },
     {
@@ -3270,7 +3306,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L49",
       "id": "assets_predictive_search_predictivesearch_onformsubmit",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onformsubmit()"
     },
     {
@@ -3279,7 +3315,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L53",
       "id": "assets_predictive_search_predictivesearch_onformreset",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onformreset()"
     },
     {
@@ -3288,7 +3324,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L63",
       "id": "assets_predictive_search_predictivesearch_onfocus",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onfocus()"
     },
     {
@@ -3297,7 +3333,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L78",
       "id": "assets_predictive_search_predictivesearch_onfocusout",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onfocusout()"
     },
     {
@@ -3306,7 +3342,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L84",
       "id": "assets_predictive_search_predictivesearch_onkeyup",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onkeyup()"
     },
     {
@@ -3315,7 +3351,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L101",
       "id": "assets_predictive_search_predictivesearch_onkeydown",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onkeydown()"
     },
     {
@@ -3324,7 +3360,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L108",
       "id": "assets_predictive_search_predictivesearch_updatesearchforterm",
-      "community": 8,
+      "community": 7,
       "norm_label": ".updatesearchforterm()"
     },
     {
@@ -3333,7 +3369,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L121",
       "id": "assets_predictive_search_predictivesearch_switchoption",
-      "community": 8,
+      "community": 7,
       "norm_label": ".switchoption()"
     },
     {
@@ -3342,7 +3378,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L164",
       "id": "assets_predictive_search_predictivesearch_selectoption",
-      "community": 8,
+      "community": 7,
       "norm_label": ".selectoption()"
     },
     {
@@ -3351,7 +3387,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L170",
       "id": "assets_predictive_search_predictivesearch_getsearchresults",
-      "community": 8,
+      "community": 7,
       "norm_label": ".getsearchresults()"
     },
     {
@@ -3360,7 +3396,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L211",
       "id": "assets_predictive_search_predictivesearch_setliveregionloadingstate",
-      "community": 8,
+      "community": 7,
       "norm_label": ".setliveregionloadingstate()"
     },
     {
@@ -3369,7 +3405,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L219",
       "id": "assets_predictive_search_predictivesearch_setliveregiontext",
-      "community": 8,
+      "community": 7,
       "norm_label": ".setliveregiontext()"
     },
     {
@@ -3378,7 +3414,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L228",
       "id": "assets_predictive_search_predictivesearch_rendersearchresults",
-      "community": 8,
+      "community": 7,
       "norm_label": ".rendersearchresults()"
     },
     {
@@ -3387,7 +3423,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L236",
       "id": "assets_predictive_search_predictivesearch_setliveregionresults",
-      "community": 8,
+      "community": 7,
       "norm_label": ".setliveregionresults()"
     },
     {
@@ -3396,7 +3432,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L241",
       "id": "assets_predictive_search_predictivesearch_getresultsmaxheight",
-      "community": 8,
+      "community": 7,
       "norm_label": ".getresultsmaxheight()"
     },
     {
@@ -3405,7 +3441,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L247",
       "id": "assets_predictive_search_predictivesearch_open",
-      "community": 8,
+      "community": 7,
       "norm_label": ".open()"
     },
     {
@@ -3414,7 +3450,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L254",
       "id": "assets_predictive_search_predictivesearch_close",
-      "community": 8,
+      "community": 7,
       "norm_label": ".close()"
     },
     {
@@ -3423,7 +3459,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L259",
       "id": "assets_predictive_search_predictivesearch_closeresults",
-      "community": 8,
+      "community": 7,
       "norm_label": ".closeresults()"
     },
     {
@@ -3504,7 +3540,7 @@
       "source_file": "product-form.js",
       "source_location": "L1",
       "id": "product_form_js",
-      "community": 6,
+      "community": 10,
       "norm_label": "product-form.js"
     },
     {
@@ -3513,7 +3549,7 @@
       "source_file": "product-form.js",
       "source_location": "L5",
       "id": "assets_product_form_constructor",
-      "community": 6,
+      "community": 10,
       "norm_label": "constructor()"
     },
     {
@@ -3522,7 +3558,7 @@
       "source_file": "product-form.js",
       "source_location": "L20",
       "id": "assets_product_form_onsubmithandler",
-      "community": 6,
+      "community": 10,
       "norm_label": "onsubmithandler()"
     },
     {
@@ -3531,7 +3567,7 @@
       "source_file": "product-form.js",
       "source_location": "L112",
       "id": "assets_product_form_handleerrormessage",
-      "community": 6,
+      "community": 10,
       "norm_label": "handleerrormessage()"
     },
     {
@@ -3540,7 +3576,7 @@
       "source_file": "product-form.js",
       "source_location": "L127",
       "id": "assets_product_form_togglesubmitbutton",
-      "community": 6,
+      "community": 10,
       "norm_label": "togglesubmitbutton()"
     },
     {
@@ -3549,7 +3585,7 @@
       "source_file": "product-form.js",
       "source_location": "L137",
       "id": "assets_product_form_variantidinput",
-      "community": 6,
+      "community": 10,
       "norm_label": "variantidinput()"
     },
     {
@@ -3945,7 +3981,7 @@
       "source_file": "quantity-popover.js",
       "source_location": "L1",
       "id": "quantity_popover_js",
-      "community": 35,
+      "community": 36,
       "norm_label": "quantity-popover.js"
     },
     {
@@ -3954,7 +3990,7 @@
       "source_file": "quantity-popover.js",
       "source_location": "L5",
       "id": "assets_quantity_popover_constructor",
-      "community": 35,
+      "community": 36,
       "norm_label": "constructor()"
     },
     {
@@ -3963,7 +3999,7 @@
       "source_file": "quantity-popover.js",
       "source_location": "L38",
       "id": "assets_quantity_popover_togglepopover",
-      "community": 35,
+      "community": 36,
       "norm_label": "togglepopover()"
     },
     {
@@ -3972,7 +4008,7 @@
       "source_file": "quantity-popover.js",
       "source_location": "L71",
       "id": "assets_quantity_popover_closepopover",
-      "community": 35,
+      "community": 36,
       "norm_label": "closepopover()"
     },
     {
@@ -4116,7 +4152,7 @@
       "source_file": "quick-add.js",
       "source_location": "L1",
       "id": "quick_add_js",
-      "community": 19,
+      "community": 18,
       "norm_label": "quick-add.js"
     },
     {
@@ -4125,7 +4161,7 @@
       "source_file": "quick-add.js",
       "source_location": "L5",
       "id": "assets_quick_add_constructor",
-      "community": 19,
+      "community": 18,
       "norm_label": "constructor()"
     },
     {
@@ -4134,7 +4170,7 @@
       "source_file": "quick-add.js",
       "source_location": "L14",
       "id": "assets_quick_add_hide",
-      "community": 19,
+      "community": 18,
       "norm_label": "hide()"
     },
     {
@@ -4143,7 +4179,7 @@
       "source_file": "quick-add.js",
       "source_location": "L23",
       "id": "assets_quick_add_show",
-      "community": 19,
+      "community": 18,
       "norm_label": "show()"
     },
     {
@@ -4152,7 +4188,7 @@
       "source_file": "quick-add.js",
       "source_location": "L51",
       "id": "assets_quick_add_preprocesshtml",
-      "community": 19,
+      "community": 18,
       "norm_label": "preprocesshtml()"
     },
     {
@@ -4161,7 +4197,7 @@
       "source_file": "quick-add.js",
       "source_location": "L63",
       "id": "assets_quick_add_preventvarianturlswitching",
-      "community": 19,
+      "community": 18,
       "norm_label": "preventvarianturlswitching()"
     },
     {
@@ -4170,7 +4206,7 @@
       "source_file": "quick-add.js",
       "source_location": "L67",
       "id": "assets_quick_add_removedomelements",
-      "community": 19,
+      "community": 18,
       "norm_label": "removedomelements()"
     },
     {
@@ -4179,7 +4215,7 @@
       "source_file": "quick-add.js",
       "source_location": "L78",
       "id": "assets_quick_add_preventduplicatedids",
-      "community": 19,
+      "community": 18,
       "norm_label": "preventduplicatedids()"
     },
     {
@@ -4188,7 +4224,7 @@
       "source_file": "quick-add.js",
       "source_location": "L93",
       "id": "assets_quick_add_removegallerylistsemantic",
-      "community": 19,
+      "community": 18,
       "norm_label": "removegallerylistsemantic()"
     },
     {
@@ -4197,7 +4233,7 @@
       "source_file": "quick-add.js",
       "source_location": "L101",
       "id": "assets_quick_add_updateimagesizes",
-      "community": 19,
+      "community": 18,
       "norm_label": "updateimagesizes()"
     },
     {
@@ -4710,7 +4746,7 @@
       "source_file": "show-more.js",
       "source_location": "L1",
       "id": "show_more_js",
-      "community": 40,
+      "community": 41,
       "norm_label": "show-more.js"
     },
     {
@@ -4719,7 +4755,7 @@
       "source_file": "show-more.js",
       "source_location": "L5",
       "id": "assets_show_more_constructor",
-      "community": 40,
+      "community": 41,
       "norm_label": "constructor()"
     },
     {
@@ -4728,7 +4764,7 @@
       "source_file": "show-more.js",
       "source_location": "L16",
       "id": "assets_show_more_expandshowmore",
-      "community": 40,
+      "community": 41,
       "norm_label": "expandshowmore()"
     },
     {
@@ -4737,7 +4773,7 @@
       "source_file": "theme-editor.js",
       "source_location": "L1",
       "id": "theme_editor_js",
-      "community": 44,
+      "community": 45,
       "norm_label": "theme-editor.js"
     },
     {
@@ -4746,7 +4782,7 @@
       "source_file": "theme-editor.js",
       "source_location": "L1",
       "id": "assets_theme_editor_hideproductmodal",
-      "community": 44,
+      "community": 45,
       "norm_label": "hideproductmodal()"
     },
     {
@@ -4758,7 +4794,7 @@
       "captured_at": null,
       "author": "Shopify Inc.",
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "shopify dawn license",
       "id": "license_shopify_license"
     },
@@ -4771,7 +4807,7 @@
       "captured_at": null,
       "author": "Shopify Inc.",
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "dawn theme",
       "id": "readme_dawn_theme"
     },
@@ -4784,7 +4820,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "html-first javascript-only-as-needed approach",
       "id": "readme_html_first_approach"
     },
@@ -4797,7 +4833,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "online store 2.0",
       "id": "readme_online_store_2"
     },
@@ -4810,7 +4846,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "progressive enhancement",
       "id": "readme_progressive_enhancement"
     },
@@ -4823,7 +4859,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "server-rendered with liquid",
       "id": "readme_server_rendered"
     },
@@ -4836,7 +4872,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "shopify cli",
       "id": "readme_shopify_cli"
     },
@@ -4849,7 +4885,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "theme check",
       "id": "readme_theme_check"
     },
@@ -4862,7 +4898,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "github actions ci",
       "id": "readme_github_actions"
     },
@@ -4875,7 +4911,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "shopify lighthouse ci action",
       "id": "readme_lighthouse_ci_action"
     },
@@ -4888,7 +4924,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "shopify theme check action",
       "id": "readme_theme_check_action"
     },
@@ -4901,7 +4937,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "shopify theme store",
       "id": "readme_theme_store"
     },
@@ -4914,7 +4950,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "contributing guide",
       "id": "readme_contributing_guide"
     },
@@ -4927,7 +4963,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "dawn v15.4.1 release notes",
       "id": "releasenotes_dawn_1541"
     },
@@ -4940,7 +4976,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "performance monitoring improvements",
       "id": "releasenotes_performance_monitoring"
     },
@@ -4953,7 +4989,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "translation configuration",
       "id": "translation_config"
     },
@@ -4966,7 +5002,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "buyer translation component",
       "id": "translation_buyer_component"
     },
@@ -4979,7 +5015,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "merchant translation component",
       "id": "translation_merchant_component"
     },
@@ -4992,7 +5028,7 @@
       "captured_at": null,
       "author": "@Shopify/themes-translations",
       "contributor": null,
-      "community": 9,
+      "community": 8,
       "norm_label": "shopify themes translations team",
       "id": "translation_themes_translations_team"
     },
@@ -5005,7 +5041,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "email signup banner background (mobile)",
       "id": "email_signup_banner_background_mobile_bg"
     },
@@ -5018,7 +5054,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "email signup banner background (desktop)",
       "id": "email_signup_banner_background_bg"
     },
@@ -5044,7 +5080,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 36,
+      "community": 37,
       "norm_label": "icon: account (user profile)",
       "id": "icon_account_icon"
     },
@@ -5070,7 +5106,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "icon: arrow (right-pointing)",
       "id": "icon_arrow_icon"
     },
@@ -5122,7 +5158,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "icon: caret (dropdown chevron)",
       "id": "icon_caret_icon"
     },
@@ -5148,7 +5184,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 36,
+      "community": 37,
       "norm_label": "icon: cart empty",
       "id": "icon_cart_empty_icon"
     },
@@ -5161,7 +5197,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 36,
+      "community": 37,
       "norm_label": "icon: cart (shopping bag)",
       "id": "icon_cart_icon"
     },
@@ -5174,7 +5210,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 36,
+      "community": 37,
       "norm_label": "icon: chat bubble (message/support)",
       "id": "icon_chat_bubble_icon"
     },
@@ -5187,7 +5223,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "icon: check mark (checkbox with border)",
       "id": "icon_check_mark_icon"
     },
@@ -5200,7 +5236,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "icon: checkmark (simple tick)",
       "id": "icon_checkmark_icon"
     },
@@ -5213,7 +5249,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 50,
       "norm_label": "icon: clipboard (notes/list)",
       "id": "icon_clipboard_icon"
     },
@@ -5252,7 +5288,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 50,
       "norm_label": "icon: copy (duplicate document)",
       "id": "icon_copy_icon"
     },
@@ -5304,7 +5340,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 39,
+      "community": 38,
       "norm_label": "dryer / laundry care icon",
       "id": "icon-dryer_dryer"
     },
@@ -5317,7 +5353,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 38,
+      "community": 39,
       "norm_label": "error / alert status icon",
       "id": "icon-error_error"
     },
@@ -5356,7 +5392,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 37,
+      "community": 40,
       "norm_label": "filter / sort controls icon",
       "id": "icon-filter_filter"
     },
@@ -5395,7 +5431,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 37,
+      "community": 40,
       "norm_label": "hamburger / navigation menu icon",
       "id": "icon-hamburger_hamburger"
     },
@@ -5421,7 +5457,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 38,
+      "community": 39,
       "norm_label": "info / tooltip icon",
       "id": "icon-info_info"
     },
@@ -5447,7 +5483,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 38,
+      "community": 39,
       "norm_label": "inventory / stock status indicator icon",
       "id": "icon-inventory-status_inventory_status"
     },
@@ -5460,7 +5496,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 39,
+      "community": 38,
       "norm_label": "iron / laundry care icon",
       "id": "icon-iron_iron"
     },
@@ -5486,7 +5522,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 39,
+      "community": 38,
       "norm_label": "leather / material care icon",
       "id": "icon-leather_leather"
     },
@@ -5538,7 +5574,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 37,
+      "community": 40,
       "norm_label": "map pin / location icon",
       "id": "icon-map-pin_map_pin"
     },
@@ -5603,7 +5639,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 38,
+      "community": 39,
       "norm_label": "ui status / feedback icons",
       "id": "category_ui_status_icons"
     },
@@ -5616,7 +5652,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 37,
+      "community": 40,
       "norm_label": "ui navigation icons",
       "id": "category_navigation_icons"
     },
@@ -5642,7 +5678,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 39,
+      "community": 38,
       "norm_label": "laundry / material care icons",
       "id": "category_laundry_care_icons"
     },
@@ -5668,7 +5704,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "padlock icon",
       "id": "icon-padlock_security"
     },
@@ -5681,7 +5717,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 43,
       "norm_label": "pants icon",
       "id": "icon-pants_apparel"
     },
@@ -5694,7 +5730,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "pause icon",
       "id": "icon-pause_media"
     },
@@ -5707,7 +5743,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "paw print icon",
       "id": "icon-paw-print_pet"
     },
@@ -5720,7 +5756,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "pepper icon",
       "id": "icon-pepper_food"
     },
@@ -5733,7 +5769,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "perfume bottle icon",
       "id": "icon-perfume_beauty"
     },
@@ -5746,7 +5782,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "pinterest icon",
       "id": "icon-pinterest_social"
     },
@@ -5759,7 +5795,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "airplane / shipping icon",
       "id": "icon-plane_shipping"
     },
@@ -5772,7 +5808,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "plant / leaf icon",
       "id": "icon-plant_nature"
     },
@@ -5785,7 +5821,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "play button icon",
       "id": "icon-play_media"
     },
@@ -5798,7 +5834,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 41,
+      "community": 42,
       "norm_label": "plus / add icon",
       "id": "icon-plus_ui"
     },
@@ -5811,7 +5847,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "price tag icon",
       "id": "icon-price-tag_ecommerce"
     },
@@ -5824,7 +5860,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "question mark / help icon",
       "id": "icon-question-mark_ui"
     },
@@ -5837,7 +5873,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "recycle icon",
       "id": "icon-recycle_sustainability"
     },
@@ -5850,7 +5886,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 41,
+      "community": 42,
       "norm_label": "remove / trash icon",
       "id": "icon-remove_ui"
     },
@@ -5863,7 +5899,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 41,
+      "community": 42,
       "norm_label": "reset / close icon",
       "id": "icon-reset_ui"
     },
@@ -5876,7 +5912,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "return / back arrow icon",
       "id": "icon-return_ecommerce"
     },
@@ -5889,7 +5925,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 43,
       "norm_label": "ruler / measurement icon",
       "id": "icon-ruler_sizing"
     },
@@ -5902,7 +5938,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "search / magnifier icon",
       "id": "icon-search_ui"
     },
@@ -5915,7 +5951,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "serving dish / cloche icon",
       "id": "icon-serving-dish_food"
     },
@@ -5928,7 +5964,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "share icon",
       "id": "icon-share_social"
     },
@@ -5941,7 +5977,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 43,
       "norm_label": "shirt / t-shirt icon",
       "id": "icon-shirt_apparel"
     },
@@ -5954,7 +5990,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "shoe icon",
       "id": "icon_shoe"
     },
@@ -5967,7 +6003,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "shopify logo icon",
       "id": "icon_shopify"
     },
@@ -5980,7 +6016,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "person silhouette / user account icon",
       "id": "icon_silhouette"
     },
@@ -6006,7 +6042,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 43,
+      "community": 44,
       "norm_label": "snowflake / cold storage icon",
       "id": "icon_snowflake"
     },
@@ -6019,7 +6055,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "star / rating icon",
       "id": "icon_star"
     },
@@ -6032,7 +6068,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "stopwatch / timer icon",
       "id": "icon_stopwatch"
     },
@@ -6045,7 +6081,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "success / confirmation circle icon",
       "id": "icon_success"
     },
@@ -6058,7 +6094,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "tick / checkmark icon",
       "id": "icon_tick"
     },
@@ -6084,7 +6120,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "delivery truck / shipping icon",
       "id": "icon_truck"
     },
@@ -6123,7 +6159,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "unavailable / error x icon",
       "id": "icon_unavailable"
     },
@@ -6149,7 +6185,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 43,
+      "community": 44,
       "norm_label": "washing / care instructions icon",
       "id": "icon_washing"
     },
@@ -6175,7 +6211,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "zoom in / magnify search icon",
       "id": "icon_zoom"
     },
@@ -6188,7 +6224,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "loading spinner animation",
       "id": "loading_spinner"
     },
@@ -6201,7 +6237,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "arch shape clip path mask",
       "id": "mask_arch"
     },
@@ -6214,7 +6250,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "square / checkbox outline shape",
       "id": "square"
     },
@@ -6227,7 +6263,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "sparkle decorative animation",
       "id": "sparkle_gif"
     },
@@ -6240,7 +6276,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "ui feedback icons group",
       "id": "category_ui_feedback_icons"
     },
@@ -6253,7 +6289,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "e-commerce / shopping icons group",
       "id": "category_ecommerce_icons"
     },
@@ -6266,7 +6302,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 43,
+      "community": 44,
       "norm_label": "product / care instructions icons group",
       "id": "category_product_care_icons"
     },
@@ -6279,7 +6315,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "ui shapes / structural elements group",
       "id": "category_ui_shapes"
     },
@@ -6292,7 +6328,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 9,
       "norm_label": "platform branding icons group",
       "id": "category_platform_branding"
     }
@@ -6925,6 +6961,47 @@
       "confidence_score": 1.0,
       "source": "assets_bloomli_theme_initaccordions",
       "target": "assets_bloomli_theme_openaccordion"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "bloomli_timeline_js",
+      "target": "assets_bloomli_timeline_clamp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "bloomli_timeline_js",
+      "target": "assets_bloomli_timeline_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "bloomli_timeline_js",
+      "target": "assets_bloomli_timeline_requestupdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "assets_bloomli_timeline_update",
+      "target": "assets_bloomli_timeline_clamp",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",

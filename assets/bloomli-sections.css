@@ -1308,8 +1308,8 @@
   }
 
   .bloomli-timeline__wrap {
-    --journey-mobile-label-col: 7.2rem;
-    --journey-mobile-rail-x: 3.6rem;
+    --journey-mobile-label-col: 6.8rem;
+    --journey-mobile-rail-x: 3.4rem;
     padding-top: 0;
   }
 
@@ -1358,10 +1358,10 @@
     align-self: center;
     justify-self: center;
     max-width: max-content;
-    min-height: 2.1rem;
-    padding: 5px 8px;
+    min-height: 2.6rem;
+    padding: 7px 7px;
     box-sizing: border-box;
-    font-size: 11px;
+    font-size: 10px;
     text-align: center;
     transform: none;
     white-space: nowrap;

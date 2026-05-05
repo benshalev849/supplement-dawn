@@ -24,6 +24,8 @@
       }
 
       var rect = section.getBoundingClientRect();
+      var progressTarget = section.querySelector('.bloomli-timeline__grid') || section;
+      var progressRect = progressTarget.getBoundingClientRect();
       var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
 
       if (rect.top >= viewportHeight) {
@@ -38,9 +40,9 @@
         return;
       }
 
-      var start = viewportHeight * 0.95;
-      var end = viewportHeight * 0.82 - rect.height;
-      var progress = clamp((start - rect.top) / (start - end));
+      var start = viewportHeight * 0.9;
+      var end = viewportHeight * 0.42 - progressRect.height;
+      var progress = clamp((start - progressRect.top) / (start - end));
 
       section.style.setProperty('--journey-progress', progress * 100 + '%');
       if (mobileMedia.matches) {

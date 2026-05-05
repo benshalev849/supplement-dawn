@@ -892,7 +892,7 @@
       "label": "setReachedStepsFromLine()",
       "file_type": "code",
       "source_file": "bloomli-timeline.js",
-      "source_location": "L54",
+      "source_location": "L56",
       "id": "assets_bloomli_timeline_setreachedstepsfromline",
       "community": 30,
       "norm_label": "setreachedstepsfromline()"
@@ -901,7 +901,7 @@
       "label": "setReachedSteps()",
       "file_type": "code",
       "source_file": "bloomli-timeline.js",
-      "source_location": "L75",
+      "source_location": "L77",
       "id": "assets_bloomli_timeline_setreachedsteps",
       "community": 30,
       "norm_label": "setreachedsteps()"
@@ -910,7 +910,7 @@
       "label": "requestUpdate()",
       "file_type": "code",
       "source_file": "bloomli-timeline.js",
-      "source_location": "L86",
+      "source_location": "L88",
       "id": "assets_bloomli_timeline_requestupdate",
       "community": 30,
       "norm_label": "requestupdate()"
@@ -7006,9 +7006,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_timeline_js",
-      "target": "assets_bloomli_timeline_setreachedstepsfromline",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_setreachedstepsfromline"
     },
     {
       "relation": "contains",
@@ -7059,9 +7059,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_timeline_update",
-      "target": "assets_bloomli_timeline_setreachedstepsfromline",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_setreachedstepsfromline"
     },
     {
       "relation": "calls",
@@ -7070,9 +7070,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_timeline_setreachedstepsfromline",
-      "target": "assets_bloomli_timeline_setreachedsteps",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_setreachedsteps"
     },
     {
       "relation": "contains",

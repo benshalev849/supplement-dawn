@@ -1,5 +1,5 @@
 .bloomli-vt {
-  --bloomli-vt-button-radius: var(--buttons-radius, 6px);
+  --bloomli-vt-button-radius: 24px;
 
   color: var(--charcoal, #2A2622);
   font-family: var(--font-commerce-ui, var(--font-body-family));

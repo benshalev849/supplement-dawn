@@ -17,7 +17,7 @@
       {%- assign circle_size = 330 -%}
     {%- endif -%}
     {%- assign icon_size = section.settings.icon_size | default: 64 -%}
-    {%- assign line_top = circle_size | divided_by: 2 -%}
+    {%- assign line_top = circle_size | times: 2 | divided_by: 3 -%}
     {%- assign connector_color = 'var(--bloomli-line)' -%}
     {%- assign connector_style = section.settings.connector_style | default: 'dashed' -%}
     {%- assign connector_width = section.settings.connector_width | default: 1 -%}

@@ -1163,7 +1163,7 @@
 
 .bloomli-timeline__circle {
   width: var(--timeline-circle-size);
-  height: var(--timeline-circle-size);
+  aspect-ratio: 3/4;
   margin: 0 auto 24px;
   border-radius: var(--media-radius, var(--text-boxes-radius, 6px));
   background: var(--timeline-circle-bg);
@@ -1250,8 +1250,7 @@
   }
 
   .bloomli-timeline__circle {
-    width: clamp(180px, 62vw, 240px);
-    height: clamp(180px, 62vw, 240px);
+    width: min(var(--timeline-circle-size), 180px);
   }
 
   .bloomli-timeline__heading {

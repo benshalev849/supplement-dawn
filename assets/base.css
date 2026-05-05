@@ -113,7 +113,7 @@
 .bloomli-formula-gallery__media {
   width: var(--bfg-circle);
   aspect-ratio: 1 / 1;
-  border-radius: 999px;
+  border-radius: 6px;
   overflow: hidden;
   position: relative;
   color: var(--bfg-icon-color, var(--bloomli-wellness-accent));
@@ -192,7 +192,7 @@
 .bloomli-formula-gallery__proof-media {
   width: var(--bfg-proof-icon);
   aspect-ratio: 1 / 1;
-  border-radius: 999px;
+  border-radius: 6px;
   background: var(--bfg-proof-bg);
   color: var(--bfg-proof-color);
   overflow: hidden;
@@ -421,7 +421,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  border-radius: 999px;
+  border-radius: 6px;
   background: rgba(138, 102, 120, 0.06);
   color: var(--br-accent);
   padding: 6px 10px;
@@ -974,7 +974,7 @@ label,
     z-index: 2;
     white-space: nowrap;
     background: rgba(255, 255, 255, 0.92);
-    border-radius: 999px;
+    border-radius: 6px;
   }
 }
 .product__media-bullet {
@@ -982,7 +982,7 @@ label,
   -webkit-appearance: none;
   width: 5px;
   height: 5px;
-  border-radius: 999px;
+  border-radius: 6px;
   background: rgba(178, 58, 111, 0.25);
   border: 0;
   padding: 0;

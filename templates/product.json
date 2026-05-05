@@ -215,8 +215,8 @@
         "step_q7Pbng": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Model_Back_Month_1-3_29fb360c-6a8d-4328-98ea-8709880de9ca.png",
-            "image_scale": 115,
+            "image": "shopify://shop_images/Model_Back_Month_1-3_be34da10-c9ab-4dfd-9906-0ed40d741898.png",
+            "image_scale": 110,
             "icon": "seed",
             "range": "Month 1–3",
             "title": "Foundation",

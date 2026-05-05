@@ -15,6 +15,7 @@
 .cart-drawer .drawer__inner {
   background: var(--bloomli-cart-soft-bg, #FDFAF7);
   color: var(--bloomli-cart-text, #2A2622);
+  overflow-x: hidden;
 }
 
 .bloomli-cart-drawer__count {
@@ -78,6 +79,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 .drawer .drawer__inner {
   width: 100vw;
   max-width: 100vw;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width: 750px) {
@@ -103,6 +105,10 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 .cart-drawer .drawer__inner {
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+.cart-drawer cart-drawer-items {
+  overflow-x: hidden;
 }
 
 .cart-drawer cart-drawer-items::-webkit-scrollbar,
@@ -140,9 +146,9 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   position: relative;
   grid-template-columns: minmax(8.4rem, min(var(--bloomli-cart-image-size, 124px), 10.4rem)) minmax(7.8rem, 1fr) auto;
   grid-template-rows: auto auto auto auto auto;
-  gap: var(--bloomli-cart-item-row-gap, 6px) min(var(--bloomli-cart-item-column-gap, 12px), 0.8rem);
+  gap: calc(var(--bloomli-cart-item-row-gap, 6px) + 0.2rem) min(var(--bloomli-cart-item-column-gap, 12px), 0.8rem);
   margin: 0 0 1rem;
-  padding: 0.9rem 0.8rem;
+  padding: 1rem 1rem 1.15rem 0.8rem;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -234,7 +240,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   align-items: flex-end;
   justify-self: end;
   padding-left: 0;
-  padding-top: calc(var(--bloomli-cart-price-top-offset, 0) + 0.7rem);
+  padding-top: calc(var(--bloomli-cart-price-top-offset, 0) + 0.95rem);
 }
 
 .cart-drawer .cart-item__price-wrapper {
@@ -283,7 +289,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 .cart-drawer .bloomli-cart-offers-cell {
   grid-column: 1 / -1;
   grid-row: 4;
-  padding: 1.1rem 0 0;
+  padding: 1.45rem 0 0;
 }
 
 .cart-drawer .bloomli-cart-pack-promo-cell {
@@ -309,6 +315,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   color: var(--bloomli-cart-pack-promo-text, var(--bloomli-cart-accent, #B23A6F));
   font-family: var(--bloomli-cart-ui-font);
   line-height: 1.15;
+  margin-right: 0.35rem;
 }
 
 .cart-drawer .bloomli-cart-pack-promo__icon {
@@ -793,7 +800,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
     grid-row: 3;
     justify-self: end;
     align-self: start;
-    padding-top: calc(var(--bloomli-cart-price-top-offset, 0) + 0.7rem);
+    padding-top: calc(var(--bloomli-cart-price-top-offset, 0) + 0.95rem);
     min-width: max-content;
   }
 
@@ -849,12 +856,13 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   .cart-drawer .cart-item {
     grid-template-columns: minmax(7.4rem, min(22vw, var(--bloomli-cart-image-size, 124px))) minmax(7.8rem, 1fr) auto;
     column-gap: 0.6rem;
-    padding-inline: 0.7rem;
+    padding: 1rem 0.9rem 1.15rem 0.7rem;
   }
 
   .cart-drawer .bloomli-cart-pack-promo {
-    max-width: 12.8rem;
+    max-width: 12.2rem;
     padding-inline: 0.55rem;
+    margin-right: 0.6rem;
   }
 
   .cart-drawer .bloomli-cart-pack-promo__label,
@@ -914,9 +922,10 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   }
 
   .cart-drawer .bloomli-cart-pack-promo {
-    max-width: 10.8rem;
+    max-width: 10.2rem;
     gap: 0.4rem;
     padding: 0.45rem 0.5rem;
+    margin-right: 0.65rem;
   }
 
   .cart-drawer .bloomli-cart-pack-promo__label,

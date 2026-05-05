@@ -144,6 +144,9 @@
     "cart_drawer_checkout_label": "CHECKOUT",
     "cart_free_shipping_threshold": 65,
     "cart_subscription_frequency_prefix": "Delivers every",
+    "cart_line_subscription_upsell_cta_text": "Upgrade & Save Today",
+    "cart_line_subscription_upsell_card_bg": "#f5e0dc",
+    "cart_line_subscription_upsell_border_color": "#f5e0dc",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

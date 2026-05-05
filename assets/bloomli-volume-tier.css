@@ -825,6 +825,10 @@
     padding-top: 10px;
   }
 
+  .bloomli-vt__mode:not(.is-selected) .bloomli-vt__mobile-atc-slot.has-button {
+    display: none;
+  }
+
   .bloomli-vt__mobile-atc-slot.has-button .bloomli-vt__product-form {
     display: block;
     width: 100%;

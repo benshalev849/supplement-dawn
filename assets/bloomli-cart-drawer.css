@@ -1,7 +1,7 @@
 .cart-drawer {
   --bloomli-cart-ui-font: var(--font-commerce-ui, var(--font-body-family));
   --bloomli-cart-item-column-gap: 8px;
-  --bloomli-cart-control-radius: var(--bloomli-cart-checkout-radius, var(--buttons-radius, 8px));
+  --bloomli-cart-control-radius: var(--bloomli-cart-pack-promo-radius, 6px);
 
   font-family: var(--bloomli-cart-ui-font);
   color: var(--bloomli-cart-text, #2A2622);

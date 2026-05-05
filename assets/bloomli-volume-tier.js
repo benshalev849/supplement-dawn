@@ -296,6 +296,9 @@
       });
 
       placeAddToCart();
+      if (window.requestAnimationFrame) {
+        window.requestAnimationFrame(placeAddToCart);
+      }
     }
 
     sizes.forEach(function (size) {

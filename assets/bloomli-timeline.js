@@ -8,6 +8,7 @@
   var ticking = false;
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var mobileMedia = window.matchMedia('(max-width: 749px)');
+  var lastScrollY = window.scrollY || window.pageYOffset || 0;
 
   function clamp(value) {
     return Math.max(0, Math.min(1, value));
@@ -15,6 +16,8 @@
 
   function update() {
     ticking = false;
+    var currentScrollY = window.scrollY || window.pageYOffset || 0;
+    var isScrollingDown = currentScrollY >= lastScrollY;
 
     document.querySelectorAll(selector).forEach(function (section) {
       if (reducedMotion.matches) {
@@ -39,7 +42,7 @@
         return;
       }
 
-      var progress = isMobile ? getMobileProgress(section, viewportHeight) : getDesktopProgress(section, viewportHeight);
+      var progress = isMobile ? getMobileProgress(section, viewportHeight) : getDesktopProgress(section, viewportHeight, isScrollingDown);
 
       section.style.setProperty('--journey-progress', progress * 100 + '%');
       if (isMobile) {
@@ -48,6 +51,8 @@
         setReachedSteps(section, progress);
       }
     });
+
+    lastScrollY = currentScrollY;
   }
 
   function getMobileProgress(section, viewportHeight) {
@@ -59,11 +64,12 @@
     return clamp((start - progressRect.top) / (start - end));
   }
 
-  function getDesktopProgress(section, viewportHeight) {
+  function getDesktopProgress(section, viewportHeight, isScrollingDown) {
     var progressTarget = section.querySelector('.bloomli-timeline__grid') || section;
     var progressRect = progressTarget.getBoundingClientRect();
     var start = viewportHeight * 0.78;
-    var end = viewportHeight * 0.58 - progressRect.height;
+    var endRatio = isScrollingDown ? 0.78 : 0.58;
+    var end = viewportHeight * endRatio - progressRect.height;
 
     return clamp((start - progressRect.top) / (start - end));
   }

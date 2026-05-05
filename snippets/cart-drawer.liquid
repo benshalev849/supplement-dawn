@@ -113,8 +113,19 @@
       </div>
       {%- if cart != empty and settings.cart_free_shipping_bar_enabled -%}
         {%- liquid
+          assign has_subscription_item = false
+          for item in cart.items
+            if item.selling_plan_allocation != null or item.selling_plan != blank
+              assign has_subscription_item = true
+              break
+            endif
+          endfor
+
           assign free_shipping_threshold = settings.cart_free_shipping_threshold | default: 100 | times: 100
           assign free_shipping_remaining = free_shipping_threshold | minus: cart.total_price
+          if has_subscription_item
+            assign free_shipping_remaining = 0
+          endif
           assign free_shipping_progress = 100
           if free_shipping_threshold > 0 and free_shipping_remaining > 0
             assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping_threshold

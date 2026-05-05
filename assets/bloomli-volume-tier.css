@@ -1,4 +1,6 @@
 .bloomli-vt {
+  --bloomli-vt-button-radius: var(--buttons-radius, 6px);
+
   color: var(--charcoal, #2A2622);
   font-family: var(--font-commerce-ui, var(--font-body-family));
   margin: 16px 0;
@@ -641,7 +643,7 @@
   margin: 14px 0 0;
   padding: 7px 20px 10px !important;
   border: 1.5px solid var(--aubergine, #B23A6F);
-  border-radius: var(--bloomli-cart-control-radius, 6px);
+  border-radius: var(--bloomli-vt-button-radius);
   background: var(--aubergine, #B23A6F);
   color: var(--cream, #FDFAF7);
   cursor: pointer;
@@ -655,6 +657,7 @@
 
 .bloomli-vt__custom-submit::before,
 .bloomli-vt__custom-submit::after {
+  border-radius: var(--bloomli-vt-button-radius);
   display: none;
 }
 

@@ -543,8 +543,11 @@
                               assign pack_promo_enabled = true
                             endif
                             assign pack_promo_text = settings.cart_drawer_pack_promo_text | default: 'Buy More, Save More'
-                            assign pack_label_template = settings.cart_drawer_pack_promo_pack_template | default: '([qty]-pack)'
-                            assign pack_label = pack_label_template | replace: '[qty]', item.quantity
+                            if item.quantity >= 5
+                              assign pack_label = '5-Pack+'
+                            else
+                              assign pack_label = item.quantity | append: '-Pack'
+                            endif
                             assign pack_promo_icon = settings.cart_drawer_pack_promo_icon
                           -%}
                           {%- if pack_promo_enabled -%}

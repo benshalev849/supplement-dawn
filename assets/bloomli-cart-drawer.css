@@ -386,14 +386,14 @@ cart-drawer.drawer .drawer__inner {
 .cart-drawer .bloomli-cart-pack-promo__label,
 .cart-drawer .bloomli-cart-pack-promo__pack {
   display: block;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   text-align: right;
   overflow-wrap: anywhere;
 }
 
 .cart-drawer .bloomli-cart-pack-promo__pack {
-  font-size: 0.95rem;
+  font-size: 0.86rem;
   opacity: 0.9;
 }
 
@@ -951,7 +951,11 @@ cart-drawer.drawer .drawer__inner {
 
   .cart-drawer .bloomli-cart-pack-promo__label,
   .cart-drawer .bloomli-cart-pack-promo__pack {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+  }
+
+  .cart-drawer .bloomli-cart-pack-promo__pack {
+    font-size: 0.8rem;
   }
 
   .bloomli-cart-media-stack {
@@ -1014,7 +1018,11 @@ cart-drawer.drawer .drawer__inner {
 
   .cart-drawer .bloomli-cart-pack-promo__label,
   .cart-drawer .bloomli-cart-pack-promo__pack {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .cart-drawer .bloomli-cart-pack-promo__pack {
+    font-size: 0.74rem;
   }
 
   .cart-drawer .bloomli-cart-offer {

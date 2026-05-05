@@ -143,7 +143,7 @@
   background: var(--bloomli-label-bg);
   color: var(--bloomli-text-soft);
   padding: 6px 12px;
-  border-radius: 4px;
+  border-radius: var(--badge-corner-radius);
   font-size: 9px;
   white-space: nowrap;
 }
@@ -421,7 +421,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  border-radius: 6px;
+  border-radius: var(--badge-corner-radius);
   background: rgba(138, 102, 120, 0.06);
   color: var(--br-accent);
   padding: 6px 10px;
@@ -543,14 +543,17 @@ h6,
 .button--primary,
 .shopify-payment-button__button--unbranded,
 .product-form__submit {
-  border-radius: 6px !important;
-  padding: 16px 32px !important;
+  border-radius: var(--buttons-radius) !important;
   font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
   font-weight: 500 !important;
   font-size: 15px !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
   transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.button {
+  padding: 16px 32px !important;
 }
 
 .button:hover,
@@ -657,7 +660,7 @@ h6,
 
 /* ---- Facets — shape & font only; active state uses --aubergine ---- */
 .facets__summary {
-  border-radius: 999px !important;
+  border-radius: var(--inputs-radius) !important;
   padding: 8px 16px !important;
   font-family: var(--font-commerce-ui, var(--font-body-family)) !important;
 }

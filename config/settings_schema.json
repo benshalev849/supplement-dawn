@@ -1771,6 +1771,156 @@
         "id": "cart_subscription_savings_prefix",
         "label": "Savings label prefix",
         "default": "SAVE"
+      },
+      {
+        "type": "header",
+        "content": "Cart line subscription upsell"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_line_subscription_upsell_enabled",
+        "label": "Show cart line subscription upsell",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cart_line_subscription_upsell_badge_text",
+        "label": "Badge text",
+        "default": "MOST POPULAR"
+      },
+      {
+        "type": "text",
+        "id": "cart_line_subscription_upsell_heading",
+        "label": "Heading text",
+        "default": "Subscribe & Save an Extra 23%"
+      },
+      {
+        "type": "text",
+        "id": "cart_line_subscription_upsell_benefit_1",
+        "label": "Benefit 1",
+        "default": "Save more on every order"
+      },
+      {
+        "type": "text",
+        "id": "cart_line_subscription_upsell_benefit_2",
+        "label": "Benefit 2",
+        "default": "Free shipping on every delivery"
+      },
+      {
+        "type": "text",
+        "id": "cart_line_subscription_upsell_benefit_3",
+        "label": "Benefit 3",
+        "default": "Pause, skip, or cancel anytime"
+      },
+      {
+        "type": "text",
+        "id": "cart_line_subscription_upsell_benefit_4",
+        "label": "Benefit 4",
+        "default": "Backed by our 30-day guarantee"
+      },
+      {
+        "type": "text",
+        "id": "cart_line_subscription_upsell_cta_text",
+        "label": "CTA text",
+        "default": "Upgrade to Subscription & SAVE [X]%",
+        "info": "Use [X] or [percent] for the discount value."
+      },
+      {
+        "type": "text",
+        "id": "cart_line_subscription_upsell_discount_text",
+        "label": "CTA discount text",
+        "default": "23"
+      },
+      {
+        "type": "text",
+        "id": "cart_line_subscription_upsell_discount_pct",
+        "label": "Subscription discount percent",
+        "default": "23",
+        "info": "Used for the CTA label fallback and matching the displayed subscription discount."
+      },
+      {
+        "type": "color",
+        "id": "cart_line_subscription_upsell_card_bg",
+        "label": "Card background color",
+        "default": "#DFF1E8"
+      },
+      {
+        "type": "color",
+        "id": "cart_line_subscription_upsell_border_color",
+        "label": "Card border color",
+        "default": "#BBDCCB"
+      },
+      {
+        "type": "color",
+        "id": "cart_line_subscription_upsell_heading_color",
+        "label": "Heading color",
+        "default": "#2A2622"
+      },
+      {
+        "type": "color",
+        "id": "cart_line_subscription_upsell_body_color",
+        "label": "Body text color",
+        "default": "#2A2622"
+      },
+      {
+        "type": "color",
+        "id": "cart_line_subscription_upsell_icon_color",
+        "label": "Icon color",
+        "default": "#B23A6F"
+      },
+      {
+        "type": "color",
+        "id": "cart_line_subscription_upsell_badge_bg",
+        "label": "Badge background color",
+        "default": "#B23A6F"
+      },
+      {
+        "type": "color",
+        "id": "cart_line_subscription_upsell_badge_text_color",
+        "label": "Badge text color",
+        "default": "#FDFAF7"
+      },
+      {
+        "type": "color",
+        "id": "cart_line_subscription_upsell_cta_bg",
+        "label": "CTA background color",
+        "default": "#B23A6F"
+      },
+      {
+        "type": "color",
+        "id": "cart_line_subscription_upsell_cta_text_color",
+        "label": "CTA text color",
+        "default": "#FDFAF7"
+      },
+      {
+        "type": "range",
+        "id": "cart_line_subscription_upsell_radius",
+        "label": "Card border radius",
+        "min": 0,
+        "max": 28,
+        "step": 1,
+        "unit": "px",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "cart_line_subscription_upsell_padding",
+        "label": "Card padding",
+        "min": 10,
+        "max": 28,
+        "step": 1,
+        "unit": "px",
+        "default": 18
+      },
+      {
+        "type": "range",
+        "id": "cart_line_subscription_upsell_spacing",
+        "label": "Card spacing",
+        "min": 6,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 10
       }
     ]
   }

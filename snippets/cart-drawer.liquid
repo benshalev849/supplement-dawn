@@ -9,10 +9,12 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'bloomli-product-stack.css' | asset_url | stylesheet_tag }}
 {{ 'bloomli-cart-drawer.css' | asset_url | stylesheet_tag }}
+{{ 'bloomli-cart-subscription-upsell.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'bloomli-cart-drawer.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'bloomli-cart-subscription-upsell.js' | asset_url }}" defer="defer"></script>
 
 <style>
   .drawer {
@@ -765,6 +767,13 @@
                             </td>
                           {%- endif -%}
                       </tr>
+                      {%- if settings.cart_line_subscription_upsell_enabled != false and item.selling_plan_allocation == null -%}
+                        <tr class="bloomli-cart-line-upsell-row" role="row">
+                          <td colspan="4" role="cell">
+                            {%- render 'bloomli-cart-subscription-upsell', item: item, context: 'drawer' -%}
+                          </td>
+                        </tr>
+                      {%- endif -%}
                     {%- endfor -%}
                   </tbody>
                 </table>

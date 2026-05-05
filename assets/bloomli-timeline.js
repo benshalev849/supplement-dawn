@@ -24,9 +24,8 @@
       }
 
       var rect = section.getBoundingClientRect();
-      var progressTarget = section.querySelector('.bloomli-timeline__grid') || section;
-      var progressRect = progressTarget.getBoundingClientRect();
       var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
+      var isMobile = mobileMedia.matches;
 
       if (rect.top >= viewportHeight) {
         section.style.setProperty('--journey-progress', '0%');
@@ -40,17 +39,31 @@
         return;
       }
 
-      var start = viewportHeight * 0.9;
-      var end = viewportHeight * 0.42 - progressRect.height;
-      var progress = clamp((start - progressRect.top) / (start - end));
+      var progress = isMobile ? getMobileProgress(section, viewportHeight) : getDesktopProgress(rect, viewportHeight);
 
       section.style.setProperty('--journey-progress', progress * 100 + '%');
-      if (mobileMedia.matches) {
+      if (isMobile) {
         setReachedStepsFromLine(section, progress);
       } else {
         setReachedSteps(section, progress);
       }
     });
+  }
+
+  function getMobileProgress(section, viewportHeight) {
+    var progressTarget = section.querySelector('.bloomli-timeline__grid') || section;
+    var progressRect = progressTarget.getBoundingClientRect();
+    var start = viewportHeight * 0.9;
+    var end = viewportHeight * 0.42 - progressRect.height;
+
+    return clamp((start - progressRect.top) / (start - end));
+  }
+
+  function getDesktopProgress(rect, viewportHeight) {
+    var start = viewportHeight * 0.95;
+    var end = viewportHeight * 0.82 - rect.height;
+
+    return clamp((start - rect.top) / (start - end));
   }
 
   function setReachedStepsFromLine(section, progress) {
@@ -78,6 +91,13 @@
     var steps = section.querySelectorAll('.bloomli-journey__step');
     var lastIndex = Math.max(steps.length - 1, 1);
     var reachOffset = steps.length > 2 ? 0.08 : 0.025;
+
+    if (progress <= 0.001) {
+      steps.forEach(function (step) {
+        step.classList.remove('is-reached');
+      });
+      return;
+    }
 
     steps.forEach(function (step, index) {
       var threshold = index / lastIndex;

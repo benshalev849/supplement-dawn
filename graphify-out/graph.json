@@ -570,7 +570,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L1",
       "id": "bloomli_before_after_js",
-      "community": 29,
+      "community": 30,
       "norm_label": "bloomli-before-after.js"
     },
     {
@@ -579,7 +579,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L5",
       "id": "assets_bloomli_before_after_clamp",
-      "community": 29,
+      "community": 30,
       "norm_label": "clamp()"
     },
     {
@@ -588,7 +588,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L7",
       "id": "assets_bloomli_before_after_update",
-      "community": 29,
+      "community": 30,
       "norm_label": "update()"
     },
     {
@@ -597,7 +597,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L11",
       "id": "assets_bloomli_before_after_updatefrompointer",
-      "community": 29,
+      "community": 30,
       "norm_label": "updatefrompointer()"
     },
     {
@@ -606,7 +606,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L24",
       "id": "assets_bloomli_before_after_initsection",
-      "community": 29,
+      "community": 30,
       "norm_label": "initsection()"
     },
     {
@@ -615,7 +615,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L61",
       "id": "assets_bloomli_before_after_initall",
-      "community": 29,
+      "community": 30,
       "norm_label": "initall()"
     },
     {
@@ -867,7 +867,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L1",
       "id": "bloomli_timeline_js",
-      "community": 30,
+      "community": 24,
       "norm_label": "bloomli-timeline.js"
     },
     {
@@ -876,7 +876,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L12",
       "id": "assets_bloomli_timeline_clamp",
-      "community": 30,
+      "community": 24,
       "norm_label": "clamp()"
     },
     {
@@ -885,34 +885,52 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L16",
       "id": "assets_bloomli_timeline_update",
-      "community": 30,
+      "community": 24,
       "norm_label": "update()"
+    },
+    {
+      "label": "getMobileProgress()",
+      "file_type": "code",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L53",
+      "id": "assets_bloomli_timeline_getmobileprogress",
+      "community": 24,
+      "norm_label": "getmobileprogress()"
+    },
+    {
+      "label": "getDesktopProgress()",
+      "file_type": "code",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L62",
+      "id": "assets_bloomli_timeline_getdesktopprogress",
+      "community": 24,
+      "norm_label": "getdesktopprogress()"
     },
     {
       "label": "setReachedStepsFromLine()",
       "file_type": "code",
       "source_file": "bloomli-timeline.js",
-      "source_location": "L56",
+      "source_location": "L69",
       "id": "assets_bloomli_timeline_setreachedstepsfromline",
-      "community": 30,
+      "community": 24,
       "norm_label": "setreachedstepsfromline()"
     },
     {
       "label": "setReachedSteps()",
       "file_type": "code",
       "source_file": "bloomli-timeline.js",
-      "source_location": "L77",
+      "source_location": "L90",
       "id": "assets_bloomli_timeline_setreachedsteps",
-      "community": 30,
+      "community": 24,
       "norm_label": "setreachedsteps()"
     },
     {
       "label": "requestUpdate()",
       "file_type": "code",
       "source_file": "bloomli-timeline.js",
-      "source_location": "L88",
+      "source_location": "L108",
       "id": "assets_bloomli_timeline_requestupdate",
-      "community": 30,
+      "community": 24,
       "norm_label": "requestupdate()"
     },
     {
@@ -1020,7 +1038,7 @@
       "source_file": "cart-drawer.js",
       "source_location": "L52",
       "id": "assets_cart_drawer_cartdrawer_close",
-      "community": 1,
+      "community": 2,
       "norm_label": ".close()"
     },
     {
@@ -1236,7 +1254,7 @@
       "source_file": "cart.js",
       "source_location": "L30",
       "id": "assets_cart_cartitems_connectedcallback",
-      "community": 2,
+      "community": 1,
       "norm_label": ".connectedcallback()"
     },
     {
@@ -1380,7 +1398,7 @@
       "source_file": "customer.js",
       "source_location": "L1",
       "id": "customer_js",
-      "community": 27,
+      "community": 28,
       "norm_label": "customer.js"
     },
     {
@@ -1389,7 +1407,7 @@
       "source_file": "customer.js",
       "source_location": "L15",
       "id": "assets_customer_customeraddresses",
-      "community": 27,
+      "community": 28,
       "norm_label": "customeraddresses"
     },
     {
@@ -1398,7 +1416,7 @@
       "source_file": "customer.js",
       "source_location": "L16",
       "id": "assets_customer_customeraddresses_constructor",
-      "community": 27,
+      "community": 28,
       "norm_label": ".constructor()"
     },
     {
@@ -1407,7 +1425,7 @@
       "source_file": "customer.js",
       "source_location": "L23",
       "id": "assets_customer_customeraddresses_getelements",
-      "community": 27,
+      "community": 28,
       "norm_label": "._getelements()"
     },
     {
@@ -1416,7 +1434,7 @@
       "source_file": "customer.js",
       "source_location": "L37",
       "id": "assets_customer_customeraddresses_setupcountries",
-      "community": 27,
+      "community": 28,
       "norm_label": "._setupcountries()"
     },
     {
@@ -1425,7 +1443,7 @@
       "source_file": "customer.js",
       "source_location": "L53",
       "id": "assets_customer_customeraddresses_setupeventlisteners",
-      "community": 27,
+      "community": 28,
       "norm_label": "._setupeventlisteners()"
     },
     {
@@ -1434,7 +1452,7 @@
       "source_file": "customer.js",
       "source_location": "L65",
       "id": "assets_customer_customeraddresses_toggleexpanded",
-      "community": 27,
+      "community": 28,
       "norm_label": "._toggleexpanded()"
     },
     {
@@ -1524,7 +1542,7 @@
       "source_file": "details-modal.js",
       "source_location": "L1",
       "id": "details_modal_js",
-      "community": 1,
+      "community": 2,
       "norm_label": "details-modal.js"
     },
     {
@@ -1533,7 +1551,7 @@
       "source_file": "details-modal.js",
       "source_location": "L1",
       "id": "assets_details_modal_detailsmodal",
-      "community": 1,
+      "community": 2,
       "norm_label": "detailsmodal"
     },
     {
@@ -1542,7 +1560,7 @@
       "source_file": "details-modal.js",
       "source_location": "L2",
       "id": "assets_details_modal_detailsmodal_constructor",
-      "community": 1,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
@@ -1551,7 +1569,7 @@
       "source_file": "details-modal.js",
       "source_location": "L14",
       "id": "assets_details_modal_detailsmodal_isopen",
-      "community": 1,
+      "community": 2,
       "norm_label": ".isopen()"
     },
     {
@@ -1560,7 +1578,7 @@
       "source_file": "details-modal.js",
       "source_location": "L18",
       "id": "assets_details_modal_detailsmodal_onsummaryclick",
-      "community": 1,
+      "community": 2,
       "norm_label": ".onsummaryclick()"
     },
     {
@@ -1569,7 +1587,7 @@
       "source_file": "details-modal.js",
       "source_location": "L23",
       "id": "assets_details_modal_detailsmodal_onbodyclick",
-      "community": 1,
+      "community": 2,
       "norm_label": ".onbodyclick()"
     },
     {
@@ -1578,7 +1596,7 @@
       "source_file": "details-modal.js",
       "source_location": "L27",
       "id": "assets_details_modal_detailsmodal_open",
-      "community": 1,
+      "community": 2,
       "norm_label": ".open()"
     },
     {
@@ -1587,7 +1605,7 @@
       "source_file": "details-modal.js",
       "source_location": "L39",
       "id": "assets_details_modal_detailsmodal_close",
-      "community": 1,
+      "community": 2,
       "norm_label": ".close()"
     },
     {
@@ -1875,7 +1893,7 @@
       "source_file": "global.js",
       "source_location": "L1",
       "id": "assets_global_getfocusableelements",
-      "community": 1,
+      "community": 2,
       "norm_label": "getfocusableelements()"
     },
     {
@@ -1947,7 +1965,7 @@
       "source_file": "global.js",
       "source_location": "L89",
       "id": "assets_global_trapfocus",
-      "community": 1,
+      "community": 2,
       "norm_label": "trapfocus()"
     },
     {
@@ -1974,7 +1992,7 @@
       "source_file": "global.js",
       "source_location": "L197",
       "id": "assets_global_removetrapfocus",
-      "community": 1,
+      "community": 2,
       "norm_label": "removetrapfocus()"
     },
     {
@@ -1992,7 +2010,7 @@
       "source_file": "global.js",
       "source_location": "L217",
       "id": "assets_global_quantityinput",
-      "community": 0,
+      "community": 1,
       "norm_label": "quantityinput"
     },
     {
@@ -2001,7 +2019,7 @@
       "source_file": "global.js",
       "source_location": "L218",
       "id": "assets_global_quantityinput_constructor",
-      "community": 0,
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -2010,7 +2028,7 @@
       "source_file": "global.js",
       "source_location": "L230",
       "id": "assets_global_quantityinput_connectedcallback",
-      "community": 0,
+      "community": 1,
       "norm_label": ".connectedcallback()"
     },
     {
@@ -2019,7 +2037,7 @@
       "source_file": "global.js",
       "source_location": "L235",
       "id": "assets_global_quantityinput_disconnectedcallback",
-      "community": 0,
+      "community": 1,
       "norm_label": ".disconnectedcallback()"
     },
     {
@@ -2028,7 +2046,7 @@
       "source_file": "global.js",
       "source_location": "L241",
       "id": "assets_global_quantityinput_oninputchange",
-      "community": 0,
+      "community": 1,
       "norm_label": ".oninputchange()"
     },
     {
@@ -2037,7 +2055,7 @@
       "source_file": "global.js",
       "source_location": "L245",
       "id": "assets_global_quantityinput_onbuttonclick",
-      "community": 0,
+      "community": 1,
       "norm_label": ".onbuttonclick()"
     },
     {
@@ -2046,7 +2064,7 @@
       "source_file": "global.js",
       "source_location": "L266",
       "id": "assets_global_quantityinput_validateqtyrules",
-      "community": 0,
+      "community": 1,
       "norm_label": ".validateqtyrules()"
     },
     {
@@ -2082,7 +2100,7 @@
       "source_file": "global.js",
       "source_location": "L422",
       "id": "assets_global_menudrawer",
-      "community": 1,
+      "community": 2,
       "norm_label": "menudrawer"
     },
     {
@@ -2091,7 +2109,7 @@
       "source_file": "global.js",
       "source_location": "L423",
       "id": "assets_global_menudrawer_constructor",
-      "community": 1,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
@@ -2100,7 +2118,7 @@
       "source_file": "global.js",
       "source_location": "L433",
       "id": "assets_global_menudrawer_bindevents",
-      "community": 1,
+      "community": 2,
       "norm_label": ".bindevents()"
     },
     {
@@ -2109,7 +2127,7 @@
       "source_file": "global.js",
       "source_location": "L442",
       "id": "assets_global_menudrawer_onkeyup",
-      "community": 1,
+      "community": 2,
       "norm_label": ".onkeyup()"
     },
     {
@@ -2118,7 +2136,7 @@
       "source_file": "global.js",
       "source_location": "L453",
       "id": "assets_global_menudrawer_onsummaryclick",
-      "community": 1,
+      "community": 2,
       "norm_label": ".onsummaryclick()"
     },
     {
@@ -2127,7 +2145,7 @@
       "source_file": "global.js",
       "source_location": "L484",
       "id": "assets_global_menudrawer_openmenudrawer",
-      "community": 1,
+      "community": 2,
       "norm_label": ".openmenudrawer()"
     },
     {
@@ -2136,7 +2154,7 @@
       "source_file": "global.js",
       "source_location": "L493",
       "id": "assets_global_menudrawer_closemenudrawer",
-      "community": 1,
+      "community": 2,
       "norm_label": ".closemenudrawer()"
     },
     {
@@ -2145,7 +2163,7 @@
       "source_file": "global.js",
       "source_location": "L511",
       "id": "assets_global_menudrawer_onfocusout",
-      "community": 1,
+      "community": 2,
       "norm_label": ".onfocusout()"
     },
     {
@@ -2154,7 +2172,7 @@
       "source_file": "global.js",
       "source_location": "L518",
       "id": "assets_global_menudrawer_onclosebuttonclick",
-      "community": 1,
+      "community": 2,
       "norm_label": ".onclosebuttonclick()"
     },
     {
@@ -2163,7 +2181,7 @@
       "source_file": "global.js",
       "source_location": "L523",
       "id": "assets_global_menudrawer_closesubmenu",
-      "community": 1,
+      "community": 2,
       "norm_label": ".closesubmenu()"
     },
     {
@@ -2172,7 +2190,7 @@
       "source_file": "global.js",
       "source_location": "L532",
       "id": "assets_global_menudrawer_closeanimation",
-      "community": 1,
+      "community": 2,
       "norm_label": ".closeanimation()"
     },
     {
@@ -2181,7 +2199,7 @@
       "source_file": "global.js",
       "source_location": "L558",
       "id": "assets_global_headerdrawer",
-      "community": 1,
+      "community": 2,
       "norm_label": "headerdrawer"
     },
     {
@@ -2190,7 +2208,7 @@
       "source_file": "global.js",
       "source_location": "L559",
       "id": "assets_global_headerdrawer_constructor",
-      "community": 1,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
@@ -2199,7 +2217,7 @@
       "source_file": "global.js",
       "source_location": "L563",
       "id": "assets_global_headerdrawer_openmenudrawer",
-      "community": 1,
+      "community": 2,
       "norm_label": ".openmenudrawer()"
     },
     {
@@ -2208,7 +2226,7 @@
       "source_file": "global.js",
       "source_location": "L583",
       "id": "assets_global_headerdrawer_closemenudrawer",
-      "community": 1,
+      "community": 2,
       "norm_label": ".closemenudrawer()"
     },
     {
@@ -2946,7 +2964,7 @@
       "source_file": "magnify.js",
       "source_location": "L1",
       "id": "magnify_js",
-      "community": 28,
+      "community": 29,
       "norm_label": "magnify.js"
     },
     {
@@ -2955,7 +2973,7 @@
       "source_file": "magnify.js",
       "source_location": "L2",
       "id": "assets_magnify_createoverlay",
-      "community": 28,
+      "community": 29,
       "norm_label": "createoverlay()"
     },
     {
@@ -2964,7 +2982,7 @@
       "source_file": "magnify.js",
       "source_location": "L20",
       "id": "assets_magnify_prepareoverlay",
-      "community": 28,
+      "community": 29,
       "norm_label": "prepareoverlay()"
     },
     {
@@ -2973,7 +2991,7 @@
       "source_file": "magnify.js",
       "source_location": "L27",
       "id": "assets_magnify_toggleloadingspinner",
-      "community": 28,
+      "community": 29,
       "norm_label": "toggleloadingspinner()"
     },
     {
@@ -2982,7 +3000,7 @@
       "source_file": "magnify.js",
       "source_location": "L32",
       "id": "assets_magnify_movewithhover",
-      "community": 28,
+      "community": 29,
       "norm_label": "movewithhover()"
     },
     {
@@ -2991,7 +3009,7 @@
       "source_file": "magnify.js",
       "source_location": "L46",
       "id": "assets_magnify_magnify",
-      "community": 28,
+      "community": 29,
       "norm_label": "magnify()"
     },
     {
@@ -3000,7 +3018,7 @@
       "source_file": "magnify.js",
       "source_location": "L53",
       "id": "assets_magnify_enablezoomonhover",
-      "community": 28,
+      "community": 29,
       "norm_label": "enablezoomonhover()"
     },
     {
@@ -3009,7 +3027,7 @@
       "source_file": "main-search.js",
       "source_location": "L1",
       "id": "main_search_js",
-      "community": 24,
+      "community": 25,
       "norm_label": "main-search.js"
     },
     {
@@ -3018,7 +3036,7 @@
       "source_file": "main-search.js",
       "source_location": "L1",
       "id": "assets_main_search_mainsearch",
-      "community": 24,
+      "community": 25,
       "norm_label": "mainsearch"
     },
     {
@@ -3027,7 +3045,7 @@
       "source_file": "main-search.js",
       "source_location": "L2",
       "id": "assets_main_search_mainsearch_constructor",
-      "community": 24,
+      "community": 25,
       "norm_label": ".constructor()"
     },
     {
@@ -3036,7 +3054,7 @@
       "source_file": "main-search.js",
       "source_location": "L8",
       "id": "assets_main_search_mainsearch_setupeventlisteners",
-      "community": 24,
+      "community": 25,
       "norm_label": ".setupeventlisteners()"
     },
     {
@@ -3045,7 +3063,7 @@
       "source_file": "main-search.js",
       "source_location": "L17",
       "id": "assets_main_search_mainsearch_onformreset",
-      "community": 24,
+      "community": 25,
       "norm_label": ".onformreset()"
     },
     {
@@ -3054,7 +3072,7 @@
       "source_file": "main-search.js",
       "source_location": "L24",
       "id": "assets_main_search_mainsearch_oninput",
-      "community": 24,
+      "community": 25,
       "norm_label": ".oninput()"
     },
     {
@@ -3063,7 +3081,7 @@
       "source_file": "main-search.js",
       "source_location": "L29",
       "id": "assets_main_search_mainsearch_oninputfocus",
-      "community": 24,
+      "community": 25,
       "norm_label": ".oninputfocus()"
     },
     {
@@ -3072,7 +3090,7 @@
       "source_file": "main-search.js",
       "source_location": "L36",
       "id": "assets_main_search_mainsearch_keepinsync",
-      "community": 24,
+      "community": 25,
       "norm_label": ".keepinsync()"
     },
     {
@@ -3180,7 +3198,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L1",
       "id": "pickup_availability_js",
-      "community": 1,
+      "community": 2,
       "norm_label": "pickup-availability.js"
     },
     {
@@ -3189,7 +3207,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L5",
       "id": "assets_pickup_availability_constructor",
-      "community": 1,
+      "community": 2,
       "norm_label": "constructor()"
     },
     {
@@ -3198,7 +3216,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L15",
       "id": "assets_pickup_availability_fetchavailability",
-      "community": 1,
+      "community": 2,
       "norm_label": "fetchavailability()"
     },
     {
@@ -3207,7 +3225,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L39",
       "id": "assets_pickup_availability_onclickrefreshlist",
-      "community": 1,
+      "community": 2,
       "norm_label": "onclickrefreshlist()"
     },
     {
@@ -3216,7 +3234,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L43",
       "id": "assets_pickup_availability_update",
-      "community": 1,
+      "community": 2,
       "norm_label": "update()"
     },
     {
@@ -3225,7 +3243,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L52",
       "id": "assets_pickup_availability_rendererror",
-      "community": 1,
+      "community": 2,
       "norm_label": "rendererror()"
     },
     {
@@ -3234,7 +3252,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L59",
       "id": "assets_pickup_availability_renderpreview",
-      "community": 1,
+      "community": 2,
       "norm_label": "renderpreview()"
     },
     {
@@ -3243,7 +3261,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L105",
       "id": "assets_pickup_availability_handlebodyclick",
-      "community": 1,
+      "community": 2,
       "norm_label": "handlebodyclick()"
     },
     {
@@ -3252,7 +3270,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L116",
       "id": "assets_pickup_availability_hide",
-      "community": 1,
+      "community": 2,
       "norm_label": "hide()"
     },
     {
@@ -3261,7 +3279,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L123",
       "id": "assets_pickup_availability_show",
-      "community": 1,
+      "community": 2,
       "norm_label": "show()"
     },
     {
@@ -3486,7 +3504,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L1",
       "id": "price_per_item_js",
-      "community": 25,
+      "community": 26,
       "norm_label": "price-per-item.js"
     },
     {
@@ -3495,7 +3513,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L5",
       "id": "assets_price_per_item_constructor",
-      "community": 25,
+      "community": 26,
       "norm_label": "constructor()"
     },
     {
@@ -3504,7 +3522,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L19",
       "id": "assets_price_per_item_connectedcallback",
-      "community": 25,
+      "community": 26,
       "norm_label": "connectedcallback()"
     },
     {
@@ -3513,7 +3531,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L49",
       "id": "assets_price_per_item_disconnectedcallback",
-      "community": 25,
+      "community": 26,
       "norm_label": "disconnectedcallback()"
     },
     {
@@ -3522,7 +3540,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L58",
       "id": "assets_price_per_item_oninputchange",
-      "community": 25,
+      "community": 26,
       "norm_label": "oninputchange()"
     },
     {
@@ -3531,7 +3549,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L62",
       "id": "assets_price_per_item_updatepriceperitem",
-      "community": 25,
+      "community": 26,
       "norm_label": "updatepriceperitem()"
     },
     {
@@ -3540,7 +3558,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L84",
       "id": "assets_price_per_item_getcartquantity",
-      "community": 25,
+      "community": 26,
       "norm_label": "getcartquantity()"
     },
     {
@@ -3549,7 +3567,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L88",
       "id": "assets_price_per_item_getvolumepricingarray",
-      "community": 25,
+      "community": 26,
       "norm_label": "getvolumepricingarray()"
     },
     {
@@ -3612,7 +3630,7 @@
       "source_file": "product-info.js",
       "source_location": "L1",
       "id": "product_info_js",
-      "community": 2,
+      "community": 1,
       "norm_label": "product-info.js"
     },
     {
@@ -3621,7 +3639,7 @@
       "source_file": "product-info.js",
       "source_location": "L14",
       "id": "assets_product_info_constructor",
-      "community": 2,
+      "community": 1,
       "norm_label": "constructor()"
     },
     {
@@ -3630,7 +3648,7 @@
       "source_file": "product-info.js",
       "source_location": "L20",
       "id": "assets_product_info_connectedcallback",
-      "community": 2,
+      "community": 1,
       "norm_label": "connectedcallback()"
     },
     {
@@ -3639,7 +3657,7 @@
       "source_file": "product-info.js",
       "source_location": "L32",
       "id": "assets_product_info_addpreprocesscallback",
-      "community": 2,
+      "community": 1,
       "norm_label": "addpreprocesscallback()"
     },
     {
@@ -3648,7 +3666,7 @@
       "source_file": "product-info.js",
       "source_location": "L36",
       "id": "assets_product_info_initquantityhandlers",
-      "community": 2,
+      "community": 1,
       "norm_label": "initquantityhandlers()"
     },
     {
@@ -3657,7 +3675,7 @@
       "source_file": "product-info.js",
       "source_location": "L48",
       "id": "assets_product_info_disconnectedcallback",
-      "community": 2,
+      "community": 1,
       "norm_label": "disconnectedcallback()"
     },
     {
@@ -3666,7 +3684,7 @@
       "source_file": "product-info.js",
       "source_location": "L53",
       "id": "assets_product_info_initializeproductswaputility",
-      "community": 2,
+      "community": 1,
       "norm_label": "initializeproductswaputility()"
     },
     {
@@ -3675,7 +3693,7 @@
       "source_file": "product-info.js",
       "source_location": "L63",
       "id": "assets_product_info_handleoptionvaluechange",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleoptionvaluechange()"
     },
     {
@@ -3684,7 +3702,7 @@
       "source_file": "product-info.js",
       "source_location": "L82",
       "id": "assets_product_info_resetproductformstate",
-      "community": 2,
+      "community": 1,
       "norm_label": "resetproductformstate()"
     },
     {
@@ -3693,7 +3711,7 @@
       "source_file": "product-info.js",
       "source_location": "L88",
       "id": "assets_product_info_handleswapproduct",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleswapproduct()"
     },
     {
@@ -3702,7 +3720,7 @@
       "source_file": "product-info.js",
       "source_location": "L116",
       "id": "assets_product_info_renderproductinfo",
-      "community": 2,
+      "community": 1,
       "norm_label": "renderproductinfo()"
     },
     {
@@ -3711,7 +3729,7 @@
       "source_file": "product-info.js",
       "source_location": "L140",
       "id": "assets_product_info_getselectedvariant",
-      "community": 2,
+      "community": 1,
       "norm_label": "getselectedvariant()"
     },
     {
@@ -3720,7 +3738,7 @@
       "source_file": "product-info.js",
       "source_location": "L145",
       "id": "assets_product_info_buildrequesturlwithparams",
-      "community": 2,
+      "community": 1,
       "norm_label": "buildrequesturlwithparams()"
     },
     {
@@ -3729,7 +3747,7 @@
       "source_file": "product-info.js",
       "source_location": "L157",
       "id": "assets_product_info_updateoptionvalues",
-      "community": 2,
+      "community": 1,
       "norm_label": "updateoptionvalues()"
     },
     {
@@ -3738,7 +3756,7 @@
       "source_file": "product-info.js",
       "source_location": "L164",
       "id": "assets_product_info_handleupdateproductinfo",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleupdateproductinfo()"
     },
     {
@@ -3747,7 +3765,7 @@
       "source_file": "product-info.js",
       "source_location": "L214",
       "id": "assets_product_info_updatevariantinputs",
-      "community": 2,
+      "community": 1,
       "norm_label": "updatevariantinputs()"
     },
     {
@@ -3756,7 +3774,7 @@
       "source_file": "product-info.js",
       "source_location": "L224",
       "id": "assets_product_info_updateurl",
-      "community": 2,
+      "community": 1,
       "norm_label": "updateurl()"
     },
     {
@@ -3765,7 +3783,7 @@
       "source_file": "product-info.js",
       "source_location": "L233",
       "id": "assets_product_info_setunavailable",
-      "community": 2,
+      "community": 1,
       "norm_label": "setunavailable()"
     },
     {
@@ -3774,7 +3792,7 @@
       "source_file": "product-info.js",
       "source_location": "L242",
       "id": "assets_product_info_updatemedia",
-      "community": 2,
+      "community": 1,
       "norm_label": "updatemedia()"
     },
     {
@@ -3783,7 +3801,7 @@
       "source_file": "product-info.js",
       "source_location": "L313",
       "id": "assets_product_info_setquantityboundries",
-      "community": 2,
+      "community": 1,
       "norm_label": "setquantityboundries()"
     },
     {
@@ -3792,7 +3810,7 @@
       "source_file": "product-info.js",
       "source_location": "L338",
       "id": "assets_product_info_fetchquantityrules",
-      "community": 2,
+      "community": 1,
       "norm_label": "fetchquantityrules()"
     },
     {
@@ -3801,7 +3819,7 @@
       "source_file": "product-info.js",
       "source_location": "L353",
       "id": "assets_product_info_updatequantityrules",
-      "community": 2,
+      "community": 1,
       "norm_label": "updatequantityrules()"
     },
     {
@@ -3810,7 +3828,7 @@
       "source_file": "product-info.js",
       "source_location": "L392",
       "id": "assets_product_info_productform",
-      "community": 2,
+      "community": 1,
       "norm_label": "productform()"
     },
     {
@@ -3819,7 +3837,7 @@
       "source_file": "product-info.js",
       "source_location": "L396",
       "id": "assets_product_info_productmodal",
-      "community": 2,
+      "community": 1,
       "norm_label": "productmodal()"
     },
     {
@@ -3828,7 +3846,7 @@
       "source_file": "product-info.js",
       "source_location": "L400",
       "id": "assets_product_info_pickupavailability",
-      "community": 2,
+      "community": 1,
       "norm_label": "pickupavailability()"
     },
     {
@@ -3837,7 +3855,7 @@
       "source_file": "product-info.js",
       "source_location": "L404",
       "id": "assets_product_info_variantselectors",
-      "community": 2,
+      "community": 1,
       "norm_label": "variantselectors()"
     },
     {
@@ -3846,7 +3864,7 @@
       "source_file": "product-info.js",
       "source_location": "L408",
       "id": "assets_product_info_relatedproducts",
-      "community": 2,
+      "community": 1,
       "norm_label": "relatedproducts()"
     },
     {
@@ -3855,7 +3873,7 @@
       "source_file": "product-info.js",
       "source_location": "L416",
       "id": "assets_product_info_quickorderlist",
-      "community": 2,
+      "community": 1,
       "norm_label": "quickorderlist()"
     },
     {
@@ -3864,7 +3882,7 @@
       "source_file": "product-info.js",
       "source_location": "L424",
       "id": "assets_product_info_sectionid",
-      "community": 2,
+      "community": 1,
       "norm_label": "sectionid()"
     },
     {
@@ -3972,7 +3990,7 @@
       "source_file": "pubsub.js",
       "source_location": "L1",
       "id": "pubsub_js",
-      "community": 2,
+      "community": 1,
       "norm_label": "pubsub.js"
     },
     {
@@ -3981,7 +3999,7 @@
       "source_file": "pubsub.js",
       "source_location": "L3",
       "id": "assets_pubsub_subscribe",
-      "community": 2,
+      "community": 1,
       "norm_label": "subscribe()"
     },
     {
@@ -3990,7 +4008,7 @@
       "source_file": "pubsub.js",
       "source_location": "L17",
       "id": "assets_pubsub_publish",
-      "community": 2,
+      "community": 1,
       "norm_label": "publish()"
     },
     {
@@ -4053,7 +4071,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L23",
       "id": "assets_quick_add_bulk_connectedcallback",
-      "community": 2,
+      "community": 1,
       "norm_label": "connectedcallback()"
     },
     {
@@ -4548,7 +4566,7 @@
       "source_file": "recipient-form.js",
       "source_location": "L32",
       "id": "assets_recipient_form_connectedcallback",
-      "community": 2,
+      "community": 1,
       "norm_label": "connectedcallback()"
     },
     {
@@ -5085,7 +5103,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 27,
       "norm_label": "icon: 3d model",
       "id": "icon_3d_model_icon"
     },
@@ -5111,7 +5129,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 27,
       "norm_label": "icon: apple (fruit)",
       "id": "icon_apple_icon"
     },
@@ -5137,7 +5155,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 27,
       "norm_label": "icon: banana (fruit)",
       "id": "icon_banana_icon"
     },
@@ -5150,7 +5168,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 27,
       "norm_label": "icon: bottle (supplement container)",
       "id": "icon_bottle_icon"
     },
@@ -5163,7 +5181,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 27,
       "norm_label": "icon: box (3d package)",
       "id": "icon_box_icon"
     },
@@ -5189,7 +5207,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 27,
       "norm_label": "icon: carrot (vegetable)",
       "id": "icon_carrot_icon"
     },
@@ -5267,7 +5285,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 50,
       "norm_label": "icon: clipboard (notes/list)",
       "id": "icon_clipboard_icon"
     },
@@ -5280,7 +5298,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "icon: close small (x dismiss)",
       "id": "icon_close_small_icon"
     },
@@ -5293,7 +5311,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "icon: close (x dismiss large)",
       "id": "icon_close_icon"
     },
@@ -5306,7 +5324,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 50,
       "norm_label": "icon: copy (duplicate document)",
       "id": "icon_copy_icon"
     },
@@ -5319,7 +5337,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 27,
       "norm_label": "icon: dairy free (badge/dietary label)",
       "id": "icon_dairy_free_icon"
     },
@@ -5332,7 +5350,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 27,
       "norm_label": "icon: dairy (milk jug/bottle badge)",
       "id": "icon_dairy_icon"
     },
@@ -5748,7 +5766,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 52,
       "norm_label": "pause icon",
       "id": "icon-pause_media"
     },
@@ -5813,7 +5831,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "airplane / shipping icon",
       "id": "icon-plane_shipping"
     },
@@ -5839,7 +5857,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 52,
       "norm_label": "play button icon",
       "id": "icon-play_media"
     },
@@ -5930,7 +5948,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "return / back arrow icon",
       "id": "icon-return_ecommerce"
     },
@@ -7004,6 +7022,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "bloomli-timeline.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "bloomli_timeline_js",
+      "target": "assets_bloomli_timeline_getmobileprogress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "bloomli_timeline_js",
+      "target": "assets_bloomli_timeline_getdesktopprogress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-timeline.js",
       "source_location": "L54",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7035,6 +7073,28 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "bloomli-timeline.js",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "assets_bloomli_timeline_getmobileprogress",
+      "target": "assets_bloomli_timeline_clamp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "assets_bloomli_timeline_getdesktopprogress",
+      "target": "assets_bloomli_timeline_clamp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-timeline.js",
       "source_location": "L39",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7051,6 +7111,28 @@
       "confidence_score": 1.0,
       "source": "assets_bloomli_timeline_update",
       "target": "assets_bloomli_timeline_setreachedsteps"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "assets_bloomli_timeline_update",
+      "target": "assets_bloomli_timeline_getmobileprogress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-timeline.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "assets_bloomli_timeline_update",
+      "target": "assets_bloomli_timeline_getdesktopprogress",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",

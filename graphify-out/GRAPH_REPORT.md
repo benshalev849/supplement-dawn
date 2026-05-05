@@ -1,11 +1,11 @@
-# Graph Report - supplement-dawn  (2026-05-05)
+# Graph Report - supplement-dawn  (2026-05-06)
 
 ## Corpus Check
-- 38 files · ~30,833 words
+- 38 files · ~30,889 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 595 nodes · 808 edges · 49 communities detected
+- 597 nodes · 814 edges · 49 communities detected
 - Extraction: 86% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 111 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
@@ -126,15 +126,15 @@
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
-Nodes (12): AccountIcon, BulkModal, CartPerformance, DeferredMedia, HTMLUpdateUtility, ModalDialog, ModalOpener, pauseAllMedia() (+4 more)
+Nodes (11): AccountIcon, BulkModal, CartPerformance, DeferredMedia, HTMLUpdateUtility, ModalDialog, ModalOpener, pauseAllMedia() (+3 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.08
-Nodes (13): DetailsModal, getFocusableElements(), HeaderDrawer, MenuDrawer, removeTrapFocus(), trapFocus(), constructor(), fetchAvailability() (+5 more)
+Cohesion: 0.06
+Nodes (16): QuantityInput, buildRequestUrlWithParams(), connectedCallback(), handleOptionValueChange(), handleSwapProduct(), handleUpdateProductInfo(), initializeProductSwapUtility(), initQuantityHandlers() (+8 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.08
-Nodes (15): buildRequestUrlWithParams(), connectedCallback(), handleOptionValueChange(), handleSwapProduct(), handleUpdateProductInfo(), initializeProductSwapUtility(), initQuantityHandlers(), renderProductInfo() (+7 more)
+Nodes (13): DetailsModal, getFocusableElements(), HeaderDrawer, MenuDrawer, removeTrapFocus(), trapFocus(), constructor(), fetchAvailability() (+5 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.09
@@ -196,25 +196,25 @@ Nodes (8): getRequestedSections(), getSectionInnerHTML(), replaceCartDrawerSecti
 Cohesion: 0.25
 Nodes (9): Social Media Share Icons, Facebook Social Media Icon, Instagram Social Media Icon, Snapchat Social Media Icon, TikTok Social Media Icon, Tumblr Social Media Icon, Twitter / X Social Media Icon, Vimeo Social Media Icon (+1 more)
 
-### Community 25 - "Community 25"
+### Community 24 - "Community 24"
+Cohesion: 0.54
+Nodes (6): clamp(), getDesktopProgress(), getMobileProgress(), setReachedSteps(), setReachedStepsFromLine(), update()
+
+### Community 26 - "Community 26"
 Cohesion: 0.36
 Nodes (6): connectedCallback(), constructor(), getCartQuantity(), getVolumePricingArray(), onInputChange(), updatePricePerItem()
 
-### Community 26 - "Community 26"
+### Community 27 - "Community 27"
 Cohesion: 0.29
 Nodes (8): Icon: 3D Model, Icon: Apple (Fruit), Icon: Banana (Fruit), Icon: Bottle (Supplement Container), Icon: Box (3D Package), Icon: Carrot (Vegetable), Icon: Dairy Free (Badge/Dietary Label), Icon: Dairy (Milk Jug/Bottle Badge)
 
-### Community 28 - "Community 28"
+### Community 29 - "Community 29"
 Cohesion: 0.43
 Nodes (4): createOverlay(), magnify(), prepareOverlay(), toggleLoadingSpinner()
 
-### Community 29 - "Community 29"
-Cohesion: 0.6
-Nodes (4): clamp(), initSection(), update(), updateFromPointer()
-
 ### Community 30 - "Community 30"
 Cohesion: 0.6
-Nodes (4): clamp(), setReachedSteps(), setReachedStepsFromLine(), update()
+Nodes (4): clamp(), initSection(), update(), updateFromPointer()
 
 ### Community 33 - "Community 33"
 Cohesion: 0.6
@@ -267,14 +267,14 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `Shoe Icon` and `Arch Shape Clip Path Mask`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **Why does `debounce()` connect `Community 5` to `Community 0`, `Community 16`, `Community 12`?**
-  _High betweenness centrality (0.106) - this node is a cross-community bridge._
+  _High betweenness centrality (0.105) - this node is a cross-community bridge._
 - **Why does `fetchConfig()` connect `Community 10` to `Community 0`, `Community 4`, `Community 5`, `Community 12`, `Community 21`?**
-  _High betweenness centrality (0.097) - this node is a cross-community bridge._
-- **Why does `subscribe()` connect `Community 2` to `Community 0`, `Community 25`, `Community 4`?**
-  _High betweenness centrality (0.097) - this node is a cross-community bridge._
+  _High betweenness centrality (0.096) - this node is a cross-community bridge._
+- **Why does `subscribe()` connect `Community 1` to `Community 26`, `Community 4`?**
+  _High betweenness centrality (0.096) - this node is a cross-community bridge._
 - **What connects `Shopify Dawn License`, `Online Store 2.0`, `Progressive Enhancement` to the rest of the system?**
   _47 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06 - nodes in this community are weakly interconnected._

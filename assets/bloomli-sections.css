@@ -1308,7 +1308,8 @@
   }
 
   .bloomli-timeline__wrap {
-    --journey-mobile-rail-x: 50%;
+    --journey-mobile-label-col: 6.2rem;
+    --journey-mobile-rail-x: 3.1rem;
     padding-top: 0;
   }
 
@@ -1333,27 +1334,35 @@
 
   .bloomli-timeline__step {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    text-align: center;
+    grid-template-columns: var(--journey-mobile-label-col) minmax(0, 1fr);
+    column-gap: 1.1rem;
+    text-align: left;
     align-items: start;
-    justify-items: center;
+    justify-items: stretch;
   }
 
   .bloomli-timeline__circle {
-    grid-column: 1;
-    justify-self: center;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
     width: clamp(180px, 62vw, 240px);
     margin: 0 0 18px;
   }
 
   .bloomli-timeline__range {
-    top: 1rem;
-    left: 50%;
-    max-width: calc(100% - 2rem);
+    position: relative;
+    top: auto;
+    left: auto;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    max-width: 100%;
     min-height: 2.4rem;
     padding: 0.45rem 0.8rem;
     font-size: 1rem;
     text-align: center;
+    transform: none;
     white-space: nowrap;
     line-height: 1.1;
   }
@@ -1363,14 +1372,14 @@
   }
 
   .bloomli-timeline__title {
-    grid-column: 1;
+    grid-column: 2;
     font-size: 22px;
   }
 
   .bloomli-timeline__copy {
-    grid-column: 1;
+    grid-column: 2;
     max-width: 34rem;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .bloomli-timeline__header {

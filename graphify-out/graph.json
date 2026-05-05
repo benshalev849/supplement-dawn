@@ -901,7 +901,7 @@
       "label": "requestUpdate()",
       "file_type": "code",
       "source_file": "bloomli-timeline.js",
-      "source_location": "L59",
+      "source_location": "L60",
       "id": "assets_bloomli_timeline_requestupdate",
       "community": 33,
       "norm_label": "requestupdate()"
@@ -6997,9 +6997,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_timeline_js",
-      "target": "assets_bloomli_timeline_setreachedsteps",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_setreachedsteps"
     },
     {
       "relation": "contains",
@@ -7029,9 +7029,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_timeline_update",
-      "target": "assets_bloomli_timeline_setreachedsteps",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_setreachedsteps"
     },
     {
       "relation": "contains",

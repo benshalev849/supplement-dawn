@@ -37,8 +37,8 @@
         return;
       }
 
-      var start = viewportHeight * 0.9;
-      var end = viewportHeight * 0.55 - rect.height;
+      var start = viewportHeight * 0.95;
+      var end = viewportHeight * 0.82 - rect.height;
       var progress = clamp((start - rect.top) / (start - end));
 
       section.style.setProperty('--journey-progress', progress * 100 + '%');
@@ -49,10 +49,11 @@
   function setReachedSteps(section, progress) {
     var steps = section.querySelectorAll('.bloomli-journey__step');
     var lastIndex = Math.max(steps.length - 1, 1);
+    var reachOffset = steps.length > 2 ? 0.08 : 0.025;
 
     steps.forEach(function (step, index) {
       var threshold = index / lastIndex;
-      step.classList.toggle('is-reached', progress + 0.025 >= threshold);
+      step.classList.toggle('is-reached', progress + reachOffset >= threshold);
     });
   }
 

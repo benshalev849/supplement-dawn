@@ -226,6 +226,7 @@
         "step_ihr9qU": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_4_to_6.png",
             "image_scale": 100,
             "icon": "sprout",
             "range": "Month 3–6",
@@ -236,6 +237,7 @@
         "step_UQiCKB": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_7.png",
             "image_scale": 100,
             "icon": "bloom",
             "range": "Month 6+",

@@ -6,6 +6,7 @@
 {% enddoc %}
 
 {%- liquid
+  assign upsell_context = context | default: 'cart'
   assign upsell_enabled = settings.cart_line_subscription_upsell_enabled
   if upsell_enabled == nil
     assign upsell_enabled = true
@@ -98,6 +99,12 @@
     assign benefit_2 = settings.cart_line_subscription_upsell_benefit_2 | default: 'Free shipping on every delivery'
     assign benefit_3 = settings.cart_line_subscription_upsell_benefit_3 | default: 'Pause, skip, or cancel anytime'
     assign benefit_4 = settings.cart_line_subscription_upsell_benefit_4 | default: 'Backed by our 30-day guarantee'
+    if upsell_context == 'drawer'
+      assign benefit_icon_1 = settings.cart_line_subscription_upsell_benefit_icon_1
+      assign benefit_icon_2 = settings.cart_line_subscription_upsell_benefit_icon_2
+      assign benefit_icon_3 = settings.cart_line_subscription_upsell_benefit_icon_3
+      assign benefit_icon_4 = settings.cart_line_subscription_upsell_benefit_icon_4
+    endif
     assign cta_template = settings.cart_line_subscription_upsell_cta_text | default: 'Upgrade to Subscription & SAVE [X]%'
     assign discount_label = settings.cart_line_subscription_upsell_discount_text | default: discount_percent
     assign cta_text = cta_template | replace: '[X]', discount_label | replace: '[percent]', discount_label
@@ -105,7 +112,7 @@
 
   {%- if target_plan_id != blank -%}
     <div
-      class="bloomli-cart-subscription-upsell bloomli-cart-subscription-upsell--{{ context | default: 'cart' }}"
+      class="bloomli-cart-subscription-upsell bloomli-cart-subscription-upsell--{{ upsell_context }}"
       data-bloomli-cart-subscription-upsell
       style="
         --bloomli-cart-upsell-bg: {{ settings.cart_line_subscription_upsell_card_bg | default: '#DFF1E8' }};
@@ -130,16 +137,44 @@
       {%- endif -%}
       <ul class="bloomli-cart-subscription-upsell__benefits" role="list">
         {%- if benefit_1 != blank -%}
-          <li class="bloomli-cart-subscription-upsell__benefit">{{ benefit_1 | escape }}</li>
+          <li class="bloomli-cart-subscription-upsell__benefit">
+            <span class="bloomli-cart-subscription-upsell__benefit-icon{% if benefit_icon_1 != blank %} has-custom-icon{% endif %}" aria-hidden="true">
+              {%- if benefit_icon_1 != blank -%}
+                {{ benefit_icon_1 | image_url: width: 48 | image_tag: loading: 'lazy', alt: '', widths: '24, 48' }}
+              {%- endif -%}
+            </span>
+            <span>{{ benefit_1 | escape }}</span>
+          </li>
         {%- endif -%}
         {%- if benefit_2 != blank -%}
-          <li class="bloomli-cart-subscription-upsell__benefit">{{ benefit_2 | escape }}</li>
+          <li class="bloomli-cart-subscription-upsell__benefit">
+            <span class="bloomli-cart-subscription-upsell__benefit-icon{% if benefit_icon_2 != blank %} has-custom-icon{% endif %}" aria-hidden="true">
+              {%- if benefit_icon_2 != blank -%}
+                {{ benefit_icon_2 | image_url: width: 48 | image_tag: loading: 'lazy', alt: '', widths: '24, 48' }}
+              {%- endif -%}
+            </span>
+            <span>{{ benefit_2 | escape }}</span>
+          </li>
         {%- endif -%}
         {%- if benefit_3 != blank -%}
-          <li class="bloomli-cart-subscription-upsell__benefit">{{ benefit_3 | escape }}</li>
+          <li class="bloomli-cart-subscription-upsell__benefit">
+            <span class="bloomli-cart-subscription-upsell__benefit-icon{% if benefit_icon_3 != blank %} has-custom-icon{% endif %}" aria-hidden="true">
+              {%- if benefit_icon_3 != blank -%}
+                {{ benefit_icon_3 | image_url: width: 48 | image_tag: loading: 'lazy', alt: '', widths: '24, 48' }}
+              {%- endif -%}
+            </span>
+            <span>{{ benefit_3 | escape }}</span>
+          </li>
         {%- endif -%}
         {%- if benefit_4 != blank -%}
-          <li class="bloomli-cart-subscription-upsell__benefit">{{ benefit_4 | escape }}</li>
+          <li class="bloomli-cart-subscription-upsell__benefit">
+            <span class="bloomli-cart-subscription-upsell__benefit-icon{% if benefit_icon_4 != blank %} has-custom-icon{% endif %}" aria-hidden="true">
+              {%- if benefit_icon_4 != blank -%}
+                {{ benefit_icon_4 | image_url: width: 48 | image_tag: loading: 'lazy', alt: '', widths: '24, 48' }}
+              {%- endif -%}
+            </span>
+            <span>{{ benefit_4 | escape }}</span>
+          </li>
         {%- endif -%}
       </ul>
       <button

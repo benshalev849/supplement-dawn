@@ -1689,6 +1689,68 @@
         "info": "Use [qty] and [percent]. Keep this short for mobile."
       },
       {
+        "type": "header",
+        "content": "Pack promo box"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_pack_promo_enabled",
+        "label": "Show pack promo box",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_pack_promo_text",
+        "label": "Promo text",
+        "default": "Buy More, Save More"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_pack_promo_pack_template",
+        "label": "Pack label template",
+        "default": "([qty]-pack)",
+        "info": "Use [qty] for the current cart line quantity."
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_drawer_pack_promo_icon",
+        "label": "Promo icon image"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_pack_promo_background",
+        "label": "Promo box background",
+        "default": "#FFF3F7"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_pack_promo_border_color",
+        "label": "Promo box border",
+        "default": "#B23A6F"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_pack_promo_text_color",
+        "label": "Promo box text",
+        "default": "#B23A6F"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_pack_promo_icon_color",
+        "label": "Promo icon color",
+        "default": "#B23A6F"
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_pack_promo_radius",
+        "label": "Promo box corner radius",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 6
+      },
+      {
         "type": "range",
         "id": "cart_drawer_quantity_offer_font_size",
         "label": "Offer button font size",
@@ -1801,10 +1863,20 @@
         "default": "Save more on every order"
       },
       {
+        "type": "image_picker",
+        "id": "cart_line_subscription_upsell_benefit_icon_1",
+        "label": "Benefit 1 custom icon"
+      },
+      {
         "type": "text",
         "id": "cart_line_subscription_upsell_benefit_2",
         "label": "Benefit 2",
         "default": "Free shipping on every delivery"
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_line_subscription_upsell_benefit_icon_2",
+        "label": "Benefit 2 custom icon"
       },
       {
         "type": "text",
@@ -1813,10 +1885,20 @@
         "default": "Pause, skip, or cancel anytime"
       },
       {
+        "type": "image_picker",
+        "id": "cart_line_subscription_upsell_benefit_icon_3",
+        "label": "Benefit 3 custom icon"
+      },
+      {
         "type": "text",
         "id": "cart_line_subscription_upsell_benefit_4",
         "label": "Benefit 4",
         "default": "Backed by our 30-day guarantee"
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_line_subscription_upsell_benefit_icon_4",
+        "label": "Benefit 4 custom icon"
       },
       {
         "type": "text",

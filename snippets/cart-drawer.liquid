@@ -48,9 +48,14 @@
       --bloomli-cart-item-column-gap: {{ settings.cart_drawer_item_column_gap | default: 8 }}px;
       --bloomli-cart-frequency-top-spacing: {{ settings.cart_drawer_frequency_top_spacing | default: 6 }}px;
       --bloomli-cart-price-top-offset: {{ settings.cart_drawer_price_top_offset | default: 0 }}px;
-      --bloomli-cart-checkout-radius: {{ settings.cart_drawer_checkout_radius | default: 8 }}px;
+      --bloomli-cart-checkout-radius: {{ settings.cart_drawer_checkout_radius | default: settings.buttons_radius | default: 8 }}px;
       --bloomli-cart-offer-height: {{ settings.cart_drawer_quantity_offer_height | default: 32 }}px;
       --bloomli-cart-offer-font-size: {{ settings.cart_drawer_quantity_offer_font_size | default: 12 }}px;
+      --bloomli-cart-pack-promo-bg: {{ settings.cart_drawer_pack_promo_background | default: '#FFF3F7' }};
+      --bloomli-cart-pack-promo-border: {{ settings.cart_drawer_pack_promo_border_color | default: settings.cart_drawer_accent_color | default: '#B23A6F' }};
+      --bloomli-cart-pack-promo-text: {{ settings.cart_drawer_pack_promo_text_color | default: settings.cart_drawer_accent_color | default: '#B23A6F' }};
+      --bloomli-cart-pack-promo-icon: {{ settings.cart_drawer_pack_promo_icon_color | default: settings.cart_drawer_accent_color | default: '#B23A6F' }};
+      --bloomli-cart-pack-promo-radius: {{ settings.cart_drawer_pack_promo_radius | default: 6 }}px;
     "
   >
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
@@ -524,6 +529,38 @@
                               </span>
                             </div>
                           </quantity-popover>
+                        </td>
+
+                        <td
+                          class="bloomli-cart-pack-promo-cell"
+                          role="cell"
+                          headers="CartDrawer-ColumnQuantity"
+                        >
+                          {%- liquid
+                            assign pack_promo_enabled = settings.cart_drawer_pack_promo_enabled
+                            if pack_promo_enabled == nil
+                              assign pack_promo_enabled = true
+                            endif
+                            assign pack_promo_text = settings.cart_drawer_pack_promo_text | default: 'Buy More, Save More'
+                            assign pack_label_template = settings.cart_drawer_pack_promo_pack_template | default: '([qty]-pack)'
+                            assign pack_label = pack_label_template | replace: '[qty]', item.quantity
+                            assign pack_promo_icon = settings.cart_drawer_pack_promo_icon
+                          -%}
+                          {%- if pack_promo_enabled -%}
+                            <div class="bloomli-cart-pack-promo">
+                              <span class="bloomli-cart-pack-promo__icon" aria-hidden="true">
+                                {%- if pack_promo_icon != blank -%}
+                                  {{ pack_promo_icon | image_url: width: 40 | image_tag: loading: 'lazy', alt: '', widths: '20, 40' }}
+                                {%- else -%}
+                                  {{- 'icon-discount.svg' | inline_asset_content -}}
+                                {%- endif -%}
+                              </span>
+                              <span class="bloomli-cart-pack-promo__copy">
+                                <span class="bloomli-cart-pack-promo__label">{{ pack_promo_text | escape }}</span>
+                                <span class="bloomli-cart-pack-promo__pack">{{ pack_label | escape }}</span>
+                              </span>
+                            </div>
+                          {%- endif -%}
                         </td>
 
                         <td

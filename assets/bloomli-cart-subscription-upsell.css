@@ -56,10 +56,9 @@
 }
 
 .bloomli-cart-subscription-upsell__benefit {
-  position: relative;
   display: grid;
   grid-template-columns: 2rem minmax(0, 1fr);
-  align-items: start;
+  align-items: center;
   gap: 0.7rem;
   color: var(--bloomli-cart-upsell-body, var(--bloomli-cart-text, #2A2622));
   font-size: 1.2rem;
@@ -67,25 +66,43 @@
   line-height: 1.25;
 }
 
-.bloomli-cart-subscription-upsell__benefit::before {
-  content: "";
-  display: block;
+.bloomli-cart-subscription-upsell__benefit-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 2rem;
   height: 2rem;
+  min-width: 2rem;
   border-radius: 50%;
   background-color: var(--bloomli-cart-upsell-icon, var(--bloomli-cart-accent, #B23A6F));
 }
 
-.bloomli-cart-subscription-upsell__benefit::after {
+.bloomli-cart-subscription-upsell__benefit-icon::after {
   content: "";
   position: absolute;
-  top: 0.55rem;
-  left: 0.5rem;
+  top: 50%;
+  left: 50%;
   width: 0.9rem;
   height: 0.5rem;
   border-left: 0.18rem solid var(--bloomli-cart-upsell-cta-text, #FDFAF7);
   border-bottom: 0.18rem solid var(--bloomli-cart-upsell-cta-text, #FDFAF7);
-  transform: rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.bloomli-cart-subscription-upsell__benefit-icon.has-custom-icon {
+  background: transparent;
+}
+
+.bloomli-cart-subscription-upsell__benefit-icon.has-custom-icon::after {
+  display: none;
+}
+
+.bloomli-cart-subscription-upsell__benefit-icon img {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
 }
 
 .bloomli-cart-subscription-upsell__cta {
@@ -146,6 +163,15 @@
   margin: 1.1rem 0 1.4rem;
 }
 
+.cart-drawer .bloomli-cart-subscription-upsell__badge {
+  border-radius: min(0.6rem, var(--bloomli-cart-upsell-radius, 10px));
+}
+
+.cart-drawer .bloomli-cart-subscription-upsell__heading {
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 749px) {
   .bloomli-cart-line-upsell-row,
   .bloomli-cart-line-upsell-row > td {
@@ -164,6 +190,10 @@
 
   .bloomli-cart-subscription-upsell__heading {
     font-size: 1.6rem;
+  }
+
+  .cart-drawer .bloomli-cart-subscription-upsell__heading {
+    font-size: 1.38rem;
   }
 }
 

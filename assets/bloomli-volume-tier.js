@@ -79,6 +79,10 @@
 
         const radio = mode.querySelector('.bloomli-vt__radio-native');
         if (radio) radio.checked = selected;
+
+        mode.querySelectorAll('.bloomli-vt__subscribe-accordion, .bloomli-vt__onetime-accordion').forEach(function (accordion) {
+          accordion.setAttribute('aria-hidden', selected ? 'false' : 'true');
+        });
       });
     }
 
@@ -150,7 +154,8 @@
       function savingsText(savingsCents) {
         if (savingsCents <= 50) return '';
         const dollars = Math.round(savingsCents / 100);
-        return savingsPrefix + dollars + savingsSuffix;
+        const prefixGlue = savingsPrefix && !/\s$/.test(savingsPrefix) ? ' ' : '';
+        return savingsPrefix + prefixGlue + dollars + savingsSuffix;
       }
 
       if (lineCompareCents > subscribeCents) {
@@ -172,12 +177,11 @@
       // Dynamic bar text: "Most Popular · Get [percent]% Off"
       if (barEl) {
         const barTemplate = barEl.dataset.barTemplate || '';
+        let subPct = 0;
         if (lineCompareCents > subscribeCents && lineCompareCents > 0) {
-          const subPct = Math.round((lineCompareCents - subscribeCents) / lineCompareCents * 100);
-          if (subPct > 0) {
-            barEl.textContent = formatTemplate(barTemplate, { percent: String(subPct) });
-          }
+          subPct = Math.round((lineCompareCents - subscribeCents) / lineCompareCents * 100);
         }
+        barEl.textContent = formatTemplate(barTemplate, { percent: String(subPct) });
       }
 
       if (mode === 'subscribe' && !planId) {
@@ -320,6 +324,7 @@
       setMode(modes[0].dataset.mode);
     }
 
+    setMode(getSelectedMode());
     updateState();
   }
 

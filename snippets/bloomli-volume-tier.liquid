@@ -341,24 +341,30 @@
                 <span class="bloomli-vt__mode-compare" data-vt-mode-subscribe-compare></span>
                 <span class="bloomli-vt__mode-price" data-vt-subscribe-price>{{ unit_price | money }}</span>
               </div>
-              <span class="bloomli-vt__mode-savings-text" data-vt-mode-subscribe-savings></span>
             </div>
           </div>
-          <span class="bloomli-vt__mode-info-line" data-vt-mode-sub-info></span>
-          {%- if block.settings.subscribe_show_perks != false -%}
-            <ul class="bloomli-vt__mode-perks" aria-hidden="true">
-              {%- if subscribe_perk_1 != blank -%}
-                <li class="bloomli-vt__mode-perk">{{ subscribe_perk_1 }}</li>
+          <div class="bloomli-vt__mode-meta-row">
+            <span class="bloomli-vt__mode-info-line" data-vt-mode-sub-info></span>
+            <span class="bloomli-vt__mode-savings-text" data-vt-mode-subscribe-savings></span>
+          </div>
+          <div class="bloomli-vt__subscribe-accordion" aria-hidden="true">
+            <div class="bloomli-vt__subscribe-accordion-inner">
+              {%- if block.settings.subscribe_show_perks != false -%}
+                <ul class="bloomli-vt__mode-perks">
+                  {%- if subscribe_perk_1 != blank -%}
+                    <li class="bloomli-vt__mode-perk">{{ subscribe_perk_1 }}</li>
+                  {%- endif -%}
+                  {%- if subscribe_perk_2 != blank -%}
+                    <li class="bloomli-vt__mode-perk">{{ subscribe_perk_2 }}</li>
+                  {%- endif -%}
+                  {%- if subscribe_perk_3 != blank -%}
+                    <li class="bloomli-vt__mode-perk">{{ subscribe_perk_3 }}</li>
+                  {%- endif -%}
+                </ul>
               {%- endif -%}
-              {%- if subscribe_perk_2 != blank -%}
-                <li class="bloomli-vt__mode-perk">{{ subscribe_perk_2 }}</li>
-              {%- endif -%}
-              {%- if subscribe_perk_3 != blank -%}
-                <li class="bloomli-vt__mode-perk">{{ subscribe_perk_3 }}</li>
-              {%- endif -%}
-            </ul>
-          {%- endif -%}
-          <div class="bloomli-vt__mobile-atc-slot" data-vt-mobile-atc-slot="subscribe"></div>
+              <div class="bloomli-vt__mobile-atc-slot" data-vt-mobile-atc-slot="subscribe"></div>
+            </div>
+          </div>
         </div>
       </label>
 
@@ -379,10 +385,12 @@
                 <span class="bloomli-vt__mode-compare" data-vt-mode-onetime-compare></span>
                 <span class="bloomli-vt__mode-price" data-vt-onetime-price>{{ unit_price | money }}</span>
               </div>
-              <span class="bloomli-vt__mode-savings-text" data-vt-mode-onetime-savings></span>
             </div>
           </div>
-          <span class="bloomli-vt__mode-info-line" data-vt-mode-onetime-info></span>
+          <div class="bloomli-vt__mode-meta-row">
+            <span class="bloomli-vt__mode-info-line" data-vt-mode-onetime-info></span>
+            <span class="bloomli-vt__mode-savings-text" data-vt-mode-onetime-savings></span>
+          </div>
           <div class="bloomli-vt__onetime-accordion" aria-hidden="true">
             <div class="bloomli-vt__onetime-accordion-inner">
               <div class="bloomli-vt__onetime-caveats">

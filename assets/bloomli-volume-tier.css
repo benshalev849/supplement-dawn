@@ -338,18 +338,25 @@
 .bloomli-vt__mode-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-/* Info line: indented to align with title (radio 18px + gap 12px = 30px) */
+.bloomli-vt__mode-meta-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 10px;
+  margin-top: 4px;
+  margin-left: 28px;
+}
+
+/* Info line: indented to align with title (radio 18px + gap 10px = 28px) */
 .bloomli-vt__mode-info-line {
   display: block;
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 12px;
   color: rgba(42, 38, 34, 0.78);
   line-height: 1.3;
-  margin-top: 2px;
-  margin-left: 30px;
 }
 
 .bloomli-vt__mode-info-line:empty {
@@ -386,16 +393,17 @@
   display: none;
 }
 
-/* "You're saving $X" — sits inside .bloomli-vt__mode-prices, right-aligned */
+/* "You're saving $X" aligns with the info line on the second row */
 .bloomli-vt__mode-savings-text {
   display: block;
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 11px;
   font-weight: 700;
   color: var(--aubergine, #B23A6F);
-  margin-top: 3px;
+  margin-top: 1px;
   text-align: right;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .bloomli-vt__mode-savings-text:empty {
@@ -410,7 +418,7 @@
 /* Perks list inside subscribe card */
 .bloomli-vt__mode-perks {
   list-style: none;
-  margin: 10px 0 4px 30px;
+  margin: 10px 0 4px 28px;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -444,7 +452,8 @@
   mask-position: center;
 }
 
-/* One-time accordion: grid collapse animation */
+/* Purchase-mode accordions: grid collapse animation */
+.bloomli-vt__subscribe-accordion,
 .bloomli-vt__onetime-accordion {
   width: 100%;
   display: grid;
@@ -452,12 +461,15 @@
   transition: grid-template-rows 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.bloomli-vt__mode--subscribe.is-selected .bloomli-vt__subscribe-accordion,
 .bloomli-vt__mode--onetime.is-selected .bloomli-vt__onetime-accordion {
   grid-template-rows: 1fr;
 }
 
+.bloomli-vt__subscribe-accordion-inner,
 .bloomli-vt__onetime-accordion-inner {
   overflow: hidden;
+  min-height: 0;
 }
 
 .bloomli-vt__onetime-caveats {
@@ -465,7 +477,7 @@
   flex-direction: column;
   gap: 10px;
   padding: 10px 0 4px;
-  margin-left: 30px;
+  margin-left: 28px;
 }
 
 .bloomli-vt__onetime-caveat {
@@ -528,7 +540,8 @@
 }
 
 .bloomli-vt__mode--subscribe .bloomli-vt__mode-title {
-  font-size: 17px;
+  font-size: 16px;
+  white-space: nowrap;
 }
 
 .bloomli-vt__mode-savings {
@@ -607,9 +620,9 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 5rem;
+  min-height: 4.4rem;
   margin: 18px 0 0;
-  padding: 0 28px !important;
+  padding: 11px 24px !important;
   border: 1.5px solid var(--aubergine, #B23A6F);
   border-radius: 12px;
   background: var(--aubergine, #B23A6F);
@@ -732,7 +745,7 @@
   }
 
   .bloomli-vt__mode--subscribe .bloomli-vt__mode-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .bloomli-vt__mode-price {
@@ -741,11 +754,10 @@
 
   .bloomli-vt__mode-info-line {
     font-size: 11px;
-    margin-top: 4px;
   }
 
   .bloomli-vt__mode-perks {
-    margin-left: 30px;
+    margin-left: 28px;
     margin-top: 12px;
     gap: 10px;
   }
@@ -756,7 +768,7 @@
   }
 
   .bloomli-vt__onetime-caveats {
-    margin-left: 30px;
+    margin-left: 28px;
     gap: 10px;
   }
 

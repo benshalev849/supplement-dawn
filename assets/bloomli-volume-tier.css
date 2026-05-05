@@ -1,5 +1,5 @@
 .bloomli-vt {
-  --bloomli-vt-button-radius: 24px;
+  --bloomli-vt-button-radius: var(--buttons-radius, 6px);
 
   color: var(--charcoal, #2A2622);
   font-family: var(--font-commerce-ui, var(--font-body-family));
@@ -643,7 +643,7 @@
   margin: 14px 0 0;
   padding: 7px 20px 10px !important;
   border: 1.5px solid var(--aubergine, #B23A6F);
-  border-radius: var(--bloomli-vt-button-radius);
+  border-radius: var(--bloomli-vt-button-radius, 6px) !important;
   background: var(--aubergine, #B23A6F);
   color: var(--cream, #FDFAF7);
   cursor: pointer;
@@ -657,7 +657,7 @@
 
 .bloomli-vt__custom-submit::before,
 .bloomli-vt__custom-submit::after {
-  border-radius: var(--bloomli-vt-button-radius);
+  border-radius: inherit !important;
   display: none;
 }
 
@@ -845,6 +845,7 @@
   .bloomli-vt__mobile-atc-slot.has-button .bloomli-vt__custom-submit {
     margin-top: 0;
     width: 100%;
+    border-radius: var(--bloomli-vt-button-radius, 6px) !important;
   }
 
   .bloomli-vt__sizes {

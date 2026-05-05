@@ -7024,9 +7024,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_timeline_js",
-      "target": "assets_bloomli_timeline_getmobileprogress",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_getmobileprogress"
     },
     {
       "relation": "contains",
@@ -7034,9 +7034,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_timeline_js",
-      "target": "assets_bloomli_timeline_getdesktopprogress",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_getdesktopprogress"
     },
     {
       "relation": "contains",
@@ -7075,9 +7075,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_timeline_getmobileprogress",
-      "target": "assets_bloomli_timeline_clamp",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_clamp"
     },
     {
       "relation": "calls",
@@ -7086,9 +7086,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_timeline_getdesktopprogress",
-      "target": "assets_bloomli_timeline_clamp",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_clamp"
     },
     {
       "relation": "calls",
@@ -7119,9 +7119,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_timeline_update",
-      "target": "assets_bloomli_timeline_getmobileprogress",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_getmobileprogress"
     },
     {
       "relation": "calls",
@@ -7130,9 +7130,9 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_timeline_update",
-      "target": "assets_bloomli_timeline_getdesktopprogress",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_timeline_getdesktopprogress"
     },
     {
       "relation": "calls",

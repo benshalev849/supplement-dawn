@@ -10,7 +10,12 @@
       </h2>
     </div>
 
-    {%- assign circle_size = section.settings.circle_size | default: 100 -%}
+    {%- assign circle_size = section.settings.circle_size | default: 280 -%}
+    {%- if circle_size < 280 -%}
+      {%- assign circle_size = 280 -%}
+    {%- elsif circle_size > 330 -%}
+      {%- assign circle_size = 330 -%}
+    {%- endif -%}
     {%- assign icon_size = section.settings.icon_size | default: 64 -%}
     {%- assign line_top = circle_size | divided_by: 2 -%}
     {%- assign connector_color = 'var(--bloomli-line)' -%}

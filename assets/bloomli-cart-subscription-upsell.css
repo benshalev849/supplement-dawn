@@ -6,6 +6,7 @@
   position: relative;
   margin: 1.2rem 0 1.6rem;
   padding: calc(var(--bloomli-cart-upsell-padding, 18px) + 0.2rem) var(--bloomli-cart-upsell-padding, 18px) var(--bloomli-cart-upsell-padding, 18px);
+  box-sizing: border-box;
   border: 0.1rem solid var(--bloomli-cart-upsell-border, #BBDCCB);
   border-radius: var(--bloomli-cart-upsell-radius, 10px);
   background: var(--bloomli-cart-upsell-bg, #DFF1E8);
@@ -160,7 +161,10 @@
 }
 
 .cart-drawer .bloomli-cart-subscription-upsell {
-  margin: 1.1rem 0 1.4rem;
+  width: calc(100% - 2rem);
+  max-width: 40rem;
+  margin: 1.1rem auto 1.4rem;
+  padding: 1.35rem 1.2rem 1.2rem;
 }
 
 .cart-drawer .bloomli-cart-subscription-upsell__badge {
@@ -172,8 +176,37 @@
 }
 
 .cart-drawer .bloomli-cart-subscription-upsell__heading {
-  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.38rem;
   white-space: nowrap;
+}
+
+.cart-drawer .bloomli-cart-subscription-upsell__benefits {
+  gap: 0.65rem 0.9rem;
+  margin-bottom: 0.95rem;
+}
+
+.cart-drawer .bloomli-cart-subscription-upsell__benefit {
+  grid-template-columns: 1.7rem minmax(0, 1fr);
+  gap: 0.55rem;
+  font-size: 1.08rem;
+}
+
+.cart-drawer .bloomli-cart-subscription-upsell__benefit-icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  min-width: 1.7rem;
+}
+
+.cart-drawer .bloomli-cart-subscription-upsell__benefit-icon::after {
+  width: 0.78rem;
+  height: 0.44rem;
+}
+
+.cart-drawer .bloomli-cart-subscription-upsell__cta {
+  min-height: 4rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.25rem;
 }
 
 @media screen and (max-width: 749px) {
@@ -184,12 +217,14 @@
   }
 
   .bloomli-cart-subscription-upsell {
-    margin: 0 0 2.6rem;
+    width: calc(100% - 2rem);
+    margin: 0 auto 1.35rem;
+    padding: 1.25rem 1rem 1rem;
   }
 
   .bloomli-cart-subscription-upsell__benefits {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem 0.75rem;
   }
 
   .bloomli-cart-subscription-upsell__heading {
@@ -197,7 +232,17 @@
   }
 
   .cart-drawer .bloomli-cart-subscription-upsell__heading {
-    font-size: 1.38rem;
+    font-size: 1.24rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .cart-drawer .bloomli-cart-subscription-upsell {
+    width: calc(100% - 1.4rem);
+  }
+
+  .cart-drawer .bloomli-cart-subscription-upsell__benefits {
+    grid-template-columns: 1fr;
   }
 }
 

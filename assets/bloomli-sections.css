@@ -1179,6 +1179,7 @@
 .bloomli-timeline__circle--has-image {
   background: transparent;
   border-color: transparent;
+  box-shadow: none;
 }
 
 .bloomli-timeline__icon-img {
@@ -1249,8 +1250,8 @@
   }
 
   .bloomli-timeline__circle {
-    width: min(var(--timeline-circle-size), 220px);
-    height: min(var(--timeline-circle-size), 220px);
+    width: clamp(180px, 62vw, 240px);
+    height: clamp(180px, 62vw, 240px);
   }
 
   .bloomli-timeline__heading {

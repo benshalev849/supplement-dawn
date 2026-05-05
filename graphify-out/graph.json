@@ -6639,9 +6639,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_subscription_upsell_js",
-      "target": "assets_bloomli_cart_subscription_upsell_getsectioninnerhtml",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_getsectioninnerhtml"
     },
     {
       "relation": "contains",
@@ -6649,9 +6649,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_subscription_upsell_js",
-      "target": "assets_bloomli_cart_subscription_upsell_getrequestedsections",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_getrequestedsections"
     },
     {
       "relation": "contains",
@@ -6659,9 +6659,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_subscription_upsell_js",
-      "target": "assets_bloomli_cart_subscription_upsell_replacecartdrawersections",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_replacecartdrawersections"
     },
     {
       "relation": "contains",
@@ -6669,9 +6669,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_subscription_upsell_js",
-      "target": "assets_bloomli_cart_subscription_upsell_replacemaincartsections",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_replacemaincartsections"
     },
     {
       "relation": "contains",
@@ -6679,9 +6679,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_subscription_upsell_js",
-      "target": "assets_bloomli_cart_subscription_upsell_replacecarticon",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_replacecarticon"
     },
     {
       "relation": "contains",
@@ -6689,9 +6689,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_subscription_upsell_js",
-      "target": "assets_bloomli_cart_subscription_upsell_showcarterror",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_showcarterror"
     },
     {
       "relation": "contains",
@@ -6699,9 +6699,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_subscription_upsell_js",
-      "target": "assets_bloomli_cart_subscription_upsell_setloading",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_setloading"
     },
     {
       "relation": "contains",
@@ -6709,9 +6709,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_subscription_upsell_js",
-      "target": "assets_bloomli_cart_subscription_upsell_upgradeline",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_upgradeline"
     },
     {
       "relation": "calls",
@@ -6720,9 +6720,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_subscription_upsell_replacemaincartsections",
-      "target": "assets_bloomli_cart_subscription_upsell_getsectioninnerhtml",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_getsectioninnerhtml"
     },
     {
       "relation": "calls",
@@ -6731,9 +6731,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_subscription_upsell_replacecarticon",
-      "target": "assets_bloomli_cart_subscription_upsell_getsectioninnerhtml",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_getsectioninnerhtml"
     },
     {
       "relation": "calls",
@@ -6742,9 +6742,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L112",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_subscription_upsell_upgradeline",
-      "target": "assets_bloomli_cart_subscription_upsell_getrequestedsections",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_getrequestedsections"
     },
     {
       "relation": "calls",
@@ -6753,9 +6753,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_subscription_upsell_upgradeline",
-      "target": "assets_bloomli_cart_subscription_upsell_replacecartdrawersections",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_replacecartdrawersections"
     },
     {
       "relation": "calls",
@@ -6764,9 +6764,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_subscription_upsell_upgradeline",
-      "target": "assets_bloomli_cart_subscription_upsell_replacemaincartsections",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_replacemaincartsections"
     },
     {
       "relation": "calls",
@@ -6775,9 +6775,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L130",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_subscription_upsell_upgradeline",
-      "target": "assets_bloomli_cart_subscription_upsell_replacecarticon",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_replacecarticon"
     },
     {
       "relation": "calls",
@@ -6786,9 +6786,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_subscription_upsell_upgradeline",
-      "target": "assets_bloomli_cart_subscription_upsell_showcarterror",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_showcarterror"
     },
     {
       "relation": "calls",
@@ -6797,9 +6797,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_subscription_upsell_upgradeline",
-      "target": "assets_bloomli_cart_subscription_upsell_setloading",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_setloading"
     },
     {
       "relation": "calls",

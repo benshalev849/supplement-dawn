@@ -636,10 +636,10 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 2.7rem !important;
+  min-height: 4rem !important;
   height: auto;
   margin: 14px 0 0;
-  padding: 5px 20px !important;
+  padding: 10px 20px !important;
   border: 1.5px solid var(--aubergine, #B23A6F);
   border-radius: 12px;
   background: var(--aubergine, #B23A6F);
@@ -651,6 +651,11 @@
   line-height: 1;
   text-align: center;
   transition: background 0.18s ease, color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+}
+
+.bloomli-vt__custom-submit::before,
+.bloomli-vt__custom-submit::after {
+  display: none;
 }
 
 .bloomli-vt__custom-submit:hover:not(:disabled, [aria-disabled='true']) {

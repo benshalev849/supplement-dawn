@@ -25,7 +25,7 @@
   max-width: calc(100% - 2rem);
   min-height: 2.2rem;
   padding: 0.35rem 1rem;
-  border-radius: 999px;
+  border-radius: var(--bloomli-cart-control-radius, var(--bloomli-cart-upsell-radius, 10px));
   background: var(--bloomli-cart-upsell-badge-bg, var(--bloomli-cart-accent, #B23A6F));
   color: var(--bloomli-cart-upsell-badge-text, var(--bloomli-cart-accent-contrast, #FDFAF7));
   font-size: 1.2rem;
@@ -114,7 +114,7 @@
   min-height: 4.6rem;
   padding: 1rem 1.6rem;
   border: 0.1rem solid var(--bloomli-cart-upsell-cta-bg, var(--bloomli-cart-accent, #B23A6F));
-  border-radius: max(0.4rem, calc(var(--bloomli-cart-upsell-radius, 10px) - 0.2rem));
+  border-radius: var(--bloomli-cart-control-radius, max(0.4rem, calc(var(--bloomli-cart-upsell-radius, 10px) - 0.2rem)));
   background: var(--bloomli-cart-upsell-cta-bg, var(--bloomli-cart-accent, #B23A6F));
   color: var(--bloomli-cart-upsell-cta-text, var(--bloomli-cart-accent-contrast, #FDFAF7));
   font: inherit;
@@ -164,7 +164,11 @@
 }
 
 .cart-drawer .bloomli-cart-subscription-upsell__badge {
-  border-radius: min(0.6rem, var(--bloomli-cart-upsell-radius, 10px));
+  border-radius: var(--bloomli-cart-control-radius);
+}
+
+.cart-drawer .bloomli-cart-subscription-upsell__cta {
+  border-radius: var(--bloomli-cart-control-radius);
 }
 
 .cart-drawer .bloomli-cart-subscription-upsell__heading {

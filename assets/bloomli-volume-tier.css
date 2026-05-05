@@ -636,9 +636,10 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 3.7rem;
+  min-height: 2.7rem !important;
+  height: auto;
   margin: 14px 0 0;
-  padding: 10px 20px !important;
+  padding: 5px 20px !important;
   border: 1.5px solid var(--aubergine, #B23A6F);
   border-radius: 12px;
   background: var(--aubergine, #B23A6F);

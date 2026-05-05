@@ -639,9 +639,9 @@
   min-height: 4rem !important;
   height: auto;
   margin: 14px 0 0;
-  padding: 10px 20px !important;
+  padding: 7px 20px 10px !important;
   border: 1.5px solid var(--aubergine, #B23A6F);
-  border-radius: 12px;
+  border-radius: var(--bloomli-cart-control-radius, 6px);
   background: var(--aubergine, #B23A6F);
   color: var(--cream, #FDFAF7);
   cursor: pointer;
@@ -826,8 +826,8 @@
 
   .bloomli-vt__mobile-atc-slot.has-button {
     display: block;
-    margin-top: 10px;
-    padding-top: 10px;
+    margin-top: 6px;
+    padding-top: 6px;
   }
 
   .bloomli-vt__mode:not(.is-selected) .bloomli-vt__mobile-atc-slot.has-button {

@@ -1308,8 +1308,8 @@
   }
 
   .bloomli-timeline__wrap {
-    --journey-mobile-label-col: 6.2rem;
-    --journey-mobile-rail-x: 3.1rem;
+    --journey-mobile-label-col: 7.2rem;
+    --journey-mobile-rail-x: 3.6rem;
     padding-top: 0;
   }
 
@@ -1335,7 +1335,7 @@
   .bloomli-timeline__step {
     display: grid;
     grid-template-columns: var(--journey-mobile-label-col) minmax(0, 1fr);
-    column-gap: 1.1rem;
+    column-gap: 1rem;
     text-align: left;
     align-items: start;
     justify-items: stretch;
@@ -1357,14 +1357,15 @@
     grid-row: 1;
     align-self: center;
     justify-self: center;
-    max-width: 100%;
-    min-height: 2.4rem;
-    padding: 0.45rem 0.8rem;
-    font-size: 1rem;
+    max-width: max-content;
+    min-height: 2.1rem;
+    padding: 5px 8px;
+    box-sizing: border-box;
+    font-size: 11px;
     text-align: center;
     transform: none;
     white-space: nowrap;
-    line-height: 1.1;
+    line-height: 1;
   }
 
   .bloomli-timeline__heading {

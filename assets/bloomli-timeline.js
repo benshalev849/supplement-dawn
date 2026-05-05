@@ -7,6 +7,7 @@
   var selector = '[data-bloomli-journey]';
   var ticking = false;
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var mobileMedia = window.matchMedia('(max-width: 749px)');
 
   function clamp(value) {
     return Math.max(0, Math.min(1, value));
@@ -42,7 +43,32 @@
       var progress = clamp((start - rect.top) / (start - end));
 
       section.style.setProperty('--journey-progress', progress * 100 + '%');
+      if (mobileMedia.matches) {
+        setReachedStepsFromLine(section, progress);
+      } else {
+        setReachedSteps(section, progress);
+      }
+    });
+  }
+
+  function setReachedStepsFromLine(section, progress) {
+    var track = section.querySelector('.bloomli-journey__track');
+    var steps = section.querySelectorAll('.bloomli-journey__step');
+
+    if (!track || !steps.length) {
       setReachedSteps(section, progress);
+      return;
+    }
+
+    var trackRect = track.getBoundingClientRect();
+    var filledTo = trackRect.top + (trackRect.height || 1) * progress;
+
+    steps.forEach(function (step) {
+      var label = step.querySelector('.bloomli-timeline__range');
+      var target = label || step;
+      var targetRect = target.getBoundingClientRect();
+      var targetMiddle = targetRect.top + targetRect.height / 2;
+      step.classList.toggle('is-reached', filledTo + 8 >= targetMiddle);
     });
   }
 
@@ -76,6 +102,12 @@
     reducedMotion.addEventListener('change', requestUpdate);
   } else if (reducedMotion.addListener) {
     reducedMotion.addListener(requestUpdate);
+  }
+
+  if (mobileMedia.addEventListener) {
+    mobileMedia.addEventListener('change', requestUpdate);
+  } else if (mobileMedia.addListener) {
+    mobileMedia.addListener(requestUpdate);
   }
 
   requestUpdate();

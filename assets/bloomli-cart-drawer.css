@@ -780,11 +780,11 @@ cart-drawer.drawer .drawer__inner {
   border-radius: var(--bloomli-cart-button-radius) !important;
   background: var(--bloomli-cart-accent, #B23A6F);
   color: var(--bloomli-cart-accent-contrast, #fff);
-  font-family: var(--bloomli-cart-ui-font);
-  font-size: var(--bloomli-cart-body-size, 15px) !important;
+  font-family: var(--bloomli-cart-ui-font) !important;
+  font-size: 1.35rem !important;
   font-weight: 800;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
   width: min(88%, 52rem);
 }
 
@@ -792,6 +792,28 @@ cart-drawer.drawer .drawer__inner {
 .cart-drawer .cart__checkout-button::after {
   border-radius: var(--bloomli-cart-button-radius) !important;
   display: none;
+}
+
+.cart-drawer .bloomli-cart-subscription-upsell__badge {
+  min-height: 1.9rem !important;
+  padding: 0.28rem 0.8rem !important;
+  font-size: 1rem !important;
+  line-height: 1 !important;
+}
+
+.cart-drawer .bloomli-cart-subscription-upsell__heading {
+  max-width: 100% !important;
+  font-size: 1.2rem !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+}
+
+.cart-drawer .bloomli-cart-subscription-upsell__cta {
+  font-family: var(--bloomli-cart-ui-font) !important;
+  font-size: 1.35rem !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
 }
 
 @media screen and (max-width: 749px) {
@@ -872,6 +894,32 @@ cart-drawer.drawer .drawer__inner {
 
   .cart-drawer .drawer__heading {
     font-size: var(--bloomli-cart-heading-size, 20px) !important;
+  }
+
+  .cart-drawer .drawer__header .drawer__close {
+    right: 0.2rem !important;
+  }
+
+  .cart-drawer .bloomli-cart-subscription-upsell__badge {
+    min-height: 1.8rem !important;
+    padding: 0.25rem 0.75rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1 !important;
+  }
+
+  .cart-drawer .bloomli-cart-subscription-upsell__heading {
+    max-width: 100% !important;
+    font-size: 1.08rem !important;
+    font-weight: 800 !important;
+    line-height: 1.12 !important;
+    white-space: nowrap !important;
+  }
+
+  .cart-drawer .bloomli-cart-subscription-upsell__cta {
+    font-family: var(--bloomli-cart-ui-font) !important;
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
   }
 
   .cart-drawer .cart-item {

@@ -240,7 +240,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   align-items: flex-end;
   justify-self: end;
   padding-left: 0;
-  padding-top: calc(var(--bloomli-cart-price-top-offset, 0) + 0.95rem);
+  padding-top: calc(var(--bloomli-cart-price-top-offset, 0) + 1.1rem);
 }
 
 .cart-drawer .cart-item__price-wrapper {
@@ -289,7 +289,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
 .cart-drawer .bloomli-cart-offers-cell {
   grid-column: 1 / -1;
   grid-row: 4;
-  padding: 1.45rem 0 0;
+  padding: 1.6rem 0 0;
 }
 
 .cart-drawer .bloomli-cart-pack-promo-cell {
@@ -316,6 +316,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
   font-family: var(--bloomli-cart-ui-font);
   line-height: 1.15;
   margin-right: 0.35rem;
+  margin-bottom: 0.15rem;
 }
 
 .cart-drawer .bloomli-cart-pack-promo__icon {
@@ -800,7 +801,7 @@ html:has(body.overflow-hidden)::-webkit-scrollbar {
     grid-row: 3;
     justify-self: end;
     align-self: start;
-    padding-top: calc(var(--bloomli-cart-price-top-offset, 0) + 0.95rem);
+    padding-top: calc(var(--bloomli-cart-price-top-offset, 0) + 1.1rem);
     min-width: max-content;
   }
 

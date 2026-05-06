@@ -491,39 +491,6 @@
     "bloomli_before_after_U7dPaV": {
       "type": "bloomli-before-after",
       "blocks": {
-        "result_bPaP87": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_5.png",
-            "after_image": "shopify://shop_images/After_5.png",
-            "before_label": "Month 0",
-            "after_label": "Month 3",
-            "reviewer_name": "Priya K.",
-            "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
-            "timeframe": "6 months",
-            "result_tag_1": "Visibly fuller",
-            "result_tag_2": "Less shedding",
-            "result_tag_3": "Stronger hair",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
-        "result_PXeWzj": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_10.png",
-            "before_label": "Month 0",
-            "after_label": "Month 6",
-            "reviewer_name": "Priya K.",
-            "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
-            "timeframe": "6 months",
-            "result_tag_1": "Visibly fuller",
-            "result_tag_2": "Less shedding",
-            "result_tag_3": "Stronger hair",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
         "result_9hNhFP": {
           "type": "result",
           "settings": {
@@ -541,28 +508,11 @@
             "verified_label": "Verified review"
           }
         },
-        "result_review_current": {
+        "result_PXeWzj": {
           "type": "result",
           "settings": {
-            "before_image": "shopify://shop_images/Before_2.png",
-            "after_image": "shopify://shop_images/After_2.png",
-            "before_label": "Month 0",
-            "after_label": "Month 6",
-            "reviewer_name": "Priya K.",
-            "review_text": "\"My part line filled in noticeably after staying consistent with Bloomli. Seeing the photos side by side made the progress feel real.\"",
-            "timeframe": "6 months",
-            "result_tag_1": "Visibly fuller",
-            "result_tag_2": "Less shedding",
-            "result_tag_3": "Stronger hair",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
-        "result_jUa8a4": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
-            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
+            "before_image": "shopify://shop_images/Before_10.png",
+            "after_image": "shopify://shop_images/After_10.png",
             "before_label": "Month 0",
             "after_label": "Month 6",
             "reviewer_name": "Priya K.",
@@ -591,15 +541,66 @@
             "verified_review": true,
             "verified_label": "Verified review"
           }
+        },
+        "result_review_current": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_2.png",
+            "after_image": "shopify://shop_images/After_2.png",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
+            "reviewer_name": "Priya K.",
+            "review_text": "\"My part line filled in noticeably after staying consistent with Bloomli. Seeing the photos side by side made the progress feel real.\"",
+            "timeframe": "6 months",
+            "result_tag_1": "Visibly fuller",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Stronger hair",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_bPaP87": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_5.png",
+            "after_image": "shopify://shop_images/After_5.png",
+            "before_label": "Month 0",
+            "after_label": "Month 3",
+            "reviewer_name": "Priya K.",
+            "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
+            "timeframe": "6 months",
+            "result_tag_1": "Visibly fuller",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Stronger hair",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_jUa8a4": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
+            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
+            "reviewer_name": "Priya K.",
+            "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
+            "timeframe": "6 months",
+            "result_tag_1": "Visibly fuller",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Stronger hair",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
         }
       },
       "block_order": [
-        "result_bPaP87",
-        "result_PXeWzj",
         "result_9hNhFP",
+        "result_PXeWzj",
+        "result_zrawxk",
         "result_review_current",
-        "result_jUa8a4",
-        "result_zrawxk"
+        "result_bPaP87",
+        "result_jUa8a4"
       ],
       "name": "Bloomli - Result Gallery",
       "settings": {

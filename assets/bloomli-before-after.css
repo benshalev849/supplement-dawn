@@ -3,6 +3,8 @@
   --bba-image-bg: rgba(var(--color-foreground), 0.05);
   --bba-accent: rgb(var(--color-button));
   --bba-muted: rgba(var(--color-foreground), 0.68);
+  --bba-line: rgba(var(--color-foreground), 0.1);
+  --bba-soft-accent: rgba(var(--color-button), 0.08);
   --bba-radius: 10px;
   --bba-image-radius: 8px;
   --bba-gap: 20px;
@@ -56,6 +58,7 @@
 .bloomli-before-after__viewport {
   overflow-x: auto;
   overflow-y: hidden;
+  overscroll-behavior-x: contain;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
@@ -74,6 +77,7 @@
   display: flex;
   gap: var(--bba-gap);
   align-items: stretch;
+  min-width: 0;
 }
 
 .bloomli-before-after__card {
@@ -81,11 +85,12 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  padding: 18px;
-  border: 1px solid rgba(var(--color-foreground), 0.1);
+  min-height: 580px;
+  padding: 18px 18px 20px;
+  border: 1px solid var(--bba-line);
   border-radius: var(--bba-radius);
   background: var(--bba-card-bg);
-  box-shadow: 0 18px 48px rgba(42, 38, 34, 0.08);
+  box-shadow: 0 16px 42px rgba(var(--color-shadow), 0.1);
   scroll-snap-align: start;
 }
 
@@ -96,14 +101,19 @@
 .bloomli-before-after__media-pair {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-  margin-bottom: 18px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .bloomli-before-after__media {
+  margin: 0;
+  min-width: 0;
+}
+
+.bloomli-before-after__media-frame {
   position: relative;
   aspect-ratio: var(--bba-image-aspect-ratio);
-  margin: 0;
+  min-height: 260px;
   overflow: hidden;
   border-radius: var(--bba-image-radius);
   background-color: var(--bba-image-bg);
@@ -135,30 +145,18 @@
 }
 
 .bloomli-before-after__image-label {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  display: inline-flex;
-  align-items: center;
-  min-height: 26px;
-  max-width: calc(100% - 20px);
-  padding: 0 10px;
-  border: 1px solid rgba(var(--color-foreground), 0.12);
-  border-radius: var(--badge-corner-radius, 4px);
-  background: rgba(253, 250, 247, 0.9);
-  color: rgb(var(--color-foreground));
+  display: block;
+  margin-top: 9px;
+  color: var(--bba-muted);
   font-size: 10px;
   font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.04em;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-align: center;
   text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.bloomli-before-after__image-label--after {
-  background: var(--bba-accent);
-  border-color: transparent;
-  color: rgb(var(--color-button-text));
 }
 
 .bloomli-before-after__content {
@@ -168,23 +166,24 @@
 }
 
 .bloomli-before-after__timeframe {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--bba-accent);
   font-size: 10px;
+  letter-spacing: 0.08em;
 }
 
 .bloomli-before-after__review {
-  margin: 0 0 22px;
+  margin: 0 0 24px;
   color: rgb(var(--color-foreground));
   font-size: var(--bba-body-size);
-  line-height: 1.55;
+  line-height: 1.58;
 }
 
 .bloomli-before-after__footer {
   display: grid;
   gap: 16px;
   padding-top: 18px;
-  border-top: 1px solid rgba(var(--color-foreground), 0.09);
+  border-top: 1px solid var(--bba-line);
 }
 
 .bloomli-before-after__reviewer {
@@ -205,35 +204,39 @@
 .bloomli-before-after__verified {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  min-height: 28px;
+  gap: 6px;
+  min-height: 26px;
   margin: 0;
-  padding: 0 10px;
+  padding: 0 9px;
+  border: 1px solid color-mix(in srgb, var(--bba-accent) 20%, transparent);
   border-radius: var(--badge-corner-radius, 4px);
-  background: rgba(var(--color-foreground), 0.055);
+  background: var(--bba-soft-accent);
   color: var(--bba-accent);
   font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   white-space: nowrap;
 }
 
 .bloomli-before-after__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
 }
 
 .bloomli-before-after__tags span {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
-  padding: 0 10px;
-  border: 1px solid rgba(var(--color-foreground), 0.1);
+  min-height: 26px;
+  padding: 0 9px;
+  border: 1px solid color-mix(in srgb, var(--bba-accent) 16%, transparent);
   border-radius: var(--badge-corner-radius, 4px);
-  background: rgba(var(--color-foreground), 0.035);
-  color: var(--bba-muted);
-  font-size: 11px;
-  font-weight: 650;
+  background: color-mix(in srgb, var(--bba-accent) 6%, rgb(var(--color-background)));
+  color: rgb(var(--color-foreground));
+  font-size: 10px;
+  font-weight: 750;
   line-height: 1;
+  letter-spacing: 0.01em;
 }
 
 .bloomli-before-after__controls {
@@ -249,7 +252,7 @@
   justify-content: center;
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(var(--color-foreground), 0.14);
+  border: 1px solid var(--bba-line);
   border-radius: var(--buttons-radius, 4px);
   background: var(--bba-card-bg);
   color: rgb(var(--color-foreground));
@@ -285,6 +288,14 @@
   .bloomli-before-after {
     --bba-cards-current: 2;
   }
+
+  .bloomli-before-after__card {
+    min-height: 560px;
+  }
+
+  .bloomli-before-after__media-frame {
+    min-height: 230px;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -308,29 +319,46 @@
     font-size: var(--bba-body-size-mobile);
   }
 
+  .bloomli-before-after__viewport,
   .bloomli-before-after:not(.is-carousel) .bloomli-before-after__viewport {
     overflow-x: auto;
     overflow-y: hidden;
     margin-right: -20px;
     padding-right: 20px;
-  }
-
-  .bloomli-before-after:not(.is-carousel) .bloomli-before-after__card {
-    flex-basis: 100%;
+    scroll-padding-left: 0;
+    scroll-snap-type: x mandatory;
   }
 
   .bloomli-before-after__card {
+    flex-basis: min(314px, calc(100vw - 40px));
+    min-height: 548px;
     padding: 16px;
+  }
+
+  .bloomli-before-after__media-pair {
+    grid-template-columns: repeat(2, 119px);
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .bloomli-before-after__media-frame {
+    min-height: 178px;
+    aspect-ratio: 119 / 178;
   }
 
   .bloomli-before-after__reviewer {
     align-items: flex-start;
     flex-direction: column;
+    gap: 8px;
   }
 
   .bloomli-before-after__controls {
-    justify-content: flex-start;
-    margin-top: 20px;
+    display: none;
+  }
+
+  .bloomli-before-after__tags {
+    gap: 6px;
   }
 }
 

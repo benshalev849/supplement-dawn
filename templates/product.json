@@ -491,29 +491,31 @@
         "result_jUa8a4": {
           "type": "result",
           "settings": {
-            "before_label": "Before",
-            "after_label": "After",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
             "reviewer_name": "Priya K.",
             "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
             "timeframe": "6 months",
             "result_tag_1": "Visibly fuller",
             "result_tag_2": "Less shedding",
             "result_tag_3": "Stronger hair",
-            "verified_review": true
+            "verified_review": true,
+            "verified_label": "Verified review"
           }
         },
         "result_zrawxk": {
           "type": "result",
           "settings": {
-            "before_label": "Before",
-            "after_label": "After",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
             "reviewer_name": "Priya K.",
             "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
             "timeframe": "6 months",
             "result_tag_1": "Visibly fuller",
             "result_tag_2": "Less shedding",
             "result_tag_3": "Stronger hair",
-            "verified_review": true
+            "verified_review": true,
+            "verified_label": "Verified review"
           }
         },
         "result_review_current": {
@@ -521,15 +523,16 @@
           "settings": {
             "before_image": "shopify://shop_images/Before_2.png",
             "after_image": "shopify://shop_images/After_2.png",
-            "before_label": "Before",
-            "after_label": "6 months",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
             "reviewer_name": "Priya K.",
             "review_text": "\"My part line filled in noticeably after staying consistent with Bloomli. Seeing the photos side by side made the progress feel real.\"",
             "timeframe": "6 months",
             "result_tag_1": "Visibly fuller",
             "result_tag_2": "Less shedding",
             "result_tag_3": "Stronger hair",
-            "verified_review": true
+            "verified_review": true,
+            "verified_label": "Verified review"
           }
         }
       },

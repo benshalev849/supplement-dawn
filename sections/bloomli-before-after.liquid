@@ -2,11 +2,11 @@
 <script src="{{ 'bloomli-before-after.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
-  assign visible_desktop = section.settings.cards_visible_desktop | default: 3
+  assign visible_desktop = section.settings.cards_visible_desktop | default: 3 | at_most: 3
   assign result_count = section.blocks.size
-  assign static_count = result_count | at_least: 1 | at_most: visible_desktop
+  assign static_count = result_count | at_least: 1 | at_most: 3
   assign use_carousel = false
-  if result_count > visible_desktop
+  if result_count > 3
     assign use_carousel = true
   endif
   assign track_id = 'BloomliResultsTrack-' | append: section.id
@@ -23,7 +23,7 @@
     --bba-accent: {{ section.settings.eyebrow_accent_color }};
     --bba-muted: {{ section.settings.muted_text_color }};
     --bba-radius: {{ section.settings.corner_radius }}px;
-    --bba-image-radius: {{ section.settings.image_corner_radius }}px;
+    --bba-image-radius: var(--media-radius, {{ section.settings.image_corner_radius }}px);
     --bba-image-aspect-ratio: {{ section.settings.image_aspect_ratio }};
     --bba-image-position: {{ section.settings.image_position }};
     --bba-heading-size: {{ section.settings.heading_size }}px;
@@ -71,50 +71,53 @@
               {%- liquid
                 assign before_alt = block.settings.before_image.alt | default: block.settings.before_label | default: 'Before result'
                 assign after_alt = block.settings.after_image.alt | default: block.settings.after_label | default: block.settings.timeframe | default: 'After result'
-                assign after_label = block.settings.after_label
-                if after_label == blank
-                  assign after_label = block.settings.timeframe | default: 'After'
-                endif
+                assign before_label = block.settings.before_label | default: 'Month 0'
+                assign after_label = block.settings.after_label | default: 'Month 6'
+                assign verified_label = block.settings.verified_label | default: section.settings.verified_label
               -%}
 
               <article class="bloomli-before-after__card" {{ block.shopify_attributes }}>
                 <div class="bloomli-before-after__media-pair">
                   <figure class="bloomli-before-after__media">
-                    {%- if block.settings.before_image != blank -%}
-                      {{
-                        block.settings.before_image
-                        | image_url: width: 900
-                        | image_tag:
-                          class: 'bloomli-before-after__image',
-                          alt: before_alt,
-                          widths: '240, 360, 520, 700, 900',
-                          sizes: '(max-width: 749px) 44vw, (max-width: 989px) 25vw, 16vw',
-                          loading: 'lazy',
-                          decoding: 'async'
-                      }}
-                    {%- else -%}
-                      <div class="bloomli-before-after__placeholder">{{ block.settings.before_label | default: 'Before image' }}</div>
-                    {%- endif -%}
-                    <figcaption class="bloomli-before-after__image-label">{{ block.settings.before_label | default: 'Before' }}</figcaption>
+                    <div class="bloomli-before-after__media-frame">
+                      {%- if block.settings.before_image != blank -%}
+                        {{
+                          block.settings.before_image
+                          | image_url: width: 900
+                          | image_tag:
+                            class: 'bloomli-before-after__image',
+                            alt: before_alt,
+                            widths: '240, 360, 520, 700, 900',
+                            sizes: '(max-width: 749px) 119px, (max-width: 989px) 25vw, 16vw',
+                            loading: 'lazy',
+                            decoding: 'async'
+                        }}
+                      {%- else -%}
+                        <div class="bloomli-before-after__placeholder">{{ before_label }}</div>
+                      {%- endif -%}
+                    </div>
+                    <figcaption class="bloomli-before-after__image-label">{{ before_label }}</figcaption>
                   </figure>
 
                   <figure class="bloomli-before-after__media">
-                    {%- if block.settings.after_image != blank -%}
-                      {{
-                        block.settings.after_image
-                        | image_url: width: 900
-                        | image_tag:
-                          class: 'bloomli-before-after__image',
-                          alt: after_alt,
-                          widths: '240, 360, 520, 700, 900',
-                          sizes: '(max-width: 749px) 44vw, (max-width: 989px) 25vw, 16vw',
-                          loading: 'lazy',
-                          decoding: 'async'
-                      }}
-                    {%- else -%}
-                      <div class="bloomli-before-after__placeholder">{{ after_label }}</div>
-                    {%- endif -%}
-                    <figcaption class="bloomli-before-after__image-label bloomli-before-after__image-label--after">{{ after_label }}</figcaption>
+                    <div class="bloomli-before-after__media-frame">
+                      {%- if block.settings.after_image != blank -%}
+                        {{
+                          block.settings.after_image
+                          | image_url: width: 900
+                          | image_tag:
+                            class: 'bloomli-before-after__image',
+                            alt: after_alt,
+                            widths: '240, 360, 520, 700, 900',
+                            sizes: '(max-width: 749px) 119px, (max-width: 989px) 25vw, 16vw',
+                            loading: 'lazy',
+                            decoding: 'async'
+                        }}
+                      {%- else -%}
+                        <div class="bloomli-before-after__placeholder">{{ after_label }}</div>
+                      {%- endif -%}
+                    </div>
+                    <figcaption class="bloomli-before-after__image-label">{{ after_label }}</figcaption>
                   </figure>
                 </div>
 
@@ -137,7 +140,7 @@
                     {%- if block.settings.verified_review -%}
                       <p class="smallcaps bloomli-before-after__verified">
                         <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4"/></svg>
-                        {{ section.settings.verified_label }}
+                        {{ verified_label }}
                       </p>
                     {%- endif -%}
                   </div>
@@ -162,41 +165,17 @@
             <article class="bloomli-before-after__card">
               <div class="bloomli-before-after__media-pair">
                 <figure class="bloomli-before-after__media">
-                  {%- if section.settings.before_image != blank -%}
-                    {{
-                      section.settings.before_image
-                      | image_url: width: 900
-                      | image_tag:
-                        class: 'bloomli-before-after__image',
-                        alt: section.settings.before_label,
-                        widths: '240, 360, 520, 700, 900',
-                        sizes: '(max-width: 749px) 44vw, (max-width: 989px) 25vw, 16vw',
-                        loading: 'lazy',
-                        decoding: 'async'
-                    }}
-                  {%- else -%}
-                    <div class="bloomli-before-after__placeholder">Before image</div>
-                  {%- endif -%}
-                  <figcaption class="bloomli-before-after__image-label">{{ section.settings.before_label | default: 'Before' }}</figcaption>
+                  <div class="bloomli-before-after__media-frame">
+                    <div class="bloomli-before-after__placeholder">Month 0</div>
+                  </div>
+                  <figcaption class="bloomli-before-after__image-label">Month 0</figcaption>
                 </figure>
 
                 <figure class="bloomli-before-after__media">
-                  {%- if section.settings.after_image != blank -%}
-                    {{
-                      section.settings.after_image
-                      | image_url: width: 900
-                      | image_tag:
-                        class: 'bloomli-before-after__image',
-                        alt: section.settings.after_label,
-                        widths: '240, 360, 520, 700, 900',
-                        sizes: '(max-width: 749px) 44vw, (max-width: 989px) 25vw, 16vw',
-                        loading: 'lazy',
-                        decoding: 'async'
-                    }}
-                  {%- else -%}
-                    <div class="bloomli-before-after__placeholder">After image</div>
-                  {%- endif -%}
-                  <figcaption class="bloomli-before-after__image-label bloomli-before-after__image-label--after">{{ section.settings.after_label | default: 'After' }}</figcaption>
+                  <div class="bloomli-before-after__media-frame">
+                    <div class="bloomli-before-after__placeholder">Month 6</div>
+                  </div>
+                  <figcaption class="bloomli-before-after__image-label">Month 6</figcaption>
                 </figure>
               </div>
 
@@ -530,14 +509,14 @@
         {
           "type": "text",
           "id": "before_label",
-          "label": "Before label",
-          "default": "Before"
+          "label": "Before/month label",
+          "default": "Month 0"
         },
         {
           "type": "text",
           "id": "after_label",
-          "label": "After label",
-          "default": "After"
+          "label": "After/month label",
+          "default": "Month 6"
         },
         {
           "type": "text",
@@ -580,6 +559,12 @@
           "id": "verified_review",
           "label": "Show verified review",
           "default": true
+        },
+        {
+          "type": "text",
+          "id": "verified_label",
+          "label": "Verified review text",
+          "default": "Verified review"
         }
       ]
     }

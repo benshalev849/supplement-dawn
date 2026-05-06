@@ -75,6 +75,7 @@
 
 .bloomli-before-after__track {
   display: flex;
+  flex-wrap: nowrap;
   gap: var(--bba-gap);
   align-items: stretch;
   min-width: 0;
@@ -82,7 +83,6 @@
 
 .bloomli-before-after__card {
   flex: 0 0 calc((100% - (var(--bba-gap) * (var(--bba-cards-current) - 1))) / var(--bba-cards-current));
-  min-width: 0;
   display: flex;
   flex-direction: column;
   min-height: 580px;
@@ -160,6 +160,7 @@
 }
 
 .bloomli-before-after__content {
+  min-width: 0;
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
@@ -180,6 +181,7 @@
 }
 
 .bloomli-before-after__footer {
+  min-width: 0;
   display: grid;
   gap: 16px;
   padding-top: 18px;
@@ -187,6 +189,7 @@
 }
 
 .bloomli-before-after__reviewer {
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -219,6 +222,7 @@
 }
 
 .bloomli-before-after__tags {
+  min-width: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
@@ -323,28 +327,50 @@
   .bloomli-before-after:not(.is-carousel) .bloomli-before-after__viewport {
     overflow-x: auto;
     overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     margin-right: -20px;
     padding-right: 20px;
-    scroll-padding-left: 0;
+    scroll-padding: 0 20px 0 0;
     scroll-snap-type: x mandatory;
   }
 
-  .bloomli-before-after__card {
-    flex-basis: min(314px, calc(100vw - 40px));
+  .bloomli-before-after__track {
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .bloomli-before-after__card,
+  .bloomli-before-after:not(.is-carousel) .bloomli-before-after__card {
+    flex: 0 0 calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
     min-height: 548px;
     padding: 16px;
+    scroll-snap-align: center;
   }
 
   .bloomli-before-after__media-pair {
-    grid-template-columns: repeat(2, 119px);
-    justify-content: center;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
     margin-bottom: 18px;
   }
 
+  .bloomli-before-after__media {
+    width: 100%;
+  }
+
   .bloomli-before-after__media-frame {
+    width: 100%;
     min-height: 178px;
     aspect-ratio: 119 / 178;
+  }
+
+  .bloomli-before-after__image {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .bloomli-before-after__reviewer {

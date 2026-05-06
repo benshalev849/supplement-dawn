@@ -2,35 +2,37 @@
 <script src="{{ 'bloomli-before-after.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
-  assign before_alt = section.settings.before_alt | default: section.settings.before_image.alt | default: section.settings.before_label
-  assign after_alt = section.settings.after_alt | default: section.settings.after_image.alt | default: section.settings.after_label
-  assign effective_direction = section.settings.slider_direction
-  if section.settings.aspect_ratio == '16 / 10'
-    assign effective_direction = 'horizontal'
+  assign visible_desktop = section.settings.cards_visible_desktop | default: 3
+  assign result_count = section.blocks.size
+  assign static_count = result_count | at_least: 1 | at_most: visible_desktop
+  assign use_carousel = false
+  if result_count > visible_desktop
+    assign use_carousel = true
   endif
+  assign track_id = 'BloomliResultsTrack-' | append: section.id
 -%}
 
 <section
-  class="bloomli-before-after bloomli-before-after--{{ effective_direction }} color-{{ section.settings.color_scheme }} gradient"
-  data-bloomli-before-after
-  data-bloomli-before-after-direction="{{ effective_direction }}"
+  class="bloomli-before-after color-{{ section.settings.color_scheme }} gradient{% if use_carousel %} is-carousel{% endif %}"
+  data-bloomli-results-gallery
+  data-bloomli-results-gallery-carousel="{{ use_carousel }}"
   style="
-    --bba-position: {{ section.settings.initial_position }}%;
     --bba-max-width: {{ section.settings.max_width }}px;
-    --bba-aspect-ratio: {{ section.settings.aspect_ratio }};
+    --bba-card-bg: {{ section.settings.card_background }};
+    --bba-image-bg: {{ section.settings.image_background }};
+    --bba-accent: {{ section.settings.eyebrow_accent_color }};
+    --bba-muted: {{ section.settings.muted_text_color }};
     --bba-radius: {{ section.settings.corner_radius }}px;
-    --bba-eyebrow-color: {{ section.settings.eyebrow_accent_color }};
-    {%- if section.settings.use_custom_accent_colors -%}
-      --bba-label-bg: {{ section.settings.label_background }};
-      --bba-label-text: {{ section.settings.label_text_color }};
-      --bba-handle-color: {{ section.settings.handle_color }};
-      --bba-line-color: {{ section.settings.divider_color }};
-    {%- endif -%}
+    --bba-image-radius: {{ section.settings.image_corner_radius }}px;
+    --bba-image-aspect-ratio: {{ section.settings.image_aspect_ratio }};
     --bba-image-position: {{ section.settings.image_position }};
     --bba-heading-size: {{ section.settings.heading_size }}px;
     --bba-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
     --bba-body-size: {{ section.settings.body_size }}px;
     --bba-body-size-mobile: {{ section.settings.body_size_mobile }}px;
+    --bba-gap: {{ section.settings.card_gap }}px;
+    --bba-cards-desktop: {{ visible_desktop }};
+    --bba-static-count: {{ static_count }};
     --bba-padding-top: {{ section.settings.padding_top }}px;
     --bba-padding-bottom: {{ section.settings.padding_bottom }}px;
     --bba-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
@@ -56,67 +58,190 @@
       </div>
     {%- endif -%}
 
-    <div class="bloomli-before-after__frame" data-bloomli-before-after-frame>
-      <div class="bloomli-before-after__after">
-        {%- if section.settings.after_image != blank -%}
-          {{
-            section.settings.after_image
-            | image_url: width: 1800
-            | image_tag:
-              class: 'bloomli-before-after__image',
-              alt: after_alt,
-              widths: '375, 550, 750, 1100, 1400, 1800',
-              sizes: '(max-width: 749px) calc(100vw - 40px), min(100vw - 96px, 1040px)',
-              loading: 'lazy',
-              decoding: 'async',
-              draggable: 'false'
-          }}
-        {%- else -%}
-          <div class="bloomli-before-after__placeholder">{{ section.settings.after_placeholder }}</div>
-        {%- endif -%}
+    <div class="bloomli-before-after__gallery">
+      <div
+        id="{{ track_id }}"
+        class="bloomli-before-after__viewport"
+        aria-label="{{ section.settings.heading | default: 'Real women, real results' | escape }}"
+        data-bloomli-results-viewport
+      >
+        <div class="bloomli-before-after__track" data-bloomli-results-track>
+          {%- if section.blocks.size > 0 -%}
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign before_alt = block.settings.before_image.alt | default: block.settings.before_label | default: 'Before result'
+                assign after_alt = block.settings.after_image.alt | default: block.settings.after_label | default: block.settings.timeframe | default: 'After result'
+                assign after_label = block.settings.after_label
+                if after_label == blank
+                  assign after_label = block.settings.timeframe | default: 'After'
+                endif
+              -%}
+
+              <article class="bloomli-before-after__card" {{ block.shopify_attributes }}>
+                <div class="bloomli-before-after__media-pair">
+                  <figure class="bloomli-before-after__media">
+                    {%- if block.settings.before_image != blank -%}
+                      {{
+                        block.settings.before_image
+                        | image_url: width: 900
+                        | image_tag:
+                          class: 'bloomli-before-after__image',
+                          alt: before_alt,
+                          widths: '240, 360, 520, 700, 900',
+                          sizes: '(max-width: 749px) 44vw, (max-width: 989px) 25vw, 16vw',
+                          loading: 'lazy',
+                          decoding: 'async'
+                      }}
+                    {%- else -%}
+                      <div class="bloomli-before-after__placeholder">{{ block.settings.before_label | default: 'Before image' }}</div>
+                    {%- endif -%}
+                    <figcaption class="bloomli-before-after__image-label">{{ block.settings.before_label | default: 'Before' }}</figcaption>
+                  </figure>
+
+                  <figure class="bloomli-before-after__media">
+                    {%- if block.settings.after_image != blank -%}
+                      {{
+                        block.settings.after_image
+                        | image_url: width: 900
+                        | image_tag:
+                          class: 'bloomli-before-after__image',
+                          alt: after_alt,
+                          widths: '240, 360, 520, 700, 900',
+                          sizes: '(max-width: 749px) 44vw, (max-width: 989px) 25vw, 16vw',
+                          loading: 'lazy',
+                          decoding: 'async'
+                      }}
+                    {%- else -%}
+                      <div class="bloomli-before-after__placeholder">{{ after_label }}</div>
+                    {%- endif -%}
+                    <figcaption class="bloomli-before-after__image-label bloomli-before-after__image-label--after">{{ after_label }}</figcaption>
+                  </figure>
+                </div>
+
+                <div class="bloomli-before-after__content">
+                  {%- if block.settings.timeframe != blank -%}
+                    <p class="smallcaps bloomli-before-after__timeframe">{{ block.settings.timeframe }}</p>
+                  {%- endif -%}
+
+                  {%- if block.settings.review_text != blank -%}
+                    <blockquote class="bloomli-before-after__review">{{ block.settings.review_text }}</blockquote>
+                  {%- endif -%}
+                </div>
+
+                <div class="bloomli-before-after__footer">
+                  <div class="bloomli-before-after__reviewer">
+                    {%- if block.settings.reviewer_name != blank -%}
+                      <p class="bloomli-before-after__name">{{ block.settings.reviewer_name }}</p>
+                    {%- endif -%}
+
+                    {%- if block.settings.verified_review -%}
+                      <p class="smallcaps bloomli-before-after__verified">
+                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4"/></svg>
+                        {{ section.settings.verified_label }}
+                      </p>
+                    {%- endif -%}
+                  </div>
+
+                  {%- if block.settings.result_tag_1 != blank or block.settings.result_tag_2 != blank or block.settings.result_tag_3 != blank -%}
+                    <div class="bloomli-before-after__tags" aria-label="Reported results">
+                      {%- if block.settings.result_tag_1 != blank -%}
+                        <span>{{ block.settings.result_tag_1 }}</span>
+                      {%- endif -%}
+                      {%- if block.settings.result_tag_2 != blank -%}
+                        <span>{{ block.settings.result_tag_2 }}</span>
+                      {%- endif -%}
+                      {%- if block.settings.result_tag_3 != blank -%}
+                        <span>{{ block.settings.result_tag_3 }}</span>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              </article>
+            {%- endfor -%}
+          {%- else -%}
+            <article class="bloomli-before-after__card">
+              <div class="bloomli-before-after__media-pair">
+                <figure class="bloomli-before-after__media">
+                  {%- if section.settings.before_image != blank -%}
+                    {{
+                      section.settings.before_image
+                      | image_url: width: 900
+                      | image_tag:
+                        class: 'bloomli-before-after__image',
+                        alt: section.settings.before_label,
+                        widths: '240, 360, 520, 700, 900',
+                        sizes: '(max-width: 749px) 44vw, (max-width: 989px) 25vw, 16vw',
+                        loading: 'lazy',
+                        decoding: 'async'
+                    }}
+                  {%- else -%}
+                    <div class="bloomli-before-after__placeholder">Before image</div>
+                  {%- endif -%}
+                  <figcaption class="bloomli-before-after__image-label">{{ section.settings.before_label | default: 'Before' }}</figcaption>
+                </figure>
+
+                <figure class="bloomli-before-after__media">
+                  {%- if section.settings.after_image != blank -%}
+                    {{
+                      section.settings.after_image
+                      | image_url: width: 900
+                      | image_tag:
+                        class: 'bloomli-before-after__image',
+                        alt: section.settings.after_label,
+                        widths: '240, 360, 520, 700, 900',
+                        sizes: '(max-width: 749px) 44vw, (max-width: 989px) 25vw, 16vw',
+                        loading: 'lazy',
+                        decoding: 'async'
+                    }}
+                  {%- else -%}
+                    <div class="bloomli-before-after__placeholder">After image</div>
+                  {%- endif -%}
+                  <figcaption class="bloomli-before-after__image-label bloomli-before-after__image-label--after">{{ section.settings.after_label | default: 'After' }}</figcaption>
+                </figure>
+              </div>
+
+              <div class="bloomli-before-after__content">
+                <p class="smallcaps bloomli-before-after__timeframe">Consistent routine</p>
+                <blockquote class="bloomli-before-after__review">Visible progress from a consistent Bloomli supplement routine.</blockquote>
+              </div>
+
+              <div class="bloomli-before-after__footer">
+                <div class="bloomli-before-after__reviewer">
+                  <p class="bloomli-before-after__name">Bloomli customer</p>
+                  <p class="smallcaps bloomli-before-after__verified">
+                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4"/></svg>
+                    {{ section.settings.verified_label }}
+                  </p>
+                </div>
+              </div>
+            </article>
+          {%- endif -%}
+        </div>
       </div>
 
-      <div class="bloomli-before-after__before">
-        {%- if section.settings.before_image != blank -%}
-          {{
-            section.settings.before_image
-            | image_url: width: 1800
-            | image_tag:
-              class: 'bloomli-before-after__image',
-              alt: before_alt,
-              widths: '375, 550, 750, 1100, 1400, 1800',
-              sizes: '(max-width: 749px) calc(100vw - 40px), min(100vw - 96px, 1040px)',
-              loading: 'lazy',
-              decoding: 'async',
-              draggable: 'false'
-          }}
-        {%- else -%}
-          <div class="bloomli-before-after__placeholder">{{ section.settings.before_placeholder }}</div>
-        {%- endif -%}
-      </div>
+      {%- if use_carousel -%}
+        <div class="bloomli-before-after__controls" aria-label="Result gallery controls">
+          <button
+            class="bloomli-before-after__arrow"
+            type="button"
+            aria-label="Previous result"
+            aria-controls="{{ track_id }}"
+            data-bloomli-results-prev
+          >
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.5 4.5-5 5.5 5 5.5"/></svg>
+          </button>
 
-      {%- if section.settings.show_labels -%}
-        <div class="bloomli-before-after__labels" aria-hidden="true">
-          <span class="bloomli-before-after__label">{{ section.settings.before_label }}</span>
-          <span class="bloomli-before-after__label">{{ section.settings.after_label }}</span>
+          <button
+            class="bloomli-before-after__arrow"
+            type="button"
+            aria-label="Next result"
+            aria-controls="{{ track_id }}"
+            data-bloomli-results-next
+          >
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.5 5 5.5-5 5.5"/></svg>
+          </button>
         </div>
       {%- endif -%}
-
-      <label class="visually-hidden" for="BloomliBeforeAfter-{{ section.id }}">
-        {{ section.settings.slider_label }}
-      </label>
-      <input
-        id="BloomliBeforeAfter-{{ section.id }}"
-        class="bloomli-before-after__range"
-        type="range"
-        min="0"
-        max="100"
-        step="1"
-        value="{{ section.settings.initial_position }}"
-        aria-label="{{ section.settings.slider_label | escape }}"
-        data-bloomli-before-after-range
-      >
-      <span class="bloomli-before-after__handle" aria-hidden="true"></span>
     </div>
 
     {%- if section.settings.caption != blank -%}
@@ -129,8 +254,9 @@
 
 {% schema %}
 {
-  "name": "Bloomli - Before After",
+  "name": "Bloomli - Result Gallery",
   "tag": "div",
+  "max_blocks": 12,
   "settings": [
     {
       "type": "color_scheme",
@@ -142,73 +268,91 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Real routine progress"
+      "default": "Real women, real results"
     },
     {
       "type": "color",
       "id": "eyebrow_accent_color",
-      "label": "Eyebrow accent color",
+      "label": "Accent color",
       "default": "#8A6678"
     },
     {
       "type": "inline_richtext",
       "id": "heading",
       "label": "Heading",
-      "default": "Before and after, side by side."
+      "default": "The results you've been waiting for"
     },
     {
       "type": "richtext",
       "id": "copy",
-      "label": "Copy",
-      "default": "<p>Slide to compare visible progress from a consistent Bloomli supplement routine.</p>"
+      "label": "Subheading",
+      "default": "<p>Static before-and-after photos paired with verified routine notes from Bloomli customers.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FDFAF7"
+    },
+    {
+      "type": "color",
+      "id": "image_background",
+      "label": "Image placeholder background",
+      "default": "#F7F0E9"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Muted text color",
+      "default": "#7C7169"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Card corner radius",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "image_corner_radius",
+      "label": "Image corner radius",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "default": 8,
+      "unit": "px"
     },
     {
       "type": "header",
       "content": "Images"
     },
     {
-      "type": "image_picker",
-      "id": "before_image",
-      "label": "Before image"
-    },
-    {
-      "type": "text",
-      "id": "before_alt",
-      "label": "Before image alt text"
-    },
-    {
-      "type": "text",
-      "id": "before_label",
-      "label": "Before label",
-      "default": "Before"
-    },
-    {
-      "type": "text",
-      "id": "before_placeholder",
-      "label": "Before placeholder text",
-      "default": "Before image"
-    },
-    {
-      "type": "image_picker",
-      "id": "after_image",
-      "label": "After image"
-    },
-    {
-      "type": "text",
-      "id": "after_alt",
-      "label": "After image alt text"
-    },
-    {
-      "type": "text",
-      "id": "after_label",
-      "label": "After label",
-      "default": "After"
-    },
-    {
-      "type": "text",
-      "id": "after_placeholder",
-      "label": "After placeholder text",
-      "default": "After image"
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        {
+          "value": "4 / 5",
+          "label": "Portrait"
+        },
+        {
+          "value": "3 / 4",
+          "label": "Tall"
+        },
+        {
+          "value": "1 / 1",
+          "label": "Square"
+        }
+      ],
+      "default": "4 / 5"
     },
     {
       "type": "select",
@@ -240,121 +384,34 @@
     },
     {
       "type": "header",
-      "content": "Slider"
-    },
-    {
-      "type": "select",
-      "id": "slider_direction",
-      "label": "Slider direction",
-      "options": [
-        {
-          "value": "vertical",
-          "label": "Top to bottom"
-        },
-        {
-          "value": "horizontal",
-          "label": "Left to right"
-        }
-      ],
-      "default": "vertical"
-    },
-    {
-      "type": "range",
-      "id": "initial_position",
-      "label": "Initial slider position",
-      "min": 10,
-      "max": 90,
-      "step": 1,
-      "default": 50,
-      "unit": "%"
-    },
-    {
-      "type": "text",
-      "id": "slider_label",
-      "label": "Accessible slider label",
-      "default": "Compare before and after images"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_labels",
-      "label": "Show before and after labels",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "use_custom_accent_colors",
-      "label": "Override color scheme accents",
-      "default": false
-    },
-    {
-      "type": "color",
-      "id": "label_background",
-      "label": "Custom label background",
-      "default": "#B23A6F"
-    },
-    {
-      "type": "color",
-      "id": "label_text_color",
-      "label": "Custom label text",
-      "default": "#FDFAF7"
-    },
-    {
-      "type": "color",
-      "id": "handle_color",
-      "label": "Custom handle color",
-      "default": "#B23A6F"
-    },
-    {
-      "type": "color",
-      "id": "divider_color",
-      "label": "Custom divider and handle icon",
-      "default": "#FDFAF7"
-    },
-    {
-      "type": "header",
       "content": "Layout"
     },
     {
-      "type": "select",
-      "id": "aspect_ratio",
-      "label": "Image aspect ratio",
-      "options": [
-        {
-          "value": "4 / 5",
-          "label": "Portrait"
-        },
-        {
-          "value": "3 / 4",
-          "label": "Tall"
-        },
-        {
-          "value": "1 / 1",
-          "label": "Square"
-        },
-        {
-          "value": "16 / 10",
-          "label": "Wide"
-        }
-      ],
-      "default": "4 / 5"
+      "type": "range",
+      "id": "cards_visible_desktop",
+      "label": "Cards shown on desktop",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 3
     },
     {
       "type": "range",
       "id": "max_width",
-      "label": "Max width",
-      "min": 360,
-      "max": 1320,
-      "step": 20,
-      "default": 620,
+      "label": "Content width",
+      "min": 960,
+      "max": 1440,
+      "step": 40,
+      "default": 1200,
       "unit": "px"
     },
     {
       "type": "range",
-      "id": "corner_radius",
-      "label": "Corner radius",
-      "min": 0,
-      "max": 40,
-      "step": 2,
+      "id": "card_gap",
+      "label": "Card gap",
+      "min": 12,
+      "max": 36,
+      "step": 4,
       "default": 20,
       "unit": "px"
     },
@@ -363,9 +420,9 @@
       "id": "heading_size",
       "label": "Heading size desktop",
       "min": 34,
-      "max": 72,
+      "max": 64,
       "step": 2,
-      "default": 52,
+      "default": 46,
       "unit": "px"
     },
     {
@@ -373,7 +430,7 @@
       "id": "heading_size_mobile",
       "label": "Heading size mobile",
       "min": 28,
-      "max": 48,
+      "max": 46,
       "step": 2,
       "default": 36,
       "unit": "px"
@@ -383,9 +440,9 @@
       "id": "body_size",
       "label": "Body size desktop",
       "min": 14,
-      "max": 22,
+      "max": 20,
       "step": 1,
-      "default": 17,
+      "default": 15,
       "unit": "px"
     },
     {
@@ -397,6 +454,12 @@
       "step": 1,
       "default": 15,
       "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "verified_label",
+      "label": "Verified review label",
+      "default": "Verified review"
     },
     {
       "type": "textarea",
@@ -449,9 +512,116 @@
       "unit": "px"
     }
   ],
+  "blocks": [
+    {
+      "type": "result",
+      "name": "Result review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "before_image",
+          "label": "Before image"
+        },
+        {
+          "type": "image_picker",
+          "id": "after_image",
+          "label": "After image"
+        },
+        {
+          "type": "text",
+          "id": "before_label",
+          "label": "Before label",
+          "default": "Before"
+        },
+        {
+          "type": "text",
+          "id": "after_label",
+          "label": "After label",
+          "default": "After"
+        },
+        {
+          "type": "text",
+          "id": "reviewer_name",
+          "label": "Reviewer name",
+          "default": "Priya K."
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review text",
+          "default": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\""
+        },
+        {
+          "type": "text",
+          "id": "timeframe",
+          "label": "Timeframe",
+          "default": "6 months"
+        },
+        {
+          "type": "text",
+          "id": "result_tag_1",
+          "label": "Result tag 1",
+          "default": "Visibly fuller"
+        },
+        {
+          "type": "text",
+          "id": "result_tag_2",
+          "label": "Result tag 2",
+          "default": "Less shedding"
+        },
+        {
+          "type": "text",
+          "id": "result_tag_3",
+          "label": "Result tag 3",
+          "default": "Stronger hair"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified_review",
+          "label": "Show verified review",
+          "default": true
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Bloomli - Before After"
+      "name": "Bloomli - Result Gallery",
+      "blocks": [
+        {
+          "type": "result",
+          "settings": {
+            "reviewer_name": "Priya K.",
+            "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
+            "timeframe": "6 months",
+            "result_tag_1": "Visibly fuller",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Stronger hair"
+          }
+        },
+        {
+          "type": "result",
+          "settings": {
+            "reviewer_name": "Leah M.",
+            "review_text": "\"The shedding slowed down first, then I started seeing baby hairs around my hairline.\"",
+            "timeframe": "3 months",
+            "result_tag_1": "Less shedding",
+            "result_tag_2": "New growth",
+            "result_tag_3": ""
+          }
+        },
+        {
+          "type": "result",
+          "settings": {
+            "reviewer_name": "Marisol R.",
+            "review_text": "\"My hair feels stronger and the difference in photos made me realize the routine was working.\"",
+            "timeframe": "6 months",
+            "result_tag_1": "Stronger hair",
+            "result_tag_2": "Visible progress",
+            "result_tag_3": ""
+          }
+        }
+      ]
     }
   ]
 }

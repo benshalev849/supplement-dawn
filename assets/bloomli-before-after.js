@@ -1,61 +1,48 @@
 (() => {
-  const selector = '[data-bloomli-before-after]';
+  const selector = '[data-bloomli-results-gallery][data-bloomli-results-gallery-carousel="true"]';
 
-  // Use isNaN guard — Number(0) is falsy so "|| 50" would wrongly snap 0% to 50%
-  const clamp = (value) => { const n = parseFloat(value); return Math.max(0, Math.min(100, isNaN(n) ? 50 : n)); };
+  const getStep = (viewport) => {
+    const firstCard = viewport.querySelector('.bloomli-before-after__card');
+    if (!firstCard) return viewport.clientWidth;
 
-  const update = (section, input) => {
-    section.style.setProperty('--bba-position', `${clamp(input.value)}%`);
+    const styles = window.getComputedStyle(viewport.querySelector('[data-bloomli-results-track]'));
+    const gap = parseFloat(styles.columnGap || styles.gap || 0);
+
+    return firstCard.getBoundingClientRect().width + (Number.isNaN(gap) ? 0 : gap);
   };
 
-  const updateFromPointer = (section, input, frame, event) => {
-    const rect = frame.getBoundingClientRect();
-    if (!rect.width || !rect.height) return;
+  const updateControls = (section) => {
+    const viewport = section.querySelector('[data-bloomli-results-viewport]');
+    const prev = section.querySelector('[data-bloomli-results-prev]');
+    const next = section.querySelector('[data-bloomli-results-next]');
+    if (!viewport || !prev || !next) return;
 
-    const direction = section.dataset.bloomliBeforeAfterDirection || 'horizontal';
-    const percent = direction === 'vertical'
-      ? ((event.clientY - rect.top) / rect.height) * 100
-      : ((event.clientX - rect.left) / rect.width) * 100;
-
-    input.value = String(clamp(percent));
-    update(section, input);
+    const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth - 1);
+    prev.disabled = viewport.scrollLeft <= 1;
+    next.disabled = viewport.scrollLeft >= maxScroll;
   };
 
   const initSection = (section) => {
-    if (section.dataset.bloomliBeforeAfterReady === 'true') return;
+    if (section.dataset.bloomliResultsReady === 'true') return;
 
-    const input = section.querySelector('[data-bloomli-before-after-range]');
-    const frame = section.querySelector('[data-bloomli-before-after-frame]');
-    if (!input || !frame) return;
+    const viewport = section.querySelector('[data-bloomli-results-viewport]');
+    const prev = section.querySelector('[data-bloomli-results-prev]');
+    const next = section.querySelector('[data-bloomli-results-next]');
+    if (!viewport || !prev || !next) return;
 
-    const direction = section.dataset.bloomliBeforeAfterDirection || 'horizontal';
+    prev.addEventListener('click', () => {
+      viewport.scrollBy({ left: -getStep(viewport), behavior: 'smooth' });
+    });
 
-    update(section, input);
+    next.addEventListener('click', () => {
+      viewport.scrollBy({ left: getStep(viewport), behavior: 'smooth' });
+    });
 
-    if (direction === 'horizontal') {
-      // Horizontal: native range input drives everything — reliable cross-browser.
-      input.addEventListener('input', () => update(section, input), { passive: true });
-    } else {
-      // Vertical: native range is horizontal so it can't track Y.
-      // Frame pointer events own the whole interaction (range has pointer-events:none in CSS).
-      let active = false;
+    viewport.addEventListener('scroll', () => updateControls(section), { passive: true });
+    window.addEventListener('resize', () => updateControls(section), { passive: true });
 
-      frame.addEventListener('pointerdown', (event) => {
-        active = true;
-        frame.setPointerCapture(event.pointerId);
-        updateFromPointer(section, input, frame, event);
-      });
-
-      frame.addEventListener('pointermove', (event) => {
-        if (!active) return;
-        updateFromPointer(section, input, frame, event);
-      }, { passive: true });
-
-      frame.addEventListener('pointerup', () => { active = false; });
-      frame.addEventListener('pointercancel', () => { active = false; });
-    }
-
-    section.dataset.bloomliBeforeAfterReady = 'true';
+    updateControls(section);
+    section.dataset.bloomliResultsReady = 'true';
   };
 
   const initAll = (root = document) => {

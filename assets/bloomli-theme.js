@@ -1,6 +1,6 @@
 (function () {
   function measureElementHeight(element) {
-    return element ? Math.ceil(element.getBoundingClientRect().height) : 0;
+    return element ? Math.round(element.getBoundingClientRect().height * 100) / 100 : 0;
   }
 
   function setHeaderStackHeight() {

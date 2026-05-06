@@ -857,7 +857,7 @@ label,
    --bloomli-announcement-height is set in JS (theme.liquid) */
 .section-header.shopify-section-group-header-group {
   position: fixed !important;
-  top: var(--bloomli-announcement-height, 0px) !important;
+  top: calc(var(--bloomli-announcement-height, 0px) - 1px) !important;
   left: 0;
   right: 0;
   width: 100%;
@@ -889,7 +889,7 @@ label,
   }
 
   .section-header.shopify-section-group-header-group {
-    top: var(--bloomli-announcement-height, 0px) !important;
+    top: calc(var(--bloomli-announcement-height, 0px) - 1px) !important;
     margin-top: 0 !important;
   }
 

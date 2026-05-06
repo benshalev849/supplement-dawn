@@ -6445,9 +6445,9 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_before_after_js",
-      "target": "assets_bloomli_before_after_getstep",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_before_after_getstep"
     },
     {
       "relation": "contains",
@@ -6455,9 +6455,9 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_before_after_js",
-      "target": "assets_bloomli_before_after_updatecontrols",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_before_after_updatecontrols"
     },
     {
       "relation": "contains",
@@ -6516,9 +6516,9 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_before_after_initsection",
-      "target": "assets_bloomli_before_after_updatecontrols",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_before_after_updatecontrols"
     },
     {
       "relation": "calls",

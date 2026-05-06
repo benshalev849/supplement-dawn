@@ -268,6 +268,102 @@
         "padding_bottom": 128
       }
     },
+    "bloomli_proof_split_bhYAhW": {
+      "type": "bloomli-proof-split",
+      "blocks": {
+        "bullet_zDDhyE": {
+          "type": "bullet",
+          "settings": {
+            "text": "Clinically-dosed actives. No fairy dust."
+          }
+        },
+        "bullet_9GzmFm": {
+          "type": "bullet",
+          "settings": {
+            "text": "Vegan pectin base. No gelatin, no artificial dyes."
+          }
+        },
+        "bullet_f68cpc": {
+          "type": "bullet",
+          "settings": {
+            "text": "Third-party tested for purity and potency."
+          }
+        },
+        "bullet_F7gTNi": {
+          "type": "bullet",
+          "settings": {
+            "text": "Made in a GMP-certified facility in California."
+          }
+        }
+      },
+      "block_order": [
+        "bullet_zDDhyE",
+        "bullet_9GzmFm",
+        "bullet_f68cpc",
+        "bullet_F7gTNi"
+      ],
+      "name": "Bloomli - Proof Split",
+      "settings": {
+        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
+        "use_custom_background": false,
+        "background_color": "{{ shop.brand.colors.primary[0].background }}",
+        "eyebrow_accent_color": "#8a6678",
+        "icon_accent_color": "#6f7a5a",
+        "image": "shopify://shop_images/Model_Holding_Gummy_2.png",
+        "media_background": "background",
+        "image_label": "Editorial - morning ritual - natural light",
+        "image_scale": 100,
+        "image_position": "center center",
+        "image_radius": 16,
+        "eyebrow": "Clinically dosed - gently made",
+        "heading_line1": "Every milligram,",
+        "heading_line2": "intentional.",
+        "copy": "<p>We formulate at clinical doses - the amounts used in peer-reviewed studies - not the sprinkle-doses you'll find in most gummies. Every batch is independently tested. Nothing added for color, nothing hidden in a proprietary blend.</p>",
+        "padding_top": 104,
+        "padding_bottom": 104
+      }
+    },
+    "bloomli_before_after_U7dPaV": {
+      "type": "bloomli-before-after",
+      "name": "Bloomli - Before After",
+      "settings": {
+        "color_scheme": "",
+        "eyebrow": "Real routine progress",
+        "eyebrow_accent_color": "#8a6678",
+        "heading": "Before and after, side by side.",
+        "copy": "<p>Slide to compare visible progress from a consistent Bloomli supplement routine.</p>",
+        "before_image": "shopify://shop_images/Before_1_5f374fa5-d56d-4ff1-bf71-ca291ba6dd62.png",
+        "before_alt": "",
+        "before_label": "Before",
+        "before_placeholder": "Before image",
+        "after_image": "shopify://shop_images/After_1_Test_fa1d92ff-f9bf-43ad-9902-873c638582e6.png",
+        "after_alt": "",
+        "after_label": "After",
+        "after_placeholder": "After image",
+        "image_position": "center center",
+        "slider_direction": "horizontal",
+        "initial_position": 50,
+        "slider_label": "Compare before and after images",
+        "show_labels": true,
+        "use_custom_accent_colors": false,
+        "label_background": "#b23a6f",
+        "label_text_color": "#fdfaf7",
+        "handle_color": "#b23a6f",
+        "divider_color": "#fdfaf7",
+        "aspect_ratio": "4 / 5",
+        "max_width": 500,
+        "corner_radius": 20,
+        "heading_size": 52,
+        "heading_size_mobile": 36,
+        "body_size": 17,
+        "body_size_mobile": 15,
+        "caption": "Results May Vary.",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64
+      }
+    },
     "bloomli_formula_gallery_ypjbMe": {
       "type": "bloomli-formula-gallery",
       "blocks": {
@@ -503,6 +599,7 @@
         "padding_bottom": 88
       }
     },
+<<<<<<< HEAD
     "bloomli_proof_split_bhYAhW": {
       "type": "bloomli-proof-split",
       "blocks": {
@@ -610,6 +707,8 @@
         "padding_bottom_mobile": 64
       }
     },
+=======
+>>>>>>> 1a47b6f20868a29de2ef77dd28c8158c2c901669
     "bloomli_photo_mosaic_dYCUhp": {
       "type": "bloomli-photo-mosaic",
       "blocks": {
@@ -858,10 +957,10 @@
   "order": [
     "main",
     "bloomli_timeline_qUAhUY",
-    "bloomli_formula_gallery_ypjbMe",
-    "bloomli_faq_N48arU",
     "bloomli_proof_split_bhYAhW",
+    "bloomli_formula_gallery_ypjbMe",
     "bloomli_before_after_U7dPaV",
+    "bloomli_faq_N48arU",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
     "related-products"

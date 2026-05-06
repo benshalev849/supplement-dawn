@@ -488,10 +488,43 @@
     "bloomli_before_after_U7dPaV": {
       "type": "bloomli-before-after",
       "blocks": {
+        "result_bPaP87": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_5.png",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
+            "reviewer_name": "Priya K.",
+            "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
+            "timeframe": "6 months",
+            "result_tag_1": "Visibly fuller",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Stronger hair",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_9hNhFP": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_4.png",
+            "after_image": "shopify://shop_images/After_4_9307f98a-e89a-4368-9a36-aeab015093c4.png",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
+            "reviewer_name": "Priya K.",
+            "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
+            "timeframe": "6 months",
+            "result_tag_1": "Visibly fuller",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Stronger hair",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
         "result_review_current": {
           "type": "result",
           "settings": {
-            "before_image": "shopify://shop_images/Before_2_c8ba7839-97d3-496c-8cac-9c43b706a601.png",
+            "before_image": "shopify://shop_images/Before_2.png",
             "after_image": "shopify://shop_images/After_2.png",
             "before_label": "Month 0",
             "after_label": "Month 6",
@@ -508,6 +541,8 @@
         "result_jUa8a4": {
           "type": "result",
           "settings": {
+            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
+            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
             "before_label": "Month 0",
             "after_label": "Month 6",
             "reviewer_name": "Priya K.",
@@ -523,6 +558,8 @@
         "result_zrawxk": {
           "type": "result",
           "settings": {
+            "before_image": "shopify://shop_images/Before_3.png",
+            "after_image": "shopify://shop_images/After_3.png",
             "before_label": "Month 0",
             "after_label": "Month 6",
             "reviewer_name": "Priya K.",
@@ -537,6 +574,8 @@
         }
       },
       "block_order": [
+        "result_bPaP87",
+        "result_9hNhFP",
         "result_review_current",
         "result_jUa8a4",
         "result_zrawxk"

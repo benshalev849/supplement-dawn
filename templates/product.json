@@ -564,10 +564,10 @@
         "body_size_mobile": 15,
         "verified_label": "Verified review",
         "caption": "Results vary. Before and after photos should represent real customers and be used only with permission.",
-        "padding_top": 96,
-        "padding_bottom": 96,
-        "padding_top_mobile": 64,
-        "padding_bottom_mobile": 64
+        "padding_top": 64,
+        "padding_bottom": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 32
       }
     },
     "bloomli_faq_N48arU": {
@@ -639,8 +639,8 @@
         "heading_size": 48,
         "question_size": 17,
         "body_size": 15,
-        "padding_top": 88,
-        "padding_bottom": 88
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "bloomli_photo_mosaic_dYCUhp": {
@@ -792,8 +792,8 @@
         "columns_desktop": 6,
         "columns_mobile": "2",
         "gap": 10,
-        "radius": 8,
-        "padding_top": 96,
+        "radius": 6,
+        "padding_top": 48,
         "padding_bottom": 96
       }
     },

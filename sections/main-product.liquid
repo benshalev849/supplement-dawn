@@ -738,6 +738,20 @@
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
+
+    {%- if section.settings.enable_floating_cta -%}
+      {%- assign floating_cta_label = section.settings.floating_cta_label | default: 'Start Now' -%}
+      <button
+        type="button"
+        class="bloomli-floating-cta"
+        data-bloomli-floating-cta
+        data-product-info-target="#ProductInfo-{{ section.id }}"
+        data-scroll-threshold="{{ section.settings.floating_cta_threshold | default: 50 }}"
+        aria-label="{{ floating_cta_label | escape }}"
+      >
+        {{ floating_cta_label | escape }}
+      </button>
+    {%- endif -%}
   </div>
 </product-info>
 
@@ -2232,6 +2246,32 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Floating CTA"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_floating_cta",
+      "default": true,
+      "label": "Enable floating CTA"
+    },
+    {
+      "type": "text",
+      "id": "floating_cta_label",
+      "default": "Start Now",
+      "label": "CTA label"
+    },
+    {
+      "type": "range",
+      "id": "floating_cta_threshold",
+      "min": 10,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Scroll threshold",
+      "default": 50
     },
     {
       "type": "header",

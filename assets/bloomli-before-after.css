@@ -1,5 +1,5 @@
 .bloomli-before-after {
-  --bba-card-bg: rgb(var(--color-background));
+  --bba-card-bg: #ffffff;
   --bba-image-bg: rgba(var(--color-foreground), 0.035);
   --bba-accent: rgb(var(--color-button));
   --bba-muted: rgba(var(--color-foreground), 0.68);
@@ -132,7 +132,6 @@
   max-width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: var(--bba-image-position);
 }
 
 .bloomli-before-after__placeholder {

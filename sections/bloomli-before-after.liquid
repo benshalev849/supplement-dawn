@@ -23,7 +23,6 @@
     --bba-radius: {{ section.settings.corner_radius }}px;
     --bba-image-radius: var(--media-radius, {{ section.settings.image_corner_radius }}px);
     --bba-image-aspect-ratio: 3 / 4;
-    --bba-image-position: {{ section.settings.image_position }};
     --bba-heading-size: {{ section.settings.heading_size }}px;
     --bba-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
     --bba-body-size: {{ section.settings.body_size }}px;
@@ -286,34 +285,6 @@
     {
       "type": "header",
       "content": "Images"
-    },
-    {
-      "type": "select",
-      "id": "image_position",
-      "label": "Image crop position",
-      "options": [
-        {
-          "value": "center center",
-          "label": "Center"
-        },
-        {
-          "value": "center top",
-          "label": "Top"
-        },
-        {
-          "value": "center bottom",
-          "label": "Bottom"
-        },
-        {
-          "value": "left center",
-          "label": "Left"
-        },
-        {
-          "value": "right center",
-          "label": "Right"
-        }
-      ],
-      "default": "center center"
     },
     {
       "type": "header",

@@ -568,6 +568,59 @@ h6,
   transform: translateY(-2px);
 }
 
+.bloomli-floating-cta {
+  position: fixed;
+  top: calc(var(--bloomli-header-stack-height, 0px) + 10px);
+  right: 24px;
+  z-index: 18;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: var(--buttons-radius);
+  background: #B23A6F;
+  background: rgb(var(--color-button, 178, 58, 111));
+  color: #fff;
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-style: var(--font-commerce-ui-style, var(--font-body-style));
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(var(--color-shadow, 18, 18, 18), 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.bloomli-floating-cta.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.bloomli-floating-cta:hover {
+  box-shadow: 0 10px 24px rgba(var(--color-shadow, 18, 18, 18), 0.2);
+  transform: translateY(-1px);
+}
+
+.bloomli-floating-cta:focus-visible {
+  outline: 2px solid rgba(var(--color-button, 178, 58, 111), 0.45);
+  outline-offset: 3px;
+}
+
+body.overflow-hidden .bloomli-floating-cta,
+body.overflow-hidden-mobile .bloomli-floating-cta,
+body.overflow-hidden-tablet .bloomli-floating-cta {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ---- Section spacing helpers ---- */
 .section-bloomli {
   padding: 96px 0;
@@ -796,7 +849,8 @@ label,
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 20;
+  margin-bottom: 0;
+  z-index: 20 !important;
 }
 
 /* Push the sticky header below the announcement bar.
@@ -807,7 +861,8 @@ label,
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 19;
+  margin-top: 0;
+  z-index: 19 !important;
 }
 
 #MainContent {
@@ -829,6 +884,22 @@ label,
 
 /* ---- Mobile overrides ---- */
 @media (max-width: 749px) {
+  .announcement-bar-section.shopify-section-group-header-group {
+    margin-bottom: 0 !important;
+  }
+
+  .section-header.shopify-section-group-header-group {
+    top: var(--bloomli-announcement-height, 0px) !important;
+    margin-top: 0 !important;
+  }
+
+  .bloomli-floating-cta {
+    right: 12px;
+    min-height: 36px;
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+
   .container-bloomli {
     padding: 0 16px !important;
   }

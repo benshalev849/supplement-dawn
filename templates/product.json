@@ -492,6 +492,7 @@
           "type": "result",
           "settings": {
             "before_image": "shopify://shop_images/Before_5.png",
+            "after_image": "shopify://shop_images/After_5_f6bb7f5e-0f2c-47a5-8613-bcf028f43ca2.png",
             "before_label": "Month 0",
             "after_label": "Month 6",
             "reviewer_name": "Priya K.",

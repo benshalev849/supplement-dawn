@@ -13,18 +13,16 @@
 -%}
 
 <section
-  class="bloomli-before-after color-{{ section.settings.color_scheme }} gradient{% if use_carousel %} is-carousel{% endif %}"
+  class="bloomli-before-after color-{{ section.settings.color_scheme }}{% if use_carousel %} is-carousel{% endif %}"
   data-bloomli-results-gallery
   data-bloomli-results-gallery-carousel="{{ use_carousel }}"
   style="
     --bba-max-width: {{ section.settings.max_width }}px;
-    --bba-card-bg: {{ section.settings.card_background }};
-    --bba-image-bg: {{ section.settings.image_background }};
-    --bba-accent: {{ section.settings.eyebrow_accent_color }};
-    --bba-muted: {{ section.settings.muted_text_color }};
+    --bba-accent: rgb(var(--color-button));
+    --bba-muted: rgba(var(--color-foreground), 0.68);
     --bba-radius: {{ section.settings.corner_radius }}px;
     --bba-image-radius: var(--media-radius, {{ section.settings.image_corner_radius }}px);
-    --bba-image-aspect-ratio: {{ section.settings.image_aspect_ratio }};
+    --bba-image-aspect-ratio: 3 / 4;
     --bba-image-position: {{ section.settings.image_position }};
     --bba-heading-size: {{ section.settings.heading_size }}px;
     --bba-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
@@ -250,12 +248,6 @@
       "default": "Real women, real results"
     },
     {
-      "type": "color",
-      "id": "eyebrow_accent_color",
-      "label": "Accent color",
-      "default": "#6F7A5A"
-    },
-    {
       "type": "inline_richtext",
       "id": "heading",
       "label": "Heading",
@@ -270,24 +262,6 @@
     {
       "type": "header",
       "content": "Card style"
-    },
-    {
-      "type": "color",
-      "id": "card_background",
-      "label": "Card background",
-      "default": "#F7F4F1"
-    },
-    {
-      "type": "color",
-      "id": "image_background",
-      "label": "Image placeholder background",
-      "default": "#F1EEE9"
-    },
-    {
-      "type": "color",
-      "id": "muted_text_color",
-      "label": "Muted text color",
-      "default": "#6F6861"
     },
     {
       "type": "range",
@@ -312,26 +286,6 @@
     {
       "type": "header",
       "content": "Images"
-    },
-    {
-      "type": "select",
-      "id": "image_aspect_ratio",
-      "label": "Image aspect ratio",
-      "options": [
-        {
-          "value": "4 / 5",
-          "label": "Portrait"
-        },
-        {
-          "value": "3 / 4",
-          "label": "Tall"
-        },
-        {
-          "value": "1 / 1",
-          "label": "Square"
-        }
-      ],
-      "default": "4 / 5"
     },
     {
       "type": "select",

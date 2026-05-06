@@ -505,6 +505,21 @@
             "verified_label": "Verified review"
           }
         },
+        "result_PXeWzj": {
+          "type": "result",
+          "settings": {
+            "before_label": "Month 0",
+            "after_label": "Month 6",
+            "reviewer_name": "Priya K.",
+            "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
+            "timeframe": "6 months",
+            "result_tag_1": "Visibly fuller",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Stronger hair",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
         "result_9hNhFP": {
           "type": "result",
           "settings": {
@@ -576,6 +591,7 @@
       },
       "block_order": [
         "result_bPaP87",
+        "result_PXeWzj",
         "result_9hNhFP",
         "result_review_current",
         "result_jUa8a4",

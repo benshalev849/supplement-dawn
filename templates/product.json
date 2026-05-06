@@ -488,6 +488,23 @@
     "bloomli_before_after_U7dPaV": {
       "type": "bloomli-before-after",
       "blocks": {
+        "result_9hNhFP": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_4.png",
+            "after_image": "shopify://shop_images/After_4.png",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
+            "reviewer_name": "Priya K.",
+            "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
+            "timeframe": "6 months",
+            "result_tag_1": "Visibly fuller",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Stronger hair",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
         "result_review_current": {
           "type": "result",
           "settings": {
@@ -525,6 +542,8 @@
         "result_zrawxk": {
           "type": "result",
           "settings": {
+            "before_image": "shopify://shop_images/Before_3.png",
+            "after_image": "shopify://shop_images/After_3.png",
             "before_label": "Month 0",
             "after_label": "Month 6",
             "reviewer_name": "Priya K.",
@@ -539,6 +558,7 @@
         }
       },
       "block_order": [
+        "result_9hNhFP",
         "result_review_current",
         "result_jUa8a4",
         "result_zrawxk"

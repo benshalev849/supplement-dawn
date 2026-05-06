@@ -836,9 +836,14 @@ cart-drawer.drawer .drawer__inner {
     padding-left: 0 !important;
     padding-right: 0 !important;
     border-radius: 0 !important;
-    transform: none !important;
+    transform: translateX(100%);
+    transition: transform var(--duration-default) ease;
     box-sizing: border-box;
     overflow-x: hidden;
+  }
+
+  cart-drawer.drawer.active .drawer__inner {
+    transform: translateX(0);
   }
 
   .cart-drawer {

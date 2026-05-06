@@ -511,6 +511,7 @@
         "result_PXeWzj": {
           "type": "result",
           "settings": {
+            "before_image": "shopify://shop_images/Before_10.png",
             "before_label": "Month 0",
             "after_label": "Month 6",
             "reviewer_name": "Priya K.",

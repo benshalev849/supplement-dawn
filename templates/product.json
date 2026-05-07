@@ -484,7 +484,7 @@
             "photo_label": "Raw biotin - powder",
             "icon": "leaf",
             "title": "Biotin",
-            "amount": "2500 MCG",
+            "amount": "6000 mcg",
             "text": "The keratin building block - clinically dosed for strand strength you can actually feel.",
             "source_line": ""
           }
@@ -499,7 +499,7 @@
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Saw palmetto - berry",
+            "photo_label": "Vitamin C",
             "icon": "palm",
             "title": "Saw Palmetto",
             "amount": "160 MG",

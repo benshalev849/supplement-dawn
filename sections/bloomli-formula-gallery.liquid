@@ -121,6 +121,10 @@
               {%- if block.settings.text != blank -%}
                 <div class="bloomli-formula-gallery__text">{{ block.settings.text }}</div>
               {%- endif -%}
+
+              {%- if block.settings.source_line != blank -%}
+                <div class="bloomli-formula-gallery__source">{{ block.settings.source_line }}</div>
+              {%- endif -%}
             </div>
           </article>
         {%- endunless -%}
@@ -264,7 +268,8 @@
         ], "default": "leaf" },
         { "type": "text", "id": "title", "label": "Title", "default": "Biotin" },
         { "type": "text", "id": "amount", "label": "Amount", "default": "2500 MCG" },
-        { "type": "textarea", "id": "text", "label": "Benefit text", "default": "The keratin building block - clinically dosed for strand strength you can actually feel." }
+        { "type": "textarea", "id": "text", "label": "Benefit text", "default": "The keratin building block - clinically dosed for strand strength you can actually feel." },
+        { "type": "text", "id": "source_line", "label": "Optional source/location line" }
       ]
     }
   ],

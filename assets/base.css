@@ -91,7 +91,7 @@
 
 .bloomli-formula-gallery__grid {
   display: grid;
-  gap: var(--bfg-gap-y) var(--bfg-gap-x);
+  gap: clamp(18px, calc(var(--bfg-gap-y) * 0.55), 32px);
 }
 
 .bloomli-formula-gallery__grid--2 {
@@ -103,25 +103,37 @@
 }
 
 .bloomli-formula-gallery__item {
-  display: grid;
-  grid-template-columns: var(--bfg-circle) minmax(0, 1fr);
-  gap: 24px;
-  align-items: center;
+  --bfg-card-media: clamp(84px, calc(var(--bfg-circle) * 0.64), 124px);
+  display: block;
+  position: relative;
   min-width: 0;
+  min-height: 218px;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid rgba(138, 102, 120, 0.18);
+  border-radius: var(--text-boxes-radius);
+  background:
+    linear-gradient(145deg, rgba(253, 250, 247, 0.96), rgba(243, 225, 229, 0.42)),
+    var(--bloomli-bg);
+  box-shadow: 0 12px 30px rgba(86, 60, 85, 0.045);
 }
 
 .bloomli-formula-gallery__media {
-  width: var(--bfg-circle);
+  width: var(--bfg-card-media);
   aspect-ratio: 1 / 1;
-  border-radius: 6px;
+  border-radius: var(--media-radius);
   overflow: hidden;
-  position: relative;
+  position: absolute;
+  top: 18px;
+  right: 18px;
   color: var(--bfg-icon-color, var(--bloomli-wellness-accent));
   background-color: var(--bfg-item-bg);
   background-image: var(--bfg-placeholder-lines, none);
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid rgba(138, 102, 120, 0.12);
+  opacity: 0.9;
 }
 
 .bloomli-formula-gallery__media img,
@@ -148,28 +160,60 @@
   white-space: nowrap;
 }
 
+.bloomli-formula-gallery__body {
+  position: relative;
+  z-index: 1;
+  max-width: calc(100% - var(--bfg-card-media) - 8px);
+  min-height: calc(var(--bfg-card-media) + 12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .bloomli-formula-gallery__meta {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .bloomli-formula-gallery__meta h3 {
-  font-family: 'Fraunces', serif;
+  font-family: var(--font-commerce-ui), var(--font-body-family);
+  font-style: var(--font-commerce-ui-style);
   font-size: var(--bfg-title-size, 26px);
-  line-height: 1.12;
-  font-weight: 400;
-  margin: 0 0 8px;
+  line-height: 1.08;
+  font-weight: var(--font-commerce-ui-weight-bold);
+  margin: 0 0 10px;
   color: var(--bloomli-text);
 }
 
 .bloomli-formula-gallery__meta span {
   color: var(--bfg-small-label-color, var(--bloomli-editorial-accent));
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  padding-top: 10px;
+  border-top: 1px solid rgba(138, 102, 120, 0.18);
+  font-family: var(--font-commerce-ui), var(--font-body-family);
+  font-style: var(--font-commerce-ui-style);
   font-size: 10px;
+  font-weight: var(--font-commerce-ui-weight-bold);
 }
 
 .bloomli-formula-gallery__text {
+  font-family: var(--font-commerce-ui), var(--font-body-family);
+  font-style: var(--font-commerce-ui-style);
   font-size: 15px;
-  line-height: 1.55;
-  color: var(--bloomli-text);
+  line-height: 1.6;
+  color: var(--bloomli-text-muted);
+}
+
+.bloomli-formula-gallery__source {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(138, 102, 120, 0.14);
+  font-family: var(--font-commerce-ui), var(--font-body-family);
+  font-style: var(--font-commerce-ui-style);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--bloomli-text-soft);
 }
 
 .bloomli-formula-gallery__proof-grid {
@@ -192,7 +236,7 @@
 .bloomli-formula-gallery__proof-media {
   width: var(--bfg-proof-icon);
   aspect-ratio: 1 / 1;
-  border-radius: 6px;
+  border-radius: var(--media-radius);
   background: var(--bfg-proof-bg);
   color: var(--bfg-proof-color);
   overflow: hidden;
@@ -234,16 +278,18 @@
   .bloomli-formula-gallery__grid--2,
   .bloomli-formula-gallery__grid--3 {
     grid-template-columns: 1fr !important;
-    gap: 28px !important;
+    gap: 18px !important;
   }
 
   .bloomli-formula-gallery__item {
-    grid-template-columns: var(--bfg-circle-mobile) minmax(0, 1fr);
-    gap: 18px;
+    --bfg-card-media: clamp(78px, calc(var(--bfg-circle-mobile) * 0.76), 108px);
+    min-height: 196px;
+    padding: 22px;
   }
 
   .bloomli-formula-gallery__media {
-    width: var(--bfg-circle-mobile);
+    top: 14px;
+    right: 14px;
   }
 
   .bloomli-formula-gallery__meta h3 {
@@ -269,11 +315,19 @@
 
 @media (max-width: 420px) {
   .bloomli-formula-gallery__item {
-    grid-template-columns: 1fr;
+    min-height: 0;
   }
 
   .bloomli-formula-gallery__media {
-    margin-bottom: 2px;
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 0 0 20px auto;
+  }
+
+  .bloomli-formula-gallery__body {
+    max-width: none;
+    min-height: 0;
   }
 }
 

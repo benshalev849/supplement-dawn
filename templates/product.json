@@ -625,79 +625,6 @@
         "padding_bottom_mobile": 32
       }
     },
-    "bloomli_faq_N48arU": {
-      "type": "bloomli-faq",
-      "blocks": {
-        "question_yXD6xy": {
-          "type": "question",
-          "settings": {
-            "question": "How long does Bloomli take to work?",
-            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_UfFpyj": {
-          "type": "question",
-          "settings": {
-            "question": "Can I take it every day?",
-            "answer": "<p>Yes. Bloomli is designed as a daily ritual. Always follow the product directions and your clinician's guidance if you have a specific concern.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_DbFafF": {
-          "type": "question",
-          "settings": {
-            "question": "Is this section editable?",
-            "answer": "<p>Yes. You can edit each question, answer, colors, typography, spacing, and the image from the Shopify theme editor.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_kxfkwW": {
-          "type": "question",
-          "settings": {
-            "question": "How long does Bloomli take to work?",
-            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_h3AWWX": {
-          "type": "question",
-          "settings": {
-            "question": "How long does Bloomli take to work?",
-            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
-            "open_by_default": false
-          }
-        }
-      },
-      "block_order": [
-        "question_yXD6xy",
-        "question_UfFpyj",
-        "question_DbFafF",
-        "question_kxfkwW",
-        "question_h3AWWX"
-      ],
-      "name": "Bloomli - FAQ",
-      "settings": {
-        "eyebrow": "FAQ",
-        "heading": "Questions, answered.",
-        "intro": "<p>Everything you need to know before making Bloomli part of your routine.</p>",
-        "image": "shopify://shop_images/Model_Eating_Gummy_1_776f04a1-a795-418c-b1ba-47563a85fff9.png",
-        "image_alt": "",
-        "show_placeholder": false,
-        "image_position": "right",
-        "container_color_scheme": "",
-        "color_scheme": "",
-        "border_color": "#e8ded8",
-        "content_width": 1180,
-        "image_width": 460,
-        "corner_radius": 16,
-        "heading_size": 48,
-        "question_size": 17,
-        "body_size": 15,
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
     "bloomli_photo_mosaic_dYCUhp": {
       "type": "bloomli-photo-mosaic",
       "blocks": {
@@ -836,6 +763,7 @@
         "photo_fGEqGb",
         "photo_zbFfXz"
       ],
+      "disabled": true,
       "name": "Bloomli - Photo Mosaic",
       "settings": {
         "color_scheme": "",
@@ -850,6 +778,79 @@
         "radius": 6,
         "padding_top": 48,
         "padding_bottom": 96
+      }
+    },
+    "bloomli_faq_N48arU": {
+      "type": "bloomli-faq",
+      "blocks": {
+        "question_yXD6xy": {
+          "type": "question",
+          "settings": {
+            "question": "How long does Bloomli take to work?",
+            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_UfFpyj": {
+          "type": "question",
+          "settings": {
+            "question": "Can I take it every day?",
+            "answer": "<p>Yes. Bloomli is designed as a daily ritual. Always follow the product directions and your clinician's guidance if you have a specific concern.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_DbFafF": {
+          "type": "question",
+          "settings": {
+            "question": "Is this section editable?",
+            "answer": "<p>Yes. You can edit each question, answer, colors, typography, spacing, and the image from the Shopify theme editor.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_kxfkwW": {
+          "type": "question",
+          "settings": {
+            "question": "How long does Bloomli take to work?",
+            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_h3AWWX": {
+          "type": "question",
+          "settings": {
+            "question": "How long does Bloomli take to work?",
+            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "question_yXD6xy",
+        "question_UfFpyj",
+        "question_DbFafF",
+        "question_kxfkwW",
+        "question_h3AWWX"
+      ],
+      "name": "Bloomli - FAQ",
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Questions, answered.",
+        "intro": "<p>Everything you need to know before making Bloomli part of your routine.</p>",
+        "image": "shopify://shop_images/Model_Eating_Gummy_1_776f04a1-a795-418c-b1ba-47563a85fff9.png",
+        "image_alt": "",
+        "show_placeholder": false,
+        "image_position": "right",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "border_color": "#e8ded8",
+        "content_width": 1180,
+        "image_width": 460,
+        "corner_radius": 16,
+        "heading_size": 48,
+        "question_size": 17,
+        "body_size": 15,
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "bloomli_product_picks_73mXTr": {
@@ -947,10 +948,10 @@
     "main",
     "bloomli_timeline_qUAhUY",
     "bloomli_proof_split_bhYAhW",
-    "bloomli_formula_gallery_ypjbMe",
     "bloomli_before_after_U7dPaV",
-    "bloomli_faq_N48arU",
+    "bloomli_formula_gallery_ypjbMe",
     "bloomli_photo_mosaic_dYCUhp",
+    "bloomli_faq_N48arU",
     "bloomli_product_picks_73mXTr",
     "related-products"
   ]

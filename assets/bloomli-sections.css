@@ -978,6 +978,18 @@
   border-radius: var(--bps-image-radius);
 }
 
+.bloomli-proof-split--image-right .bloomli-proof-split__inner {
+  grid-template-columns: minmax(280px, 460px) minmax(280px, var(--bps-image-width));
+}
+
+.bloomli-proof-split--image-right .bloomli-proof-split__content {
+  order: 1;
+}
+
+.bloomli-proof-split--image-right .bloomli-proof-split__media {
+  order: 2;
+}
+
 .bloomli-proof-split__media {
   border-radius: var(--bps-image-radius);
   overflow: hidden;
@@ -1052,6 +1064,14 @@
 
   .bloomli-proof-split__inner {
     grid-template-columns: 1fr;
+  }
+
+  .bloomli-proof-split--image-right .bloomli-proof-split__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .bloomli-proof-split--image-right .bloomli-proof-split__content {
+    order: initial;
   }
 
   .bloomli-proof-split__media {

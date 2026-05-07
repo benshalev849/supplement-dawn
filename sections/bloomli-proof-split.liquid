@@ -1,4 +1,4 @@
-<section class="bloomli-proof-split bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bps-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bps-bg: {{ section.settings.background_color }};{% else %}--bps-bg: var(--bloomli-bg);{% endif %}{% case section.settings.media_background %}{% when 'background' %}--bps-media-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bps-media-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bps-media-bg: var(--bloomli-soft-blush);{% else %}--bps-media-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bps-image-width: {{ section.settings.image_width | default: 620 }}px; --bps-image-radius: {{ section.settings.image_radius | default: 16 }}px; --bps-image-position: {{ section.settings.image_position }};">
+<section class="bloomli-proof-split bloomli-proof-split--image-{{ section.settings.image_side | default: 'left' }} bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bps-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bps-bg: {{ section.settings.background_color }};{% else %}--bps-bg: var(--bloomli-bg);{% endif %}{% case section.settings.media_background %}{% when 'background' %}--bps-media-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bps-media-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bps-media-bg: var(--bloomli-soft-blush);{% else %}--bps-media-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bps-image-width: {{ section.settings.image_width | default: 620 }}px; --bps-image-radius: {{ section.settings.image_radius | default: 16 }}px; --bps-image-position: {{ section.settings.image_position }};">
   <div class="bloomli-proof-split__inner">
     <div class="bloomli-proof-split__media" style="{% if section.settings.image == blank %}--bps-placeholder-lines: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}">
       {%- if section.settings.image != blank -%}
@@ -55,6 +55,10 @@
     { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FDFAF7" },
     { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
     { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "select", "id": "image_side", "label": "Image position on desktop", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "right", "label": "Right" }
+    ], "default": "left" },
     { "type": "select", "id": "media_background", "label": "Image placeholder background", "options": [
       { "value": "surface", "label": "Scheme soft surface" },
       { "value": "surface_strong", "label": "Scheme stronger surface" },

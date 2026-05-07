@@ -110,9 +110,9 @@
   min-height: 218px;
   overflow: hidden;
   padding: 28px;
-  border: 1px solid #E7DCD5;
+  border: 1px solid var(--bfg-card-border, #E7DCD5);
   border-radius: var(--text-boxes-radius);
-  background: #FBF7F3;
+  background: var(--bfg-card-bg, #FBF7F3);
   box-shadow: 0 12px 28px rgba(42, 38, 34, 0.04);
 }
 

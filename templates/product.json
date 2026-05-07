@@ -472,7 +472,7 @@
             "is_proof": false,
             "image": "shopify://shop_images/Biotin_-_Top_Down.png",
             "image_scale": 100,
-            "use_custom_circle_color": true,
+            "use_custom_circle_color": false,
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",

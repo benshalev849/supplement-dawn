@@ -1051,13 +1051,13 @@
 .bloomli-proof-split__check::after {
   content: "";
   position: absolute;
-  left: 5px;
+  left: 50%;
   top: 50%;
   width: 9px;
   height: 5px;
   border-left: 1.6px solid #fff;
   border-bottom: 1.6px solid #fff;
-  transform: translateY(-70%) rotate(-45deg);
+  transform: translate(-50%, -65%) rotate(-45deg);
 }
 
 .bloomli-proof-split__bullet-text {

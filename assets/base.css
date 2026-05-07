@@ -110,12 +110,10 @@
   min-height: 218px;
   overflow: hidden;
   padding: 28px;
-  border: 1px solid rgba(138, 102, 120, 0.18);
+  border: 1px solid #E7DCD5;
   border-radius: var(--text-boxes-radius);
-  background:
-    linear-gradient(145deg, rgba(253, 250, 247, 0.96), rgba(243, 225, 229, 0.42)),
-    var(--bloomli-bg);
-  box-shadow: 0 12px 30px rgba(86, 60, 85, 0.045);
+  background: #FBF7F3;
+  box-shadow: 0 12px 28px rgba(42, 38, 34, 0.04);
 }
 
 .bloomli-formula-gallery__media {

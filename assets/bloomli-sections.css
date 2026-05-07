@@ -1142,6 +1142,23 @@
   line-height: 1.05;
 }
 
+.bloomli-timeline__subheadline {
+  max-width: 680px;
+  margin: 18px auto 0;
+  color: var(--bloomli-text-muted);
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.bloomli-timeline__subheadline > :first-child {
+  margin-top: 0;
+}
+
+.bloomli-timeline__subheadline > :last-child {
+  margin-bottom: 0;
+}
+
 .bloomli-timeline__wrap {
   position: relative;
   padding-top: 4.4rem;
@@ -1370,6 +1387,10 @@
 
   .bloomli-timeline__heading {
     font-size: 32px;
+  }
+
+  .bloomli-timeline__subheadline {
+    font-size: 15px;
   }
 
   .bloomli-timeline__title {

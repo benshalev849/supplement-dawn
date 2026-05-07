@@ -1009,7 +1009,7 @@
   max-width: 1180px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 460px);
+  grid-template-columns: minmax(280px, var(--bps-image-width)) minmax(280px, 460px);
   gap: clamp(32px, 6vw, 80px);
   align-items: center;
   padding: clamp(28px, 4vw, 56px);
@@ -1099,7 +1099,7 @@
 
   .bloomli-proof-split__media {
     order: -1;
-    max-width: 520px;
+    max-width: min(100%, var(--bps-image-width));
   }
 }
 

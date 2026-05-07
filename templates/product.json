@@ -266,8 +266,8 @@
         "show_connector": true,
         "connector_style": "dashed",
         "connector_width": 1,
-        "padding_top": 128,
-        "padding_bottom": 128
+        "padding_top": 104,
+        "padding_bottom": 104
       }
     },
     "bloomli_proof_split_bhYAhW": {
@@ -320,7 +320,7 @@
         "heading_line1": "Every milligram,",
         "heading_line2": "intentional.",
         "copy": "<p>We formulate at clinical doses - the amounts used in peer-reviewed studies - not the sprinkle-doses you'll find in most gummies. Every batch is independently tested. Nothing added for color, nothing hidden in a proprietary blend.</p>",
-        "padding_top": 104,
+        "padding_top": 48,
         "padding_bottom": 104
       }
     },

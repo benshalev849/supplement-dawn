@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "PowerShell(python -c $script)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(graphify query *)"
     ]
   },
   "hooks": {

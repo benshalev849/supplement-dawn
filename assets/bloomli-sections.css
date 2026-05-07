@@ -1041,13 +1041,23 @@
 .bloomli-proof-split__check {
   width: 20px;
   height: 20px;
-  border: 1px solid var(--bps-icon-color);
-  border-radius 6px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--bps-icon-color);
+  border-radius: 50%;
+  background-color: var(--bps-icon-color);
+  flex-shrink: 0;
+  position: relative;
   margin-top: 2px;
+}
+
+.bloomli-proof-split__check::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  width: 9px;
+  height: 5px;
+  border-left: 1.6px solid #fff;
+  border-bottom: 1.6px solid #fff;
+  transform: translateY(-70%) rotate(-45deg);
 }
 
 .bloomli-proof-split__bullet-text {

@@ -136,6 +136,13 @@
   opacity: 0.9;
 }
 
+.bloomli-formula-gallery__media--image {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
 .bloomli-formula-gallery__media img,
 .bloomli-formula-gallery__proof-media img {
   width: 100%;
@@ -243,6 +250,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.bloomli-formula-gallery__proof-media--image {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
 }
 
 .bloomli-formula-gallery__proof-title {

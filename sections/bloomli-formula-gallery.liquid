@@ -8,13 +8,13 @@
     {%- endif -%}
     {%- case section.settings.media_background -%}
       {%- when 'background' -%}
-        --bfg-media-bg: var(--bloomli-bg);
+        --bfg-placeholder-bg: var(--bloomli-bg);
       {%- when 'surface_strong' -%}
-        --bfg-media-bg: var(--bloomli-surface-strong);
+        --bfg-placeholder-bg: var(--bloomli-surface-strong);
       {%- when 'accent_soft' -%}
-        --bfg-media-bg: rgba(var(--color-button), 0.12);
+        --bfg-placeholder-bg: rgba(var(--color-button), 0.12);
       {%- else -%}
-        --bfg-media-bg: var(--bloomli-surface);
+        --bfg-placeholder-bg: var(--bloomli-surface);
     {%- endcase -%}
     {%- case section.settings.proof_background -%}
       {%- when 'background' -%}
@@ -69,9 +69,9 @@
         {%- unless block.settings.is_proof -%}
           <article class="bloomli-formula-gallery__item" {{ block.shopify_attributes }}>
             <div
-              class="bloomli-formula-gallery__media"
+              class="bloomli-formula-gallery__media{% if block.settings.image != blank %} bloomli-formula-gallery__media--image{% endif %}"
               style="
-                --bfg-item-bg: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--bfg-media-bg){% endif %};
+                --bfg-item-bg: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--bfg-placeholder-bg){% endif %};
                 --bfg-icon-color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bfg-icon-default-color){% endif %};
                 {% if block.settings.image == blank %}--bfg-placeholder-lines: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}
               "
@@ -144,7 +144,7 @@
           {%- if block.settings.is_proof -%}
             <article class="bloomli-formula-gallery__proof-item" {{ block.shopify_attributes }}>
               <div
-                class="bloomli-formula-gallery__proof-media"
+                class="bloomli-formula-gallery__proof-media{% if block.settings.image != blank %} bloomli-formula-gallery__proof-media--image{% endif %}"
                 style="--bfg-proof-bg: {% if block.settings.use_custom_circle_color %}{{ block.settings.circle_color }}{% else %}var(--bfg-proof-default-bg){% endif %}; --bfg-proof-color: {% if block.settings.use_custom_icon_color %}{{ block.settings.icon_color }}{% else %}var(--bfg-icon-default-color){% endif %};"
               >
                 {%- if block.settings.image != blank -%}
@@ -217,7 +217,7 @@
       { "value": "2", "label": "Two" },
       { "value": "3", "label": "Three" }
     ], "default": "2" },
-    { "type": "select", "id": "media_background", "label": "Ingredient image background", "options": [
+    { "type": "select", "id": "media_background", "label": "Ingredient placeholder icon background", "options": [
       { "value": "surface", "label": "Scheme soft surface" },
       { "value": "surface_strong", "label": "Scheme stronger surface" },
       { "value": "background", "label": "Scheme background" },
@@ -252,8 +252,8 @@
         { "type": "checkbox", "id": "is_proof", "label": "Proof item", "default": false },
         { "type": "image_picker", "id": "image", "label": "Ingredient or proof image" },
         { "type": "range", "id": "image_scale", "label": "Uploaded image scale", "min": 70, "max": 150, "step": 5, "default": 100, "unit": "%" },
-        { "type": "checkbox", "id": "use_custom_circle_color", "label": "Override image background", "default": false },
-        { "type": "color", "id": "circle_color", "label": "Custom image background", "default": "#FDFAF7" },
+        { "type": "checkbox", "id": "use_custom_circle_color", "label": "Override icon background", "default": false },
+        { "type": "color", "id": "circle_color", "label": "Custom icon background", "default": "#FDFAF7" },
         { "type": "checkbox", "id": "use_custom_icon_color", "label": "Override default icon color", "default": false },
         { "type": "color", "id": "icon_color", "label": "Custom icon color", "default": "#6F7A5A" },
         { "type": "text", "id": "photo_label", "label": "Placeholder label", "default": "Raw ingredient" },

@@ -307,9 +307,9 @@
       ],
       "name": "Bloomli - Proof Split",
       "settings": {
-        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_custom_background": false,
-        "background_color": "{{ shop.brand.colors.primary[0].background }}",
+        "background_color": "#fdfaf7",
         "eyebrow_accent_color": "#8a6678",
         "icon_accent_color": "#6f7a5a",
         "image": "shopify://shop_images/Model_Holding_Gummy_2.png",
@@ -920,7 +920,7 @@
       ],
       "name": "Bloomli - Product Picks",
       "settings": {
-        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_custom_background": false,
         "background_color": "#f5ede4",
         "heading": "You may also like",

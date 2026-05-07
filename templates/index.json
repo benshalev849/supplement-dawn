@@ -94,8 +94,6 @@
         "step_76LWCm": {
           "type": "step",
           "settings": {
-            "image_scale": 100,
-            "icon": "seed",
             "range": "Month 1–3",
             "title": "Foundation",
             "description": "Nourishment reaches the follicle. Expect less shedding and a healthier scalp feel."
@@ -104,8 +102,6 @@
         "step_egttHe": {
           "type": "step",
           "settings": {
-            "image_scale": 100,
-            "icon": "sprout",
             "range": "Month 3–6",
             "title": "Visible Shift",
             "description": "New growth begins. Many see fuller density at the part line and temples."
@@ -114,8 +110,6 @@
         "step_XKBHGh": {
           "type": "step",
           "settings": {
-            "image_scale": 100,
-            "icon": "bloom",
             "range": "Month 6+",
             "title": "Full Bloom",
             "description": "Thicker, stronger, shinier hair. Results consolidate with consistent use."
@@ -133,9 +127,7 @@
         "timeline_icon_color": "#6f7a5a",
         "heading": "Your ritual, over time.",
         "subheadline": "<p>A simple month-by-month look at what consistency can support, from early scalp comfort to fuller-looking hair over time.</p>",
-        "circle_background": "surface",
         "circle_size": 100,
-        "icon_size": 64,
         "show_connector": true,
         "connector_style": "dashed",
         "connector_width": 1,

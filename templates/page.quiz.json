@@ -172,8 +172,6 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image_scale": 100,
-            "icon": "seed",
             "range": "Step 1",
             "title": "Tell us the basics",
             "description": "Start with what your hair and routine look like right now."
@@ -182,8 +180,6 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "image_scale": 100,
-            "icon": "sprout",
             "range": "Step 2",
             "title": "Share your goals",
             "description": "Choose the changes you care about most for the next few months."
@@ -192,8 +188,6 @@
         "step_3": {
           "type": "step",
           "settings": {
-            "image_scale": 100,
-            "icon": "bloom",
             "range": "Step 3",
             "title": "Build your ritual",
             "description": "Get a simple recommendation you can come back to daily."
@@ -209,9 +203,7 @@
         "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
         "timeline_icon_color": "#6F7A5A",
         "heading": "A personalized path, without the overwhelm.",
-        "circle_background": "surface",
         "circle_size": 100,
-        "icon_size": 64,
         "show_connector": true,
         "connector_style": "dashed",
         "connector_width": 1,

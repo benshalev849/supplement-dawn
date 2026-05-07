@@ -276,25 +276,31 @@
         "bullet_zDDhyE": {
           "type": "bullet",
           "settings": {
-            "text": "Clinically-dosed actives. No fairy dust."
+            "text": "No under-dosed filler blends or trendy label dust."
           }
         },
         "bullet_9GzmFm": {
           "type": "bullet",
           "settings": {
-            "text": "Vegan pectin base. No gelatin, no artificial dyes."
+            "text": "Only 15 calories per serving — just 2g sugar per gummy."
           }
         },
         "bullet_f68cpc": {
           "type": "bullet",
           "settings": {
-            "text": "Third-party tested for purity and potency."
+            "text": "Beyond biotin alone — 14 targeted vitamins and nutrients for hair, skin, and nail support."
+          }
+        },
+        "bullet_NjdcCt": {
+          "type": "bullet",
+          "settings": {
+            "text": "Gluten-free, gelatin-free, pectin-based gummies."
           }
         },
         "bullet_F7gTNi": {
           "type": "bullet",
           "settings": {
-            "text": "Made in a GMP-certified facility in California."
+            "text": "Manufactured in the USA with globally and locally sourced ingredients in a GMP-compliant facility."
           }
         }
       },
@@ -302,6 +308,7 @@
         "bullet_zDDhyE",
         "bullet_9GzmFm",
         "bullet_f68cpc",
+        "bullet_NjdcCt",
         "bullet_F7gTNi"
       ],
       "name": "Bloomli - Proof Split",

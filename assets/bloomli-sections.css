@@ -1397,3 +1397,29 @@
     text-align: left;
   }
 }
+
+/* Formula gallery */
+.bloomli-formula-gallery__heading {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'SOFT' 100;
+  font-size: var(--bfg-heading-size, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0 0 24px;
+  color: var(--bloomli-text);
+}
+
+.bloomli-formula-gallery__heading span {
+  display: block;
+  font-size: 0.72em;
+  font-style: normal;
+  font-variation-settings: 'SOFT' 100;
+  line-height: 1.1;
+  margin-top: 6px;
+}
+
+@media (max-width: 749px) {
+  .bloomli-formula-gallery__heading {
+    font-size: var(--bfg-heading-size-mobile, 36px);
+  }
+}

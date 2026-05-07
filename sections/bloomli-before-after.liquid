@@ -63,7 +63,7 @@
             {%- for block in section.blocks -%}
               {%- liquid
                 assign before_alt = block.settings.before_image.alt | default: block.settings.before_label | default: 'Before result'
-                assign after_alt = block.settings.after_image.alt | default: block.settings.after_label | default: block.settings.timeframe | default: 'After result'
+                assign after_alt = block.settings.after_image.alt | default: block.settings.after_label | default: 'After result'
                 assign before_label = block.settings.before_label | default: 'Month 0'
                 assign after_label = block.settings.after_label | default: 'Month 6'
                 assign verified_label = block.settings.verified_label | default: section.settings.verified_label
@@ -115,10 +115,6 @@
                 </div>
 
                 <div class="bloomli-before-after__content">
-                  {%- if block.settings.timeframe != blank -%}
-                    <p class="smallcaps bloomli-before-after__timeframe">{{ block.settings.timeframe }}</p>
-                  {%- endif -%}
-
                   {%- if block.settings.review_text != blank -%}
                     <blockquote class="bloomli-before-after__review">{{ block.settings.review_text }}</blockquote>
                   {%- endif -%}
@@ -173,7 +169,6 @@
               </div>
 
               <div class="bloomli-before-after__content">
-                <p class="smallcaps bloomli-before-after__timeframe">Consistent routine</p>
                 <blockquote class="bloomli-before-after__review">Visible progress from a consistent Bloomli supplement routine.</blockquote>
               </div>
 
@@ -447,12 +442,6 @@
         },
         {
           "type": "text",
-          "id": "timeframe",
-          "label": "Timeframe",
-          "default": "6 months"
-        },
-        {
-          "type": "text",
           "id": "result_tag_1",
           "label": "Result tag 1",
           "default": "Visibly fuller"
@@ -493,7 +482,6 @@
           "settings": {
             "reviewer_name": "Priya K.",
             "review_text": "\"My part line filled in noticeably at month four. The routine felt easy to stay consistent with.\"",
-            "timeframe": "6 months",
             "result_tag_1": "Visibly fuller",
             "result_tag_2": "Less shedding",
             "result_tag_3": "Stronger hair"
@@ -504,7 +492,6 @@
           "settings": {
             "reviewer_name": "Leah M.",
             "review_text": "\"The shedding slowed down first, then I started seeing baby hairs around my hairline.\"",
-            "timeframe": "3 months",
             "result_tag_1": "Less shedding",
             "result_tag_2": "New growth",
             "result_tag_3": ""
@@ -515,7 +502,6 @@
           "settings": {
             "reviewer_name": "Marisol R.",
             "review_text": "\"My hair feels stronger and the difference in photos made me realize the routine was working.\"",
-            "timeframe": "6 months",
             "result_tag_1": "Stronger hair",
             "result_tag_2": "Visible progress",
             "result_tag_3": ""

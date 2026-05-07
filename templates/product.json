@@ -511,10 +511,10 @@
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin C",
+            "photo_label": "Vitamin B12",
             "icon": "drop",
-            "title": "Vitamin C",
-            "amount": "30 mg",
+            "title": "Vitamin B12",
+            "amount": "8 mcg",
             "text": "Sustainably sourced amino acids for elasticity and shine.",
             "source_line": ""
           }
@@ -529,10 +529,10 @@
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Zinc",
+            "photo_label": "Vitamin B5",
             "icon": "root",
-            "title": "Zinc",
-            "amount": "2.7 mg",
+            "title": "Vitamin B5",
+            "amount": "10 mg",
             "text": "Adaptogen that quiets stress-related shedding.",
             "source_line": ""
           }

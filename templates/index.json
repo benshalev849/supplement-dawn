@@ -127,7 +127,7 @@
         "timeline_icon_color": "#6f7a5a",
         "heading": "Your ritual, over time.",
         "subheadline": "<p>A simple month-by-month look at what consistency can support, from early scalp comfort to fuller-looking hair over time.</p>",
-        "circle_size": 60,
+        "circle_size": 56,
         "show_connector": true,
         "connector_style": "dashed",
         "connector_width": 1,

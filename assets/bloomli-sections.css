@@ -1387,24 +1387,31 @@
 
   .bloomli-timeline__heading {
     font-size: 32px;
+    text-align: left;
   }
 
   .bloomli-timeline__subheadline {
     font-size: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
   }
 
   .bloomli-timeline__title {
     grid-column: 2;
     font-size: 22px;
+    text-align: left;
   }
 
   .bloomli-timeline__copy {
     grid-column: 2;
     max-width: 34rem;
     margin: 0;
+    text-align: left;
   }
 
   .bloomli-timeline__header {
     margin-bottom: 40px;
+    text-align: left;
   }
 }

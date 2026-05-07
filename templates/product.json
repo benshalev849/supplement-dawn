@@ -311,6 +311,7 @@
         "background_color": "#fdfaf7",
         "icon_accent_color": "#6f7a5a",
         "image": "shopify://shop_images/Model_Holding_Gummy_2.png",
+        "image_side": "right",
         "media_background": "background",
         "image_label": "Editorial - morning ritual - natural light",
         "image_scale": 100,

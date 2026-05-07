@@ -602,8 +602,8 @@
       ],
       "name": "Bloomli - Formula Gallery",
       "settings": {
-        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
-        "use_custom_background": true,
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "use_custom_background": false,
         "background_color": "#fdfaf7",
         "eyebrow": "The goods inside",
         "eyebrow_accent_color": "#8a6678",

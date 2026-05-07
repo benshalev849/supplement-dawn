@@ -479,7 +479,7 @@
             "icon": "leaf",
             "title": "Biotin",
             "amount": "6000 mcg",
-            "text": "The keratin building block - clinically dosed for strand strength you can actually feel.",
+            "text": "Supports healthy hair growth and helps strengthen the look of hair, skin, and nails.",
             "source_line": ""
           }
         },
@@ -497,7 +497,7 @@
             "icon": "palm",
             "title": "Folate",
             "amount": "670 mcg",
-            "text": "A plant-based DHT balancer that keeps follicles happy at the root.",
+            "text": "Supports healthy cell renewal, helping your body build the foundation for stronger-looking hair.",
             "source_line": ""
           }
         },
@@ -515,7 +515,7 @@
             "icon": "drop",
             "title": "Vitamin B12",
             "amount": "8 mcg",
-            "text": "Sustainably sourced amino acids for elasticity and shine.",
+            "text": "Supports cellular energy and nutrient metabolism for inside-out beauty and wellness.",
             "source_line": ""
           }
         },
@@ -533,7 +533,7 @@
             "icon": "root",
             "title": "Vitamin B5",
             "amount": "10 mg",
-            "text": "Adaptogen that quiets stress-related shedding.",
+            "text": "Helps support the body’s natural energy process and daily hair, skin, and nail health.",
             "source_line": ""
           }
         },
@@ -551,7 +551,24 @@
             "icon": "zinc",
             "title": "Vitamin E",
             "amount": "18 mg",
-            "text": "Essential mineral that supports a calm, healthy scalp environment.",
+            "text": "Provides antioxidant support to help protect cells involved in healthy skin and hair.",
+            "source_line": ""
+          }
+        },
+        "item_CcpMP8": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image_scale": 100,
+            "use_custom_circle_color": false,
+            "circle_color": "#fdfaf7",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Raw ingredient",
+            "icon": "leaf",
+            "title": "Vitamin A",
+            "amount": "2500 MCG",
+            "text": "Supports healthy skin and normal cell function, helping maintain the foundation for healthy hair.",
             "source_line": ""
           }
         },
@@ -596,6 +613,7 @@
         "item_6MgTDk",
         "item_Yr6eKf",
         "item_6G4EJH",
+        "item_CcpMP8",
         "item_Gw8tdW",
         "item_UiY4pK"
       ],

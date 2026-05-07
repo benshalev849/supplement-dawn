@@ -251,7 +251,7 @@
         "timeline_icon_color": "#6f7a5a",
         "heading": "Your ritual, over time.",
         "subheadline": "<p><strong>Two gummies a day.</strong> A simple daily routine to nourish your hair from within, helping it <strong>look fuller, feel healthier, and grow stronger over time.</strong></p>",
-        "circle_size": 56,
+        "circle_size": 60,
         "show_connector": true,
         "connector_style": "dashed",
         "connector_width": 1,

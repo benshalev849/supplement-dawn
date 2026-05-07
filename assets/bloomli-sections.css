@@ -1138,7 +1138,7 @@
 
 .bloomli-timeline__track {
   position: absolute;
-  top: 1.45rem;
+  top: calc(4.4rem + (var(--timeline-circle-size) / 2));
   left: calc((100% - var(--timeline-gap) - var(--timeline-gap)) / 6);
   right: calc((100% - var(--timeline-gap) - var(--timeline-gap)) / 6);
   z-index: 1;
@@ -1179,37 +1179,27 @@
 
 .bloomli-timeline__circle {
   width: var(--timeline-circle-size);
-  aspect-ratio: 3/4;
+  aspect-ratio: 1;
   margin: 0 auto 24px;
-  border-radius: var(--media-radius, var(--text-boxes-radius, 6px));
-  background: var(--timeline-circle-bg);
+  border-radius: 50%;
+  background: var(--timeline-icon-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--bloomli-line-soft);
-  overflow: hidden;
+  border: 0;
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--timeline-icon-color) 18%, transparent);
+  overflow: visible;
   position: relative;
   z-index: 3;
 }
 
-.bloomli-timeline__circle--has-image {
-  background: transparent;
-  border-color: transparent;
-  box-shadow: none;
-}
-
-.bloomli-timeline__icon-img {
-  width: 100%;
-  height: 100%;
-  max-width: none !important;
-  object-fit: cover;
-  transform: scale(var(--timeline-image-scale, 1));
-  transform-origin: center;
+.bloomli-timeline__check {
   display: block;
-}
-
-.bloomli-timeline__icon-svg {
-  color: var(--timeline-icon-color);
+  width: 42%;
+  height: 24%;
+  border-left: max(2px, calc(var(--timeline-circle-size) * 0.045)) solid #FDFAF7;
+  border-bottom: max(2px, calc(var(--timeline-circle-size) * 0.045)) solid #FDFAF7;
+  transform: translateY(-12%) rotate(-45deg);
 }
 
 .bloomli-timeline__range {
@@ -1297,15 +1287,14 @@
   }
 
   .bloomli-timeline__wrap {
-    --journey-mobile-label-col: 6.8rem;
-    --journey-mobile-rail-x: 3.4rem;
+    --journey-mobile-rail-x: calc(var(--timeline-circle-size) / 2);
     padding-top: 0;
   }
 
   .bloomli-timeline__track {
-    top: 0.4rem;
+    top: calc(var(--timeline-circle-size) / 2);
     right: auto;
-    bottom: 0.4rem;
+    bottom: calc(var(--timeline-circle-size) / 2);
     left: var(--journey-mobile-rail-x);
     width: max(2px, var(--timeline-line-width));
     height: auto;
@@ -1323,7 +1312,7 @@
 
   .bloomli-timeline__step {
     display: grid;
-    grid-template-columns: var(--journey-mobile-label-col) minmax(0, 1fr);
+    grid-template-columns: var(--timeline-circle-size) minmax(0, 1fr);
     column-gap: 1.25rem;
     text-align: left;
     align-items: start;
@@ -1331,21 +1320,21 @@
   }
 
   .bloomli-timeline__circle {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1;
-    justify-self: start;
-    width: clamp(180px, 62vw, 240px);
-    margin: 0 0 18px;
+    justify-self: center;
+    width: var(--timeline-circle-size);
+    margin: 0;
   }
 
   .bloomli-timeline__range {
     position: relative;
     top: auto;
     left: auto;
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
-    align-self: center;
-    justify-self: center;
+    align-self: start;
+    justify-self: start;
     max-width: max-content;
     min-height: 2.4rem;
     padding: 6px 6px;
@@ -1371,12 +1360,14 @@
 
   .bloomli-timeline__title {
     grid-column: 2;
+    grid-row: 2;
     font-size: 22px;
     text-align: left;
   }
 
   .bloomli-timeline__copy {
     grid-column: 2;
+    grid-row: 3;
     max-width: 34rem;
     margin: 0;
     text-align: left;

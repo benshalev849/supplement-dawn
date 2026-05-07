@@ -1,7 +1,6 @@
 <section
   class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}"
   style="
-    --hero-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }};
     --hero-min-height: {{ section.settings.min_height }}px;
     --hero-bottle-width-desktop: {{ section.settings.bottle_width_desktop }}px;
     --hero-bottle-x-desktop: {{ section.settings.bottle_x_desktop }}px;
@@ -19,10 +18,6 @@
   <div class="bloomli-hero__inner">
 
     <div class="bloomli-hero__copy">
-      {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps bloomli-hero__eyebrow">{{ section.settings.eyebrow }}</div>
-      {%- endif -%}
-
       <h1 class="bloomli-hero__headline">
         {{ section.settings.headline_line1 }}<br>
         <span>{{ section.settings.headline_line2 }}</span>
@@ -104,8 +99,6 @@
     { "type": "header", "content": "Copy" },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_brand_gradient", "label": "Use Bloomli brand gradient", "default": true },
-    { "type": "text",     "id": "eyebrow",        "label": "Eyebrow",                 "default": "Clinically-studied hair wellness" },
-    { "type": "color",    "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
     { "type": "text",     "id": "headline_line1",  "label": "Headline line 1",         "default": "Quiet science," },
     { "type": "text",     "id": "headline_line2",  "label": "Headline line 2 (italic)", "default": "visible results." },
     { "type": "textarea", "id": "subtext",         "label": "Subtext",                 "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },

@@ -22,10 +22,6 @@
 >
   <div class="bloomli-faq__inner">
     <div class="bloomli-faq__content">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="smallcaps bloomli-faq__eyebrow">{{ section.settings.eyebrow }}</p>
-      {%- endif -%}
-
       {%- if section.settings.heading != blank -%}
         <h2 class="bloomli-faq__heading">{{ section.settings.heading }}</h2>
       {%- endif -%}
@@ -104,12 +100,6 @@
   "tag": "div",
   "max_blocks": 12,
   "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "FAQ"
-    },
     {
       "type": "text",
       "id": "heading",

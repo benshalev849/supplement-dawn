@@ -30,7 +30,6 @@
     --bfg-circle-mobile: {{ section.settings.image_size_mobile }}px;
     --bfg-proof-icon: {{ section.settings.proof_icon_size }}px;
     --bfg-proof-icon-mobile: {{ section.settings.proof_icon_size_mobile }}px;
-    --bfg-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }};
     --bfg-small-label-color: {{ section.settings.small_label_color | default: '#8A6678' }};
     --bfg-card-bg: {{ section.settings.card_background_color | default: '#FBF7F3' }};
     --bfg-card-border: {{ section.settings.card_border_color | default: '#E7DCD5' }};
@@ -47,10 +46,6 @@
 >
   <div class="bloomli-formula-gallery__inner" style="max-width: {{ section.settings.content_width }}px; margin: 0 auto;">
     <div class="bloomli-formula-gallery__header bloomli-formula-gallery__header--{{ section.settings.header_alignment }}">
-      {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps bloomli-formula-gallery__eyebrow">{{ section.settings.eyebrow }}</div>
-      {%- endif -%}
-
       {%- if section.settings.heading_line1 != blank or section.settings.heading_line2 != blank -%}
         <h2 class="bloomli-formula-gallery__heading">
           {{ section.settings.heading_line1 }}
@@ -202,8 +197,6 @@
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
     { "type": "color", "id": "background_color", "label": "Section background color", "default": "#F3E1E5" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The goods inside" },
-    { "type": "color", "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
     { "type": "color", "id": "small_label_color", "label": "Small label color", "default": "#8A6678" },
     { "type": "color", "id": "card_background_color", "label": "Ingredient card background", "default": "#FBF7F3" },
     { "type": "color", "id": "card_border_color", "label": "Ingredient card border", "default": "#E7DCD5" },

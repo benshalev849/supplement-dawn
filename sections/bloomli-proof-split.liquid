@@ -1,4 +1,4 @@
-<section class="bloomli-proof-split bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bps-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --bps-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bps-bg: {{ section.settings.background_color }};{% else %}--bps-bg: var(--bloomli-bg);{% endif %}{% case section.settings.media_background %}{% when 'background' %}--bps-media-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bps-media-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bps-media-bg: var(--bloomli-soft-blush);{% else %}--bps-media-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bps-image-width: {{ section.settings.image_width | default: 620 }}px; --bps-image-radius: {{ section.settings.image_radius | default: 16 }}px; --bps-image-position: {{ section.settings.image_position }};">
+<section class="bloomli-proof-split bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bps-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bps-bg: {{ section.settings.background_color }};{% else %}--bps-bg: var(--bloomli-bg);{% endif %}{% case section.settings.media_background %}{% when 'background' %}--bps-media-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bps-media-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bps-media-bg: var(--bloomli-soft-blush);{% else %}--bps-media-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bps-image-width: {{ section.settings.image_width | default: 620 }}px; --bps-image-radius: {{ section.settings.image_radius | default: 16 }}px; --bps-image-position: {{ section.settings.image_position }};">
   <div class="bloomli-proof-split__inner">
     <div class="bloomli-proof-split__media" style="{% if section.settings.image == blank %}--bps-placeholder-lines: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}">
       {%- if section.settings.image != blank -%}
@@ -23,9 +23,6 @@
     </div>
 
     <div class="bloomli-proof-split__content">
-      {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps bloomli-proof-split__eyebrow">{{ section.settings.eyebrow }}</div>
-      {%- endif -%}
       <h2 class="bloomli-proof-split__heading">
         {{ section.settings.heading_line1 }}<br>
         <span>{{ section.settings.heading_line2 }}</span>
@@ -56,7 +53,6 @@
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
     { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FDFAF7" },
-    { "type": "color", "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
     { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "select", "id": "media_background", "label": "Image placeholder background", "options": [
@@ -76,7 +72,6 @@
     ], "default": "center center" },
     { "type": "range", "id": "image_width", "label": "Image width", "min": 320, "max": 760, "step": 20, "default": 620, "unit": "px" },
     { "type": "range", "id": "image_radius", "label": "Image corner radius", "min": 0, "max": 40, "step": 2, "default": 16, "unit": "px" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Clinically dosed - gently made" },
     { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Every milligram," },
     { "type": "text", "id": "heading_line2", "label": "Heading line 2 (italic)", "default": "intentional." },
     { "type": "richtext", "id": "copy", "label": "Copy", "default": "<p>We formulate at clinical doses - the amounts used in peer-reviewed studies - not the sprinkle-doses you'll find in most gummies. Every batch is independently tested. Nothing added for color, nothing hidden in a proprietary blend.</p>" },

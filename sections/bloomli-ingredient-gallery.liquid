@@ -1,9 +1,6 @@
-<section class="bloomli-ingredient-gallery bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--big-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --big-small-label-color: {{ section.settings.small_label_color | default: '#8A6678' }}; {% if section.settings.use_custom_background %}--big-bg: {{ section.settings.background_color }};{% else %}--big-bg: var(--bloomli-bg);{% endif %}{% case section.settings.circle_background %}{% when 'background' %}--big-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--big-circle-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--big-circle-bg: var(--bloomli-soft-blush);{% else %}--big-circle-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --big-image-size: {{ section.settings.image_size }}px; --big-image-size-mobile: {{ section.settings.image_size_mobile }}px;">
+<section class="bloomli-ingredient-gallery bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--big-small-label-color: {{ section.settings.small_label_color | default: '#8A6678' }}; {% if section.settings.use_custom_background %}--big-bg: {{ section.settings.background_color }};{% else %}--big-bg: var(--bloomli-bg);{% endif %}{% case section.settings.circle_background %}{% when 'background' %}--big-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--big-circle-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--big-circle-bg: var(--bloomli-soft-blush);{% else %}--big-circle-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --big-image-size: {{ section.settings.image_size }}px; --big-image-size-mobile: {{ section.settings.image_size_mobile }}px;">
   <div class="bloomli-section__inner" style="--bloomli-section-width: 1120px;">
     <div class="bloomli-ingredient-gallery__header">
-      {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps bloomli-ingredient-gallery__eyebrow">{{ section.settings.eyebrow }}</div>
-      {%- endif -%}
       <h2 class="bloomli-ingredient-gallery__heading">{{ section.settings.heading }}</h2>
     </div>
 
@@ -50,8 +47,6 @@
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
     { "type": "color", "id": "background_color", "label": "Section background color", "default": "#F3E1E5" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Every ingredient, photographed" },
-    { "type": "color", "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
     { "type": "color", "id": "small_label_color", "label": "Small label color", "default": "#8A6678" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Nothing hidden." },
     { "type": "select", "id": "circle_background", "label": "Ingredient circle background", "options": [

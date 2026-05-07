@@ -16,8 +16,6 @@
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_brand_gradient": true,
-        "eyebrow": "Clinically-studied hair wellness",
-        "eyebrow_accent_color": "#b23a6f",
         "headline_line1": "Quiet science,",
         "headline_line2": "visible results.",
         "subtext": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life.",
@@ -132,8 +130,6 @@
       "name": "Bloomli — Timeline",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "eyebrow": "Your 6-month journey",
-        "eyebrow_accent_color": "#8a6678",
         "timeline_icon_color": "#6f7a5a",
         "heading": "Your ritual, over time.",
         "subheadline": "<p>A simple month-by-month look at what consistency can support, from early scalp comfort to fuller-looking hair over time.</p>",
@@ -196,8 +192,6 @@
       "name": "Bloomli — Ingredients",
       "settings": {
         "color_scheme": "",
-        "eyebrow": "The formula",
-        "eyebrow_accent_color": "#8a6678",
         "icon_accent_color": "#6f7a5a",
         "heading_line1": "Backed by plants.",
         "heading_line2": "Grounded in science.",
@@ -320,13 +314,11 @@
       ],
       "name": "Bloomli - Reviews",
       "settings": {
-        "eyebrow": "Verified reviews",
         "heading": "Real women. Real results.",
         "background_color": "#f2e7e4",
         "card_background": "#fdfaf7",
         "placeholder_color": "#f7f0e9",
         "text_color": "#2a2622",
-        "accent_color": "#b23a6f",
         "muted_color": "#7c7169",
         "content_width": 1200,
         "heading_size": 46,
@@ -344,7 +336,6 @@
       "name": "Bloomli — Bundle Promo",
       "settings": {
         "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
-        "eyebrow": "The complete ritual",
         "headline_line1": "Inside & out.",
         "headline_line2": "Save 20%.",
         "description": "The Root Ritual gummies that work from within, paired with our moisturizing & strengthening hair oil for visible shine day one.",

@@ -1,12 +1,7 @@
-<section class="bloomli-ing bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bing-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --bing-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% case section.settings.card_background %}{% when 'background' %}--bing-card-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bing-card-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bing-card-bg: var(--bloomli-soft-blush);{% else %}--bing-card-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bing-icon-size: {{ section.settings.icon_size | default: 72 }}px; --bing-icon-size-mobile: {{ section.settings.icon_size_mobile | default: 56 }}px;">
+<section class="bloomli-ing bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bing-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% case section.settings.card_background %}{% when 'background' %}--bing-card-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bing-card-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bing-card-bg: var(--bloomli-soft-blush);{% else %}--bing-card-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bing-icon-size: {{ section.settings.icon_size | default: 72 }}px; --bing-icon-size-mobile: {{ section.settings.icon_size_mobile | default: 56 }}px;">
   <div class="bloomli-section__inner">
 
     <div class="bloomli-ing__header">
-      {%- if section.settings.eyebrow != blank -%}
-        <div class="bloomli-ing__eyebrow-badge">
-          <span class="smallcaps bloomli-ing__eyebrow">{{ section.settings.eyebrow }}</span>
-        </div>
-      {%- endif -%}
       <h2 class="bloomli-ing__heading">
         {{ section.settings.heading_line1 }}<br><span>{{ section.settings.heading_line2 }}</span>
       </h2>
@@ -71,8 +66,6 @@
   "max_blocks": 6,
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow badge", "default": "The formula" },
-    { "type": "color", "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
     { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
     { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Backed by plants." },
     { "type": "text", "id": "heading_line2", "label": "Heading line 2 (italic)", "default": "Grounded in science." },

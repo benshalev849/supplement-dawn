@@ -71,11 +71,6 @@
   min-width: 0;
 }
 
-.bloomli-hero__eyebrow {
-  color: var(--hero-eyebrow-color);
-  margin-bottom: 24px;
-}
-
 .bloomli-hero__headline {
   font-family: 'Fraunces', serif;
   font-variation-settings: 'SOFT' 100, 'opsz' 144;
@@ -116,7 +111,7 @@
 }
 
 .bloomli-hero__stars {
-  color: var(--hero-eyebrow-color);
+  color: var(--bloomli-accent);
   font-size: 16px;
   letter-spacing: -1px;
 }
@@ -287,11 +282,6 @@
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
-}
-
-.bloomli-bundle__eyebrow {
-  color: var(--bloomli-accent);
-  margin-bottom: 20px;
 }
 
 .bloomli-bundle__heading span {
@@ -569,11 +559,6 @@
   margin-bottom: 52px;
 }
 
-.bloomli-photo-mosaic__eyebrow {
-  color: var(--bloomli-accent);
-  margin-bottom: 16px;
-}
-
 .bloomli-photo-mosaic__heading {
   font-family: 'Fraunces', serif;
   font-variation-settings: 'SOFT' 100;
@@ -636,11 +621,6 @@
 .bloomli-ingredient-gallery__header {
   text-align: center;
   margin-bottom: 64px;
-}
-
-.bloomli-ingredient-gallery__eyebrow {
-  color: var(--big-eyebrow-color);
-  margin-bottom: 18px;
 }
 
 .bloomli-ingredient-gallery__heading {
@@ -730,19 +710,6 @@
 .bloomli-ing__header {
   margin-bottom: 64px;
   text-align: center;
-}
-
-.bloomli-ing__eyebrow-badge {
-  display: inline-block;
-  background: var(--bloomli-surface);
-  padding: 5px 12px;
-  border-radius 6px;
-  margin-bottom: 18px;
-}
-
-.bloomli-ing__eyebrow {
-  color: var(--bing-eyebrow-color);
-  font-size: 11px;
 }
 
 .bloomli-ing__heading {
@@ -878,11 +845,6 @@
   margin-bottom: 64px;
 }
 
-.bloomli-formula-list__eyebrow {
-  color: var(--bfl-eyebrow-color);
-  margin-bottom: 18px;
-}
-
 .bloomli-formula-list__heading {
   font-family: 'Fraunces', serif;
   font-variation-settings: 'SOFT' 100;
@@ -952,7 +914,7 @@
 }
 
 .bloomli-formula-list__title {
-  color: var(--bfl-eyebrow-color);
+  color: var(--bloomli-editorial-accent);
   font-size: 11px;
   margin-bottom: 10px;
 }
@@ -1029,11 +991,6 @@
   height: auto;
   transform: scale(var(--bps-image-scale, 1));
   transform-origin: center;
-}
-
-.bloomli-proof-split__eyebrow {
-  color: var(--bps-eyebrow-color);
-  margin-bottom: 18px;
 }
 
 .bloomli-proof-split__heading {
@@ -1127,11 +1084,6 @@
   margin-bottom: 80px;
 }
 
-.bloomli-timeline__eyebrow {
-  color: var(--timeline-eyebrow-color);
-  margin-bottom: 14px;
-}
-
 .bloomli-timeline__heading {
   font-family: 'Fraunces', serif;
   font-variation-settings: 'SOFT' 100;
@@ -1186,7 +1138,7 @@
   width: var(--journey-progress, 0%);
   height: 100%;
   border-radius: inherit;
-  background: var(--journey-progress-color, var(--timeline-eyebrow-color));
+  background: var(--journey-progress-color, var(--bloomli-editorial-accent));
   transition: width 120ms linear, height 120ms linear;
 }
 
@@ -1250,10 +1202,10 @@
   justify-content: center;
   min-height: 2.9rem;
   padding: 0.55rem 0.9rem;
-  border: 1px solid color-mix(in srgb, var(--journey-progress-color, var(--timeline-eyebrow-color)) 35%, transparent);
+  border: 1px solid color-mix(in srgb, var(--journey-progress-color, var(--bloomli-editorial-accent)) 35%, transparent);
   border-radius: var(--badge-corner-radius, var(--text-boxes-radius, 6px));
   background: rgb(var(--color-background));
-  color: var(--timeline-eyebrow-color);
+  color: var(--bloomli-editorial-accent);
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 1.1rem;
   font-weight: 800;

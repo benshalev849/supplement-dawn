@@ -37,12 +37,8 @@
   "
 >
   <div class="bloomli-before-after__inner">
-    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.copy != blank -%}
+    {%- if section.settings.heading != blank or section.settings.copy != blank -%}
       <div class="bloomli-before-after__header">
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="smallcaps bloomli-before-after__eyebrow">{{ section.settings.eyebrow }}</p>
-        {%- endif -%}
-
         {%- if section.settings.heading != blank -%}
           <h2 class="bloomli-before-after__heading">{{ section.settings.heading }}</h2>
         {%- endif -%}
@@ -239,12 +235,6 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f"
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "Real women, real results"
     },
     {
       "type": "inline_richtext",

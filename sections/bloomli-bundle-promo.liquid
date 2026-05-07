@@ -4,10 +4,6 @@
 >
   <div class="bloomli-bundle__inner">
 
-    {%- if section.settings.eyebrow != blank -%}
-      <div class="smallcaps bloomli-bundle__eyebrow">{{ section.settings.eyebrow }}</div>
-    {%- endif -%}
-
     <h2 class="bloomli-bundle__heading">
       {{ section.settings.headline_line1 }}<br><span>{{ section.settings.headline_line2 }}</span>
     </h2>
@@ -46,7 +42,6 @@
   "tag": "div",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The complete ritual" },
     { "type": "text", "id": "headline_line1", "label": "Headline line 1", "default": "Inside & out." },
     { "type": "text", "id": "headline_line2", "label": "Headline line 2 (italic)", "default": "Save 20%." },
     { "type": "textarea", "id": "description", "label": "Description", "default": "The Root Ritual gummies that work from within, paired with our moisturizing & strengthening hair oil for visible shine day one." },

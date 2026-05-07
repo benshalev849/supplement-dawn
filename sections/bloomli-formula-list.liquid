@@ -1,9 +1,6 @@
-<section class="bloomli-formula-list bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bfl-eyebrow-color: {{ section.settings.eyebrow_accent_color | default: '#8A6678' }}; --bfl-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bfl-bg: {{ section.settings.background_color }};{% else %}--bfl-bg: var(--bloomli-bg);{% endif %}{% case section.settings.icon_background_tone %}{% when 'background' %}--bfl-icon-bg: var(--bloomli-bg);{% when 'surface' %}--bfl-icon-bg: #F1EDE8;{% when 'surface_strong' %}--bfl-icon-bg: var(--bloomli-surface-strong);{% else %}--bfl-icon-bg: #F1EDE8;{% endcase %}{% case section.settings.proof_icon_background_tone %}{% when 'background' %}--bfl-proof-icon-bg: var(--bloomli-bg);{% when 'accent' %}--bfl-proof-icon-bg: #F1EDE8;{% when 'surface_strong' %}--bfl-proof-icon-bg: var(--bloomli-surface-strong);{% else %}--bfl-proof-icon-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bfl-icon-size: {{ section.settings.icon_size }}px; --bfl-icon-size-mobile: {{ section.settings.icon_size_mobile }}px;">
+<section class="bloomli-formula-list bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bfl-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bfl-bg: {{ section.settings.background_color }};{% else %}--bfl-bg: var(--bloomli-bg);{% endif %}{% case section.settings.icon_background_tone %}{% when 'background' %}--bfl-icon-bg: var(--bloomli-bg);{% when 'surface' %}--bfl-icon-bg: #F1EDE8;{% when 'surface_strong' %}--bfl-icon-bg: var(--bloomli-surface-strong);{% else %}--bfl-icon-bg: #F1EDE8;{% endcase %}{% case section.settings.proof_icon_background_tone %}{% when 'background' %}--bfl-proof-icon-bg: var(--bloomli-bg);{% when 'accent' %}--bfl-proof-icon-bg: #F1EDE8;{% when 'surface_strong' %}--bfl-proof-icon-bg: var(--bloomli-surface-strong);{% else %}--bfl-proof-icon-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bfl-icon-size: {{ section.settings.icon_size }}px; --bfl-icon-size-mobile: {{ section.settings.icon_size_mobile }}px;">
   <div class="bloomli-formula-list__inner">
     <div class="bloomli-formula-list__header">
-      {%- if section.settings.eyebrow != blank -%}
-        <div class="smallcaps bloomli-formula-list__eyebrow">{{ section.settings.eyebrow }}</div>
-      {%- endif -%}
       <h2 class="bloomli-formula-list__heading">
         {{ section.settings.heading_line1 }}<br>
         <span>{{ section.settings.heading_line2 }}</span>
@@ -121,8 +118,6 @@
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
     { "type": "color", "id": "background_color", "label": "Section background color", "default": "#F3E1E5" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The goods inside" },
-    { "type": "color", "id": "eyebrow_accent_color", "label": "Eyebrow accent color", "default": "#8A6678" },
     { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
     { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Five ingredients," },
     { "type": "text", "id": "heading_line2", "label": "Heading line 2 (italic)", "default": "doing the quiet work." },

@@ -223,7 +223,7 @@
             "icon": "seed",
             "range": "Month 1–3",
             "title": "Build the Foundation",
-            "description": "Strengthen hair from within. Look for healthier shine, less breakage, and fewer loose hairs."
+            "description": "Less shedding in the shower, a calmer scalp, and strands that feel less brittle. Your hair is already changing in a way you can feel."
           }
         },
         "step_ihr9qU": {
@@ -234,7 +234,7 @@
             "icon": "seed",
             "range": "Month 4-6",
             "title": "The Growth Phase",
-            "description": "Hair may look fuller, thicker, and have more body."
+            "description": "New growth reaches the surface. Your part line looks tighter, your crown looks denser, and the difference becomes visible."
           }
         },
         "step_UQiCKB": {
@@ -245,7 +245,7 @@
             "icon": "seed",
             "range": "Month 7+",
             "title": "Your Hair, Flourishing",
-            "description": "Experience stronger, faster-growing hair that’s fuller, thicker, and healthier over time."
+            "description": "Length, density, and shine. All working together. Hair that holds a style, survives a wash, and finally feels like its best self."
           }
         }
       },
@@ -259,7 +259,7 @@
         "color_scheme": "",
         "timeline_icon_color": "#6f7a5a",
         "heading": "Your ritual, over time.",
-        "subheadline": "<p><strong>Two gummies a day.</strong> A simple daily routine to nourish your hair from within, helping it <strong>look fuller, feel healthier, and grow stronger over time.</strong></p>",
+        "subheadline": "<p><strong>Two gummies a day.</strong> A simple daily routine that nourishes your hair from within. Helping it look <strong>fuller, feel healthier, and grow stronger</strong> with every passing month.</p>",
         "circle_background": "surface",
         "circle_size": 100,
         "icon_size": 160,
@@ -279,35 +279,35 @@
             "text": "No under-dosed filler blends or trendy label dust."
           }
         },
-        "bullet_9GzmFm": {
-          "type": "bullet",
-          "settings": {
-            "text": "Only 15 calories per serving — just 2g sugar per gummy."
-          }
-        },
         "bullet_f68cpc": {
           "type": "bullet",
           "settings": {
-            "text": "Beyond biotin alone — 14 targeted vitamins and nutrients for hair, skin, and nail support."
+            "text": "Beyond biotin alone. 14 targeted vitamins and nutrients, working in sync."
+          }
+        },
+        "bullet_9GzmFm": {
+          "type": "bullet",
+          "settings": {
+            "text": "Only 15 calories per serving, just 2g sugar per gummy."
           }
         },
         "bullet_NjdcCt": {
           "type": "bullet",
           "settings": {
-            "text": "Gluten-free, gelatin-free, pectin-based gummies."
+            "text": "Gluten-free, gelatin-free, and pectin-based. No artificial dyes or flavors."
           }
         },
         "bullet_F7gTNi": {
           "type": "bullet",
           "settings": {
-            "text": "Manufactured in the USA with globally and locally sourced ingredients in a GMP-compliant facility."
+            "text": "Formulated and manufactured in a GMP-compliant facility in the USA."
           }
         }
       },
       "block_order": [
         "bullet_zDDhyE",
-        "bullet_9GzmFm",
         "bullet_f68cpc",
+        "bullet_9GzmFm",
         "bullet_NjdcCt",
         "bullet_F7gTNi"
       ],
@@ -327,7 +327,7 @@
         "image_radius": 10,
         "heading_line1": "Every milligram,",
         "heading_line2": "intentional.",
-        "copy": "<p>Not all <strong>hair gummies are created equal. </strong>Instead of relying on a pretty label and under-dosed formulas.</p><p><strong>Our formula</strong> is built with intentionally selected <strong>hair-supporting</strong> <strong>vitamins and nutrients</strong> that work from within — helping your <strong>hair</strong> <strong>grow stronger, fuller, and more resilient over time.</strong></p>",
+        "copy": "<p>Most hair supplements are built around a marketing story. <strong>Ours is built around what your hair actually needs.</strong></p><p>Our formula delivers <strong>clinically-studied doses of 14 targeted nutrients.</strong> <br/>The kind that actually move the needle, not the sprinkle-doses added just to earn a spot on the label.<br/></p>",
         "padding_top": 48,
         "padding_bottom": 104
       }
@@ -343,10 +343,10 @@
             "before_label": "Month 0",
             "after_label": "Month 4",
             "reviewer_name": "Maya R.",
-            "review_text": "“By month four, my part looked noticeably tighter, and I was barely seeing any shedding. My hair finally started feeling stronger and less fragile.”",
+            "review_text": "\"Less hair in the shower by week six, that's when I knew it was working. By month four, my part line looked visibly tighter. My hair just feels different now.\"",
             "result_tag_1": "Fuller part line",
             "result_tag_2": "Less shedding",
-            "result_tag_3": "Stronger hair",
+            "result_tag_3": "Less fragile",
             "verified_review": true,
             "verified_label": "Verified review"
           }
@@ -359,10 +359,10 @@
             "before_label": "Month 0",
             "after_label": "Month 7",
             "reviewer_name": "Susan B.",
-            "review_text": "“I didn’t expect to see such a difference using the gummies, mainly because no supplement worked for me until now. My crown looks so much fuller. The thin areas are nonexistent, and my hair feels much healthier.”",
+            "review_text": "\"I was skeptical because nothing had worked for me before. By month seven, my hairdresser commented on my crown without me saying a word. I wish I'd found this sooner.\"",
             "result_tag_1": "Fuller crown",
             "result_tag_2": "Visible density",
-            "result_tag_3": "Healthier-looking hair",
+            "result_tag_3": "Skeptic converted",
             "verified_review": true,
             "verified_label": "Verified review"
           }
@@ -375,10 +375,10 @@
             "before_label": "Month 0",
             "after_label": "Month 6",
             "reviewer_name": "Danielle K.",
-            "review_text": "“My hair looks fuller and longer, and it feels a lot stronger when I style it with no hair strands left on the brush. It has more body, better shine, and just feels better and healthier than before.”",
+            "review_text": "\"Dramatically less hair on my brush was the first sign. By month six, my hair had so much more body and shine. Looks the way I always wanted it to.\"",
             "result_tag_1": "More body",
-            "result_tag_2": "Stronger lengths",
-            "result_tag_3": "Healthier shine",
+            "result_tag_2": "Less fallout",
+            "result_tag_3": "Better shine",
             "verified_review": true,
             "verified_label": "Verified review"
           }
@@ -391,7 +391,7 @@
             "before_label": "Month 0",
             "after_label": "Month 3",
             "reviewer_name": "Rachel S.",
-            "review_text": "“By month three, I could already see my part line looking narrower and more filled in. I was also noticing less shedding in the shower, which made me feel like the routine was really working.”",
+            "review_text": "\"By month three, my part line was visibly filling in, and I was losing so much less hair in the shower. That's when I knew the routine was actually working.\"",
             "result_tag_1": "Fuller part line",
             "result_tag_2": "Less shedding",
             "result_tag_3": "Early progress",
@@ -407,7 +407,7 @@
             "before_label": "Month 0",
             "after_label": "Month 10",
             "reviewer_name": "Linda M.",
-            "review_text": "“Over time, my hair started looking much fuller, specifically in the crown and length. By month ten, it felt healthier, thicker, and much easier to style with confidence. Will continue taking the gummies daily.”",
+            "review_text": "\"By month ten, my crown was fuller, my lengths were thicker, and styling my hair felt enjoyable again. I finally felt confident about my hair. I am still taking them daily.\"",
             "result_tag_1": "Fuller crown",
             "result_tag_2": "Longer hair",
             "result_tag_3": "Healthier hair",
@@ -423,7 +423,7 @@
             "before_label": "Month 0",
             "after_label": "Month 17",
             "reviewer_name": "Emily K.",
-            "review_text": "“I noticed the biggest difference around my hairline and temple area, mainly my side profile. My hair looks fuller there now with no scalp or thinning visible, and overall it feels thicker, smoother, and stronger than ever.”",
+            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
             "result_tag_1": "Fuller hairline",
             "result_tag_2": "Temple fill-in",
             "result_tag_3": "Stronger hair",
@@ -444,7 +444,7 @@
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "Real Progress, Visible Difference",
-        "copy": "<p><br/>Real customer progress captured over time, showing visible progress from early shedding concerns to fuller-looking, healthier hair.<br/></p>",
+        "copy": "<p>No studios. No filters. Just verified customers, photographed at home over months of consistent use.</p>",
         "corner_radius": 6,
         "image_corner_radius": 6,
         "cards_visible_desktop": 3,
@@ -455,7 +455,7 @@
         "body_size": 15,
         "body_size_mobile": 15,
         "verified_label": "Verified review",
-        "caption": "*Paid testimonials. Before and after photos shared by the customers.  Results vary and are not independently verified.",
+        "caption": "*Results vary. Before and after photos submitted by verified customers.",
         "padding_top": 64,
         "padding_bottom": 40,
         "padding_top_mobile": 40,
@@ -478,7 +478,6 @@
             "photo_label": "Raw biotin - powder",
             "icon": "leaf",
             "title": "Biotin",
-            "amount": "6000 mcg",
             "text": "Supports healthy hair growth and helps strengthen the look of hair, skin, and nails.",
             "source_line": ""
           }
@@ -496,7 +495,6 @@
             "photo_label": "Folate",
             "icon": "palm",
             "title": "Folate",
-            "amount": "670 mcg",
             "text": "Supports healthy cell renewal, helping your body build the foundation for stronger-looking hair.",
             "source_line": ""
           }
@@ -514,7 +512,6 @@
             "photo_label": "Vitamin B12",
             "icon": "drop",
             "title": "Vitamin B12",
-            "amount": "8 mcg",
             "text": "Supports cellular energy and nutrient metabolism for inside-out beauty and wellness.",
             "source_line": ""
           }
@@ -532,7 +529,6 @@
             "photo_label": "Vitamin B5",
             "icon": "root",
             "title": "Vitamin B5",
-            "amount": "10 mg",
             "text": "Helps support the body’s natural energy process and daily hair, skin, and nail health.",
             "source_line": ""
           }
@@ -550,7 +546,6 @@
             "photo_label": "Vitamin E",
             "icon": "zinc",
             "title": "Vitamin E",
-            "amount": "18 mg",
             "text": "Provides antioxidant support to help protect cells involved in healthy skin and hair.",
             "source_line": ""
           }
@@ -564,10 +559,9 @@
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Raw ingredient",
+            "photo_label": "Zinc",
             "icon": "leaf",
-            "title": "Vitamin A",
-            "amount": "2500 MCG",
+            "title": "Zinc",
             "text": "Supports healthy skin and normal cell function, helping maintain the foundation for healthy hair.",
             "source_line": ""
           }
@@ -584,7 +578,6 @@
             "photo_label": "Raw ingredient",
             "icon": "spark",
             "title": "Delightfully tasty",
-            "amount": "2500 MCG",
             "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.",
             "source_line": ""
           }
@@ -601,7 +594,6 @@
             "photo_label": "Raw ingredient",
             "icon": "tested",
             "title": "Independently verified",
-            "amount": "2500 MCG",
             "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.",
             "source_line": ""
           }
@@ -625,8 +617,8 @@
         "small_label_color": "#8a6678",
         "card_background_color": "#fbf7f3",
         "card_border_color": "#e7dcd5",
-        "heading_line2": "Ingredients With Purpose.",
-        "copy": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>",
+        "heading_line2": "No fillers, no fairy dust. Just ingredients that earn their place.",
+        "copy": "<p>The ingredients that do the heavy lifting. Chosen carefully, dosed for results.</p>",
         "header_alignment": "left",
         "desktop_columns": "2",
         "media_background": "surface",

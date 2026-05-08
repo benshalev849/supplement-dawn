@@ -478,7 +478,7 @@
             "photo_label": "Raw biotin - powder",
             "icon": "leaf",
             "title": "Biotin",
-            "text": "Supports healthy hair growth and helps strengthen the look of hair, skin, and nails.",
+            "text": "The building block behind keratin, the protein your hair is actually made of. Every strand starts here.",
             "source_line": ""
           }
         },
@@ -495,7 +495,7 @@
             "photo_label": "Folate",
             "icon": "palm",
             "title": "Folate",
-            "text": "Supports healthy cell renewal, helping your body build the foundation for stronger-looking hair.",
+            "text": "Drives the rapid cell division that hair follicles depend on to produce new growth from the root.",
             "source_line": ""
           }
         },
@@ -512,7 +512,7 @@
             "photo_label": "Vitamin B12",
             "icon": "drop",
             "title": "Vitamin B12",
-            "text": "Supports cellular energy and nutrient metabolism for inside-out beauty and wellness.",
+            "text": "Supports red blood cell formation, helping deliver the oxygen and nutrients your follicles need to thrive.",
             "source_line": ""
           }
         },
@@ -529,7 +529,7 @@
             "photo_label": "Vitamin B5",
             "icon": "root",
             "title": "Vitamin B5",
-            "text": "Helps support the body’s natural energy process and daily hair, skin, and nail health.",
+            "text": "Nourishes the follicle directly, helping each strand retain moisture and resist breakage from root to tip.",
             "source_line": ""
           }
         },
@@ -546,7 +546,7 @@
             "photo_label": "Vitamin E",
             "icon": "zinc",
             "title": "Vitamin E",
-            "text": "Provides antioxidant support to help protect cells involved in healthy skin and hair.",
+            "text": "A potent antioxidant that shields your scalp from oxidative stress, one of the key drivers of hair thinning.",
             "source_line": ""
           }
         },
@@ -562,7 +562,7 @@
             "photo_label": "Zinc",
             "icon": "leaf",
             "title": "Zinc",
-            "text": "Supports healthy skin and normal cell function, helping maintain the foundation for healthy hair.",
+            "text": "Regulates the scalp environment and supports healthy follicle function, keeping the conditions for growth consistent.",
             "source_line": ""
           }
         },

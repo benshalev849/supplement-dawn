@@ -175,12 +175,15 @@
 }
 
 .bloomli-formula-gallery__meta h3 {
+  display: inline-block;
   font-family: var(--font-commerce-ui), var(--font-body-family);
   font-style: var(--font-commerce-ui-style);
   font-size: var(--bfg-title-size, 26px);
   line-height: 1.08;
   font-weight: var(--font-commerce-ui-weight-bold);
   margin: 0 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(138, 102, 120, 0.18);
   color: var(--bloomli-text);
 }
 
@@ -190,11 +193,6 @@
   font-size: 15px;
   line-height: 1.6;
   color: var(--bloomli-text-muted);
-}
-
-.bloomli-formula-gallery__item .bloomli-formula-gallery__text {
-  padding-top: 10px;
-  border-top: 1px solid rgba(138, 102, 120, 0.18);
 }
 
 .bloomli-formula-gallery__source {

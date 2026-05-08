@@ -266,8 +266,8 @@
         "show_connector": true,
         "connector_style": "dashed",
         "connector_width": 1,
-        "padding_top": 104,
-        "padding_bottom": 104
+        "padding_top": 120,
+        "padding_bottom": 80
       }
     },
     "bloomli_proof_split_bhYAhW": {
@@ -329,7 +329,7 @@
         "heading_line2": "intentional.",
         "copy": "<p>Most hair supplements are built around a marketing story. <strong>Ours is built around what your hair actually needs.</strong></p><p>Our formula delivers <strong>clinically-studied doses of 14 targeted nutrients.</strong> <br/>The kind that actually move the needle, not the sprinkle-doses added just to earn a spot on the label.<br/></p>",
         "padding_top": 48,
-        "padding_bottom": 104
+        "padding_bottom": 88
       }
     },
     "bloomli_before_after_U7dPaV": {
@@ -456,9 +456,9 @@
         "body_size_mobile": 15,
         "verified_label": "Verified review",
         "caption": "*Results vary. Before and after photos submitted by verified customers.",
-        "padding_top": 64,
+        "padding_top": 40,
         "padding_bottom": 40,
-        "padding_top_mobile": 40,
+        "padding_top_mobile": 32,
         "padding_bottom_mobile": 32
       }
     },
@@ -635,7 +635,7 @@
         "proof_icon_size_mobile": 56,
         "column_gap": 56,
         "row_gap": 48,
-        "padding_top": 48,
+        "padding_top": 72,
         "padding_bottom": 48
       }
     },

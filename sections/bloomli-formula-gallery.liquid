@@ -46,12 +46,9 @@
 >
   <div class="bloomli-formula-gallery__inner" style="max-width: {{ section.settings.content_width }}px; margin: 0 auto;">
     <div class="bloomli-formula-gallery__header bloomli-formula-gallery__header--{{ section.settings.header_alignment }}">
-      {%- if section.settings.heading_line1 != blank or section.settings.heading_line2 != blank -%}
+      {%- if section.settings.heading_line2 != blank -%}
         <h2 class="bloomli-formula-gallery__heading">
-          {{ section.settings.heading_line1 }}
-          {%- if section.settings.heading_line2 != blank -%}
-            <br><span>{{ section.settings.heading_line2 }}</span>
-          {%- endif -%}
+          <span>{{ section.settings.heading_line2 }}</span>
         </h2>
       {%- endif -%}
 
@@ -200,8 +197,7 @@
     { "type": "color", "id": "small_label_color", "label": "Small label color", "default": "#8A6678" },
     { "type": "color", "id": "card_background_color", "label": "Ingredient card background", "default": "#FBF7F3" },
     { "type": "color", "id": "card_border_color", "label": "Ingredient card border", "default": "#E7DCD5" },
-    { "type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "Five ingredients," },
-    { "type": "text", "id": "heading_line2", "label": "Heading line 2", "default": "doing the quiet work." },
+    { "type": "text", "id": "heading_line2", "label": "Heading line", "default": "doing the quiet work." },
     { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>" },
     { "type": "select", "id": "header_alignment", "label": "Header alignment", "options": [
       { "value": "left", "label": "Left" },

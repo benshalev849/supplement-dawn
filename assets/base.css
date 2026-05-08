@@ -184,19 +184,6 @@
   color: var(--bloomli-text);
 }
 
-.bloomli-formula-gallery__meta span {
-  color: var(--bfg-small-label-color, var(--bloomli-editorial-accent));
-  display: inline-flex;
-  width: fit-content;
-  max-width: 100%;
-  padding-top: 10px;
-  border-top: 1px solid rgba(138, 102, 120, 0.18);
-  font-family: var(--font-commerce-ui), var(--font-body-family);
-  font-style: var(--font-commerce-ui-style);
-  font-size: 10px;
-  font-weight: var(--font-commerce-ui-weight-bold);
-}
-
 .bloomli-formula-gallery__text {
   font-family: var(--font-commerce-ui), var(--font-body-family);
   font-style: var(--font-commerce-ui-style);

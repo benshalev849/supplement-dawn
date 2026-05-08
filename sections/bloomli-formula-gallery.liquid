@@ -106,9 +106,6 @@
                 {%- if block.settings.title != blank -%}
                   <h3>{{ block.settings.title }}</h3>
                 {%- endif -%}
-                {%- if block.settings.amount != blank -%}
-                  <span class="smallcaps">{{ block.settings.amount }}</span>
-                {%- endif -%}
               </div>
 
               {%- if block.settings.text != blank -%}
@@ -258,7 +255,6 @@
           { "value": "tested", "label": "Tested badge" }
         ], "default": "leaf" },
         { "type": "text", "id": "title", "label": "Title", "default": "Biotin" },
-        { "type": "text", "id": "amount", "label": "Amount", "default": "2500 MCG" },
         { "type": "textarea", "id": "text", "label": "Benefit text", "default": "The keratin building block - clinically dosed for strand strength you can actually feel." },
         { "type": "text", "id": "source_line", "label": "Optional source/location line" }
       ]
@@ -268,13 +264,13 @@
     {
       "name": "Bloomli - Formula Gallery",
       "blocks": [
-        { "type": "item", "settings": { "icon": "leaf", "title": "Biotin", "amount": "2500 MCG", "text": "The keratin building block - clinically dosed for strand strength you can actually feel.", "photo_label": "Raw biotin - powder" } },
-        { "type": "item", "settings": { "icon": "palm", "title": "Saw Palmetto", "amount": "160 MG", "text": "A plant-based DHT balancer that keeps follicles happy at the root.", "photo_label": "Saw palmetto - berry" } },
-        { "type": "item", "settings": { "icon": "drop", "title": "Marine Collagen", "amount": "500 MG", "text": "Sustainably sourced amino acids for elasticity and shine.", "photo_label": "Marine collagen - flake" } },
-        { "type": "item", "settings": { "icon": "root", "title": "Ashwagandha", "amount": "300 MG", "text": "Adaptogen that quiets stress-related shedding.", "photo_label": "Ashwagandha - root" } },
-        { "type": "item", "settings": { "icon": "zinc", "title": "Zinc", "amount": "8 MG", "text": "Essential mineral that supports a calm, healthy scalp environment.", "photo_label": "Zinc - mineral" } },
-        { "type": "item", "settings": { "icon": "spark", "title": "Delightfully tasty", "amount": "", "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.", "is_proof": true } },
-        { "type": "item", "settings": { "icon": "tested", "title": "Independently verified", "amount": "", "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.", "is_proof": true } }
+        { "type": "item", "settings": { "icon": "leaf", "title": "Biotin", "text": "The keratin building block - clinically dosed for strand strength you can actually feel.", "photo_label": "Raw biotin - powder" } },
+        { "type": "item", "settings": { "icon": "palm", "title": "Saw Palmetto", "text": "A plant-based DHT balancer that keeps follicles happy at the root.", "photo_label": "Saw palmetto - berry" } },
+        { "type": "item", "settings": { "icon": "drop", "title": "Marine Collagen", "text": "Sustainably sourced amino acids for elasticity and shine.", "photo_label": "Marine collagen - flake" } },
+        { "type": "item", "settings": { "icon": "root", "title": "Ashwagandha", "text": "Adaptogen that quiets stress-related shedding.", "photo_label": "Ashwagandha - root" } },
+        { "type": "item", "settings": { "icon": "zinc", "title": "Zinc", "text": "Essential mineral that supports a calm, healthy scalp environment.", "photo_label": "Zinc - mineral" } },
+        { "type": "item", "settings": { "icon": "spark", "title": "Delightfully tasty", "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.", "is_proof": true } },
+        { "type": "item", "settings": { "icon": "tested", "title": "Independently verified", "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.", "is_proof": true } }
       ]
     }
   ]

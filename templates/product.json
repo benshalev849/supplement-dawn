@@ -777,7 +777,6 @@
         "photo_fGEqGb",
         "photo_zbFfXz"
       ],
-      "disabled": true,
       "name": "Bloomli - Photo Mosaic",
       "settings": {
         "color_scheme": "",
@@ -853,6 +852,7 @@
         "question_kxfkwW",
         "question_i8yLic"
       ],
+      "disabled": true,
       "name": "Bloomli - FAQ",
       "settings": {
         "heading": "Questions, answered.",

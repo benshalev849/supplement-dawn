@@ -799,40 +799,48 @@
         "question_yXD6xy": {
           "type": "question",
           "settings": {
-            "question": "How long does Bloomli take to work?",
-            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
+            "question": "How long does it take to work?",
+            "answer": "<p>Hair grows gradually, so results build over time rather than overnight. Most customers notice less shedding and improved texture within the first 4-8 weeks. Visible density and growth changes typically appear between months 3-6 with consistent daily use.</p>",
             "open_by_default": false
           }
         },
         "question_UfFpyj": {
           "type": "question",
           "settings": {
-            "question": "Can I take it every day?",
-            "answer": "<p>Yes. Bloomli is designed as a daily ritual. Always follow the product directions and your clinician's guidance if you have a specific concern.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_DbFafF": {
-          "type": "question",
-          "settings": {
-            "question": "Is this section editable?",
-            "answer": "<p>Yes. You can edit each question, answer, colors, typography, spacing, and the image from the Shopify theme editor.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_kxfkwW": {
-          "type": "question",
-          "settings": {
-            "question": "How long does Bloomli take to work?",
-            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
+            "question": "How do I take it?",
+            "answer": "<p>Two gummies a day, with or without food. Consistency matters more than timing. Pick a moment that fits your routine and stick to it.</p>",
             "open_by_default": false
           }
         },
         "question_h3AWWX": {
           "type": "question",
           "settings": {
-            "question": "How long does Bloomli take to work?",
-            "answer": "<p>Hair wellness is gradual. Most customers build a consistent routine for at least 3 to 6 months.</p>",
+            "question": "What makes Bloomli different from other hair gummies?",
+            "answer": "<p>Most hair gummies are built around biotin alone. Bloomli combines 14 targeted nutrients at doses that actually do something, not the sprinkle amounts added just to earn a spot on the label.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_DbFafF": {
+          "type": "question",
+          "settings": {
+            "question": "Does Bloomli contain any allergens?",
+            "answer": "<p>Yes. Bloomli Hair Gummies contain Fish (Tilapia) and Tree nuts (Coconut). They are gluten-free. If you have a known allergy to either, please consult your doctor before use.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_kxfkwW": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe during pregnancy or breastfeeding?",
+            "answer": "<p>We recommend consulting your physician before taking any supplement while pregnant or nursing.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_i8yLic": {
+          "type": "question",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "<p>We offer a 30-day satisfaction guarantee. If you're not happy, contact us, and we'll make it right.</p>",
             "open_by_default": false
           }
         }
@@ -840,9 +848,10 @@
       "block_order": [
         "question_yXD6xy",
         "question_UfFpyj",
+        "question_h3AWWX",
         "question_DbFafF",
         "question_kxfkwW",
-        "question_h3AWWX"
+        "question_i8yLic"
       ],
       "name": "Bloomli - FAQ",
       "settings": {

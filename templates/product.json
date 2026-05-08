@@ -383,6 +383,22 @@
             "verified_label": "Verified review"
           }
         },
+        "result_jUa8a4": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
+            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
+            "before_label": "Month 0",
+            "after_label": "Month 17",
+            "reviewer_name": "Emily K.",
+            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
+            "result_tag_1": "Hairline restored",
+            "result_tag_2": "Temple fill-in",
+            "result_tag_3": "17 months strong",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
         "result_review_current": {
           "type": "result",
           "settings": {
@@ -392,9 +408,9 @@
             "after_label": "Month 3",
             "reviewer_name": "Rachel S.",
             "review_text": "\"By month three, my part line was visibly filling in, and I was losing so much less hair in the shower. That's when I knew the routine was actually working.\"",
-            "result_tag_1": "Fuller part line",
-            "result_tag_2": "Less shedding",
-            "result_tag_3": "Early progress",
+            "result_tag_1": "Narrower part",
+            "result_tag_2": "Less shower fallout",
+            "result_tag_3": "Month 3 results",
             "verified_review": true,
             "verified_label": "Verified review"
           }
@@ -408,25 +424,9 @@
             "after_label": "Month 10",
             "reviewer_name": "Linda M.",
             "review_text": "\"By month ten, my crown was fuller, my lengths were thicker, and styling my hair felt enjoyable again. I finally felt confident about my hair. I am still taking them daily.\"",
-            "result_tag_1": "Fuller crown",
-            "result_tag_2": "Longer hair",
-            "result_tag_3": "Healthier hair",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
-        "result_jUa8a4": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
-            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
-            "before_label": "Month 0",
-            "after_label": "Month 17",
-            "reviewer_name": "Emily K.",
-            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
-            "result_tag_1": "Fuller hairline",
-            "result_tag_2": "Temple fill-in",
-            "result_tag_3": "Stronger hair",
+            "result_tag_1": "Crown density",
+            "result_tag_2": "Easier to style",
+            "result_tag_3": "Long-term results",
             "verified_review": true,
             "verified_label": "Verified review"
           }
@@ -436,9 +436,9 @@
         "result_9hNhFP",
         "result_PXeWzj",
         "result_zrawxk",
+        "result_jUa8a4",
         "result_review_current",
-        "result_bPaP87",
-        "result_jUa8a4"
+        "result_bPaP87"
       ],
       "name": "Bloomli - Result Gallery",
       "settings": {
@@ -639,6 +639,87 @@
         "padding_bottom": 112
       }
     },
+    "bloomli_faq_N48arU": {
+      "type": "bloomli-faq",
+      "blocks": {
+        "question_yXD6xy": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take to work?",
+            "answer": "<p>Hair grows gradually, so results build over time rather than overnight. Most customers notice less shedding and improved texture within the first 4-8 weeks. Visible density and growth changes typically appear between months 3-6 with consistent daily use.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_UfFpyj": {
+          "type": "question",
+          "settings": {
+            "question": "How do I take it?",
+            "answer": "<p>Two gummies a day, with or without food. Consistency matters more than timing. Pick a moment that fits your routine and stick to it.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_h3AWWX": {
+          "type": "question",
+          "settings": {
+            "question": "What makes Bloomli different from other hair gummies?",
+            "answer": "<p>Most hair gummies are built around biotin alone. Bloomli combines 14 targeted nutrients at doses that actually do something, not the sprinkle amounts added just to earn a spot on the label.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_DbFafF": {
+          "type": "question",
+          "settings": {
+            "question": "Does Bloomli contain any allergens?",
+            "answer": "<p>Yes. Bloomli Hair Gummies contain Fish (Tilapia) and Tree nuts (Coconut). They are gluten-free. If you have a known allergy to either, please consult your doctor before use.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_kxfkwW": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe during pregnancy or breastfeeding?",
+            "answer": "<p>We recommend consulting your physician before taking any supplement while pregnant or nursing.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_i8yLic": {
+          "type": "question",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "<p>We offer a 30-day satisfaction guarantee. If you're not happy, contact us, and we'll make it right.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "question_yXD6xy",
+        "question_UfFpyj",
+        "question_h3AWWX",
+        "question_DbFafF",
+        "question_kxfkwW",
+        "question_i8yLic"
+      ],
+      "name": "Bloomli - FAQ",
+      "settings": {
+        "heading": "Questions, answered.",
+        "intro": "<p>Everything you need to know before your first gummy.</p>",
+        "image": "shopify://shop_images/Model_Eating_Gummy_1_776f04a1-a795-418c-b1ba-47563a85fff9.png",
+        "image_alt": "",
+        "show_placeholder": false,
+        "image_position": "right",
+        "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "border_color": "#e8ded8",
+        "content_width": 1180,
+        "image_width": 360,
+        "corner_radius": 14,
+        "heading_size": 48,
+        "question_size": 16,
+        "body_size": 15,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "bloomli_photo_mosaic_dYCUhp": {
       "type": "bloomli-photo-mosaic",
       "blocks": {
@@ -781,7 +862,7 @@
       "settings": {
         "color_scheme": "",
         "use_custom_background": false,
-        "background_color": "{{ shop.brand.colors.primary[0].background }}",
+        "background_color": "#fdfaf7",
         "heading": "Photos from the ritual.",
         "subtext": "<p>Real customers, real routines. A few of our favorites from the Bloomli community.</p>",
         "placeholder_background": "surface",
@@ -791,88 +872,6 @@
         "radius": 6,
         "padding_top": 48,
         "padding_bottom": 96
-      }
-    },
-    "bloomli_faq_N48arU": {
-      "type": "bloomli-faq",
-      "blocks": {
-        "question_yXD6xy": {
-          "type": "question",
-          "settings": {
-            "question": "How long does it take to work?",
-            "answer": "<p>Hair grows gradually, so results build over time rather than overnight. Most customers notice less shedding and improved texture within the first 4-8 weeks. Visible density and growth changes typically appear between months 3-6 with consistent daily use.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_UfFpyj": {
-          "type": "question",
-          "settings": {
-            "question": "How do I take it?",
-            "answer": "<p>Two gummies a day, with or without food. Consistency matters more than timing. Pick a moment that fits your routine and stick to it.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_h3AWWX": {
-          "type": "question",
-          "settings": {
-            "question": "What makes Bloomli different from other hair gummies?",
-            "answer": "<p>Most hair gummies are built around biotin alone. Bloomli combines 14 targeted nutrients at doses that actually do something, not the sprinkle amounts added just to earn a spot on the label.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_DbFafF": {
-          "type": "question",
-          "settings": {
-            "question": "Does Bloomli contain any allergens?",
-            "answer": "<p>Yes. Bloomli Hair Gummies contain Fish (Tilapia) and Tree nuts (Coconut). They are gluten-free. If you have a known allergy to either, please consult your doctor before use.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_kxfkwW": {
-          "type": "question",
-          "settings": {
-            "question": "Is it safe during pregnancy or breastfeeding?",
-            "answer": "<p>We recommend consulting your physician before taking any supplement while pregnant or nursing.</p>",
-            "open_by_default": false
-          }
-        },
-        "question_i8yLic": {
-          "type": "question",
-          "settings": {
-            "question": "What's your return policy?",
-            "answer": "<p>We offer a 30-day satisfaction guarantee. If you're not happy, contact us, and we'll make it right.</p>",
-            "open_by_default": false
-          }
-        }
-      },
-      "block_order": [
-        "question_yXD6xy",
-        "question_UfFpyj",
-        "question_h3AWWX",
-        "question_DbFafF",
-        "question_kxfkwW",
-        "question_i8yLic"
-      ],
-      "disabled": true,
-      "name": "Bloomli - FAQ",
-      "settings": {
-        "heading": "Questions, answered.",
-        "intro": "<p>Everything you need to know before your first gummy.</p>",
-        "image": "shopify://shop_images/Model_Eating_Gummy_1_776f04a1-a795-418c-b1ba-47563a85fff9.png",
-        "image_alt": "",
-        "show_placeholder": false,
-        "image_position": "right",
-        "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "border_color": "#e8ded8",
-        "content_width": 1180,
-        "image_width": 360,
-        "corner_radius": 14,
-        "heading_size": 48,
-        "question_size": 16,
-        "body_size": 15,
-        "padding_top": 40,
-        "padding_bottom": 40
       }
     },
     "bloomli_product_picks_73mXTr": {
@@ -973,8 +972,8 @@
     "bloomli_proof_split_bhYAhW",
     "bloomli_before_after_U7dPaV",
     "bloomli_formula_gallery_ypjbMe",
-    "bloomli_photo_mosaic_dYCUhp",
     "bloomli_faq_N48arU",
+    "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
     "related-products"
   ]

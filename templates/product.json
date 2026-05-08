@@ -383,6 +383,22 @@
             "verified_label": "Verified review"
           }
         },
+        "result_jUa8a4": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
+            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
+            "before_label": "Month 0",
+            "after_label": "Month 17",
+            "reviewer_name": "Emily K.",
+            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
+            "result_tag_1": "Hairline restored",
+            "result_tag_2": "Temple fill-in",
+            "result_tag_3": "17 months strong",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
         "result_review_current": {
           "type": "result",
           "settings": {
@@ -392,9 +408,9 @@
             "after_label": "Month 3",
             "reviewer_name": "Rachel S.",
             "review_text": "\"By month three, my part line was visibly filling in, and I was losing so much less hair in the shower. That's when I knew the routine was actually working.\"",
-            "result_tag_1": "Fuller part line",
-            "result_tag_2": "Less shedding",
-            "result_tag_3": "Early progress",
+            "result_tag_1": "Narrower part",
+            "result_tag_2": "Less shower fallout",
+            "result_tag_3": "Month 3 results",
             "verified_review": true,
             "verified_label": "Verified review"
           }
@@ -408,25 +424,9 @@
             "after_label": "Month 10",
             "reviewer_name": "Linda M.",
             "review_text": "\"By month ten, my crown was fuller, my lengths were thicker, and styling my hair felt enjoyable again. I finally felt confident about my hair. I am still taking them daily.\"",
-            "result_tag_1": "Fuller crown",
-            "result_tag_2": "Longer hair",
-            "result_tag_3": "Healthier hair",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
-        "result_jUa8a4": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
-            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
-            "before_label": "Month 0",
-            "after_label": "Month 17",
-            "reviewer_name": "Emily K.",
-            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
-            "result_tag_1": "Fuller hairline",
-            "result_tag_2": "Temple fill-in",
-            "result_tag_3": "Stronger hair",
+            "result_tag_1": "Crown density",
+            "result_tag_2": "Easier to style",
+            "result_tag_3": "Long-term results",
             "verified_review": true,
             "verified_label": "Verified review"
           }
@@ -436,9 +436,9 @@
         "result_9hNhFP",
         "result_PXeWzj",
         "result_zrawxk",
+        "result_jUa8a4",
         "result_review_current",
-        "result_bPaP87",
-        "result_jUa8a4"
+        "result_bPaP87"
       ],
       "name": "Bloomli - Result Gallery",
       "settings": {

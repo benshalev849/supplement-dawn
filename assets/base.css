@@ -171,7 +171,7 @@
 }
 
 .bloomli-formula-gallery__meta {
-  margin-bottom: 14px;
+  margin-bottom: 0;
 }
 
 .bloomli-formula-gallery__meta h3 {
@@ -190,6 +190,11 @@
   font-size: 15px;
   line-height: 1.6;
   color: var(--bloomli-text-muted);
+}
+
+.bloomli-formula-gallery__item .bloomli-formula-gallery__text {
+  padding-top: 10px;
+  border-top: 1px solid rgba(138, 102, 120, 0.18);
 }
 
 .bloomli-formula-gallery__source {

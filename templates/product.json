@@ -279,16 +279,16 @@
             "text": "No under-dosed filler blends or trendy label dust."
           }
         },
-        "bullet_9GzmFm": {
-          "type": "bullet",
-          "settings": {
-            "text": "Only 15 calories per serving — just 2g sugar per gummy."
-          }
-        },
         "bullet_f68cpc": {
           "type": "bullet",
           "settings": {
             "text": "Beyond biotin alone — 14 targeted vitamins and nutrients for hair, skin, and nail support."
+          }
+        },
+        "bullet_9GzmFm": {
+          "type": "bullet",
+          "settings": {
+            "text": "Only 15 calories per serving — just 2g sugar per gummy."
           }
         },
         "bullet_NjdcCt": {
@@ -306,8 +306,8 @@
       },
       "block_order": [
         "bullet_zDDhyE",
-        "bullet_9GzmFm",
         "bullet_f68cpc",
+        "bullet_9GzmFm",
         "bullet_NjdcCt",
         "bullet_F7gTNi"
       ],

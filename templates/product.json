@@ -852,7 +852,6 @@
         "question_kxfkwW",
         "question_i8yLic"
       ],
-      "disabled": true,
       "name": "Bloomli - FAQ",
       "settings": {
         "heading": "Questions, answered.",
@@ -971,8 +970,8 @@
     "bloomli_proof_split_bhYAhW",
     "bloomli_before_after_U7dPaV",
     "bloomli_formula_gallery_ypjbMe",
-    "bloomli_photo_mosaic_dYCUhp",
     "bloomli_faq_N48arU",
+    "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
     "related-products"
   ]

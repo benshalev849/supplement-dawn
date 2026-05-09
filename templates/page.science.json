@@ -231,88 +231,6 @@
         "padding_bottom": 104
       }
     },
-    "science_checkpoints": {
-      "type": "bloomli-formula-list",
-      "blocks": {
-        "checkpoint_1": {
-          "type": "item",
-          "settings": {
-            "image_scale": 100,
-            "is_proof": false,
-            "icon": "tested",
-            "use_custom_icon_background": false,
-            "icon_background": "#F1EDE8",
-            "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
-            "title": "Safety",
-            "text": "Ingredients are reviewed for fit, routine use, and customer clarity."
-          }
-        },
-        "checkpoint_2": {
-          "type": "item",
-          "settings": {
-            "image_scale": 100,
-            "is_proof": false,
-            "icon": "spark",
-            "use_custom_icon_background": false,
-            "icon_background": "#F1EDE8",
-            "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
-            "title": "Purity",
-            "text": "Quality expectations should be clear from raw material to finished product."
-          }
-        },
-        "checkpoint_3": {
-          "type": "item",
-          "settings": {
-            "image_scale": 100,
-            "is_proof": false,
-            "icon": "zinc",
-            "use_custom_icon_background": false,
-            "icon_background": "#F1EDE8",
-            "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
-            "title": "Potency",
-            "text": "The ingredient amount should support the role it is meant to play."
-          }
-        },
-        "checkpoint_4": {
-          "type": "item",
-          "settings": {
-            "image_scale": 100,
-            "is_proof": false,
-            "icon": "leaf",
-            "use_custom_icon_background": false,
-            "icon_background": "#F1EDE8",
-            "use_custom_icon_color": false,
-            "icon_color": "#6F7A5A",
-            "title": "Stability",
-            "text": "Packaging and format are part of how the product fits real routines."
-          }
-        }
-      },
-      "block_order": [
-        "checkpoint_1",
-        "checkpoint_2",
-        "checkpoint_3",
-        "checkpoint_4"
-      ],
-      "settings": {
-        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
-        "use_custom_background": false,
-        "background_color": "#F3E1E5",
-        "icon_accent_color": "#6F7A5A",
-        "heading_line1": "Four checkpoints,",
-        "heading_line2": "every batch.",
-        "copy": "<p>Bloomli product development balances beauty experience with formula clarity, quality expectations, and customer trust.</p>",
-        "icon_background_tone": "surface",
-        "proof_icon_background_tone": "surface",
-        "icon_size": 64,
-        "icon_size_mobile": 56,
-        "padding_top": 104,
-        "padding_bottom": 104
-      }
-    },
     "science_packaging": {
       "type": "image-with-text",
       "blocks": {
@@ -458,7 +376,6 @@
     "science_meaning",
     "science_principles",
     "science_criteria",
-    "science_checkpoints",
     "science_packaging",
     "science_founder",
     "science_faq"

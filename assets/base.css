@@ -94,14 +94,14 @@
 }
 
 .bloomli-formula-gallery__grid--3 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .bloomli-formula-gallery__item {
   display: block;
   position: relative;
   min-width: 0;
-  overflow: visible;
+  overflow: hidden;
   padding: var(--ingredient-card-padding, 32px);
   border: 0;
   border-radius: var(--ingredient-card-radius, 12px);
@@ -111,8 +111,8 @@
 
 .bloomli-formula-gallery__media {
   position: absolute;
-  top: calc(var(--ingredient-image-bleed, 20px) * -1);
-  right: calc(var(--ingredient-image-bleed, 20px) * -1);
+  top: -10px;
+  right: -10px;
   width: var(--ingredient-image-size, 180px);
   height: var(--ingredient-image-size, 180px);
   border-radius: var(--media-radius);

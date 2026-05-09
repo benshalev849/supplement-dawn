@@ -282,9 +282,18 @@
   }
 
   .bloomli-formula-gallery__item {
-    --ingredient-image-size: var(--ingredient-image-size-mobile, 120px);
+    --ingredient-image-size: 45%;
     --ingredient-text-gap: var(--ingredient-text-gap-mobile, 16px);
     --ingredient-card-padding: var(--ingredient-card-padding-mobile, 20px);
+  }
+
+  .bloomli-formula-gallery__media {
+    width: 45%;
+    height: auto;
+  }
+
+  .bloomli-formula-gallery__media img {
+    height: auto;
   }
 
   .bloomli-formula-gallery__meta h3 {

@@ -478,7 +478,7 @@
             "photo_label": "Raw biotin - powder",
             "icon": "leaf",
             "title": "Biotin",
-            "text": "The building block behind keratin, the protein your hair is actually made of. Every strand starts here.",
+            "text": "The building block behind keratin, the protein your hair is actually made of.",
             "source_line": ""
           }
         },
@@ -495,7 +495,7 @@
             "photo_label": "Folate",
             "icon": "palm",
             "title": "Folate",
-            "text": "Drives the rapid cell division that hair follicles depend on to produce new growth from the root.",
+            "text": "Drives the cell division hair follicles depend on to grow.",
             "source_line": ""
           }
         },
@@ -512,7 +512,7 @@
             "photo_label": "Vitamin B12",
             "icon": "drop",
             "title": "Vitamin B12",
-            "text": "Supports red blood cell formation, helping deliver the oxygen and nutrients your follicles need to thrive.",
+            "text": "Delivers oxygen and nutrients to your follicles so they can thrive.",
             "source_line": ""
           }
         },
@@ -529,7 +529,7 @@
             "photo_label": "Vitamin B5",
             "icon": "root",
             "title": "Vitamin B5",
-            "text": "Nourishes the follicle directly, helping each strand retain moisture and resist breakage from root to tip.",
+            "text": "Nourishes each strand from root to tip, reducing moisture loss and breakage.",
             "source_line": ""
           }
         },
@@ -546,7 +546,7 @@
             "photo_label": "Vitamin E",
             "icon": "zinc",
             "title": "Vitamin E",
-            "text": "A potent antioxidant that shields your scalp from oxidative stress, one of the key drivers of hair thinning.",
+            "text": "Shields your scalp from oxidative stress, a key driver of hair thinning.",
             "source_line": ""
           }
         },
@@ -563,7 +563,7 @@
             "photo_label": "Zinc",
             "icon": "leaf",
             "title": "Zinc",
-            "text": "Regulates the scalp environment and supports healthy follicle function, keeping the conditions for growth consistent.",
+            "text": "Keeps the scalp environment stable and follicle function consistent.",
             "source_line": ""
           }
         },

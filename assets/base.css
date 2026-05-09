@@ -145,7 +145,7 @@
 }
 
 .bloomli-formula-gallery__media img {
-  transform: none;
+  transform: scale(var(--bfg-image-scale, 1));
 }
 
 .bloomli-formula-gallery__proof-media img {

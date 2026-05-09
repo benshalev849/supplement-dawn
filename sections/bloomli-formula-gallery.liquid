@@ -31,7 +31,7 @@
     --bfg-proof-icon: {{ section.settings.proof_icon_size }}px;
     --bfg-proof-icon-mobile: {{ section.settings.proof_icon_size_mobile }}px;
     --bfg-small-label-color: {{ section.settings.small_label_color | default: '#8A6678' }};
-    --bfg-card-bg: {{ section.settings.card_background_color | default: '#FBF7F3' }};
+    --bfg-card-bg: {{ section.settings.card_background_color | default: '#EDE5DC' }};
     --bfg-card-border: {{ section.settings.card_border_color | default: '#E7DCD5' }};
     --bfg-gap-x: {{ section.settings.column_gap }}px;
     --bfg-gap-y: {{ section.settings.row_gap }}px;
@@ -40,6 +40,15 @@
     --bfg-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
     --bfg-title-size: {{ section.settings.title_size }}px;
     --bfg-title-size-mobile: {{ section.settings.title_size_mobile }}px;
+    --ingredient-image-size: {{ section.settings.image_size }}px;
+    --ingredient-image-size-mobile: {{ section.settings.image_size_mobile }}px;
+    --ingredient-image-bleed: 20px;
+    --ingredient-text-gap: 24px;
+    --ingredient-text-gap-mobile: 16px;
+    --ingredient-card-background: {{ section.settings.card_background_color | default: '#EDE5DC' }};
+    --ingredient-card-radius: 12px;
+    --ingredient-card-padding: 32px;
+    --ingredient-card-padding-mobile: 20px;
     padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;
     background: var(--bfg-bg);
   "
@@ -186,13 +195,13 @@
 {
   "name": "Bloomli - Formula Gallery",
   "tag": "div",
-  "max_blocks": 12,
+  "max_blocks": 8,
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
     { "type": "color", "id": "background_color", "label": "Section background color", "default": "#F3E1E5" },
     { "type": "color", "id": "small_label_color", "label": "Small label color", "default": "#8A6678" },
-    { "type": "color", "id": "card_background_color", "label": "Ingredient card background", "default": "#FBF7F3" },
+    { "type": "color", "id": "card_background_color", "label": "Ingredient card background", "default": "#EDE5DC" },
     { "type": "color", "id": "card_border_color", "label": "Ingredient card border", "default": "#E7DCD5" },
     { "type": "text", "id": "heading_line2", "label": "Heading line", "default": "doing the quiet work." },
     { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>A daily blend that supports thicker, stronger hair from the inside - clinically dosed and easy on the stomach.</p>" },
@@ -223,8 +232,8 @@
     { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 30, "max": 48, "step": 2, "default": 36, "unit": "px" },
     { "type": "range", "id": "title_size", "label": "Ingredient title desktop", "min": 20, "max": 36, "step": 2, "default": 26, "unit": "px" },
     { "type": "range", "id": "title_size_mobile", "label": "Ingredient title mobile", "min": 18, "max": 30, "step": 2, "default": 22, "unit": "px" },
-    { "type": "range", "id": "image_size", "label": "Ingredient image desktop", "min": 112, "max": 240, "step": 8, "default": 168, "unit": "px" },
-    { "type": "range", "id": "image_size_mobile", "label": "Ingredient image mobile", "min": 88, "max": 160, "step": 8, "default": 112, "unit": "px" },
+    { "type": "range", "id": "image_size", "label": "Ingredient image desktop", "min": 112, "max": 240, "step": 4, "default": 180, "unit": "px" },
+    { "type": "range", "id": "image_size_mobile", "label": "Ingredient image mobile", "min": 88, "max": 160, "step": 8, "default": 120, "unit": "px" },
     { "type": "range", "id": "proof_icon_size", "label": "Proof icon desktop", "min": 48, "max": 96, "step": 4, "default": 64, "unit": "px" },
     { "type": "range", "id": "proof_icon_size_mobile", "label": "Proof icon mobile", "min": 40, "max": 80, "step": 4, "default": 56, "unit": "px" },
     { "type": "range", "id": "column_gap", "label": "Column gap", "min": 24, "max": 96, "step": 8, "default": 56, "unit": "px" },
@@ -238,7 +247,7 @@
       "name": "Ingredient / proof",
       "settings": [
         { "type": "checkbox", "id": "is_proof", "label": "Proof item", "default": false },
-        { "type": "image_picker", "id": "image", "label": "Ingredient or proof image" },
+        { "type": "image_picker", "id": "image", "label": "Ingredient image" },
         { "type": "range", "id": "image_scale", "label": "Uploaded image scale", "min": 70, "max": 150, "step": 5, "default": 100, "unit": "%" },
         { "type": "checkbox", "id": "use_custom_circle_color", "label": "Override icon background", "default": false },
         { "type": "color", "id": "circle_color", "label": "Custom icon background", "default": "#FDFAF7" },
@@ -254,8 +263,8 @@
           { "value": "spark", "label": "Spark" },
           { "value": "tested", "label": "Tested badge" }
         ], "default": "leaf" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Biotin" },
-        { "type": "textarea", "id": "text", "label": "Benefit text", "default": "The keratin building block - clinically dosed for strand strength you can actually feel." },
+        { "type": "text", "id": "title", "label": "Ingredient name", "default": "Biotin" },
+        { "type": "textarea", "id": "text", "label": "Ingredient description", "default": "The keratin building block - clinically dosed for strand strength you can actually feel." },
         { "type": "text", "id": "source_line", "label": "Optional source/location line" }
       ]
     }

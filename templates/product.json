@@ -486,8 +486,8 @@
           "type": "item",
           "settings": {
             "is_proof": false,
-            "image": "shopify://shop_images/Folate_-_Splash_699c0fef-c0ee-4b38-a1f6-27462911fd61.png",
-            "image_scale": 135,
+            "image": "shopify://shop_images/Folate_-_Cut_Out.png",
+            "image_scale": 100,
             "use_custom_circle_color": true,
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
@@ -537,8 +537,8 @@
           "type": "item",
           "settings": {
             "is_proof": false,
-            "image": "shopify://shop_images/Vitamin_E.png",
-            "image_scale": 150,
+            "image": "shopify://shop_images/Vitamin_E_-_Cut_Off.png",
+            "image_scale": 90,
             "use_custom_circle_color": true,
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,

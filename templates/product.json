@@ -470,7 +470,7 @@
           "settings": {
             "is_proof": false,
             "image": "shopify://shop_images/Biotin_Circle_d96568a3-e460-40b3-bd23-2f8cbd293bb2.png",
-            "image_scale": 100,
+            "image_scale": 150,
             "use_custom_circle_color": false,
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
@@ -503,8 +503,8 @@
           "type": "item",
           "settings": {
             "is_proof": false,
-            "image": "shopify://shop_images/Zinc_-_Top_Down_961e5097-61b4-4764-8dd7-9fa356d77ba9.png",
-            "image_scale": 100,
+            "image": "shopify://shop_images/Vitamin_B12_splash_24948dc1-5d29-4e55-95fa-df10b5d6274e.png",
+            "image_scale": 150,
             "use_custom_circle_color": true,
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
@@ -520,8 +520,8 @@
           "type": "item",
           "settings": {
             "is_proof": false,
-            "image": "shopify://shop_images/Folate_-_Top_Down_dc39e7d4-a5fc-4d25-9b34-a850cb742511.png",
-            "image_scale": 100,
+            "image": "shopify://shop_images/Vitamin_B5_38fce56d-fdf2-412c-b9bf-87e46ce29d2e.png",
+            "image_scale": 150,
             "use_custom_circle_color": true,
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
@@ -537,8 +537,8 @@
           "type": "item",
           "settings": {
             "is_proof": false,
-            "image": "shopify://shop_images/Vitamin_D3_-_Top_Down.png",
-            "image_scale": 100,
+            "image": "shopify://shop_images/Vitamin_E.png",
+            "image_scale": 150,
             "use_custom_circle_color": true,
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
@@ -554,7 +554,8 @@
           "type": "item",
           "settings": {
             "is_proof": false,
-            "image_scale": 100,
+            "image": "shopify://shop_images/Zinc_Square_14c8b2f0-d5f3-46c9-9987-a5de4588cae0.png",
+            "image_scale": 150,
             "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,

@@ -17,9 +17,7 @@
   }
 
   function formatDiscount(percent) {
-    const numericPercent = parseFloat(percent);
-    if (!Number.isFinite(numericPercent)) return '0';
-    return numericPercent.toFixed(2).replace(/\.?0+$/, '');
+    return String(Math.round(percent || 0));
   }
 
   function parseCents(value) {

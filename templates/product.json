@@ -16,12 +16,9 @@
           "type": "title",
           "settings": {}
         },
-        "caption": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
-            "text_style": "subtitle"
-          }
+        "description": {
+          "type": "description",
+          "settings": {}
         },
         "price": {
           "type": "price",
@@ -101,21 +98,10 @@
             "swatch_shape": "circle"
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "bloomli_collapsible_row_QhcdMD": {
           "type": "bloomli_collapsible_row",
           "settings": {
             "title": "How to Take",
-            "content": "<p>Chew 2 gummies any time, daily. With or without food.</p>"
-          }
-        },
-        "bloomli_collapsible_row_zHanHj": {
-          "type": "bloomli_collapsible_row",
-          "settings": {
-            "title": "Supplement Facts",
             "content": "<p>Chew 2 gummies any time, daily. With or without food.</p>"
           }
         },
@@ -143,13 +129,11 @@
       },
       "block_order": [
         "title",
-        "caption",
+        "description",
         "price",
         "volume_tier_LC9DxN",
         "variant_picker",
-        "description",
         "bloomli_collapsible_row_QhcdMD",
-        "bloomli_collapsible_row_zHanHj",
         "bloomli_collapsible_row_BBNpQF",
         "bloomli_collapsible_row_RTP9fp",
         "bloomli_collapsible_row_GgpaUi"

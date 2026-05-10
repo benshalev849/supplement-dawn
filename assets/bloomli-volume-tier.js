@@ -17,7 +17,7 @@
   }
 
   function formatDiscount(percent) {
-    return String(Math.round(percent || 0));
+    return String(Math.floor(percent || 0));
   }
 
   function parseCents(value) {

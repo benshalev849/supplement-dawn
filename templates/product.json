@@ -950,6 +950,21 @@
         "padding_top": 96,
         "padding_bottom": 96
       }
+    },
+    "1778428853a5765a49": {
+      "type": "apps",
+      "blocks": {
+        "bogos_io_free_gift_gift_thumbnail_view_GekPxL": {
+          "type": "shopify://apps/bogos-io-free-gift/blocks/gift-thumbnail-view/0432bba6-720a-4e95-be5a-b868386f7aa6",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bogos_io_free_gift_gift_thumbnail_view_GekPxL"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -962,6 +977,7 @@
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
     "related-products",
-    "bloomli_bundle_promo_9ehXPc"
+    "bloomli_bundle_promo_9ehXPc",
+    "1778428853a5765a49"
   ]
 }

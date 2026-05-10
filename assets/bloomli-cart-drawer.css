@@ -734,7 +734,7 @@ cart-drawer.drawer .drawer__inner {
   margin: 0;
   font-family: var(--bloomli-cart-ui-font) !important;
   font-variation-settings: normal !important;
-  font-size: var(--bloomli-cart-heading-size, 20px) !important;
+  font-size: 18px !important;
   font-weight: 700;
   line-height: 1.2;
   color: var(--bloomli-cart-text, #2A2622);
@@ -745,7 +745,7 @@ cart-drawer.drawer .drawer__inner {
   margin: 0;
   font-family: var(--bloomli-cart-ui-font) !important;
   font-variation-settings: normal !important;
-  font-size: var(--bloomli-cart-price-size, 17px) !important;
+  font-size: 18px !important;
   font-weight: 700;
   line-height: 1.2;
   color: rgb(var(--color-foreground));
@@ -795,15 +795,15 @@ cart-drawer.drawer .drawer__inner {
 }
 
 .cart-drawer .bloomli-cart-subscription-upsell__badge {
-  min-height: 1.9rem !important;
-  padding: 0.28rem 0.8rem !important;
-  font-size: 1rem !important;
+  min-height: 2.3rem !important;
+  padding: 0.35rem 1rem !important;
+  font-size: 1.4rem !important;
   line-height: 1 !important;
 }
 
 .cart-drawer .bloomli-cart-subscription-upsell__heading {
   max-width: 100% !important;
-  font-size: 1.35rem !important;
+  font-size: 1.8rem !important;
   font-weight: 800 !important;
   line-height: 1.15 !important;
   white-space: nowrap !important;
@@ -1042,7 +1042,7 @@ cart-drawer.drawer .drawer__inner {
   }
 
   .cart-drawer .bloomli-cart-subtotal-final {
-    font-size: var(--bloomli-cart-price-size, 17px);
+    font-size: 18px;
   }
 }
 
@@ -1106,7 +1106,7 @@ cart-drawer.drawer .drawer__inner {
 
   .cart-drawer .totals__total,
   .cart-drawer .totals__total-value {
-    font-size: var(--bloomli-cart-heading-size, 20px) !important;
+    font-size: 18px !important;
   }
 }
 

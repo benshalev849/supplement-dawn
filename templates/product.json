@@ -965,6 +965,23 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "bloomli_bundle_promo_9ehXPc": {
+      "type": "bloomli-bundle-promo",
+      "name": "Bloomli — Bundle Promo",
+      "settings": {
+        "color_scheme": "",
+        "headline_line1": "Inside & out.",
+        "headline_line2": "Save 20%.",
+        "description": "The Root Ritual gummies that work from within, paired with our moisturizing & strengthening hair oil for visible shine day one.",
+        "button_color_scheme": "",
+        "cta_label": "Shop the Duo — $74",
+        "cta_url": "",
+        "product_image_1_placeholder_label": "Gummies",
+        "product_image_2_placeholder_label": "Hair Oil",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     }
   },
   "order": [
@@ -976,6 +993,7 @@
     "bloomli_faq_N48arU",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
-    "related-products"
+    "related-products",
+    "bloomli_bundle_promo_9ehXPc"
   ]
 }

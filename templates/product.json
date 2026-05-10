@@ -351,22 +351,6 @@
             "verified_label": "Verified review"
           }
         },
-        "result_PXeWzj": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_10.png",
-            "after_image": "shopify://shop_images/After_10.png",
-            "before_label": "Month 0",
-            "after_label": "Month 7",
-            "reviewer_name": "Susan B.",
-            "review_text": "\"I was skeptical because nothing had worked for me before. By month seven, my hairdresser commented on my crown without me saying a word. I wish I'd found this sooner.\"",
-            "result_tag_1": "Fuller crown",
-            "result_tag_2": "Visible density",
-            "result_tag_3": "Skeptic converted",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
         "result_zrawxk": {
           "type": "result",
           "settings": {
@@ -395,6 +379,22 @@
             "result_tag_1": "Hairline restored",
             "result_tag_2": "Temple fill-in",
             "result_tag_3": "17 months strong",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_PXeWzj": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_10.png",
+            "after_image": "shopify://shop_images/After_10.png",
+            "before_label": "Month 0",
+            "after_label": "Month 7",
+            "reviewer_name": "Susan B.",
+            "review_text": "\"I was skeptical because nothing had worked for me before. By month seven, my hairdresser commented on my crown without me saying a word. I wish I'd found this sooner.\"",
+            "result_tag_1": "Fuller crown",
+            "result_tag_2": "Visible density",
+            "result_tag_3": "Skeptic converted",
             "verified_review": true,
             "verified_label": "Verified review"
           }
@@ -434,9 +434,9 @@
       },
       "block_order": [
         "result_9hNhFP",
-        "result_PXeWzj",
         "result_zrawxk",
         "result_jUa8a4",
+        "result_PXeWzj",
         "result_review_current",
         "result_bPaP87"
       ],

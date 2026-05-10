@@ -754,16 +754,6 @@
             "placeholder_color": "#d9cce8"
           }
         },
-        "photo_HnKE8c": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/Client_Result_Selfie_6.png",
-            "image_scale": 100,
-            "label": "Photo 4",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#f5ede4"
-          }
-        },
         "photo_gDhx3U": {
           "type": "photo",
           "settings": {
@@ -782,6 +772,56 @@
             "label": "Photo 6",
             "use_custom_placeholder_color": false,
             "placeholder_color": "#f3e1e5"
+          }
+        },
+        "photo_HnKE8c": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_6.png",
+            "image_scale": 100,
+            "label": "Photo 4",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_Xj6LgH": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_7.png",
+            "image_scale": 100,
+            "label": "Photo 10",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f3e1e5"
+          }
+        },
+        "photo_Artdhg": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_6.png",
+            "image_scale": 100,
+            "label": "Photo 9",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_zbFfXz": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Selfie_1_af7f5ff3-629c-4859-965b-b0a6575c80f3.png",
+            "image_scale": 100,
+            "label": "Photo 12",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_fGEqGb": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_3.png",
+            "image_scale": 100,
+            "label": "Photo 11",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#d9cce8"
           }
         },
         "photo_jhY4cR": {
@@ -803,61 +843,21 @@
             "use_custom_placeholder_color": false,
             "placeholder_color": "#f5ede4"
           }
-        },
-        "photo_Artdhg": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/Product_Display_2.png",
-            "image_scale": 100,
-            "label": "Photo 9",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#f5ede4"
-          }
-        },
-        "photo_Xj6LgH": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/Client_Result_Selfie_7.png",
-            "image_scale": 100,
-            "label": "Photo 10",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#f3e1e5"
-          }
-        },
-        "photo_fGEqGb": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/Gummy_Selfie_3.png",
-            "image_scale": 100,
-            "label": "Photo 11",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#d9cce8"
-          }
-        },
-        "photo_zbFfXz": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/Selfie_1_af7f5ff3-629c-4859-965b-b0a6575c80f3.png",
-            "image_scale": 100,
-            "label": "Photo 12",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#f5ede4"
-          }
         }
       },
       "block_order": [
         "photo_itwQBT",
         "photo_rFx7fP",
         "photo_UQecfB",
-        "photo_HnKE8c",
         "photo_gDhx3U",
         "photo_HkWBVE",
-        "photo_jhY4cR",
-        "photo_iXjxWB",
-        "photo_Artdhg",
+        "photo_HnKE8c",
         "photo_Xj6LgH",
+        "photo_Artdhg",
+        "photo_zbFfXz",
         "photo_fGEqGb",
-        "photo_zbFfXz"
+        "photo_jhY4cR",
+        "photo_iXjxWB"
       ],
       "name": "Bloomli - Photo Mosaic",
       "settings": {

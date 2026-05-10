@@ -731,6 +731,8 @@
   align-items: start;
 }
 
+/* CHECKMARK ORIGINAL STYLE - REVERT HERE IF NEEDED */
+/*
 .bloomli-proof-split__check {
   width: 20px;
   height: 20px;
@@ -750,6 +752,29 @@
   height: 5px;
   border-left: 1.6px solid #fff;
   border-bottom: 1.6px solid #fff;
+  transform: translate(-50%, -65%) rotate(-45deg);
+}
+*/
+/* END CHECKMARK ORIGINAL STYLE */
+
+.bloomli-proof-split__check {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  position: relative;
+  margin-top: 2px;
+  background: none;
+}
+
+.bloomli-proof-split__check::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid #B23A6F;
+  border-bottom: 2px solid #B23A6F;
   transform: translate(-50%, -65%) rotate(-45deg);
 }
 

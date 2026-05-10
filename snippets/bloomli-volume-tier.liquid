@@ -313,13 +313,22 @@
           {%- if block.settings.subscribe_show_perks != false -%}
             <ul class="bloomli-vt__mode-perks">
               {%- if subscribe_perk_1 != blank -%}
-                <li class="bloomli-vt__mode-perk">{{ subscribe_perk_1 }}</li>
+                <li class="bloomli-vt__mode-perk">
+                  <span class="bloomli-proof-split__check" aria-hidden="true"></span>
+                  <span>{{ subscribe_perk_1 }}</span>
+                </li>
               {%- endif -%}
               {%- if subscribe_perk_2 != blank -%}
-                <li class="bloomli-vt__mode-perk">{{ subscribe_perk_2 }}</li>
+                <li class="bloomli-vt__mode-perk">
+                  <span class="bloomli-proof-split__check" aria-hidden="true"></span>
+                  <span>{{ subscribe_perk_2 }}</span>
+                </li>
               {%- endif -%}
               {%- if subscribe_perk_3 != blank -%}
-                <li class="bloomli-vt__mode-perk">{{ subscribe_perk_3 }}</li>
+                <li class="bloomli-vt__mode-perk">
+                  <span class="bloomli-proof-split__check" aria-hidden="true"></span>
+                  <span>{{ subscribe_perk_3 }}</span>
+                </li>
               {%- endif -%}
             </ul>
           {%- endif -%}

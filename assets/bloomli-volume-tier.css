@@ -450,26 +450,9 @@
     transform: translateY(-70%) rotate(-45deg);
   }
 */
-.bloomli-vt__mode-perk::before {
-  content: '';
-  flex-shrink: 0;
-  display: inline-flex;
-  width: 18px;
-  height: 18px;
-  border-radius: 0;
-  background-color: transparent;
-}
-
+.bloomli-vt__mode-perk::before,
 .bloomli-vt__mode-perk::after {
-  content: "";
-  position: absolute;
-  left: 3px;
-  top: 50%;
-  width: 12px;
-  height: 7px;
-  border-left: 2px solid #B23A6F;
-  border-bottom: 2px solid #B23A6F;
-  transform: translateY(-70%) rotate(-45deg);
+  content: none;
 }
 
 /* Purchase-mode accordions: grid collapse animation */

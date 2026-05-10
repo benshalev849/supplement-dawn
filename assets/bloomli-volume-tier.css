@@ -424,25 +424,49 @@
   line-height: 1.3;
 }
 
+/*
+  CHECKMARK VOLUME-TIER ORIGINAL - REVERT HERE IF NEEDED
+  .bloomli-vt__mode-perk::before {
+    content: '';
+    flex-shrink: 0;
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--aubergine, #B23A6F);
+  }
+
+  .bloomli-vt__mode-perk::after {
+    content: "";
+    position: absolute;
+    left: 4.5px;
+    top: 50%;
+    width: 8px;
+    height: 4.5px;
+    border-left: 1.6px solid #FDFAF7;
+    border-bottom: 1.6px solid #FDFAF7;
+    transform: translateY(-70%) rotate(-45deg);
+  }
+*/
 .bloomli-vt__mode-perk::before {
   content: '';
   flex-shrink: 0;
   display: inline-flex;
   width: 18px;
   height: 18px;
-  border-radius: 50%;
-  background-color: var(--aubergine, #B23A6F);
+  border-radius: 0;
+  background-color: transparent;
 }
 
 .bloomli-vt__mode-perk::after {
   content: "";
   position: absolute;
-  left: 4.5px;
+  left: 3px;
   top: 50%;
-  width: 8px;
-  height: 4.5px;
-  border-left: 1.6px solid #FDFAF7;
-  border-bottom: 1.6px solid #FDFAF7;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid #B23A6F;
+  border-bottom: 2px solid #B23A6F;
   transform: translateY(-70%) rotate(-45deg);
 }
 

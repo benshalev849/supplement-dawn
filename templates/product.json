@@ -105,40 +105,32 @@
           "type": "description",
           "settings": {}
         },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
+        "bloomli_collapsible_row_QhcdMD": {
+          "type": "bloomli_collapsible_row",
           "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
+            "title": "How to Take",
+            "content": "<p>Chew 2 gummies any time, daily. With or without food.</p>"
           }
         },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
+        "bloomli_collapsible_row_zHanHj": {
+          "type": "bloomli_collapsible_row",
           "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
+            "title": "Supplement Facts",
+            "content": "<p>Chew 2 gummies any time, daily. With or without food.</p>"
           }
         },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
+        "bloomli_collapsible_row_BBNpQF": {
+          "type": "bloomli_collapsible_row",
           "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
+            "title": "Allergen Information",
+            "content": "<p>Contains: Fish (Tilapia) and Tree Nuts (Coconut). Manufactured in a facility that may also process milk, soy, wheat, eggs, peanuts, and shellfish.</p>"
           }
         },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
+        "bloomli_collapsible_row_RTP9fp": {
+          "type": "bloomli_collapsible_row",
           "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
+            "title": "Allergen Information",
+            "content": "<p><br/>Quality & Certifications<br/><br/></p>"
           }
         }
       },
@@ -149,10 +141,10 @@
         "volume_tier_LC9DxN",
         "variant_picker",
         "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3"
+        "bloomli_collapsible_row_QhcdMD",
+        "bloomli_collapsible_row_zHanHj",
+        "bloomli_collapsible_row_BBNpQF",
+        "bloomli_collapsible_row_RTP9fp"
       ],
       "settings": {
         "enable_sticky_info": true,

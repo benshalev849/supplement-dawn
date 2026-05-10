@@ -17,7 +17,14 @@
   }
 
   function formatDiscount(percent) {
-    return String(Math.round(percent || 0));
+    const numericPercent = parseFloat(percent);
+    if (!Number.isFinite(numericPercent)) return '0';
+    return numericPercent.toFixed(2).replace(/\.?0+$/, '');
+  }
+
+  function parseCents(value) {
+    const cents = parseFloat(value);
+    return Number.isFinite(cents) ? Math.round(cents) : 0;
   }
 
   function formatTemplate(template, replacements) {
@@ -53,7 +60,6 @@
 
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const discountBadgeTemplate = root.dataset.discountBadgeTemplate || 'SAVE [percent]%';
-    const subscriptionDiscount = parseFloat(root.dataset.subscriptionDiscountPct) || 0;
     const savingsPrefix = root.dataset.savingsPrefix || "You're saving ";
     const savingsSuffix = root.dataset.savingsSuffix || '$';
     const productFormId = root.dataset.formId;
@@ -120,11 +126,11 @@
       const qty = parseInt(size.dataset.quantity, 10) || 1;
       const planId = size.dataset.planId || '';
       const mode = getSelectedMode();
-      const oneTimeCents = parseInt(size.dataset.oneTimeCents, 10) || 0;
-      const subscribeCents = parseInt(size.dataset.subscribeCents, 10) || oneTimeCents;
-      const lineCompareCents = parseInt(size.dataset.lineCompareCents, 10) || oneTimeCents;
-      const subPct = parseFloat(size.dataset.subDiscountPct) || subscriptionDiscount;
-
+      const oneTimeCents = parseCents(size.dataset.oneTimeCents) || 0;
+      const subscribeCents = parseCents(size.dataset.subscribeCents) || oneTimeCents;
+      const lineCompareCents = parseCents(size.dataset.lineCompareCents) || oneTimeCents;
+      const discountBaseCents = parseCents(size.dataset.discountBaseCents) || oneTimeCents;
+      const subscriptionTotalDiscountPct = parseFloat(size.dataset.subscriptionTotalDiscountPct);
       if (oneTimePriceEl) oneTimePriceEl.textContent = formatMoney(oneTimeCents, moneyFormat);
       if (subscribePriceEl) subscribePriceEl.textContent = formatMoney(subscribeCents, moneyFormat);
 
@@ -181,9 +187,9 @@
         return savingsPrefix + prefixGlue + dollars + savingsSuffix;
       }
 
-      if (lineCompareCents > subscribeCents) {
-        if (modeSubCompareEl) modeSubCompareEl.textContent = formatMoney(lineCompareCents, moneyFormat);
-        if (modeSubSavingsEl) modeSubSavingsEl.textContent = savingsText(lineCompareCents - subscribeCents);
+      if (discountBaseCents > subscribeCents) {
+        if (modeSubCompareEl) modeSubCompareEl.textContent = formatMoney(discountBaseCents, moneyFormat);
+        if (modeSubSavingsEl) modeSubSavingsEl.textContent = savingsText(discountBaseCents - subscribeCents);
       } else {
         if (modeSubCompareEl) modeSubCompareEl.textContent = '';
         if (modeSubSavingsEl) modeSubSavingsEl.textContent = '';
@@ -200,11 +206,11 @@
       // Dynamic bar text: "Most Popular · Get [percent]% Off"
       if (barEl) {
         const barTemplate = barEl.dataset.barTemplate || '';
-        let subPct = 0;
-        if (lineCompareCents > subscribeCents && lineCompareCents > 0) {
-          subPct = Math.round((lineCompareCents - subscribeCents) / lineCompareCents * 100);
+        let subPct = Number.isFinite(subscriptionTotalDiscountPct) ? subscriptionTotalDiscountPct : 0;
+        if (!subPct && discountBaseCents > subscribeCents && discountBaseCents > 0) {
+          subPct = (discountBaseCents - subscribeCents) / discountBaseCents * 100;
         }
-        barEl.textContent = formatTemplate(barTemplate, { percent: String(subPct) });
+        barEl.textContent = formatTemplate(barTemplate, { percent: formatDiscount(subPct) });
       }
 
       if (mode === 'subscribe' && !planId) {
@@ -254,10 +260,13 @@
 
         let displayDiscount = volumeDiscount;
         if (effectiveMode === 'subscribe' && sizeOption.dataset.planId) {
-          const sizeSubscribeCents = parseInt(sizeOption.dataset.subscribeCents, 10) || 0;
-          const sizeLineCompareCents = parseInt(sizeOption.dataset.lineCompareCents, 10) || 0;
-          if (sizeLineCompareCents > sizeSubscribeCents && sizeLineCompareCents > 0) {
-            displayDiscount = (sizeLineCompareCents - sizeSubscribeCents) / sizeLineCompareCents * 100;
+          const sizeSubscriptionDiscountPct = parseFloat(sizeOption.dataset.subscriptionTotalDiscountPct);
+          const sizeSubscribeCents = parseCents(sizeOption.dataset.subscribeCents) || 0;
+          const sizeDiscountBaseCents = parseCents(sizeOption.dataset.discountBaseCents) || 0;
+          if (Number.isFinite(sizeSubscriptionDiscountPct)) {
+            displayDiscount = sizeSubscriptionDiscountPct;
+          } else if (sizeDiscountBaseCents > sizeSubscribeCents && sizeDiscountBaseCents > 0) {
+            displayDiscount = (sizeDiscountBaseCents - sizeSubscribeCents) / sizeDiscountBaseCents * 100;
           }
         }
 

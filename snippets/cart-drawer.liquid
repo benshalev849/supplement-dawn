@@ -593,7 +593,7 @@
                               assign offer_4_savings = 100.0 | minus: offer_4_factor
                               assign offer_5_savings = 100.0 | minus: offer_5_factor
                             endif
-                            if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
+                            if item.selling_plan_allocation == null and item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
                               assign bloomli_compare_unit = item.variant.compare_at_price | times: 1.0
                               assign bloomli_vol3_factor = 100.0 | minus: offer_3_volume_savings | divided_by: 100.0
                               assign bloomli_vol4_factor = 100.0 | minus: offer_4_volume_savings | divided_by: 100.0

@@ -129,8 +129,15 @@
         "bloomli_collapsible_row_RTP9fp": {
           "type": "bloomli_collapsible_row",
           "settings": {
-            "title": "Allergen Information",
-            "content": "<p><br/>Quality & Certifications<br/><br/></p>"
+            "title": "Quality & Certifications",
+            "content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.</p>"
+          }
+        },
+        "bloomli_collapsible_row_GgpaUi": {
+          "type": "bloomli_collapsible_row",
+          "settings": {
+            "title": "Shipping & Returns",
+            "content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.</p>"
           }
         }
       },
@@ -144,7 +151,8 @@
         "bloomli_collapsible_row_QhcdMD",
         "bloomli_collapsible_row_zHanHj",
         "bloomli_collapsible_row_BBNpQF",
-        "bloomli_collapsible_row_RTP9fp"
+        "bloomli_collapsible_row_RTP9fp",
+        "bloomli_collapsible_row_GgpaUi"
       ],
       "settings": {
         "enable_sticky_info": true,

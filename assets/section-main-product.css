@@ -254,6 +254,11 @@ a.product__text {
   margin: 0;
 }
 
+.product__title > h1,
+.product__title > a .h1 {
+  font-size: 30px;
+}
+
 .product__title > a {
   display: none;
 }

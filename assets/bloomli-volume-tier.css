@@ -116,7 +116,7 @@
 @media (min-width: 750px) {
   .bloomli-vt {
     width: 100%;
-    max-width: none;
+    max-width: 49rem;
   }
 
   .bloomli-vt__sizes {

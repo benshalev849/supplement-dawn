@@ -62,14 +62,14 @@ product-info {
 
 @media screen and (min-width: 990px) {
   .product--large:not(.product--no-media) .product__media-wrapper {
-    max-width: 55%;
-    width: calc(55% - var(--grid-desktop-horizontal-spacing) / 2);
+    max-width: 65%;
+    width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--large:not(.product--no-media) .product__info-wrapper {
     padding: 0 0 0 4rem;
-    max-width: 45%;
-    width: calc(45% - var(--grid-desktop-horizontal-spacing) / 2);
+    max-width: 35%;
+    width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--large:not(.product--no-media).product--right .product__info-wrapper {
@@ -290,6 +290,14 @@ a.product__text {
 @media screen and (min-width: 750px) {
   .product__info-container {
     max-width: 60rem;
+  }
+
+  .product__info-container .product__title,
+  .product__info-container .product__description,
+  .product__info-container .product__accordion,
+  .product__info-container .bloomli-collapsible-row {
+    width: 100%;
+    max-width: 49rem;
   }
 
   .product__info-container .price--on-sale .price-item--regular {

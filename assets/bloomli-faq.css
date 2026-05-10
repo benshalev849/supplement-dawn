@@ -40,11 +40,11 @@
 
 .bloomli-faq__items {
   margin-top: 34px;
-  border-top: 1px solid var(--bf-border);
+  border-top: 1px solid var(--bf-border, #E8DED8);
 }
 
 .bloomli-faq__item {
-  border-bottom: 1px solid var(--bf-border);
+  border-bottom: 1px solid var(--bf-border, #E8DED8);
 }
 
 .bloomli-faq__question {
@@ -61,7 +61,7 @@
   padding: 20px 0;
   text-align: left;
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: var(--bf-question-size);
+  font-size: var(--bf-question-size, 17px);
   font-weight: 600;
   line-height: 1.35;
 }
@@ -117,7 +117,7 @@
   padding: 0 44px 22px 0;
   color: rgba(var(--color-foreground), 0.76);
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: var(--bf-body-size);
+  font-size: var(--bf-body-size, 15px);
   line-height: 1.65;
 }
 
@@ -175,12 +175,20 @@
 
   .bloomli-faq__question {
     padding: 18px 0;
-    font-size: calc(var(--bf-question-size) - 1px);
+    font-size: calc(var(--bf-question-size, 17px) - 1px);
   }
 
   .bloomli-faq__panel-inner {
     padding-right: 30px;
   }
+}
+
+.bloomli-collapsible-row.bloomli-faq__items {
+  margin-top: 0;
+}
+
+.bloomli-collapsible-row + .bloomli-collapsible-row {
+  border-top: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,50 @@
+{%- liquid
+  assign uid = section_id | append: '-' | append: block.id
+  assign button_id = 'BloomliCollapsibleRowButton-' | append: uid
+  assign panel_id = 'BloomliCollapsibleRowPanel-' | append: uid
+  assign icon_alt = block.settings.title | escape
+-%}
+
+<div class="bloomli-collapsible-row bloomli-faq__items" {{ block.shopify_attributes }}>
+  <div class="bloomli-faq__item">
+    <button
+      id="{{ button_id }}"
+      class="bloomli-faq__question"
+      type="button"
+      aria-expanded="false"
+      aria-controls="{{ panel_id }}"
+      data-bloomli-faq-button
+    >
+      <span style="display: inline-flex; align-items: center; gap: 12px; min-width: 0;">
+        {%- if block.settings.icon != blank -%}
+          {{
+            block.settings.icon
+            | image_url: width: 48
+            | image_tag:
+              widths: '24, 48',
+              sizes: '24px',
+              loading: 'lazy',
+              decoding: 'async',
+              alt: icon_alt,
+              width: 24,
+              height: 24
+          }}
+        {%- endif -%}
+        <span>{{ block.settings.title | escape }}</span>
+      </span>
+      <span class="bloomli-faq__plus" aria-hidden="true"></span>
+    </button>
+
+    <div
+      id="{{ panel_id }}"
+      class="bloomli-faq__panel"
+      role="region"
+      aria-labelledby="{{ button_id }}"
+      hidden
+    >
+      <div class="bloomli-faq__panel-inner rte">
+        {{ block.settings.content }}
+      </div>
+    </div>
+  </div>
+</div>

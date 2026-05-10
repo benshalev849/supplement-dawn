@@ -1,3 +1,13 @@
+{%- liquid
+  assign has_bloomli_collapsible_rows = false
+  for block in section.blocks
+    if block.type == 'bloomli_collapsible_row'
+      assign has_bloomli_collapsible_rows = true
+      break
+    endif
+  endfor
+-%}
+
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -15,6 +25,10 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {%- if has_bloomli_collapsible_rows -%}
+    {{ 'bloomli-faq.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'bloomli-faq.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -82,6 +96,9 @@
         <section
           id="ProductInfo-{{ section.id }}"
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+          {% if has_bloomli_collapsible_rows %}
+            data-bloomli-faq
+          {% endif %}
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -485,6 +502,11 @@
                 {%- render 'bloomli-volume-tier',
                   block: block,
                   product: product,
+                  section_id: section.id
+                -%}
+              {%- when 'bloomli_collapsible_row' -%}
+                {%- render 'bloomli-collapsible-row',
+                  block: block,
                   section_id: section.id
                 -%}
               {%- when 'buy_buttons' -%}
@@ -1014,6 +1036,16 @@
         { "type": "text", "id": "onetime_caveat_2", "label": "Caveat line 2", "default": "Free shipping unlocks at 3 packs" },
         { "type": "header", "content": "Footer" },
         { "type": "text", "id": "total_label", "label": "Total label", "default": "Total price:" }
+      ]
+    },
+    {
+      "type": "bloomli_collapsible_row",
+      "name": "Bloomli - Collapsible row",
+      "limit": 8,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Row title", "default": "Materials" },
+        { "type": "richtext", "id": "content", "label": "Row content", "default": "<p>Add details, links, or formatted content for this row.</p>" },
+        { "type": "image_picker", "id": "icon", "label": "Icon" }
       ]
     },
     {

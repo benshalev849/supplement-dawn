@@ -727,7 +727,7 @@
         "photo_itwQBT": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Model_Holding_Gummy_1.png",
+            "image": "shopify://shop_images/Model_Holding_Gummy_2_5dc2294b-1314-41eb-b66d-3fb3fb684a85.png",
             "image_scale": 100,
             "label": "Photo 1",
             "use_custom_placeholder_color": false,
@@ -797,7 +797,7 @@
         "photo_iXjxWB": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Product_Display_1.png",
+            "image": "shopify://shop_images/Gummy_Selfie_5.png",
             "image_scale": 100,
             "label": "Photo 8",
             "use_custom_placeholder_color": false,
@@ -807,7 +807,7 @@
         "photo_Artdhg": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Gummy_Selfie_2.png",
+            "image": "shopify://shop_images/Product_Display_2.png",
             "image_scale": 100,
             "label": "Photo 9",
             "use_custom_placeholder_color": false,

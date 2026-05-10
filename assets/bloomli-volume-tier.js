@@ -127,8 +127,6 @@
       const oneTimeCents = parseCents(size.dataset.oneTimeCents) || 0;
       const subscribeCents = parseCents(size.dataset.subscribeCents) || oneTimeCents;
       const lineCompareCents = parseCents(size.dataset.lineCompareCents) || oneTimeCents;
-      const discountBaseCents = parseCents(size.dataset.discountBaseCents) || oneTimeCents;
-      const subscriptionTotalDiscountPct = parseFloat(size.dataset.subscriptionTotalDiscountPct);
       if (oneTimePriceEl) oneTimePriceEl.textContent = formatMoney(oneTimeCents, moneyFormat);
       if (subscribePriceEl) subscribePriceEl.textContent = formatMoney(subscribeCents, moneyFormat);
 
@@ -185,9 +183,9 @@
         return savingsPrefix + prefixGlue + dollars + savingsSuffix;
       }
 
-      if (discountBaseCents > subscribeCents) {
-        if (modeSubCompareEl) modeSubCompareEl.textContent = formatMoney(discountBaseCents, moneyFormat);
-        if (modeSubSavingsEl) modeSubSavingsEl.textContent = savingsText(discountBaseCents - subscribeCents);
+      if (lineCompareCents > subscribeCents) {
+        if (modeSubCompareEl) modeSubCompareEl.textContent = formatMoney(lineCompareCents, moneyFormat);
+        if (modeSubSavingsEl) modeSubSavingsEl.textContent = savingsText(lineCompareCents - subscribeCents);
       } else {
         if (modeSubCompareEl) modeSubCompareEl.textContent = '';
         if (modeSubSavingsEl) modeSubSavingsEl.textContent = '';
@@ -204,9 +202,9 @@
       // Dynamic bar text: "Most Popular · Get [percent]% Off"
       if (barEl) {
         const barTemplate = barEl.dataset.barTemplate || '';
-        let subPct = Number.isFinite(subscriptionTotalDiscountPct) ? subscriptionTotalDiscountPct : 0;
-        if (!subPct && discountBaseCents > subscribeCents && discountBaseCents > 0) {
-          subPct = (discountBaseCents - subscribeCents) / discountBaseCents * 100;
+        let subPct = 0;
+        if (lineCompareCents > subscribeCents && lineCompareCents > 0) {
+          subPct = (lineCompareCents - subscribeCents) / lineCompareCents * 100;
         }
         barEl.textContent = formatTemplate(barTemplate, { percent: formatDiscount(subPct) });
       }
@@ -239,9 +237,7 @@
       if (totalEl) totalEl.textContent = formatMoney(displayCents, moneyFormat);
 
       if (compareEl) {
-        if (effectiveMode === 'subscribe' && planId && subscribeCents < oneTimeCents) {
-          compareEl.textContent = formatMoney(oneTimeCents, moneyFormat);
-        } else if (lineCompareCents > displayCents) {
+        if (lineCompareCents > displayCents) {
           compareEl.textContent = formatMoney(lineCompareCents, moneyFormat);
         } else {
           compareEl.textContent = '';
@@ -258,13 +254,10 @@
 
         let displayDiscount = volumeDiscount;
         if (effectiveMode === 'subscribe' && sizeOption.dataset.planId) {
-          const sizeSubscriptionDiscountPct = parseFloat(sizeOption.dataset.subscriptionTotalDiscountPct);
           const sizeSubscribeCents = parseCents(sizeOption.dataset.subscribeCents) || 0;
-          const sizeDiscountBaseCents = parseCents(sizeOption.dataset.discountBaseCents) || 0;
-          if (Number.isFinite(sizeSubscriptionDiscountPct)) {
-            displayDiscount = sizeSubscriptionDiscountPct;
-          } else if (sizeDiscountBaseCents > sizeSubscribeCents && sizeDiscountBaseCents > 0) {
-            displayDiscount = (sizeDiscountBaseCents - sizeSubscribeCents) / sizeDiscountBaseCents * 100;
+          const sizeLineCompareCents = parseCents(sizeOption.dataset.lineCompareCents) || 0;
+          if (sizeLineCompareCents > sizeSubscribeCents && sizeLineCompareCents > 0) {
+            displayDiscount = (sizeLineCompareCents - sizeSubscribeCents) / sizeLineCompareCents * 100;
           }
         }
 

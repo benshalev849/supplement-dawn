@@ -43,9 +43,6 @@
      data-bloomli-vt
      data-uid="{{ uid }}"
      data-form-id="{{ bloomli_product_form_id }}"
-     data-unit-price="{{ unit_price }}"
-     data-unit-compare="{{ unit_compare }}"
-     data-subscription-discount-pct="{{ subscription_discount_pct }}"
      data-discount-badge-template="{{ discount_badge_template | escape }}"
      data-savings-prefix="{{ block.settings.savings_label_prefix | default: "You're saving " | escape }}"
      data-savings-suffix="{{ block.settings.savings_label_suffix | default: '$' | escape }}"
@@ -206,8 +203,7 @@
           assign tier_plan_id = fallback_plan_id
         endif
 
-        assign discount_base_cents = unit_price | times: qty
-        assign line_compare = discount_base_cents
+        assign line_compare = unit_price | times: qty
         if unit_compare > unit_price
           assign line_compare = unit_compare | times: qty
         endif
@@ -256,8 +252,6 @@
                data-plan-id="{{ tier_plan_id }}"
                data-one-time-cents="{{ one_time_total_cents }}"
                data-subscribe-cents="{{ subscribe_total_cents }}"
-               data-discount-base-cents="{{ discount_base_cents }}"
-               data-subscription-total-discount-pct="{{ subscription_total_discount_pct }}"
                data-line-compare-cents="{{ line_compare }}"
                data-size-label="{{ display_label | escape }}"
                data-size-count="{{ count_text | escape }}">

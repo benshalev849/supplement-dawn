@@ -93,10 +93,6 @@
             "total_label": "Total price:"
           }
         },
-        "bogos_io_free_gift_gift_slider_view_zzGYtm": {
-          "type": "shopify://apps/bogos-io-free-gift/blocks/gift-slider-view/0432bba6-720a-4e95-be5a-b868386f7aa6",
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
           "disabled": true,
@@ -144,12 +140,6 @@
             "content": "",
             "page": ""
           }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
         }
       },
       "block_order": [
@@ -157,14 +147,12 @@
         "caption",
         "price",
         "volume_tier_LC9DxN",
-        "bogos_io_free_gift_gift_slider_view_zzGYtm",
         "variant_picker",
         "description",
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "collapsible-row-3"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -539,38 +527,6 @@
             "text": "Keeps the scalp environment stable and follicle function consistent.",
             "source_line": ""
           }
-        },
-        "item_Gw8tdW": {
-          "type": "item",
-          "settings": {
-            "is_proof": true,
-            "image_scale": 100,
-            "use_custom_circle_color": true,
-            "circle_color": "#fdfaf7",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Raw ingredient",
-            "icon": "spark",
-            "title": "Delightfully tasty",
-            "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.",
-            "source_line": ""
-          }
-        },
-        "item_UiY4pK": {
-          "type": "item",
-          "settings": {
-            "is_proof": true,
-            "image_scale": 100,
-            "use_custom_circle_color": true,
-            "circle_color": "#fdfaf7",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Raw ingredient",
-            "icon": "tested",
-            "title": "Independently verified",
-            "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.",
-            "source_line": ""
-          }
         }
       },
       "block_order": [
@@ -579,9 +535,7 @@
         "item_6MgTDk",
         "item_Yr6eKf",
         "item_6G4EJH",
-        "item_CcpMP8",
-        "item_Gw8tdW",
-        "item_UiY4pK"
+        "item_CcpMP8"
       ],
       "name": "Bloomli - Formula Gallery",
       "settings": {
@@ -915,6 +869,7 @@
         "product_NgeLpW",
         "product_C6yJwD"
       ],
+      "disabled": true,
       "name": "Bloomli - Product Picks",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
@@ -964,21 +919,6 @@
         "padding_top": 96,
         "padding_bottom": 96
       }
-    },
-    "1778428853a5765a49": {
-      "type": "apps",
-      "blocks": {
-        "bogos_io_free_gift_gift_thumbnail_view_GekPxL": {
-          "type": "shopify://apps/bogos-io-free-gift/blocks/gift-thumbnail-view/0432bba6-720a-4e95-be5a-b868386f7aa6",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "bogos_io_free_gift_gift_thumbnail_view_GekPxL"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
@@ -991,7 +931,6 @@
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
     "related-products",
-    "bloomli_bundle_promo_9ehXPc",
-    "1778428853a5765a49"
+    "bloomli_bundle_promo_9ehXPc"
   ]
 }

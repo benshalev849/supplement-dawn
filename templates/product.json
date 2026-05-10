@@ -221,30 +221,35 @@
         "bullet_zDDhyE": {
           "type": "bullet",
           "settings": {
+            "bullet_title": "No fairy dust.",
             "text": "No under-dosed filler blends or trendy label dust."
           }
         },
         "bullet_f68cpc": {
           "type": "bullet",
           "settings": {
+            "bullet_title": "",
             "text": "Beyond biotin alone. 14 targeted vitamins and nutrients, working in sync."
           }
         },
         "bullet_9GzmFm": {
           "type": "bullet",
           "settings": {
+            "bullet_title": "",
             "text": "Only 15 calories per serving, just 2g sugar per gummy."
           }
         },
         "bullet_NjdcCt": {
           "type": "bullet",
           "settings": {
+            "bullet_title": "",
             "text": "Gluten-free, gelatin-free, and pectin-based. No artificial dyes or flavors."
           }
         },
         "bullet_F7gTNi": {
           "type": "bullet",
           "settings": {
+            "bullet_title": "",
             "text": "Third-party tested for heavy metals, microbial contaminants, and label accuracy."
           }
         }

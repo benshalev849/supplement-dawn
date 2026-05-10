@@ -550,7 +550,7 @@
                             endif
                             assign pack_promo_icon = settings.cart_drawer_pack_promo_icon
                           -%}
-                          {%- if pack_promo_enabled -%}
+                          {%- if pack_promo_enabled and item.quantity > 1 -%}
                             <div class="bloomli-cart-pack-promo">
                               <span class="bloomli-cart-pack-promo__icon" aria-hidden="true">
                                 {%- if pack_promo_icon != blank -%}

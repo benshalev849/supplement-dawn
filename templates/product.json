@@ -146,6 +146,10 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "bogos_io_free_gift_gift_thumbnail_view_PHYfGd": {
+          "type": "shopify://apps/bogos-io-free-gift/blocks/gift-thumbnail-view/0432bba6-720a-4e95-be5a-b868386f7aa6",
+          "settings": {}
         }
       },
       "block_order": [
@@ -159,7 +163,8 @@
         "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
-        "share"
+        "share",
+        "bogos_io_free_gift_gift_thumbnail_view_PHYfGd"
       ],
       "settings": {
         "enable_sticky_info": true,

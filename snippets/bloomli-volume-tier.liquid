@@ -1,14 +1,13 @@
 {% doc %}
   Bloomli Volume Tier - block snippet rendered inside main-product.liquid.
 
-  Renders 1-5 horizontal size cards (Create-Wellness style) plus an optional
+  Renders 1-3 horizontal size cards (Create-Wellness style) plus an optional
   One-Time / Subscribe toggle. Sets the buy-buttons form's `quantity` and
   optional `selling_plan` through normal form-associated inputs.
 
   Tier-to-plan mapping: by default quantity N chooses a plan whose group/name
-  contains "{N}-pack" and "{N}mo". For quantity 6+ (e.g. a 6-pack tier), the
-  filter falls back to "5-pack" since Appstle plans only go up to 5-pack.
-  Per-tier plan filters can override the pack text.
+  contains "{N}-pack" and "{N}mo". Per-tier plan filters can override the
+  pack text.
 
   @param {block} block - Block object with all settings.
   @param {product} product - Current product.
@@ -54,8 +53,6 @@
        --bloomli-vt-save-badge-text: {{ block.settings.save_badge_text_color | default: '#FDFAF7' }};
        --bloomli-vt-tier-tag-bg: {{ block.settings.tier_tag_background | default: '#8A6678' }};
        --bloomli-vt-tier-tag-text: {{ block.settings.tier_tag_text_color | default: '#FDFAF7' }};
-       --bloomli-vt-shipping-pill-bg: {{ block.settings.shipping_pill_background | default: '#8A6678' }};
-       --bloomli-vt-shipping-pill-text: {{ block.settings.shipping_pill_text_color | default: '#FDFAF7' }};
        --bloomli-vt-desktop-title-size: {{ block.settings.desktop_tier_title_size | default: 11 }}px;
        --bloomli-vt-desktop-count-size: {{ block.settings.desktop_tier_count_size | default: 9 }}px;
        --bloomli-vt-desktop-daily-size: {{ block.settings.desktop_tier_daily_size | default: 9 }}px;
@@ -68,19 +65,18 @@
   {%- endif -%}
 
   <div class="bloomli-vt__sizes" role="radiogroup" aria-label="{{ block.settings.heading | default: 'Pack size' | escape }}">
-    {%- for i in (1..5) reversed -%}
+    {%- for i in (1..3) reversed -%}
       {%- liquid
         case i
           when 1
             assign show = block.settings.tier_1_show
             assign qty = block.settings.tier_1_qty | default: 1
             assign label = block.settings.tier_1_label
-            assign count_text = block.settings.tier_1_count_text | default: block.settings.tier_1_description
+            assign count_text = block.settings.tier_1_count_text
             assign daily_text = block.settings.tier_1_daily_text
             assign image = block.settings.tier_1_image
             assign badge = block.settings.tier_1_badge
             assign tag = block.settings.tier_1_tag
-            assign show_shipping = block.settings.tier_1_show_shipping
             assign discount_pct = block.settings.tier_1_discount_pct | default: 0
             assign sub_discount_pct = subscription_discount_pct
             assign subscription_total_discount_pct = block.settings.tier_1_subscription_discount_pct
@@ -90,12 +86,11 @@
             assign show = block.settings.tier_2_show
             assign qty = block.settings.tier_2_qty | default: 2
             assign label = block.settings.tier_2_label
-            assign count_text = block.settings.tier_2_count_text | default: block.settings.tier_2_description
+            assign count_text = block.settings.tier_2_count_text
             assign daily_text = block.settings.tier_2_daily_text
             assign image = block.settings.tier_2_image
             assign badge = block.settings.tier_2_badge
             assign tag = block.settings.tier_2_tag
-            assign show_shipping = block.settings.tier_2_show_shipping
             assign discount_pct = block.settings.tier_2_discount_pct | default: 0
             assign sub_discount_pct = subscription_discount_pct
             assign subscription_total_discount_pct = block.settings.tier_2_subscription_discount_pct
@@ -105,47 +100,16 @@
             assign show = block.settings.tier_3_show
             assign qty = block.settings.tier_3_qty | default: 3
             assign label = block.settings.tier_3_label
-            assign count_text = block.settings.tier_3_count_text | default: block.settings.tier_3_description
+            assign count_text = block.settings.tier_3_count_text
             assign daily_text = block.settings.tier_3_daily_text
             assign image = block.settings.tier_3_image
             assign badge = block.settings.tier_3_badge
             assign tag = block.settings.tier_3_tag
-            assign show_shipping = block.settings.tier_3_show_shipping
             assign discount_pct = block.settings.tier_3_discount_pct | default: 0
             assign sub_discount_pct = subscription_discount_pct
             assign subscription_total_discount_pct = block.settings.tier_3_subscription_discount_pct
             assign plan_filter = block.settings.tier_3_plan_filter
             assign is_default = block.settings.tier_3_default
-          when 4
-            assign show = block.settings.tier_4_show
-            assign qty = block.settings.tier_4_qty | default: 4
-            assign label = block.settings.tier_4_label
-            assign count_text = block.settings.tier_4_count_text | default: block.settings.tier_4_description
-            assign daily_text = block.settings.tier_4_daily_text
-            assign image = block.settings.tier_4_image
-            assign badge = block.settings.tier_4_badge
-            assign tag = block.settings.tier_4_tag
-            assign show_shipping = block.settings.tier_4_show_shipping
-            assign discount_pct = block.settings.tier_4_discount_pct | default: 0
-            assign sub_discount_pct = subscription_discount_pct
-            assign subscription_total_discount_pct = block.settings.tier_4_subscription_discount_pct
-            assign plan_filter = block.settings.tier_4_plan_filter
-            assign is_default = block.settings.tier_4_default
-          when 5
-            assign show = block.settings.tier_5_show
-            assign qty = block.settings.tier_5_qty | default: 5
-            assign label = block.settings.tier_5_label
-            assign count_text = block.settings.tier_5_count_text | default: block.settings.tier_5_description
-            assign daily_text = block.settings.tier_5_daily_text
-            assign image = block.settings.tier_5_image
-            assign badge = block.settings.tier_5_badge
-            assign tag = block.settings.tier_5_tag
-            assign show_shipping = block.settings.tier_5_show_shipping
-            assign discount_pct = block.settings.tier_5_discount_pct | default: 0
-            assign sub_discount_pct = subscription_discount_pct
-            assign subscription_total_discount_pct = block.settings.tier_5_subscription_discount_pct
-            assign plan_filter = block.settings.tier_5_plan_filter
-            assign is_default = block.settings.tier_5_default
         endcase
 
         if show and is_default and default_idx == -1
@@ -154,17 +118,10 @@
         endif
 
         if plan_filter == blank
-          assign plan_filter_qty = qty
-          if plan_filter_qty > 5
-            assign plan_filter_qty = 5
-          endif
-          assign plan_filter = plan_filter_qty | append: '-pack'
+          assign plan_filter = qty | append: '-pack'
         endif
 
         assign frequency_qty = qty
-        if frequency_qty > 5
-          assign frequency_qty = 5
-        endif
         assign frequency_filter = frequency_qty | append: 'mo'
         assign tier_plan_id = ''
         assign fallback_plan_id = ''
@@ -308,9 +265,6 @@
             <span class="bloomli-vt__size-tag">{{ tag }}</span>
           {%- endif -%}
 
-          {%- if show_shipping and block.settings.shipping_text != blank -%}
-            <span class="bloomli-vt__shipping-pill">{{ block.settings.shipping_text }}</span>
-          {%- endif -%}
         </label>
       {%- endif -%}
     {%- endfor -%}
@@ -429,10 +383,6 @@
         <span class="bloomli-vt__total-compare" data-vt-compare></span>
       </span>
     </div>
-
-  {%- if block.settings.note != blank -%}
-      <div class="bloomli-vt__note">{{ block.settings.note }}</div>
-    {%- endif -%}
   </div>
 
   <div class="bloomli-vt__atc-home" data-vt-atc-home></div>

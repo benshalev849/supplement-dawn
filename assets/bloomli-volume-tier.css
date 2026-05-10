@@ -9,15 +9,6 @@
   margin: 16px 0;
 }
 
-.bloomli-vt__eyebrow {
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: rgba(178, 58, 111, 0.7);
-  margin: 0 0 6px;
-  font-weight: 500;
-}
-
 .bloomli-vt__title {
   font-family: 'Fraunces', serif;
   font-variation-settings: "SOFT" 100, "opsz" 144;
@@ -110,24 +101,6 @@
   line-height: 1;
   white-space: nowrap;
   z-index: 2;
-}
-
-.bloomli-vt__shipping-pill {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 2;
-  max-width: calc(100% - 16px);
-  padding: 4px 8px;
-  border-radius: var(--bloomli-vt-badge-radius);
-  background: var(--bloomli-vt-shipping-pill-bg, #8A6678);
-  color: var(--bloomli-vt-shipping-pill-text, #FDFAF7);
-  font-size: 10px;
-  font-weight: 800;
-  line-height: 1;
-  text-transform: uppercase;
-  white-space: nowrap;
-  pointer-events: none;
 }
 
 .bloomli-vt__size-media {
@@ -628,13 +601,6 @@
   display: none;
 }
 
-.bloomli-vt__note {
-  font-size: 11px;
-  color: rgba(42, 38, 34, 0.5);
-  margin: 8px 0 0;
-  text-align: center;
-}
-
 .bloomli-vt__custom-submit {
   position: relative;
   display: inline-flex;
@@ -741,13 +707,6 @@
   .bloomli-vt__size-tag {
     font-size: 8px;
     padding: 3px 6px;
-  }
-
-  .bloomli-vt__shipping-pill {
-    font-size: 9px;
-    padding: 3px 7px;
-    top: 6px;
-    right: 6px;
   }
 
   .bloomli-vt__mode {

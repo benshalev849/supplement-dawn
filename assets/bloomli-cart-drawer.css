@@ -795,15 +795,15 @@ cart-drawer.drawer .drawer__inner {
 }
 
 .cart-drawer .bloomli-cart-subscription-upsell__badge {
-  min-height: 2.3rem !important;
-  padding: 0.35rem 1rem !important;
-  font-size: 1.4rem !important;
+  min-height: 1.9rem !important;
+  padding: 0.28rem 0.8rem !important;
+  font-size: 1rem !important;
   line-height: 1 !important;
 }
 
 .cart-drawer .bloomli-cart-subscription-upsell__heading {
   max-width: 100% !important;
-  font-size: 1.8rem !important;
+  font-size: 1.35rem !important;
   font-weight: 800 !important;
   line-height: 1.15 !important;
   white-space: nowrap !important;

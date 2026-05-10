@@ -30,11 +30,28 @@
       {%- if section.settings.copy != blank -%}
         <div class="bloomli-proof-split__copy">{{ section.settings.copy }}</div>
       {%- endif -%}
+      {%- comment -%}
+        /* PROOF SPLIT BULLETS ORIGINAL - REVERT HERE IF NEEDED */
+        <div class="bloomli-proof-split__bullets">
+          {%- for block in section.blocks -%}
+            <div class="bloomli-proof-split__bullet" {{ block.shopify_attributes }}>
+              <span class="bloomli-proof-split__check" aria-hidden="true"></span>
+              <div class="bloomli-proof-split__bullet-text">{{ block.settings.text }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endcomment -%}
       <div class="bloomli-proof-split__bullets">
         {%- for block in section.blocks -%}
           <div class="bloomli-proof-split__bullet" {{ block.shopify_attributes }}>
-            <span class="bloomli-proof-split__check" aria-hidden="true"></span>
-            <div class="bloomli-proof-split__bullet-text">{{ block.settings.text }}</div>
+            {%- if block.settings.bullet_title != blank -%}
+              <div class="bloomli-proof-split__bullet-content">
+                <strong class="bloomli-proof-split__bullet-title">{{ block.settings.bullet_title | escape }}</strong>
+                <div class="bloomli-proof-split__bullet-text">{{ block.settings.text }}</div>
+              </div>
+            {%- else -%}
+              <div class="bloomli-proof-split__bullet-text">{{ block.settings.text }}</div>
+            {%- endif -%}
           </div>
         {%- endfor -%}
       </div>
@@ -85,6 +102,7 @@
       "type": "bullet",
       "name": "Checklist item",
       "settings": [
+        { "type": "text", "id": "bullet_title", "label": "Bullet title" },
         { "type": "text", "id": "text", "label": "Text", "default": "Clinically-dosed actives. No fairy dust." }
       ]
     }

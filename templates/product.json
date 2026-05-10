@@ -539,38 +539,6 @@
             "text": "Keeps the scalp environment stable and follicle function consistent.",
             "source_line": ""
           }
-        },
-        "item_Gw8tdW": {
-          "type": "item",
-          "settings": {
-            "is_proof": true,
-            "image_scale": 100,
-            "use_custom_circle_color": true,
-            "circle_color": "#fdfaf7",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Raw ingredient",
-            "icon": "spark",
-            "title": "Delightfully tasty",
-            "text": "A natural strawberry-forward berry blend. Never chalky, never too sweet.",
-            "source_line": ""
-          }
-        },
-        "item_UiY4pK": {
-          "type": "item",
-          "settings": {
-            "is_proof": true,
-            "image_scale": 100,
-            "use_custom_circle_color": true,
-            "circle_color": "#fdfaf7",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Raw ingredient",
-            "icon": "tested",
-            "title": "Independently verified",
-            "text": "Every batch tested by a third-party lab for purity, potency, and heavy metals.",
-            "source_line": ""
-          }
         }
       },
       "block_order": [
@@ -579,9 +547,7 @@
         "item_6MgTDk",
         "item_Yr6eKf",
         "item_6G4EJH",
-        "item_CcpMP8",
-        "item_Gw8tdW",
-        "item_UiY4pK"
+        "item_CcpMP8"
       ],
       "name": "Bloomli - Formula Gallery",
       "settings": {

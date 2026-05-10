@@ -289,7 +289,16 @@ a.product__text {
 
 @media screen and (min-width: 750px) {
   .product__info-container {
+    --bloomli-product-info-content-width: min(49rem, calc(100vw - 48px));
     max-width: 60rem;
+  }
+
+  .product__info-container .product__title,
+  .product__info-container .product__description,
+  .product__info-container .product__accordion,
+  .product__info-container .bloomli-collapsible-row {
+    width: var(--bloomli-product-info-content-width);
+    max-width: none;
   }
 
   .product__info-container .price--on-sale .price-item--regular {

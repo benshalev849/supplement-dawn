@@ -735,7 +735,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: var(--bps-icon-color);
+  background-color: var(--bps-icon-color, #b23a6f);
   flex-shrink: 0;
   position: relative;
   margin-top: 2px;

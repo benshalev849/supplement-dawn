@@ -640,6 +640,14 @@
             "open_by_default": false
           }
         },
+        "question_mUphCn": {
+          "type": "question",
+          "settings": {
+            "question": "Is Bloomli third-party tested?",
+            "answer": "<p>Yes. Our formula has been independently tested by a third-party lab for heavy metals, microbial contaminants, and label accuracy using USP-standard methods. It's also manufactured in an NSF-certified facility, one of the most rigorous quality standards in the supplement industry.</p>",
+            "open_by_default": false
+          }
+        },
         "question_DbFafF": {
           "type": "question",
           "settings": {
@@ -669,6 +677,7 @@
         "question_yXD6xy",
         "question_UfFpyj",
         "question_h3AWWX",
+        "question_mUphCn",
         "question_DbFafF",
         "question_kxfkwW",
         "question_i8yLic"

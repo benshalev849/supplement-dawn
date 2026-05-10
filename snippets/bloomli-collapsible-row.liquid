@@ -5,7 +5,14 @@
   assign icon_alt = block.settings.title | escape
 -%}
 
-<div class="bloomli-collapsible-row bloomli-faq__items" {{ block.shopify_attributes }}>
+<div
+  class="bloomli-collapsible-row bloomli-faq__items"
+  style="
+    --bf-question-size: 16px;
+    --bf-body-size: 14px;
+  "
+  {{ block.shopify_attributes }}
+>
   <div class="bloomli-faq__item">
     <button
       id="{{ button_id }}"
@@ -44,6 +51,19 @@
     >
       <div class="bloomli-faq__panel-inner rte">
         {{ block.settings.content }}
+        {%- if block.settings.row_image != blank -%}
+          {{
+            block.settings.row_image
+            | image_url: width: 800
+            | image_tag:
+              widths: '320, 400, 600, 800',
+              sizes: '(max-width: 749px) 100vw, 400px',
+              loading: 'lazy',
+              decoding: 'async',
+              alt: icon_alt,
+              style: 'display: block; width: 100%; max-width: 400px; height: auto; margin-top: 1.2rem;'
+          }}
+        {%- endif -%}
       </div>
     </div>
   </div>

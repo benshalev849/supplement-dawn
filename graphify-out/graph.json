@@ -7395,9 +7395,9 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_volume_tier_js",
-      "target": "assets_bloomli_volume_tier_parsecents",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_volume_tier_parsecents"
     },
     {
       "relation": "contains",

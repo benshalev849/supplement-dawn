@@ -93,10 +93,6 @@
             "total_label": "Total price:"
           }
         },
-        "bogos_io_free_gift_gift_slider_view_zzGYtm": {
-          "type": "shopify://apps/bogos-io-free-gift/blocks/gift-slider-view/0432bba6-720a-4e95-be5a-b868386f7aa6",
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
           "disabled": true,
@@ -157,7 +153,6 @@
         "caption",
         "price",
         "volume_tier_LC9DxN",
-        "bogos_io_free_gift_gift_slider_view_zzGYtm",
         "variant_picker",
         "description",
         "collapsible-row-0",

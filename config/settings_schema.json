@@ -2053,6 +2053,13 @@
       },
       {
         "type": "text",
+        "id": "bloomli_routine_upsell_addon_discount_pct",
+        "label": "Add-on Pair & Save discount percent",
+        "default": "20",
+        "info": "Discount applied to the add-on price in the upsell card. Set to 0 to show regular price."
+      },
+      {
+        "type": "text",
         "id": "bloomli_routine_upsell_state1_heading",
         "label": "Heading",
         "default": "Complete your routine"

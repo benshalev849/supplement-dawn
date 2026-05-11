@@ -1,5 +1,5 @@
 {% doc %}
-  Renders a cart routine upsell card below cart items.
+  Renders a cart routine upsell card in the drawer footer, just above subtotals.
   State 1: supplement in cart but no add-on → upsell the add-on product.
   State 2: add-on in cart but no supplement → upsell the supplement product.
   State 3/4: both or neither → nothing renders.
@@ -47,19 +47,32 @@
 -%}
   {%- liquid
     if upsell_state == 1
-      assign upsell_product = addon_product
-      assign upsell_heading = settings.bloomli_routine_upsell_state1_heading | default: 'Complete your routine'
-      assign upsell_text    = settings.bloomli_routine_upsell_state1_text    | default: 'Add Hair Oil and unlock Pair & Save.'
-      assign upsell_button  = settings.bloomli_routine_upsell_state1_button  | default: 'Add Hair Oil'
+      assign upsell_product      = addon_product
+      assign upsell_heading      = settings.bloomli_routine_upsell_state1_heading | default: 'Complete your routine'
+      assign upsell_text         = settings.bloomli_routine_upsell_state1_text    | default: 'Add Hair Oil and unlock Pair & Save.'
+      assign upsell_button       = settings.bloomli_routine_upsell_state1_button  | default: 'Add Hair Oil'
+      assign upsell_discount_pct = settings.bloomli_routine_upsell_addon_discount_pct | default: 20 | plus: 0
     else
-      assign upsell_product = supplement_product
-      assign upsell_heading = settings.bloomli_routine_upsell_state2_heading | default: 'Unlock your pairing offer'
-      assign upsell_text    = settings.bloomli_routine_upsell_state2_text    | default: 'Add Gummies to activate Pair & Save on your Hair Oil.'
-      assign upsell_button  = settings.bloomli_routine_upsell_state2_button  | default: 'Add Gummies'
+      assign upsell_product      = supplement_product
+      assign upsell_heading      = settings.bloomli_routine_upsell_state2_heading | default: 'Unlock your pairing offer'
+      assign upsell_text         = settings.bloomli_routine_upsell_state2_text    | default: 'Add Gummies to activate Pair & Save on your Hair Oil.'
+      assign upsell_button       = settings.bloomli_routine_upsell_state2_button  | default: 'Add Gummies'
+      assign upsell_discount_pct = 0
     endif
 
     assign upsell_variant = upsell_product.first_available_variant
     assign upsell_image   = upsell_product.featured_image
+
+    assign upsell_sale_price = upsell_variant.price
+    if upsell_discount_pct > 0
+      assign discount_multiplier = 100 | minus: upsell_discount_pct
+      assign upsell_sale_price = upsell_variant.price | times: discount_multiplier | divided_by: 100.0 | ceil
+    endif
+
+    assign upsell_compare_price = upsell_variant.compare_at_price
+    if upsell_compare_price == blank or upsell_compare_price <= upsell_sale_price
+      assign upsell_compare_price = 0
+    endif
   -%}
 
   {%- if upsell_variant != blank -%}
@@ -88,7 +101,12 @@
           <p class="bloomli-routine-upsell__heading">{{ upsell_heading | escape }}</p>
           <p class="bloomli-routine-upsell__title">{{ upsell_product.title | escape }}</p>
           <p class="bloomli-routine-upsell__text">{{ upsell_text | escape }}</p>
-          <p class="bloomli-routine-upsell__price">{{ upsell_variant.price | money }}</p>
+          <div class="bloomli-routine-upsell__prices">
+            {%- if upsell_compare_price > 0 -%}
+              <s class="bloomli-routine-upsell__compare-price">{{ upsell_compare_price | money }}</s>
+            {%- endif -%}
+            <span class="bloomli-routine-upsell__price">{{ upsell_sale_price | money }}</span>
+          </div>
         </div>
       </div>
       <button

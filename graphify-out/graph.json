@@ -6871,9 +6871,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_routine_upsell_js",
-      "target": "assets_bloomli_cart_routine_upsell_getrequestedsections",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_getrequestedsections"
     },
     {
       "relation": "contains",
@@ -6881,9 +6881,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_routine_upsell_js",
-      "target": "assets_bloomli_cart_routine_upsell_getsectioninnerhtml",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_getsectioninnerhtml"
     },
     {
       "relation": "contains",
@@ -6891,9 +6891,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_routine_upsell_js",
-      "target": "assets_bloomli_cart_routine_upsell_replacecartsections",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_replacecartsections"
     },
     {
       "relation": "contains",
@@ -6901,9 +6901,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_routine_upsell_js",
-      "target": "assets_bloomli_cart_routine_upsell_showerror",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_showerror"
     },
     {
       "relation": "contains",
@@ -6911,9 +6911,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_routine_upsell_js",
-      "target": "assets_bloomli_cart_routine_upsell_setloading",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_setloading"
     },
     {
       "relation": "contains",
@@ -6921,9 +6921,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_routine_upsell_js",
-      "target": "assets_bloomli_cart_routine_upsell_addtocart",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_addtocart"
     },
     {
       "relation": "calls",
@@ -6932,9 +6932,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_routine_upsell_addtocart",
-      "target": "assets_bloomli_cart_routine_upsell_getrequestedsections",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_getrequestedsections"
     },
     {
       "relation": "calls",
@@ -6943,9 +6943,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_routine_upsell_replacecartsections",
-      "target": "assets_bloomli_cart_routine_upsell_getsectioninnerhtml",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_getsectioninnerhtml"
     },
     {
       "relation": "calls",
@@ -6954,9 +6954,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_routine_upsell_addtocart",
-      "target": "assets_bloomli_cart_routine_upsell_replacecartsections",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_replacecartsections"
     },
     {
       "relation": "calls",
@@ -6965,9 +6965,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_routine_upsell_addtocart",
-      "target": "assets_bloomli_cart_routine_upsell_showerror",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_showerror"
     },
     {
       "relation": "calls",
@@ -6976,9 +6976,9 @@
       "source_file": "bloomli-cart-routine-upsell.js",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_routine_upsell_addtocart",
-      "target": "assets_bloomli_cart_routine_upsell_setloading",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_routine_upsell_setloading"
     },
     {
       "relation": "calls",

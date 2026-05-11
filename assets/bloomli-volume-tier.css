@@ -3,10 +3,12 @@
   --bloomli-vt-badge-radius: var(--badge-corner-radius);
   --bloomli-vt-control-radius: var(--inputs-radius);
   --bloomli-vt-card-radius: var(--text-boxes-radius);
+  --bloomli-vt-size-card-min: 18rem;
 
   color: var(--charcoal, #2A2622);
   font-family: var(--font-commerce-ui, var(--font-body-family));
   margin: 16px 0;
+  container: bloomli-volume-tier / inline-size;
 }
 
 .bloomli-vt__title {
@@ -116,18 +118,18 @@
 @media (min-width: 750px) {
   .bloomli-vt {
     width: 100%;
-    max-width: var(--bloomli-product-info-width, 54rem);
+    max-width: var(--bloomli-product-info-width, 60rem);
     min-width: 0;
     box-sizing: border-box;
   }
 
   .bloomli-vt__sizes {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--bloomli-vt-size-card-min)), 1fr));
     gap: 10px;
   }
 
   .bloomli-vt__sizes:has(.bloomli-vt__size:nth-child(4)) {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
   }
 
   .bloomli-vt__size {
@@ -151,6 +153,22 @@
     --bloomli-product-stack-image-size: 100%;
   }
 
+}
+
+@container bloomli-volume-tier (max-width: 57rem) {
+  .bloomli-vt__sizes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bloomli-vt__sizes .bloomli-vt__size:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(72px, 30%) minmax(0, 1fr);
+    min-height: 92px;
+  }
+
+  .bloomli-vt__sizes .bloomli-vt__size:last-child:nth-child(odd) .bloomli-vt__size-media {
+    max-width: 84px;
+  }
 }
 
 .bloomli-vt__size-stack {

@@ -81,9 +81,6 @@
 >
   <div class="bloomli-proof-panel__inner">
     <div class="bloomli-proof-panel__header">
-      {%- if section.settings.image_label != blank -%}
-        <p class="bloomli-proof-panel__eyebrow">{{ section.settings.image_label | escape }}</p>
-      {%- endif -%}
       <h2>
         {{ section.settings.heading_line1 | escape }}{% if section.settings.heading_line2 != blank %}
           <span>{{ section.settings.heading_line2 | escape }}</span>
@@ -115,10 +112,9 @@
           {%- endif -%}
         </div>
 
-        <div class="bloomli-proof-panel__stat">
-          <span>14</span>
-          <p>targeted nutrients for hair, scalp, and strand support</p>
-        </div>
+        {%- if section.settings.image_caption != blank -%}
+          <div class="bloomli-proof-panel__image-caption">{{ section.settings.image_caption }}</div>
+        {%- endif -%}
       </div>
 
       <div class="bloomli-proof-panel__proof-list">
@@ -140,15 +136,6 @@
           </article>
         {%- endfor -%}
       </div>
-    </div>
-
-    <div class="bloomli-proof-panel__trust-strip">
-      <span>Third-party tested</span>
-      <span>14 targeted nutrients</span>
-      <span>No artificial dyes</span>
-      <span>Gelatin-free</span>
-      <span>Gluten-free</span>
-      <span>2g sugar per gummy</span>
     </div>
   </div>
 </section>
@@ -175,6 +162,7 @@
       { "value": "accent_soft", "label": "Soft accent" }
     ], "default": "surface" },
     { "type": "text", "id": "image_label", "label": "Placeholder label", "default": "Editorial - morning ritual - natural light" },
+    { "type": "richtext", "id": "image_caption", "label": "Text below image" },
     { "type": "range", "id": "image_scale", "label": "Uploaded image zoom", "min": 100, "max": 140, "step": 5, "default": 100, "unit": "%" },
     { "type": "select", "id": "image_position", "label": "Image crop position", "options": [
       { "value": "center center", "label": "Center" },

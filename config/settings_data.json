@@ -151,6 +151,9 @@
     "cart_line_subscription_upsell_discount_pct": "15",
     "cart_line_subscription_upsell_card_bg": "#f5e0dc",
     "cart_line_subscription_upsell_border_color": "#f5e0dc",
+    "bloomli_routine_upsell_enabled": true,
+    "bloomli_routine_upsell_supplement_product": "test-supplement",
+    "bloomli_routine_upsell_addon_product": "ultra-strength-hair-gummies-copy",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

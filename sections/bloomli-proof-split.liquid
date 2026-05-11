@@ -63,16 +63,6 @@
   style="
     --bpp-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
     --bpp-accent: {% if icon_accent_color == '#6f7a5a' %}var(--bloomli-primary-action){% else %}{{ section.settings.icon_accent_color | default: 'var(--bloomli-primary-action)' }}{% endif %};
-    {%- case section.settings.media_background -%}
-      {%- when 'background' -%}
-        --bpp-media-bg: rgb(var(--color-background));
-      {%- when 'surface_strong' -%}
-        --bpp-media-bg: var(--bloomli-surface-strong);
-      {%- when 'accent_soft' -%}
-        --bpp-media-bg: var(--bloomli-soft-blush);
-      {%- else -%}
-        --bpp-media-bg: var(--bloomli-surface);
-    {%- endcase -%}
     --bloomli-padding-top: {{ section.settings.padding_top }}px;
     --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;
     --bpp-image-width: {{ section.settings.image_width | default: 620 }}px;

@@ -201,9 +201,6 @@
             aria-label="{{ upsell_otp_label | escape }}: {{ upsell_product.title | escape }}"
           >
             {{- upsell_otp_label | escape -}} &middot;
-            {%- if upsell_compare_price > 0 -%}
-              <s class="bloomli-routine-upsell__otp-compare">{{ upsell_compare_price | money }}</s>
-            {%- endif -%}
             <span class="bloomli-routine-upsell__otp-price">{{ upsell_sale_price | money }}</span>
           </button>
         </div>

@@ -915,7 +915,7 @@
 }
 
 .bloomli-proof-panel__visual {
-  width: var(--bpp-image-width, 620px);
+  width: min(var(--bpp-image-width, 620px), var(--bpp-image-size, 100%));
   max-width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -1022,7 +1022,7 @@
 
   .bloomli-proof-panel__header {
     text-align: left;
-    margin-bottom: 32px;
+    margin-bottom: 0;
   }
 
   .bloomli-proof-panel__copy {
@@ -1036,7 +1036,7 @@
 
   .bloomli-proof-panel__grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 0;
   }
 
   .bloomli-proof-panel--image-right .bloomli-proof-panel__visual,
@@ -1053,6 +1053,22 @@
   .bloomli-proof-panel__visual {
     min-height: auto;
     height: auto;
+    margin: 24px auto;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .bloomli-proof-panel__image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 280px;
+    flex: 0 0 auto;
+    margin: 0 auto;
+    object-fit: contain;
+    transform: none;
   }
 
   /* ORIGINAL - REVERT HERE IF NEEDED

@@ -673,6 +673,19 @@
                               assign offer_4_savings = 100.0 | minus: offer_4_factor
                               assign offer_5_savings = 100.0 | minus: offer_5_factor
                             endif
+                            if item.variant.compare_at_price and item.variant.compare_at_price > item.final_price
+                              assign bloomli_compare_unit = item.variant.compare_at_price | times: 1.0
+                              assign bloomli_base_price   = item.final_price | times: 1.0
+                              assign bloomli_vol3_factor = 100.0 | minus: offer_3_volume_savings | divided_by: 100.0
+                              assign bloomli_vol4_factor = 100.0 | minus: offer_4_volume_savings | divided_by: 100.0
+                              assign bloomli_vol5_factor = 100.0 | minus: offer_5_volume_savings | divided_by: 100.0
+                              assign bloomli_discounted3 = bloomli_base_price | times: bloomli_vol3_factor
+                              assign bloomli_discounted4 = bloomli_base_price | times: bloomli_vol4_factor
+                              assign bloomli_discounted5 = bloomli_base_price | times: bloomli_vol5_factor
+                              assign offer_3_savings = bloomli_compare_unit | minus: bloomli_discounted3 | times: 100.0 | divided_by: bloomli_compare_unit
+                              assign offer_4_savings = bloomli_compare_unit | minus: bloomli_discounted4 | times: 100.0 | divided_by: bloomli_compare_unit
+                              assign offer_5_savings = bloomli_compare_unit | minus: bloomli_discounted5 | times: 100.0 | divided_by: bloomli_compare_unit
+                            endif
                             assign offer_3_rounded = offer_3_savings | floor
                             assign offer_4_rounded = offer_4_savings | floor
                             assign offer_5_rounded = offer_5_savings | floor

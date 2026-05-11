@@ -70,7 +70,7 @@
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const discountBadgeTemplate = root.dataset.discountBadgeTemplate || 'SAVE [percent]%';
     const savingsPrefix = root.dataset.savingsPrefix || "You're saving ";
-    const savingsSuffix = root.dataset.savingsSuffix || '';
+    const savingsSuffix = (root.dataset.savingsSuffix || '').trim();
     const productFormId = root.dataset.formId;
     const quantitySelector = productFormId
       ? Array.from(document.querySelectorAll('input[name="quantity"]')).find(function (input) {

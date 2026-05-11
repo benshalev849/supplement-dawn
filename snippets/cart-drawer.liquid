@@ -202,13 +202,25 @@
                     {%- for item in cart.items -%}
                       {%- liquid
                         assign is_bloomli_supplement = false
+                        assign is_bloomli_add_on = false
+                        assign has_line_discount = false
+                        assign show_bloomli_pack_promo_cell = false
                         for product_tag in item.product.tags
                           assign normalized_product_tag = product_tag | downcase | strip
                           if normalized_product_tag == 'supplement'
                             assign is_bloomli_supplement = true
-                            break
+                          elsif normalized_product_tag == 'add-on'
+                            assign is_bloomli_add_on = true
                           endif
                         endfor
+                        if item.line_level_discount_allocations.size > 0
+                          assign has_line_discount = true
+                        endif
+                        if is_bloomli_supplement
+                          assign show_bloomli_pack_promo_cell = true
+                        elsif is_bloomli_add_on and has_line_discount
+                          assign show_bloomli_pack_promo_cell = true
+                        endif
                       -%}
                       <tr
                         id="CartDrawer-Item-{{ item.index | plus: 1 }}"
@@ -543,39 +555,49 @@
                         </td>
 
                         <td
-                          class="bloomli-cart-pack-promo-cell{% unless is_bloomli_supplement %} hidden{% endunless %}"
+                          class="bloomli-cart-pack-promo-cell{% unless show_bloomli_pack_promo_cell %} hidden{% endunless %}"
                           role="cell"
                           headers="CartDrawer-ColumnQuantity"
                         >
                           {%- if is_bloomli_supplement -%}
-                          {%- liquid
-                            assign pack_promo_enabled = settings.cart_drawer_pack_promo_enabled
-                            if pack_promo_enabled == nil
-                              assign pack_promo_enabled = true
-                            endif
-                            assign pack_promo_text = settings.cart_drawer_pack_promo_text | default: 'Buy More, Save More'
-                            if item.quantity >= 5
-                              assign pack_label = '5-Pack+'
-                            else
-                              assign pack_label = item.quantity | append: '-Pack'
-                            endif
-                            assign pack_promo_icon = settings.cart_drawer_pack_promo_icon
-                          -%}
-                          {%- if pack_promo_enabled and item.quantity > 1 -%}
+                            {%- liquid
+                              assign pack_promo_enabled = settings.cart_drawer_pack_promo_enabled
+                              if pack_promo_enabled == nil
+                                assign pack_promo_enabled = true
+                              endif
+                              assign pack_promo_text = settings.cart_drawer_pack_promo_text | default: 'Buy More, Save More'
+                              if item.quantity >= 5
+                                assign pack_label = '5-Pack+'
+                              else
+                                assign pack_label = item.quantity | append: '-Pack'
+                              endif
+                              assign pack_promo_icon = settings.cart_drawer_pack_promo_icon
+                            -%}
+                            {%- if pack_promo_enabled and item.quantity > 1 -%}
+                              <div class="bloomli-cart-pack-promo">
+                                <span class="bloomli-cart-pack-promo__icon" aria-hidden="true">
+                                  {%- if pack_promo_icon != blank -%}
+                                    {{ pack_promo_icon | image_url: width: 40 | image_tag: loading: 'lazy', alt: '', widths: '20, 40' }}
+                                  {%- else -%}
+                                    {{- 'icon-discount.svg' | inline_asset_content -}}
+                                  {%- endif -%}
+                                </span>
+                                <span class="bloomli-cart-pack-promo__copy">
+                                  <span class="bloomli-cart-pack-promo__label">{{ pack_promo_text | escape }}</span>
+                                  <span class="bloomli-cart-pack-promo__pack">{{ pack_label | escape }}</span>
+                                </span>
+                              </div>
+                            {%- endif -%}
+                          {%- elsif is_bloomli_add_on and has_line_discount -%}
                             <div class="bloomli-cart-pack-promo">
                               <span class="bloomli-cart-pack-promo__icon" aria-hidden="true">
-                                {%- if pack_promo_icon != blank -%}
-                                  {{ pack_promo_icon | image_url: width: 40 | image_tag: loading: 'lazy', alt: '', widths: '20, 40' }}
-                                {%- else -%}
-                                  {{- 'icon-discount.svg' | inline_asset_content -}}
-                                {%- endif -%}
+                                {{- 'icon-discount.svg' | inline_asset_content -}}
                               </span>
                               <span class="bloomli-cart-pack-promo__copy">
-                                <span class="bloomli-cart-pack-promo__label">{{ pack_promo_text | escape }}</span>
-                                <span class="bloomli-cart-pack-promo__pack">{{ pack_label | escape }}</span>
+                                <span class="bloomli-cart-pack-promo__label">Pair & Save</span>
+                                <span class="bloomli-cart-pack-promo__pack">Applied</span>
                               </span>
                             </div>
-                          {%- endif -%}
                           {%- endif -%}
                         </td>
 

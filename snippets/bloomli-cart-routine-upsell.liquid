@@ -3,6 +3,8 @@
   State 1: supplement in cart but no add-on → upsell the add-on product.
   State 2: add-on in cart but no supplement → upsell the supplement product.
   State 3/4: both or neither → nothing renders.
+  Subscription mode: if any cart item has a selling plan, swaps to "Add to subscription"
+  with a one-time purchase fallback link below.
 {% enddoc %}
 
 {%- liquid
@@ -17,8 +19,10 @@
   assign supplement_tag = settings.bloomli_routine_upsell_supplement_tag | default: 'supplement' | downcase | strip
   assign addon_tag      = settings.bloomli_routine_upsell_addon_tag | default: 'add-on' | downcase | strip
 
-  assign cart_has_supplement = false
-  assign cart_has_addon      = false
+  assign cart_has_supplement   = false
+  assign cart_has_addon        = false
+  assign cart_has_subscription = false
+  assign cart_sub_interval     = nil
 
   for item in cart.items
     for product_tag in item.product.tags
@@ -30,6 +34,13 @@
         assign cart_has_addon = true
       endif
     endfor
+    if item.selling_plan_allocation != blank and cart_has_subscription == false
+      assign cart_has_subscription = true
+      for opt in item.selling_plan_allocation.selling_plan.options
+        assign cart_sub_interval = opt.value
+        break
+      endfor
+    endif
   endfor
 
   assign upsell_state = 0
@@ -73,9 +84,60 @@
     if upsell_compare_price == blank or upsell_compare_price <= upsell_sale_price
       assign upsell_compare_price = 0
     endif
+
+    assign sub_discount_pct = settings.bloomli_routine_upsell_subscription_discount_pct | default: 15 | plus: 0
+    assign upsell_sub_btn   = settings.bloomli_routine_upsell_sub_button | default: 'Add to subscription'
+    assign upsell_otp_label = settings.bloomli_routine_upsell_otp_label  | default: 'One Time Purchase'
+
+    assign upsell_selling_plan_id = nil
+    if cart_has_subscription
+      for spg in upsell_product.selling_plan_groups
+        for plan in spg.selling_plans
+          for opt in plan.options
+            if opt.value == cart_sub_interval
+              assign upsell_selling_plan_id = plan.id
+              break
+            endif
+          endfor
+          if upsell_selling_plan_id != nil
+            break
+          endif
+        endfor
+        if upsell_selling_plan_id != nil
+          break
+        endif
+      endfor
+      if upsell_selling_plan_id == nil
+        for spg in upsell_product.selling_plan_groups
+          for plan in spg.selling_plans
+            assign upsell_selling_plan_id = plan.id
+            break
+          endfor
+          if upsell_selling_plan_id != nil
+            break
+          endif
+        endfor
+      endif
+    endif
+
+    assign upsell_sub_price = 0
+    if cart_has_subscription and upsell_selling_plan_id != nil
+      assign sub_mult = 100 | minus: sub_discount_pct
+      assign upsell_sub_price = upsell_variant.price | times: sub_mult | divided_by: 100.0
+      if upsell_discount_pct > 0
+        assign addon_mult = 100 | minus: upsell_discount_pct
+        assign upsell_sub_price = upsell_sub_price | times: addon_mult | divided_by: 100.0 | ceil
+      else
+        assign upsell_sub_price = upsell_sub_price | ceil
+      endif
+    endif
   -%}
 
   {%- if upsell_variant != blank -%}
+    {%- assign show_subscription = false -%}
+    {%- if cart_has_subscription and upsell_selling_plan_id and upsell_sub_price > 0 -%}
+      {%- assign show_subscription = true -%}
+    {%- endif -%}
     <div
       class="bloomli-routine-upsell"
       data-bloomli-routine-upsell
@@ -102,25 +164,63 @@
           <p class="bloomli-routine-upsell__title">{{ upsell_product.title | escape }}</p>
           <p class="bloomli-routine-upsell__text">{{ upsell_text | escape }}</p>
           <div class="bloomli-routine-upsell__prices">
-            {%- if upsell_compare_price > 0 -%}
-              <s class="bloomli-routine-upsell__compare-price">{{ upsell_compare_price | money }}</s>
+            {%- if show_subscription -%}
+              {%- if upsell_compare_price > 0 -%}
+                <s class="bloomli-routine-upsell__compare-price">{{ upsell_compare_price | money }}</s>
+              {%- endif -%}
+              <span class="bloomli-routine-upsell__price">{{ upsell_sub_price | money }}</span>
+            {%- else -%}
+              {%- if upsell_compare_price > 0 -%}
+                <s class="bloomli-routine-upsell__compare-price">{{ upsell_compare_price | money }}</s>
+              {%- endif -%}
+              <span class="bloomli-routine-upsell__price">{{ upsell_sale_price | money }}</span>
             {%- endif -%}
-            <span class="bloomli-routine-upsell__price">{{ upsell_sale_price | money }}</span>
           </div>
         </div>
       </div>
-      <button
-        type="button"
-        class="bloomli-routine-upsell__btn"
-        data-bloomli-routine-upsell-btn
-        data-variant-id="{{ upsell_variant.id }}"
-        aria-label="{{ upsell_button | escape }}: {{ upsell_product.title | escape }}"
-      >
-        <span class="bloomli-routine-upsell__btn-text">{{ upsell_button | escape }}</span>
-        <span class="bloomli-routine-upsell__spinner loading__spinner hidden">
-          {{- 'loading-spinner.svg' | inline_asset_content -}}
-        </span>
-      </button>
+      {%- if show_subscription -%}
+        <button
+          type="button"
+          class="bloomli-routine-upsell__btn"
+          data-bloomli-routine-upsell-btn
+          data-variant-id="{{ upsell_variant.id }}"
+          data-selling-plan-id="{{ upsell_selling_plan_id }}"
+          aria-label="{{ upsell_sub_btn | escape }}: {{ upsell_product.title | escape }}"
+        >
+          <span class="bloomli-routine-upsell__btn-text">{{ upsell_sub_btn | escape }}</span>
+          <span class="bloomli-routine-upsell__spinner loading__spinner hidden">
+            {{- 'loading-spinner.svg' | inline_asset_content -}}
+          </span>
+        </button>
+        <div class="bloomli-routine-upsell__otp">
+          <button
+            type="button"
+            class="bloomli-routine-upsell__otp-btn"
+            data-bloomli-routine-upsell-otp-btn
+            data-variant-id="{{ upsell_variant.id }}"
+            aria-label="{{ upsell_otp_label | escape }}: {{ upsell_product.title | escape }}"
+          >
+            {{- upsell_otp_label | escape -}} &middot;
+            {%- if upsell_compare_price > 0 -%}
+              <s class="bloomli-routine-upsell__otp-compare">{{ upsell_compare_price | money }}</s>
+            {%- endif -%}
+            <span class="bloomli-routine-upsell__otp-price">{{ upsell_sale_price | money }}</span>
+          </button>
+        </div>
+      {%- else -%}
+        <button
+          type="button"
+          class="bloomli-routine-upsell__btn"
+          data-bloomli-routine-upsell-btn
+          data-variant-id="{{ upsell_variant.id }}"
+          aria-label="{{ upsell_button | escape }}: {{ upsell_product.title | escape }}"
+        >
+          <span class="bloomli-routine-upsell__btn-text">{{ upsell_button | escape }}</span>
+          <span class="bloomli-routine-upsell__spinner loading__spinner hidden">
+            {{- 'loading-spinner.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      {%- endif -%}
     </div>
   {%- endif -%}
 {%- endif -%}

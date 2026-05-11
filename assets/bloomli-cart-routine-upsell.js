@@ -59,14 +59,17 @@
     if (spinner) spinner.classList.toggle('hidden', !loading);
   }
 
-  function addToCart(btn) {
+  function addToCart(btn, sellingPlanId) {
     var variantId = parseInt(btn.dataset.variantId, 10);
     if (!variantId) return;
 
     setLoading(btn, true);
 
+    var item = { id: variantId, quantity: 1 };
+    if (sellingPlanId) item.selling_plan = sellingPlanId;
+
     var body = JSON.stringify({
-      items: [{ id: variantId, quantity: 1 }],
+      items: [item],
       sections: getRequestedSections(),
       sections_url: window.location.pathname,
     });
@@ -89,8 +92,17 @@
 
   document.addEventListener('click', function (event) {
     var btn = event.target.closest('[data-bloomli-routine-upsell-btn]');
-    if (!btn) return;
-    event.preventDefault();
-    addToCart(btn);
+    if (btn) {
+      event.preventDefault();
+      var planId = btn.dataset.sellingPlanId ? parseInt(btn.dataset.sellingPlanId, 10) : null;
+      addToCart(btn, planId);
+      return;
+    }
+
+    var otpBtn = event.target.closest('[data-bloomli-routine-upsell-otp-btn]');
+    if (otpBtn) {
+      event.preventDefault();
+      addToCart(otpBtn, null);
+    }
   });
 })();

@@ -2097,6 +2097,29 @@
         "id": "bloomli_routine_upsell_state2_button",
         "label": "Button label",
         "default": "Add Gummies"
+      },
+      {
+        "type": "header",
+        "content": "Subscription mode"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_subscription_discount_pct",
+        "label": "Subscription discount percent",
+        "default": "15",
+        "info": "Discount applied first when a subscription is active. For the add-on, the Pair & Save discount is also stacked on top."
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_sub_button",
+        "label": "Subscribe button label",
+        "default": "Add to subscription"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_otp_label",
+        "label": "One-time purchase label",
+        "default": "One Time Purchase"
       }
     ]
   }

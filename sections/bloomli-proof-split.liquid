@@ -53,6 +53,8 @@
 
 {%- liquid
   assign image_scale = section.settings.image_scale | divided_by: 100.0
+  assign desktop_image_size = section.settings.desktop_image_size | default: 100 | divided_by: 100.0
+  assign desktop_image_scale = image_scale | times: desktop_image_size
   assign image_alt = section.settings.image.alt | default: section.settings.heading_line1
   assign image_style = 'object-position: ' | append: section.settings.image_position | append: ';'
   assign icon_accent_color = section.settings.icon_accent_color | downcase
@@ -66,7 +68,8 @@
     --bloomli-padding-top: {{ section.settings.padding_top }}px;
     --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;
     --bpp-image-width: {{ section.settings.image_width | default: 620 }}px;
-    --bpp-image-size: {{ section.settings.image_size | default: 100 }}%;
+    --bpp-image-desktop-scale: {{ desktop_image_scale }};
+    --bpp-image-mobile-size: {{ section.settings.image_size | default: 100 }}%;
     --bpp-image-radius: {{ section.settings.image_radius | default: 16 }}px;
     --bpp-image-scale: {{ image_scale }};
     --bpp-card-border: {% if section.settings.show_card_borders %}1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 18%, transparent){% else %}0{% endif %};
@@ -161,7 +164,8 @@
       { "value": "right center", "label": "Right" }
     ], "default": "center center" },
     { "type": "range", "id": "image_width", "label": "Image width", "min": 320, "max": 760, "step": 20, "default": 620, "unit": "px" },
-    { "type": "range", "id": "image_size", "label": "Image size", "min": 40, "max": 100, "step": 5, "default": 100, "unit": "%" },
+    { "type": "range", "id": "desktop_image_size", "label": "Desktop image size", "min": 40, "max": 100, "step": 5, "default": 100, "unit": "%" },
+    { "type": "range", "id": "image_size", "label": "Mobile image size", "min": 40, "max": 100, "step": 5, "default": 100, "unit": "%" },
     { "type": "range", "id": "image_radius", "label": "Image corner radius", "min": 0, "max": 40, "step": 2, "default": 16, "unit": "px" },
     { "type": "checkbox", "id": "show_card_borders", "label": "Show card borders", "default": true },
     { "type": "text", "id": "heading_line1", "label": "Heading", "default": "Every milligram, intentional." },

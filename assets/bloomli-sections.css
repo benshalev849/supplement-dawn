@@ -654,7 +654,8 @@
   }
 }
 
-/* Proof split */
+/* PROOF SPLIT ORIGINAL - REVERT HERE IF NEEDED */
+/*
 .bloomli-proof-split {
   padding: var(--bloomli-padding-top) 48px var(--bloomli-padding-bottom);
   background: var(--bps-bg);
@@ -730,32 +731,6 @@
   gap: 14px;
   align-items: start;
 }
-
-/* CHECKMARK ORIGINAL STYLE - REVERT HERE IF NEEDED */
-/*
-.bloomli-proof-split__check {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: var(--bps-icon-color, #b23a6f);
-  flex-shrink: 0;
-  position: relative;
-  margin-top: 2px;
-}
-
-.bloomli-proof-split__check::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 9px;
-  height: 5px;
-  border-left: 1.6px solid #fff;
-  border-bottom: 1.6px solid #fff;
-  transform: translate(-50%, -65%) rotate(-45deg);
-}
-*/
-/* END CHECKMARK ORIGINAL STYLE */
 
 .bloomli-proof-split__check {
   width: 20px;
@@ -846,6 +821,254 @@
 
   .bloomli-proof-split__heading {
     font-size: 36px;
+  }
+}
+*/
+
+.bloomli-proof-panel {
+  background: var(--bpp-bg, rgb(var(--color-background)));
+  color: rgb(var(--color-foreground));
+  padding: var(--bloomli-padding-top, 96px) 24px var(--bloomli-padding-bottom, 96px);
+  font-family: var(--font-body-family);
+}
+
+.bloomli-proof-panel__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.bloomli-proof-panel__header {
+  max-width: 760px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.bloomli-proof-panel__eyebrow {
+  margin: 0 0 12px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bloomli-editorial-accent);
+  font-weight: 700;
+}
+
+.bloomli-proof-panel__header h2 {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: clamp(42px, 5vw, 74px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+
+.bloomli-proof-panel__copy {
+  margin: 22px auto 0;
+  max-width: 660px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: rgba(var(--color-foreground), 0.76);
+}
+
+.bloomli-proof-panel__copy p {
+  margin: 0;
+}
+
+.bloomli-proof-panel__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 36px;
+  align-items: stretch;
+}
+
+.bloomli-proof-panel--image-right .bloomli-proof-panel__visual {
+  order: 2;
+}
+
+.bloomli-proof-panel--image-right .bloomli-proof-panel__proof-list {
+  order: 1;
+}
+
+.bloomli-proof-panel__visual,
+.bloomli-proof-panel__proof-list {
+  border: 1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 18%, transparent);
+  border-radius: var(--text-boxes-radius, 12px);
+  background: rgba(var(--color-background), 0.86);
+}
+
+.bloomli-proof-panel__visual {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 620px;
+  overflow: hidden;
+}
+
+.bloomli-proof-panel__image-card {
+  flex: 1;
+  min-height: 420px;
+  border-radius: calc(var(--text-boxes-radius, 12px) - 2px);
+  background:
+    radial-gradient(circle at center, color-mix(in srgb, var(--bpp-accent, var(--bloomli-primary-action)) 10%, transparent), transparent 55%),
+    var(--bpp-media-bg, var(--bloomli-surface));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px;
+}
+
+.bloomli-proof-panel__image-card img {
+  max-width: min(82%, var(--bpp-image-width, 620px));
+  max-height: 380px;
+  object-fit: contain;
+  display: block;
+  transform: scale(var(--bpp-image-scale, 1));
+}
+
+.bloomli-proof-panel__stat {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: center;
+  border-top: 1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 16%, transparent);
+  padding-top: 24px;
+}
+
+.bloomli-proof-panel__stat span {
+  font-family: var(--font-heading-family);
+  font-size: 72px;
+  line-height: 0.9;
+  color: var(--bpp-accent, var(--bloomli-primary-action));
+}
+
+.bloomli-proof-panel__stat p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+.bloomli-proof-panel__proof-list {
+  padding: 10px 0;
+}
+
+.bloomli-proof-panel__proof-item {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 20px;
+  padding: 28px 34px;
+  border-bottom: 1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 14%, transparent);
+}
+
+.bloomli-proof-panel__proof-item:last-child {
+  border-bottom: 0;
+}
+
+.bloomli-proof-panel__number {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--bpp-accent, var(--bloomli-primary-action));
+  padding-top: 8px;
+}
+
+.bloomli-proof-panel__proof-item h3 {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: 30px;
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.bloomli-proof-panel__proof-item p {
+  margin: 10px 0 0;
+  max-width: 540px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+.bloomli-proof-panel__trust-strip {
+  margin-top: 28px;
+  padding: 18px 22px;
+  border: 1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 16%, transparent);
+  border-radius: var(--text-boxes-radius, 12px);
+  background: rgba(var(--color-background), 0.86);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: center;
+}
+
+.bloomli-proof-panel__trust-strip span {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--bloomli-editorial-accent);
+}
+
+@media (max-width: 899px) {
+  .bloomli-proof-panel {
+    padding: 72px 18px;
+  }
+
+  .bloomli-proof-panel__header {
+    text-align: left;
+    margin-bottom: 34px;
+  }
+
+  .bloomli-proof-panel__copy {
+    font-size: 16px;
+  }
+
+  .bloomli-proof-panel__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .bloomli-proof-panel--image-right .bloomli-proof-panel__visual,
+  .bloomli-proof-panel--image-right .bloomli-proof-panel__proof-list {
+    order: initial;
+  }
+
+  .bloomli-proof-panel__visual {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .bloomli-proof-panel__image-card {
+    min-height: 280px;
+    padding: 24px;
+  }
+
+  .bloomli-proof-panel__image-card img {
+    max-height: 250px;
+  }
+
+  .bloomli-proof-panel__stat span {
+    font-size: 54px;
+  }
+
+  .bloomli-proof-panel__proof-item {
+    grid-template-columns: 42px 1fr;
+    gap: 14px;
+    padding: 24px 20px;
+  }
+
+  .bloomli-proof-panel__proof-item h3 {
+    font-size: 25px;
+  }
+
+  .bloomli-proof-panel__proof-item p {
+    font-size: 15px;
+  }
+
+  .bloomli-proof-panel__trust-strip {
+    justify-content: flex-start;
+    padding: 16px;
   }
 }
 

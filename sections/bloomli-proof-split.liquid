@@ -1,3 +1,5 @@
+{% comment %}
+/* PROOF SPLIT ORIGINAL - REVERT HERE IF NEEDED */
 <section class="bloomli-proof-split bloomli-proof-split--image-{{ section.settings.image_side | default: 'left' }} bloomli-section color-{{ section.settings.color_scheme }} gradient" style="--bps-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; {% if section.settings.use_custom_background %}--bps-bg: {{ section.settings.background_color }};{% else %}--bps-bg: var(--bloomli-bg);{% endif %}{% case section.settings.media_background %}{% when 'background' %}--bps-media-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bps-media-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bps-media-bg: var(--bloomli-soft-blush);{% else %}--bps-media-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bps-image-width: {{ section.settings.image_width | default: 620 }}px; --bps-image-radius: {{ section.settings.image_radius | default: 16 }}px; --bps-image-position: {{ section.settings.image_position }};">
   <div class="bloomli-proof-split__inner">
     <div class="bloomli-proof-split__media" style="{% if section.settings.image == blank %}--bps-placeholder-lines: repeating-linear-gradient(135deg, var(--bloomli-line-soft) 0 1px, transparent 1px 18px);{% endif %}">
@@ -30,17 +32,6 @@
       {%- if section.settings.copy != blank -%}
         <div class="bloomli-proof-split__copy">{{ section.settings.copy }}</div>
       {%- endif -%}
-      {%- comment -%}
-        /* PROOF SPLIT BULLETS ORIGINAL - REVERT HERE IF NEEDED */
-        <div class="bloomli-proof-split__bullets">
-          {%- for block in section.blocks -%}
-            <div class="bloomli-proof-split__bullet" {{ block.shopify_attributes }}>
-              <span class="bloomli-proof-split__check" aria-hidden="true"></span>
-              <div class="bloomli-proof-split__bullet-text">{{ block.settings.text }}</div>
-            </div>
-          {%- endfor -%}
-        </div>
-      {%- endcomment -%}
       <div class="bloomli-proof-split__bullets">
         {%- for block in section.blocks -%}
           <div class="bloomli-proof-split__bullet" {{ block.shopify_attributes }}>
@@ -55,6 +46,109 @@
           </div>
         {%- endfor -%}
       </div>
+    </div>
+  </div>
+</section>
+{% endcomment %}
+
+{%- liquid
+  assign image_scale = section.settings.image_scale | divided_by: 100.0
+  assign image_alt = section.settings.image.alt | default: section.settings.heading_line1
+  assign image_style = '--bpp-image-scale: ' | append: image_scale | append: '; object-position: ' | append: section.settings.image_position | append: ';'
+  assign icon_accent_color = section.settings.icon_accent_color | downcase
+-%}
+
+<section
+  class="bloomli-proof-panel bloomli-proof-panel--image-{{ section.settings.image_side | default: 'left' }} bloomli-section color-{{ section.settings.color_scheme }} gradient"
+  style="
+    --bpp-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
+    --bpp-accent: {% if icon_accent_color == '#6f7a5a' %}var(--bloomli-primary-action){% else %}{{ section.settings.icon_accent_color | default: 'var(--bloomli-primary-action)' }}{% endif %};
+    {%- case section.settings.media_background -%}
+      {%- when 'background' -%}
+        --bpp-media-bg: rgb(var(--color-background));
+      {%- when 'surface_strong' -%}
+        --bpp-media-bg: var(--bloomli-surface-strong);
+      {%- when 'accent_soft' -%}
+        --bpp-media-bg: var(--bloomli-soft-blush);
+      {%- else -%}
+        --bpp-media-bg: var(--bloomli-surface);
+    {%- endcase -%}
+    --bloomli-padding-top: {{ section.settings.padding_top }}px;
+    --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --bpp-image-width: {{ section.settings.image_width | default: 620 }}px;
+    --bpp-image-radius: {{ section.settings.image_radius | default: 16 }}px;
+  "
+>
+  <div class="bloomli-proof-panel__inner">
+    <div class="bloomli-proof-panel__header">
+      {%- if section.settings.image_label != blank -%}
+        <p class="bloomli-proof-panel__eyebrow">{{ section.settings.image_label | escape }}</p>
+      {%- endif -%}
+      <h2>
+        {{ section.settings.heading_line1 | escape }}{% if section.settings.heading_line2 != blank %}
+          <span>{{ section.settings.heading_line2 | escape }}</span>
+        {%- endif -%}
+      </h2>
+      {%- if section.settings.copy != blank -%}
+        <div class="bloomli-proof-panel__copy">{{ section.settings.copy }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="bloomli-proof-panel__grid">
+      <div class="bloomli-proof-panel__visual">
+        <div class="bloomli-proof-panel__image-card">
+          {%- if section.settings.image != blank -%}
+            {{
+              section.settings.image
+              | image_url: width: 1400
+              | image_tag:
+                class: 'bloomli-proof-panel__image',
+                alt: image_alt,
+                widths: '500, 700, 900, 1200, 1400',
+                sizes: '(max-width: 899px) calc(100vw - 84px), min(42vw, 560px)',
+                loading: 'lazy',
+                decoding: 'async',
+                style: image_style
+            }}
+          {%- elsif section.settings.image_label != blank -%}
+            <span class="smallcaps bloomli-section-placeholder-label">{{ section.settings.image_label }}</span>
+          {%- endif -%}
+        </div>
+
+        <div class="bloomli-proof-panel__stat">
+          <span>14</span>
+          <p>targeted nutrients for hair, scalp, and strand support</p>
+        </div>
+      </div>
+
+      <div class="bloomli-proof-panel__proof-list">
+        {%- for block in section.blocks -%}
+          <article class="bloomli-proof-panel__proof-item" {{ block.shopify_attributes }}>
+            <span class="bloomli-proof-panel__number">
+              {%- if forloop.index < 10 -%}0{%- endif -%}{{ forloop.index }}
+            </span>
+            <div>
+              {%- if block.settings.bullet_title != blank -%}
+                <h3>{{ block.settings.bullet_title | escape }}</h3>
+                {%- if block.settings.text != blank -%}
+                  <p>{{ block.settings.text }}</p>
+                {%- endif -%}
+              {%- elsif block.settings.text != blank -%}
+                <h3>{{ block.settings.text }}</h3>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="bloomli-proof-panel__trust-strip">
+      <span>Third-party tested</span>
+      <span>14 targeted nutrients</span>
+      <span>No artificial dyes</span>
+      <span>Gelatin-free</span>
+      <span>Gluten-free</span>
+      <span>2g sugar per gummy</span>
     </div>
   </div>
 </section>

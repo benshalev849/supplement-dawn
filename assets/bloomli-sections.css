@@ -839,8 +839,8 @@
 
 .bloomli-proof-panel__header {
   max-width: 760px;
-  margin: 0 auto 56px;
-  text-align: center;
+  margin: 0 0 56px;
+  text-align: left;
 }
 
 .bloomli-proof-panel__header h2 {
@@ -853,7 +853,7 @@
 }
 
 .bloomli-proof-panel__copy {
-  margin: 22px auto 0;
+  margin: 22px 0 0;
   max-width: 660px;
   font-size: 18px;
   line-height: 1.55;

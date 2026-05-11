@@ -63,9 +63,12 @@
     var variantId = parseInt(btn.dataset.variantId, 10);
     if (!variantId) return;
 
+    var quantity = sellingPlanId && btn.dataset.quantity ? parseInt(btn.dataset.quantity, 10) : 1;
+    if (quantity < 1) quantity = 1;
+
     setLoading(btn, true);
 
-    var item = { id: variantId, quantity: 1 };
+    var item = { id: variantId, quantity: quantity };
     if (sellingPlanId) item.selling_plan = sellingPlanId;
 
     var body = JSON.stringify({

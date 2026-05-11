@@ -23,6 +23,7 @@
   assign cart_has_addon        = false
   assign cart_has_subscription = false
   assign cart_sub_interval     = nil
+  assign cart_sub_quantity     = 1
 
   for item in cart.items
     for product_tag in item.product.tags
@@ -36,6 +37,7 @@
     endfor
     if item.selling_plan_allocation != blank and cart_has_subscription == false
       assign cart_has_subscription = true
+      assign cart_sub_quantity = item.quantity
       for opt in item.selling_plan_allocation.selling_plan.options
         assign cart_sub_interval = opt.value
         break
@@ -185,6 +187,7 @@
           data-bloomli-routine-upsell-btn
           data-variant-id="{{ upsell_variant.id }}"
           data-selling-plan-id="{{ upsell_selling_plan_id }}"
+          data-quantity="{{ cart_sub_quantity }}"
           aria-label="{{ upsell_sub_btn | escape }}: {{ upsell_product.title | escape }}"
         >
           <span class="bloomli-routine-upsell__btn-text">{{ upsell_sub_btn | escape }}</span>

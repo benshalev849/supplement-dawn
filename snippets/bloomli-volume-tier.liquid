@@ -26,7 +26,6 @@
   assign bloomli_product_form_id = 'bloomli-product-form-' | append: uid
 
   assign unit_price = product.selected_or_first_available_variant.price
-  assign unit_compare = product.selected_or_first_available_variant.compare_at_price | default: unit_price
 
   assign default_idx = -1
   assign default_qty = 1
@@ -194,9 +193,6 @@
         endif
 
         assign line_compare = unit_price | times: qty
-        if unit_compare > unit_price
-          assign line_compare = unit_compare | times: qty
-        endif
         assign one_time_pct_factor = 100.0 | minus: discount_pct
         assign one_time_total_cents = unit_price | times: qty | times: one_time_pct_factor | divided_by: 100.0
 

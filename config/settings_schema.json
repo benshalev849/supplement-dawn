@@ -1683,6 +1683,13 @@
       },
       {
         "type": "text",
+        "id": "cart_drawer_addon_bundle_discount_pct",
+        "label": "Add-on bundle discount percent",
+        "default": "15",
+        "info": "Extra discount stacked on top of volume and subscription savings for add-on (Hair Oil) cart lines."
+      },
+      {
+        "type": "text",
         "id": "cart_drawer_quantity_offer_label_template",
         "label": "Offer button label template",
         "default": "BUY [qty] SAVE [percent]%",

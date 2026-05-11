@@ -611,20 +611,43 @@
                           {%- liquid
                             assign offer_label_template = settings.cart_drawer_quantity_offer_label_template | default: 'BUY [qty] SAVE [percent]%'
                             assign cart_subscription_discount = settings.cart_drawer_subscription_discount_pct | default: 10 | plus: 0
+                            assign addon_bundle_pct = settings.cart_drawer_addon_bundle_discount_pct | default: 15 | plus: 0
                             assign offer_3_volume_savings = settings.cart_drawer_quantity_offer_3_savings | default: 15 | plus: 0
                             assign offer_4_volume_savings = settings.cart_drawer_quantity_offer_4_savings | default: 18 | plus: 0
                             assign offer_5_volume_savings = settings.cart_drawer_quantity_offer_5_savings | default: 20 | plus: 0
                             assign offer_3_savings = offer_3_volume_savings
                             assign offer_4_savings = offer_4_volume_savings
                             assign offer_5_savings = offer_5_volume_savings
+                            if is_bloomli_add_on
+                              comment
+                                Bundle discount (Pair & Save) stacks with volume: shown savings reflect all applied discounts.
+                              endcomment
+                              assign bloomli_addon_base = 100.0 | minus: addon_bundle_pct
+                              assign bloomli_vol3_net = 100.0 | minus: offer_3_volume_savings | times: bloomli_addon_base | divided_by: 100.0
+                              assign bloomli_vol4_net = 100.0 | minus: offer_4_volume_savings | times: bloomli_addon_base | divided_by: 100.0
+                              assign bloomli_vol5_net = 100.0 | minus: offer_5_volume_savings | times: bloomli_addon_base | divided_by: 100.0
+                              assign offer_3_savings = 100.0 | minus: bloomli_vol3_net
+                              assign offer_4_savings = 100.0 | minus: bloomli_vol4_net
+                              assign offer_5_savings = 100.0 | minus: bloomli_vol5_net
+                            endif
                             if item.selling_plan_allocation != null
                               comment
-                                Volume and subscription discounts compound: 15% + 10% displays as 24%, not 25%.
+                                All three discounts compound multiplicatively for add-ons; volume + subscription for supplements.
                               endcomment
                               assign subscription_factor = 100.0 | minus: cart_subscription_discount
-                              assign offer_3_factor = 100.0 | minus: offer_3_volume_savings | times: subscription_factor | divided_by: 100.0
-                              assign offer_4_factor = 100.0 | minus: offer_4_volume_savings | times: subscription_factor | divided_by: 100.0
-                              assign offer_5_factor = 100.0 | minus: offer_5_volume_savings | times: subscription_factor | divided_by: 100.0
+                              assign vol3_base = 100.0 | minus: offer_3_volume_savings
+                              assign vol4_base = 100.0 | minus: offer_4_volume_savings
+                              assign vol5_base = 100.0 | minus: offer_5_volume_savings
+                              if is_bloomli_add_on
+                                assign bloomli_addon_base = 100.0 | minus: addon_bundle_pct
+                                assign offer_3_factor = bloomli_addon_base | times: vol3_base | divided_by: 100.0 | times: subscription_factor | divided_by: 100.0
+                                assign offer_4_factor = bloomli_addon_base | times: vol4_base | divided_by: 100.0 | times: subscription_factor | divided_by: 100.0
+                                assign offer_5_factor = bloomli_addon_base | times: vol5_base | divided_by: 100.0 | times: subscription_factor | divided_by: 100.0
+                              else
+                                assign offer_3_factor = vol3_base | times: subscription_factor | divided_by: 100.0
+                                assign offer_4_factor = vol4_base | times: subscription_factor | divided_by: 100.0
+                                assign offer_5_factor = vol5_base | times: subscription_factor | divided_by: 100.0
+                              endif
                               assign offer_3_savings = 100.0 | minus: offer_3_factor
                               assign offer_4_savings = 100.0 | minus: offer_4_factor
                               assign offer_5_savings = 100.0 | minus: offer_5_factor
@@ -634,9 +657,16 @@
                               assign bloomli_vol3_factor = 100.0 | minus: offer_3_volume_savings | divided_by: 100.0
                               assign bloomli_vol4_factor = 100.0 | minus: offer_4_volume_savings | divided_by: 100.0
                               assign bloomli_vol5_factor = 100.0 | minus: offer_5_volume_savings | divided_by: 100.0
-                              assign bloomli_discounted3 = item.variant.price | times: bloomli_vol3_factor
-                              assign bloomli_discounted4 = item.variant.price | times: bloomli_vol4_factor
-                              assign bloomli_discounted5 = item.variant.price | times: bloomli_vol5_factor
+                              if is_bloomli_add_on
+                                assign bloomli_bundle_factor = 100.0 | minus: addon_bundle_pct | divided_by: 100.0
+                                assign bloomli_discounted3 = item.variant.price | times: bloomli_bundle_factor | times: bloomli_vol3_factor
+                                assign bloomli_discounted4 = item.variant.price | times: bloomli_bundle_factor | times: bloomli_vol4_factor
+                                assign bloomli_discounted5 = item.variant.price | times: bloomli_bundle_factor | times: bloomli_vol5_factor
+                              else
+                                assign bloomli_discounted3 = item.variant.price | times: bloomli_vol3_factor
+                                assign bloomli_discounted4 = item.variant.price | times: bloomli_vol4_factor
+                                assign bloomli_discounted5 = item.variant.price | times: bloomli_vol5_factor
+                              endif
                               if item.selling_plan_allocation != null
                                 assign bloomli_sub_factor = 100.0 | minus: cart_subscription_discount | divided_by: 100.0
                                 assign bloomli_discounted3 = bloomli_discounted3 | times: bloomli_sub_factor

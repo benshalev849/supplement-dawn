@@ -47,6 +47,44 @@
   color: var(--bloomli-editorial-accent);
 }
 
+.bloomli-checkmark,
+.bloomli-proof-split__check {
+  display: inline-block !important;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  flex-shrink: 0;
+  position: relative;
+  margin-top: 2px;
+  background: none;
+  color: var(--bloomli-checkmark-color, var(--bps-icon-color, var(--color-primary-action)));
+  vertical-align: middle;
+}
+
+.bloomli-checkmark::after,
+.bloomli-proof-split__check::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translate(-50%, -65%) rotate(-45deg);
+}
+
+.bloomli-checkmark--svg::after {
+  content: none;
+}
+
+.bloomli-checkmark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+}
+
 /* ---- Bloomli formula gallery ---- */
 .bloomli-formula-gallery__header {
   max-width: var(--bfg-header-width, 600px);

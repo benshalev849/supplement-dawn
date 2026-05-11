@@ -666,28 +666,6 @@
   align-items: start;
 }
 
-.bloomli-proof-split__check {
-  display: block;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  position: relative;
-  margin-top: 2px;
-  background: none;
-}
-
-.bloomli-proof-split__check::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 12px;
-  height: 7px;
-  border-left: 2px solid var(--bps-icon-color, var(--bloomli-primary-action));
-  border-bottom: 2px solid var(--bps-icon-color, var(--bloomli-primary-action));
-  transform: translate(-50%, -65%) rotate(-45deg);
-}
-
 .bloomli-proof-split__bullet-text {
   font-size: 15px;
   line-height: 1.55;

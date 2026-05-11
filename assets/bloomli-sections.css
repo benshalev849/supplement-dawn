@@ -797,6 +797,20 @@
 
 @keyframes bloomli-proof-float {
   0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bloomli-proof-float-desktop {
+  0% {
     transform: translateY(0) scale(var(--bpp-image-desktop-scale, 1));
   }
 
@@ -809,10 +823,14 @@
   }
 }
 
+.bloomli-proof-panel__image {
+  animation: bloomli-proof-float 3s ease-in-out infinite;
+  will-change: transform;
+}
+
 @media (min-width: 900px) {
   .bloomli-proof-panel__image {
-    animation: bloomli-proof-float 3s ease-in-out infinite;
-    will-change: transform;
+    animation-name: bloomli-proof-float-desktop;
   }
 }
 

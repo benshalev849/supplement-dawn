@@ -49,11 +49,11 @@
     --ingredient-card-radius: 12px;
     --ingredient-card-padding: 32px;
     --ingredient-card-padding-mobile: 20px;
-    padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;
+    padding: {{ section.settings.padding_top }}px var(--bloomli-page-gutter-desktop) {{ section.settings.padding_bottom }}px;
     background: var(--bfg-bg);
   "
 >
-  <div class="bloomli-formula-gallery__inner" style="max-width: {{ section.settings.content_width }}px; margin: 0 auto;">
+  <div class="bloomli-formula-gallery__inner bloomli-section__inner">
     <div class="bloomli-formula-gallery__header bloomli-formula-gallery__header--{{ section.settings.header_alignment }}">
       {%- if section.settings.heading_line2 != blank -%}
         <h2 class="bloomli-formula-gallery__heading">
@@ -226,7 +226,6 @@
       { "value": "background", "label": "Scheme background" },
       { "value": "accent_soft", "label": "Soft accent" }
     ], "default": "surface" },
-    { "type": "range", "id": "content_width", "label": "Content width", "min": 960, "max": 1440, "step": 40, "default": 1120, "unit": "px" },
     { "type": "range", "id": "header_width", "label": "Header width", "min": 440, "max": 840, "step": 40, "default": 600, "unit": "px" },
     { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 36, "max": 72, "step": 2, "default": 52, "unit": "px" },
     { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 30, "max": 48, "step": 2, "default": 36, "unit": "px" },

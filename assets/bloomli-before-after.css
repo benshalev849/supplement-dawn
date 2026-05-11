@@ -11,13 +11,14 @@
   --bba-cards-desktop: 3;
   --bba-cards-current: var(--bba-cards-desktop);
 
-  padding: var(--bba-padding-top) 48px var(--bba-padding-bottom);
+  padding: var(--bba-padding-top) var(--bloomli-page-gutter-desktop) var(--bba-padding-bottom);
   color: rgb(var(--color-foreground));
   font-family: var(--font-commerce-ui, var(--font-body-family));
 }
 
 .bloomli-before-after__inner {
-  max-width: var(--bba-max-width, 1200px);
+  width: 100%;
+  max-width: var(--bloomli-page-width);
   margin: 0 auto;
 }
 

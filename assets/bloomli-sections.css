@@ -1,7 +1,18 @@
 /* Shared styles for Bloomli custom editorial sections. Dynamic values are passed from Liquid as CSS variables on each section root. */
 
-.bloomli-section__inner {
-  max-width: var(--bloomli-section-width, 1280px);
+:root {
+  --bloomli-page-width: var(--page-width);
+  --bloomli-page-gutter-desktop: 48px;
+  --bloomli-page-gutter-tablet: 24px;
+  --bloomli-page-gutter-mobile: 20px;
+  --bloomli-narrow-content-width: 76rem;
+  --bloomli-product-info-width: 49rem;
+}
+
+.bloomli-section__inner,
+.bloomli-container {
+  width: 100%;
+  max-width: var(--bloomli-page-width);
   margin: 0 auto;
 }
 
@@ -57,9 +68,9 @@
 }
 
 .bloomli-hero__inner {
-  max-width: 1280px;
+  max-width: var(--bloomli-page-width);
   margin: 0 auto;
-  padding: 96px 48px;
+  padding: 96px var(--bloomli-page-gutter-desktop);
   display: grid;
   grid-template-columns: 55fr 45fr;
   gap: 48px;
@@ -240,7 +251,7 @@
 
 /* Simple CTA sections */
 .bloomli-quiz {
-  padding: var(--bloomli-padding-top) 48px var(--bloomli-padding-bottom);
+  padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);
   text-align: center;
 }
 
@@ -275,7 +286,7 @@
 }
 
 .bloomli-bundle {
-  padding: var(--bloomli-padding-top) 48px var(--bloomli-padding-bottom);
+  padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);
 }
 
 .bloomli-bundle__inner {
@@ -376,13 +387,13 @@
 
 /* Trust row */
 .bloomli-trust {
-  padding: var(--bloomli-padding-top) 48px var(--bloomli-padding-bottom);
+  padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);
   border-top: 1px solid var(--bloomli-line-soft);
   border-bottom: 1px solid var(--bloomli-line-soft);
 }
 
 .bloomli-trust__grid {
-  max-width: 1280px;
+  max-width: var(--bloomli-page-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -438,7 +449,7 @@
 
 /* Product picks */
 .bloomli-product-picks {
-  padding: var(--bloomli-padding-top) 48px var(--bloomli-padding-bottom);
+  padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);
   background: var(--bpp-bg);
 }
 
@@ -575,7 +586,7 @@
 
 /* Photo mosaic */
 .bloomli-photo-mosaic {
-  padding: var(--bloomli-padding-top) 48px var(--bloomli-padding-bottom);
+  padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);
   background: var(--bpm-bg);
 }
 
@@ -707,7 +718,7 @@
 }
 
 .bloomli-proof-panel__inner {
-  max-width: 1280px;
+  max-width: var(--bloomli-page-width);
   margin: 0 auto;
 }
 
@@ -908,7 +919,7 @@
 
 /* Timeline */
 .bloomli-timeline {
-  padding: var(--bloomli-padding-top) 48px var(--bloomli-padding-bottom);
+  padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);
 }
 
 .bloomli-timeline__header {

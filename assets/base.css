@@ -365,7 +365,8 @@
 
 /* ---- Bloomli reviews ---- */
 .bloomli-reviews__inner {
-  max-width: var(--br-content-width, 1200px);
+  width: 100%;
+  max-width: var(--bloomli-page-width);
   margin: 0 auto;
 }
 
@@ -416,7 +417,7 @@
 }
 
 .bloomli-reviews__card {
-  flex: 0 0 calc((min(var(--br-content-width, 1200px), calc(100vw - 96px)) - (var(--br-card-gap, 20px) * 2)) / 3);
+  flex: 0 0 calc((min(var(--bloomli-page-width), calc(100vw - (var(--bloomli-page-gutter-desktop) * 2))) - (var(--br-card-gap, 20px) * 2)) / 3);
   background: var(--br-card-bg);
   border-radius: var(--br-radius);
   padding: 20px;
@@ -522,7 +523,7 @@
 
 @media (max-width: 989px) {
   .bloomli-reviews__card {
-    flex-basis: calc((min(var(--br-content-width, 1200px), calc(100vw - 96px)) - var(--br-card-gap, 20px)) / 2);
+    flex-basis: calc((min(var(--bloomli-page-width), calc(100vw - (var(--bloomli-page-gutter-tablet) * 2))) - var(--br-card-gap, 20px)) / 2);
   }
 }
 
@@ -717,9 +718,9 @@ body.overflow-hidden-tablet .bloomli-floating-cta {
 
 /* ---- Container ---- */
 .container-bloomli {
-  max-width: 1280px;
+  max-width: var(--bloomli-page-width);
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 var(--bloomli-page-gutter-desktop);
 }
 
 /* ---- Header — layout & typography only; colors come from scheme ---- */

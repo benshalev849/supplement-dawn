@@ -10,7 +10,6 @@
   data-bloomli-faq
   style="
     --bf-border: {{ section.settings.border_color }};
-    --bf-content-width: {{ section.settings.content_width }}px;
     --bf-image-width: {{ section.settings.image_width }}px;
     --bf-radius: {{ section.settings.corner_radius }}px;
     --bf-heading-size: {{ section.settings.heading_size }}px;
@@ -169,16 +168,6 @@
     {
       "type": "header",
       "content": "Layout"
-    },
-    {
-      "type": "range",
-      "id": "content_width",
-      "label": "Content width",
-      "min": 900,
-      "max": 1400,
-      "step": 20,
-      "default": 1180,
-      "unit": "px"
     },
     {
       "type": "range",

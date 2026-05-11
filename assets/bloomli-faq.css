@@ -1,10 +1,11 @@
 .bloomli-faq {
   color: rgb(var(--color-foreground));
-  padding: var(--bf-padding-top) 48px var(--bf-padding-bottom);
+  padding: var(--bf-padding-top) var(--bloomli-page-gutter-desktop) var(--bf-padding-bottom);
 }
 
 .bloomli-faq__inner {
-  max-width: var(--bf-content-width);
+  width: 100%;
+  max-width: var(--bloomli-page-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, var(--bf-image-width));

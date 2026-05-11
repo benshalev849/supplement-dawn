@@ -7,13 +7,12 @@
     --br-muted: {{ section.settings.muted_color }};
     --br-placeholder: {{ section.settings.placeholder_color }};
     --br-radius: {{ section.settings.card_radius }}px;
-    --br-content-width: {{ section.settings.content_width }}px;
     --br-heading-size: {{ section.settings.heading_size }}px;
     --br-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
     --br-card-gap: {{ section.settings.card_gap }}px;
     --br-scroll-duration: {{ section.settings.scroll_duration }}s;
     --br-mobile-card-width: {{ section.settings.mobile_card_width | default: 82 }}vw;
-    padding: {{ section.settings.padding_top }}px 48px {{ section.settings.padding_bottom }}px;
+    padding: {{ section.settings.padding_top }}px var(--bloomli-page-gutter-desktop) {{ section.settings.padding_bottom }}px;
     background: var(--br-bg);
   "
 >
@@ -59,7 +58,6 @@
     { "type": "color", "id": "placeholder_color", "label": "Photo placeholder color", "default": "#F7F0E9" },
     { "type": "color", "id": "text_color", "label": "Text color", "default": "#2A2622" },
     { "type": "color", "id": "muted_color", "label": "Muted text color", "default": "#7C7169" },
-    { "type": "range", "id": "content_width", "label": "Content width", "min": 960, "max": 1440, "step": 40, "default": 1200, "unit": "px" },
     { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 34, "max": 64, "step": 2, "default": 46, "unit": "px" },
     { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 30, "max": 46, "step": 2, "default": 36, "unit": "px" },
     { "type": "range", "id": "card_gap", "label": "Card gap desktop", "min": 16, "max": 40, "step": 4, "default": 20, "unit": "px" },

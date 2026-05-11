@@ -17,7 +17,6 @@
   data-bloomli-results-gallery
   data-bloomli-results-gallery-carousel="{{ use_carousel }}"
   style="
-    --bba-max-width: {{ section.settings.max_width }}px;
     --bba-accent: rgb(var(--color-button));
     --bba-muted: rgba(var(--color-foreground), 0.68);
     --bba-radius: {{ section.settings.corner_radius }}px;
@@ -283,16 +282,6 @@
       "max": 3,
       "step": 1,
       "default": 3
-    },
-    {
-      "type": "range",
-      "id": "max_width",
-      "label": "Content width",
-      "min": 960,
-      "max": 1440,
-      "step": 40,
-      "default": 1200,
-      "unit": "px"
     },
     {
       "type": "range",

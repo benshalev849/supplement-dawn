@@ -839,23 +839,23 @@
 
 .bloomli-proof-panel__header {
   max-width: 760px;
-  margin: 0 0 56px;
+  margin: 0 0 52px;
   text-align: left;
 }
 
 .bloomli-proof-panel__header h2 {
   margin: 0;
   font-family: var(--font-heading-family);
-  font-size: clamp(42px, 5vw, 74px);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-size: 46px;
+  line-height: 1.08;
+  letter-spacing: 0;
   font-weight: 400;
 }
 
 .bloomli-proof-panel__copy {
-  margin: 22px 0 0;
+  margin: 18px 0 0;
   max-width: 660px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.55;
   color: rgba(var(--color-foreground), 0.76);
 }
@@ -979,11 +979,16 @@
 
   .bloomli-proof-panel__header {
     text-align: left;
-    margin-bottom: 34px;
+    margin-bottom: 32px;
   }
 
   .bloomli-proof-panel__copy {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .bloomli-proof-panel__header h2 {
+    font-size: 34px;
   }
 
   .bloomli-proof-panel__grid {

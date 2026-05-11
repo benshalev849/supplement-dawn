@@ -388,7 +388,7 @@ cart-drawer.drawer .drawer__inner {
   display: block;
   font-size: 0.9rem;
   font-weight: 600;
-  text-align: right;
+  text-align: left;
   overflow-wrap: anywhere;
 }
 

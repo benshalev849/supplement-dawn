@@ -879,7 +879,6 @@
   order: 1;
 }
 
-.bloomli-proof-panel__visual,
 .bloomli-proof-panel__proof-list {
   border: 1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 18%, transparent);
   border-radius: var(--text-boxes-radius, 12px);
@@ -887,27 +886,21 @@
 }
 
 .bloomli-proof-panel__visual {
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 620px;
-  overflow: hidden;
-}
-
-.bloomli-proof-panel__image-card {
   width: var(--bpp-image-width, 620px);
   max-width: 100%;
-  aspect-ratio: 3 / 4;
   margin: 0 auto;
-  border-radius: var(--bpp-image-radius, var(--text-boxes-radius, 12px));
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: visible;
 }
 
 .bloomli-proof-panel__image {
   display: block;
   width: 100%;
   height: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--bpp-image-radius, var(--text-boxes-radius, 12px));
   object-fit: cover;
   transform: scale(var(--bpp-image-scale, 1));
   transform-origin: center;
@@ -998,7 +991,6 @@
 
   .bloomli-proof-panel__visual {
     min-height: auto;
-    padding: 18px;
   }
 
   .bloomli-proof-panel__proof-item {

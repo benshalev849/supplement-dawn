@@ -64,7 +64,7 @@
       assign upsell_heading      = settings.bloomli_routine_upsell_state1_heading | default: 'Complete your routine'
       assign upsell_text         = settings.bloomli_routine_upsell_state1_text    | default: 'Add Hair Oil and unlock Pair & Save.'
       assign upsell_button       = settings.bloomli_routine_upsell_state1_button  | default: 'Add Hair Oil'
-      assign upsell_discount_pct = settings.bloomli_routine_upsell_addon_discount_pct | default: 20 | plus: 0
+      assign upsell_discount_pct = upsell_product.metafields.bloomli.bundle_add_on_discount_pct | default: settings.bloomli_bundle_add_on_discount_pct | default: settings.bloomli_routine_upsell_addon_discount_pct | default: 20 | plus: 0
     else
       assign upsell_product      = supplement_product
       assign upsell_heading      = settings.bloomli_routine_upsell_state2_heading | default: 'Unlock your pairing offer'
@@ -87,7 +87,7 @@
       assign upsell_compare_price = 0
     endif
 
-    assign sub_discount_pct = settings.bloomli_routine_upsell_subscription_discount_pct | default: 15 | plus: 0
+    assign sub_discount_pct = upsell_product.metafields.bloomli.subscription_discount_pct | default: settings.bloomli_subscription_discount_pct | default: settings.bloomli_routine_upsell_subscription_discount_pct | default: 15 | plus: 0
     assign upsell_sub_btn   = settings.bloomli_routine_upsell_sub_button | default: 'Add to subscription'
     assign upsell_otp_label = settings.bloomli_routine_upsell_otp_label  | default: 'One Time Purchase'
 

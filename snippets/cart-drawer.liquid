@@ -201,6 +201,27 @@
                   </thead>
 
                   <tbody role="rowgroup">
+                    {%- liquid
+                      assign _bundle_supplement_tag = settings.bloomli_routine_upsell_supplement_tag | default: 'supplement' | downcase | strip
+                      assign _bundle_addon_tag      = settings.bloomli_routine_upsell_addon_tag      | default: 'add-on'     | downcase | strip
+                      assign _cart_has_supplement   = false
+                      assign _cart_has_addon        = false
+                      for _pre_item in cart.items
+                        for _pre_tag in _pre_item.product.tags
+                          assign _pre_tag_norm = _pre_tag | downcase | strip
+                          if _pre_tag_norm == _bundle_supplement_tag
+                            assign _cart_has_supplement = true
+                          endif
+                          if _pre_tag_norm == _bundle_addon_tag
+                            assign _cart_has_addon = true
+                          endif
+                        endfor
+                      endfor
+                      assign cart_bundle_active = false
+                      if _cart_has_supplement and _cart_has_addon
+                        assign cart_bundle_active = true
+                      endif
+                    -%}
                     {%- for item in cart.items -%}
                       {%- liquid
                         assign is_bloomli_supplement = false
@@ -220,7 +241,7 @@
                         endif
                         if is_bloomli_supplement
                           assign show_bloomli_pack_promo_cell = true
-                        elsif is_bloomli_add_on and has_line_discount
+                        elsif is_bloomli_add_on and cart_bundle_active
                           assign show_bloomli_pack_promo_cell = true
                         endif
                       -%}
@@ -590,13 +611,13 @@
                                 </span>
                               </div>
                             {%- endif -%}
-                          {%- elsif is_bloomli_add_on and has_line_discount -%}
+                          {%- elsif is_bloomli_add_on and cart_bundle_active -%}
                             <div class="bloomli-cart-pack-promo">
                               <span class="bloomli-cart-pack-promo__icon" aria-hidden="true">
                                 {{- 'icon-discount.svg' | inline_asset_content -}}
                               </span>
                               <span class="bloomli-cart-pack-promo__copy">
-                                <span class="bloomli-cart-pack-promo__label">Pair & Save</span>
+                                <span class="bloomli-cart-pack-promo__label">{{ settings.bloomli_bundle_discount_title | default: 'Pair & Save' | escape }}</span>
                               </span>
                             </div>
                           {%- endif -%}
@@ -610,17 +631,17 @@
                           {%- if is_bloomli_supplement or is_bloomli_add_on -%}
                           {%- liquid
                             assign offer_label_template = settings.cart_drawer_quantity_offer_label_template | default: 'BUY [qty] SAVE [percent]%'
-                            assign cart_subscription_discount = settings.cart_drawer_subscription_discount_pct | default: 10 | plus: 0
-                            assign addon_bundle_pct = settings.cart_drawer_addon_bundle_discount_pct | default: 15 | plus: 0
-                            assign offer_3_volume_savings = settings.cart_drawer_quantity_offer_3_savings | default: 15 | plus: 0
-                            assign offer_4_volume_savings = settings.cart_drawer_quantity_offer_4_savings | default: 18 | plus: 0
-                            assign offer_5_volume_savings = settings.cart_drawer_quantity_offer_5_savings | default: 20 | plus: 0
+                            assign cart_subscription_discount = item.product.metafields.bloomli.subscription_discount_pct | default: settings.bloomli_subscription_discount_pct | default: settings.cart_drawer_subscription_discount_pct | default: 15 | plus: 0
+                            assign addon_bundle_pct = item.product.metafields.bloomli.bundle_add_on_discount_pct | default: settings.bloomli_bundle_add_on_discount_pct | default: settings.cart_drawer_addon_bundle_discount_pct | default: 20 | plus: 0
+                            assign offer_3_volume_savings = item.product.metafields.bloomli.volume_discount_3_pct | default: settings.bloomli_volume_discount_3_pct | default: settings.cart_drawer_quantity_offer_3_savings | default: 15 | plus: 0
+                            assign offer_4_volume_savings = item.product.metafields.bloomli.volume_discount_4_pct | default: settings.bloomli_volume_discount_4_pct | default: settings.cart_drawer_quantity_offer_4_savings | default: 18 | plus: 0
+                            assign offer_5_volume_savings = item.product.metafields.bloomli.volume_discount_5_pct | default: settings.bloomli_volume_discount_5_pct | default: settings.cart_drawer_quantity_offer_5_savings | default: 20 | plus: 0
                             assign offer_3_savings = offer_3_volume_savings
                             assign offer_4_savings = offer_4_volume_savings
                             assign offer_5_savings = offer_5_volume_savings
-                            if is_bloomli_add_on
+                            if is_bloomli_add_on and cart_bundle_active
                               comment
-                                Bundle discount (Pair & Save) stacks with volume: shown savings reflect all applied discounts.
+                                Bundle (Pair & Save) stacks with volume only when supplement is also in cart.
                               endcomment
                               assign bloomli_addon_base = 100.0 | minus: addon_bundle_pct
                               assign bloomli_vol3_net = 100.0 | minus: offer_3_volume_savings | times: bloomli_addon_base | divided_by: 100.0
@@ -632,13 +653,13 @@
                             endif
                             if item.selling_plan_allocation != null
                               comment
-                                All three discounts compound multiplicatively for add-ons; volume + subscription for supplements.
+                                All three discounts compound for add-ons with active bundle; volume + subscription only for everything else.
                               endcomment
                               assign subscription_factor = 100.0 | minus: cart_subscription_discount
                               assign vol3_base = 100.0 | minus: offer_3_volume_savings
                               assign vol4_base = 100.0 | minus: offer_4_volume_savings
                               assign vol5_base = 100.0 | minus: offer_5_volume_savings
-                              if is_bloomli_add_on
+                              if is_bloomli_add_on and cart_bundle_active
                                 assign bloomli_addon_base = 100.0 | minus: addon_bundle_pct
                                 assign offer_3_factor = bloomli_addon_base | times: vol3_base | divided_by: 100.0 | times: subscription_factor | divided_by: 100.0
                                 assign offer_4_factor = bloomli_addon_base | times: vol4_base | divided_by: 100.0 | times: subscription_factor | divided_by: 100.0
@@ -652,26 +673,26 @@
                               assign offer_4_savings = 100.0 | minus: offer_4_factor
                               assign offer_5_savings = 100.0 | minus: offer_5_factor
                             endif
-                            if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
+                            if item.variant.compare_at_price and item.variant.compare_at_price > item.final_price
+                              comment
+                                Use item.final_price so subscription products whose variant.price equals their
+                                compare_at_price still enter this block. item.final_price already includes the
+                                subscription discount so no separate sub factor is needed here.
+                              endcomment
                               assign bloomli_compare_unit = item.variant.compare_at_price | times: 1.0
+                              assign bloomli_base_price   = item.final_price | times: 1.0
                               assign bloomli_vol3_factor = 100.0 | minus: offer_3_volume_savings | divided_by: 100.0
                               assign bloomli_vol4_factor = 100.0 | minus: offer_4_volume_savings | divided_by: 100.0
                               assign bloomli_vol5_factor = 100.0 | minus: offer_5_volume_savings | divided_by: 100.0
-                              if is_bloomli_add_on
+                              if is_bloomli_add_on and cart_bundle_active
                                 assign bloomli_bundle_factor = 100.0 | minus: addon_bundle_pct | divided_by: 100.0
-                                assign bloomli_discounted3 = item.variant.price | times: bloomli_bundle_factor | times: bloomli_vol3_factor
-                                assign bloomli_discounted4 = item.variant.price | times: bloomli_bundle_factor | times: bloomli_vol4_factor
-                                assign bloomli_discounted5 = item.variant.price | times: bloomli_bundle_factor | times: bloomli_vol5_factor
+                                assign bloomli_discounted3 = bloomli_base_price | times: bloomli_bundle_factor | times: bloomli_vol3_factor
+                                assign bloomli_discounted4 = bloomli_base_price | times: bloomli_bundle_factor | times: bloomli_vol4_factor
+                                assign bloomli_discounted5 = bloomli_base_price | times: bloomli_bundle_factor | times: bloomli_vol5_factor
                               else
-                                assign bloomli_discounted3 = item.variant.price | times: bloomli_vol3_factor
-                                assign bloomli_discounted4 = item.variant.price | times: bloomli_vol4_factor
-                                assign bloomli_discounted5 = item.variant.price | times: bloomli_vol5_factor
-                              endif
-                              if item.selling_plan_allocation != null
-                                assign bloomli_sub_factor = 100.0 | minus: cart_subscription_discount | divided_by: 100.0
-                                assign bloomli_discounted3 = bloomli_discounted3 | times: bloomli_sub_factor
-                                assign bloomli_discounted4 = bloomli_discounted4 | times: bloomli_sub_factor
-                                assign bloomli_discounted5 = bloomli_discounted5 | times: bloomli_sub_factor
+                                assign bloomli_discounted3 = bloomli_base_price | times: bloomli_vol3_factor
+                                assign bloomli_discounted4 = bloomli_base_price | times: bloomli_vol4_factor
+                                assign bloomli_discounted5 = bloomli_base_price | times: bloomli_vol5_factor
                               endif
                               assign offer_3_savings = bloomli_compare_unit | minus: bloomli_discounted3 | times: 100.0 | divided_by: bloomli_compare_unit
                               assign offer_4_savings = bloomli_compare_unit | minus: bloomli_discounted4 | times: 100.0 | divided_by: bloomli_compare_unit

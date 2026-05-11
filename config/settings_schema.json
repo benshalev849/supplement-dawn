@@ -2015,6 +2015,94 @@
     ]
   },
   {
+    "name": "Bloomli Discounts",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Global discount display — PDP tiers, cart labels, subscription. UI only; actual discounts are applied by Appstle / Shopify / SMART."
+      },
+      {
+        "type": "range",
+        "id": "bloomli_subscription_discount_pct",
+        "label": "Subscription discount %",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "default": 15,
+        "info": "Override per product via metafield bloomli.subscription_discount_pct."
+      },
+      {
+        "type": "header",
+        "content": "Volume discounts by quantity"
+      },
+      {
+        "type": "range",
+        "id": "bloomli_volume_discount_1_pct",
+        "label": "Qty 1 volume discount %",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "bloomli_volume_discount_2_pct",
+        "label": "Qty 2 volume discount %",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "bloomli_volume_discount_3_pct",
+        "label": "Qty 3 volume discount %",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "default": 15
+      },
+      {
+        "type": "range",
+        "id": "bloomli_volume_discount_4_pct",
+        "label": "Qty 4 volume discount %",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "default": 18
+      },
+      {
+        "type": "range",
+        "id": "bloomli_volume_discount_5_pct",
+        "label": "Qty 5+ volume discount %",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "Bundle / Pair & Save"
+      },
+      {
+        "type": "range",
+        "id": "bloomli_bundle_add_on_discount_pct",
+        "label": "Bundle add-on discount %",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "default": 20,
+        "info": "Display-only. Applied to add-on price when supplement is also in cart. Override per product via metafield bloomli.bundle_add_on_discount_pct."
+      },
+      {
+        "type": "text",
+        "id": "bloomli_bundle_discount_title",
+        "label": "Bundle badge title",
+        "default": "Pair & Save"
+      }
+    ]
+  },
+  {
     "name": "Bloomli Cart Upsell",
     "settings": [
       {

@@ -32,7 +32,15 @@
   assign default_qty = 1
   assign subscribe_enabled = block.settings.subscribe_enabled
   assign default_mode = block.settings.default_mode | default: 'onetime'
-  assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 10 | plus: 0
+  assign _mf_sub_pct = product.metafields.bloomli.subscription_discount_pct
+  assign _g_sub_pct  = settings.bloomli_subscription_discount_pct
+  if _mf_sub_pct != blank
+    assign subscription_discount_pct = _mf_sub_pct | plus: 0
+  elsif _g_sub_pct != blank
+    assign subscription_discount_pct = _g_sub_pct | plus: 0
+  else
+    assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 15 | plus: 0
+  endif
   assign discount_badge_template = block.settings.discount_badge_template | default: 'SAVE [percent]%'
   assign add_to_cart_label = block.settings.add_to_cart_label | default: 'Add to cart'
   assign sold_out_label = block.settings.sold_out_label | default: 'Sold out'
@@ -78,7 +86,7 @@
             assign image = block.settings.tier_1_image
             assign badge = block.settings.tier_1_badge
             assign tag = block.settings.tier_1_tag
-            assign discount_pct = block.settings.tier_1_discount_pct | default: 0
+            assign _fallback_discount_pct = block.settings.tier_1_discount_pct | default: 0
             assign sub_discount_pct = subscription_discount_pct
             assign subscription_total_discount_pct = block.settings.tier_1_subscription_discount_pct
             assign plan_filter = block.settings.tier_1_plan_filter
@@ -92,7 +100,7 @@
             assign image = block.settings.tier_2_image
             assign badge = block.settings.tier_2_badge
             assign tag = block.settings.tier_2_tag
-            assign discount_pct = block.settings.tier_2_discount_pct | default: 0
+            assign _fallback_discount_pct = block.settings.tier_2_discount_pct | default: 0
             assign sub_discount_pct = subscription_discount_pct
             assign subscription_total_discount_pct = block.settings.tier_2_subscription_discount_pct
             assign plan_filter = block.settings.tier_2_plan_filter
@@ -106,12 +114,36 @@
             assign image = block.settings.tier_3_image
             assign badge = block.settings.tier_3_badge
             assign tag = block.settings.tier_3_tag
-            assign discount_pct = block.settings.tier_3_discount_pct | default: 0
+            assign _fallback_discount_pct = block.settings.tier_3_discount_pct | default: 0
             assign sub_discount_pct = subscription_discount_pct
             assign subscription_total_discount_pct = block.settings.tier_3_subscription_discount_pct
             assign plan_filter = block.settings.tier_3_plan_filter
             assign is_default = block.settings.tier_3_default
         endcase
+
+        if qty >= 5
+          assign _mf_vol_pct = product.metafields.bloomli.volume_discount_5_pct
+          assign _g_vol_pct  = settings.bloomli_volume_discount_5_pct
+        elsif qty == 4
+          assign _mf_vol_pct = product.metafields.bloomli.volume_discount_4_pct
+          assign _g_vol_pct  = settings.bloomli_volume_discount_4_pct
+        elsif qty == 3
+          assign _mf_vol_pct = product.metafields.bloomli.volume_discount_3_pct
+          assign _g_vol_pct  = settings.bloomli_volume_discount_3_pct
+        elsif qty == 2
+          assign _mf_vol_pct = product.metafields.bloomli.volume_discount_2_pct
+          assign _g_vol_pct  = settings.bloomli_volume_discount_2_pct
+        else
+          assign _mf_vol_pct = product.metafields.bloomli.volume_discount_1_pct
+          assign _g_vol_pct  = settings.bloomli_volume_discount_1_pct
+        endif
+        if _mf_vol_pct != blank
+          assign discount_pct = _mf_vol_pct | plus: 0
+        elsif _g_vol_pct != blank
+          assign discount_pct = _g_vol_pct | plus: 0
+        else
+          assign discount_pct = _fallback_discount_pct | default: 0 | plus: 0
+        endif
 
         if show and is_default and default_idx == -1
           assign default_idx = forloop.index0

@@ -77,10 +77,6 @@
     assign upsell_image   = upsell_product.featured_image
 
     assign upsell_sale_price = upsell_variant.price
-    if upsell_discount_pct > 0
-      assign discount_multiplier = 100 | minus: upsell_discount_pct
-      assign upsell_sale_price = upsell_variant.price | times: discount_multiplier | divided_by: 100.0 | ceil
-    endif
 
     assign upsell_compare_price = upsell_variant.compare_at_price
     if upsell_compare_price == blank or upsell_compare_price <= upsell_sale_price
@@ -125,13 +121,7 @@
     assign upsell_sub_price = 0
     if cart_has_subscription and upsell_selling_plan_id != nil
       assign sub_mult = 100 | minus: sub_discount_pct
-      assign upsell_sub_price = upsell_variant.price | times: sub_mult | divided_by: 100.0
-      if upsell_discount_pct > 0
-        assign addon_mult = 100 | minus: upsell_discount_pct
-        assign upsell_sub_price = upsell_sub_price | times: addon_mult | divided_by: 100.0 | ceil
-      else
-        assign upsell_sub_price = upsell_sub_price | ceil
-      endif
+      assign upsell_sub_price = upsell_variant.price | times: sub_mult | divided_by: 100.0 | ceil
     endif
   -%}
 

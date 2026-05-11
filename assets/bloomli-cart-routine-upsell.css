@@ -1,5 +1,5 @@
 .cart-drawer .bloomli-routine-upsell {
-  margin: 0;
+  margin: 0.8rem 1.5rem;
   border: 0.1rem solid var(--bloomli-cart-pack-promo-border, var(--bloomli-cart-accent, #B23A6F));
   border-radius: var(--bloomli-cart-control-radius, 6px);
   background: var(--bloomli-cart-pack-promo-bg, #FFF3F7);
@@ -8,15 +8,15 @@
 
 .cart-drawer .bloomli-routine-upsell__inner {
   display: grid;
-  grid-template-columns: 5.5rem 1fr;
+  grid-template-columns: min(var(--bloomli-cart-image-size, 124px), 10.4rem) 1fr;
   gap: 1rem;
   padding: 1rem;
   align-items: start;
 }
 
 .cart-drawer .bloomli-routine-upsell__image-wrap {
-  width: 5.5rem;
-  height: 5.5rem;
+  width: min(var(--bloomli-cart-image-size, 124px), 10.4rem);
+  height: auto;
   border-radius: 0.7rem;
   overflow: hidden;
   flex-shrink: 0;
@@ -25,7 +25,8 @@
 .cart-drawer .bloomli-routine-upsell__image {
   display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: contain;
   background: var(--bloomli-cart-product-bg, #fff);
 }
@@ -132,4 +133,21 @@
 
 .cart-drawer .bloomli-routine-upsell__spinner.hidden {
   display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .cart-drawer .bloomli-routine-upsell {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cart-drawer .bloomli-routine-upsell__image-wrap {
+    width: min(var(--bloomli-cart-image-size, 124px), 22vw);
+  }
+
+  .cart-drawer .bloomli-routine-upsell__inner {
+    grid-template-columns: min(var(--bloomli-cart-image-size, 124px), 22vw) 1fr;
+  }
 }

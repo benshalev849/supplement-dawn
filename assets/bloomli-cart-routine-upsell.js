@@ -21,10 +21,11 @@
     if (cartDrawerHtml) {
       var html = new DOMParser().parseFromString(cartDrawerHtml, 'text/html');
       [
-        ['.drawer__header',             '.drawer__header'],
-        ['[data-bloomli-cart-shipping]','[data-bloomli-cart-shipping]'],
-        ['cart-drawer-items',           'cart-drawer-items'],
-        ['.drawer__footer',             '.drawer__footer'],
+        ['.drawer__header',                      '.drawer__header'],
+        ['[data-bloomli-cart-shipping]',         '[data-bloomli-cart-shipping]'],
+        ['cart-drawer-items',                    'cart-drawer-items'],
+        ['[data-bloomli-routine-upsell-outer]',  '[data-bloomli-routine-upsell-outer]'],
+        ['.drawer__footer',                      '.drawer__footer'],
       ].forEach(function (pair) {
         var target = document.querySelector(pair[0]);
         var source = html.querySelector(pair[1]);

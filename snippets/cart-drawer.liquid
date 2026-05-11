@@ -876,6 +876,11 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
+      <div data-bloomli-routine-upsell-outer>
+        {%- if cart != empty -%}
+          {%- render 'bloomli-cart-routine-upsell' -%}
+        {%- endif -%}
+      </div>
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
@@ -899,10 +904,6 @@
 
         <!-- Start blocks -->
         <!-- Subtotals -->
-
-        {%- if cart != empty -%}
-          {%- render 'bloomli-cart-routine-upsell' -%}
-        {%- endif -%}
 
         <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
           <div>

@@ -86,14 +86,14 @@
           <div class="bloomli-routine-upsell__image-wrap">
             {{
               upsell_image
-              | image_url: width: 160
+              | image_url: width: 248
               | image_tag:
                 class: 'bloomli-routine-upsell__image',
                 loading: 'lazy',
                 alt: upsell_image.alt | default: upsell_product.title,
-                width: 80,
-                height: 80,
-                widths: '80, 160'
+                width: 124,
+                height: 124,
+                widths: '124, 248'
             }}
           </div>
         {%- endif -%}

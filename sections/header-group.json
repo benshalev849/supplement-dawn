@@ -41,9 +41,7 @@
         "announcement_twFPNP",
         "announcement-bar-0"
       ],
-      "custom_css": [
-        "@media screen and (max-width: 749px) {.announcement-bar__message {max-width: min(30rem, calc(100vw - 3.2rem)); margin-inline: auto; padding-inline: 1.2rem; text-align: center; } .announcement-bar__message span {white-space: normal; }}"
-      ],
+      "custom_css": [],
       "settings": {
         "auto_rotate": true,
         "change_slides_speed": 7,

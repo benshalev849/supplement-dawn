@@ -202,9 +202,13 @@
                     {%- for item in cart.items -%}
                       {%- liquid
                         assign is_bloomli_supplement = false
-                        if item.product.tags contains 'supplement'
-                          assign is_bloomli_supplement = true
-                        endif
+                        for product_tag in item.product.tags
+                          assign normalized_product_tag = product_tag | downcase | strip
+                          if normalized_product_tag == 'supplement'
+                            assign is_bloomli_supplement = true
+                            break
+                          endif
+                        endfor
                       -%}
                       <tr
                         id="CartDrawer-Item-{{ item.index | plus: 1 }}"

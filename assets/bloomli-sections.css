@@ -896,26 +896,21 @@
 }
 
 .bloomli-proof-panel__image-card {
-  width: min(100%, var(--bpp-image-width, 620px));
+  width: var(--bpp-image-width, 620px);
+  max-width: 100%;
   aspect-ratio: 3 / 4;
   margin: 0 auto;
-  border-radius: calc(var(--text-boxes-radius, 12px) - 2px);
-  background:
-    radial-gradient(circle at center, color-mix(in srgb, var(--bpp-accent, var(--bloomli-primary-action)) 10%, transparent), transparent 55%),
-    var(--bpp-media-bg, var(--bloomli-surface));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 36px;
+  border-radius: var(--bpp-image-radius, var(--text-boxes-radius, 12px));
   overflow: hidden;
 }
 
-.bloomli-proof-panel__image-card img {
+.bloomli-proof-panel__image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   transform: scale(var(--bpp-image-scale, 1));
+  transform-origin: center;
 }
 
 .bloomli-proof-panel__image-caption {
@@ -1004,10 +999,6 @@
   .bloomli-proof-panel__visual {
     min-height: auto;
     padding: 18px;
-  }
-
-  .bloomli-proof-panel__image-card {
-    padding: 24px;
   }
 
   .bloomli-proof-panel__proof-item {

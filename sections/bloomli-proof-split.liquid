@@ -54,7 +54,7 @@
 {%- liquid
   assign image_scale = section.settings.image_scale | divided_by: 100.0
   assign image_alt = section.settings.image.alt | default: section.settings.heading_line1
-  assign image_style = '--bpp-image-scale: ' | append: image_scale | append: '; object-position: ' | append: section.settings.image_position | append: ';'
+  assign image_style = 'object-position: ' | append: section.settings.image_position | append: ';'
   assign icon_accent_color = section.settings.icon_accent_color | downcase
 -%}
 
@@ -77,6 +77,7 @@
     --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;
     --bpp-image-width: {{ section.settings.image_width | default: 620 }}px;
     --bpp-image-radius: {{ section.settings.image_radius | default: 16 }}px;
+    --bpp-image-scale: {{ image_scale }};
   "
 >
   <div class="bloomli-proof-panel__inner">

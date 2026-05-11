@@ -228,28 +228,28 @@
         "bullet_f68cpc": {
           "type": "bullet",
           "settings": {
-            "bullet_title": "",
-            "text": "Beyond biotin alone. 14 targeted vitamins and nutrients, working in sync."
+            "bullet_title": "Beyond biotin alone.",
+            "text": "A complete blend of vitamins and minerals, each chosen for a specific role in supporting your hair."
           }
         },
         "bullet_9GzmFm": {
           "type": "bullet",
           "settings": {
-            "bullet_title": "",
+            "bullet_title": "Light by design.",
             "text": "Only 15 calories per serving, just 2g sugar per gummy."
           }
         },
         "bullet_NjdcCt": {
           "type": "bullet",
           "settings": {
-            "bullet_title": "",
+            "bullet_title": "Nothing unwanted.",
             "text": "Gluten-free, gelatin-free, and pectin-based. No artificial dyes or flavors."
           }
         },
         "bullet_F7gTNi": {
           "type": "bullet",
           "settings": {
-            "bullet_title": "",
+            "bullet_title": "Tested for trust.",
             "text": "Third-party tested for heavy metals, microbial contaminants, and label accuracy."
           }
         }
@@ -277,7 +277,6 @@
         "image_width": 420,
         "image_radius": 10,
         "heading_line1": "Every milligram, intentional.",
-        "heading_line2": "",
         "copy": "<p>Most supplements are built around a story. Ours is built around your hair.</p>",
         "padding_top": 48,
         "padding_bottom": 88

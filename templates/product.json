@@ -275,6 +275,7 @@
         "image_scale": 100,
         "image_position": "center center",
         "image_width": 760,
+        "desktop_image_size": 80,
         "image_size": 100,
         "image_radius": 10,
         "show_card_borders": false,

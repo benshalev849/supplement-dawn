@@ -783,7 +783,37 @@
   border-radius: var(--bpp-image-radius, var(--text-boxes-radius, 12px));
 }
 
+.bloomli-proof-panel__image-wrap {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  display: flex;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.bloomli-proof-panel__image-wrap::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  z-index: 0;
+  width: 62%;
+  height: 11%;
+  min-height: 18px;
+  border-radius: 999px;
+  background: rgba(42, 38, 34, 0.24);
+  filter: blur(16px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
 .bloomli-proof-panel__image {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
@@ -927,6 +957,24 @@
     display: flex;
     align-items: center;
     overflow: visible;
+  }
+
+  .bloomli-proof-panel__image-wrap {
+    width: fit-content;
+    max-width: 100%;
+    height: auto;
+    flex: 0 0 auto;
+    justify-content: center;
+    overflow: visible;
+    padding-bottom: 16px;
+  }
+
+  .bloomli-proof-panel__image-wrap::after {
+    bottom: 8px;
+    width: 68%;
+    height: 18px;
+    min-height: 0;
+    filter: blur(12px);
   }
 
   .bloomli-proof-panel__image {

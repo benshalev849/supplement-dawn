@@ -35,18 +35,20 @@
     <div class="bloomli-proof-panel__grid">
       <div class="bloomli-proof-panel__visual">
         {%- if section.settings.image != blank -%}
-          {{
-            section.settings.image
-            | image_url: width: 1400
-            | image_tag:
-              class: 'bloomli-proof-panel__image',
-              alt: image_alt,
-              widths: '500, 700, 900, 1200, 1400',
-              sizes: '(max-width: 899px) calc(100vw - 84px), min(42vw, 560px)',
-              loading: 'lazy',
-              decoding: 'async',
-              style: image_style
-          }}
+          <div class="bloomli-proof-panel__image-wrap">
+            {{
+              section.settings.image
+              | image_url: width: 1400
+              | image_tag:
+                class: 'bloomli-proof-panel__image',
+                alt: image_alt,
+                widths: '500, 700, 900, 1200, 1400',
+                sizes: '(max-width: 899px) calc(100vw - 84px), min(42vw, 560px)',
+                loading: 'lazy',
+                decoding: 'async',
+                style: image_style
+            }}
+          </div>
         {%- elsif section.settings.image_label != blank -%}
           <span class="smallcaps bloomli-section-placeholder-label">{{ section.settings.image_label }}</span>
         {%- endif -%}

@@ -4,16 +4,27 @@
     return;
   }
 
+  function ensureDollarPrefix(value) {
+    const formatted = String(value || '').trim();
+    if (!formatted || formatted.indexOf('$') !== -1) return formatted;
+    return '$' + formatted;
+  }
+
   function formatMoney(cents, moneyFormat) {
+    let formatted;
+
     if (window.Shopify && window.Shopify.formatMoney) {
       try {
-        return window.Shopify.formatMoney(cents, moneyFormat);
+        formatted = window.Shopify.formatMoney(cents, moneyFormat);
+        return ensureDollarPrefix(formatted);
       } catch (error) {
-        return (cents / 100).toFixed(2);
+        formatted = (cents / 100).toFixed(2);
+        return ensureDollarPrefix(formatted);
       }
     }
 
-    return (cents / 100).toFixed(2);
+    formatted = (cents / 100).toFixed(2);
+    return ensureDollarPrefix(formatted);
   }
 
   function formatDiscount(percent) {
@@ -59,7 +70,7 @@
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const discountBadgeTemplate = root.dataset.discountBadgeTemplate || 'SAVE [percent]%';
     const savingsPrefix = root.dataset.savingsPrefix || "You're saving ";
-    const savingsSuffix = root.dataset.savingsSuffix || '$';
+    const savingsSuffix = root.dataset.savingsSuffix || '';
     const productFormId = root.dataset.formId;
     const quantitySelector = productFormId
       ? Array.from(document.querySelectorAll('input[name="quantity"]')).find(function (input) {
@@ -175,12 +186,13 @@
       if (modeSubInfoEl) modeSubInfoEl.innerHTML = modeInfoHTML(sizeLabel, sizeCount, subDailyStr);
       if (modeOnetimeInfoEl) modeOnetimeInfoEl.innerHTML = modeInfoHTML(sizeLabel, sizeCount, onetimeDailyStr);
 
-      // Savings: prefix + whole dollar amount + suffix (e.g. "You're saving 11$")
+      // Savings use a whole-dollar amount, with old saved "$" suffixes normalized to the left.
       function savingsText(savingsCents) {
         if (savingsCents <= 50) return '';
         const dollars = Math.round(savingsCents / 100);
+        const suffix = savingsSuffix === '$' ? '' : savingsSuffix;
         const prefixGlue = savingsPrefix && !/\s$/.test(savingsPrefix) ? ' ' : '';
-        return savingsPrefix + prefixGlue + dollars + savingsSuffix;
+        return savingsPrefix + prefixGlue + '$' + dollars + suffix;
       }
 
       if (lineCompareCents > subscribeCents) {

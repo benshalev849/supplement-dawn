@@ -36,6 +36,7 @@
   assign discount_badge_template = block.settings.discount_badge_template | default: 'SAVE [percent]%'
   assign add_to_cart_label = block.settings.add_to_cart_label | default: 'Add to cart'
   assign sold_out_label = block.settings.sold_out_label | default: 'Sold out'
+  assign unit_price_money = unit_price | money_without_currency | prepend: '$'
 -%}
 
 <div class="bloomli-vt"
@@ -44,7 +45,7 @@
      data-form-id="{{ bloomli_product_form_id }}"
      data-discount-badge-template="{{ discount_badge_template | escape }}"
      data-savings-prefix="{{ block.settings.savings_label_prefix | default: "You're saving " | escape }}"
-     data-savings-suffix="{{ block.settings.savings_label_suffix | default: '$' | escape }}"
+     data-savings-suffix="{{ block.settings.savings_label_suffix | escape }}"
      data-add-to-cart-label="{{ add_to_cart_label | escape }}"
      data-sold-out-label="{{ sold_out_label | escape }}"
      data-money-format="{{ shop.money_format | escape }}"
@@ -181,8 +182,8 @@
 
         assign daily_cents = one_time_total_cents | divided_by: qty | divided_by: 30
         assign subscribe_daily_cents = subscribe_total_cents | divided_by: qty | divided_by: 30
-        assign auto_daily = daily_cents | money
-        assign auto_subscribe_daily = subscribe_daily_cents | money
+        assign auto_daily = daily_cents | money_without_currency | prepend: '$'
+        assign auto_subscribe_daily = subscribe_daily_cents | money_without_currency | prepend: '$'
         if daily_text == blank
           assign daily_text = '(' | append: auto_daily | append: ' / Day)'
         endif
@@ -302,7 +303,7 @@
             <div class="bloomli-vt__mode-prices">
               <div class="bloomli-vt__mode-price-row">
                 <span class="bloomli-vt__mode-compare" data-vt-mode-subscribe-compare></span>
-                <span class="bloomli-vt__mode-price" data-vt-subscribe-price>{{ unit_price | money }}</span>
+                <span class="bloomli-vt__mode-price" data-vt-subscribe-price>{{ unit_price_money }}</span>
               </div>
             </div>
           </div>
@@ -367,7 +368,7 @@
             <div class="bloomli-vt__mode-prices">
               <div class="bloomli-vt__mode-price-row">
                 <span class="bloomli-vt__mode-compare" data-vt-mode-onetime-compare></span>
-                <span class="bloomli-vt__mode-price" data-vt-onetime-price>{{ unit_price | money }}</span>
+                <span class="bloomli-vt__mode-price" data-vt-onetime-price>{{ unit_price_money }}</span>
               </div>
             </div>
           </div>
@@ -400,7 +401,7 @@
     <div class="bloomli-vt__total-row">
       <span class="bloomli-vt__total-label">{{ block.settings.total_label | default: 'Total price:' }}</span>
       <span class="bloomli-vt__total-amount">
-        <span data-vt-total>{{ unit_price | money }}</span>
+        <span data-vt-total>{{ unit_price_money }}</span>
         <span class="bloomli-vt__total-compare" data-vt-compare></span>
       </span>
     </div>

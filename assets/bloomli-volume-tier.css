@@ -3,7 +3,7 @@
   --bloomli-vt-badge-radius: var(--badge-corner-radius);
   --bloomli-vt-control-radius: var(--inputs-radius);
   --bloomli-vt-card-radius: var(--text-boxes-radius);
-  --bloomli-vt-size-card-min: 18rem;
+  --bloomli-vt-size-card-min: 17rem;
 
   color: var(--charcoal, #2A2622);
   font-family: var(--font-commerce-ui, var(--font-body-family));
@@ -155,19 +155,16 @@
 
 }
 
-@container bloomli-volume-tier (max-width: 57rem) {
+@container bloomli-volume-tier (max-width: 52.99rem) {
   .bloomli-vt__sizes {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(var(--bloomli-vt-size-card-min), var(--bloomli-vt-size-card-min)));
+    justify-content: start;
   }
 
   .bloomli-vt__sizes .bloomli-vt__size:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    grid-template-columns: minmax(72px, 30%) minmax(0, 1fr);
-    min-height: 92px;
-  }
-
-  .bloomli-vt__sizes .bloomli-vt__size:last-child:nth-child(odd) .bloomli-vt__size-media {
-    max-width: 84px;
+    grid-column: auto;
+    grid-template-columns: minmax(58px, 38%) minmax(0, 1fr);
+    min-height: 82px;
   }
 }
 

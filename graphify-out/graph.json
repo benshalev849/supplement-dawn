@@ -570,7 +570,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L1",
       "id": "bloomli_before_after_js",
-      "community": 28,
+      "community": 29,
       "norm_label": "bloomli-before-after.js"
     },
     {
@@ -579,7 +579,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L4",
       "id": "assets_bloomli_before_after_getstep",
-      "community": 28,
+      "community": 29,
       "norm_label": "getstep()"
     },
     {
@@ -588,7 +588,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L14",
       "id": "assets_bloomli_before_after_updatecontrols",
-      "community": 28,
+      "community": 29,
       "norm_label": "updatecontrols()"
     },
     {
@@ -597,7 +597,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L25",
       "id": "assets_bloomli_before_after_initsection",
-      "community": 28,
+      "community": 29,
       "norm_label": "initsection()"
     },
     {
@@ -606,7 +606,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L48",
       "id": "assets_bloomli_before_after_initall",
-      "community": 28,
+      "community": 29,
       "norm_label": "initall()"
     },
     {
@@ -615,7 +615,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L1",
       "id": "bloomli_cart_drawer_js",
-      "community": 6,
+      "community": 8,
       "norm_label": "bloomli-cart-drawer.js"
     },
     {
@@ -624,7 +624,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L2",
       "id": "assets_bloomli_cart_drawer_getsections",
-      "community": 6,
+      "community": 8,
       "norm_label": "getsections()"
     },
     {
@@ -633,7 +633,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L14",
       "id": "assets_bloomli_cart_drawer_getsectioninnerhtml",
-      "community": 6,
+      "community": 8,
       "norm_label": "getsectioninnerhtml()"
     },
     {
@@ -642,7 +642,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L18",
       "id": "assets_bloomli_cart_drawer_replacecartsections",
-      "community": 6,
+      "community": 8,
       "norm_label": "replacecartsections()"
     },
     {
@@ -651,7 +651,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L48",
       "id": "assets_bloomli_cart_drawer_setfrequencydisplay",
-      "community": 6,
+      "community": 8,
       "norm_label": "setfrequencydisplay()"
     },
     {
@@ -660,7 +660,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L74",
       "id": "assets_bloomli_cart_drawer_setmenuopen",
-      "community": 6,
+      "community": 8,
       "norm_label": "setmenuopen()"
     },
     {
@@ -669,7 +669,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L85",
       "id": "assets_bloomli_cart_drawer_closefrequencymenus",
-      "community": 6,
+      "community": 8,
       "norm_label": "closefrequencymenus()"
     },
     {
@@ -678,7 +678,7 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L91",
       "id": "assets_bloomli_cart_drawer_updatefrequency",
-      "community": 6,
+      "community": 8,
       "norm_label": "updatefrequency()"
     },
     {
@@ -687,8 +687,71 @@
       "source_file": "bloomli-cart-drawer.js",
       "source_location": "L151",
       "id": "assets_bloomli_cart_drawer_updatelinequantity",
-      "community": 6,
+      "community": 8,
       "norm_label": "updatelinequantity()"
+    },
+    {
+      "label": "bloomli-cart-routine-upsell.js",
+      "file_type": "code",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L1",
+      "id": "bloomli_cart_routine_upsell_js",
+      "community": 8,
+      "norm_label": "bloomli-cart-routine-upsell.js"
+    },
+    {
+      "label": "getRequestedSections()",
+      "file_type": "code",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L5",
+      "id": "assets_bloomli_cart_routine_upsell_getrequestedsections",
+      "community": 8,
+      "norm_label": "getrequestedsections()"
+    },
+    {
+      "label": "getSectionInnerHTML()",
+      "file_type": "code",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L11",
+      "id": "assets_bloomli_cart_routine_upsell_getsectioninnerhtml",
+      "community": 8,
+      "norm_label": "getsectioninnerhtml()"
+    },
+    {
+      "label": "replaceCartSections()",
+      "file_type": "code",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L17",
+      "id": "assets_bloomli_cart_routine_upsell_replacecartsections",
+      "community": 8,
+      "norm_label": "replacecartsections()"
+    },
+    {
+      "label": "showError()",
+      "file_type": "code",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L49",
+      "id": "assets_bloomli_cart_routine_upsell_showerror",
+      "community": 8,
+      "norm_label": "showerror()"
+    },
+    {
+      "label": "setLoading()",
+      "file_type": "code",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L54",
+      "id": "assets_bloomli_cart_routine_upsell_setloading",
+      "community": 8,
+      "norm_label": "setloading()"
+    },
+    {
+      "label": "addToCart()",
+      "file_type": "code",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L61",
+      "id": "assets_bloomli_cart_routine_upsell_addtocart",
+      "community": 8,
+      "norm_label": "addtocart()"
     },
     {
       "label": "bloomli-cart-subscription-upsell.js",
@@ -696,7 +759,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L1",
       "id": "bloomli_cart_subscription_upsell_js",
-      "community": 6,
+      "community": 22,
       "norm_label": "bloomli-cart-subscription-upsell.js"
     },
     {
@@ -705,7 +768,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L5",
       "id": "assets_bloomli_cart_subscription_upsell_getsectioninnerhtml",
-      "community": 6,
+      "community": 22,
       "norm_label": "getsectioninnerhtml()"
     },
     {
@@ -714,7 +777,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L11",
       "id": "assets_bloomli_cart_subscription_upsell_getrequestedsections",
-      "community": 6,
+      "community": 22,
       "norm_label": "getrequestedsections()"
     },
     {
@@ -723,7 +786,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L26",
       "id": "assets_bloomli_cart_subscription_upsell_replacecartdrawersections",
-      "community": 6,
+      "community": 22,
       "norm_label": "replacecartdrawersections()"
     },
     {
@@ -732,7 +795,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L50",
       "id": "assets_bloomli_cart_subscription_upsell_replacemaincartsections",
-      "community": 6,
+      "community": 22,
       "norm_label": "replacemaincartsections()"
     },
     {
@@ -741,7 +804,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L74",
       "id": "assets_bloomli_cart_subscription_upsell_replacecarticon",
-      "community": 6,
+      "community": 22,
       "norm_label": "replacecarticon()"
     },
     {
@@ -750,7 +813,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L81",
       "id": "assets_bloomli_cart_subscription_upsell_showcarterror",
-      "community": 6,
+      "community": 22,
       "norm_label": "showcarterror()"
     },
     {
@@ -759,7 +822,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L86",
       "id": "assets_bloomli_cart_subscription_upsell_setloading",
-      "community": 6,
+      "community": 22,
       "norm_label": "setloading()"
     },
     {
@@ -768,7 +831,7 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L99",
       "id": "assets_bloomli_cart_subscription_upsell_upgradeline",
-      "community": 6,
+      "community": 22,
       "norm_label": "upgradeline()"
     },
     {
@@ -777,7 +840,7 @@
       "source_file": "bloomli-faq.js",
       "source_location": "L1",
       "id": "bloomli_faq_js",
-      "community": 36,
+      "community": 37,
       "norm_label": "bloomli-faq.js"
     },
     {
@@ -786,7 +849,7 @@
       "source_file": "bloomli-faq.js",
       "source_location": "L2",
       "id": "assets_bloomli_faq_initfaq",
-      "community": 36,
+      "community": 37,
       "norm_label": "initfaq()"
     },
     {
@@ -795,7 +858,7 @@
       "source_file": "bloomli-faq.js",
       "source_location": "L36",
       "id": "assets_bloomli_faq_setpanelstate",
-      "community": 36,
+      "community": 37,
       "norm_label": "setpanelstate()"
     },
     {
@@ -804,7 +867,7 @@
       "source_file": "bloomli-faq.js",
       "source_location": "L74",
       "id": "assets_bloomli_faq_finishaftertransition",
-      "community": 36,
+      "community": 37,
       "norm_label": "finishaftertransition()"
     },
     {
@@ -921,7 +984,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L1",
       "id": "bloomli_timeline_js",
-      "community": 24,
+      "community": 25,
       "norm_label": "bloomli-timeline.js"
     },
     {
@@ -930,7 +993,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L13",
       "id": "assets_bloomli_timeline_clamp",
-      "community": 24,
+      "community": 25,
       "norm_label": "clamp()"
     },
     {
@@ -939,7 +1002,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L17",
       "id": "assets_bloomli_timeline_update",
-      "community": 24,
+      "community": 25,
       "norm_label": "update()"
     },
     {
@@ -948,7 +1011,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L58",
       "id": "assets_bloomli_timeline_getmobileprogress",
-      "community": 24,
+      "community": 25,
       "norm_label": "getmobileprogress()"
     },
     {
@@ -957,7 +1020,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L67",
       "id": "assets_bloomli_timeline_getdesktopprogress",
-      "community": 24,
+      "community": 25,
       "norm_label": "getdesktopprogress()"
     },
     {
@@ -966,7 +1029,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L77",
       "id": "assets_bloomli_timeline_setreachedstepsfromline",
-      "community": 24,
+      "community": 25,
       "norm_label": "setreachedstepsfromline()"
     },
     {
@@ -975,7 +1038,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L98",
       "id": "assets_bloomli_timeline_setreachedsteps",
-      "community": 24,
+      "community": 25,
       "norm_label": "setreachedsteps()"
     },
     {
@@ -984,7 +1047,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L121",
       "id": "assets_bloomli_timeline_requestupdate",
-      "community": 24,
+      "community": 25,
       "norm_label": "requestupdate()"
     },
     {
@@ -993,7 +1056,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L1",
       "id": "bloomli_volume_tier_js",
-      "community": 25,
+      "community": 26,
       "norm_label": "bloomli-volume-tier.js"
     },
     {
@@ -1002,7 +1065,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L7",
       "id": "assets_bloomli_volume_tier_ensuredollarprefix",
-      "community": 25,
+      "community": 26,
       "norm_label": "ensuredollarprefix()"
     },
     {
@@ -1011,7 +1074,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L13",
       "id": "assets_bloomli_volume_tier_formatmoney",
-      "community": 25,
+      "community": 26,
       "norm_label": "formatmoney()"
     },
     {
@@ -1020,7 +1083,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L30",
       "id": "assets_bloomli_volume_tier_formatdiscount",
-      "community": 25,
+      "community": 26,
       "norm_label": "formatdiscount()"
     },
     {
@@ -1029,7 +1092,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L34",
       "id": "assets_bloomli_volume_tier_parsecents",
-      "community": 25,
+      "community": 26,
       "norm_label": "parsecents()"
     },
     {
@@ -1038,7 +1101,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L39",
       "id": "assets_bloomli_volume_tier_formattemplate",
-      "community": 25,
+      "community": 26,
       "norm_label": "formattemplate()"
     },
     {
@@ -1047,7 +1110,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L45",
       "id": "assets_bloomli_volume_tier_initroot",
-      "community": 25,
+      "community": 26,
       "norm_label": "initroot()"
     },
     {
@@ -1056,7 +1119,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L369",
       "id": "assets_bloomli_volume_tier_init",
-      "community": 25,
+      "community": 26,
       "norm_label": "init()"
     },
     {
@@ -1461,7 +1524,7 @@
       "source_file": "constants.js",
       "source_location": "L1",
       "id": "constants_js",
-      "community": 55,
+      "community": 56,
       "norm_label": "constants.js"
     },
     {
@@ -1470,7 +1533,7 @@
       "source_file": "customer.js",
       "source_location": "L1",
       "id": "customer_js",
-      "community": 30,
+      "community": 31,
       "norm_label": "customer.js"
     },
     {
@@ -1479,7 +1542,7 @@
       "source_file": "customer.js",
       "source_location": "L15",
       "id": "assets_customer_customeraddresses",
-      "community": 30,
+      "community": 31,
       "norm_label": "customeraddresses"
     },
     {
@@ -1488,7 +1551,7 @@
       "source_file": "customer.js",
       "source_location": "L16",
       "id": "assets_customer_customeraddresses_constructor",
-      "community": 30,
+      "community": 31,
       "norm_label": ".constructor()"
     },
     {
@@ -1497,7 +1560,7 @@
       "source_file": "customer.js",
       "source_location": "L23",
       "id": "assets_customer_customeraddresses_getelements",
-      "community": 30,
+      "community": 31,
       "norm_label": "._getelements()"
     },
     {
@@ -1506,7 +1569,7 @@
       "source_file": "customer.js",
       "source_location": "L37",
       "id": "assets_customer_customeraddresses_setupcountries",
-      "community": 30,
+      "community": 31,
       "norm_label": "._setupcountries()"
     },
     {
@@ -1515,7 +1578,7 @@
       "source_file": "customer.js",
       "source_location": "L53",
       "id": "assets_customer_customeraddresses_setupeventlisteners",
-      "community": 30,
+      "community": 31,
       "norm_label": "._setupeventlisteners()"
     },
     {
@@ -1524,7 +1587,7 @@
       "source_file": "customer.js",
       "source_location": "L65",
       "id": "assets_customer_customeraddresses_toggleexpanded",
-      "community": 30,
+      "community": 31,
       "norm_label": "._toggleexpanded()"
     },
     {
@@ -1533,7 +1596,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L1",
       "id": "details_disclosure_js",
-      "community": 22,
+      "community": 23,
       "norm_label": "details-disclosure.js"
     },
     {
@@ -1542,7 +1605,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L1",
       "id": "assets_details_disclosure_detailsdisclosure",
-      "community": 22,
+      "community": 23,
       "norm_label": "detailsdisclosure"
     },
     {
@@ -1551,7 +1614,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L2",
       "id": "assets_details_disclosure_detailsdisclosure_constructor",
-      "community": 22,
+      "community": 23,
       "norm_label": ".constructor()"
     },
     {
@@ -1560,7 +1623,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L11",
       "id": "assets_details_disclosure_detailsdisclosure_onfocusout",
-      "community": 22,
+      "community": 23,
       "norm_label": ".onfocusout()"
     },
     {
@@ -1569,7 +1632,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L17",
       "id": "assets_details_disclosure_detailsdisclosure_ontoggle",
-      "community": 22,
+      "community": 23,
       "norm_label": ".ontoggle()"
     },
     {
@@ -1578,7 +1641,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L27",
       "id": "assets_details_disclosure_detailsdisclosure_close",
-      "community": 22,
+      "community": 23,
       "norm_label": ".close()"
     },
     {
@@ -1587,7 +1650,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L35",
       "id": "assets_details_disclosure_headermenu",
-      "community": 22,
+      "community": 23,
       "norm_label": "headermenu"
     },
     {
@@ -1596,7 +1659,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L36",
       "id": "assets_details_disclosure_headermenu_constructor",
-      "community": 22,
+      "community": 23,
       "norm_label": ".constructor()"
     },
     {
@@ -1605,7 +1668,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L41",
       "id": "assets_details_disclosure_headermenu_ontoggle",
-      "community": 22,
+      "community": 23,
       "norm_label": ".ontoggle()"
     },
     {
@@ -2082,7 +2145,7 @@
       "source_file": "global.js",
       "source_location": "L217",
       "id": "assets_global_quantityinput",
-      "community": 31,
+      "community": 32,
       "norm_label": "quantityinput"
     },
     {
@@ -2091,7 +2154,7 @@
       "source_file": "global.js",
       "source_location": "L218",
       "id": "assets_global_quantityinput_constructor",
-      "community": 31,
+      "community": 32,
       "norm_label": ".constructor()"
     },
     {
@@ -2100,7 +2163,7 @@
       "source_file": "global.js",
       "source_location": "L230",
       "id": "assets_global_quantityinput_connectedcallback",
-      "community": 31,
+      "community": 32,
       "norm_label": ".connectedcallback()"
     },
     {
@@ -2109,7 +2172,7 @@
       "source_file": "global.js",
       "source_location": "L235",
       "id": "assets_global_quantityinput_disconnectedcallback",
-      "community": 31,
+      "community": 32,
       "norm_label": ".disconnectedcallback()"
     },
     {
@@ -2118,7 +2181,7 @@
       "source_file": "global.js",
       "source_location": "L241",
       "id": "assets_global_quantityinput_oninputchange",
-      "community": 31,
+      "community": 32,
       "norm_label": ".oninputchange()"
     },
     {
@@ -2127,7 +2190,7 @@
       "source_file": "global.js",
       "source_location": "L245",
       "id": "assets_global_quantityinput_onbuttonclick",
-      "community": 31,
+      "community": 32,
       "norm_label": ".onbuttonclick()"
     },
     {
@@ -2136,7 +2199,7 @@
       "source_file": "global.js",
       "source_location": "L266",
       "id": "assets_global_quantityinput_validateqtyrules",
-      "community": 31,
+      "community": 32,
       "norm_label": ".validateqtyrules()"
     },
     {
@@ -2163,7 +2226,7 @@
       "source_file": "global.js",
       "source_location": "L303",
       "id": "assets_global_fetchconfig",
-      "community": 6,
+      "community": 8,
       "norm_label": "fetchconfig()"
     },
     {
@@ -2424,7 +2487,7 @@
       "source_file": "global.js",
       "source_location": "L728",
       "id": "assets_global_slidercomponent",
-      "community": 7,
+      "community": 6,
       "norm_label": "slidercomponent"
     },
     {
@@ -2433,7 +2496,7 @@
       "source_file": "global.js",
       "source_location": "L729",
       "id": "assets_global_slidercomponent_constructor",
-      "community": 7,
+      "community": 6,
       "norm_label": ".constructor()"
     },
     {
@@ -2442,7 +2505,7 @@
       "source_file": "global.js",
       "source_location": "L750",
       "id": "assets_global_slidercomponent_initpages",
-      "community": 7,
+      "community": 6,
       "norm_label": ".initpages()"
     },
     {
@@ -2451,7 +2514,7 @@
       "source_file": "global.js",
       "source_location": "L761",
       "id": "assets_global_slidercomponent_resetpages",
-      "community": 7,
+      "community": 6,
       "norm_label": ".resetpages()"
     },
     {
@@ -2460,7 +2523,7 @@
       "source_file": "global.js",
       "source_location": "L766",
       "id": "assets_global_slidercomponent_update",
-      "community": 7,
+      "community": 6,
       "norm_label": ".update()"
     },
     {
@@ -2469,7 +2532,7 @@
       "source_file": "global.js",
       "source_location": "L805",
       "id": "assets_global_slidercomponent_isslidevisible",
-      "community": 7,
+      "community": 6,
       "norm_label": ".isslidevisible()"
     },
     {
@@ -2478,7 +2541,7 @@
       "source_file": "global.js",
       "source_location": "L810",
       "id": "assets_global_slidercomponent_onbuttonclick",
-      "community": 7,
+      "community": 6,
       "norm_label": ".onbuttonclick()"
     },
     {
@@ -2487,7 +2550,7 @@
       "source_file": "global.js",
       "source_location": "L820",
       "id": "assets_global_slidercomponent_setslideposition",
-      "community": 7,
+      "community": 6,
       "norm_label": ".setslideposition()"
     },
     {
@@ -2496,7 +2559,7 @@
       "source_file": "global.js",
       "source_location": "L829",
       "id": "assets_global_slideshowcomponent",
-      "community": 7,
+      "community": 6,
       "norm_label": "slideshowcomponent"
     },
     {
@@ -2505,7 +2568,7 @@
       "source_file": "global.js",
       "source_location": "L830",
       "id": "assets_global_slideshowcomponent_constructor",
-      "community": 7,
+      "community": 6,
       "norm_label": ".constructor()"
     },
     {
@@ -2514,7 +2577,7 @@
       "source_file": "global.js",
       "source_location": "L871",
       "id": "assets_global_slideshowcomponent_setautoplay",
-      "community": 7,
+      "community": 6,
       "norm_label": ".setautoplay()"
     },
     {
@@ -2523,7 +2586,7 @@
       "source_file": "global.js",
       "source_location": "L888",
       "id": "assets_global_slideshowcomponent_onbuttonclick",
-      "community": 7,
+      "community": 6,
       "norm_label": ".onbuttonclick()"
     },
     {
@@ -2532,7 +2595,7 @@
       "source_file": "global.js",
       "source_location": "L912",
       "id": "assets_global_slideshowcomponent_setslideposition",
-      "community": 7,
+      "community": 6,
       "norm_label": ".setslideposition()"
     },
     {
@@ -2541,7 +2604,7 @@
       "source_file": "global.js",
       "source_location": "L921",
       "id": "assets_global_slideshowcomponent_update",
-      "community": 7,
+      "community": 6,
       "norm_label": ".update()"
     },
     {
@@ -2550,7 +2613,7 @@
       "source_file": "global.js",
       "source_location": "L936",
       "id": "assets_global_slideshowcomponent_autoplaytoggle",
-      "community": 7,
+      "community": 6,
       "norm_label": ".autoplaytoggle()"
     },
     {
@@ -2559,7 +2622,7 @@
       "source_file": "global.js",
       "source_location": "L942",
       "id": "assets_global_slideshowcomponent_focusouthandling",
-      "community": 7,
+      "community": 6,
       "norm_label": ".focusouthandling()"
     },
     {
@@ -2568,7 +2631,7 @@
       "source_file": "global.js",
       "source_location": "L953",
       "id": "assets_global_slideshowcomponent_focusinhandling",
-      "community": 7,
+      "community": 6,
       "norm_label": ".focusinhandling()"
     },
     {
@@ -2577,7 +2640,7 @@
       "source_file": "global.js",
       "source_location": "L967",
       "id": "assets_global_slideshowcomponent_play",
-      "community": 7,
+      "community": 6,
       "norm_label": ".play()"
     },
     {
@@ -2586,7 +2649,7 @@
       "source_file": "global.js",
       "source_location": "L973",
       "id": "assets_global_slideshowcomponent_pause",
-      "community": 7,
+      "community": 6,
       "norm_label": ".pause()"
     },
     {
@@ -2595,7 +2658,7 @@
       "source_file": "global.js",
       "source_location": "L978",
       "id": "assets_global_slideshowcomponent_toggleplaybuttonstate",
-      "community": 7,
+      "community": 6,
       "norm_label": ".toggleplaybuttonstate()"
     },
     {
@@ -2604,7 +2667,7 @@
       "source_file": "global.js",
       "source_location": "L988",
       "id": "assets_global_slideshowcomponent_autorotateslides",
-      "community": 7,
+      "community": 6,
       "norm_label": ".autorotateslides()"
     },
     {
@@ -2613,7 +2676,7 @@
       "source_file": "global.js",
       "source_location": "L996",
       "id": "assets_global_slideshowcomponent_setslidevisibility",
-      "community": 7,
+      "community": 6,
       "norm_label": ".setslidevisibility()"
     },
     {
@@ -2622,7 +2685,7 @@
       "source_file": "global.js",
       "source_location": "L1018",
       "id": "assets_global_slideshowcomponent_applyanimationtoannouncementbar",
-      "community": 7,
+      "community": 6,
       "norm_label": ".applyanimationtoannouncementbar()"
     },
     {
@@ -2631,7 +2694,7 @@
       "source_file": "global.js",
       "source_location": "L1049",
       "id": "assets_global_slideshowcomponent_linktoslide",
-      "community": 7,
+      "community": 6,
       "norm_label": ".linktoslide()"
     },
     {
@@ -2910,7 +2973,7 @@
       "source_file": "localization-form.js",
       "source_location": "L1",
       "id": "localization_form_js",
-      "community": 11,
+      "community": 12,
       "norm_label": "localization-form.js"
     },
     {
@@ -2919,7 +2982,7 @@
       "source_file": "localization-form.js",
       "source_location": "L5",
       "id": "assets_localization_form_constructor",
-      "community": 11,
+      "community": 12,
       "norm_label": "constructor()"
     },
     {
@@ -2928,7 +2991,7 @@
       "source_file": "localization-form.js",
       "source_location": "L41",
       "id": "assets_localization_form_hidepanel",
-      "community": 11,
+      "community": 12,
       "norm_label": "hidepanel()"
     },
     {
@@ -2937,7 +3000,7 @@
       "source_file": "localization-form.js",
       "source_location": "L54",
       "id": "assets_localization_form_oncontainerkeydown",
-      "community": 11,
+      "community": 12,
       "norm_label": "oncontainerkeydown()"
     },
     {
@@ -2946,7 +3009,7 @@
       "source_file": "localization-form.js",
       "source_location": "L88",
       "id": "assets_localization_form_oncontainerkeyup",
-      "community": 11,
+      "community": 12,
       "norm_label": "oncontainerkeyup()"
     },
     {
@@ -2955,7 +3018,7 @@
       "source_file": "localization-form.js",
       "source_location": "L105",
       "id": "assets_localization_form_onitemclick",
-      "community": 11,
+      "community": 12,
       "norm_label": "onitemclick()"
     },
     {
@@ -2964,7 +3027,7 @@
       "source_file": "localization-form.js",
       "source_location": "L112",
       "id": "assets_localization_form_openselector",
-      "community": 11,
+      "community": 12,
       "norm_label": "openselector()"
     },
     {
@@ -2973,7 +3036,7 @@
       "source_file": "localization-form.js",
       "source_location": "L131",
       "id": "assets_localization_form_closeselector",
-      "community": 11,
+      "community": 12,
       "norm_label": "closeselector()"
     },
     {
@@ -2982,7 +3045,7 @@
       "source_file": "localization-form.js",
       "source_location": "L141",
       "id": "assets_localization_form_normalizestring",
-      "community": 11,
+      "community": 12,
       "norm_label": "normalizestring()"
     },
     {
@@ -2991,7 +3054,7 @@
       "source_file": "localization-form.js",
       "source_location": "L148",
       "id": "assets_localization_form_filtercountries",
-      "community": 11,
+      "community": 12,
       "norm_label": "filtercountries()"
     },
     {
@@ -3000,7 +3063,7 @@
       "source_file": "localization-form.js",
       "source_location": "L182",
       "id": "assets_localization_form_resetfilter",
-      "community": 11,
+      "community": 12,
       "norm_label": "resetfilter()"
     },
     {
@@ -3009,7 +3072,7 @@
       "source_file": "localization-form.js",
       "source_location": "L189",
       "id": "assets_localization_form_onsearchfocus",
-      "community": 11,
+      "community": 12,
       "norm_label": "onsearchfocus()"
     },
     {
@@ -3018,7 +3081,7 @@
       "source_file": "localization-form.js",
       "source_location": "L193",
       "id": "assets_localization_form_onsearchblur",
-      "community": 11,
+      "community": 12,
       "norm_label": "onsearchblur()"
     },
     {
@@ -3027,7 +3090,7 @@
       "source_file": "localization-form.js",
       "source_location": "L199",
       "id": "assets_localization_form_onsearchkeydown",
-      "community": 11,
+      "community": 12,
       "norm_label": "onsearchkeydown()"
     },
     {
@@ -3036,7 +3099,7 @@
       "source_file": "magnify.js",
       "source_location": "L1",
       "id": "magnify_js",
-      "community": 32,
+      "community": 33,
       "norm_label": "magnify.js"
     },
     {
@@ -3045,7 +3108,7 @@
       "source_file": "magnify.js",
       "source_location": "L2",
       "id": "assets_magnify_createoverlay",
-      "community": 32,
+      "community": 33,
       "norm_label": "createoverlay()"
     },
     {
@@ -3054,7 +3117,7 @@
       "source_file": "magnify.js",
       "source_location": "L20",
       "id": "assets_magnify_prepareoverlay",
-      "community": 32,
+      "community": 33,
       "norm_label": "prepareoverlay()"
     },
     {
@@ -3063,7 +3126,7 @@
       "source_file": "magnify.js",
       "source_location": "L27",
       "id": "assets_magnify_toggleloadingspinner",
-      "community": 32,
+      "community": 33,
       "norm_label": "toggleloadingspinner()"
     },
     {
@@ -3072,7 +3135,7 @@
       "source_file": "magnify.js",
       "source_location": "L32",
       "id": "assets_magnify_movewithhover",
-      "community": 32,
+      "community": 33,
       "norm_label": "movewithhover()"
     },
     {
@@ -3081,7 +3144,7 @@
       "source_file": "magnify.js",
       "source_location": "L46",
       "id": "assets_magnify_magnify",
-      "community": 32,
+      "community": 33,
       "norm_label": "magnify()"
     },
     {
@@ -3090,7 +3153,7 @@
       "source_file": "magnify.js",
       "source_location": "L53",
       "id": "assets_magnify_enablezoomonhover",
-      "community": 32,
+      "community": 33,
       "norm_label": "enablezoomonhover()"
     },
     {
@@ -3099,7 +3162,7 @@
       "source_file": "main-search.js",
       "source_location": "L1",
       "id": "main_search_js",
-      "community": 26,
+      "community": 27,
       "norm_label": "main-search.js"
     },
     {
@@ -3108,7 +3171,7 @@
       "source_file": "main-search.js",
       "source_location": "L1",
       "id": "assets_main_search_mainsearch",
-      "community": 26,
+      "community": 27,
       "norm_label": "mainsearch"
     },
     {
@@ -3117,7 +3180,7 @@
       "source_file": "main-search.js",
       "source_location": "L2",
       "id": "assets_main_search_mainsearch_constructor",
-      "community": 26,
+      "community": 27,
       "norm_label": ".constructor()"
     },
     {
@@ -3126,7 +3189,7 @@
       "source_file": "main-search.js",
       "source_location": "L8",
       "id": "assets_main_search_mainsearch_setupeventlisteners",
-      "community": 26,
+      "community": 27,
       "norm_label": ".setupeventlisteners()"
     },
     {
@@ -3135,7 +3198,7 @@
       "source_file": "main-search.js",
       "source_location": "L17",
       "id": "assets_main_search_mainsearch_onformreset",
-      "community": 26,
+      "community": 27,
       "norm_label": ".onformreset()"
     },
     {
@@ -3144,7 +3207,7 @@
       "source_file": "main-search.js",
       "source_location": "L24",
       "id": "assets_main_search_mainsearch_oninput",
-      "community": 26,
+      "community": 27,
       "norm_label": ".oninput()"
     },
     {
@@ -3153,7 +3216,7 @@
       "source_file": "main-search.js",
       "source_location": "L29",
       "id": "assets_main_search_mainsearch_oninputfocus",
-      "community": 26,
+      "community": 27,
       "norm_label": ".oninputfocus()"
     },
     {
@@ -3162,7 +3225,7 @@
       "source_file": "main-search.js",
       "source_location": "L36",
       "id": "assets_main_search_mainsearch_keepinsync",
-      "community": 26,
+      "community": 27,
       "norm_label": ".keepinsync()"
     },
     {
@@ -3360,7 +3423,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L1",
       "id": "predictive_search_js",
-      "community": 8,
+      "community": 7,
       "norm_label": "predictive-search.js"
     },
     {
@@ -3369,7 +3432,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L1",
       "id": "assets_predictive_search_predictivesearch",
-      "community": 8,
+      "community": 7,
       "norm_label": "predictivesearch"
     },
     {
@@ -3378,7 +3441,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L2",
       "id": "assets_predictive_search_predictivesearch_constructor",
-      "community": 8,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -3387,7 +3450,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L14",
       "id": "assets_predictive_search_predictivesearch_setupeventlisteners",
-      "community": 8,
+      "community": 7,
       "norm_label": ".setupeventlisteners()"
     },
     {
@@ -3396,7 +3459,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L23",
       "id": "assets_predictive_search_predictivesearch_getquery",
-      "community": 8,
+      "community": 7,
       "norm_label": ".getquery()"
     },
     {
@@ -3405,7 +3468,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L27",
       "id": "assets_predictive_search_predictivesearch_onchange",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onchange()"
     },
     {
@@ -3414,7 +3477,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L49",
       "id": "assets_predictive_search_predictivesearch_onformsubmit",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onformsubmit()"
     },
     {
@@ -3423,7 +3486,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L53",
       "id": "assets_predictive_search_predictivesearch_onformreset",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onformreset()"
     },
     {
@@ -3432,7 +3495,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L63",
       "id": "assets_predictive_search_predictivesearch_onfocus",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onfocus()"
     },
     {
@@ -3441,7 +3504,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L78",
       "id": "assets_predictive_search_predictivesearch_onfocusout",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onfocusout()"
     },
     {
@@ -3450,7 +3513,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L84",
       "id": "assets_predictive_search_predictivesearch_onkeyup",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onkeyup()"
     },
     {
@@ -3459,7 +3522,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L101",
       "id": "assets_predictive_search_predictivesearch_onkeydown",
-      "community": 8,
+      "community": 7,
       "norm_label": ".onkeydown()"
     },
     {
@@ -3468,7 +3531,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L108",
       "id": "assets_predictive_search_predictivesearch_updatesearchforterm",
-      "community": 8,
+      "community": 7,
       "norm_label": ".updatesearchforterm()"
     },
     {
@@ -3477,7 +3540,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L121",
       "id": "assets_predictive_search_predictivesearch_switchoption",
-      "community": 8,
+      "community": 7,
       "norm_label": ".switchoption()"
     },
     {
@@ -3486,7 +3549,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L164",
       "id": "assets_predictive_search_predictivesearch_selectoption",
-      "community": 8,
+      "community": 7,
       "norm_label": ".selectoption()"
     },
     {
@@ -3495,7 +3558,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L170",
       "id": "assets_predictive_search_predictivesearch_getsearchresults",
-      "community": 8,
+      "community": 7,
       "norm_label": ".getsearchresults()"
     },
     {
@@ -3504,7 +3567,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L211",
       "id": "assets_predictive_search_predictivesearch_setliveregionloadingstate",
-      "community": 8,
+      "community": 7,
       "norm_label": ".setliveregionloadingstate()"
     },
     {
@@ -3513,7 +3576,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L219",
       "id": "assets_predictive_search_predictivesearch_setliveregiontext",
-      "community": 8,
+      "community": 7,
       "norm_label": ".setliveregiontext()"
     },
     {
@@ -3522,7 +3585,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L228",
       "id": "assets_predictive_search_predictivesearch_rendersearchresults",
-      "community": 8,
+      "community": 7,
       "norm_label": ".rendersearchresults()"
     },
     {
@@ -3531,7 +3594,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L236",
       "id": "assets_predictive_search_predictivesearch_setliveregionresults",
-      "community": 8,
+      "community": 7,
       "norm_label": ".setliveregionresults()"
     },
     {
@@ -3540,7 +3603,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L241",
       "id": "assets_predictive_search_predictivesearch_getresultsmaxheight",
-      "community": 8,
+      "community": 7,
       "norm_label": ".getresultsmaxheight()"
     },
     {
@@ -3549,7 +3612,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L247",
       "id": "assets_predictive_search_predictivesearch_open",
-      "community": 8,
+      "community": 7,
       "norm_label": ".open()"
     },
     {
@@ -3558,7 +3621,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L254",
       "id": "assets_predictive_search_predictivesearch_close",
-      "community": 8,
+      "community": 7,
       "norm_label": ".close()"
     },
     {
@@ -3567,7 +3630,7 @@
       "source_file": "predictive-search.js",
       "source_location": "L259",
       "id": "assets_predictive_search_predictivesearch_closeresults",
-      "community": 8,
+      "community": 7,
       "norm_label": ".closeresults()"
     },
     {
@@ -3576,7 +3639,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L1",
       "id": "price_per_item_js",
-      "community": 27,
+      "community": 28,
       "norm_label": "price-per-item.js"
     },
     {
@@ -3585,7 +3648,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L5",
       "id": "assets_price_per_item_constructor",
-      "community": 27,
+      "community": 28,
       "norm_label": "constructor()"
     },
     {
@@ -3594,7 +3657,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L19",
       "id": "assets_price_per_item_connectedcallback",
-      "community": 27,
+      "community": 28,
       "norm_label": "connectedcallback()"
     },
     {
@@ -3603,7 +3666,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L49",
       "id": "assets_price_per_item_disconnectedcallback",
-      "community": 27,
+      "community": 28,
       "norm_label": "disconnectedcallback()"
     },
     {
@@ -3612,7 +3675,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L58",
       "id": "assets_price_per_item_oninputchange",
-      "community": 27,
+      "community": 28,
       "norm_label": "oninputchange()"
     },
     {
@@ -3621,7 +3684,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L62",
       "id": "assets_price_per_item_updatepriceperitem",
-      "community": 27,
+      "community": 28,
       "norm_label": "updatepriceperitem()"
     },
     {
@@ -3630,7 +3693,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L84",
       "id": "assets_price_per_item_getcartquantity",
-      "community": 27,
+      "community": 28,
       "norm_label": "getcartquantity()"
     },
     {
@@ -3639,7 +3702,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L88",
       "id": "assets_price_per_item_getvolumepricingarray",
-      "community": 27,
+      "community": 28,
       "norm_label": "getvolumepricingarray()"
     },
     {
@@ -3648,7 +3711,7 @@
       "source_file": "product-form.js",
       "source_location": "L1",
       "id": "product_form_js",
-      "community": 6,
+      "community": 8,
       "norm_label": "product-form.js"
     },
     {
@@ -3657,7 +3720,7 @@
       "source_file": "product-form.js",
       "source_location": "L5",
       "id": "assets_product_form_constructor",
-      "community": 6,
+      "community": 8,
       "norm_label": "constructor()"
     },
     {
@@ -3666,7 +3729,7 @@
       "source_file": "product-form.js",
       "source_location": "L20",
       "id": "assets_product_form_onsubmithandler",
-      "community": 6,
+      "community": 8,
       "norm_label": "onsubmithandler()"
     },
     {
@@ -3675,7 +3738,7 @@
       "source_file": "product-form.js",
       "source_location": "L112",
       "id": "assets_product_form_handleerrormessage",
-      "community": 6,
+      "community": 8,
       "norm_label": "handleerrormessage()"
     },
     {
@@ -3684,7 +3747,7 @@
       "source_file": "product-form.js",
       "source_location": "L127",
       "id": "assets_product_form_togglesubmitbutton",
-      "community": 6,
+      "community": 8,
       "norm_label": "togglesubmitbutton()"
     },
     {
@@ -3693,7 +3756,7 @@
       "source_file": "product-form.js",
       "source_location": "L137",
       "id": "assets_product_form_variantidinput",
-      "community": 6,
+      "community": 8,
       "norm_label": "variantidinput()"
     },
     {
@@ -3963,7 +4026,7 @@
       "source_file": "product-modal.js",
       "source_location": "L1",
       "id": "product_modal_js",
-      "community": 34,
+      "community": 35,
       "norm_label": "product-modal.js"
     },
     {
@@ -3972,7 +4035,7 @@
       "source_file": "product-modal.js",
       "source_location": "L5",
       "id": "assets_product_modal_constructor",
-      "community": 34,
+      "community": 35,
       "norm_label": "constructor()"
     },
     {
@@ -3981,7 +4044,7 @@
       "source_file": "product-modal.js",
       "source_location": "L9",
       "id": "assets_product_modal_hide",
-      "community": 34,
+      "community": 35,
       "norm_label": "hide()"
     },
     {
@@ -3990,7 +4053,7 @@
       "source_file": "product-modal.js",
       "source_location": "L13",
       "id": "assets_product_modal_show",
-      "community": 34,
+      "community": 35,
       "norm_label": "show()"
     },
     {
@@ -3999,7 +4062,7 @@
       "source_file": "product-modal.js",
       "source_location": "L18",
       "id": "assets_product_modal_showactivemedia",
-      "community": 34,
+      "community": 35,
       "norm_label": "showactivemedia()"
     },
     {
@@ -4008,7 +4071,7 @@
       "source_file": "product-model.js",
       "source_location": "L1",
       "id": "product_model_js",
-      "community": 33,
+      "community": 34,
       "norm_label": "product-model.js"
     },
     {
@@ -4017,7 +4080,7 @@
       "source_file": "product-model.js",
       "source_location": "L5",
       "id": "assets_product_model_constructor",
-      "community": 33,
+      "community": 34,
       "norm_label": "constructor()"
     },
     {
@@ -4026,7 +4089,7 @@
       "source_file": "product-model.js",
       "source_location": "L9",
       "id": "assets_product_model_loadcontent",
-      "community": 33,
+      "community": 34,
       "norm_label": "loadcontent()"
     },
     {
@@ -4035,7 +4098,7 @@
       "source_file": "product-model.js",
       "source_location": "L21",
       "id": "assets_product_model_setupmodelviewerui",
-      "community": 33,
+      "community": 34,
       "norm_label": "setupmodelviewerui()"
     },
     {
@@ -4044,7 +4107,7 @@
       "source_file": "product-model.js",
       "source_location": "L31",
       "id": "assets_product_model_loadshopifyxr",
-      "community": 33,
+      "community": 34,
       "norm_label": "loadshopifyxr()"
     },
     {
@@ -4053,7 +4116,7 @@
       "source_file": "product-model.js",
       "source_location": "L41",
       "id": "assets_product_model_setupshopifyxr",
-      "community": 33,
+      "community": 34,
       "norm_label": "setupshopifyxr()"
     },
     {
@@ -4089,7 +4152,7 @@
       "source_file": "quantity-popover.js",
       "source_location": "L1",
       "id": "quantity_popover_js",
-      "community": 37,
+      "community": 38,
       "norm_label": "quantity-popover.js"
     },
     {
@@ -4098,7 +4161,7 @@
       "source_file": "quantity-popover.js",
       "source_location": "L5",
       "id": "assets_quantity_popover_constructor",
-      "community": 37,
+      "community": 38,
       "norm_label": "constructor()"
     },
     {
@@ -4107,7 +4170,7 @@
       "source_file": "quantity-popover.js",
       "source_location": "L38",
       "id": "assets_quantity_popover_togglepopover",
-      "community": 37,
+      "community": 38,
       "norm_label": "togglepopover()"
     },
     {
@@ -4116,7 +4179,7 @@
       "source_file": "quantity-popover.js",
       "source_location": "L71",
       "id": "assets_quantity_popover_closepopover",
-      "community": 37,
+      "community": 38,
       "norm_label": "closepopover()"
     },
     {
@@ -4125,7 +4188,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L1",
       "id": "quick_add_bulk_js",
-      "community": 12,
+      "community": 11,
       "norm_label": "quick-add-bulk.js"
     },
     {
@@ -4134,7 +4197,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L5",
       "id": "assets_quick_add_bulk_constructor",
-      "community": 12,
+      "community": 11,
       "norm_label": "constructor()"
     },
     {
@@ -4152,7 +4215,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L40",
       "id": "assets_quick_add_bulk_disconnectedcallback",
-      "community": 12,
+      "community": 11,
       "norm_label": "disconnectedcallback()"
     },
     {
@@ -4161,7 +4224,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L46",
       "id": "assets_quick_add_bulk_input",
-      "community": 12,
+      "community": 11,
       "norm_label": "input()"
     },
     {
@@ -4170,7 +4233,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L50",
       "id": "assets_quick_add_bulk_selectprogressbar",
-      "community": 12,
+      "community": 11,
       "norm_label": "selectprogressbar()"
     },
     {
@@ -4179,7 +4242,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L54",
       "id": "assets_quick_add_bulk_listenforactiveinput",
-      "community": 12,
+      "community": 11,
       "norm_label": "listenforactiveinput()"
     },
     {
@@ -4188,7 +4251,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L61",
       "id": "assets_quick_add_bulk_listenforkeydown",
-      "community": 12,
+      "community": 11,
       "norm_label": "listenforkeydown()"
     },
     {
@@ -4197,7 +4260,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L70",
       "id": "assets_quick_add_bulk_cleanerrormessageontype",
-      "community": 12,
+      "community": 11,
       "norm_label": "cleanerrormessageontype()"
     },
     {
@@ -4206,7 +4269,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L80",
       "id": "assets_quick_add_bulk_sectionid",
-      "community": 12,
+      "community": 11,
       "norm_label": "sectionid()"
     },
     {
@@ -4215,7 +4278,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L88",
       "id": "assets_quick_add_bulk_oncartupdate",
-      "community": 12,
+      "community": 11,
       "norm_label": "oncartupdate()"
     },
     {
@@ -4224,7 +4287,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L107",
       "id": "assets_quick_add_bulk_getsectionsurl",
-      "community": 12,
+      "community": 11,
       "norm_label": "getsectionsurl()"
     },
     {
@@ -4233,7 +4296,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L114",
       "id": "assets_quick_add_bulk_updatemultipleqty",
-      "community": 12,
+      "community": 11,
       "norm_label": "updatemultipleqty()"
     },
     {
@@ -4242,7 +4305,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L148",
       "id": "assets_quick_add_bulk_getsectionstorender",
-      "community": 12,
+      "community": 11,
       "norm_label": "getsectionstorender()"
     },
     {
@@ -4251,7 +4314,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L168",
       "id": "assets_quick_add_bulk_rendersections",
-      "community": 12,
+      "community": 11,
       "norm_label": "rendersections()"
     },
     {
@@ -4809,7 +4872,7 @@
       "source_file": "share.js",
       "source_location": "L1",
       "id": "share_js",
-      "community": 35,
+      "community": 36,
       "norm_label": "share.js"
     },
     {
@@ -4818,7 +4881,7 @@
       "source_file": "share.js",
       "source_location": "L5",
       "id": "assets_share_constructor",
-      "community": 35,
+      "community": 36,
       "norm_label": "constructor()"
     },
     {
@@ -4827,7 +4890,7 @@
       "source_file": "share.js",
       "source_location": "L32",
       "id": "assets_share_toggledetails",
-      "community": 35,
+      "community": 36,
       "norm_label": "toggledetails()"
     },
     {
@@ -4836,7 +4899,7 @@
       "source_file": "share.js",
       "source_location": "L41",
       "id": "assets_share_copytoclipboard",
-      "community": 35,
+      "community": 36,
       "norm_label": "copytoclipboard()"
     },
     {
@@ -4845,7 +4908,7 @@
       "source_file": "share.js",
       "source_location": "L50",
       "id": "assets_share_updateurl",
-      "community": 35,
+      "community": 36,
       "norm_label": "updateurl()"
     },
     {
@@ -4854,7 +4917,7 @@
       "source_file": "show-more.js",
       "source_location": "L1",
       "id": "show_more_js",
-      "community": 42,
+      "community": 43,
       "norm_label": "show-more.js"
     },
     {
@@ -4863,7 +4926,7 @@
       "source_file": "show-more.js",
       "source_location": "L5",
       "id": "assets_show_more_constructor",
-      "community": 42,
+      "community": 43,
       "norm_label": "constructor()"
     },
     {
@@ -4872,7 +4935,7 @@
       "source_file": "show-more.js",
       "source_location": "L16",
       "id": "assets_show_more_expandshowmore",
-      "community": 42,
+      "community": 43,
       "norm_label": "expandshowmore()"
     },
     {
@@ -4881,7 +4944,7 @@
       "source_file": "theme-editor.js",
       "source_location": "L1",
       "id": "theme_editor_js",
-      "community": 46,
+      "community": 47,
       "norm_label": "theme-editor.js"
     },
     {
@@ -4890,7 +4953,7 @@
       "source_file": "theme-editor.js",
       "source_location": "L1",
       "id": "assets_theme_editor_hideproductmodal",
-      "community": 46,
+      "community": 47,
       "norm_label": "hideproductmodal()"
     },
     {
@@ -4898,7 +4961,7 @@
       "file_type": "code",
       "source_file": "bloomli-before-after.js",
       "source_location": "L5",
-      "community": 28,
+      "community": 29,
       "norm_label": "clamp()",
       "id": "assets_bloomli_before_after_clamp"
     },
@@ -4907,7 +4970,7 @@
       "file_type": "code",
       "source_file": "bloomli-before-after.js",
       "source_location": "L7",
-      "community": 28,
+      "community": 29,
       "norm_label": "update()",
       "id": "assets_bloomli_before_after_update"
     },
@@ -4916,7 +4979,7 @@
       "file_type": "code",
       "source_file": "bloomli-before-after.js",
       "source_location": "L11",
-      "community": 28,
+      "community": 29,
       "norm_label": "updatefrompointer()",
       "id": "assets_bloomli_before_after_updatefrompointer"
     },
@@ -5176,7 +5239,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "email signup banner background (mobile)",
       "id": "email_signup_banner_background_mobile_bg"
     },
@@ -5189,7 +5252,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "email signup banner background (desktop)",
       "id": "email_signup_banner_background_bg"
     },
@@ -5202,7 +5265,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 29,
+      "community": 30,
       "norm_label": "icon: 3d model",
       "id": "icon_3d_model_icon"
     },
@@ -5215,7 +5278,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 38,
+      "community": 39,
       "norm_label": "icon: account (user profile)",
       "id": "icon_account_icon"
     },
@@ -5228,7 +5291,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 29,
+      "community": 30,
       "norm_label": "icon: apple (fruit)",
       "id": "icon_apple_icon"
     },
@@ -5241,7 +5304,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "icon: arrow (right-pointing)",
       "id": "icon_arrow_icon"
     },
@@ -5254,7 +5317,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 29,
+      "community": 30,
       "norm_label": "icon: banana (fruit)",
       "id": "icon_banana_icon"
     },
@@ -5267,7 +5330,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 29,
+      "community": 30,
       "norm_label": "icon: bottle (supplement container)",
       "id": "icon_bottle_icon"
     },
@@ -5280,7 +5343,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 29,
+      "community": 30,
       "norm_label": "icon: box (3d package)",
       "id": "icon_box_icon"
     },
@@ -5293,7 +5356,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "icon: caret (dropdown chevron)",
       "id": "icon_caret_icon"
     },
@@ -5306,7 +5369,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 29,
+      "community": 30,
       "norm_label": "icon: carrot (vegetable)",
       "id": "icon_carrot_icon"
     },
@@ -5319,7 +5382,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 38,
+      "community": 39,
       "norm_label": "icon: cart empty",
       "id": "icon_cart_empty_icon"
     },
@@ -5332,7 +5395,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 38,
+      "community": 39,
       "norm_label": "icon: cart (shopping bag)",
       "id": "icon_cart_icon"
     },
@@ -5345,7 +5408,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 38,
+      "community": 39,
       "norm_label": "icon: chat bubble (message/support)",
       "id": "icon_chat_bubble_icon"
     },
@@ -5358,7 +5421,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "icon: check mark (checkbox with border)",
       "id": "icon_check_mark_icon"
     },
@@ -5371,7 +5434,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "icon: checkmark (simple tick)",
       "id": "icon_checkmark_icon"
     },
@@ -5384,7 +5447,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "icon: clipboard (notes/list)",
       "id": "icon_clipboard_icon"
     },
@@ -5397,7 +5460,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "icon: close small (x dismiss)",
       "id": "icon_close_small_icon"
     },
@@ -5410,7 +5473,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "icon: close (x dismiss large)",
       "id": "icon_close_icon"
     },
@@ -5423,7 +5486,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "icon: copy (duplicate document)",
       "id": "icon_copy_icon"
     },
@@ -5436,7 +5499,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 29,
+      "community": 30,
       "norm_label": "icon: dairy free (badge/dietary label)",
       "id": "icon_dairy_free_icon"
     },
@@ -5449,7 +5512,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 29,
+      "community": 30,
       "norm_label": "icon: dairy (milk jug/bottle badge)",
       "id": "icon_dairy_icon"
     },
@@ -5475,7 +5538,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 39,
+      "community": 42,
       "norm_label": "dryer / laundry care icon",
       "id": "icon-dryer_dryer"
     },
@@ -5488,7 +5551,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 40,
+      "community": 41,
       "norm_label": "error / alert status icon",
       "id": "icon-error_error"
     },
@@ -5514,7 +5577,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 24,
       "norm_label": "facebook social media icon",
       "id": "icon-facebook_facebook"
     },
@@ -5527,7 +5590,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 41,
+      "community": 40,
       "norm_label": "filter / sort controls icon",
       "id": "icon-filter_filter"
     },
@@ -5566,7 +5629,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 41,
+      "community": 40,
       "norm_label": "hamburger / navigation menu icon",
       "id": "icon-hamburger_hamburger"
     },
@@ -5592,7 +5655,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 40,
+      "community": 41,
       "norm_label": "info / tooltip icon",
       "id": "icon-info_info"
     },
@@ -5605,7 +5668,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 24,
       "norm_label": "instagram social media icon",
       "id": "icon-instagram_instagram"
     },
@@ -5618,7 +5681,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 40,
+      "community": 41,
       "norm_label": "inventory / stock status indicator icon",
       "id": "icon-inventory-status_inventory_status"
     },
@@ -5631,7 +5694,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 39,
+      "community": 42,
       "norm_label": "iron / laundry care icon",
       "id": "icon-iron_iron"
     },
@@ -5657,7 +5720,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 39,
+      "community": 42,
       "norm_label": "leather / material care icon",
       "id": "icon-leather_leather"
     },
@@ -5709,7 +5772,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 41,
+      "community": 40,
       "norm_label": "map pin / location icon",
       "id": "icon-map-pin_map_pin"
     },
@@ -5761,7 +5824,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 24,
       "norm_label": "social media share icons",
       "id": "category_social_media_icons"
     },
@@ -5774,7 +5837,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 40,
+      "community": 41,
       "norm_label": "ui status / feedback icons",
       "id": "category_ui_status_icons"
     },
@@ -5787,7 +5850,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 41,
+      "community": 40,
       "norm_label": "ui navigation icons",
       "id": "category_navigation_icons"
     },
@@ -5813,7 +5876,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 39,
+      "community": 42,
       "norm_label": "laundry / material care icons",
       "id": "category_laundry_care_icons"
     },
@@ -5852,7 +5915,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "pants icon",
       "id": "icon-pants_apparel"
     },
@@ -5865,7 +5928,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 54,
       "norm_label": "pause icon",
       "id": "icon-pause_media"
     },
@@ -5917,7 +5980,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 54,
+      "community": 55,
       "norm_label": "pinterest icon",
       "id": "icon-pinterest_social"
     },
@@ -5956,7 +6019,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 54,
       "norm_label": "play button icon",
       "id": "icon-play_media"
     },
@@ -5969,7 +6032,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 43,
+      "community": 44,
       "norm_label": "plus / add icon",
       "id": "icon-plus_ui"
     },
@@ -6021,7 +6084,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 43,
+      "community": 44,
       "norm_label": "remove / trash icon",
       "id": "icon-remove_ui"
     },
@@ -6034,7 +6097,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 43,
+      "community": 44,
       "norm_label": "reset / close icon",
       "id": "icon-reset_ui"
     },
@@ -6060,7 +6123,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "ruler / measurement icon",
       "id": "icon-ruler_sizing"
     },
@@ -6099,7 +6162,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 54,
+      "community": 55,
       "norm_label": "share icon",
       "id": "icon-share_social"
     },
@@ -6112,7 +6175,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "shirt / t-shirt icon",
       "id": "icon-shirt_apparel"
     },
@@ -6164,7 +6227,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 24,
       "norm_label": "snapchat social media icon",
       "id": "icon_snapchat"
     },
@@ -6177,7 +6240,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "snowflake / cold storage icon",
       "id": "icon_snowflake"
     },
@@ -6242,7 +6305,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 24,
       "norm_label": "tiktok social media icon",
       "id": "icon_tiktok"
     },
@@ -6268,7 +6331,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 24,
       "norm_label": "tumblr social media icon",
       "id": "icon_tumblr"
     },
@@ -6281,7 +6344,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 24,
       "norm_label": "twitter / x social media icon",
       "id": "icon_twitter"
     },
@@ -6307,7 +6370,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 24,
       "norm_label": "vimeo social media icon",
       "id": "icon_vimeo"
     },
@@ -6320,7 +6383,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "washing / care instructions icon",
       "id": "icon_washing"
     },
@@ -6333,7 +6396,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 24,
       "norm_label": "youtube social media icon",
       "id": "icon_youtube"
     },
@@ -6437,7 +6500,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "product / care instructions icons group",
       "id": "category_product_care_icons"
     },
@@ -6800,6 +6863,132 @@
       "source_location": "L181",
       "weight": 1.0,
       "source": "assets_bloomli_cart_drawer_updatelinequantity",
+      "target": "assets_global_fetchconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "bloomli_cart_routine_upsell_js",
+      "target": "assets_bloomli_cart_routine_upsell_getrequestedsections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "bloomli_cart_routine_upsell_js",
+      "target": "assets_bloomli_cart_routine_upsell_getsectioninnerhtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "bloomli_cart_routine_upsell_js",
+      "target": "assets_bloomli_cart_routine_upsell_replacecartsections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "bloomli_cart_routine_upsell_js",
+      "target": "assets_bloomli_cart_routine_upsell_showerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "bloomli_cart_routine_upsell_js",
+      "target": "assets_bloomli_cart_routine_upsell_setloading",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "bloomli_cart_routine_upsell_js",
+      "target": "assets_bloomli_cart_routine_upsell_addtocart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "assets_bloomli_cart_routine_upsell_addtocart",
+      "target": "assets_bloomli_cart_routine_upsell_getrequestedsections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "assets_bloomli_cart_routine_upsell_replacecartsections",
+      "target": "assets_bloomli_cart_routine_upsell_getsectioninnerhtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "assets_bloomli_cart_routine_upsell_addtocart",
+      "target": "assets_bloomli_cart_routine_upsell_replacecartsections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "assets_bloomli_cart_routine_upsell_addtocart",
+      "target": "assets_bloomli_cart_routine_upsell_showerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "assets_bloomli_cart_routine_upsell_addtocart",
+      "target": "assets_bloomli_cart_routine_upsell_setloading",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bloomli-cart-routine-upsell.js",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "assets_bloomli_cart_routine_upsell_addtocart",
       "target": "assets_global_fetchconfig"
     },
     {

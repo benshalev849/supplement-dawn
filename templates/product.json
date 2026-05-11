@@ -271,13 +271,14 @@
         "image_side": "right",
         "media_background": "background",
         "image_label": "Editorial - morning ritual - natural light",
+        "image_caption": "",
         "image_scale": 100,
         "image_position": "center center",
         "image_width": 420,
         "image_radius": 10,
-        "heading_line1": "Every milligram,",
-        "heading_line2": "intentional.",
-        "copy": "<p>Most hair supplements are built around a marketing story. <strong>Ours is built around what your hair actually needs.</strong></p><p>Our formula delivers <strong>clinically-studied doses of 14 targeted nutrients.</strong> <br/>The kind that actually move the needle, not the sprinkle-doses added just to earn a spot on the label.<br/></p>",
+        "heading_line1": "Every milligram, intentional.",
+        "heading_line2": "",
+        "copy": "<p>Most supplements are built around a story. Ours is built around your hair.</p>",
         "padding_top": 48,
         "padding_bottom": 88
       }

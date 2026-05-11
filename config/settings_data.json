@@ -142,7 +142,7 @@
     "cart_drawer_checkout_radius": 6,
     "cart_drawer_subscription_discount_pct": "15",
     "cart_drawer_checkout_label": "CHECKOUT",
-    "cart_free_shipping_threshold": 65,
+    "cart_free_shipping_threshold": 70,
     "cart_subscription_frequency_prefix": "Delivers every",
     "cart_line_subscription_upsell_heading": "Subscribe & Save an Extra 15%",
     "cart_line_subscription_upsell_cta_text": "Upgrade & Save Today",
@@ -183,11 +183,6 @@
       },
       "8023178096671368477": {
         "type": "shopify://apps/smart-discounts/blocks/embed/019d1c1c-2c4b-704e-be88-ea7fd20c9afb",
-        "disabled": false,
-        "settings": {}
-      },
-      "12108174171315376258": {
-        "type": "shopify://apps/aov-ai-cart-drawer/blocks/avada-embed/938869e1-3feb-48fa-ab79-27fdfe609836",
         "disabled": false,
         "settings": {}
       }

@@ -2006,5 +2006,91 @@
         "default": 10
       }
     ]
+  },
+  {
+    "name": "Bloomli Cart Upsell",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Routine upsell card"
+      },
+      {
+        "type": "checkbox",
+        "id": "bloomli_routine_upsell_enabled",
+        "label": "Enable cart routine upsell",
+        "default": false,
+        "info": "Shows a product upsell card when only one of the paired products is in the cart."
+      },
+      {
+        "type": "product",
+        "id": "bloomli_routine_upsell_supplement_product",
+        "label": "Supplement product",
+        "info": "e.g. Gummies — shown as upsell when add-on is in cart but supplement is not."
+      },
+      {
+        "type": "product",
+        "id": "bloomli_routine_upsell_addon_product",
+        "label": "Add-on product",
+        "info": "e.g. Hair Oil — shown as upsell when supplement is in cart but add-on is not."
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_supplement_tag",
+        "label": "Supplement product tag",
+        "default": "supplement",
+        "info": "Cart item tag that identifies a supplement product."
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_addon_tag",
+        "label": "Add-on product tag",
+        "default": "add-on",
+        "info": "Cart item tag that identifies an add-on product."
+      },
+      {
+        "type": "header",
+        "content": "State 1: supplement in cart, no add-on"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_state1_heading",
+        "label": "Heading",
+        "default": "Complete your routine"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_state1_text",
+        "label": "Body text",
+        "default": "Add Hair Oil and unlock Pair & Save."
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_state1_button",
+        "label": "Button label",
+        "default": "Add Hair Oil"
+      },
+      {
+        "type": "header",
+        "content": "State 2: add-on in cart, no supplement"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_state2_heading",
+        "label": "Heading",
+        "default": "Unlock your pairing offer"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_state2_text",
+        "label": "Body text",
+        "default": "Add Gummies to activate Pair & Save on your Hair Oil."
+      },
+      {
+        "type": "text",
+        "id": "bloomli_routine_upsell_state2_button",
+        "label": "Button label",
+        "default": "Add Gummies"
+      }
+    ]
   }
 ]

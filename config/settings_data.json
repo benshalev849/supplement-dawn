@@ -154,6 +154,10 @@
     "bloomli_routine_upsell_enabled": true,
     "bloomli_routine_upsell_supplement_product": "test-supplement",
     "bloomli_routine_upsell_addon_product": "ultra-strength-hair-gummies-copy",
+    "bloomli_routine_upsell_state1_heading": "PAIR & SAVE",
+    "bloomli_routine_upsell_state1_text": "Add hair oil and save 20%, applied automatically.",
+    "bloomli_routine_upsell_state2_heading": "PAIR & SAVE",
+    "bloomli_routine_upsell_state2_text": "Add gummies and save 20% on your hair oil, applied automatically.",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

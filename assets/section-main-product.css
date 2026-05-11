@@ -62,18 +62,18 @@ product-info {
 
 @media screen and (min-width: 990px) {
   .product--large:not(.product--no-media) .product__media-wrapper {
-    max-width: 65%;
-    width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
+    max-width: 58%;
+    width: calc(58% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--large:not(.product--no-media) .product__info-wrapper {
-    padding: 0 0 0 4rem;
-    max-width: 35%;
-    width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
+    padding: 0 0 0 3rem;
+    max-width: 42%;
+    width: calc(42% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--large:not(.product--no-media).product--right .product__info-wrapper {
-    padding: 0 4rem 0 0;
+    padding: 0 3rem 0 0;
   }
 
   .product--medium:not(.product--no-media) .product__media-wrapper,
@@ -295,7 +295,7 @@ a.product__text {
 
   .product__info-container {
     width: 100%;
-    max-width: var(--bloomli-product-info-width, 49rem);
+    max-width: var(--bloomli-product-info-width, 54rem);
     margin-left: 0;
     margin-right: 0;
   }
@@ -303,7 +303,8 @@ a.product__text {
   .product__info-container .product__title,
   .product__info-container .product__description,
   .product__info-container .product__accordion,
-  .product__info-container .bloomli-collapsible-row {
+  .product__info-container .bloomli-collapsible-row,
+  .product__info-container .product-form__input {
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -391,7 +392,7 @@ a.product__text {
   .product__info-container .product-form__buttons,
   .product__info-container .shopify-payment-button {
     width: 100%;
-    max-width: var(--bloomli-product-info-width, 49rem) !important;
+    max-width: var(--bloomli-product-info-width, 54rem) !important;
     min-width: 0;
   }
 

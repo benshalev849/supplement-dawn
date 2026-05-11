@@ -137,24 +137,16 @@
 
 .cart-drawer .bloomli-routine-upsell__otp {
   text-align: center;
-  padding: 0 1rem 0;
+  padding: 0 1rem 0.9rem;
   margin-top: -0.3rem;
 }
 
-.cart-drawer .bloomli-routine-upsell__otp::after {
-  content: '';
-  display: block;
-  height: 0.1rem;
-  background: var(--bloomli-cart-pack-promo-border, var(--bloomli-cart-accent, #B23A6F));
-  margin-top: 0.7rem;
-  margin-bottom: 0.9rem;
-}
-
 .cart-drawer .bloomli-routine-upsell__otp-btn {
-  display: inline;
+  display: inline-block;
   background: none;
   border: none;
-  padding: 0;
+  border-bottom: 0.1rem solid var(--bloomli-cart-compare, #9A8F89);
+  padding: 0 0 3px;
   cursor: pointer;
   font-size: 12px;
   font-family: var(--bloomli-cart-ui-font);

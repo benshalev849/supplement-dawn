@@ -200,6 +200,12 @@
 
                   <tbody role="rowgroup">
                     {%- for item in cart.items -%}
+                      {%- liquid
+                        assign is_bloomli_supplement = false
+                        if item.product.tags contains 'supplement'
+                          assign is_bloomli_supplement = true
+                        endif
+                      -%}
                       <tr
                         id="CartDrawer-Item-{{ item.index | plus: 1 }}"
                         class="cart-item{% if item.parent_relationship.parent != null %} cart-item__nested-line{% endif %}"
@@ -533,10 +539,11 @@
                         </td>
 
                         <td
-                          class="bloomli-cart-pack-promo-cell"
+                          class="bloomli-cart-pack-promo-cell{% unless is_bloomli_supplement %} hidden{% endunless %}"
                           role="cell"
                           headers="CartDrawer-ColumnQuantity"
                         >
+                          {%- if is_bloomli_supplement -%}
                           {%- liquid
                             assign pack_promo_enabled = settings.cart_drawer_pack_promo_enabled
                             if pack_promo_enabled == nil
@@ -565,13 +572,15 @@
                               </span>
                             </div>
                           {%- endif -%}
+                          {%- endif -%}
                         </td>
 
                         <td
-                          class="bloomli-cart-offers-cell"
+                          class="bloomli-cart-offers-cell{% unless is_bloomli_supplement %} hidden{% endunless %}"
                           role="cell"
                           headers="CartDrawer-ColumnQuantity"
                         >
+                          {%- if is_bloomli_supplement -%}
                           {%- liquid
                             assign offer_label_template = settings.cart_drawer_quantity_offer_label_template | default: 'BUY [qty] SAVE [percent]%'
                             assign cart_subscription_discount = settings.cart_drawer_subscription_discount_pct | default: 10 | plus: 0
@@ -658,6 +667,7 @@
                               {{ offer_5_label }}
                             </button>
                           </div>
+                          {%- endif -%}
                         </td>
 
                           {%- if item.selling_plan_allocation != null -%}

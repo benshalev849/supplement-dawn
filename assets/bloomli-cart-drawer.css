@@ -336,7 +336,7 @@ cart-drawer.drawer .drawer__inner {
   grid-column: 3;
   grid-row: 2;
   justify-self: end;
-  align-self: center;
+  align-self: start;
   min-width: 0;
   padding: 0;
 }
@@ -976,6 +976,10 @@ cart-drawer.drawer .drawer__inner {
   .cart-drawer .cart-items .cart-item__quantity {
     grid-column: 2;
     grid-row: 2;
+    align-self: center;
+  }
+
+  .cart-drawer .bloomli-cart-pack-promo-cell {
     align-self: center;
   }
 

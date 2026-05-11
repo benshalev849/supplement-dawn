@@ -220,6 +220,8 @@
                         endif
                         if is_bloomli_supplement
                           assign show_bloomli_pack_promo_cell = true
+                        elsif is_bloomli_add_on and has_line_discount
+                          assign show_bloomli_pack_promo_cell = true
                         endif
                       -%}
                       <tr
@@ -588,15 +590,24 @@
                                 </span>
                               </div>
                             {%- endif -%}
+                          {%- elsif is_bloomli_add_on and has_line_discount -%}
+                            <div class="bloomli-cart-pack-promo">
+                              <span class="bloomli-cart-pack-promo__icon" aria-hidden="true">
+                                {{- 'icon-discount.svg' | inline_asset_content -}}
+                              </span>
+                              <span class="bloomli-cart-pack-promo__copy">
+                                <span class="bloomli-cart-pack-promo__label">Pair & Save</span>
+                              </span>
+                            </div>
                           {%- endif -%}
                         </td>
 
                         <td
-                          class="bloomli-cart-offers-cell{% unless is_bloomli_supplement %} hidden{% endunless %}"
+                          class="bloomli-cart-offers-cell{% unless is_bloomli_supplement or is_bloomli_add_on %} hidden{% endunless %}"
                           role="cell"
                           headers="CartDrawer-ColumnQuantity"
                         >
-                          {%- if is_bloomli_supplement -%}
+                          {%- if is_bloomli_supplement or is_bloomli_add_on -%}
                           {%- liquid
                             assign offer_label_template = settings.cart_drawer_quantity_offer_label_template | default: 'BUY [qty] SAVE [percent]%'
                             assign cart_subscription_discount = settings.cart_drawer_subscription_discount_pct | default: 10 | plus: 0

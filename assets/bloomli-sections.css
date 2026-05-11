@@ -879,6 +879,7 @@
   order: 1;
 }
 
+/* ORIGINAL - REVERT HERE IF NEEDED
 .bloomli-proof-panel__proof-list {
   border: 1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 18%, transparent);
   border-radius: var(--text-boxes-radius, 12px);
@@ -905,6 +906,38 @@
   transform: scale(var(--bpp-image-scale, 1));
   transform-origin: center;
 }
+*/
+
+.bloomli-proof-panel__proof-list {
+  border: var(--bpp-card-border);
+  border-radius: var(--text-boxes-radius, 12px);
+  background: rgba(var(--color-background), 0.86);
+}
+
+.bloomli-proof-panel__visual {
+  width: var(--bpp-image-width, 620px);
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  border: var(--bpp-card-border);
+  border-radius: var(--bpp-image-radius, var(--text-boxes-radius, 12px));
+}
+
+.bloomli-proof-panel__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  border-radius: inherit;
+  object-fit: cover;
+  transform: scale(var(--bpp-image-scale, 1));
+  transform-origin: center;
+}
 
 .bloomli-proof-panel__image-caption {
   margin-top: 24px;
@@ -923,10 +956,20 @@
   padding: 10px 0;
 }
 
+/* ORIGINAL - REVERT HERE IF NEEDED
 .bloomli-proof-panel__proof-item {
   display: grid;
   grid-template-columns: 54px 1fr;
   gap: 20px;
+  padding: 28px 34px;
+  border-bottom: 1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 14%, transparent);
+}
+*/
+
+.bloomli-proof-panel__proof-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 22px;
   padding: 28px 34px;
   border-bottom: 1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 14%, transparent);
 }
@@ -935,12 +978,24 @@
   border-bottom: 0;
 }
 
+/* ORIGINAL - REVERT HERE IF NEEDED
 .bloomli-proof-panel__number {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.12em;
   color: var(--bpp-accent, var(--bloomli-primary-action));
   padding-top: 8px;
+}
+*/
+
+.bloomli-proof-panel__number {
+  font-family: var(--font-heading-family);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--bpp-accent, var(--bloomli-primary-action));
+  padding-top: 0;
 }
 
 .bloomli-proof-panel__proof-item h3 {
@@ -989,12 +1044,27 @@
     order: initial;
   }
 
+  /* ORIGINAL - REVERT HERE IF NEEDED
   .bloomli-proof-panel__visual {
     min-height: auto;
   }
+  */
 
+  .bloomli-proof-panel__visual {
+    min-height: auto;
+    height: auto;
+  }
+
+  /* ORIGINAL - REVERT HERE IF NEEDED
   .bloomli-proof-panel__proof-item {
     grid-template-columns: 42px 1fr;
+    gap: 14px;
+    padding: 24px 20px;
+  }
+  */
+
+  .bloomli-proof-panel__proof-item {
+    grid-template-columns: 64px 1fr;
     gap: 14px;
     padding: 24px 20px;
   }

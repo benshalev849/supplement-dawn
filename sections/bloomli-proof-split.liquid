@@ -68,6 +68,7 @@
     --bpp-image-width: {{ section.settings.image_width | default: 620 }}px;
     --bpp-image-radius: {{ section.settings.image_radius | default: 16 }}px;
     --bpp-image-scale: {{ image_scale }};
+    --bpp-card-border: {% if section.settings.show_card_borders %}1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 18%, transparent){% else %}0{% endif %};
   "
 >
   <div class="bloomli-proof-panel__inner">
@@ -160,6 +161,7 @@
     ], "default": "center center" },
     { "type": "range", "id": "image_width", "label": "Image width", "min": 320, "max": 760, "step": 20, "default": 620, "unit": "px" },
     { "type": "range", "id": "image_radius", "label": "Image corner radius", "min": 0, "max": 40, "step": 2, "default": 16, "unit": "px" },
+    { "type": "checkbox", "id": "show_card_borders", "label": "Show card borders", "default": true },
     { "type": "text", "id": "heading_line1", "label": "Heading", "default": "Every milligram, intentional." },
     { "type": "richtext", "id": "copy", "label": "Copy", "default": "<p>We formulate at clinical doses - the amounts used in peer-reviewed studies - not the sprinkle-doses you'll find in most gummies. Every batch is independently tested. Nothing added for color, nothing hidden in a proprietary blend.</p>" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 48, "max": 176, "step": 8, "default": 104, "unit": "px" },

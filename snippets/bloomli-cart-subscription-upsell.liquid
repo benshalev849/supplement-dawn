@@ -4,6 +4,13 @@
   @param {line_item} item - Cart line item.
   @param {string} context - Rendering context, e.g. 'drawer' or 'main'.
   @param {boolean} line_has_bundle - Whether the line should include Pair & Save in displayed target savings.
+  @param {number} resolved_subscription_discount_pct
+  @param {number} resolved_bundle_discount_pct
+  @param {number} resolved_volume_discount_1_pct
+  @param {number} resolved_volume_discount_2_pct
+  @param {number} resolved_volume_discount_3_pct
+  @param {number} resolved_volume_discount_4_pct
+  @param {number} resolved_volume_discount_5_pct
 {% enddoc %}
 
 {%- liquid
@@ -70,7 +77,9 @@
       assign target_plan_id = fallback_plan_id
     endif
 
-    if item.product.metafields.bloomli.subscription_discount_pct != blank
+    if resolved_subscription_discount_pct != blank
+      assign subscription_discount_pct = resolved_subscription_discount_pct | plus: 0
+    elsif item.product.metafields.bloomli.subscription_discount_pct != blank
       assign subscription_discount_pct = item.product.metafields.bloomli.subscription_discount_pct | plus: 0
     elsif settings.bloomli_subscription_discount_pct != blank
       assign subscription_discount_pct = settings.bloomli_subscription_discount_pct | plus: 0
@@ -82,7 +91,9 @@
       assign subscription_discount_pct = 15
     endif
 
-    if item.product.metafields.bloomli.bundle_add_on_discount_pct != blank
+    if resolved_bundle_discount_pct != blank
+      assign bundle_discount_pct = resolved_bundle_discount_pct | plus: 0
+    elsif item.product.metafields.bloomli.bundle_add_on_discount_pct != blank
       assign bundle_discount_pct = item.product.metafields.bloomli.bundle_add_on_discount_pct | plus: 0
     elsif settings.bloomli_bundle_add_on_discount_pct != blank
       assign bundle_discount_pct = settings.bloomli_bundle_add_on_discount_pct | plus: 0
@@ -93,7 +104,9 @@
     endif
 
     if target_qty >= 5
-      if item.product.metafields.bloomli.volume_discount_5_pct != blank
+      if resolved_volume_discount_5_pct != blank
+        assign volume_discount_pct = resolved_volume_discount_5_pct | plus: 0
+      elsif item.product.metafields.bloomli.volume_discount_5_pct != blank
         assign volume_discount_pct = item.product.metafields.bloomli.volume_discount_5_pct | plus: 0
       elsif settings.bloomli_volume_discount_5_pct != blank
         assign volume_discount_pct = settings.bloomli_volume_discount_5_pct | plus: 0
@@ -103,7 +116,9 @@
         assign volume_discount_pct = 20
       endif
     elsif target_qty == 4
-      if item.product.metafields.bloomli.volume_discount_4_pct != blank
+      if resolved_volume_discount_4_pct != blank
+        assign volume_discount_pct = resolved_volume_discount_4_pct | plus: 0
+      elsif item.product.metafields.bloomli.volume_discount_4_pct != blank
         assign volume_discount_pct = item.product.metafields.bloomli.volume_discount_4_pct | plus: 0
       elsif settings.bloomli_volume_discount_4_pct != blank
         assign volume_discount_pct = settings.bloomli_volume_discount_4_pct | plus: 0
@@ -113,7 +128,9 @@
         assign volume_discount_pct = 18
       endif
     elsif target_qty == 3
-      if item.product.metafields.bloomli.volume_discount_3_pct != blank
+      if resolved_volume_discount_3_pct != blank
+        assign volume_discount_pct = resolved_volume_discount_3_pct | plus: 0
+      elsif item.product.metafields.bloomli.volume_discount_3_pct != blank
         assign volume_discount_pct = item.product.metafields.bloomli.volume_discount_3_pct | plus: 0
       elsif settings.bloomli_volume_discount_3_pct != blank
         assign volume_discount_pct = settings.bloomli_volume_discount_3_pct | plus: 0
@@ -123,7 +140,9 @@
         assign volume_discount_pct = 15
       endif
     elsif target_qty == 2
-      if item.product.metafields.bloomli.volume_discount_2_pct != blank
+      if resolved_volume_discount_2_pct != blank
+        assign volume_discount_pct = resolved_volume_discount_2_pct | plus: 0
+      elsif item.product.metafields.bloomli.volume_discount_2_pct != blank
         assign volume_discount_pct = item.product.metafields.bloomli.volume_discount_2_pct | plus: 0
       elsif settings.bloomli_volume_discount_2_pct != blank
         assign volume_discount_pct = settings.bloomli_volume_discount_2_pct | plus: 0
@@ -131,7 +150,9 @@
         assign volume_discount_pct = 10
       endif
     else
-      if item.product.metafields.bloomli.volume_discount_1_pct != blank
+      if resolved_volume_discount_1_pct != blank
+        assign volume_discount_pct = resolved_volume_discount_1_pct | plus: 0
+      elsif item.product.metafields.bloomli.volume_discount_1_pct != blank
         assign volume_discount_pct = item.product.metafields.bloomli.volume_discount_1_pct | plus: 0
       elsif settings.bloomli_volume_discount_1_pct != blank
         assign volume_discount_pct = settings.bloomli_volume_discount_1_pct | plus: 0

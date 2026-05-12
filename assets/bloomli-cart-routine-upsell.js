@@ -63,7 +63,7 @@
     var variantId = parseInt(btn.dataset.variantId, 10);
     if (!variantId) return;
 
-    var quantity = sellingPlanId && btn.dataset.quantity ? parseInt(btn.dataset.quantity, 10) : 1;
+    var quantity = btn.dataset.quantity ? parseInt(btn.dataset.quantity, 10) : 1;
     if (quantity < 1) quantity = 1;
 
     setLoading(btn, true);

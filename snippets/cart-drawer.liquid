@@ -226,7 +226,6 @@
                       {%- liquid
                         assign is_bloomli_supplement = false
                         assign is_bloomli_add_on = false
-                        assign has_line_discount = false
                         assign show_bloomli_pack_promo_cell = false
                         for product_tag in item.product.tags
                           assign normalized_product_tag = product_tag | downcase | strip
@@ -236,9 +235,6 @@
                             assign is_bloomli_add_on = true
                           endif
                         endfor
-                        if item.line_level_discount_allocations.size > 0
-                          assign has_line_discount = true
-                        endif
                         if is_bloomli_supplement
                           assign show_bloomli_pack_promo_cell = true
                         elsif is_bloomli_add_on and cart_bundle_active
@@ -277,6 +273,20 @@
                           assign cart_bundle_discount = 20
                         endif
 
+                        if item.product.metafields.bloomli.volume_discount_1_pct != blank
+                          assign cart_vol_1_pct = item.product.metafields.bloomli.volume_discount_1_pct | plus: 0
+                        elsif settings.bloomli_volume_discount_1_pct != blank
+                          assign cart_vol_1_pct = settings.bloomli_volume_discount_1_pct | plus: 0
+                        else
+                          assign cart_vol_1_pct = 0
+                        endif
+                        if item.product.metafields.bloomli.volume_discount_2_pct != blank
+                          assign cart_vol_2_pct = item.product.metafields.bloomli.volume_discount_2_pct | plus: 0
+                        elsif settings.bloomli_volume_discount_2_pct != blank
+                          assign cart_vol_2_pct = settings.bloomli_volume_discount_2_pct | plus: 0
+                        else
+                          assign cart_vol_2_pct = 10
+                        endif
                         if item.product.metafields.bloomli.volume_discount_3_pct != blank
                           assign cart_vol_3_pct = item.product.metafields.bloomli.volume_discount_3_pct | plus: 0
                         elsif settings.bloomli_volume_discount_3_pct != blank
@@ -899,8 +909,14 @@
                             {%- render 'bloomli-cart-subscription-upsell',
                               item: item,
                               context: 'drawer',
-                              cart_has_supplement: _cart_has_supplement,
-                              line_has_bundle: cart_line_has_bundle
+                              line_has_bundle: cart_line_has_bundle,
+                              resolved_subscription_discount_pct: cart_subscription_discount,
+                              resolved_bundle_discount_pct: cart_bundle_discount,
+                              resolved_volume_discount_1_pct: cart_vol_1_pct,
+                              resolved_volume_discount_2_pct: cart_vol_2_pct,
+                              resolved_volume_discount_3_pct: cart_vol_3_pct,
+                              resolved_volume_discount_4_pct: cart_vol_4_pct,
+                              resolved_volume_discount_5_pct: cart_vol_5_pct
                             -%}
                           </td>
                         </tr>

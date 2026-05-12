@@ -224,11 +224,13 @@
           assign line_compare = unit_compare | times: qty
         endif
         assign one_time_pct_factor = 100.0 | minus: discount_pct
-        assign one_time_total_cents = unit_price | times: qty | times: one_time_pct_factor | divided_by: 100.0
+        assign one_time_unit_cents = unit_price | times: one_time_pct_factor | divided_by: 100.0 | round
+        assign one_time_total_cents = one_time_unit_cents | times: qty
 
         assign subscription_pct_factor = 100.0 | minus: sub_discount_pct
         assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
-        assign subscribe_total_cents = unit_price | times: qty | times: compounded_pct_factor | divided_by: 100.0
+        assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round
+        assign subscribe_total_cents = subscribe_unit_cents | times: qty
         assign rounded_discount_pct = discount_pct | floor
         assign dynamic_badge = discount_badge_template | replace: '[percent]', rounded_discount_pct | replace: '[qty]', qty
 

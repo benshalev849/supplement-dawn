@@ -135,26 +135,38 @@
     assign second_subscription_price = second_subscription_price | times: bundle_factor | divided_by: 100.0 | round
   endif
 
+  assign first_bundle_price = first_variant.price
+  if first_is_add_on
+    assign first_bundle_price = first_variant.price | times: bundle_factor | divided_by: 100.0 | round
+  endif
+  assign second_bundle_price = second_variant.price
+  if second_is_add_on
+    assign second_bundle_price = second_variant.price | times: bundle_factor | divided_by: 100.0 | round
+  endif
+
   assign primary_price_cents = 0
   assign one_time_price_cents = 0
+  assign bundle_price_cents = 0
   if first_missing
     assign one_time_price_cents = one_time_price_cents | plus: first_variant.price
+    assign bundle_price_cents = bundle_price_cents | plus: first_bundle_price
     if active_purchase_type == 'subscription'
       assign primary_price_cents = primary_price_cents | plus: first_subscription_price
     else
-      assign primary_price_cents = primary_price_cents | plus: first_variant.price
+      assign primary_price_cents = primary_price_cents | plus: first_bundle_price
     endif
   endif
   if second_missing
     assign one_time_price_cents = one_time_price_cents | plus: second_variant.price
+    assign bundle_price_cents = bundle_price_cents | plus: second_bundle_price
     if active_purchase_type == 'subscription'
       assign primary_price_cents = primary_price_cents | plus: second_subscription_price
     else
-      assign primary_price_cents = primary_price_cents | plus: second_variant.price
+      assign primary_price_cents = primary_price_cents | plus: second_bundle_price
     endif
   endif
 
-  assign saving_cents = one_time_price_cents | minus: primary_price_cents
+  assign saving_cents = one_time_price_cents | minus: bundle_price_cents
   assign saving_money = saving_cents | money
   assign saving_callout_text = saving_callout_template | replace: '$X.XX', saving_money
   assign primary_price_money = primary_price_cents | money
@@ -287,31 +299,35 @@
 
     <div class="bloomli-bundle__products">
       {%- if first_image != blank -%}
-        {{
-          first_image
-          | image_url: width: 520
-          | image_tag:
-            class: 'bloomli-bundle__product',
-            widths: '180, 260, 360, 520',
-            sizes: '(max-width: 749px) 38vw, 180px',
-            loading: 'lazy',
-            decoding: 'async',
-            style: 'max-width: 38%;',
-            alt: first_image.alt | default: first_product.title
-        }}
+        <a href="{{ first_product.url }}" style="display: contents;">
+          {{
+            first_image
+            | image_url: width: 520
+            | image_tag:
+              class: 'bloomli-bundle__product',
+              widths: '180, 260, 360, 520',
+              sizes: '(max-width: 749px) 38vw, 180px',
+              loading: 'lazy',
+              decoding: 'async',
+              style: 'max-width: 38%; cursor: pointer;',
+              alt: first_image.alt | default: first_product.title
+          }}
+        </a>
       {%- elsif first_product.featured_image != blank -%}
-        {{
-          first_product.featured_image
-          | image_url: width: 520
-          | image_tag:
-            class: 'bloomli-bundle__product',
-            widths: '180, 260, 360, 520',
-            sizes: '(max-width: 749px) 38vw, 180px',
-            loading: 'lazy',
-            decoding: 'async',
-            style: 'max-width: 38%;',
-            alt: first_product.featured_image.alt | default: first_product.title
-        }}
+        <a href="{{ first_product.url }}" style="display: contents;">
+          {{
+            first_product.featured_image
+            | image_url: width: 520
+            | image_tag:
+              class: 'bloomli-bundle__product',
+              widths: '180, 260, 360, 520',
+              sizes: '(max-width: 749px) 38vw, 180px',
+              loading: 'lazy',
+              decoding: 'async',
+              style: 'max-width: 38%; cursor: pointer;',
+              alt: first_product.featured_image.alt | default: first_product.title
+          }}
+        </a>
       {%- endif -%}
 
       <span
@@ -322,31 +338,35 @@
       </span>
 
       {%- if second_image != blank -%}
-        {{
-          second_image
-          | image_url: width: 520
-          | image_tag:
-            class: 'bloomli-bundle__product',
-            widths: '180, 260, 360, 520',
-            sizes: '(max-width: 749px) 38vw, 180px',
-            loading: 'lazy',
-            decoding: 'async',
-            style: 'max-width: 38%;',
-            alt: second_image.alt | default: second_product.title
-        }}
+        <a href="{{ second_product.url }}" style="display: contents;">
+          {{
+            second_image
+            | image_url: width: 520
+            | image_tag:
+              class: 'bloomli-bundle__product',
+              widths: '180, 260, 360, 520',
+              sizes: '(max-width: 749px) 38vw, 180px',
+              loading: 'lazy',
+              decoding: 'async',
+              style: 'max-width: 38%; cursor: pointer;',
+              alt: second_image.alt | default: second_product.title
+          }}
+        </a>
       {%- elsif second_product.featured_image != blank -%}
-        {{
-          second_product.featured_image
-          | image_url: width: 520
-          | image_tag:
-            class: 'bloomli-bundle__product',
-            widths: '180, 260, 360, 520',
-            sizes: '(max-width: 749px) 38vw, 180px',
-            loading: 'lazy',
-            decoding: 'async',
-            style: 'max-width: 38%;',
-            alt: second_product.featured_image.alt | default: second_product.title
-        }}
+        <a href="{{ second_product.url }}" style="display: contents;">
+          {{
+            second_product.featured_image
+            | image_url: width: 520
+            | image_tag:
+              class: 'bloomli-bundle__product',
+              widths: '180, 260, 360, 520',
+              sizes: '(max-width: 749px) 38vw, 180px',
+              loading: 'lazy',
+              decoding: 'async',
+              style: 'max-width: 38%; cursor: pointer;',
+              alt: second_product.featured_image.alt | default: second_product.title
+          }}
+        </a>
       {%- endif -%}
     </div>
 
@@ -361,6 +381,8 @@
         data-second-price-cents="{{ second_variant.price | default: 0 }}"
         data-first-subscription-price-cents="{{ first_subscription_price | default: 0 }}"
         data-second-subscription-price-cents="{{ second_subscription_price | default: 0 }}"
+        data-first-bundle-price-cents="{{ first_bundle_price | default: 0 }}"
+        data-second-bundle-price-cents="{{ second_bundle_price | default: 0 }}"
         data-first-is-add-on="{{ first_is_add_on }}"
         data-second-is-add-on="{{ second_is_add_on }}"
         data-first-in-cart="{{ first_in_cart }}"
@@ -378,32 +400,30 @@
       >
         {{ button_text | escape }}
       </button>
-      {%- if first_missing or second_missing -%}
-        <p
-          data-bloomli-bundle-saving-callout
-          data-saving-template="{{ saving_callout_template | escape }}"
-          style="font-size: 1.2rem; font-style: italic; margin: 1rem 0 0;"
-          {% if saving_cents <= 0 %}hidden{% endif %}
-        >
-          {{ saving_callout_text | escape }}
-        </p>
-        <button
-          type="button"
-          data-bloomli-bundle-one-time-button
-          data-label="{{ one_time_label | escape }}"
-          style="appearance: none; background: none; border: 0; color: inherit; cursor: pointer; font: inherit; font-size: 1.2rem; font-weight: 300; margin: 0.8rem 0 0; padding: 0; text-decoration: underline;"
-          {% if cart.item_count > 0 and cart_has_subscription == false %}hidden{% endif %}
-        >
-          {{ one_time_label | escape }} · {{ one_time_price_cents | money }}
-        </button>
-        <div
-          data-bloomli-bundle-subscription-note
-          style="border-top: 1px solid rgba(var(--color-foreground), 0.18); font-size: 1.2rem; font-style: italic; margin: 1rem auto 0; max-width: 32rem; padding-top: 0.9rem;"
-          {% if cart_has_subscription == false %}hidden{% endif %}
-        >
-          {{ subscription_note_text | escape }}
-        </div>
-      {%- endif -%}
+      <p
+        data-bloomli-bundle-saving-callout
+        data-saving-template="{{ saving_callout_template | escape }}"
+        style="font-size: 1.2rem; font-style: italic; margin: 1rem 0 0;"
+        {% if saving_cents <= 0 %}hidden{% endif %}
+      >
+        {{ saving_callout_text | escape }}
+      </p>
+      <button
+        type="button"
+        data-bloomli-bundle-one-time-button
+        data-label="{{ one_time_label | escape }}"
+        style="appearance: none; background: none; border: 0; color: inherit; cursor: pointer; font: inherit; font-size: 1.2rem; font-weight: 300; margin: 0.8rem 0 0; padding: 0; text-decoration: underline;"
+        {% if (first_missing == false and second_missing == false) or (cart.item_count > 0 and cart_has_subscription == false) %}hidden{% endif %}
+      >
+        {{ one_time_label | escape }} · {{ bundle_price_cents | money }}
+      </button>
+      <div
+        data-bloomli-bundle-subscription-note
+        style="border-top: 1px solid rgba(var(--color-foreground), 0.18); font-size: 1.2rem; font-style: italic; margin: 1rem auto 0; max-width: 32rem; padding-top: 0.9rem;"
+        {% if cart_has_subscription == false or (first_missing == false and second_missing == false) %}hidden{% endif %}
+      >
+        {{ subscription_note_text | escape }}
+      </div>
     </div>
   </div>
 </section>
@@ -469,6 +489,7 @@
           id: firstVariantId,
           price: parseInt(button.dataset.firstPriceCents, 10) || 0,
           subscriptionPrice: parseInt(button.dataset.firstSubscriptionPriceCents, 10) || 0,
+          bundlePrice: parseInt(button.dataset.firstBundlePriceCents, 10) || 0,
         });
       }
 
@@ -478,6 +499,7 @@
           id: secondVariantId,
           price: parseInt(button.dataset.secondPriceCents, 10) || 0,
           subscriptionPrice: parseInt(button.dataset.secondSubscriptionPriceCents, 10) || 0,
+          bundlePrice: parseInt(button.dataset.secondBundlePriceCents, 10) || 0,
         });
       }
 
@@ -497,10 +519,11 @@
 
       const missingItems = getMissingItems();
       const oneTimePrice = missingItems.reduce((sum, item) => sum + item.price, 0);
+      const bundleTotalPrice = missingItems.reduce((sum, item) => sum + item.bundlePrice, 0);
       const primaryPrice = missingItems.reduce((sum, item) => {
-        return sum + (button.dataset.activePurchaseType === 'subscription' ? item.subscriptionPrice : item.price);
+        return sum + (button.dataset.activePurchaseType === 'subscription' ? item.subscriptionPrice : item.bundlePrice);
       }, 0);
-      const saving = Math.max(oneTimePrice - primaryPrice, 0);
+      const saving = Math.max(oneTimePrice - bundleTotalPrice, 0);
 
       if (firstInCart && secondInCart) {
         button.textContent = button.dataset.viewRoutineLabel || 'View My Ritual';
@@ -520,7 +543,7 @@
           savingCallout.hidden = saving <= 0;
         }
         if (oneTimeButton) {
-          oneTimeButton.textContent = `${oneTimeButton.dataset.label || 'One Time Purchase'} · ${formatMoney(oneTimePrice)}`;
+          oneTimeButton.textContent = `${oneTimeButton.dataset.label || 'One Time Purchase'} · ${formatMoney(bundleTotalPrice)}`;
           oneTimeButton.hidden = purchaseType === 'one_time';
         }
         if (subscriptionNote) {

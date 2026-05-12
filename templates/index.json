@@ -140,8 +140,8 @@
         "background_color": "#f5ede4",
         "heading": "You may also like",
         "subtext": "<p>Complete your routine with a few Bloomli favorites.</p>",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
         "image_box_height": 240,
         "padding_top": 88,
         "padding_bottom": 88

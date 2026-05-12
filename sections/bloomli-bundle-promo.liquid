@@ -50,9 +50,32 @@
 
   assign first_variant = first_product.selected_or_first_available_variant
   assign second_variant = second_product.selected_or_first_available_variant
+  assign first_is_add_on = false
+  assign second_is_add_on = false
+
+  if first_product != blank
+    for product_tag in first_product.tags
+      assign normalized_product_tag = product_tag | downcase | strip
+      if normalized_product_tag == 'add-on'
+        assign first_is_add_on = true
+      endif
+    endfor
+  endif
+
+  if second_product != blank
+    for product_tag in second_product.tags
+      assign normalized_product_tag = product_tag | downcase | strip
+      if normalized_product_tag == 'add-on'
+        assign second_is_add_on = true
+      endif
+    endfor
+  endif
 
   assign first_in_cart = false
   assign second_in_cart = false
+  assign cart_has_subscription = false
+  assign cart_has_one_time = false
+  assign cart_subscription_plan_qty = 1
   for item in cart.items
     if first_product != blank and item.product.id == first_product.id
       assign first_in_cart = true
@@ -60,11 +83,53 @@
     if second_product != blank and item.product.id == second_product.id
       assign second_in_cart = true
     endif
+    if item.selling_plan_allocation != blank
+      if cart_has_subscription == false
+        assign cart_subscription_plan_qty = item.quantity | default: 1 | plus: 0
+        assign subscription_frequency_source = item.selling_plan_allocation.selling_plan.name | downcase
+        for option in item.selling_plan_allocation.selling_plan.options
+          assign subscription_frequency_source = subscription_frequency_source | append: ' ' | append: option.value | downcase
+        endfor
+        for target_qty in (1..5)
+          assign frequency_filter = target_qty | append: 'mo'
+          assign frequency_filter_spaced = target_qty | append: ' mo'
+          assign frequency_filter_dash = target_qty | append: '-mo'
+          assign frequency_filter_month = target_qty | append: ' month'
+          assign frequency_filter_every = 'every ' | append: target_qty
+          assign frequency_filter_appstle = target_qty | append: 'month'
+          if subscription_frequency_source contains frequency_filter or subscription_frequency_source contains frequency_filter_spaced or subscription_frequency_source contains frequency_filter_dash or subscription_frequency_source contains frequency_filter_month or subscription_frequency_source contains frequency_filter_every or subscription_frequency_source contains frequency_filter_appstle
+            assign cart_subscription_plan_qty = target_qty
+            break
+          endif
+        endfor
+        if cart_subscription_plan_qty < 1
+          assign cart_subscription_plan_qty = 1
+        elsif cart_subscription_plan_qty > 5
+          assign cart_subscription_plan_qty = 5
+        endif
+      endif
+      assign cart_has_subscription = true
+    else
+      assign cart_has_one_time = true
+    endif
   endfor
+
+  assign active_purchase_type = 'subscription'
+  if cart.item_count > 0 and cart_has_subscription == false and cart_has_one_time
+    assign active_purchase_type = 'one_time'
+  endif
 
   assign add_both_label = section.settings.add_both_label | default: 'Start My Ritual'
   assign view_routine_label = section.settings.view_routine_label | default: 'View My Ritual'
   assign add_missing_label = section.settings.add_missing_label | default: 'Complete My Ritual'
+  assign one_time_label = section.settings.one_time_label_text | default: 'One Time Purchase'
+  assign subscription_note_text = section.settings.subscription_note_text | default: 'Matched to your subscription — cancel anytime.'
+  assign saving_callout_template = section.settings.saving_callout_text | default: "You're saving $X.XX with Pair & Save"
+
+  assign subscription_discount_pct = settings.bloomli_subscription_discount_pct | default: 15 | plus: 0
+  assign bundle_discount_pct = settings.bloomli_routine_upsell_addon_discount_pct | default: settings.bloomli_bundle_add_on_discount_pct | default: 15 | plus: 0
+  assign subscription_factor = 100.0 | minus: subscription_discount_pct
+  assign bundle_factor = 100.0 | minus: bundle_discount_pct
 
   assign button_label = add_both_label
   assign first_missing = false
@@ -85,7 +150,142 @@
   else
     assign button_label = view_routine_label
   endif
+
+  assign first_subscription_price = first_variant.price | times: subscription_factor | divided_by: 100.0 | round
+  if first_is_add_on
+    assign first_subscription_price = first_subscription_price | times: bundle_factor | divided_by: 100.0 | round
+  endif
+  assign second_subscription_price = second_variant.price | times: subscription_factor | divided_by: 100.0 | round
+  if second_is_add_on
+    assign second_subscription_price = second_subscription_price | times: bundle_factor | divided_by: 100.0 | round
+  endif
+
+  assign primary_price_cents = 0
+  assign one_time_price_cents = 0
+  if first_missing
+    assign one_time_price_cents = one_time_price_cents | plus: first_variant.price
+    if active_purchase_type == 'subscription'
+      assign primary_price_cents = primary_price_cents | plus: first_subscription_price
+    else
+      assign primary_price_cents = primary_price_cents | plus: first_variant.price
+    endif
+  endif
+  if second_missing
+    assign one_time_price_cents = one_time_price_cents | plus: second_variant.price
+    if active_purchase_type == 'subscription'
+      assign primary_price_cents = primary_price_cents | plus: second_subscription_price
+    else
+      assign primary_price_cents = primary_price_cents | plus: second_variant.price
+    endif
+  endif
+
+  assign saving_cents = one_time_price_cents | minus: primary_price_cents
+  assign saving_money = saving_cents | money
+  assign saving_callout_text = saving_callout_template | replace: '$X.XX', saving_money
+  assign primary_price_money = primary_price_cents | money
+  assign button_text = button_label
+  if first_missing or second_missing
+    assign button_text = button_label | append: ' — ' | append: primary_price_money
+  endif
 -%}
+
+{%- capture first_selling_plan_attrs -%}
+  {%- for target_qty in (1..5) -%}
+    {%- liquid
+      assign target_plan_id = ''
+      assign fallback_plan_id = ''
+      assign plan_filter = target_qty | append: '-pack'
+      assign frequency_filter = target_qty | append: 'mo'
+      assign frequency_filter_spaced = target_qty | append: ' mo'
+      assign frequency_filter_dash = target_qty | append: '-mo'
+      assign frequency_filter_month = target_qty | append: ' month'
+      assign frequency_filter_every = 'every ' | append: target_qty
+      assign frequency_filter_appstle = target_qty | append: 'month'
+
+      for selling_plan_group in first_product.selling_plan_groups
+        assign group_name_lower = selling_plan_group.name | downcase
+        if group_name_lower contains plan_filter
+          assign first_plan = selling_plan_group.selling_plans | first
+          if first_plan and fallback_plan_id == blank
+            assign fallback_plan_id = first_plan.id
+          endif
+
+          for selling_plan in selling_plan_group.selling_plans
+            assign frequency_source = selling_plan_group.name | append: ' ' | append: selling_plan.name | downcase
+            for option in selling_plan.options
+              assign frequency_source = frequency_source | append: ' ' | append: option.value | downcase
+            endfor
+
+            if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every or frequency_source contains frequency_filter_appstle
+              assign target_plan_id = selling_plan.id
+              break
+            endif
+          endfor
+
+          if target_plan_id != blank
+            break
+          endif
+        endif
+      endfor
+
+      if target_plan_id == blank
+        assign target_plan_id = fallback_plan_id
+      endif
+    -%}
+    {%- if target_plan_id != blank -%}
+      data-first-selling-plan-qty{{ target_qty }}="{{ target_plan_id }}"
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- capture second_selling_plan_attrs -%}
+  {%- for target_qty in (1..5) -%}
+    {%- liquid
+      assign target_plan_id = ''
+      assign fallback_plan_id = ''
+      assign plan_filter = target_qty | append: '-pack'
+      assign frequency_filter = target_qty | append: 'mo'
+      assign frequency_filter_spaced = target_qty | append: ' mo'
+      assign frequency_filter_dash = target_qty | append: '-mo'
+      assign frequency_filter_month = target_qty | append: ' month'
+      assign frequency_filter_every = 'every ' | append: target_qty
+      assign frequency_filter_appstle = target_qty | append: 'month'
+
+      for selling_plan_group in second_product.selling_plan_groups
+        assign group_name_lower = selling_plan_group.name | downcase
+        if group_name_lower contains plan_filter
+          assign first_plan = selling_plan_group.selling_plans | first
+          if first_plan and fallback_plan_id == blank
+            assign fallback_plan_id = first_plan.id
+          endif
+
+          for selling_plan in selling_plan_group.selling_plans
+            assign frequency_source = selling_plan_group.name | append: ' ' | append: selling_plan.name | downcase
+            for option in selling_plan.options
+              assign frequency_source = frequency_source | append: ' ' | append: option.value | downcase
+            endfor
+
+            if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every or frequency_source contains frequency_filter_appstle
+              assign target_plan_id = selling_plan.id
+              break
+            endif
+          endfor
+
+          if target_plan_id != blank
+            break
+          endif
+        endif
+      endfor
+
+      if target_plan_id == blank
+        assign target_plan_id = fallback_plan_id
+      endif
+    -%}
+    {%- if target_plan_id != blank -%}
+      data-second-selling-plan-qty{{ target_qty }}="{{ target_plan_id }}"
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
 
 <section
   class="bloomli-bundle bloomli-section color-{{ section.settings.color_scheme }} gradient"
@@ -182,13 +382,51 @@
         data-bloomli-bundle-promo-button
         data-first-variant-id="{{ first_variant.id }}"
         data-second-variant-id="{{ second_variant.id }}"
+        data-first-price-cents="{{ first_variant.price | default: 0 }}"
+        data-second-price-cents="{{ second_variant.price | default: 0 }}"
+        data-first-subscription-price-cents="{{ first_subscription_price | default: 0 }}"
+        data-second-subscription-price-cents="{{ second_subscription_price | default: 0 }}"
+        data-first-is-add-on="{{ first_is_add_on }}"
+        data-second-is-add-on="{{ second_is_add_on }}"
         data-first-in-cart="{{ first_in_cart }}"
         data-second-in-cart="{{ second_in_cart }}"
+        data-active-purchase-type="{{ active_purchase_type }}"
+        data-subscription-plan-qty="{{ cart_subscription_plan_qty }}"
+        data-add-both-label="{{ add_both_label | escape }}"
+        data-add-missing-label="{{ add_missing_label | escape }}"
         data-view-routine-label="{{ view_routine_label | escape }}"
+        data-money-format="{{ shop.money_format | escape }}"
+        {{ first_selling_plan_attrs }}
+        {{ second_selling_plan_attrs }}
         {% if first_variant == blank and second_variant == blank %}disabled{% endif %}
       >
-        {{ button_label | escape }}
+        {{ button_text | escape }}
       </button>
+      {%- if first_missing or second_missing -%}
+        <p
+          data-bloomli-bundle-saving-callout
+          data-saving-template="{{ saving_callout_template | escape }}"
+          style="font-size: 1.2rem; font-style: italic; margin: 1rem 0 0;"
+          {% if saving_cents <= 0 %}hidden{% endif %}
+        >
+          {{ saving_callout_text | escape }}
+        </p>
+        <button
+          type="button"
+          data-bloomli-bundle-one-time-button
+          data-label="{{ one_time_label | escape }}"
+          style="appearance: none; background: none; border: 0; color: inherit; cursor: pointer; font: inherit; font-size: 1.2rem; font-weight: 300; margin: 0.8rem 0 0; padding: 0; text-decoration: underline;"
+        >
+          {{ one_time_label | escape }} — {{ one_time_price_cents | money }}
+        </button>
+        <div
+          data-bloomli-bundle-subscription-note
+          style="border-top: 1px solid rgba(var(--color-foreground), 0.18); font-size: 1.2rem; font-style: italic; margin: 1rem auto 0; max-width: 32rem; padding-top: 0.9rem;"
+          {% if active_purchase_type != 'subscription' %}hidden{% endif %}
+        >
+          {{ subscription_note_text | escape }}
+        </div>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -198,7 +436,11 @@
     const section = document.currentScript.closest('.shopify-section');
     const button = section && section.querySelector('[data-bloomli-bundle-promo-button]');
     if (!button || button.dataset.initialized === 'true') return;
+    const oneTimeButton = section.querySelector('[data-bloomli-bundle-one-time-button]');
+    const savingCallout = section.querySelector('[data-bloomli-bundle-saving-callout]');
+    const subscriptionNote = section.querySelector('[data-bloomli-bundle-subscription-note]');
     button.dataset.initialized = 'true';
+    let syncTimer;
 
     const getSections = () => {
       const sections = ['cart-icon-bubble'];
@@ -216,13 +458,167 @@
       if (cartLink) cartLink.click();
     };
 
-    button.addEventListener('click', () => {
-      const items = [];
+    const formatMoney = (cents) => {
+      if (window.Shopify && typeof Shopify.formatMoney === 'function') {
+        return Shopify.formatMoney(cents, button.dataset.moneyFormat);
+      }
+      return `$${(cents / 100).toFixed(2)}`;
+    };
+
+    const getCartPurchaseState = (cart) => {
+      let hasSubscription = false;
+      let hasOneTime = false;
+      let subscriptionPlanQty = 1;
+      const readPlanQty = (item) => {
+        const fallbackQty = Math.min(Math.max(parseInt(item.quantity, 10) || 1, 1), 5);
+        const sellingPlan = item.selling_plan_allocation && item.selling_plan_allocation.selling_plan;
+        const options = Array.isArray(sellingPlan && sellingPlan.options) ? sellingPlan.options : [];
+        const source = [
+          sellingPlan && sellingPlan.name,
+          ...options.map((option) => option && option.value),
+        ]
+          .filter(Boolean)
+          .join(' ')
+          .toLowerCase();
+
+        for (let qty = 1; qty <= 5; qty += 1) {
+          const filters = [`${qty}mo`, `${qty} mo`, `${qty}-mo`, `${qty} month`, `every ${qty}`, `${qty}month`];
+          if (filters.some((filter) => source.includes(filter))) return qty;
+        }
+
+        return fallbackQty;
+      };
+
+      cart.items.forEach((item) => {
+        if (item.selling_plan_allocation) {
+          if (!hasSubscription) {
+            subscriptionPlanQty = readPlanQty(item);
+          }
+          hasSubscription = true;
+        } else {
+          hasOneTime = true;
+        }
+      });
+
+      if (!cart.items.length || hasSubscription || (hasSubscription && hasOneTime)) {
+        return { type: 'subscription', planQty: subscriptionPlanQty };
+      }
+
+      return { type: 'one_time', planQty: 1 };
+    };
+
+    const getMissingItems = () => {
       const firstVariantId = parseInt(button.dataset.firstVariantId, 10);
       const secondVariantId = parseInt(button.dataset.secondVariantId, 10);
+      const items = [];
 
-      if (button.dataset.firstInCart !== 'true' && firstVariantId) items.push({ id: firstVariantId, quantity: 1 });
-      if (button.dataset.secondInCart !== 'true' && secondVariantId) items.push({ id: secondVariantId, quantity: 1 });
+      if (button.dataset.firstInCart !== 'true' && firstVariantId) {
+        items.push({
+          key: 'first',
+          id: firstVariantId,
+          price: parseInt(button.dataset.firstPriceCents, 10) || 0,
+          subscriptionPrice: parseInt(button.dataset.firstSubscriptionPriceCents, 10) || 0,
+        });
+      }
+
+      if (button.dataset.secondInCart !== 'true' && secondVariantId) {
+        items.push({
+          key: 'second',
+          id: secondVariantId,
+          price: parseInt(button.dataset.secondPriceCents, 10) || 0,
+          subscriptionPrice: parseInt(button.dataset.secondSubscriptionPriceCents, 10) || 0,
+        });
+      }
+
+      return items;
+    };
+
+    const getSellingPlanId = (key) => {
+      const planQty = Math.min(Math.max(parseInt(button.dataset.subscriptionPlanQty, 10) || 1, 1), 5);
+      return button.dataset[`${key}SellingPlanQty${planQty}`] || button.dataset[`${key}SellingPlanQty-${planQty}`] || '';
+    };
+
+    const setButtonState = (firstInCart, secondInCart, purchaseType, planQty) => {
+      button.dataset.firstInCart = firstInCart ? 'true' : 'false';
+      button.dataset.secondInCart = secondInCart ? 'true' : 'false';
+      button.dataset.activePurchaseType = purchaseType || 'subscription';
+      button.dataset.subscriptionPlanQty = Math.min(Math.max(parseInt(planQty, 10) || 1, 1), 5).toString();
+
+      const missingItems = getMissingItems();
+      const oneTimePrice = missingItems.reduce((sum, item) => sum + item.price, 0);
+      const primaryPrice = missingItems.reduce((sum, item) => {
+        return sum + (button.dataset.activePurchaseType === 'subscription' ? item.subscriptionPrice : item.price);
+      }, 0);
+      const saving = Math.max(oneTimePrice - primaryPrice, 0);
+
+      if (firstInCart && secondInCart) {
+        button.textContent = button.dataset.viewRoutineLabel || 'View My Ritual';
+        if (savingCallout) savingCallout.hidden = true;
+        if (oneTimeButton) oneTimeButton.hidden = true;
+        if (subscriptionNote) subscriptionNote.hidden = true;
+      } else if (firstInCart || secondInCart) {
+        button.textContent = `${button.dataset.addMissingLabel || 'Complete My Ritual'} — ${formatMoney(primaryPrice)}`;
+      } else {
+        button.textContent = `${button.dataset.addBothLabel || 'Start My Ritual'} — ${formatMoney(primaryPrice)}`;
+      }
+
+      if (missingItems.length) {
+        if (savingCallout) {
+          const template = savingCallout.dataset.savingTemplate || "You're saving $X.XX with Pair & Save";
+          savingCallout.textContent = template.replace('$X.XX', formatMoney(saving));
+          savingCallout.hidden = saving <= 0;
+        }
+        if (oneTimeButton) {
+          oneTimeButton.textContent = `${oneTimeButton.dataset.label || 'One Time Purchase'} — ${formatMoney(oneTimePrice)}`;
+          oneTimeButton.hidden = false;
+        }
+        if (subscriptionNote) {
+          subscriptionNote.hidden = button.dataset.activePurchaseType !== 'subscription';
+        }
+      }
+    };
+
+    const syncButtonFromCart = () => {
+      const firstVariantId = parseInt(button.dataset.firstVariantId, 10);
+      const secondVariantId = parseInt(button.dataset.secondVariantId, 10);
+      if (!firstVariantId && !secondVariantId) return;
+
+      fetch(`${routes.cart_url}.js`)
+        .then((response) => response.json())
+        .then((cart) => {
+          const firstInCart = cart.items.some((item) => item.variant_id === firstVariantId);
+          const secondInCart = cart.items.some((item) => item.variant_id === secondVariantId);
+          const purchaseState = getCartPurchaseState(cart);
+          setButtonState(firstInCart, secondInCart, purchaseState.type, purchaseState.planQty);
+        })
+        .catch(() => {});
+    };
+
+    const scheduleCartSync = () => {
+      clearTimeout(syncTimer);
+      syncTimer = setTimeout(syncButtonFromCart, 900);
+    };
+
+    if (window.PUB_SUB_EVENTS && typeof subscribe === 'function') {
+      subscribe(PUB_SUB_EVENTS.cartUpdate, scheduleCartSync);
+    }
+
+    document.addEventListener('click', (event) => {
+      if (event.target.closest('cart-drawer')) scheduleCartSync();
+    });
+    document.addEventListener('change', (event) => {
+      if (event.target.closest('cart-drawer')) scheduleCartSync();
+    });
+
+    const addMissingItems = (forceOneTime) => {
+      const missingItems = getMissingItems();
+      const useSubscription = !forceOneTime && button.dataset.activePurchaseType === 'subscription';
+      const items = missingItems.map((item) => {
+        const payload = { id: item.id, quantity: 1 };
+        const sellingPlanId = useSubscription ? getSellingPlanId(item.key) : '';
+        if (sellingPlanId) payload.selling_plan = sellingPlanId;
+        return payload;
+      });
 
       if (!items.length) {
         openCartDrawer();
@@ -241,25 +637,46 @@
       })
         .then((response) => response.json())
         .then((parsedState) => {
+          if (parsedState.status || parsedState.errors) {
+            button.disabled = false;
+            return;
+          }
+
           const cartDrawer = document.querySelector('cart-drawer');
           if (cartDrawer && typeof cartDrawer.renderContents === 'function' && parsedState.sections) {
             cartDrawer.renderContents(parsedState);
+            cartDrawer.classList.remove('is-empty');
           } else {
             openCartDrawer();
           }
-          items.forEach((item) => {
-            if (item.id === firstVariantId) button.dataset.firstInCart = 'true';
-            if (item.id === secondVariantId) button.dataset.secondInCart = 'true';
-          });
-          if (button.dataset.firstInCart === 'true' && button.dataset.secondInCart === 'true') {
-            button.textContent = button.dataset.viewRoutineLabel || 'View My Ritual';
+          const firstVariantId = parseInt(button.dataset.firstVariantId, 10);
+          const secondVariantId = parseInt(button.dataset.secondVariantId, 10);
+          const firstInCart = button.dataset.firstInCart === 'true' || items.some((item) => item.id === firstVariantId);
+          const secondInCart = button.dataset.secondInCart === 'true' || items.some((item) => item.id === secondVariantId);
+          setButtonState(firstInCart, secondInCart, button.dataset.activePurchaseType, button.dataset.subscriptionPlanQty);
+          if (window.PUB_SUB_EVENTS && typeof publish === 'function') {
+            publish(PUB_SUB_EVENTS.cartUpdate, {
+              source: 'bloomli-bundle-promo',
+              cartData: parsedState,
+            });
           }
+          scheduleCartSync();
           button.disabled = false;
         })
         .catch(() => {
           button.disabled = false;
         });
-    });
+    };
+
+    button.addEventListener('click', () => addMissingItems(false));
+    if (oneTimeButton) oneTimeButton.addEventListener('click', () => addMissingItems(true));
+
+    setButtonState(
+      button.dataset.firstInCart === 'true',
+      button.dataset.secondInCart === 'true',
+      button.dataset.activePurchaseType,
+      button.dataset.subscriptionPlanQty
+    );
   })();
 </script>
 
@@ -322,6 +739,25 @@
       "label": "View routine button label",
       "placeholder": "View My Ritual",
       "default": "View My Ritual"
+    },
+    {
+      "type": "text",
+      "id": "saving_callout_text",
+      "label": "Saving callout text",
+      "default": "You're saving $X.XX with Pair & Save",
+      "info": "Use $X.XX for the calculated saving."
+    },
+    {
+      "type": "text",
+      "id": "one_time_label_text",
+      "label": "One-time label text",
+      "default": "One Time Purchase"
+    },
+    {
+      "type": "text",
+      "id": "subscription_note_text",
+      "label": "Subscription note text",
+      "default": "Matched to your subscription — cancel anytime."
     },
     {
       "type": "range",

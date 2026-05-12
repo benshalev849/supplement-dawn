@@ -86,6 +86,12 @@
           return;
         }
         replaceCartSections(parsedState);
+        if (window.PUB_SUB_EVENTS && typeof publish === 'function') {
+          publish(PUB_SUB_EVENTS.cartUpdate, {
+            source: 'bloomli-cart-routine-upsell',
+            cartData: parsedState,
+          });
+        }
       })
       .catch(showError)
       .finally(function () {

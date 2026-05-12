@@ -1,10 +1,16 @@
 ## graphify
 
-This project has a graphify knowledge graph at graphify-out/.
+This project has a knowledge graph at `graphify-out/`. Always use it — it provides ~71x fewer tokens than reading files directly.
 
-Rules:
-- Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes and community structure
-- If graphify-out/wiki/index.md exists, navigate it instead of reading raw files
-- NEVER use the Grep tool or `grep`/`rg` in Bash to explore the codebase. Always use `graphify query "<question>"`, `graphify path "<A>" "<B>"`, or `graphify explain "<node>"` instead — these traverse the graph's EXTRACTED + INFERRED edges rather than scanning files
-- Only use Read on a specific known file path after graphify has told you where to look
-- After modifying code files in this session, run `graphify update .` to keep the graph current (AST-only, no API cost)
+### Query order (strict)
+1. Read `graphify-out/GRAPH_REPORT.md` **once per session** for god nodes and community structure
+2. `graphify query "<question>"` — semantic search, always start here
+3. `graphify explain "<NodeName>"` — deep dive on a specific node or concept
+4. `graphify path "<A>" "<B>"` — trace how two concepts connect
+5. `Read` only after graphify has given you a specific file path — never to explore
+
+### Hard rules
+- NEVER use Grep, `grep`, `rg`, `find`, or any file scan to explore the codebase
+- NEVER read a file to understand architecture — always query the graph first
+- If `graphify-out/wiki/index.md` exists, navigate it instead of reading raw files
+- After modifying code files in this session, run `graphify update .` (AST-only, no API cost)

@@ -3,7 +3,10 @@
     "allow": [
       "PowerShell(python -c $script)",
       "Bash(python -c ' *)",
-      "Bash(graphify query *)"
+      "Bash(graphify query *)",
+      "Bash(graphify path *)",
+      "Bash(graphify explain *)",
+      "Bash(graphify update *)"
     ]
   },
   "hooks": {

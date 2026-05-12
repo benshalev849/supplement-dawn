@@ -896,14 +896,15 @@
       "type": "bloomli-bundle-promo",
       "name": "Bloomli — Bundle Promo",
       "settings": {
+        "color_scheme": "",
         "heading": "Pair & Save",
+        "subheading": "15% off your hair oil when bundled.",
         "body_text": "Most people choose one. The ones who see results fastest use both.",
-        "product_1": "test-supplement",
+        "product_1": "",
         "product_2": "",
         "add_both_label": "Save Now",
         "add_missing_label": "",
         "view_routine_label": "",
-        "background_color": "#fdf7f1",
         "padding_top": 96,
         "padding_bottom": 96
       }

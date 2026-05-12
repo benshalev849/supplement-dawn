@@ -75,7 +75,6 @@
   assign second_in_cart = false
   assign cart_has_subscription = false
   assign cart_has_one_time = false
-  assign cart_subscription_plan_qty = 1
   for item in cart.items
     if first_product != blank and item.product.id == first_product.id
       assign first_in_cart = true
@@ -84,30 +83,6 @@
       assign second_in_cart = true
     endif
     if item.selling_plan_allocation != blank
-      if cart_has_subscription == false
-        assign cart_subscription_plan_qty = item.quantity | default: 1 | plus: 0
-        assign subscription_frequency_source = item.selling_plan_allocation.selling_plan.name | downcase
-        for option in item.selling_plan_allocation.selling_plan.options
-          assign subscription_frequency_source = subscription_frequency_source | append: ' ' | append: option.value | downcase
-        endfor
-        for target_qty in (1..5)
-          assign frequency_filter = target_qty | append: 'mo'
-          assign frequency_filter_spaced = target_qty | append: ' mo'
-          assign frequency_filter_dash = target_qty | append: '-mo'
-          assign frequency_filter_month = target_qty | append: ' month'
-          assign frequency_filter_every = 'every ' | append: target_qty
-          assign frequency_filter_appstle = target_qty | append: 'month'
-          if subscription_frequency_source contains frequency_filter or subscription_frequency_source contains frequency_filter_spaced or subscription_frequency_source contains frequency_filter_dash or subscription_frequency_source contains frequency_filter_month or subscription_frequency_source contains frequency_filter_every or subscription_frequency_source contains frequency_filter_appstle
-            assign cart_subscription_plan_qty = target_qty
-            break
-          endif
-        endfor
-        if cart_subscription_plan_qty < 1
-          assign cart_subscription_plan_qty = 1
-        elsif cart_subscription_plan_qty > 5
-          assign cart_subscription_plan_qty = 5
-        endif
-      endif
       assign cart_has_subscription = true
     else
       assign cart_has_one_time = true
@@ -391,7 +366,7 @@
         data-first-in-cart="{{ first_in_cart }}"
         data-second-in-cart="{{ second_in_cart }}"
         data-active-purchase-type="{{ active_purchase_type }}"
-        data-subscription-plan-qty="{{ cart_subscription_plan_qty }}"
+        data-subscription-plan-qty="1"
         data-add-both-label="{{ add_both_label | escape }}"
         data-add-missing-label="{{ add_missing_label | escape }}"
         data-view-routine-label="{{ view_routine_label | escape }}"
@@ -468,32 +443,9 @@
     const getCartPurchaseState = (cart) => {
       let hasSubscription = false;
       let hasOneTime = false;
-      let subscriptionPlanQty = 1;
-      const readPlanQty = (item) => {
-        const fallbackQty = Math.min(Math.max(parseInt(item.quantity, 10) || 1, 1), 5);
-        const sellingPlan = item.selling_plan_allocation && item.selling_plan_allocation.selling_plan;
-        const options = Array.isArray(sellingPlan && sellingPlan.options) ? sellingPlan.options : [];
-        const source = [
-          sellingPlan && sellingPlan.name,
-          ...options.map((option) => option && option.value),
-        ]
-          .filter(Boolean)
-          .join(' ')
-          .toLowerCase();
-
-        for (let qty = 1; qty <= 5; qty += 1) {
-          const filters = [`${qty}mo`, `${qty} mo`, `${qty}-mo`, `${qty} month`, `every ${qty}`, `${qty}month`];
-          if (filters.some((filter) => source.includes(filter))) return qty;
-        }
-
-        return fallbackQty;
-      };
 
       cart.items.forEach((item) => {
         if (item.selling_plan_allocation) {
-          if (!hasSubscription) {
-            subscriptionPlanQty = readPlanQty(item);
-          }
           hasSubscription = true;
         } else {
           hasOneTime = true;
@@ -501,7 +453,7 @@
       });
 
       if (!cart.items.length || hasSubscription || (hasSubscription && hasOneTime)) {
-        return { type: 'subscription', planQty: subscriptionPlanQty };
+        return { type: 'subscription', planQty: 1 };
       }
 
       return { type: 'one_time', planQty: 1 };
@@ -534,15 +486,14 @@
     };
 
     const getSellingPlanId = (key) => {
-      const planQty = Math.min(Math.max(parseInt(button.dataset.subscriptionPlanQty, 10) || 1, 1), 5);
-      return button.dataset[`${key}SellingPlanQty${planQty}`] || button.dataset[`${key}SellingPlanQty-${planQty}`] || '';
+      return button.dataset[`${key}SellingPlanQty1`] || button.dataset[`${key}SellingPlanQty-1`] || '';
     };
 
     const setButtonState = (firstInCart, secondInCart, purchaseType, planQty) => {
       button.dataset.firstInCart = firstInCart ? 'true' : 'false';
       button.dataset.secondInCart = secondInCart ? 'true' : 'false';
       button.dataset.activePurchaseType = purchaseType || 'subscription';
-      button.dataset.subscriptionPlanQty = Math.min(Math.max(parseInt(planQty, 10) || 1, 1), 5).toString();
+      button.dataset.subscriptionPlanQty = '1';
 
       const missingItems = getMissingItems();
       const oneTimePrice = missingItems.reduce((sum, item) => sum + item.price, 0);

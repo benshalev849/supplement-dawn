@@ -1,6 +1,6 @@
 {%- liquid
-  assign product_1 = section.settings.product_1
-  assign product_2 = section.settings.product_2
+  assign gummies_product = settings.bloomli_routine_upsell_supplement_product
+  assign hair_oil_product = settings.bloomli_routine_upsell_addon_product
   assign current_product = product
   assign current_is_supplement = false
   assign current_is_add_on = false
@@ -16,16 +16,16 @@
     endfor
   endif
 
-  assign first_product = product_1
-  assign second_product = product_2
+  assign first_product = gummies_product
+  assign second_product = hair_oil_product
   assign first_image = section.settings.product_1_image
   assign second_image = section.settings.product_2_image
 
   if current_product != blank
     if current_is_add_on
       assign first_product = current_product
-      assign second_product = product_1
-      if product_2 != blank and current_product.id == product_2.id
+      assign second_product = gummies_product
+      if hair_oil_product != blank and current_product.id == hair_oil_product.id
         assign first_image = section.settings.product_2_image
       else
         assign first_image = current_product.featured_image
@@ -33,12 +33,17 @@
       assign second_image = section.settings.product_1_image
     elsif current_is_supplement
       assign first_product = current_product
-      assign second_product = product_2
-      if product_1 != blank and current_product.id == product_1.id
+      assign second_product = hair_oil_product
+      if gummies_product != blank and current_product.id == gummies_product.id
         assign first_image = section.settings.product_1_image
       else
         assign first_image = current_product.featured_image
       endif
+      assign second_image = section.settings.product_2_image
+    else
+      assign first_product = current_product
+      assign second_product = hair_oil_product
+      assign first_image = current_product.featured_image
       assign second_image = section.settings.product_2_image
     endif
   endif
@@ -58,7 +63,7 @@
   endfor
 
   assign add_both_label = section.settings.add_both_label | default: 'Start My Ritual'
-  assign view_routine_label = section.settings.view_routine_label | default: 'View My Routine'
+  assign view_routine_label = section.settings.view_routine_label | default: 'View My Ritual'
   assign add_missing_label = section.settings.add_missing_label | default: 'Complete My Ritual'
 
   assign button_label = add_both_label
@@ -136,7 +141,7 @@
 
       <span
         aria-hidden="true"
-        style="align-self: center; font-family: var(--font-heading-family); font-size: clamp(3.2rem, 6vw, 5.8rem); line-height: 1; margin: 0 -4px 20px; color: rgb(var(--color-foreground));"
+        style="align-self: center; font-family: var(--font-heading-family); font-size: clamp(2.4rem, 4.5vw, 4.4rem); line-height: 1; margin: 0 -4px 20px; color: rgb(var(--color-foreground));"
       >
         +
       </span>
@@ -242,9 +247,13 @@
           } else {
             openCartDrawer();
           }
-          button.dataset.firstInCart = 'true';
-          button.dataset.secondInCart = 'true';
-          button.textContent = button.dataset.viewRoutineLabel || 'View My Routine';
+          items.forEach((item) => {
+            if (item.id === firstVariantId) button.dataset.firstInCart = 'true';
+            if (item.id === secondVariantId) button.dataset.secondInCart = 'true';
+          });
+          if (button.dataset.firstInCart === 'true' && button.dataset.secondInCart === 'true') {
+            button.textContent = button.dataset.viewRoutineLabel || 'View My Ritual';
+          }
           button.disabled = false;
         })
         .catch(() => {
@@ -282,16 +291,6 @@
       "id": "body_text",
       "label": "Body text",
       "default": "Most people choose one. The ones who see results fastest use both."
-    },
-    {
-      "type": "product",
-      "id": "product_1",
-      "label": "Product 1"
-    },
-    {
-      "type": "product",
-      "id": "product_2",
-      "label": "Product 2"
     },
     {
       "type": "image_picker",

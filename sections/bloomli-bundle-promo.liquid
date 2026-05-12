@@ -102,7 +102,21 @@
   assign saving_callout_template = section.settings.saving_callout_text | default: "You're saving $X.XX with Pair & Save"
 
   assign subscription_discount_pct = settings.bloomli_subscription_discount_pct | default: 15 | plus: 0
-  assign bundle_discount_pct = settings.bloomli_routine_upsell_addon_discount_pct | default: settings.bloomli_bundle_add_on_discount_pct | default: 15 | plus: 0
+  assign add_on_product = nil
+  if first_is_add_on
+    assign add_on_product = first_product
+  elsif second_is_add_on
+    assign add_on_product = second_product
+  endif
+  if add_on_product != nil and add_on_product.metafields.bloomli.bundle_add_on_discount_pct != blank
+    assign bundle_discount_pct = add_on_product.metafields.bloomli.bundle_add_on_discount_pct | plus: 0
+  elsif settings.bloomli_routine_upsell_addon_discount_pct != blank
+    assign bundle_discount_pct = settings.bloomli_routine_upsell_addon_discount_pct | plus: 0
+  elsif settings.bloomli_bundle_add_on_discount_pct != blank
+    assign bundle_discount_pct = settings.bloomli_bundle_add_on_discount_pct | plus: 0
+  else
+    assign bundle_discount_pct = 15
+  endif
   assign subscription_factor = 100.0 | minus: subscription_discount_pct
   assign bundle_factor = 100.0 | minus: bundle_discount_pct
 
@@ -128,11 +142,11 @@
 
   assign first_subscription_price = first_variant.price | times: subscription_factor | divided_by: 100.0 | round
   if first_is_add_on
-    assign first_subscription_price = first_subscription_price | times: bundle_factor | divided_by: 100.0 | round
+    assign first_subscription_price = first_variant.price | times: subscription_factor | times: bundle_factor | divided_by: 10000.0 | round
   endif
   assign second_subscription_price = second_variant.price | times: subscription_factor | divided_by: 100.0 | round
   if second_is_add_on
-    assign second_subscription_price = second_subscription_price | times: bundle_factor | divided_by: 100.0 | round
+    assign second_subscription_price = second_variant.price | times: subscription_factor | times: bundle_factor | divided_by: 10000.0 | round
   endif
 
   assign first_bundle_price = first_variant.price

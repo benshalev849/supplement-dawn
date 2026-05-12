@@ -152,9 +152,10 @@
 
     if cart_has_subscription and upsell_selling_plan_id != nil
       assign upsell_subscription_factor = 100.0 | minus: upsell_subscription_discount_pct
-      assign upsell_sub_unit_price = upsell_variant.price | times: upsell_subscription_factor | divided_by: 100.0 | round
       if upsell_has_bundle_discount
-        assign upsell_sub_unit_price = upsell_sub_unit_price | times: upsell_bundle_factor | divided_by: 100.0 | round
+        assign upsell_sub_unit_price = upsell_variant.price | times: upsell_subscription_factor | times: upsell_bundle_factor | divided_by: 10000.0 | round
+      else
+        assign upsell_sub_unit_price = upsell_variant.price | times: upsell_subscription_factor | divided_by: 100.0 | round
       endif
       assign upsell_sub_price = upsell_sub_unit_price | times: upsell_quantity
       assign upsell_sub_discount_pct = upsell_variant.price | minus: upsell_sub_unit_price | times: 100.0 | divided_by: upsell_variant.price | floor

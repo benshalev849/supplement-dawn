@@ -17,14 +17,7 @@
   endif
 
   assign target_plan_id = ''
-  assign discount_percent = settings.cart_line_subscription_upsell_discount_pct
-  if discount_percent == blank
-    assign discount_percent = settings.cart_drawer_subscription_discount_pct
-  endif
-  if discount_percent == blank
-    assign discount_percent = 10
-  endif
-  assign discount_percent = discount_percent | plus: 0
+  assign discount_percent = item.product.metafields.bloomli.subscription_discount_pct | default: settings.bloomli_subscription_discount_pct | default: settings.cart_line_subscription_upsell_discount_pct | default: settings.cart_drawer_subscription_discount_pct | default: 15 | plus: 0
 -%}
 
 {%- if upsell_enabled and item.selling_plan_allocation == null and can_update_line -%}

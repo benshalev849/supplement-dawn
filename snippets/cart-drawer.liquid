@@ -244,10 +244,66 @@
                         elsif is_bloomli_add_on and cart_bundle_active
                           assign show_bloomli_pack_promo_cell = true
                         endif
-                        assign cart_subscription_discount = item.product.metafields.bloomli.subscription_discount_pct | default: settings.bloomli_subscription_discount_pct | default: settings.cart_drawer_subscription_discount_pct | default: 15 | plus: 0
-                        assign cart_vol_3_pct = item.product.metafields.bloomli.volume_discount_3_pct | default: settings.bloomli_volume_discount_3_pct | default: settings.cart_drawer_quantity_offer_3_savings | default: 15 | plus: 0
-                        assign cart_vol_4_pct = item.product.metafields.bloomli.volume_discount_4_pct | default: settings.bloomli_volume_discount_4_pct | default: settings.cart_drawer_quantity_offer_4_savings | default: 18 | plus: 0
-                        assign cart_vol_5_pct = item.product.metafields.bloomli.volume_discount_5_pct | default: settings.bloomli_volume_discount_5_pct | default: settings.cart_drawer_quantity_offer_5_savings | default: 20 | plus: 0
+                        assign cart_line_has_subscription = false
+                        if item.selling_plan_allocation != null
+                          assign cart_line_has_subscription = true
+                        endif
+                        assign cart_line_has_bundle = false
+                        if is_bloomli_add_on and cart_bundle_active
+                          assign cart_line_has_bundle = true
+                        endif
+
+                        assign cart_mf_sub_pct = item.product.metafields.bloomli.subscription_discount_pct
+                        assign cart_g_sub_pct = settings.bloomli_subscription_discount_pct
+                        if cart_mf_sub_pct != blank
+                          assign cart_subscription_discount = cart_mf_sub_pct | plus: 0
+                        elsif cart_g_sub_pct != blank
+                          assign cart_subscription_discount = cart_g_sub_pct | plus: 0
+                        elsif settings.cart_drawer_subscription_discount_pct != blank
+                          assign cart_subscription_discount = settings.cart_drawer_subscription_discount_pct | plus: 0
+                        else
+                          assign cart_subscription_discount = 15
+                        endif
+
+                        assign cart_mf_bundle_pct = item.product.metafields.bloomli.bundle_add_on_discount_pct
+                        assign cart_g_bundle_pct = settings.bloomli_bundle_add_on_discount_pct
+                        if cart_mf_bundle_pct != blank
+                          assign cart_bundle_discount = cart_mf_bundle_pct | plus: 0
+                        elsif cart_g_bundle_pct != blank
+                          assign cart_bundle_discount = cart_g_bundle_pct | plus: 0
+                        elsif settings.cart_drawer_addon_bundle_discount_pct != blank
+                          assign cart_bundle_discount = settings.cart_drawer_addon_bundle_discount_pct | plus: 0
+                        else
+                          assign cart_bundle_discount = 20
+                        endif
+
+                        if item.product.metafields.bloomli.volume_discount_3_pct != blank
+                          assign cart_vol_3_pct = item.product.metafields.bloomli.volume_discount_3_pct | plus: 0
+                        elsif settings.bloomli_volume_discount_3_pct != blank
+                          assign cart_vol_3_pct = settings.bloomli_volume_discount_3_pct | plus: 0
+                        elsif settings.cart_drawer_quantity_offer_3_savings != blank
+                          assign cart_vol_3_pct = settings.cart_drawer_quantity_offer_3_savings | plus: 0
+                        else
+                          assign cart_vol_3_pct = 15
+                        endif
+                        if item.product.metafields.bloomli.volume_discount_4_pct != blank
+                          assign cart_vol_4_pct = item.product.metafields.bloomli.volume_discount_4_pct | plus: 0
+                        elsif settings.bloomli_volume_discount_4_pct != blank
+                          assign cart_vol_4_pct = settings.bloomli_volume_discount_4_pct | plus: 0
+                        elsif settings.cart_drawer_quantity_offer_4_savings != blank
+                          assign cart_vol_4_pct = settings.cart_drawer_quantity_offer_4_savings | plus: 0
+                        else
+                          assign cart_vol_4_pct = 18
+                        endif
+                        if item.product.metafields.bloomli.volume_discount_5_pct != blank
+                          assign cart_vol_5_pct = item.product.metafields.bloomli.volume_discount_5_pct | plus: 0
+                        elsif settings.bloomli_volume_discount_5_pct != blank
+                          assign cart_vol_5_pct = settings.bloomli_volume_discount_5_pct | plus: 0
+                        elsif settings.cart_drawer_quantity_offer_5_savings != blank
+                          assign cart_vol_5_pct = settings.cart_drawer_quantity_offer_5_savings | plus: 0
+                        else
+                          assign cart_vol_5_pct = 20
+                        endif
                       -%}
                       <tr
                         id="CartDrawer-Item-{{ item.index | plus: 1 }}"
@@ -635,24 +691,24 @@
                           {%- if is_bloomli_supplement or is_bloomli_add_on -%}
                           {%- liquid
                             assign offer_label_template = settings.cart_drawer_quantity_offer_label_template | default: 'BUY [qty] SAVE [percent]%'
-                            assign offer_3_savings = cart_vol_3_pct
-                            assign offer_4_savings = cart_vol_4_pct
-                            assign offer_5_savings = cart_vol_5_pct
-                            if item.selling_plan_allocation != null
-                              assign subscription_factor = 100.0 | minus: cart_subscription_discount
-                              assign offer_3_factor = 100.0 | minus: cart_vol_3_pct | times: subscription_factor | divided_by: 100.0
-                              assign offer_4_factor = 100.0 | minus: cart_vol_4_pct | times: subscription_factor | divided_by: 100.0
-                              assign offer_5_factor = 100.0 | minus: cart_vol_5_pct | times: subscription_factor | divided_by: 100.0
-                              assign offer_3_savings = 100.0 | minus: offer_3_factor
-                              assign offer_4_savings = 100.0 | minus: offer_4_factor
-                              assign offer_5_savings = 100.0 | minus: offer_5_factor
+                            assign cart_offer_sub_factor = 100.0
+                            if cart_line_has_subscription
+                              assign cart_offer_sub_factor = 100.0 | minus: cart_subscription_discount
                             endif
-                            assign offer_3_rounded = offer_3_savings | floor
-                            assign offer_4_rounded = offer_4_savings | floor
-                            assign offer_5_rounded = offer_5_savings | floor
-                            assign offer_3_label = offer_label_template | replace: '[qty]', '3' | replace: '[percent]', offer_3_rounded
-                            assign offer_4_label = offer_label_template | replace: '[qty]', '4' | replace: '[percent]', offer_4_rounded
-                            assign offer_5_label = offer_label_template | replace: '[qty]', '5' | replace: '[percent]', offer_5_rounded
+                            assign cart_offer_bundle_factor = 100.0
+                            if cart_line_has_bundle
+                              assign cart_offer_bundle_factor = 100.0 | minus: cart_bundle_discount
+                            endif
+
+                            assign offer_3_factor = 100.0 | minus: cart_vol_3_pct | times: cart_offer_sub_factor | divided_by: 100.0 | times: cart_offer_bundle_factor | divided_by: 100.0
+                            assign offer_4_factor = 100.0 | minus: cart_vol_4_pct | times: cart_offer_sub_factor | divided_by: 100.0 | times: cart_offer_bundle_factor | divided_by: 100.0
+                            assign offer_5_factor = 100.0 | minus: cart_vol_5_pct | times: cart_offer_sub_factor | divided_by: 100.0 | times: cart_offer_bundle_factor | divided_by: 100.0
+                            assign offer_3_percent = 100.0 | minus: offer_3_factor | floor
+                            assign offer_4_percent = 100.0 | minus: offer_4_factor | floor
+                            assign offer_5_percent = 100.0 | minus: offer_5_factor | floor
+                            assign offer_3_label = offer_label_template | replace: '[qty]', '3' | replace: '[percent]', offer_3_percent
+                            assign offer_4_label = offer_label_template | replace: '[qty]', '4' | replace: '[percent]', offer_4_percent
+                            assign offer_5_label = offer_label_template | replace: '[qty]', '5' | replace: '[percent]', offer_5_percent
                             assign can_update_line = true
                             if item.instructions and item.instructions.can_update_quantity == false
                               assign can_update_line = false
@@ -671,7 +727,7 @@
                               data-quantity="3"
                               {% if item.quantity >= 3 or can_update_line == false %}disabled{% endif %}
                             >
-                              {{ offer_3_label }}
+                              {{ offer_3_label | strip }}
                             </button>
                             <button
                               type="button"
@@ -681,7 +737,7 @@
                               data-quantity="4"
                               {% if item.quantity >= 4 or can_update_line == false %}disabled{% endif %}
                             >
-                              {{ offer_4_label }}
+                              {{ offer_4_label | strip }}
                             </button>
                             <button
                               type="button"
@@ -691,7 +747,7 @@
                               data-quantity="5"
                               {% if item.quantity >= 5 or can_update_line == false %}disabled{% endif %}
                             >
-                              {{ offer_5_label }}
+                              {{ offer_5_label | strip }}
                             </button>
                           </div>
                           {%- endif -%}
@@ -707,6 +763,7 @@
                               assign current_selling_plan_id = item.selling_plan_allocation.selling_plan.id
                               assign frequency_prefix = settings.cart_subscription_frequency_prefix | default: 'Delivers every'
                               assign savings_prefix = settings.cart_subscription_savings_prefix | default: 'SAVE'
+                              assign cart_subscription_discount_label = cart_subscription_discount | floor
                             -%}
                             {%- for selling_plan_group in item.product.selling_plan_groups -%}
                               {%- liquid
@@ -751,7 +808,7 @@
 
                                         assign save_label = ''
                                         if cart_subscription_discount > 0
-                                          assign save_label = savings_prefix | append: ' ' | append: cart_subscription_discount | append: '%'
+                                          assign save_label = savings_prefix | append: ' ' | append: cart_subscription_discount_label | append: '%'
                                         endif
                                       -%}
                                       <option
@@ -808,7 +865,7 @@
 
                                         assign save_label = ''
                                         if cart_subscription_discount > 0
-                                          assign save_label = savings_prefix | append: ' ' | append: cart_subscription_discount | append: '%'
+                                          assign save_label = savings_prefix | append: ' ' | append: cart_subscription_discount_label | append: '%'
                                         endif
                                       -%}
                                       <li class="bloomli-cart-frequency__menu-item">
@@ -839,7 +896,12 @@
                       {%- if settings.cart_line_subscription_upsell_enabled != false and item.selling_plan_allocation == null -%}
                         <tr class="bloomli-cart-line-upsell-row" role="row">
                           <td colspan="4" role="cell">
-                            {%- render 'bloomli-cart-subscription-upsell', item: item, context: 'drawer' -%}
+                            {%- render 'bloomli-cart-subscription-upsell',
+                              item: item,
+                              context: 'drawer',
+                              cart_has_supplement: _cart_has_supplement,
+                              line_has_bundle: cart_line_has_bundle
+                            -%}
                           </td>
                         </tr>
                       {%- endif -%}
@@ -923,13 +985,21 @@
             if bloomli_cart_compare_price > cart.total_price
               assign bloomli_cart_savings_percent = bloomli_cart_compare_price | minus: cart.total_price | times: 100 | divided_by: bloomli_cart_compare_price | floor
             endif
+            assign bloomli_cart_savings_label = ''
+            if bloomli_cart_savings_percent > 0
+              assign bloomli_cart_savings_label = bloomli_cart_savings_percent | append: '% off'
+            elsif cart.total_discount > 0
+              assign bloomli_cart_savings_label = settings.cart_drawer_savings_applied_label | default: 'Savings Applied'
+            endif
           -%}
 
           <div class="totals" role="status">
             <h2 class="totals__total">{{ settings.cart_drawer_subtotal_label | default: 'Subtotal' }}</h2>
             <p class="totals__total-value">
+              {%- if bloomli_cart_savings_label != blank -%}
+                <span class="bloomli-cart-subtotal-save">{{ bloomli_cart_savings_label }}</span>
+              {%- endif -%}
               {%- if bloomli_cart_compare_price > cart.total_price -%}
-                <span class="bloomli-cart-subtotal-save">{{ bloomli_cart_savings_percent }}% off</span>
                 <s class="bloomli-cart-subtotal-compare">{{ bloomli_cart_compare_price | money }}</s>
               {%- endif -%}
               <span class="bloomli-cart-subtotal-final">{{ cart.total_price | money_with_currency }}</span>

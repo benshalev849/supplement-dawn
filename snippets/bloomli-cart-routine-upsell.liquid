@@ -55,48 +55,103 @@
     if upsell_state == 1
       assign upsell_product      = addon_product
       assign upsell_heading      = settings.bloomli_routine_upsell_state1_heading | default: 'Complete your routine'
-      assign upsell_text         = settings.bloomli_routine_upsell_state1_text    | default: 'Add Hair Oil and unlock Pair & Save.'
+      assign upsell_text_template = settings.bloomli_routine_upsell_state1_text    | default: 'Add Hair Oil and unlock Pair & Save.'
       assign upsell_button       = settings.bloomli_routine_upsell_state1_button  | default: 'Add Hair Oil'
-      assign upsell_discount_pct = upsell_product.metafields.bloomli.bundle_add_on_discount_pct | default: settings.bloomli_bundle_add_on_discount_pct | default: settings.bloomli_routine_upsell_addon_discount_pct | default: 20 | plus: 0
+      assign upsell_has_bundle_discount = true
     else
       assign upsell_product      = supplement_product
       assign upsell_heading      = settings.bloomli_routine_upsell_state2_heading | default: 'Unlock your pairing offer'
-      assign upsell_text         = settings.bloomli_routine_upsell_state2_text    | default: 'Add Gummies to activate Pair & Save on your Hair Oil.'
+      assign upsell_text_template = settings.bloomli_routine_upsell_state2_text    | default: 'Add Gummies to activate Pair & Save on your Hair Oil.'
       assign upsell_button       = settings.bloomli_routine_upsell_state2_button  | default: 'Add Gummies'
-      assign upsell_discount_pct = 0
+      assign upsell_has_bundle_discount = false
     endif
 
     assign upsell_variant = upsell_product.first_available_variant
     assign upsell_image   = upsell_product.featured_image
 
-    assign upsell_sale_price = upsell_variant.price
-
     assign upsell_compare_price = upsell_variant.compare_at_price
-    if upsell_compare_price == blank or upsell_compare_price <= upsell_sale_price
+    if upsell_compare_price == blank or upsell_compare_price <= upsell_variant.price
       assign upsell_compare_price = 0
     endif
 
-    assign sub_discount_pct = upsell_product.metafields.bloomli.subscription_discount_pct | default: settings.bloomli_subscription_discount_pct | default: settings.bloomli_routine_upsell_subscription_discount_pct | default: 15 | plus: 0
     assign upsell_sub_btn   = settings.bloomli_routine_upsell_sub_button | default: 'Add to subscription'
     assign upsell_otp_label = settings.bloomli_routine_upsell_otp_label  | default: 'One Time Purchase'
 
     assign upsell_selling_plan_id = nil
     if cart_has_subscription
+      assign plan_filter = '1-pack'
+      assign frequency_filter = '1mo'
+      assign frequency_filter_spaced = '1 mo'
+      assign frequency_filter_dash = '1-mo'
+      assign frequency_filter_month = '1 month'
+      assign frequency_filter_every = 'every 1'
+      assign frequency_filter_appstle = '1month'
+      assign fallback_plan_id = nil
       for spg in upsell_product.selling_plan_groups
-        for plan in spg.selling_plans
-          assign upsell_selling_plan_id = plan.id
-          break
-        endfor
-        if upsell_selling_plan_id != nil
-          break
+        assign spg_name_lower = spg.name | downcase
+        if spg_name_lower contains plan_filter
+          assign first_plan = spg.selling_plans | first
+          if first_plan and fallback_plan_id == nil
+            assign fallback_plan_id = first_plan.id
+          endif
+
+          for plan in spg.selling_plans
+            assign frequency_source = spg.name | append: ' ' | append: plan.name | downcase
+            for option in plan.options
+              assign frequency_source = frequency_source | append: ' ' | append: option.value | downcase
+            endfor
+
+            if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every or frequency_source contains frequency_filter_appstle
+              assign upsell_selling_plan_id = plan.id
+              break
+            endif
+          endfor
+
+          if upsell_selling_plan_id != nil
+            break
+          endif
         endif
       endfor
+      if upsell_selling_plan_id == nil
+        assign upsell_selling_plan_id = fallback_plan_id
+      endif
     endif
 
-    assign upsell_sub_price = 0
+    if upsell_product.metafields.bloomli.subscription_discount_pct != blank
+      assign upsell_subscription_discount_pct = upsell_product.metafields.bloomli.subscription_discount_pct | plus: 0
+    elsif settings.bloomli_subscription_discount_pct != blank
+      assign upsell_subscription_discount_pct = settings.bloomli_subscription_discount_pct | plus: 0
+    elsif settings.bloomli_routine_upsell_subscription_discount_pct != blank
+      assign upsell_subscription_discount_pct = settings.bloomli_routine_upsell_subscription_discount_pct | plus: 0
+    else
+      assign upsell_subscription_discount_pct = 15
+    endif
+
+    if upsell_product.metafields.bloomli.bundle_add_on_discount_pct != blank
+      assign upsell_bundle_discount_pct = upsell_product.metafields.bloomli.bundle_add_on_discount_pct | plus: 0
+    elsif settings.bloomli_bundle_add_on_discount_pct != blank
+      assign upsell_bundle_discount_pct = settings.bloomli_bundle_add_on_discount_pct | plus: 0
+    elsif settings.bloomli_routine_upsell_addon_discount_pct != blank
+      assign upsell_bundle_discount_pct = settings.bloomli_routine_upsell_addon_discount_pct | plus: 0
+    else
+      assign upsell_bundle_discount_pct = 20
+    endif
+
+    assign upsell_bundle_factor = 100.0
+    if upsell_has_bundle_discount
+      assign upsell_bundle_factor = 100.0 | minus: upsell_bundle_discount_pct
+    endif
+    assign upsell_sale_price = upsell_variant.price | times: upsell_bundle_factor | divided_by: 100.0 | round
+    assign upsell_sale_discount_pct = 100.0 | minus: upsell_bundle_factor | floor
+
     if cart_has_subscription and upsell_selling_plan_id != nil
-      assign sub_mult = 100 | minus: sub_discount_pct
-      assign upsell_sub_price = upsell_variant.price | times: sub_mult | divided_by: 100.0 | ceil
+      assign upsell_subscription_factor = 100.0 | minus: upsell_subscription_discount_pct
+      assign upsell_sub_factor = upsell_subscription_factor | times: upsell_bundle_factor | divided_by: 100.0
+      assign upsell_sub_price = upsell_variant.price | times: upsell_sub_factor | divided_by: 100.0 | round
+      assign upsell_sub_discount_pct = 100.0 | minus: upsell_sub_factor | floor
+    else
+      assign upsell_sub_price = 0
+      assign upsell_sub_discount_pct = 0
     endif
   -%}
 
@@ -105,10 +160,48 @@
     {%- if cart_has_subscription and upsell_selling_plan_id and upsell_sub_price > 0 -%}
       {%- assign show_subscription = true -%}
     {%- endif -%}
+    {%- liquid
+      if show_subscription
+        assign upsell_display_discount_pct = upsell_sub_discount_pct
+      else
+        assign upsell_display_discount_pct = upsell_sale_discount_pct
+      endif
+      assign upsell_copy_discount_pct = upsell_display_discount_pct
+      if upsell_state == 2 and upsell_text_template contains '%'
+        if addon_product.metafields.bloomli.bundle_add_on_discount_pct != blank
+          assign upsell_copy_discount_pct = addon_product.metafields.bloomli.bundle_add_on_discount_pct | plus: 0 | floor
+        elsif settings.bloomli_bundle_add_on_discount_pct != blank
+          assign upsell_copy_discount_pct = settings.bloomli_bundle_add_on_discount_pct | plus: 0 | floor
+        elsif settings.bloomli_routine_upsell_addon_discount_pct != blank
+          assign upsell_copy_discount_pct = settings.bloomli_routine_upsell_addon_discount_pct | plus: 0 | floor
+        else
+          assign upsell_copy_discount_pct = 20
+        endif
+      endif
+
+      if upsell_text_template contains '[X]' or upsell_text_template contains '[percent]'
+        assign upsell_text = upsell_text_template | replace: '[X]', upsell_copy_discount_pct | replace: '[percent]', upsell_copy_discount_pct
+      elsif upsell_text_template contains '%' and upsell_copy_discount_pct > 0
+        assign upsell_text = 'Add ' | append: upsell_product.title | append: ' and save ' | append: upsell_copy_discount_pct | append: '%.'
+      else
+        assign upsell_text = upsell_text_template
+      endif
+
+      assign upsell_display_compare_price = upsell_compare_price
+      if show_subscription and upsell_sub_price < upsell_variant.price
+        assign upsell_display_compare_price = upsell_variant.price
+      elsif show_subscription == false and upsell_sale_price < upsell_variant.price
+        assign upsell_display_compare_price = upsell_variant.price
+      endif
+    -%}
     <div
       class="bloomli-routine-upsell"
       data-bloomli-routine-upsell
       data-state="{{ upsell_state }}"
+      data-discount-pct="{{ upsell_display_discount_pct }}"
+      data-discount-price-cents="{% if show_subscription %}{{ upsell_sub_price }}{% else %}{{ upsell_sale_price }}{% endif %}"
+      data-subscription-discount-pct="{{ upsell_subscription_discount_pct }}"
+      data-bundle-discount-pct="{% if upsell_has_bundle_discount %}{{ upsell_bundle_discount_pct }}{% else %}0{% endif %}"
     >
       <div class="bloomli-routine-upsell__inner">
         {%- if upsell_image != blank -%}
@@ -132,13 +225,13 @@
           <p class="bloomli-routine-upsell__text">{{ upsell_text | escape }}</p>
           <div class="bloomli-routine-upsell__prices">
             {%- if show_subscription -%}
-              {%- if upsell_compare_price > 0 -%}
-                <s class="bloomli-routine-upsell__compare-price">{{ upsell_compare_price | money }}</s>
+              {%- if upsell_display_compare_price > upsell_sub_price -%}
+                <s class="bloomli-routine-upsell__compare-price">{{ upsell_display_compare_price | money }}</s>
               {%- endif -%}
               <span class="bloomli-routine-upsell__price">{{ upsell_sub_price | money }}</span>
             {%- else -%}
-              {%- if upsell_compare_price > 0 -%}
-                <s class="bloomli-routine-upsell__compare-price">{{ upsell_compare_price | money }}</s>
+              {%- if upsell_display_compare_price > upsell_sale_price -%}
+                <s class="bloomli-routine-upsell__compare-price">{{ upsell_display_compare_price | money }}</s>
               {%- endif -%}
               <span class="bloomli-routine-upsell__price">{{ upsell_sale_price | money }}</span>
             {%- endif -%}

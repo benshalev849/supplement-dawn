@@ -445,7 +445,7 @@
                   {%- if settings.cart_line_subscription_upsell_enabled != false and item.selling_plan_allocation == null -%}
                     <tr class="bloomli-cart-line-upsell-row">
                       <td colspan="4">
-                        {%- render 'bloomli-cart-subscription-upsell', item: item, context: 'main' -%}
+                        {%- render 'bloomli-cart-subscription-upsell', item: item, context: 'main', line_has_bundle: false -%}
                       </td>
                     </tr>
                   {%- endif -%}

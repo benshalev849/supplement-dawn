@@ -3,6 +3,7 @@
 
   @param {line_item} item - Cart line item.
   @param {string} context - Rendering context, e.g. 'drawer' or 'main'.
+  @param {boolean} line_has_bundle - Whether the line should include Pair & Save in displayed target savings.
 {% enddoc %}
 
 {%- liquid
@@ -17,7 +18,7 @@
   endif
 
   assign target_plan_id = ''
-  assign discount_percent = item.product.metafields.bloomli.subscription_discount_pct | default: settings.bloomli_subscription_discount_pct | default: settings.cart_line_subscription_upsell_discount_pct | default: settings.cart_drawer_subscription_discount_pct | default: 15 | plus: 0
+  assign upsell_line_has_bundle = line_has_bundle | default: false
 -%}
 
 {%- if upsell_enabled and item.selling_plan_allocation == null and can_update_line -%}
@@ -69,25 +70,95 @@
       assign target_plan_id = fallback_plan_id
     endif
 
-    if discount_percent <= 0
-      for selling_plan_group in item.product.selling_plan_groups
-        for selling_plan in selling_plan_group.selling_plans
-          if selling_plan.id == target_plan_id
-            assign plan_adjustment = selling_plan.price_adjustments | first
-            if plan_adjustment and plan_adjustment.value_type == 'percentage'
-              assign discount_percent = plan_adjustment.value | plus: 0
-            endif
-            break
-          endif
-        endfor
-        if discount_percent > 0
-          break
-        endif
-      endfor
+    if item.product.metafields.bloomli.subscription_discount_pct != blank
+      assign subscription_discount_pct = item.product.metafields.bloomli.subscription_discount_pct | plus: 0
+    elsif settings.bloomli_subscription_discount_pct != blank
+      assign subscription_discount_pct = settings.bloomli_subscription_discount_pct | plus: 0
+    elsif settings.cart_line_subscription_upsell_discount_pct != blank
+      assign subscription_discount_pct = settings.cart_line_subscription_upsell_discount_pct | plus: 0
+    elsif settings.cart_drawer_subscription_discount_pct != blank
+      assign subscription_discount_pct = settings.cart_drawer_subscription_discount_pct | plus: 0
+    else
+      assign subscription_discount_pct = 15
     endif
 
+    if item.product.metafields.bloomli.bundle_add_on_discount_pct != blank
+      assign bundle_discount_pct = item.product.metafields.bloomli.bundle_add_on_discount_pct | plus: 0
+    elsif settings.bloomli_bundle_add_on_discount_pct != blank
+      assign bundle_discount_pct = settings.bloomli_bundle_add_on_discount_pct | plus: 0
+    elsif settings.cart_drawer_addon_bundle_discount_pct != blank
+      assign bundle_discount_pct = settings.cart_drawer_addon_bundle_discount_pct | plus: 0
+    else
+      assign bundle_discount_pct = 20
+    endif
+
+    if target_qty >= 5
+      if item.product.metafields.bloomli.volume_discount_5_pct != blank
+        assign volume_discount_pct = item.product.metafields.bloomli.volume_discount_5_pct | plus: 0
+      elsif settings.bloomli_volume_discount_5_pct != blank
+        assign volume_discount_pct = settings.bloomli_volume_discount_5_pct | plus: 0
+      elsif settings.cart_drawer_quantity_offer_5_savings != blank
+        assign volume_discount_pct = settings.cart_drawer_quantity_offer_5_savings | plus: 0
+      else
+        assign volume_discount_pct = 20
+      endif
+    elsif target_qty == 4
+      if item.product.metafields.bloomli.volume_discount_4_pct != blank
+        assign volume_discount_pct = item.product.metafields.bloomli.volume_discount_4_pct | plus: 0
+      elsif settings.bloomli_volume_discount_4_pct != blank
+        assign volume_discount_pct = settings.bloomli_volume_discount_4_pct | plus: 0
+      elsif settings.cart_drawer_quantity_offer_4_savings != blank
+        assign volume_discount_pct = settings.cart_drawer_quantity_offer_4_savings | plus: 0
+      else
+        assign volume_discount_pct = 18
+      endif
+    elsif target_qty == 3
+      if item.product.metafields.bloomli.volume_discount_3_pct != blank
+        assign volume_discount_pct = item.product.metafields.bloomli.volume_discount_3_pct | plus: 0
+      elsif settings.bloomli_volume_discount_3_pct != blank
+        assign volume_discount_pct = settings.bloomli_volume_discount_3_pct | plus: 0
+      elsif settings.cart_drawer_quantity_offer_3_savings != blank
+        assign volume_discount_pct = settings.cart_drawer_quantity_offer_3_savings | plus: 0
+      else
+        assign volume_discount_pct = 15
+      endif
+    elsif target_qty == 2
+      if item.product.metafields.bloomli.volume_discount_2_pct != blank
+        assign volume_discount_pct = item.product.metafields.bloomli.volume_discount_2_pct | plus: 0
+      elsif settings.bloomli_volume_discount_2_pct != blank
+        assign volume_discount_pct = settings.bloomli_volume_discount_2_pct | plus: 0
+      else
+        assign volume_discount_pct = 10
+      endif
+    else
+      if item.product.metafields.bloomli.volume_discount_1_pct != blank
+        assign volume_discount_pct = item.product.metafields.bloomli.volume_discount_1_pct | plus: 0
+      elsif settings.bloomli_volume_discount_1_pct != blank
+        assign volume_discount_pct = settings.bloomli_volume_discount_1_pct | plus: 0
+      else
+        assign volume_discount_pct = 0
+      endif
+    endif
+
+    assign bundle_factor = 100.0
+    if upsell_line_has_bundle
+      assign bundle_factor = 100.0 | minus: bundle_discount_pct
+    endif
+    assign volume_factor = 100.0 | minus: volume_discount_pct
+    assign subscription_factor = 100.0 | minus: subscription_discount_pct
+    assign combined_factor = volume_factor | times: subscription_factor | divided_by: 100.0 | times: bundle_factor | divided_by: 100.0
+    assign discount_percent = 100.0 | minus: combined_factor | floor
+
     assign badge_text = settings.cart_line_subscription_upsell_badge_text | default: 'MOST POPULAR'
-    assign heading_text = settings.cart_line_subscription_upsell_heading | default: 'Subscribe & Save an Extra 23%'
+    assign discount_label = discount_percent
+    assign heading_template = settings.cart_line_subscription_upsell_heading | default: 'Subscribe & Save [X]%'
+    if heading_template contains '[X]' or heading_template contains '[percent]'
+      assign heading_text = heading_template | replace: '[X]', discount_label | replace: '[percent]', discount_label
+    elsif heading_template contains '%'
+      assign heading_text = 'Subscribe & Save ' | append: discount_label | append: '%'
+    else
+      assign heading_text = heading_template
+    endif
     assign benefit_1 = settings.cart_line_subscription_upsell_benefit_1 | default: 'Save more on every order'
     assign benefit_2 = settings.cart_line_subscription_upsell_benefit_2 | default: 'Free shipping on every delivery'
     assign benefit_3 = settings.cart_line_subscription_upsell_benefit_3 | default: 'Pause, skip, or cancel anytime'
@@ -99,8 +170,13 @@
       assign benefit_icon_4 = settings.cart_line_subscription_upsell_benefit_icon_4
     endif
     assign cta_template = settings.cart_line_subscription_upsell_cta_text | default: 'Upgrade to Subscription & SAVE [X]%'
-    assign discount_label = settings.cart_line_subscription_upsell_discount_text | default: discount_percent
-    assign cta_text = cta_template | replace: '[X]', discount_label | replace: '[percent]', discount_label
+    if cta_template contains '[X]' or cta_template contains '[percent]'
+      assign cta_text = cta_template | replace: '[X]', discount_label | replace: '[percent]', discount_label
+    elsif cta_template contains '%'
+      assign cta_text = 'Upgrade to Subscription & SAVE ' | append: discount_label | append: '%'
+    else
+      assign cta_text = cta_template
+    endif
   -%}
 
   {%- if target_plan_id != blank -%}

@@ -41,6 +41,50 @@
   else
     assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 15 | plus: 0
   endif
+  assign tier_1_qty_for_discount = block.settings.tier_1_qty | default: 1 | plus: 0
+  assign tier_2_qty_for_discount = block.settings.tier_2_qty | default: 2 | plus: 0
+  assign tier_3_qty_for_discount = block.settings.tier_3_qty | default: 3 | plus: 0
+  if product.metafields.bloomli.volume_discount_1_pct != blank
+    assign volume_discount_1_pct = product.metafields.bloomli.volume_discount_1_pct | plus: 0
+  elsif settings.bloomli_volume_discount_1_pct != blank
+    assign volume_discount_1_pct = settings.bloomli_volume_discount_1_pct | plus: 0
+  elsif block.settings.tier_1_discount_pct != blank and tier_1_qty_for_discount == 1
+    assign volume_discount_1_pct = block.settings.tier_1_discount_pct | plus: 0
+  else
+    assign volume_discount_1_pct = 0
+  endif
+  if product.metafields.bloomli.volume_discount_2_pct != blank
+    assign volume_discount_2_pct = product.metafields.bloomli.volume_discount_2_pct | plus: 0
+  elsif settings.bloomli_volume_discount_2_pct != blank
+    assign volume_discount_2_pct = settings.bloomli_volume_discount_2_pct | plus: 0
+  elsif block.settings.tier_2_discount_pct != blank and tier_2_qty_for_discount == 2
+    assign volume_discount_2_pct = block.settings.tier_2_discount_pct | plus: 0
+  else
+    assign volume_discount_2_pct = 10
+  endif
+  if product.metafields.bloomli.volume_discount_3_pct != blank
+    assign volume_discount_3_pct = product.metafields.bloomli.volume_discount_3_pct | plus: 0
+  elsif settings.bloomli_volume_discount_3_pct != blank
+    assign volume_discount_3_pct = settings.bloomli_volume_discount_3_pct | plus: 0
+  elsif block.settings.tier_3_discount_pct != blank and tier_3_qty_for_discount == 3
+    assign volume_discount_3_pct = block.settings.tier_3_discount_pct | plus: 0
+  else
+    assign volume_discount_3_pct = 15
+  endif
+  if product.metafields.bloomli.volume_discount_4_pct != blank
+    assign volume_discount_4_pct = product.metafields.bloomli.volume_discount_4_pct | plus: 0
+  elsif settings.bloomli_volume_discount_4_pct != blank
+    assign volume_discount_4_pct = settings.bloomli_volume_discount_4_pct | plus: 0
+  else
+    assign volume_discount_4_pct = 18
+  endif
+  if product.metafields.bloomli.volume_discount_5_pct != blank
+    assign volume_discount_5_pct = product.metafields.bloomli.volume_discount_5_pct | plus: 0
+  elsif settings.bloomli_volume_discount_5_pct != blank
+    assign volume_discount_5_pct = settings.bloomli_volume_discount_5_pct | plus: 0
+  else
+    assign volume_discount_5_pct = 20
+  endif
   assign discount_badge_template = block.settings.discount_badge_template | default: 'SAVE [percent]%'
   assign add_to_cart_label = block.settings.add_to_cart_label | default: 'Add to cart'
   assign sold_out_label = block.settings.sold_out_label | default: 'Sold out'
@@ -86,7 +130,6 @@
             assign image = block.settings.tier_1_image
             assign badge = block.settings.tier_1_badge
             assign tag = block.settings.tier_1_tag
-            assign _fallback_discount_pct = block.settings.tier_1_discount_pct | default: 0
             assign sub_discount_pct = subscription_discount_pct
             assign plan_filter = block.settings.tier_1_plan_filter
             assign is_default = block.settings.tier_1_default
@@ -99,7 +142,6 @@
             assign image = block.settings.tier_2_image
             assign badge = block.settings.tier_2_badge
             assign tag = block.settings.tier_2_tag
-            assign _fallback_discount_pct = block.settings.tier_2_discount_pct | default: 0
             assign sub_discount_pct = subscription_discount_pct
             assign plan_filter = block.settings.tier_2_plan_filter
             assign is_default = block.settings.tier_2_default
@@ -112,34 +154,21 @@
             assign image = block.settings.tier_3_image
             assign badge = block.settings.tier_3_badge
             assign tag = block.settings.tier_3_tag
-            assign _fallback_discount_pct = block.settings.tier_3_discount_pct | default: 0
             assign sub_discount_pct = subscription_discount_pct
             assign plan_filter = block.settings.tier_3_plan_filter
             assign is_default = block.settings.tier_3_default
         endcase
 
         if qty >= 5
-          assign _mf_vol_pct = product.metafields.bloomli.volume_discount_5_pct
-          assign _g_vol_pct  = settings.bloomli_volume_discount_5_pct
+          assign discount_pct = volume_discount_5_pct
         elsif qty == 4
-          assign _mf_vol_pct = product.metafields.bloomli.volume_discount_4_pct
-          assign _g_vol_pct  = settings.bloomli_volume_discount_4_pct
+          assign discount_pct = volume_discount_4_pct
         elsif qty == 3
-          assign _mf_vol_pct = product.metafields.bloomli.volume_discount_3_pct
-          assign _g_vol_pct  = settings.bloomli_volume_discount_3_pct
+          assign discount_pct = volume_discount_3_pct
         elsif qty == 2
-          assign _mf_vol_pct = product.metafields.bloomli.volume_discount_2_pct
-          assign _g_vol_pct  = settings.bloomli_volume_discount_2_pct
+          assign discount_pct = volume_discount_2_pct
         else
-          assign _mf_vol_pct = product.metafields.bloomli.volume_discount_1_pct
-          assign _g_vol_pct  = settings.bloomli_volume_discount_1_pct
-        endif
-        if _mf_vol_pct != blank
-          assign discount_pct = _mf_vol_pct | plus: 0
-        elsif _g_vol_pct != blank
-          assign discount_pct = _g_vol_pct | plus: 0
-        else
-          assign discount_pct = _fallback_discount_pct | default: 0 | plus: 0
+          assign discount_pct = volume_discount_1_pct
         endif
 
         if show and is_default and default_idx == -1
@@ -200,7 +229,7 @@
         assign subscription_pct_factor = 100.0 | minus: sub_discount_pct
         assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
         assign subscribe_total_cents = unit_price | times: qty | times: compounded_pct_factor | divided_by: 100.0
-        assign rounded_discount_pct = discount_pct | round
+        assign rounded_discount_pct = discount_pct | floor
         assign dynamic_badge = discount_badge_template | replace: '[percent]', rounded_discount_pct | replace: '[qty]', qty
 
         assign daily_cents = one_time_total_cents | divided_by: qty | divided_by: 30

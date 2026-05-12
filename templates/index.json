@@ -88,53 +88,6 @@
         "padding_bottom": 56
       }
     },
-    "bloomli_timeline_yFPmqr": {
-      "type": "bloomli-timeline",
-      "blocks": {
-        "step_76LWCm": {
-          "type": "step",
-          "settings": {
-            "range": "Month 1–3",
-            "title": "Foundation",
-            "description": "Nourishment reaches the follicle. Expect less shedding and a healthier scalp feel."
-          }
-        },
-        "step_egttHe": {
-          "type": "step",
-          "settings": {
-            "range": "Month 3–6",
-            "title": "Visible Shift",
-            "description": "New growth begins. Many see fuller density at the part line and temples."
-          }
-        },
-        "step_XKBHGh": {
-          "type": "step",
-          "settings": {
-            "range": "Month 6+",
-            "title": "Full Bloom",
-            "description": "Thicker, stronger, shinier hair. Results consolidate with consistent use."
-          }
-        }
-      },
-      "block_order": [
-        "step_76LWCm",
-        "step_egttHe",
-        "step_XKBHGh"
-      ],
-      "name": "Bloomli — Timeline",
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "timeline_icon_color": "#6f7a5a",
-        "heading": "Your ritual, over time.",
-        "subheadline": "<p>A simple month-by-month look at what consistency can support, from early scalp comfort to fuller-looking hair over time.</p>",
-        "circle_size": 100,
-        "show_connector": true,
-        "connector_style": "dashed",
-        "connector_width": 1,
-        "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
     "bloomli_reviews_GyTkzh": {
       "type": "bloomli-reviews",
       "blocks": {
@@ -248,16 +201,15 @@
       "name": "Bloomli - Reviews",
       "settings": {
         "heading": "Real women. Real results.",
-        "background_color": "#f2e7e4",
-        "card_background": "#fdfaf7",
+        "background_color": "#fdfaf7",
+        "card_background": "#e8ded8",
         "placeholder_color": "#f7f0e9",
         "text_color": "#2a2622",
-        "muted_color": "#7c7169",
-        "content_width": 1200,
+        "muted_color": "#2a2622",
         "heading_size": 46,
         "heading_size_mobile": 36,
         "card_gap": 20,
-        "scroll_duration": 70,
+        "scroll_duration": 100,
         "mobile_card_width": 82,
         "card_radius": 10,
         "padding_top": 96,
@@ -268,10 +220,10 @@
       "type": "bloomli-bundle-promo",
       "name": "Bloomli — Bundle Promo",
       "settings": {
-        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
-        "headline_line1": "Inside & out.",
-        "headline_line2": "Save 20%.",
-        "description": "The Root Ritual gummies that work from within, paired with our moisturizing & strengthening hair oil for visible shine day one.",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "headline_line1": "Pair & Save 15%",
+        "headline_line2": "",
+        "description": "Most people choose one. The ones who see results fastest use both.",
         "button_color_scheme": "",
         "cta_label": "Shop the Duo — $74",
         "cta_url": "",
@@ -285,7 +237,6 @@
   "order": [
     "bloomli_hero_7dR8fN",
     "bloomli_trust_row_6WztPT",
-    "bloomli_timeline_yFPmqr",
     "bloomli_reviews_GyTkzh",
     "bloomli_bundle_promo_mU8URW"
   ]

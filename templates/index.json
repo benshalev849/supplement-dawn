@@ -147,115 +147,127 @@
         "padding_bottom": 88
       }
     },
-    "bloomli_photo_mosaic_FhKfem": {
+    "bloomli_photo_mosaic_dYCUhp": {
       "type": "bloomli-photo-mosaic",
       "blocks": {
-        "photo_aheeQj": {
+        "photo_itwQBT": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Model_Holding_Gummy_2_5dc2294b-1314-41eb-b66d-3fb3fb684a85.png",
             "image_scale": 100,
             "label": "Photo 1",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
           }
         },
-        "photo_pfUHet": {
+        "photo_rFx7fP": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_11.png",
             "image_scale": 100,
             "label": "Photo 2",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f3e1e5"
           }
         },
-        "photo_WBE3KG": {
+        "photo_UQecfB": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Model_Eating_Gummy_1.png",
             "image_scale": 100,
             "label": "Photo 3",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#d9cce8"
           }
         },
-        "photo_tPJjKF": {
+        "photo_gDhx3U": {
           "type": "photo",
           "settings": {
-            "image_scale": 100,
-            "label": "Photo 4",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
-          }
-        },
-        "photo_pE8Va8": {
-          "type": "photo",
-          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_1.png",
             "image_scale": 100,
             "label": "Photo 5",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
           }
         },
-        "photo_cMC8yH": {
+        "photo_HkWBVE": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_7.png",
             "image_scale": 100,
             "label": "Photo 6",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f3e1e5"
           }
         },
-        "photo_NYtaf3": {
+        "photo_HnKE8c": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_6.png",
             "image_scale": 100,
-            "label": "Photo 7",
+            "label": "Photo 4",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
           }
         },
-        "photo_R3DCca": {
+        "photo_Xj6LgH": {
           "type": "photo",
           "settings": {
-            "image_scale": 100,
-            "label": "Photo 8",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
-          }
-        },
-        "photo_bgeE8W": {
-          "type": "photo",
-          "settings": {
-            "image_scale": 100,
-            "label": "Photo 9",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
-          }
-        },
-        "photo_Ddy6WE": {
-          "type": "photo",
-          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_7.png",
             "image_scale": 100,
             "label": "Photo 10",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f3e1e5"
           }
         },
-        "photo_kzeB8J": {
+        "photo_Artdhg": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_6.png",
             "image_scale": 100,
-            "label": "Photo 11",
+            "label": "Photo 9",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
           }
         },
-        "photo_9CUxHr": {
+        "photo_zbFfXz": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Selfie_1_af7f5ff3-629c-4859-965b-b0a6575c80f3.png",
             "image_scale": 100,
             "label": "Photo 12",
             "use_custom_placeholder_color": false,
-            "placeholder_color": "#F5EDE4"
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_fGEqGb": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_3.png",
+            "image_scale": 100,
+            "label": "Photo 11",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#d9cce8"
+          }
+        },
+        "photo_jhY4cR": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_13.png",
+            "image_scale": 100,
+            "label": "Photo 7",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#d9cce8"
+          }
+        },
+        "photo_iXjxWB": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_5.png",
+            "image_scale": 100,
+            "label": "Photo 8",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
           }
         }
       },

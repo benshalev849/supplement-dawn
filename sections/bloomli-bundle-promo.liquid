@@ -174,6 +174,22 @@
   if first_missing or second_missing
     assign button_text = button_label | append: ' · ' | append: primary_price_money
   endif
+
+  assign show_one_time_btn = false
+  if first_missing or second_missing
+    if cart_has_subscription
+      assign show_one_time_btn = true
+    elsif cart.item_count == 0
+      assign show_one_time_btn = true
+    endif
+  endif
+
+  assign show_subscription_note = false
+  if cart_has_subscription
+    if first_missing or second_missing
+      assign show_subscription_note = true
+    endif
+  endif
 -%}
 
 {%- capture first_selling_plan_attrs -%}
@@ -413,14 +429,14 @@
         data-bloomli-bundle-one-time-button
         data-label="{{ one_time_label | escape }}"
         style="appearance: none; background: none; border: 0; color: inherit; cursor: pointer; font: inherit; font-size: 1.2rem; font-weight: 300; margin: 0.8rem 0 0; padding: 0; text-decoration: underline;"
-        {% if (first_missing == false and second_missing == false) or (cart.item_count > 0 and cart_has_subscription == false) %}hidden{% endif %}
+        {% unless show_one_time_btn %}hidden{% endunless %}
       >
         {{ one_time_label | escape }} · {{ bundle_price_cents | money }}
       </button>
       <div
         data-bloomli-bundle-subscription-note
         style="border-top: 1px solid rgba(var(--color-foreground), 0.18); font-size: 1.2rem; font-style: italic; margin: 1rem auto 0; max-width: 32rem; padding-top: 0.9rem;"
-        {% if cart_has_subscription == false or (first_missing == false and second_missing == false) %}hidden{% endif %}
+        {% unless show_subscription_note %}hidden{% endunless %}
       >
         {{ subscription_note_text | escape }}
       </div>

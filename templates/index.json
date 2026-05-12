@@ -94,11 +94,11 @@
         "product_UrUWCU": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "ultra-strength-hair-gummies-copy",
             "image_scale": 100,
-            "title": "Root Ritual Strips",
+            "title": "",
             "link": "",
-            "price": "$36",
+            "price": "",
             "badge": "",
             "show_stars": true
           }
@@ -106,12 +106,12 @@
         "product_dhpTYA": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "test-supplement",
             "image_scale": 100,
-            "title": "Scalp Serum",
+            "title": "",
             "link": "",
-            "price": "$58",
-            "badge": "Coming soon",
+            "price": "",
+            "badge": "",
             "show_stars": true
           }
         },

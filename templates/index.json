@@ -137,7 +137,7 @@
       "settings": {
         "color_scheme": "",
         "use_custom_background": false,
-        "background_color": "#F5EDE4",
+        "background_color": "#f5ede4",
         "heading": "You may also like",
         "subtext": "<p>Complete your routine with a few Bloomli favorites.</p>",
         "columns_desktop": 4,
@@ -289,7 +289,7 @@
       "settings": {
         "color_scheme": "",
         "use_custom_background": false,
-        "background_color": "#FDFAF7",
+        "background_color": "#fdfaf7",
         "heading": "Photos from the ritual.",
         "subtext": "<p>Real customers, real routines. A few of our favorites from the Bloomli community.</p>",
         "placeholder_background": "surface",
@@ -429,24 +429,6 @@
         "padding_bottom": 96
       }
     },
-    "bloomli_bundle_promo_mU8URW": {
-      "type": "bloomli-bundle-promo",
-      "name": "Bloomli — Bundle Promo",
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "Pair & Save",
-        "subheading": "15% off your hair oil when bundled.",
-        "body_text": "Most people choose one. The ones who see results fastest use both.",
-        "add_both_label": "Start My Ritual",
-        "add_missing_label": "Complete My Ritual",
-        "view_routine_label": "View My Ritual",
-        "saving_callout_text": "You're saving $X.XX with Pair & Save",
-        "one_time_label_text": "One Time Purchase",
-        "subscription_note_text": "Matched to your subscription, cancel anytime.",
-        "padding_top": 48,
-        "padding_bottom": 96
-      }
-    },
     "bloomli_quiz_cta_z9xXxd": {
       "type": "bloomli-quiz-cta",
       "name": "Bloomli — Quiz CTA",
@@ -467,7 +449,6 @@
     "bloomli_product_picks_96EVCk",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_reviews_GyTkzh",
-    "bloomli_bundle_promo_mU8URW",
     "bloomli_quiz_cta_z9xXxd"
   ]
 }

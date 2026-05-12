@@ -166,7 +166,20 @@
     endif
   endif
 
-  assign saving_cents = one_time_price_cents | minus: bundle_price_cents
+  assign saving_cents = 0
+  if first_is_add_on
+    if active_purchase_type == 'subscription'
+      assign saving_cents = first_variant.price | minus: first_subscription_price
+    else
+      assign saving_cents = first_variant.price | minus: first_bundle_price
+    endif
+  elsif second_is_add_on
+    if active_purchase_type == 'subscription'
+      assign saving_cents = second_variant.price | minus: second_subscription_price
+    else
+      assign saving_cents = second_variant.price | minus: second_bundle_price
+    endif
+  endif
   assign saving_money = saving_cents | money
   assign saving_callout_text = saving_callout_template | replace: '$X.XX', saving_money
   assign primary_price_money = primary_price_cents | money
@@ -414,13 +427,16 @@
         {{ second_selling_plan_attrs }}
         {% if first_variant == blank and second_variant == blank %}disabled{% endif %}
       >
-        {{ button_text | escape }}
+        <span data-bundle-btn-label>{{ button_text | escape }}</span>
+        <span class="loading__spinner hidden" aria-hidden="true">
+          {{- 'loading-spinner.svg' | inline_asset_content -}}
+        </span>
       </button>
       <p
         data-bloomli-bundle-saving-callout
         data-saving-template="{{ saving_callout_template | escape }}"
         style="font-size: 1.2rem; font-style: italic; margin: 1rem 0 0;"
-        {% if saving_cents <= 0 %}hidden{% endif %}
+        {% if saving_cents <= 0 or first_in_cart and second_in_cart %}hidden{% endif %}
       >
         {{ saving_callout_text | escape }}
       </p>
@@ -534,22 +550,41 @@
       button.dataset.subscriptionPlanQty = '1';
 
       const missingItems = getMissingItems();
-      const oneTimePrice = missingItems.reduce((sum, item) => sum + item.price, 0);
       const bundleTotalPrice = missingItems.reduce((sum, item) => sum + item.bundlePrice, 0);
       const primaryPrice = missingItems.reduce((sum, item) => {
         return sum + (button.dataset.activePurchaseType === 'subscription' ? item.subscriptionPrice : item.bundlePrice);
       }, 0);
-      const saving = Math.max(oneTimePrice - bundleTotalPrice, 0);
+
+      const firstIsAddOn = button.dataset.firstIsAddOn === 'true';
+      const secondIsAddOn = button.dataset.secondIsAddOn === 'true';
+      const activeType = button.dataset.activePurchaseType;
+      let saving = 0;
+      if (firstIsAddOn) {
+        const price = parseInt(button.dataset.firstPriceCents, 10) || 0;
+        const discounted = activeType === 'subscription'
+          ? parseInt(button.dataset.firstSubscriptionPriceCents, 10) || 0
+          : parseInt(button.dataset.firstBundlePriceCents, 10) || 0;
+        saving = Math.max(price - discounted, 0);
+      } else if (secondIsAddOn) {
+        const price = parseInt(button.dataset.secondPriceCents, 10) || 0;
+        const discounted = activeType === 'subscription'
+          ? parseInt(button.dataset.secondSubscriptionPriceCents, 10) || 0
+          : parseInt(button.dataset.secondBundlePriceCents, 10) || 0;
+        saving = Math.max(price - discounted, 0);
+      }
+
+      const btnLabel = button.querySelector('[data-bundle-btn-label]');
+      const setText = (text) => { if (btnLabel) btnLabel.textContent = text; else button.textContent = text; };
 
       if (firstInCart && secondInCart) {
-        button.textContent = button.dataset.viewRoutineLabel || 'View My Ritual';
+        setText(button.dataset.viewRoutineLabel || 'View My Ritual');
         if (savingCallout) savingCallout.hidden = true;
         if (oneTimeButton) oneTimeButton.hidden = true;
         if (subscriptionNote) subscriptionNote.hidden = true;
       } else if (firstInCart || secondInCart) {
-        button.textContent = `${button.dataset.addMissingLabel || 'Complete My Ritual'} · ${formatMoney(primaryPrice)}`;
+        setText(`${button.dataset.addMissingLabel || 'Complete My Ritual'} · ${formatMoney(primaryPrice)}`);
       } else {
-        button.textContent = `${button.dataset.addBothLabel || 'Start My Ritual'} · ${formatMoney(primaryPrice)}`;
+        setText(`${button.dataset.addBothLabel || 'Start My Ritual'} · ${formatMoney(primaryPrice)}`);
       }
 
       if (missingItems.length) {
@@ -600,6 +635,14 @@
       if (event.target.closest('cart-drawer')) scheduleCartSync();
     });
 
+    const setLoading = (loading) => {
+      const spinner = button.querySelector('.loading__spinner');
+      button.disabled = loading;
+      button.classList.toggle('is-loading', loading);
+      if (spinner) spinner.classList.toggle('hidden', !loading);
+      if (oneTimeButton) oneTimeButton.disabled = loading;
+    };
+
     const addMissingItems = (forceOneTime) => {
       const missingItems = getMissingItems();
       const useSubscription = !forceOneTime && button.dataset.activePurchaseType === 'subscription';
@@ -615,7 +658,7 @@
         return;
       }
 
-      button.disabled = true;
+      setLoading(true);
 
       fetch(routes.cart_add_url, {
         ...fetchConfig(),
@@ -628,7 +671,7 @@
         .then((response) => response.json())
         .then((parsedState) => {
           if (parsedState.status || parsedState.errors) {
-            button.disabled = false;
+            setLoading(false);
             return;
           }
 
@@ -651,10 +694,10 @@
             });
           }
           scheduleCartSync();
-          button.disabled = false;
+          setLoading(false);
         })
         .catch(() => {
-          button.disabled = false;
+          setLoading(false);
         });
     };
 

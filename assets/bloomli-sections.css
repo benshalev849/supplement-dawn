@@ -341,7 +341,9 @@
 
 .bloomli-bundle__cta-wrap {
   background: transparent !important;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (max-width: 749px) {

@@ -10,7 +10,8 @@ This project has a knowledge graph at `graphify-out/`. Always use it — it prov
 5. `Read` only after graphify has given you a specific file path — never to explore
 
 ### Hard rules
-- NEVER use Grep, `grep`, `rg`, `find`, or any file scan to explore the codebase
+- NEVER use Grep, `grep`, `rg`, `find`, `cat`, `head`, `tail`, `ls`, or any shell file scan to explore the codebase
+- NEVER parse `graph.json` directly with Python, networkx, or any script — use `graphify query`/`explain`/`path` CLI commands only
 - NEVER read a file to understand architecture — always query the graph first
 - If `graphify-out/wiki/index.md` exists, navigate it instead of reading raw files
 - After modifying code files in this session, run `graphify update .` (AST-only, no API cost)

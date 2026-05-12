@@ -88,6 +88,207 @@
         "padding_bottom": 56
       }
     },
+    "bloomli_product_picks_96EVCk": {
+      "type": "bloomli-product-picks",
+      "blocks": {
+        "product_UrUWCU": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "image_scale": 100,
+            "title": "Root Ritual Strips",
+            "link": "",
+            "price": "$36",
+            "badge": "",
+            "show_stars": true
+          }
+        },
+        "product_dhpTYA": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "image_scale": 100,
+            "title": "Scalp Serum",
+            "link": "",
+            "price": "$58",
+            "badge": "Coming soon",
+            "show_stars": true
+          }
+        },
+        "product_rDWDrE": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "image_scale": 100,
+            "title": "Starter Duo",
+            "link": "",
+            "price": "$68",
+            "badge": "",
+            "show_stars": true
+          }
+        }
+      },
+      "block_order": [
+        "product_UrUWCU",
+        "product_dhpTYA",
+        "product_rDWDrE"
+      ],
+      "name": "Bloomli - Product Picks",
+      "settings": {
+        "color_scheme": "",
+        "use_custom_background": false,
+        "background_color": "#F5EDE4",
+        "heading": "You may also like",
+        "subtext": "<p>Complete your routine with a few Bloomli favorites.</p>",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_box_height": 240,
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
+    "bloomli_photo_mosaic_FhKfem": {
+      "type": "bloomli-photo-mosaic",
+      "blocks": {
+        "photo_aheeQj": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 1",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_pfUHet": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 2",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_WBE3KG": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 3",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_tPJjKF": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 4",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_pE8Va8": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 5",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_cMC8yH": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 6",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_NYtaf3": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 7",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_R3DCca": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 8",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_bgeE8W": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 9",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_Ddy6WE": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 10",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_kzeB8J": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 11",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        },
+        "photo_9CUxHr": {
+          "type": "photo",
+          "settings": {
+            "image_scale": 100,
+            "label": "Photo 12",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#F5EDE4"
+          }
+        }
+      },
+      "block_order": [
+        "photo_aheeQj",
+        "photo_pfUHet",
+        "photo_WBE3KG",
+        "photo_tPJjKF",
+        "photo_pE8Va8",
+        "photo_cMC8yH",
+        "photo_NYtaf3",
+        "photo_R3DCca",
+        "photo_bgeE8W",
+        "photo_Ddy6WE",
+        "photo_kzeB8J",
+        "photo_9CUxHr"
+      ],
+      "name": "Bloomli - Photo Mosaic",
+      "settings": {
+        "color_scheme": "",
+        "use_custom_background": false,
+        "background_color": "#FDFAF7",
+        "heading": "Photos from the ritual.",
+        "subtext": "<p>Real customers, real routines. A few of our favorites from the Bloomli community.</p>",
+        "placeholder_background": "surface",
+        "columns_desktop": 6,
+        "columns_mobile": "2",
+        "gap": 10,
+        "radius": 8,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
     "bloomli_reviews_GyTkzh": {
       "type": "bloomli-reviews",
       "blocks": {
@@ -224,20 +425,37 @@
         "heading": "Pair & Save",
         "subheading": "15% off your hair oil when bundled.",
         "body_text": "Most people choose one. The ones who see results fastest use both.",
-        "product_1": "",
-        "product_2": "",
         "add_both_label": "Start My Ritual",
         "add_missing_label": "Complete My Ritual",
         "view_routine_label": "View My Ritual",
+        "saving_callout_text": "You're saving $X.XX with Pair & Save",
+        "one_time_label_text": "One Time Purchase",
+        "subscription_note_text": "Matched to your subscription, cancel anytime.",
         "padding_top": 48,
         "padding_bottom": 96
+      }
+    },
+    "bloomli_quiz_cta_z9xXxd": {
+      "type": "bloomli-quiz-cta",
+      "name": "Bloomli — Quiz CTA",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Not sure where to start?",
+        "subtext": "Take our 2-minute quiz and get a personalized hair wellness routine.",
+        "cta_label": "Take the Quiz",
+        "cta_url": "",
+        "padding_top": 128,
+        "padding_bottom": 128
       }
     }
   },
   "order": [
     "bloomli_hero_7dR8fN",
     "bloomli_trust_row_6WztPT",
+    "bloomli_product_picks_96EVCk",
+    "bloomli_photo_mosaic_FhKfem",
     "bloomli_reviews_GyTkzh",
-    "bloomli_bundle_promo_mU8URW"
+    "bloomli_bundle_promo_mU8URW",
+    "bloomli_quiz_cta_z9xXxd"
   ]
 }

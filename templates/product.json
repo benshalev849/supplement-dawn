@@ -903,6 +903,9 @@
         "add_both_label": "",
         "add_missing_label": "",
         "view_routine_label": "",
+        "saving_callout_text": "You're saving $X.XX with Pair & Save",
+        "one_time_label_text": "One Time Purchase",
+        "subscription_note_text": "Matched to your subscription, cancel anytime.",
         "padding_top": 96,
         "padding_bottom": 96
       }

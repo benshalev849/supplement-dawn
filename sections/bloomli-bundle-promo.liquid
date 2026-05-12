@@ -168,17 +168,9 @@
 
   assign saving_cents = 0
   if first_is_add_on
-    if active_purchase_type == 'subscription'
-      assign saving_cents = first_variant.price | minus: first_subscription_price
-    else
-      assign saving_cents = first_variant.price | minus: first_bundle_price
-    endif
+    assign saving_cents = first_variant.price | minus: first_bundle_price
   elsif second_is_add_on
-    if active_purchase_type == 'subscription'
-      assign saving_cents = second_variant.price | minus: second_subscription_price
-    else
-      assign saving_cents = second_variant.price | minus: second_bundle_price
-    endif
+    assign saving_cents = second_variant.price | minus: second_bundle_price
   endif
   assign saving_money = saving_cents | money
   assign saving_callout_text = saving_callout_template | replace: '$X.XX', saving_money
@@ -560,17 +552,15 @@
       const activeType = button.dataset.activePurchaseType;
       let saving = 0;
       if (firstIsAddOn) {
-        const price = parseInt(button.dataset.firstPriceCents, 10) || 0;
-        const discounted = activeType === 'subscription'
-          ? parseInt(button.dataset.firstSubscriptionPriceCents, 10) || 0
-          : parseInt(button.dataset.firstBundlePriceCents, 10) || 0;
-        saving = Math.max(price - discounted, 0);
+        saving = Math.max(
+          (parseInt(button.dataset.firstPriceCents, 10) || 0) - (parseInt(button.dataset.firstBundlePriceCents, 10) || 0),
+          0
+        );
       } else if (secondIsAddOn) {
-        const price = parseInt(button.dataset.secondPriceCents, 10) || 0;
-        const discounted = activeType === 'subscription'
-          ? parseInt(button.dataset.secondSubscriptionPriceCents, 10) || 0
-          : parseInt(button.dataset.secondBundlePriceCents, 10) || 0;
-        saving = Math.max(price - discounted, 0);
+        saving = Math.max(
+          (parseInt(button.dataset.secondPriceCents, 10) || 0) - (parseInt(button.dataset.secondBundlePriceCents, 10) || 0),
+          0
+        );
       }
 
       const btnLabel = button.querySelector('[data-bundle-btn-label]');

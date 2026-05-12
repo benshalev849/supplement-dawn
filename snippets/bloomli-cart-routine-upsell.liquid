@@ -257,7 +257,7 @@
             data-quantity="{{ upsell_quantity }}"
             aria-label="{{ upsell_otp_label | escape }}: {{ upsell_product.title | escape }}"
           >
-            {{- upsell_otp_label | escape -}} - {{ upsell_sale_price | money }}
+            {{- upsell_otp_label | escape -}} · {{ upsell_sale_price | money }}
           </button>
         </div>
       {%- else -%}

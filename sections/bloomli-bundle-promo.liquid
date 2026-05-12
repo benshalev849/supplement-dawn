@@ -98,7 +98,7 @@
   assign view_routine_label = section.settings.view_routine_label | default: 'View My Ritual'
   assign add_missing_label = section.settings.add_missing_label | default: 'Complete My Ritual'
   assign one_time_label = section.settings.one_time_label_text | default: 'One Time Purchase'
-  assign subscription_note_text = section.settings.subscription_note_text | default: 'Matched to your subscription — cancel anytime.'
+  assign subscription_note_text = section.settings.subscription_note_text | default: 'Matched to your subscription, cancel anytime.'
   assign saving_callout_template = section.settings.saving_callout_text | default: "You're saving $X.XX with Pair & Save"
 
   assign subscription_discount_pct = settings.bloomli_subscription_discount_pct | default: 15 | plus: 0
@@ -160,7 +160,7 @@
   assign primary_price_money = primary_price_cents | money
   assign button_text = button_label
   if first_missing or second_missing
-    assign button_text = button_label | append: ' — ' | append: primary_price_money
+    assign button_text = button_label | append: ' · ' | append: primary_price_money
   endif
 -%}
 
@@ -366,6 +366,7 @@
         data-first-in-cart="{{ first_in_cart }}"
         data-second-in-cart="{{ second_in_cart }}"
         data-active-purchase-type="{{ active_purchase_type }}"
+        data-cart-has-subscription="{{ cart_has_subscription }}"
         data-subscription-plan-qty="1"
         data-add-both-label="{{ add_both_label | escape }}"
         data-add-missing-label="{{ add_missing_label | escape }}"
@@ -391,13 +392,14 @@
           data-bloomli-bundle-one-time-button
           data-label="{{ one_time_label | escape }}"
           style="appearance: none; background: none; border: 0; color: inherit; cursor: pointer; font: inherit; font-size: 1.2rem; font-weight: 300; margin: 0.8rem 0 0; padding: 0; text-decoration: underline;"
+          {% if cart.item_count > 0 and cart_has_subscription == false %}hidden{% endif %}
         >
-          {{ one_time_label | escape }} — {{ one_time_price_cents | money }}
+          {{ one_time_label | escape }} · {{ one_time_price_cents | money }}
         </button>
         <div
           data-bloomli-bundle-subscription-note
           style="border-top: 1px solid rgba(var(--color-foreground), 0.18); font-size: 1.2rem; font-style: italic; margin: 1rem auto 0; max-width: 32rem; padding-top: 0.9rem;"
-          {% if active_purchase_type != 'subscription' %}hidden{% endif %}
+          {% if cart_has_subscription == false %}hidden{% endif %}
         >
           {{ subscription_note_text | escape }}
         </div>
@@ -452,11 +454,8 @@
         }
       });
 
-      if (!cart.items.length || hasSubscription || (hasSubscription && hasOneTime)) {
-        return { type: 'subscription', planQty: 1 };
-      }
-
-      return { type: 'one_time', planQty: 1 };
+      const type = (!cart.items.length || hasSubscription) ? 'subscription' : 'one_time';
+      return { type, planQty: 1, hasSubscription };
     };
 
     const getMissingItems = () => {
@@ -489,10 +488,11 @@
       return button.dataset[`${key}SellingPlanQty1`] || button.dataset[`${key}SellingPlanQty-1`] || '';
     };
 
-    const setButtonState = (firstInCart, secondInCart, purchaseType, planQty) => {
+    const setButtonState = (firstInCart, secondInCart, purchaseType, planQty, hasSubscription) => {
       button.dataset.firstInCart = firstInCart ? 'true' : 'false';
       button.dataset.secondInCart = secondInCart ? 'true' : 'false';
       button.dataset.activePurchaseType = purchaseType || 'subscription';
+      button.dataset.cartHasSubscription = hasSubscription ? 'true' : 'false';
       button.dataset.subscriptionPlanQty = '1';
 
       const missingItems = getMissingItems();
@@ -508,9 +508,9 @@
         if (oneTimeButton) oneTimeButton.hidden = true;
         if (subscriptionNote) subscriptionNote.hidden = true;
       } else if (firstInCart || secondInCart) {
-        button.textContent = `${button.dataset.addMissingLabel || 'Complete My Ritual'} — ${formatMoney(primaryPrice)}`;
+        button.textContent = `${button.dataset.addMissingLabel || 'Complete My Ritual'} · ${formatMoney(primaryPrice)}`;
       } else {
-        button.textContent = `${button.dataset.addBothLabel || 'Start My Ritual'} — ${formatMoney(primaryPrice)}`;
+        button.textContent = `${button.dataset.addBothLabel || 'Start My Ritual'} · ${formatMoney(primaryPrice)}`;
       }
 
       if (missingItems.length) {
@@ -520,11 +520,11 @@
           savingCallout.hidden = saving <= 0;
         }
         if (oneTimeButton) {
-          oneTimeButton.textContent = `${oneTimeButton.dataset.label || 'One Time Purchase'} — ${formatMoney(oneTimePrice)}`;
-          oneTimeButton.hidden = false;
+          oneTimeButton.textContent = `${oneTimeButton.dataset.label || 'One Time Purchase'} · ${formatMoney(oneTimePrice)}`;
+          oneTimeButton.hidden = purchaseType === 'one_time';
         }
         if (subscriptionNote) {
-          subscriptionNote.hidden = button.dataset.activePurchaseType !== 'subscription';
+          subscriptionNote.hidden = !hasSubscription;
         }
       }
     };
@@ -540,7 +540,7 @@
           const firstInCart = cart.items.some((item) => item.variant_id === firstVariantId);
           const secondInCart = cart.items.some((item) => item.variant_id === secondVariantId);
           const purchaseState = getCartPurchaseState(cart);
-          setButtonState(firstInCart, secondInCart, purchaseState.type, purchaseState.planQty);
+          setButtonState(firstInCart, secondInCart, purchaseState.type, purchaseState.planQty, purchaseState.hasSubscription);
         })
         .catch(() => {});
     };
@@ -626,7 +626,8 @@
       button.dataset.firstInCart === 'true',
       button.dataset.secondInCart === 'true',
       button.dataset.activePurchaseType,
-      button.dataset.subscriptionPlanQty
+      button.dataset.subscriptionPlanQty,
+      button.dataset.cartHasSubscription === 'true'
     );
   })();
 </script>
@@ -708,7 +709,7 @@
       "type": "text",
       "id": "subscription_note_text",
       "label": "Subscription note text",
-      "default": "Matched to your subscription — cancel anytime."
+      "default": "Matched to your subscription, cancel anytime."
     },
     {
       "type": "range",

@@ -221,15 +221,15 @@
       "name": "Bloomli — Bundle Promo",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "headline_line1": "Pair & Save 15%",
-        "headline_line2": "",
-        "description": "Most people choose one. The ones who see results fastest use both.",
-        "button_color_scheme": "",
-        "cta_label": "Shop the Duo — $74",
-        "cta_url": "",
-        "product_image_1_placeholder_label": "Gummies",
-        "product_image_2_placeholder_label": "Hair Oil",
-        "padding_top": 96,
+        "heading": "Pair & Save",
+        "subheading": "15% off your hair oil when bundled.",
+        "body_text": "Most people choose one. The ones who see results fastest use both.",
+        "product_1": "",
+        "product_2": "",
+        "add_both_label": "Start My Ritual",
+        "add_missing_label": "Complete My Ritual",
+        "view_routine_label": "View My Ritual",
+        "padding_top": 48,
         "padding_bottom": 96
       }
     }

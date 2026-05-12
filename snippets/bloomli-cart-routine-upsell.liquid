@@ -22,7 +22,6 @@
   assign cart_has_supplement   = false
   assign cart_has_addon        = false
   assign cart_has_subscription = false
-  assign cart_subscription_quantity = 1
 
   for item in cart.items
     for product_tag in item.product.tags
@@ -36,12 +35,6 @@
     endfor
     if item.selling_plan_allocation != blank and cart_has_subscription == false
       assign cart_has_subscription = true
-      assign cart_subscription_quantity = item.quantity | default: 1 | plus: 0
-      if cart_subscription_quantity < 1
-        assign cart_subscription_quantity = 1
-      elsif cart_subscription_quantity > 5
-        assign cart_subscription_quantity = 5
-      endif
     endif
   endfor
 
@@ -84,9 +77,6 @@
     assign upsell_sub_btn   = settings.bloomli_routine_upsell_sub_button | default: 'Add to subscription'
     assign upsell_otp_label = settings.bloomli_routine_upsell_otp_label  | default: 'One Time Purchase'
     assign upsell_quantity = 1
-    if cart_has_subscription
-      assign upsell_quantity = cart_subscription_quantity
-    endif
 
     assign upsell_selling_plan_id = nil
     if cart_has_subscription
@@ -140,72 +130,34 @@
 
     if upsell_product.metafields.bloomli.bundle_add_on_discount_pct != blank
       assign upsell_bundle_discount_pct = upsell_product.metafields.bloomli.bundle_add_on_discount_pct | plus: 0
-    elsif settings.bloomli_bundle_add_on_discount_pct != blank
-      assign upsell_bundle_discount_pct = settings.bloomli_bundle_add_on_discount_pct | plus: 0
     elsif settings.bloomli_routine_upsell_addon_discount_pct != blank
       assign upsell_bundle_discount_pct = settings.bloomli_routine_upsell_addon_discount_pct | plus: 0
+    elsif settings.bloomli_bundle_add_on_discount_pct != blank
+      assign upsell_bundle_discount_pct = settings.bloomli_bundle_add_on_discount_pct | plus: 0
     else
-      assign upsell_bundle_discount_pct = 20
+      assign upsell_bundle_discount_pct = 15
     endif
 
-    if upsell_quantity >= 5
-      if upsell_product.metafields.bloomli.volume_discount_5_pct != blank
-        assign upsell_volume_discount_pct = upsell_product.metafields.bloomli.volume_discount_5_pct | plus: 0
-      elsif settings.bloomli_volume_discount_5_pct != blank
-        assign upsell_volume_discount_pct = settings.bloomli_volume_discount_5_pct | plus: 0
-      else
-        assign upsell_volume_discount_pct = 20
-      endif
-    elsif upsell_quantity == 4
-      if upsell_product.metafields.bloomli.volume_discount_4_pct != blank
-        assign upsell_volume_discount_pct = upsell_product.metafields.bloomli.volume_discount_4_pct | plus: 0
-      elsif settings.bloomli_volume_discount_4_pct != blank
-        assign upsell_volume_discount_pct = settings.bloomli_volume_discount_4_pct | plus: 0
-      else
-        assign upsell_volume_discount_pct = 18
-      endif
-    elsif upsell_quantity == 3
-      if upsell_product.metafields.bloomli.volume_discount_3_pct != blank
-        assign upsell_volume_discount_pct = upsell_product.metafields.bloomli.volume_discount_3_pct | plus: 0
-      elsif settings.bloomli_volume_discount_3_pct != blank
-        assign upsell_volume_discount_pct = settings.bloomli_volume_discount_3_pct | plus: 0
-      else
-        assign upsell_volume_discount_pct = 15
-      endif
-    elsif upsell_quantity == 2
-      if upsell_product.metafields.bloomli.volume_discount_2_pct != blank
-        assign upsell_volume_discount_pct = upsell_product.metafields.bloomli.volume_discount_2_pct | plus: 0
-      elsif settings.bloomli_volume_discount_2_pct != blank
-        assign upsell_volume_discount_pct = settings.bloomli_volume_discount_2_pct | plus: 0
-      else
-        assign upsell_volume_discount_pct = 10
-      endif
-    else
-      if upsell_product.metafields.bloomli.volume_discount_1_pct != blank
-        assign upsell_volume_discount_pct = upsell_product.metafields.bloomli.volume_discount_1_pct | plus: 0
-      elsif settings.bloomli_volume_discount_1_pct != blank
-        assign upsell_volume_discount_pct = settings.bloomli_volume_discount_1_pct | plus: 0
-      else
-        assign upsell_volume_discount_pct = 0
-      endif
-    endif
-
-    assign upsell_volume_factor = 100.0 | minus: upsell_volume_discount_pct
+    assign upsell_volume_discount_pct = 0
     assign upsell_bundle_factor = 100.0
     if upsell_has_bundle_discount
       assign upsell_bundle_factor = 100.0 | minus: upsell_bundle_discount_pct
     endif
-    assign upsell_sale_factor = upsell_volume_factor | times: upsell_bundle_factor | divided_by: 100.0
-    assign upsell_sale_unit_price = upsell_variant.price | times: upsell_sale_factor | divided_by: 100.0 | round
+    assign upsell_sale_unit_price = upsell_variant.price
+    if upsell_has_bundle_discount
+      assign upsell_sale_unit_price = upsell_sale_unit_price | times: upsell_bundle_factor | divided_by: 100.0 | round
+    endif
     assign upsell_sale_price = upsell_sale_unit_price | times: upsell_quantity
-    assign upsell_sale_discount_pct = 100.0 | minus: upsell_sale_factor | floor
+    assign upsell_sale_discount_pct = upsell_variant.price | minus: upsell_sale_unit_price | times: 100.0 | divided_by: upsell_variant.price | floor
 
     if cart_has_subscription and upsell_selling_plan_id != nil
       assign upsell_subscription_factor = 100.0 | minus: upsell_subscription_discount_pct
-      assign upsell_sub_factor = upsell_volume_factor | times: upsell_subscription_factor | divided_by: 100.0 | times: upsell_bundle_factor | divided_by: 100.0
-      assign upsell_sub_unit_price = upsell_variant.price | times: upsell_sub_factor | divided_by: 100.0 | round
+      assign upsell_sub_unit_price = upsell_variant.price | times: upsell_subscription_factor | divided_by: 100.0 | round
+      if upsell_has_bundle_discount
+        assign upsell_sub_unit_price = upsell_sub_unit_price | times: upsell_bundle_factor | divided_by: 100.0 | round
+      endif
       assign upsell_sub_price = upsell_sub_unit_price | times: upsell_quantity
-      assign upsell_sub_discount_pct = 100.0 | minus: upsell_sub_factor | floor
+      assign upsell_sub_discount_pct = upsell_variant.price | minus: upsell_sub_unit_price | times: 100.0 | divided_by: upsell_variant.price | floor
     else
       assign upsell_sub_price = 0
       assign upsell_sub_discount_pct = 0
@@ -223,17 +175,7 @@
       else
         assign upsell_display_discount_pct = upsell_sale_discount_pct
       endif
-      assign upsell_copy_discount_pct = upsell_display_discount_pct
-
-      if upsell_text_template contains '[X]' or upsell_text_template contains '[percent]'
-        assign upsell_text = upsell_text_template | replace: '[X]', upsell_copy_discount_pct | replace: '[percent]', upsell_copy_discount_pct
-      elsif upsell_text_template contains '%' and upsell_copy_discount_pct > 0
-        assign upsell_text = 'Add ' | append: upsell_product.title | append: ' and save ' | append: upsell_copy_discount_pct | append: '%.'
-      elsif upsell_text_template contains '%'
-        assign upsell_text = 'Add ' | append: upsell_product.title | append: ' to activate Pair & Save.'
-      else
-        assign upsell_text = upsell_text_template
-      endif
+      assign upsell_text = upsell_text_template
 
       assign upsell_display_compare_price = upsell_compare_price
       if upsell_display_compare_price > 0
@@ -324,6 +266,7 @@
           class="bloomli-routine-upsell__btn"
           data-bloomli-routine-upsell-btn
           data-variant-id="{{ upsell_variant.id }}"
+          data-quantity="{{ upsell_quantity }}"
           aria-label="{{ upsell_button | escape }}: {{ upsell_product.title | escape }}"
         >
           <span class="bloomli-routine-upsell__btn-text">{{ upsell_button | escape }}</span>

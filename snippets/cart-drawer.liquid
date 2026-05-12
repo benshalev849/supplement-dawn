@@ -262,15 +262,18 @@
                         endif
 
                         assign cart_mf_bundle_pct = item.product.metafields.bloomli.bundle_add_on_discount_pct
+                        assign cart_routine_bundle_pct = settings.bloomli_routine_upsell_addon_discount_pct
                         assign cart_g_bundle_pct = settings.bloomli_bundle_add_on_discount_pct
                         if cart_mf_bundle_pct != blank
                           assign cart_bundle_discount = cart_mf_bundle_pct | plus: 0
-                        elsif cart_g_bundle_pct != blank
-                          assign cart_bundle_discount = cart_g_bundle_pct | plus: 0
+                        elsif cart_routine_bundle_pct != blank
+                          assign cart_bundle_discount = cart_routine_bundle_pct | plus: 0
                         elsif settings.cart_drawer_addon_bundle_discount_pct != blank
                           assign cart_bundle_discount = settings.cart_drawer_addon_bundle_discount_pct | plus: 0
+                        elsif cart_g_bundle_pct != blank
+                          assign cart_bundle_discount = cart_g_bundle_pct | plus: 0
                         else
-                          assign cart_bundle_discount = 20
+                          assign cart_bundle_discount = 15
                         endif
 
                         if item.product.metafields.bloomli.volume_discount_1_pct != blank
@@ -313,6 +316,52 @@
                           assign cart_vol_5_pct = settings.cart_drawer_quantity_offer_5_savings | plus: 0
                         else
                           assign cart_vol_5_pct = 20
+                        endif
+
+                        assign cart_compare_unit_price = 0
+                        if item.variant.compare_at_price != blank and item.variant.compare_at_price > item.variant.price
+                          assign cart_compare_unit_price = item.variant.compare_at_price
+                        endif
+
+                        assign cart_current_volume_discount = cart_vol_1_pct
+                        if item.quantity >= 5
+                          assign cart_current_volume_discount = cart_vol_5_pct
+                        elsif item.quantity == 4
+                          assign cart_current_volume_discount = cart_vol_4_pct
+                        elsif item.quantity == 3
+                          assign cart_current_volume_discount = cart_vol_3_pct
+                        elsif item.quantity == 2
+                          assign cart_current_volume_discount = cart_vol_2_pct
+                        endif
+
+                        assign cart_current_sub_factor = 100.0
+                        if cart_line_has_subscription
+                          assign cart_current_sub_factor = 100.0 | minus: cart_subscription_discount
+                        endif
+                        assign cart_current_bundle_factor = 100.0
+                        if cart_line_has_bundle
+                          assign cart_current_bundle_factor = 100.0 | minus: cart_bundle_discount
+                        endif
+                        assign cart_current_factor = 100.0 | minus: cart_current_volume_discount | times: cart_current_sub_factor | divided_by: 100.0 | times: cart_current_bundle_factor | divided_by: 100.0
+                        assign cart_current_discount_percent = 100.0 | minus: cart_current_factor | floor
+                        assign cart_current_unit_price_estimate = item.variant.price
+                        if cart_current_volume_discount > 0
+                          assign cart_current_volume_factor = 100.0 | minus: cart_current_volume_discount
+                          assign cart_current_unit_price_estimate = cart_current_unit_price_estimate | times: cart_current_volume_factor | divided_by: 100.0 | round
+                        endif
+                        if cart_line_has_subscription
+                          assign cart_current_unit_price_estimate = cart_current_unit_price_estimate | times: cart_current_sub_factor | divided_by: 100.0 | round
+                        endif
+                        if cart_line_has_bundle
+                          assign cart_current_unit_price_estimate = cart_current_unit_price_estimate | times: cart_current_bundle_factor | divided_by: 100.0 | round
+                        endif
+                        assign cart_current_line_price_estimate = cart_current_unit_price_estimate | times: item.quantity
+                        assign cart_current_compare_savings_percent = cart_current_discount_percent
+                        if cart_compare_unit_price > 0
+                          assign cart_current_compare_total = cart_compare_unit_price | times: item.quantity
+                          if cart_current_compare_total > cart_current_line_price_estimate
+                            assign cart_current_compare_savings_percent = cart_current_compare_total | minus: cart_current_line_price_estimate | times: 100.0 | divided_by: cart_current_compare_total | floor
+                          endif
                         endif
                       -%}
                       <tr
@@ -716,6 +765,48 @@
                             assign offer_3_percent = 100.0 | minus: offer_3_factor | floor
                             assign offer_4_percent = 100.0 | minus: offer_4_factor | floor
                             assign offer_5_percent = 100.0 | minus: offer_5_factor | floor
+                            if cart_compare_unit_price > 0
+                              assign offer_3_unit_price = item.variant.price
+                              assign offer_4_unit_price = item.variant.price
+                              assign offer_5_unit_price = item.variant.price
+                              if cart_vol_3_pct > 0
+                                assign offer_3_volume_factor = 100.0 | minus: cart_vol_3_pct
+                                assign offer_3_unit_price = offer_3_unit_price | times: offer_3_volume_factor | divided_by: 100.0 | round
+                              endif
+                              if cart_vol_4_pct > 0
+                                assign offer_4_volume_factor = 100.0 | minus: cart_vol_4_pct
+                                assign offer_4_unit_price = offer_4_unit_price | times: offer_4_volume_factor | divided_by: 100.0 | round
+                              endif
+                              if cart_vol_5_pct > 0
+                                assign offer_5_volume_factor = 100.0 | minus: cart_vol_5_pct
+                                assign offer_5_unit_price = offer_5_unit_price | times: offer_5_volume_factor | divided_by: 100.0 | round
+                              endif
+                              if cart_line_has_subscription
+                                assign offer_3_unit_price = offer_3_unit_price | times: cart_offer_sub_factor | divided_by: 100.0 | round
+                                assign offer_4_unit_price = offer_4_unit_price | times: cart_offer_sub_factor | divided_by: 100.0 | round
+                                assign offer_5_unit_price = offer_5_unit_price | times: cart_offer_sub_factor | divided_by: 100.0 | round
+                              endif
+                              if cart_line_has_bundle
+                                assign offer_3_unit_price = offer_3_unit_price | times: cart_offer_bundle_factor | divided_by: 100.0 | round
+                                assign offer_4_unit_price = offer_4_unit_price | times: cart_offer_bundle_factor | divided_by: 100.0 | round
+                                assign offer_5_unit_price = offer_5_unit_price | times: cart_offer_bundle_factor | divided_by: 100.0 | round
+                              endif
+                              assign offer_3_total_price = offer_3_unit_price | times: 3
+                              assign offer_4_total_price = offer_4_unit_price | times: 4
+                              assign offer_5_total_price = offer_5_unit_price | times: 5
+                              assign offer_3_compare_price = cart_compare_unit_price | times: 3
+                              assign offer_4_compare_price = cart_compare_unit_price | times: 4
+                              assign offer_5_compare_price = cart_compare_unit_price | times: 5
+                              if offer_3_compare_price > offer_3_total_price
+                                assign offer_3_percent = offer_3_compare_price | minus: offer_3_total_price | times: 100.0 | divided_by: offer_3_compare_price | floor
+                              endif
+                              if offer_4_compare_price > offer_4_total_price
+                                assign offer_4_percent = offer_4_compare_price | minus: offer_4_total_price | times: 100.0 | divided_by: offer_4_compare_price | floor
+                              endif
+                              if offer_5_compare_price > offer_5_total_price
+                                assign offer_5_percent = offer_5_compare_price | minus: offer_5_total_price | times: 100.0 | divided_by: offer_5_compare_price | floor
+                              endif
+                            endif
                             assign offer_3_label = offer_label_template | replace: '[qty]', '3' | replace: '[percent]', offer_3_percent
                             assign offer_4_label = offer_label_template | replace: '[qty]', '4' | replace: '[percent]', offer_4_percent
                             assign offer_5_label = offer_label_template | replace: '[qty]', '5' | replace: '[percent]', offer_5_percent
@@ -773,7 +864,7 @@
                               assign current_selling_plan_id = item.selling_plan_allocation.selling_plan.id
                               assign frequency_prefix = settings.cart_subscription_frequency_prefix | default: 'Delivers every'
                               assign savings_prefix = settings.cart_subscription_savings_prefix | default: 'SAVE'
-                              assign cart_subscription_discount_label = cart_subscription_discount | floor
+                              assign cart_subscription_discount_label = cart_current_compare_savings_percent
                             -%}
                             {%- for selling_plan_group in item.product.selling_plan_groups -%}
                               {%- liquid
@@ -909,14 +1000,7 @@
                             {%- render 'bloomli-cart-subscription-upsell',
                               item: item,
                               context: 'drawer',
-                              line_has_bundle: cart_line_has_bundle,
-                              resolved_subscription_discount_pct: cart_subscription_discount,
-                              resolved_bundle_discount_pct: cart_bundle_discount,
-                              resolved_volume_discount_1_pct: cart_vol_1_pct,
-                              resolved_volume_discount_2_pct: cart_vol_2_pct,
-                              resolved_volume_discount_3_pct: cart_vol_3_pct,
-                              resolved_volume_discount_4_pct: cart_vol_4_pct,
-                              resolved_volume_discount_5_pct: cart_vol_5_pct
+                              resolved_subscription_discount_pct: cart_subscription_discount
                             -%}
                           </td>
                         </tr>

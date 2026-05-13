@@ -92,19 +92,31 @@
           <div class="bloomli-proof-split__bullets bloomli-product-finder__checks" style="--bps-icon-color: rgb(var(--color-button));" role="list">
             {%- if check_1 != blank -%}
               <div class="bloomli-proof-split__bullet" role="listitem">
-                <span class="bloomli-proof-split__check" aria-hidden="true"></span>
+                <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" focusable="false">
+                    <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
                 <div class="bloomli-proof-split__bullet-text">{{ check_1 | escape }}</div>
               </div>
             {%- endif -%}
             {%- if check_2 != blank -%}
               <div class="bloomli-proof-split__bullet" role="listitem">
-                <span class="bloomli-proof-split__check" aria-hidden="true"></span>
+                <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" focusable="false">
+                    <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
                 <div class="bloomli-proof-split__bullet-text">{{ check_2 | escape }}</div>
               </div>
             {%- endif -%}
             {%- if check_3 != blank -%}
               <div class="bloomli-proof-split__bullet" role="listitem">
-                <span class="bloomli-proof-split__check" aria-hidden="true"></span>
+                <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" focusable="false">
+                    <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
                 <div class="bloomli-proof-split__bullet-text">{{ check_3 | escape }}</div>
               </div>
             {%- endif -%}

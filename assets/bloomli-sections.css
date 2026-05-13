@@ -57,6 +57,7 @@
 }
 
 /* Hero */
+
 .bloomli-hero {
   min-height: var(--hero-min-height);
   position: relative;
@@ -71,14 +72,13 @@
   max-width: var(--bloomli-page-width);
   margin: 0 auto;
   padding: 96px var(--bloomli-page-gutter-desktop);
-  display: grid;
-  grid-template-columns: 55fr 45fr;
-  gap: 48px;
+  display: flex;
   align-items: center;
   min-height: var(--hero-min-height);
 }
 
 .bloomli-hero__copy {
+  max-width: 520px;
   min-width: 0;
 }
 
@@ -161,74 +161,21 @@
   line-height: 1;
 }
 
-.bloomli-hero__media {
-  position: relative;
-  height: 540px;
-}
-
-.bloomli-hero__editorial,
-.bloomli-hero__editorial--placeholder {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 380px;
-  height: 520px;
-  border-radius: 220px;
-}
-
-.bloomli-hero__editorial {
-  object-fit: cover;
-  box-shadow: 0 16px 32px var(--bloomli-shadow-color);
-}
-
-.bloomli-hero__editorial--placeholder {
-  background: var(--bloomli-surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bloomli-hero__editorial--placeholder span {
-  font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--bloomli-text-soft);
-}
-
-.bloomli-hero__bottle {
-  position: absolute;
-  left: var(--hero-bottle-x-desktop);
-  bottom: var(--hero-bottle-y-desktop);
-  transform: rotate(var(--hero-bottle-rotation));
-  width: var(--hero-bottle-width-desktop);
-  height: auto;
-  max-width: none !important;
-  object-fit: contain;
-}
-
-.bloomli-hero__blur-accent {
-  position: absolute;
-  right: -60px;
-  top: 60px;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: var(--bloomli-surface);
-  opacity: 0.55;
-  pointer-events: none;
-}
-
 @media (max-width: 749px) {
   .bloomli-hero {
     min-height: auto;
   }
 
   .bloomli-hero__inner {
-    grid-template-columns: 1fr;
-    padding: 40px 16px 48px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 20px;
     min-height: auto;
-    gap: 24px;
+  }
+
+  .bloomli-hero__copy {
+    max-width: 100%;
   }
 
   .bloomli-hero__headline {
@@ -246,6 +193,7 @@
   .bloomli-hero__ctas {
     gap: 8px;
     margin-bottom: 12px;
+    justify-content: center;
   }
 
   .bloomli-hero__ctas .button {
@@ -255,35 +203,17 @@
 
   .bloomli-hero__reviews {
     margin-bottom: 12px;
+    justify-content: center;
   }
 
   .bloomli-hero__trust-badges {
     gap: 6px 12px;
     font-size: 11px;
-  }
-
-  .bloomli-hero__media {
-    height: var(--hero-media-height-mobile);
-    margin-top: 12px;
-  }
-
-  .bloomli-hero__editorial,
-  .bloomli-hero__editorial--placeholder {
-    width: var(--hero-editorial-width-mobile);
-    max-width: none;
-    height: var(--hero-editorial-height-mobile);
-    border-radius: var(--hero-editorial-radius-mobile);
-    right: 0;
-  }
-
-  .bloomli-hero__bottle {
-    width: var(--hero-bottle-width-mobile);
-    left: var(--hero-bottle-x-mobile);
-    bottom: var(--hero-bottle-y-mobile);
+    justify-content: center;
   }
 }
 
-/* Hero — background image variant */
+/* Hero — background image */
 
 .bloomli-hero__bg {
   position: absolute;
@@ -339,10 +269,6 @@
   z-index: 2;
 }
 
-.bloomli-hero--has-bg-image .bloomli-hero__copy {
-  max-width: 520px;
-}
-
 .bloomli-hero--has-bg-image .bloomli-hero__headline,
 .bloomli-hero--has-bg-image .bloomli-hero__subtext,
 .bloomli-hero--has-bg-image .bloomli-hero__review-text,
@@ -359,13 +285,7 @@
   }
 
   .bloomli-hero--has-bg-image .bloomli-hero__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     min-height: var(--hero-min-height);
-    padding-top: 48px;
-    padding-bottom: 48px;
   }
 
   .bloomli-hero--has-bg-image .bloomli-hero__inner--mobile-top {
@@ -374,26 +294,10 @@
 
   .bloomli-hero--has-bg-image .bloomli-hero__inner--mobile-center {
     justify-content: center;
-    padding-top: 32px;
-    padding-bottom: 32px;
   }
 
   .bloomli-hero--has-bg-image .bloomli-hero__inner--mobile-bottom {
     justify-content: flex-end;
-  }
-
-  .bloomli-hero--has-bg-image .bloomli-hero__copy {
-    max-width: 100%;
-  }
-
-  .bloomli-hero--has-bg-image .bloomli-hero__ctas,
-  .bloomli-hero--has-bg-image .bloomli-hero__reviews,
-  .bloomli-hero--has-bg-image .bloomli-hero__trust-badges {
-    justify-content: center;
-  }
-
-  .bloomli-hero--has-bg-image .bloomli-hero__media {
-    display: none;
   }
 }
 

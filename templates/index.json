@@ -46,45 +46,45 @@
       "type": "bloomli-trust-row",
       "blocks": {
         "trust_item_ENiVhL": {
-          "type": "trust_item",
+          "type": "proof",
           "settings": {
-            "icon": "shield",
-            "label": "Third-party tested"
+            "quote": "Tested for purity, label accuracy, and quality.",
+            "title": "Third-party tested"
           }
         },
         "trust_item_qt7KmA": {
-          "type": "trust_item",
+          "type": "proof",
           "settings": {
-            "icon": "check",
-            "label": "2g sugar per gummy"
+            "quote": "Daily beauty support without turning your supplement into candy.",
+            "title": "2g sugar per gummy"
           }
         },
         "trust_item_CtHkqq": {
-          "type": "trust_item",
+          "type": "proof",
           "settings": {
-            "icon": "leaf",
-            "label": "Gelatin-free"
+            "quote": "Pectin-based gummies made without gelatin.",
+            "title": "Gelatin-free"
           }
         },
         "trust_item_KgjBGQ": {
-          "type": "trust_item",
+          "type": "proof",
           "settings": {
-            "icon": "globe",
-            "label": "Made in the USA"
+            "quote": "Produced with quality standards you can trust.",
+            "title": "Made in the USA"
           }
         },
         "trust_item_guarantee": {
-          "type": "trust_item",
+          "type": "proof",
           "settings": {
-            "icon": "star",
-            "label": "30-day guarantee"
+            "quote": "Try the ritual and see how it fits.",
+            "title": "30-day guarantee"
           }
         },
         "trust_item_pause": {
-          "type": "trust_item",
+          "type": "proof",
           "settings": {
-            "icon": "refresh",
-            "label": "Pause or cancel anytime"
+            "quote": "Subscriptions should feel easy, not stressful.",
+            "title": "Cancel anytime"
           }
         }
       },
@@ -96,13 +96,11 @@
         "trust_item_guarantee",
         "trust_item_pause"
       ],
-      "disabled": true,
-      "name": "Bloomli — Trust Row",
+      "name": "Bloomli - Trust Row",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "icon_accent_color": "#b23a6f",
-        "padding_top": 14,
-        "padding_bottom": 14
+        "padding_top": 18,
+        "padding_bottom": 18
       }
     },
     "bloomli_beneath_surface": {

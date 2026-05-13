@@ -1,92 +1,158 @@
 .bloomli-trust {
-  padding-block: var(--bloomli-padding-top) var(--bloomli-padding-bottom);
+  overflow: hidden;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
   border-block: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
-.bloomli-trust__grid {
-  width: min(100% - 3.2rem, var(--page-width, 120rem));
+.bloomli-trust--pt-8 { padding-top: 0.8rem; }
+.bloomli-trust--pt-10 { padding-top: 1rem; }
+.bloomli-trust--pt-12 { padding-top: 1.2rem; }
+.bloomli-trust--pt-14 { padding-top: 1.4rem; }
+.bloomli-trust--pt-16 { padding-top: 1.6rem; }
+.bloomli-trust--pt-18 { padding-top: 1.8rem; }
+.bloomli-trust--pt-20 { padding-top: 2rem; }
+.bloomli-trust--pt-22 { padding-top: 2.2rem; }
+.bloomli-trust--pt-24 { padding-top: 2.4rem; }
+.bloomli-trust--pt-26 { padding-top: 2.6rem; }
+.bloomli-trust--pt-28 { padding-top: 2.8rem; }
+.bloomli-trust--pt-30 { padding-top: 3rem; }
+.bloomli-trust--pt-32 { padding-top: 3.2rem; }
+.bloomli-trust--pt-34 { padding-top: 3.4rem; }
+.bloomli-trust--pt-36 { padding-top: 3.6rem; }
+.bloomli-trust--pt-38 { padding-top: 3.8rem; }
+.bloomli-trust--pt-40 { padding-top: 4rem; }
+.bloomli-trust--pt-42 { padding-top: 4.2rem; }
+.bloomli-trust--pt-44 { padding-top: 4.4rem; }
+.bloomli-trust--pt-46 { padding-top: 4.6rem; }
+.bloomli-trust--pt-48 { padding-top: 4.8rem; }
+.bloomli-trust--pb-8 { padding-bottom: 0.8rem; }
+.bloomli-trust--pb-10 { padding-bottom: 1rem; }
+.bloomli-trust--pb-12 { padding-bottom: 1.2rem; }
+.bloomli-trust--pb-14 { padding-bottom: 1.4rem; }
+.bloomli-trust--pb-16 { padding-bottom: 1.6rem; }
+.bloomli-trust--pb-18 { padding-bottom: 1.8rem; }
+.bloomli-trust--pb-20 { padding-bottom: 2rem; }
+.bloomli-trust--pb-22 { padding-bottom: 2.2rem; }
+.bloomli-trust--pb-24 { padding-bottom: 2.4rem; }
+.bloomli-trust--pb-26 { padding-bottom: 2.6rem; }
+.bloomli-trust--pb-28 { padding-bottom: 2.8rem; }
+.bloomli-trust--pb-30 { padding-bottom: 3rem; }
+.bloomli-trust--pb-32 { padding-bottom: 3.2rem; }
+.bloomli-trust--pb-34 { padding-bottom: 3.4rem; }
+.bloomli-trust--pb-36 { padding-bottom: 3.6rem; }
+.bloomli-trust--pb-38 { padding-bottom: 3.8rem; }
+.bloomli-trust--pb-40 { padding-bottom: 4rem; }
+.bloomli-trust--pb-42 { padding-bottom: 4.2rem; }
+.bloomli-trust--pb-44 { padding-bottom: 4.4rem; }
+.bloomli-trust--pb-46 { padding-bottom: 4.6rem; }
+.bloomli-trust--pb-48 { padding-bottom: 4.8rem; }
+
+.bloomli-trust__inner {
+  width: min(100%, var(--page-width, 120rem));
   margin-inline: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 1rem 1.6rem;
-  align-items: center;
 }
 
-.bloomli-trust__item {
-  min-width: 0;
-  display: inline-flex;
-  align-items: center;
+.bloomli-trust__track {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1.6rem;
+  padding-inline: 1.6rem;
+  scrollbar-width: none;
+}
+
+.bloomli-trust__track::-webkit-scrollbar {
+  display: none;
+}
+
+.bloomli-trust__card {
+  flex: 0 0 min(82vw, 31rem);
+  min-height: 11.2rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 0.8rem;
+  scroll-snap-align: start;
+  padding: 2rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  border-radius: calc(var(--media-radius) + 0.8rem);
+  background:
+    linear-gradient(145deg, rgba(var(--color-button), 0.08), rgba(var(--color-foreground), 0.025)),
+    rgb(var(--color-background));
+  box-shadow: 0 1.4rem 3.6rem rgba(var(--color-foreground), 0.07);
+}
+
+.bloomli-trust__quote {
+  margin: 0;
   color: rgb(var(--color-foreground));
-  line-height: 1.2;
-  text-align: center;
+  font-family: var(--font-heading-family);
+  font-size: 2rem;
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  letter-spacing: 0;
+  line-height: 1.18;
 }
 
-.bloomli-trust__icon {
-  width: 1.9rem;
-  height: 1.9rem;
-  flex: 0 0 1.9rem;
-  color: var(--bloomli-trust-icon-color);
-}
-
-.bloomli-trust__label {
-  min-width: 0;
-  font-size: 1.1rem;
+.bloomli-trust__title {
+  margin: 1.2rem 0 0;
+  color: rgb(var(--color-button));
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.04em;
+  line-height: 1.25;
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 749px) {
-  .bloomli-trust {
-    padding-block: min(1rem, var(--bloomli-padding-top)) min(1rem, var(--bloomli-padding-bottom));
-    overflow: hidden;
+.bloomli-trust__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.bloomli-trust__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: rgba(var(--color-foreground), 0.24);
+}
+
+.bloomli-trust__dot:first-child {
+  background: rgb(var(--color-button));
+}
+
+@media screen and (min-width: 750px) {
+  .bloomli-trust__inner {
+    width: min(100% - 3.2rem, var(--page-width, 120rem));
   }
 
-  .bloomli-trust__grid {
-    width: 100%;
-    display: flex;
-    grid-template-columns: none;
-    gap: 0.8rem;
+  .bloomli-trust__track {
+    gap: 1.6rem;
     overflow-x: auto;
-    overflow-y: hidden;
-    overscroll-behavior-inline: contain;
-    padding-inline: 1.2rem;
-    scroll-padding-inline: 1.2rem;
-    scrollbar-width: none;
+    padding-inline: 0;
   }
 
-  .bloomli-trust__grid::-webkit-scrollbar {
+  .bloomli-trust__card {
+    flex-basis: calc((100% - 3.2rem) / 3);
+    min-height: 14rem;
+    padding: 2.4rem;
+  }
+
+  .bloomli-trust__quote {
+    font-size: clamp(2rem, 1.7vw, 2.6rem);
+  }
+
+  .bloomli-trust__dots {
     display: none;
   }
+}
 
-  .bloomli-trust__item {
-    flex: 0 0 auto;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-    min-height: 2.8rem;
-    padding: 0.55rem 0.8rem;
-    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
-    border-radius: 999rem;
-    background: rgba(var(--color-foreground), 0.035);
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  .bloomli-trust__icon {
-    width: 1.35rem;
-    height: 1.35rem;
-    flex-basis: 1.35rem;
-  }
-
-  .bloomli-trust__label {
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0;
-    line-height: 1;
-    text-transform: none;
+@media screen and (min-width: 990px) {
+  .bloomli-trust__track {
+    gap: 2rem;
   }
 }

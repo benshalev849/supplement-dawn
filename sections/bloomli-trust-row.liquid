@@ -1,61 +1,149 @@
 {{ 'bloomli-trust-row.css' | asset_url | stylesheet_tag }}
 
 <section
-  class="bloomli-trust bloomli-section color-{{ section.settings.color_scheme }} gradient"
-  style="--bloomli-trust-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;"
+  class="bloomli-trust bloomli-trust--pt-{{ section.settings.padding_top }} bloomli-trust--pb-{{ section.settings.padding_bottom }} color-{{ section.settings.color_scheme }} gradient"
 >
-  <div class="bloomli-trust__grid">
+  <div class="bloomli-trust__inner">
+    <div class="bloomli-trust__track" aria-label="Bloomli proof points">
+      {%- for block in section.blocks -%}
+        <article class="bloomli-trust__card" {{ block.shopify_attributes }}>
+          {%- if block.settings.quote != blank -%}
+            <p class="bloomli-trust__quote">{{ block.settings.quote | escape }}</p>
+          {%- endif -%}
 
-    {%- for block in section.blocks -%}
-      <div class="bloomli-trust__item" {{ block.shopify_attributes }}>
-        {%- render 'bloomli-icon', icon: block.settings.icon, class: 'bloomli-trust__icon', size: 24 -%}
-        <span class="bloomli-trust__label smallcaps">{{ block.settings.label }}</span>
+          {%- if block.settings.title != blank -%}
+            <h3 class="bloomli-trust__title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.blocks.size > 1 -%}
+      <div class="bloomli-trust__dots" aria-hidden="true">
+        {%- for block in section.blocks -%}
+          <span class="bloomli-trust__dot"></span>
+        {%- endfor -%}
       </div>
-    {%- endfor -%}
-
+    {%- endif -%}
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Bloomli — Trust Row",
+  "name": "Bloomli - Trust Row",
   "tag": "div",
   "max_blocks": 6,
   "settings": [
-    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
-    { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
-    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 8, "max": 48, "step": 2, "default": 14 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 8, "max": 48, "step": 2, "default": 14 }
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "default": 18
+    }
   ],
   "blocks": [
     {
-      "type": "trust_item",
-      "name": "Trust item",
+      "type": "proof",
+      "name": "Proof card",
       "settings": [
-        { "type": "select", "id": "icon", "label": "Icon", "options": [
-          { "value": "flask", "label": "Flask" },
-          { "value": "shield", "label": "Shield / Check" },
-          { "value": "leaf", "label": "Leaf" },
-          { "value": "star", "label": "Star" },
-          { "value": "check", "label": "Circle check" },
-          { "value": "globe", "label": "Globe / USA" },
-          { "value": "refresh", "label": "Refresh / Pause" },
-          { "value": "sparkle", "label": "Sparkle" }
-        ], "default": "flask" },
-        { "type": "text", "id": "label", "label": "Label", "default": "Third-party tested" }
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Proof sentence",
+          "default": "Tested for purity, label accuracy, and quality."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Proof title",
+          "default": "Third-party tested"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Optional icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "flask", "label": "Flask" },
+            { "value": "shield", "label": "Shield / Check" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "star", "label": "Star" },
+            { "value": "check", "label": "Circle check" },
+            { "value": "globe", "label": "Globe / USA" },
+            { "value": "refresh", "label": "Refresh / Pause" },
+            { "value": "sparkle", "label": "Sparkle" }
+          ],
+          "default": "none"
+        }
       ]
     }
   ],
-  "presets": [{
-    "name": "Bloomli — Trust Row",
-    "blocks": [
-      { "type": "trust_item", "settings": { "icon": "shield", "label": "Third-party tested" } },
-      { "type": "trust_item", "settings": { "icon": "check", "label": "2g sugar per gummy" } },
-      { "type": "trust_item", "settings": { "icon": "leaf", "label": "Gelatin-free" } },
-      { "type": "trust_item", "settings": { "icon": "globe", "label": "Made in the USA" } },
-      { "type": "trust_item", "settings": { "icon": "star", "label": "30-day guarantee" } },
-      { "type": "trust_item", "settings": { "icon": "refresh", "label": "Pause or cancel anytime" } }
-    ]
-  }]
+  "presets": [
+    {
+      "name": "Bloomli - Trust Row",
+      "blocks": [
+        {
+          "type": "proof",
+          "settings": {
+            "quote": "Tested for purity, label accuracy, and quality.",
+            "title": "Third-party tested"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "quote": "Daily beauty support without turning your supplement into candy.",
+            "title": "2g sugar per gummy"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "quote": "Pectin-based gummies made without gelatin.",
+            "title": "Gelatin-free"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "quote": "Produced with quality standards you can trust.",
+            "title": "Made in the USA"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "quote": "Try the ritual and see how it fits.",
+            "title": "30-day guarantee"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "quote": "Subscriptions should feel easy, not stressful.",
+            "title": "Cancel anytime"
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

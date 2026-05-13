@@ -123,7 +123,7 @@
 }
 
 .bloomli-hero__stars {
-  color: var(--bloomli-accent);
+  color: var(--hero-accent-color, var(--bloomli-accent));
   font-size: 16px;
   letter-spacing: -1px;
 }
@@ -156,7 +156,7 @@
 }
 
 .bloomli-hero__trust-badge i {
-  color: var(--bloomli-accent);
+  color: var(--hero-accent-color, var(--bloomli-accent));
   font-size: 14px;
   line-height: 1;
 }
@@ -237,12 +237,21 @@
 }
 
 @media (max-width: 767px) {
+  .bloomli-hero__bg-img {
+    object-position: center bottom;
+  }
+
   .bloomli-hero__bg--has-mobile .bloomli-hero__bg-img--desktop {
     display: none;
   }
 
   .bloomli-hero__bg--has-mobile .bloomli-hero__bg-img--mobile {
     display: block;
+    inset: auto 0 0;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center bottom;
   }
 }
 
@@ -261,7 +270,7 @@
 }
 
 .bloomli-hero--has-bg-image {
-  background: none;
+  background: rgb(var(--color-background));
 }
 
 .bloomli-hero--has-bg-image .bloomli-hero__inner {
@@ -272,11 +281,8 @@
 .bloomli-hero--has-bg-image .bloomli-hero__headline,
 .bloomli-hero--has-bg-image .bloomli-hero__subtext,
 .bloomli-hero--has-bg-image .bloomli-hero__review-text,
-.bloomli-hero--has-bg-image .bloomli-hero__stars,
-.bloomli-hero--has-bg-image .bloomli-hero__trust-badges,
-.bloomli-hero--has-bg-image .bloomli-hero__trust-badge,
-.bloomli-hero--has-bg-image .bloomli-hero__trust-badge i {
-  color: var(--hero-text-color, #ffffff);
+.bloomli-hero--has-bg-image .bloomli-hero__trust-badge {
+  color: var(--hero-text-color, var(--bloomli-text));
 }
 
 @media (max-width: 749px) {

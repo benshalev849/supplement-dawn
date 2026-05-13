@@ -2,11 +2,16 @@
 {%- if section.settings.desktop_image != blank -%}{%- assign has_bg_image = true -%}{%- endif -%}
 
 <section
-  class="bloomli-hero bloomli-section{% unless has_bg_image %} color-{{ section.settings.color_scheme }} gradient{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}{% endunless %}{% if has_bg_image %} bloomli-hero--has-bg-image{% endif %}"
+  class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient{% unless has_bg_image %}{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}{% endunless %}{% if has_bg_image %} bloomli-hero--has-bg-image{% endif %}"
   style="
     --hero-min-height: {{ section.settings.min_height }}px;
     --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
-    --hero-text-color: {{ section.settings.text_color }};
+    {%- if section.settings.use_custom_text_color -%}
+      --hero-text-color: {{ section.settings.text_color }};
+    {%- endif -%}
+    {%- if section.settings.use_custom_accent_color -%}
+      --hero-accent-color: {{ section.settings.accent_color }};
+    {%- endif -%}
   "
 >
   {%- if has_bg_image -%}
@@ -131,7 +136,10 @@
     { "type": "image_picker", "id": "desktop_image", "label": "Desktop background (16:9 landscape)" },
     { "type": "image_picker", "id": "mobile_image",  "label": "Mobile background (3:4 portrait, optional — falls back to desktop)" },
     { "type": "range",  "id": "overlay_opacity", "label": "Overlay opacity", "min": 0, "max": 80, "step": 5, "default": 45 },
-    { "type": "color",  "id": "text_color", "label": "Text color (over image)", "default": "#ffffff" },
+    { "type": "checkbox", "id": "use_custom_text_color", "label": "Override hero text color", "default": false },
+    { "type": "color",  "id": "text_color", "label": "Text color override", "default": "#2a2622" },
+    { "type": "checkbox", "id": "use_custom_accent_color", "label": "Override hero accent color", "default": false },
+    { "type": "color",  "id": "accent_color", "label": "Accent color override", "default": "#b23a6f" },
     {
       "type": "select",
       "id": "content_position_mobile",

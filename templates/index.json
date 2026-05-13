@@ -43,7 +43,13 @@
         "bottle_y_mobile": 0,
         "editorial_width_mobile": 44,
         "editorial_height_mobile": 300,
-        "media_height_mobile": 360
+        "media_height_mobile": 360,
+        "overlay_opacity": 45,
+        "use_custom_text_color": false,
+        "text_color": "#2a2622",
+        "use_custom_accent_color": false,
+        "accent_color": "#b23a6f",
+        "content_position_mobile": "top"
       }
     },
     "bloomli_trust_row_6WztPT": {

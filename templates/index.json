@@ -81,22 +81,6 @@
             "body": "Produced with quality standards you can trust."
           }
         },
-        "trust_item_guarantee": {
-          "type": "proof",
-          "settings": {
-            "icon": "calendar-check",
-            "label": "30-Day Guarantee",
-            "body": "Try the ritual and see how it fits."
-          }
-        },
-        "trust_item_pause": {
-          "type": "proof",
-          "settings": {
-            "icon": "refresh",
-            "label": "Cancel Anytime",
-            "body": "Subscriptions should feel easy, not stressful."
-          }
-        },
         "trust_item_biotin": {
           "type": "proof",
           "settings": {
@@ -119,8 +103,6 @@
         "trust_item_qt7KmA",
         "trust_item_CtHkqq",
         "trust_item_KgjBGQ",
-        "trust_item_guarantee",
-        "trust_item_pause",
         "trust_item_biotin",
         "trust_item_nsf"
       ],

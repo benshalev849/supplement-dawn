@@ -18,6 +18,15 @@
   <div class="bloomli-hero__inner">
 
     <div class="bloomli-hero__copy">
+      {%- if section.settings.show_reviews -%}
+        <div class="bloomli-hero__reviews">
+          <span class="bloomli-hero__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="bloomli-hero__review-text">
+            {{ section.settings.star_rating_text | default: '4.8 Stars · 2,400+ Reviews' }}
+          </span>
+        </div>
+      {%- endif -%}
+
       <h1 class="bloomli-hero__headline">
         {{ section.settings.headline_line1 }}<br>
         <span>{{ section.settings.headline_line2 }}</span>
@@ -30,20 +39,35 @@
       {%- endif -%}
 
       <div class="bloomli-hero__ctas color-{{ section.settings.button_color_scheme }}">
-        {%- if section.settings.cta_primary_label != blank and section.settings.cta_primary_url != blank -%}
-          <a href="{{ section.settings.cta_primary_url }}" class="button button--primary">{{ section.settings.cta_primary_label }}</a>
+        {%- if section.settings.cta_primary_label != blank -%}
+          {%- assign cta_primary_href = section.settings.cta_primary_url | default: routes.all_products_collection_url -%}
+          <a href="{{ cta_primary_href }}" class="button button--primary">{{ section.settings.cta_primary_label }}</a>
         {%- endif -%}
         {%- if section.settings.cta_secondary_label != blank and section.settings.cta_secondary_url != blank -%}
           <a href="{{ section.settings.cta_secondary_url }}" class="button button--secondary">{{ section.settings.cta_secondary_label }}</a>
         {%- endif -%}
       </div>
 
-      {%- if section.settings.show_reviews -%}
-        <div class="bloomli-hero__reviews">
-          <span class="bloomli-hero__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <span class="bloomli-hero__review-text">
-            <strong>{{ section.settings.review_score }}</strong> from {{ section.settings.review_count }} reviews
-          </span>
+      {%- if section.settings.trust_badge_1 != blank or section.settings.trust_badge_2 != blank or section.settings.trust_badge_3 != blank -%}
+        <div class="bloomli-hero__trust-badges" aria-label="Trust badges">
+          {%- if section.settings.trust_badge_1 != blank -%}
+            <span class="bloomli-hero__trust-badge">
+              <i class="ti ti-shield-check" aria-hidden="true"></i>
+              <span>{{ section.settings.trust_badge_1 }}</span>
+            </span>
+          {%- endif -%}
+          {%- if section.settings.trust_badge_2 != blank -%}
+            <span class="bloomli-hero__trust-badge">
+              <i class="ti ti-shield-check" aria-hidden="true"></i>
+              <span>{{ section.settings.trust_badge_2 }}</span>
+            </span>
+          {%- endif -%}
+          {%- if section.settings.trust_badge_3 != blank -%}
+            <span class="bloomli-hero__trust-badge">
+              <i class="ti ti-shield-check" aria-hidden="true"></i>
+              <span>{{ section.settings.trust_badge_3 }}</span>
+            </span>
+          {%- endif -%}
         </div>
       {%- endif -%}
     </div>
@@ -105,14 +129,19 @@
     { "type": "range",    "id": "min_height",      "label": "Min height (px)",         "min": 500, "max": 900, "step": 20, "default": 720 },
     { "type": "header", "content": "CTAs" },
     { "type": "color_scheme", "id": "button_color_scheme", "label": "Button color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
-    { "type": "text", "id": "cta_primary_label",   "label": "Primary button label",    "default": "Shop Hair" },
-    { "type": "url",  "id": "cta_primary_url",     "label": "Primary button URL" },
+    { "type": "text", "id": "cta_primary_label",   "label": "CTA button label",    "default": "Start Your Ritual" },
+    { "type": "url",  "id": "cta_primary_url",     "label": "CTA button URL" },
     { "type": "text", "id": "cta_secondary_label", "label": "Secondary button label",  "default": "Take the 2-min Quiz" },
     { "type": "url",  "id": "cta_secondary_url",   "label": "Secondary button URL" },
     { "type": "header", "content": "Reviews badge" },
     { "type": "checkbox", "id": "show_reviews",  "label": "Show reviews badge", "default": true },
+    { "type": "text",     "id": "star_rating_text", "label": "Star rating text", "default": "4.8 Stars · 2,400+ Reviews" },
     { "type": "text",     "id": "review_score",  "label": "Score",              "default": "4.8" },
     { "type": "text",     "id": "review_count",  "label": "Count",              "default": "2,400+" },
+    { "type": "header", "content": "Trust badges" },
+    { "type": "text", "id": "trust_badge_1", "label": "Badge 1 text", "default": "Third-Party Tested" },
+    { "type": "text", "id": "trust_badge_2", "label": "Badge 2 text", "default": "NSF-Certified Facility" },
+    { "type": "text", "id": "trust_badge_3", "label": "Badge 3 text", "default": "Made in the USA" },
     { "type": "header", "content": "Images" },
     { "type": "image_picker", "id": "editorial_image", "label": "Editorial image (tall pill crop)" },
     { "type": "text", "id": "editorial_placeholder_label", "label": "Editorial placeholder label", "default": "Editorial photo" },

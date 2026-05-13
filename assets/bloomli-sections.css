@@ -110,7 +110,7 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 14px;
   background: transparent !important;
 }
 
@@ -119,6 +119,7 @@
   gap: 10px;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 
 .bloomli-hero__stars {
@@ -134,6 +135,30 @@
 
 .bloomli-hero__review-text strong {
   font-weight: 500;
+}
+
+.bloomli-hero__trust-badges {
+  display: flex;
+  gap: 8px 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  color: rgba(var(--color-foreground), 0.62);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.bloomli-hero__trust-badge {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.bloomli-hero__trust-badge i {
+  color: var(--bloomli-accent);
+  font-size: 14px;
+  line-height: 1;
 }
 
 .bloomli-hero__media {
@@ -220,12 +245,21 @@
 
   .bloomli-hero__ctas {
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
 
   .bloomli-hero__ctas .button {
     padding: 12px 22px;
     font-size: 14px;
+  }
+
+  .bloomli-hero__reviews {
+    margin-bottom: 12px;
+  }
+
+  .bloomli-hero__trust-badges {
+    gap: 6px 12px;
+    font-size: 11px;
   }
 
   .bloomli-hero__media {

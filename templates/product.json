@@ -911,22 +911,23 @@
       "name": "Bloomli — Bundle Promo",
       "settings": {
         "color_scheme": "",
-        "eyebrow_text": "COMPLETE YOUR RITUAL",
+        "product_card_background": "#ffffff",
         "heading": "Pair & Save",
-        "subheading": "15% off your hair oil when bundled.",
         "body_text": "Most people choose one. The ones who see results fastest use both.",
+        "badge_text": "15% off oil",
+        "product_1_step": "Step 01",
         "product_1_title": "Hair Gummies",
         "product_1_description": "Daily beauty nutrients",
+        "product_2_step": "Step 02",
         "product_2_title": "Hair Oil",
         "product_2_description": "Scalp & strand nourishment",
         "add_both_label": "",
         "add_missing_label": "",
         "view_routine_label": "",
         "saving_callout_text": "You're saving $X.XX with Pair & Save",
-        "inline_saving_text": "Save 15% on hair oil when bundled",
         "one_time_label_text": "One Time Purchase",
         "subscription_note_text": "Matched to your subscription, cancel anytime.",
-        "padding_top": 96,
+        "padding_top": 72,
         "padding_bottom": 96
       }
     }

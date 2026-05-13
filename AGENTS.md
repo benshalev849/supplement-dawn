@@ -85,6 +85,32 @@ Calculate and display only that one meaning. Never mix them.
 
 ---
 
+## Liquid coding standards
+
+- Use `{% render %}` not `{% include %}` — isolated scope, no variable leakage, ~20% faster
+- Use `image_tag` + `image_url` filters for all images — handles responsive markup, lazy loading, and format selection (AVIF/WebP) automatically
+- Hero / LCP images: add `fetchpriority: 'high'`, never lazy-load
+- Below-fold images: add `loading: 'lazy'` and always include `width` and `height` to prevent layout shift
+- Move filters outside loops — filter cost multiplies inside iterations
+- Never hardcode block IDs — they are dynamically generated
+- Use `paginate` for collections or arrays over 50 items
+- Wrap block content in a parent element with `{{ block.shopify_attributes }}` for theme editor support
+- Use `enabled_on` / `disabled_on` in section schema to restrict sections to appropriate templates
+- Use `visible_if` in schema settings to show/hide settings conditionally
+- Use `color_scheme` input type (not `color`) in schema — inherits from global theme settings
+- Run Theme Check (`shopify theme check`) before deploying any Liquid changes
+
+---
+
+## CSS & JS standards
+
+- All CSS and JS must live in the `assets/` directory — never inline styles or scripts in section/snippet files beyond what Shopify's section rendering requires
+- Scope CSS to the section or snippet using a unique class prefix — do not write global selectors
+- Defer or lazy-load non-critical JS; minimize custom JS overall
+- Do not duplicate styles already provided by Dawn's base CSS
+
+---
+
 ## Color / theme standards
 
 - Use `color_scheme` setting and apply it as `class="color-{{ section.settings.color_scheme }} gradient"`

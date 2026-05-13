@@ -66,6 +66,7 @@
   overscroll-behavior-x: contain;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
@@ -208,7 +209,6 @@
 @media screen and (min-width: 750px) {
   .bloomli-trust__track {
     gap: 1.6rem;
-    overflow-x: auto;
   }
 
   .bloomli-trust__card {
@@ -223,11 +223,20 @@
   }
 
   .bloomli-trust__footer {
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
   }
 
   .bloomli-trust__controls {
     display: flex;
+    gap: 0.6rem;
+  }
+
+  .bloomli-trust__arrow {
+    width: 3.8rem;
+    height: 3.8rem;
+    box-shadow: 0 0.6rem 1.8rem rgba(var(--color-foreground), 0.05);
   }
 }
 

@@ -7882,9 +7882,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_clamp",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_clamp"
     },
     {
       "relation": "contains",
@@ -7892,9 +7892,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_prefersreducedmotion",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_prefersreducedmotion"
     },
     {
       "relation": "contains",
@@ -7902,9 +7902,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_getcards",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getcards"
     },
     {
       "relation": "contains",
@@ -7912,9 +7912,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_getmaxscroll",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getmaxscroll"
     },
     {
       "relation": "contains",
@@ -7932,9 +7932,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_getcardscrollleft",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getcardscrollleft"
     },
     {
       "relation": "contains",
@@ -7942,9 +7942,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_getactiveindex",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getactiveindex"
     },
     {
       "relation": "contains",
@@ -7952,9 +7952,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_setactivedot",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_setactivedot"
     },
     {
       "relation": "contains",
@@ -8003,9 +8003,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_trust_row_getcardscrollleft",
-      "target": "assets_bloomli_trust_row_clamp",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_clamp"
     },
     {
       "relation": "calls",
@@ -8014,9 +8014,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_trust_row_getcardscrollleft",
-      "target": "assets_bloomli_trust_row_getcards",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getcards"
     },
     {
       "relation": "calls",
@@ -8025,9 +8025,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_trust_row_getactiveindex",
-      "target": "assets_bloomli_trust_row_getcards",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getcards"
     },
     {
       "relation": "calls",
@@ -8036,9 +8036,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_trust_row_getcardscrollleft",
-      "target": "assets_bloomli_trust_row_getmaxscroll",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getmaxscroll"
     },
     {
       "relation": "calls",
@@ -8047,9 +8047,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_trust_row_getactiveindex",
-      "target": "assets_bloomli_trust_row_getmaxscroll",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getmaxscroll"
     },
     {
       "relation": "calls",
@@ -8058,9 +8058,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_trust_row_updatecontrols",
-      "target": "assets_bloomli_trust_row_getmaxscroll",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getmaxscroll"
     },
     {
       "relation": "calls",
@@ -8069,9 +8069,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_trust_row_updatecontrols",
-      "target": "assets_bloomli_trust_row_getactiveindex",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getactiveindex"
     },
     {
       "relation": "calls",
@@ -8080,9 +8080,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_trust_row_updatecontrols",
-      "target": "assets_bloomli_trust_row_setactivedot",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_setactivedot"
     },
     {
       "relation": "calls",

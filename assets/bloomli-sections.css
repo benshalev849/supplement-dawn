@@ -283,6 +283,120 @@
   }
 }
 
+/* Hero — background image variant */
+
+.bloomli-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bloomli-hero__bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: none;
+}
+
+.bloomli-hero__bg-img--desktop {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .bloomli-hero__bg--has-mobile .bloomli-hero__bg-img--desktop {
+    display: none;
+  }
+
+  .bloomli-hero__bg--has-mobile .bloomli-hero__bg-img--mobile {
+    display: block;
+  }
+}
+
+.bloomli-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to right, rgba(0, 0, 0, var(--hero-overlay-opacity, 0.45)) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .bloomli-hero__overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, var(--hero-overlay-opacity, 0.45)) 0%, transparent 70%);
+  }
+}
+
+.bloomli-hero--has-bg-image {
+  background: none;
+}
+
+.bloomli-hero--has-bg-image .bloomli-hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.bloomli-hero--has-bg-image .bloomli-hero__copy {
+  max-width: 520px;
+}
+
+.bloomli-hero--has-bg-image .bloomli-hero__headline,
+.bloomli-hero--has-bg-image .bloomli-hero__subtext,
+.bloomli-hero--has-bg-image .bloomli-hero__review-text,
+.bloomli-hero--has-bg-image .bloomli-hero__stars,
+.bloomli-hero--has-bg-image .bloomli-hero__trust-badges,
+.bloomli-hero--has-bg-image .bloomli-hero__trust-badge,
+.bloomli-hero--has-bg-image .bloomli-hero__trust-badge i {
+  color: var(--hero-text-color, #ffffff);
+}
+
+@media (max-width: 749px) {
+  .bloomli-hero--has-bg-image {
+    min-height: var(--hero-min-height);
+  }
+
+  .bloomli-hero--has-bg-image .bloomli-hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: var(--hero-min-height);
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .bloomli-hero--has-bg-image .bloomli-hero__inner--mobile-top {
+    justify-content: flex-start;
+  }
+
+  .bloomli-hero--has-bg-image .bloomli-hero__inner--mobile-center {
+    justify-content: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .bloomli-hero--has-bg-image .bloomli-hero__inner--mobile-bottom {
+    justify-content: flex-end;
+  }
+
+  .bloomli-hero--has-bg-image .bloomli-hero__copy {
+    max-width: 100%;
+  }
+
+  .bloomli-hero--has-bg-image .bloomli-hero__ctas,
+  .bloomli-hero--has-bg-image .bloomli-hero__reviews,
+  .bloomli-hero--has-bg-image .bloomli-hero__trust-badges {
+    justify-content: center;
+  }
+
+  .bloomli-hero--has-bg-image .bloomli-hero__media {
+    display: none;
+  }
+}
+
 /* Simple CTA sections */
 .bloomli-quiz {
   padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);

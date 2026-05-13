@@ -1,5 +1,8 @@
+{%- assign has_bg_image = false -%}
+{%- if section.settings.desktop_image != blank -%}{%- assign has_bg_image = true -%}{%- endif -%}
+
 <section
-  class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}"
+  class="bloomli-hero bloomli-section{% unless has_bg_image %} color-{{ section.settings.color_scheme }} gradient{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}{% endunless %}{% if has_bg_image %} bloomli-hero--has-bg-image{% endif %}"
   style="
     --hero-min-height: {{ section.settings.min_height }}px;
     --hero-bottle-width-desktop: {{ section.settings.bottle_width_desktop }}px;
@@ -13,9 +16,43 @@
     --hero-editorial-height-mobile: {{ section.settings.editorial_height_mobile }}px;
     --hero-editorial-radius-mobile: {{ section.settings.editorial_height_mobile | divided_by: 2 }}px;
     --hero-media-height-mobile: {{ section.settings.media_height_mobile }}px;
+    --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --hero-text-color: {{ section.settings.text_color }};
   "
 >
-  <div class="bloomli-hero__inner">
+  {%- if has_bg_image -%}
+    <div class="bloomli-hero__bg{% if section.settings.mobile_image != blank %} bloomli-hero__bg--has-mobile{% endif %}" aria-hidden="true">
+      {{
+        section.settings.desktop_image
+        | image_url: width: 1920
+        | image_tag:
+          class: 'bloomli-hero__bg-img bloomli-hero__bg-img--desktop',
+          alt: '',
+          widths: '960, 1440, 1920',
+          sizes: '100vw',
+          loading: 'eager',
+          fetchpriority: 'high',
+          decoding: 'async'
+      }}
+      {%- if section.settings.mobile_image != blank -%}
+        {{
+          section.settings.mobile_image
+          | image_url: width: 900
+          | image_tag:
+            class: 'bloomli-hero__bg-img bloomli-hero__bg-img--mobile',
+            alt: '',
+            widths: '400, 600, 900',
+            sizes: '100vw',
+            loading: 'eager',
+            fetchpriority: 'high',
+            decoding: 'async'
+        }}
+      {%- endif -%}
+      <div class="bloomli-hero__overlay"></div>
+    </div>
+  {%- endif -%}
+
+  <div class="bloomli-hero__inner bloomli-hero__inner--mobile-{{ section.settings.content_position_mobile }}">
 
     <div class="bloomli-hero__copy">
       {%- if section.settings.show_reviews -%}
@@ -142,6 +179,22 @@
     { "type": "text", "id": "trust_badge_1", "label": "Badge 1 text", "default": "Third-Party Tested" },
     { "type": "text", "id": "trust_badge_2", "label": "Badge 2 text", "default": "NSF-Certified Facility" },
     { "type": "text", "id": "trust_badge_3", "label": "Badge 3 text", "default": "Made in the USA" },
+    { "type": "header", "content": "Background image" },
+    { "type": "image_picker", "id": "desktop_image", "label": "Desktop background (16:9 landscape)" },
+    { "type": "image_picker", "id": "mobile_image", "label": "Mobile background (3:4 portrait, optional)" },
+    { "type": "range", "id": "overlay_opacity", "label": "Overlay opacity", "min": 0, "max": 80, "step": 5, "default": 45 },
+    { "type": "color", "id": "text_color", "label": "Text color (over image)", "default": "#ffffff" },
+    {
+      "type": "select",
+      "id": "content_position_mobile",
+      "label": "Content position — mobile",
+      "default": "top",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" }
+      ]
+    },
     { "type": "header", "content": "Images" },
     { "type": "image_picker", "id": "editorial_image", "label": "Editorial image (tall pill crop)" },
     { "type": "text", "id": "editorial_placeholder_label", "label": "Editorial placeholder label", "default": "Editorial photo" },

@@ -1,5 +1,6 @@
 (() => {
   const selector = '[data-bloomli-trust-gallery]';
+  const snapTolerance = 2;
 
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
@@ -7,20 +8,12 @@
 
   const getCards = (viewport) => Array.from(viewport.querySelectorAll('.bloomli-trust__card'));
 
+  const getTrack = (viewport) => viewport.querySelector('[data-bloomli-trust-track]');
+
   const getMaxScroll = (viewport) => Math.max(0, viewport.scrollWidth - viewport.clientWidth);
 
-  const getStep = (viewport) => {
-    const firstCard = viewport.querySelector('.bloomli-trust__card');
-    if (!firstCard) return viewport.clientWidth;
-
-    const styles = window.getComputedStyle(viewport.querySelector('[data-bloomli-trust-track]'));
-    const gap = parseFloat(styles.columnGap || styles.gap || 0);
-
-    return firstCard.getBoundingClientRect().width + (Number.isNaN(gap) ? 0 : gap);
-  };
-
   const getCardScrollLeft = (viewport, index) => {
-    const track = viewport.querySelector('[data-bloomli-trust-track]');
+    const track = getTrack(viewport);
     const cards = getCards(viewport);
     const card = cards[index];
     if (!track || !card) return 0;
@@ -28,14 +21,33 @@
     return clamp(card.offsetLeft - track.offsetLeft, 0, getMaxScroll(viewport));
   };
 
-  const getActiveIndex = (viewport) => {
+  const getSnapPoints = (viewport) => {
     const cards = getCards(viewport);
     const maxScroll = getMaxScroll(viewport);
-    if (!cards.length || maxScroll <= 1) return 0;
+    if (!cards.length || maxScroll <= 1) return [0];
 
-    return cards.reduce(
-      (closest, card, index) => {
-        const distance = Math.abs(viewport.scrollLeft - getCardScrollLeft(viewport, index));
+    const points = cards.map((card, index) => getCardScrollLeft(viewport, index));
+    points.push(maxScroll);
+
+    return points
+      .sort((a, b) => a - b)
+      .reduce((uniquePoints, point) => {
+        const lastPoint = uniquePoints[uniquePoints.length - 1];
+
+        if (lastPoint === undefined || Math.abs(point - lastPoint) > snapTolerance) {
+          uniquePoints.push(point);
+        }
+
+        return uniquePoints;
+      }, []);
+  };
+
+  const getActiveSnapIndex = (viewport, snapPoints = getSnapPoints(viewport)) => {
+    if (!snapPoints.length) return 0;
+
+    return snapPoints.reduce(
+      (closest, point, index) => {
+        const distance = Math.abs(viewport.scrollLeft - point);
 
         if (distance <= closest.distance + 0.5) {
           return { index, distance };
@@ -47,11 +59,42 @@
     ).index;
   };
 
-  const setActiveDot = (dots, activeIndex) => {
-    dots.forEach((dot, index) => {
-      const isActive = index === activeIndex;
+  const getAdjacentSnapIndex = (viewport, direction, snapPoints) => {
+    const currentLeft = viewport.scrollLeft;
 
+    if (direction > 0) {
+      const nextIndex = snapPoints.findIndex((point) => point > currentLeft + snapTolerance);
+      return nextIndex === -1 ? snapPoints.length - 1 : nextIndex;
+    }
+
+    for (let index = snapPoints.length - 1; index >= 0; index -= 1) {
+      if (snapPoints[index] < currentLeft - snapTolerance) return index;
+    }
+
+    return 0;
+  };
+
+  const scrollToSnap = (viewport, snapPoints, index) => {
+    const targetIndex = clamp(index, 0, snapPoints.length - 1);
+
+    viewport.scrollTo({
+      left: snapPoints[targetIndex],
+      behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+    });
+  };
+
+  const syncDots = (dots, snapPoints, activeIndex) => {
+    dots.forEach((dot, index) => {
+      const isVisible = index < snapPoints.length;
+      const isActive = isVisible && index === activeIndex;
+
+      dot.hidden = !isVisible;
       dot.classList.toggle('slider-counter__link--active', isActive);
+      dot.dataset.bloomliTrustSnapIndex = String(index);
+
+      if (isVisible) {
+        dot.setAttribute('aria-label', `Go to proof slide ${index + 1} of ${snapPoints.length}`);
+      }
 
       if (isActive) {
         dot.setAttribute('aria-current', 'true');
@@ -68,12 +111,12 @@
     const dots = Array.from(section.querySelectorAll('[data-bloomli-trust-dot]'));
     if (!viewport) return;
 
-    const maxScroll = Math.max(0, getMaxScroll(viewport) - 1);
-    const activeIndex = getActiveIndex(viewport);
+    const snapPoints = getSnapPoints(viewport);
+    const activeIndex = getActiveSnapIndex(viewport, snapPoints);
 
-    if (prev) prev.disabled = viewport.scrollLeft <= 1;
-    if (next) next.disabled = viewport.scrollLeft >= maxScroll;
-    setActiveDot(dots, activeIndex);
+    if (prev) prev.disabled = activeIndex <= 0;
+    if (next) next.disabled = activeIndex >= snapPoints.length - 1;
+    syncDots(dots, snapPoints, activeIndex);
   };
 
   const initSection = (section) => {
@@ -87,27 +130,26 @@
 
     if (prev) {
       prev.addEventListener('click', () => {
-        viewport.scrollBy({ left: -getStep(viewport), behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+        const snapPoints = getSnapPoints(viewport);
+        scrollToSnap(viewport, snapPoints, getAdjacentSnapIndex(viewport, -1, snapPoints));
       });
     }
 
     if (next) {
       next.addEventListener('click', () => {
-        viewport.scrollBy({ left: getStep(viewport), behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+        const snapPoints = getSnapPoints(viewport);
+        scrollToSnap(viewport, snapPoints, getAdjacentSnapIndex(viewport, 1, snapPoints));
       });
     }
 
     dots.forEach((dot) => {
       dot.addEventListener('click', () => {
-        const index = Number(dot.dataset.bloomliTrustIndex);
+        const snapPoints = getSnapPoints(viewport);
+        const index = Number(dot.dataset.bloomliTrustSnapIndex);
         if (Number.isNaN(index)) return;
 
-        viewport.scrollTo({
-          left: getCardScrollLeft(viewport, index),
-          behavior: prefersReducedMotion() ? 'auto' : 'smooth',
-        });
-
-        setActiveDot(dots, index);
+        scrollToSnap(viewport, snapPoints, index);
+        syncDots(dots, snapPoints, index);
       });
     });
 

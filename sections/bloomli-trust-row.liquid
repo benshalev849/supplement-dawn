@@ -38,6 +38,30 @@
         </div>
       </div>
 
+      {%- if use_carousel -%}
+        <div class="bloomli-trust__controls" aria-label="Proof carousel controls">
+          <button
+            class="bloomli-trust__arrow bloomli-trust__arrow--prev"
+            type="button"
+            aria-label="Previous proof card"
+            aria-controls="{{ track_id }}"
+            data-bloomli-trust-prev
+          >
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.5 4.5-5 5.5 5 5.5"/></svg>
+          </button>
+
+          <button
+            class="bloomli-trust__arrow bloomli-trust__arrow--next"
+            type="button"
+            aria-label="Next proof card"
+            aria-controls="{{ track_id }}"
+            data-bloomli-trust-next
+          >
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.5 5 5.5-5 5.5"/></svg>
+          </button>
+        </div>
+      {%- endif -%}
+
       {%- if section.blocks.size > 1 -%}
         <div class="bloomli-trust__footer slider-buttons">
           <div class="bloomli-trust__counter slider-counter slider-counter--dots" aria-label="Proof card pagination">
@@ -51,36 +75,11 @@
                   aria-current="true"
                 {% endif %}
                 data-bloomli-trust-dot
-                data-bloomli-trust-index="{{ forloop.index0 }}"
               >
                 <span class="dot"></span>
               </button>
             {%- endfor -%}
           </div>
-
-          {%- if use_carousel -%}
-            <div class="bloomli-trust__controls" aria-label="Proof carousel controls">
-              <button
-                class="bloomli-trust__arrow"
-                type="button"
-                aria-label="Previous proof card"
-                aria-controls="{{ track_id }}"
-                data-bloomli-trust-prev
-              >
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.5 4.5-5 5.5 5 5.5"/></svg>
-              </button>
-
-              <button
-                class="bloomli-trust__arrow"
-                type="button"
-                aria-label="Next proof card"
-                aria-controls="{{ track_id }}"
-                data-bloomli-trust-next
-              >
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.5 5 5.5-5 5.5"/></svg>
-              </button>
-            </div>
-          {%- endif -%}
         </div>
       {%- endif -%}
     </div>

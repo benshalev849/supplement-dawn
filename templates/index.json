@@ -442,11 +442,12 @@
     },
     "bloomli_quiz_cta_z9xXxd": {
       "type": "bloomli-quiz-cta",
+      "disabled": true,
       "name": "Bloomli — Quiz CTA",
       "settings": {
         "color_scheme": "",
         "heading": "Not sure where to start?",
-        "subtext": "Take our 2-minute quiz and get a personalized hair wellness routine.",
+        "subtext": "Take our 2-minute quiz and we'll build your personalized hair routine.",
         "cta_label": "Take the Quiz",
         "cta_url": "",
         "padding_top": 128,

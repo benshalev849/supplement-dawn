@@ -80,7 +80,7 @@
 .bloomli-product-finder__media {
   position: relative;
   display: grid;
-  height: 16rem;
+  aspect-ratio: 1 / 1;
   min-height: 0;
   place-items: center;
   overflow: hidden;
@@ -94,12 +94,17 @@
   height: 100%;
 }
 
+.bloomli-product-finder__image {
+  object-fit: cover;
+  object-position: center;
+}
+
 .bloomli-product-finder--image-cover .bloomli-product-finder__image,
 .bloomli-product-finder--image-cover .bloomli-product-finder__addon-image {
   object-fit: cover;
+  object-position: center;
 }
 
-.bloomli-product-finder--image-contain .bloomli-product-finder__image,
 .bloomli-product-finder--image-contain .bloomli-product-finder__addon-image {
   object-fit: contain;
   padding: 1.6rem;
@@ -286,7 +291,7 @@
   }
 
   .bloomli-product-finder__media {
-    height: clamp(22rem, 18vw, 28rem);
+    aspect-ratio: 1 / 1;
     min-height: 0;
   }
 
@@ -370,7 +375,7 @@
   }
 
   .bloomli-product-finder__media {
-    height: clamp(22rem, 18vw, 28rem);
+    aspect-ratio: 1 / 1;
     min-height: 0;
   }
 
@@ -394,7 +399,7 @@
   }
 
   .bloomli-product-finder__media {
-    height: 15rem;
+    aspect-ratio: 1 / 1;
     min-height: 0;
   }
 

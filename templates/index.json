@@ -56,14 +56,14 @@
           "type": "trust_item",
           "settings": {
             "icon": "shield",
-            "label": "Dermatologist-approved"
+            "label": "Third-Party Tested"
           }
         },
         "trust_item_CtHkqq": {
           "type": "trust_item",
           "settings": {
             "icon": "leaf",
-            "label": "Cruelty-free & vegan"
+            "label": "NSF-Certified Facility"
           }
         },
         "trust_item_KgjBGQ": {

@@ -137,4 +137,6 @@ This project has a knowledge graph at `graphify-out/`. Always use it — it prov
 - NEVER parse `graph.json` directly with Python, networkx, or any script — use `graphify query`/`explain`/`path` CLI commands only
 - NEVER read a file to understand architecture — always query the graph first
 - If `graphify-out/wiki/index.md` exists, navigate it instead of reading raw files
-- After modifying code files in this session, run `graphify update .` (AST-only, no API cost)
+- After adding or modifying code files **mid-session** (before committing), run `graphify update .` to keep the graph current (AST-only, no API cost)
+- After committing, the installed `post-commit` hook rebuilds the graph automatically in the background — no manual step needed
+- On a fresh clone, run `graphify hook install` once to re-install the hook

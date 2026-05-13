@@ -16,9 +16,9 @@
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_brand_gradient": true,
-        "headline_line1": "Quiet science,",
-        "headline_line2": "visible results.",
-        "subtext": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life.",
+        "headline_line1": "Quiet science, visible results.",
+        "headline_line2": "",
+        "subtext": "Clinically-formulated hair wellness, inside and out. The supplements your hair actually needs, backed by science and built for real results.",
         "min_height": 720,
         "button_color_scheme": "",
         "cta_primary_label": "Shop Hair",
@@ -56,14 +56,14 @@
           "type": "trust_item",
           "settings": {
             "icon": "shield",
-            "label": "Dermatologist-approved"
+            "label": "Third-Party Tested"
           }
         },
         "trust_item_CtHkqq": {
           "type": "trust_item",
           "settings": {
             "icon": "leaf",
-            "label": "Cruelty-free & vegan"
+            "label": "Gluten-Free"
           }
         },
         "trust_item_KgjBGQ": {
@@ -145,10 +145,12 @@
       "name": "Bloomli - Product Picks",
       "settings": {
         "color_scheme": "",
+        "stars_color_source": "scheme_button",
+        "stars_custom_color": "#b23a6f",
         "use_custom_background": false,
         "background_color": "#f5ede4",
-        "heading": "You may also like",
-        "subtext": "<p>Complete your routine with a few Bloomli favorites.</p>",
+        "heading": "Everything Your Hair Needs",
+        "subtext": "<p>From daily nutrients to scalp nourishment, everything your hair needs, in one place.</p>",
         "columns_desktop": 3,
         "columns_mobile": "1",
         "image_box_height": 240,

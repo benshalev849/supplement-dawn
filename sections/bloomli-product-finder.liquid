@@ -1,13 +1,24 @@
 {{ 'bloomli-product-finder.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign cards = 'capsules,gummies,oil' | split: ','
+  assign capsules_product = section.settings.card_1_product
+  assign gummies_product = section.settings.card_2_product
+  assign oil_product = section.settings.card_3_product
+
+  assign capsules_title = section.settings.capsules_title | default: capsules_product.title | default: 'Daily Hair Support Capsules'
+  assign gummies_title = section.settings.gummies_title | default: gummies_product.title | default: 'Ultra Strength Hair Gummies'
+  assign oil_title = section.settings.oil_title | default: oil_product.title | default: 'Add Hair Oil for outside-in care.'
+
+  assign capsules_image = section.settings.capsules_image_override | default: capsules_product.featured_image
+  assign gummies_image = section.settings.gummies_image_override | default: gummies_product.featured_image
+  assign oil_image = section.settings.oil_image_override | default: oil_product.featured_image
+
+  assign capsules_url = section.settings.capsules_button_link | default: capsules_product.url
+  assign gummies_url = section.settings.gummies_button_link | default: gummies_product.url
+  assign oil_url = section.settings.oil_button_link | default: oil_product.url
 -%}
 
-<section
-  class="bloomli-product-finder color-{{ section.settings.color_scheme }} gradient"
-  style="--bpf-oil-card-background: {% if section.settings.oil_card_background != blank %}{{ section.settings.oil_card_background }}{% else %}rgb(var(--color-background)){% endif %};"
->
+<section class="bloomli-product-finder color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width">
     <div class="bloomli-product-finder__header">
       {%- if section.settings.heading != blank -%}
@@ -21,118 +32,234 @@
       {%- endif -%}
     </div>
 
-    <div class="bloomli-product-finder__grid">
-      {%- for card in cards -%}
-        {%- liquid
-          assign card_modifier = card
-          assign product_key = 'card_' | append: forloop.index | append: '_product'
-          assign subhead_key = card | append: '_subhead'
-          assign best_for_key = card | append: '_best_for'
-          assign check_1_key = card | append: '_check_1'
-          assign check_2_key = card | append: '_check_2'
-          assign check_3_key = card | append: '_check_3'
-          assign button_label_key = card | append: '_button_label'
-          assign badge_key = card | append: '_badge'
-
-          assign card_product = section.settings[product_key]
-          assign card_heading = card_product.title
-          assign card_subhead = section.settings[subhead_key]
-          assign best_for = section.settings[best_for_key]
-          assign check_1 = section.settings[check_1_key]
-          assign check_2 = section.settings[check_2_key]
-          assign check_3 = section.settings[check_3_key]
-          assign button_label = section.settings[button_label_key]
-          assign button_url = card_product.url
-          assign badge_text = section.settings[badge_key]
-        -%}
-
-        <article class="bloomli-product-finder__card bloomli-product-finder__card--{{ card_modifier }}{% if card == 'gummies' %} bloomli-product-finder__card--featured{% endif %}">
-          {%- if card == 'gummies' and section.settings.most_popular_badge != blank -%}
-            <span class="bloomli-product-finder__floating-badge">
-              {{ section.settings.most_popular_badge | escape }}
+    <div class="bloomli-product-finder__main-grid">
+      <article class="bloomli-product-finder__card bloomli-product-finder__card--capsules">
+        <div class="bloomli-product-finder__media">
+          {%- if capsules_image != blank -%}
+            {{
+              capsules_image
+              | image_url: width: 900
+              | image_tag:
+                loading: 'lazy',
+                widths: '240, 360, 480, 720, 900',
+                sizes: '(min-width: 990px) 420px, 100vw',
+                class: 'bloomli-product-finder__image',
+                alt: capsules_title
+            }}
+          {%- else -%}
+            <span class="bloomli-product-finder__media-icon" aria-hidden="true">
+              <i class="ti ti-pill"></i>
             </span>
           {%- endif -%}
+        </div>
 
-          <div class="bloomli-product-finder__icon-row">
-            <span class="bloomli-product-finder__icon" aria-hidden="true">
-              {%- if card == 'capsules' -%}
-                <i class="ti ti-pill"></i>
-              {%- elsif card == 'gummies' -%}
-                <i class="ti ti-candy"></i>
-              {%- else -%}
-                <i class="ti ti-droplet"></i>
-              {%- endif -%}
-            </span>
+        <div class="bloomli-product-finder__content">
+          <div class="bloomli-product-finder__meta-row">
+            {%- if section.settings.capsules_badge != blank -%}
+              <span class="bloomli-product-finder__pill">{{ section.settings.capsules_badge | escape }}</span>
+            {%- endif -%}
 
-            {%- if card != 'oil' and badge_text != blank -%}
-              <span class="bloomli-product-finder__pill">
-                {{ badge_text | escape }}
-              </span>
+            {%- if section.settings.capsules_price_text != blank -%}
+              <span class="bloomli-product-finder__price">{{ section.settings.capsules_price_text | escape }}</span>
             {%- endif -%}
           </div>
 
-          {%- if best_for != blank -%}
-            <p class="bloomli-product-finder__best-for">
-              {{ best_for | escape }}
-            </p>
+          {%- if section.settings.capsules_best_for != blank -%}
+            <p class="bloomli-product-finder__best-for">{{ section.settings.capsules_best_for | escape }}</p>
           {%- endif -%}
 
-          {%- if card_heading != blank -%}
-            <h3 class="bloomli-product-finder__title h3">
-              {{ card_heading | escape }}
-            </h3>
+          <h3 class="bloomli-product-finder__title h3">{{ capsules_title | escape }}</h3>
+
+          {%- if section.settings.capsules_subhead != blank -%}
+            <p class="bloomli-product-finder__body">{{ section.settings.capsules_subhead | escape }}</p>
           {%- endif -%}
 
-          {%- if card_subhead != blank -%}
-            <p class="bloomli-product-finder__body">
-              {{ card_subhead | escape }}
-            </p>
-          {%- endif -%}
-
-          <div class="bloomli-proof-split__bullets bloomli-product-finder__checks" style="--bps-icon-color: rgb(var(--color-button));" role="list">
-            {%- if check_1 != blank -%}
-              <div class="bloomli-proof-split__bullet" role="listitem">
-                <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
+          <div class="bloomli-product-finder__checks" role="list">
+            {%- if section.settings.capsules_check_1 != blank -%}
+              <div class="bloomli-product-finder__check" role="listitem">
+                <span class="bloomli-product-finder__check-icon" aria-hidden="true">
                   <svg viewBox="0 0 20 20" focusable="false">
                     <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </span>
-                <div class="bloomli-proof-split__bullet-text">{{ check_1 | escape }}</div>
+                <span>{{ section.settings.capsules_check_1 | escape }}</span>
               </div>
             {%- endif -%}
-            {%- if check_2 != blank -%}
-              <div class="bloomli-proof-split__bullet" role="listitem">
-                <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
+            {%- if section.settings.capsules_check_2 != blank -%}
+              <div class="bloomli-product-finder__check" role="listitem">
+                <span class="bloomli-product-finder__check-icon" aria-hidden="true">
                   <svg viewBox="0 0 20 20" focusable="false">
                     <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </span>
-                <div class="bloomli-proof-split__bullet-text">{{ check_2 | escape }}</div>
+                <span>{{ section.settings.capsules_check_2 | escape }}</span>
               </div>
             {%- endif -%}
-            {%- if check_3 != blank -%}
-              <div class="bloomli-proof-split__bullet" role="listitem">
-                <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
+            {%- if section.settings.capsules_check_3 != blank -%}
+              <div class="bloomli-product-finder__check" role="listitem">
+                <span class="bloomli-product-finder__check-icon" aria-hidden="true">
                   <svg viewBox="0 0 20 20" focusable="false">
                     <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </span>
-                <div class="bloomli-proof-split__bullet-text">{{ check_3 | escape }}</div>
+                <span>{{ section.settings.capsules_check_3 | escape }}</span>
               </div>
             {%- endif -%}
           </div>
 
-          {%- if button_label != blank -%}
-            <a
-              class="button button--primary bloomli-product-finder__button"
-              href="{{ button_url | default: '#' }}"
-            >
-              {{ button_label | escape }}
+          {%- if section.settings.capsules_button_label != blank -%}
+            <a class="button button--primary bloomli-product-finder__button" href="{{ capsules_url | default: '#' }}">
+              {{ section.settings.capsules_button_label | escape }}
             </a>
           {%- endif -%}
-        </article>
-      {%- endfor -%}
+        </div>
+      </article>
+
+      <article class="bloomli-product-finder__card bloomli-product-finder__card--gummies bloomli-product-finder__card--featured">
+        {%- if section.settings.most_popular_badge != blank -%}
+          <span class="bloomli-product-finder__floating-badge">
+            {{ section.settings.most_popular_badge | escape }}
+          </span>
+        {%- endif -%}
+
+        <div class="bloomli-product-finder__media">
+          {%- if gummies_image != blank -%}
+            {{
+              gummies_image
+              | image_url: width: 900
+              | image_tag:
+                loading: 'lazy',
+                widths: '240, 360, 480, 720, 900',
+                sizes: '(min-width: 990px) 420px, 100vw',
+                class: 'bloomli-product-finder__image',
+                alt: gummies_title
+            }}
+          {%- else -%}
+            <span class="bloomli-product-finder__media-icon" aria-hidden="true">
+              <i class="ti ti-candy"></i>
+            </span>
+          {%- endif -%}
+        </div>
+
+        <div class="bloomli-product-finder__content">
+          <div class="bloomli-product-finder__meta-row">
+            {%- if section.settings.gummies_badge != blank -%}
+              <span class="bloomli-product-finder__pill">{{ section.settings.gummies_badge | escape }}</span>
+            {%- endif -%}
+
+            {%- if section.settings.gummies_price_text != blank -%}
+              <span class="bloomli-product-finder__price">{{ section.settings.gummies_price_text | escape }}</span>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.gummies_best_for != blank -%}
+            <p class="bloomli-product-finder__best-for">{{ section.settings.gummies_best_for | escape }}</p>
+          {%- endif -%}
+
+          <h3 class="bloomli-product-finder__title h3">{{ gummies_title | escape }}</h3>
+
+          {%- if section.settings.gummies_subhead != blank -%}
+            <p class="bloomli-product-finder__body">{{ section.settings.gummies_subhead | escape }}</p>
+          {%- endif -%}
+
+          <div class="bloomli-product-finder__checks" role="list">
+            {%- if section.settings.gummies_check_1 != blank -%}
+              <div class="bloomli-product-finder__check" role="listitem">
+                <span class="bloomli-product-finder__check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" focusable="false">
+                    <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>{{ section.settings.gummies_check_1 | escape }}</span>
+              </div>
+            {%- endif -%}
+            {%- if section.settings.gummies_check_2 != blank -%}
+              <div class="bloomli-product-finder__check" role="listitem">
+                <span class="bloomli-product-finder__check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" focusable="false">
+                    <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>{{ section.settings.gummies_check_2 | escape }}</span>
+              </div>
+            {%- endif -%}
+            {%- if section.settings.gummies_check_3 != blank -%}
+              <div class="bloomli-product-finder__check" role="listitem">
+                <span class="bloomli-product-finder__check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" focusable="false">
+                    <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>{{ section.settings.gummies_check_3 | escape }}</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.gummies_button_label != blank -%}
+            <a class="button button--primary bloomli-product-finder__button" href="{{ gummies_url | default: '#' }}">
+              {{ section.settings.gummies_button_label | escape }}
+            </a>
+          {%- endif -%}
+        </div>
+      </article>
     </div>
+
+    <aside class="bloomli-product-finder__addon" aria-label="{{ oil_title | escape }}">
+      <div class="bloomli-product-finder__addon-media">
+        {%- if oil_image != blank -%}
+          {{
+            oil_image
+            | image_url: width: 520
+            | image_tag:
+              loading: 'lazy',
+              widths: '160, 240, 360, 520',
+              sizes: '(min-width: 990px) 180px, 34vw',
+              class: 'bloomli-product-finder__addon-image',
+              alt: oil_title
+          }}
+        {%- else -%}
+          <span class="bloomli-product-finder__media-icon" aria-hidden="true">
+            <i class="ti ti-droplet"></i>
+          </span>
+        {%- endif -%}
+      </div>
+
+      <div class="bloomli-product-finder__addon-content">
+        <div class="bloomli-product-finder__meta-row bloomli-product-finder__meta-row--addon">
+          {%- if section.settings.oil_badge != blank -%}
+            <span class="bloomli-product-finder__pill">{{ section.settings.oil_badge | escape }}</span>
+          {%- endif -%}
+
+          {%- if section.settings.oil_price_text != blank -%}
+            <span class="bloomli-product-finder__price">{{ section.settings.oil_price_text | escape }}</span>
+          {%- endif -%}
+        </div>
+
+        <h3 class="bloomli-product-finder__addon-title h3">{{ oil_title | escape }}</h3>
+
+        {%- if section.settings.oil_subhead != blank -%}
+          <p class="bloomli-product-finder__addon-body">{{ section.settings.oil_subhead | escape }}</p>
+        {%- endif -%}
+
+        <div class="bloomli-product-finder__addon-checks" role="list">
+          {%- if section.settings.oil_check_1 != blank -%}
+            <span role="listitem">{{ section.settings.oil_check_1 | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.oil_check_2 != blank -%}
+            <span role="listitem">{{ section.settings.oil_check_2 | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.oil_check_3 != blank -%}
+            <span role="listitem">{{ section.settings.oil_check_3 | escape }}</span>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if section.settings.oil_button_label != blank -%}
+        <a class="button button--secondary bloomli-product-finder__addon-button" href="{{ oil_url | default: '#' }}">
+          {{ section.settings.oil_button_label | escape }}
+        </a>
+      {%- endif -%}
+    </aside>
   </div>
 </section>
 
@@ -147,11 +274,6 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-1"
-    },
-    {
-      "type": "color",
-      "id": "oil_card_background",
-      "label": "Hair oil card background"
     },
     {
       "type": "text",
@@ -178,19 +300,35 @@
     {
       "type": "product",
       "id": "card_1_product",
-      "label": "Card 1 product"
+      "label": "Capsules product"
+    },
+    {
+      "type": "image_picker",
+      "id": "capsules_image_override",
+      "label": "Capsules image override"
     },
     {
       "type": "text",
-      "id": "capsules_subhead",
-      "label": "Subhead",
-      "default": "Daily hair support in an easy capsule."
+      "id": "capsules_badge",
+      "label": "Badge text",
+      "default": "Simple routine"
     },
     {
       "type": "text",
       "id": "capsules_best_for",
       "label": "Best for label",
       "default": "Best for simple routines"
+    },
+    {
+      "type": "text",
+      "id": "capsules_title",
+      "label": "Title override"
+    },
+    {
+      "type": "text",
+      "id": "capsules_subhead",
+      "label": "Description",
+      "default": "Daily hair support in an easy capsule."
     },
     {
       "type": "text",
@@ -212,14 +350,19 @@
     },
     {
       "type": "text",
+      "id": "capsules_price_text",
+      "label": "Optional price or display text"
+    },
+    {
+      "type": "text",
       "id": "capsules_button_label",
       "label": "Button label",
       "default": "Shop Capsules"
     },
     {
-      "type": "text",
-      "id": "capsules_badge",
-      "label": "Badge text"
+      "type": "url",
+      "id": "capsules_button_link",
+      "label": "Button link override"
     },
     {
       "type": "header",
@@ -228,19 +371,35 @@
     {
       "type": "product",
       "id": "card_2_product",
-      "label": "Card 2 product"
+      "label": "Gummies product"
+    },
+    {
+      "type": "image_picker",
+      "id": "gummies_image_override",
+      "label": "Gummies image override"
     },
     {
       "type": "text",
-      "id": "gummies_subhead",
-      "label": "Subhead",
-      "default": "Daily beauty nutrients in a flavorful gummy."
+      "id": "gummies_badge",
+      "label": "Badge text",
+      "default": "Most popular"
     },
     {
       "type": "text",
       "id": "gummies_best_for",
       "label": "Best for label",
       "default": "Best for daily beauty support"
+    },
+    {
+      "type": "text",
+      "id": "gummies_title",
+      "label": "Title override"
+    },
+    {
+      "type": "text",
+      "id": "gummies_subhead",
+      "label": "Description",
+      "default": "Daily beauty nutrients in a flavorful gummy."
     },
     {
       "type": "text",
@@ -262,14 +421,19 @@
     },
     {
       "type": "text",
+      "id": "gummies_price_text",
+      "label": "Optional price or display text"
+    },
+    {
+      "type": "text",
       "id": "gummies_button_label",
       "label": "Button label",
       "default": "Shop Gummies"
     },
     {
-      "type": "text",
-      "id": "gummies_badge",
-      "label": "Badge text"
+      "type": "url",
+      "id": "gummies_button_link",
+      "label": "Button link override"
     },
     {
       "type": "header",
@@ -278,37 +442,52 @@
     {
       "type": "product",
       "id": "card_3_product",
-      "label": "Card 3 product"
+      "label": "Hair oil product"
+    },
+    {
+      "type": "image_picker",
+      "id": "oil_image_override",
+      "label": "Hair oil image override"
+    },
+    {
+      "type": "text",
+      "id": "oil_badge",
+      "label": "Badge text",
+      "default": "Complete the ritual"
+    },
+    {
+      "type": "text",
+      "id": "oil_title",
+      "label": "Title override"
     },
     {
       "type": "text",
       "id": "oil_subhead",
-      "label": "Subhead",
-      "default": "Scalp and strand nourishment for your outside-in ritual."
-    },
-    {
-      "type": "text",
-      "id": "oil_best_for",
-      "label": "Best for label",
-      "default": "Best as an add-on"
+      "label": "Description",
+      "default": "Scalp and strand nourishment for your outside-in ritual. Save 15% when paired with a supplement."
     },
     {
       "type": "text",
       "id": "oil_check_1",
-      "label": "Checkmark line 1",
+      "label": "Mini highlight 1",
       "default": "Botanical scalp care"
     },
     {
       "type": "text",
       "id": "oil_check_2",
-      "label": "Checkmark line 2",
+      "label": "Mini highlight 2",
       "default": "Nourishes strands and ends"
     },
     {
       "type": "text",
       "id": "oil_check_3",
-      "label": "Checkmark line 3",
-      "default": "Save 15% when bundled"
+      "label": "Mini highlight 3",
+      "default": "Save 15% when paired"
+    },
+    {
+      "type": "text",
+      "id": "oil_price_text",
+      "label": "Optional price or display text"
     },
     {
       "type": "text",
@@ -317,9 +496,9 @@
       "default": "Shop Hair Oil"
     },
     {
-      "type": "text",
-      "id": "oil_badge",
-      "label": "Badge text"
+      "type": "url",
+      "id": "oil_button_link",
+      "label": "Button link override"
     }
   ],
   "presets": [

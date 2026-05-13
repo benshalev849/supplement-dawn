@@ -1,0 +1,367 @@
+{{ 'bloomli-beneath-surface.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-beneath-surface.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign section_id = 'BloomliBeneathSurface-' | append: section.id
+-%}
+
+<section
+  id="{{ section_id }}"
+  class="bloomli-beneath-surface bloomli-beneath-surface--pt-{{ section.settings.padding_top }} bloomli-beneath-surface--pb-{{ section.settings.padding_bottom }} color-{{ section.settings.color_scheme }} gradient"
+  data-bloomli-beneath-surface
+>
+  <div class="page-width">
+    <div class="bloomli-beneath-surface__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="bloomli-beneath-surface__heading h1">
+          {{ section.settings.heading | escape }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.subtext != blank -%}
+        <div class="bloomli-beneath-surface__subtext rte">
+          {{ section.settings.subtext }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="bloomli-beneath-surface__desktop" data-bbs-desktop>
+        <div class="bloomli-beneath-surface__tabs" role="tablist" aria-label="Hair concerns">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign tab_id = section_id | append: '-tab-' | append: forloop.index
+              assign panel_id = section_id | append: '-panel-' | append: forloop.index
+            -%}
+            <button
+              id="{{ tab_id }}"
+              class="bloomli-beneath-surface__tab{% if forloop.first %} is-active{% endif %}"
+              type="button"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-controls="{{ panel_id }}"
+              tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+              data-bbs-tab
+              data-bbs-index="{{ forloop.index0 }}"
+              {{ block.shopify_attributes }}
+            >
+              <span class="bloomli-beneath-surface__tab-marker">
+                {%- if block.settings.marker != blank -%}
+                  {{ block.settings.marker | escape }}
+                {%- else -%}
+                  {{ forloop.index }}
+                {%- endif -%}
+              </span>
+              <span class="bloomli-beneath-surface__tab-copy">
+                <span class="bloomli-beneath-surface__tab-title">{{ block.settings.title | escape }}</span>
+                {%- if block.settings.subtitle != blank -%}
+                  <span class="bloomli-beneath-surface__tab-subtitle">{{ block.settings.subtitle | escape }}</span>
+                {%- endif -%}
+              </span>
+            </button>
+          {%- endfor -%}
+        </div>
+
+        <div class="bloomli-beneath-surface__panels">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign tab_id = section_id | append: '-tab-' | append: forloop.index
+              assign panel_id = section_id | append: '-panel-' | append: forloop.index
+            -%}
+            <article
+              id="{{ panel_id }}"
+              class="bloomli-beneath-surface__panel{% if forloop.first %} is-active{% endif %}"
+              role="tabpanel"
+              aria-labelledby="{{ tab_id }}"
+              data-bbs-panel
+              data-bbs-index="{{ forloop.index0 }}"
+              {% unless forloop.first %}hidden{% endunless %}
+            >
+              <div class="bloomli-beneath-surface__media">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1100
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '360, 540, 720, 900, 1100',
+                      sizes: '(min-width: 990px) 46vw, 100vw',
+                      class: 'bloomli-beneath-surface__image',
+                      alt: block.settings.title
+                  }}
+                {%- else -%}
+                  <div class="bloomli-beneath-surface__image-placeholder" aria-hidden="true">
+                    {%- render 'bloomli-icon', icon: 'leaf', class: 'bloomli-beneath-surface__placeholder-icon', size: 44 -%}
+                  </div>
+                {%- endif -%}
+              </div>
+
+              <div class="bloomli-beneath-surface__panel-copy">
+                <p class="bloomli-beneath-surface__eyebrow">{{ block.settings.subtitle | escape }}</p>
+                <h3 class="bloomli-beneath-surface__panel-title h2">{{ block.settings.title | escape }}</h3>
+
+                <div class="bloomli-beneath-surface__explain-grid">
+                  <div class="bloomli-beneath-surface__explain">
+                    <h4 class="bloomli-beneath-surface__explain-heading">What may be happening</h4>
+                    <p>{{ block.settings.what_text | escape }}</p>
+                  </div>
+                  <div class="bloomli-beneath-surface__explain">
+                    <h4 class="bloomli-beneath-surface__explain-heading">How Bloomli supports it</h4>
+                    <p>{{ block.settings.how_text | escape }}</p>
+                  </div>
+                </div>
+
+                {%- if section.settings.cta_label != blank -%}
+                  <a class="button button--primary bloomli-beneath-surface__cta" href="{{ section.settings.cta_link | default: '#' }}">
+                    {{ section.settings.cta_label | escape }}
+                  </a>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="bloomli-beneath-surface__mobile" data-bbs-mobile>
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign mobile_button_id = section_id | append: '-mobile-button-' | append: forloop.index
+            assign mobile_panel_id = section_id | append: '-mobile-panel-' | append: forloop.index
+          -%}
+          <article class="bloomli-beneath-surface__accordion-item{% if forloop.first %} is-open{% endif %}" data-bbs-accordion-item>
+            <button
+              id="{{ mobile_button_id }}"
+              class="bloomli-beneath-surface__accordion-button"
+              type="button"
+              aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-controls="{{ mobile_panel_id }}"
+              data-bbs-accordion-button
+              data-bbs-index="{{ forloop.index0 }}"
+              {{ block.shopify_attributes }}
+            >
+              <span class="bloomli-beneath-surface__tab-marker">
+                {%- if block.settings.marker != blank -%}
+                  {{ block.settings.marker | escape }}
+                {%- else -%}
+                  {{ forloop.index }}
+                {%- endif -%}
+              </span>
+              <span class="bloomli-beneath-surface__accordion-copy">
+                <span class="bloomli-beneath-surface__tab-title">{{ block.settings.title | escape }}</span>
+                {%- if block.settings.subtitle != blank -%}
+                  <span class="bloomli-beneath-surface__tab-subtitle">{{ block.settings.subtitle | escape }}</span>
+                {%- endif -%}
+              </span>
+              <span class="bloomli-beneath-surface__accordion-icon" aria-hidden="true"></span>
+            </button>
+
+            <div
+              id="{{ mobile_panel_id }}"
+              class="bloomli-beneath-surface__accordion-panel"
+              role="region"
+              aria-labelledby="{{ mobile_button_id }}"
+              data-bbs-accordion-panel
+              {% unless forloop.first %}hidden{% endunless %}
+            >
+              <div class="bloomli-beneath-surface__accordion-inner">
+                <div class="bloomli-beneath-surface__media">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 900
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '320, 480, 640, 900',
+                        sizes: '100vw',
+                        class: 'bloomli-beneath-surface__image',
+                        alt: block.settings.title
+                    }}
+                  {%- else -%}
+                    <div class="bloomli-beneath-surface__image-placeholder" aria-hidden="true">
+                      {%- render 'bloomli-icon', icon: 'leaf', class: 'bloomli-beneath-surface__placeholder-icon', size: 40 -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+
+                <div class="bloomli-beneath-surface__explain">
+                  <h4 class="bloomli-beneath-surface__explain-heading">What may be happening</h4>
+                  <p>{{ block.settings.what_text | escape }}</p>
+                </div>
+                <div class="bloomli-beneath-surface__explain">
+                  <h4 class="bloomli-beneath-surface__explain-heading">How Bloomli supports it</h4>
+                  <p>{{ block.settings.how_text | escape }}</p>
+                </div>
+
+                {%- if section.settings.cta_label != blank -%}
+                  <a class="button button--primary bloomli-beneath-surface__cta" href="{{ section.settings.cta_link | default: '#' }}">
+                    {{ section.settings.cta_label | escape }}
+                  </a>
+                {%- endif -%}
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli - Beneath Surface",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+    "templates": ["index"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What’s happening to your hair starts beneath the surface."
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "<p>Tap each concern to see what may be affecting your hair — and how Bloomli supports your routine from the inside out.</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Shop the ritual"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 32,
+      "max": 120,
+      "step": 8,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 32,
+      "max": 120,
+      "step": 8,
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "concern",
+      "name": "Concern",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "marker",
+          "label": "Optional icon or number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Nutrient gaps"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Daily support from within"
+        },
+        {
+          "type": "textarea",
+          "id": "what_text",
+          "label": "What may be happening",
+          "default": "Hair follicles rely on steady nutrients to support the normal growth cycle. When your routine is inconsistent, hair can look weaker, thinner, or more fragile."
+        },
+        {
+          "type": "textarea",
+          "id": "how_text",
+          "label": "How Bloomli supports it",
+          "default": "Bloomli gummies provide daily beauty nutrients chosen to support hair from within - helping your routine stay simple and consistent."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli - Beneath Surface",
+      "blocks": [
+        {
+          "type": "concern",
+          "settings": {
+            "marker": "01",
+            "title": "Nutrient gaps",
+            "subtitle": "Daily support from within",
+            "what_text": "Hair follicles rely on steady nutrients to support the normal growth cycle. When your routine is inconsistent, hair can look weaker, thinner, or more fragile.",
+            "how_text": "Bloomli gummies provide daily beauty nutrients chosen to support hair from within - helping your routine stay simple and consistent."
+          }
+        },
+        {
+          "type": "concern",
+          "settings": {
+            "marker": "02",
+            "title": "Shedding",
+            "subtitle": "When hair feels less full",
+            "what_text": "Shedding can make hair feel thinner before visible density changes. Consistency matters because hair changes slowly over time.",
+            "how_text": "Bloomli supports your daily hair wellness routine with nutrients that help nourish follicles from within."
+          }
+        },
+        {
+          "type": "concern",
+          "settings": {
+            "marker": "03",
+            "title": "Breakage",
+            "subtitle": "When strands feel fragile",
+            "what_text": "When strands become dry or fragile, hair can look thinner through the lengths even when growth is still happening at the root.",
+            "how_text": "Bloomli supports stronger-feeling strands from within, while hair oil helps nourish lengths and ends from the outside."
+          }
+        },
+        {
+          "type": "concern",
+          "settings": {
+            "marker": "04",
+            "title": "Scalp environment",
+            "subtitle": "The foundation of the ritual",
+            "what_text": "Your scalp is the foundation for fuller-looking hair. Dryness, buildup, and imbalance can make your routine feel less effective.",
+            "how_text": "Pair daily nutrients with botanical scalp care to support the full inside-out and outside-in ritual."
+          }
+        },
+        {
+          "type": "concern",
+          "settings": {
+            "marker": "05",
+            "title": "Lifestyle stress",
+            "subtitle": "When life shows up in your hair",
+            "what_text": "Busy seasons, stress, styling, and inconsistent routines can all affect how your hair looks and feels over time.",
+            "how_text": "Bloomli keeps hair wellness simple with an easy daily ritual designed to fit into real life."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

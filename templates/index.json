@@ -104,6 +104,83 @@
         "padding_bottom": 14
       }
     },
+    "bloomli_beneath_surface": {
+      "type": "bloomli-beneath-surface",
+      "blocks": {
+        "concern_nutrient_gaps": {
+          "type": "concern",
+          "settings": {
+            "image": "shopify://shop_images/Model_Eating_Gummy_1.png",
+            "marker": "01",
+            "title": "Nutrient gaps",
+            "subtitle": "Daily support from within",
+            "what_text": "Hair follicles rely on steady nutrients to support the normal growth cycle. When your routine is inconsistent, hair can look weaker, thinner, or more fragile.",
+            "how_text": "Bloomli gummies provide daily beauty nutrients chosen to support hair from within - helping your routine stay simple and consistent."
+          }
+        },
+        "concern_shedding": {
+          "type": "concern",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_11.png",
+            "marker": "02",
+            "title": "Shedding",
+            "subtitle": "When hair feels less full",
+            "what_text": "Shedding can make hair feel thinner before visible density changes. Consistency matters because hair changes slowly over time.",
+            "how_text": "Bloomli supports your daily hair wellness routine with nutrients that help nourish follicles from within."
+          }
+        },
+        "concern_breakage": {
+          "type": "concern",
+          "settings": {
+            "image": "shopify://shop_images/Model_Holding_Gummy_2_5dc2294b-1314-41eb-b66d-3fb3fb684a85.png",
+            "marker": "03",
+            "title": "Breakage",
+            "subtitle": "When strands feel fragile",
+            "what_text": "When strands become dry or fragile, hair can look thinner through the lengths even when growth is still happening at the root.",
+            "how_text": "Bloomli supports stronger-feeling strands from within, while hair oil helps nourish lengths and ends from the outside."
+          }
+        },
+        "concern_scalp": {
+          "type": "concern",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_7.png",
+            "marker": "04",
+            "title": "Scalp environment",
+            "subtitle": "The foundation of the ritual",
+            "what_text": "Your scalp is the foundation for fuller-looking hair. Dryness, buildup, and imbalance can make your routine feel less effective.",
+            "how_text": "Pair daily nutrients with botanical scalp care to support the full inside-out and outside-in ritual."
+          }
+        },
+        "concern_lifestyle": {
+          "type": "concern",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_5.png",
+            "marker": "05",
+            "title": "Lifestyle stress",
+            "subtitle": "When life shows up in your hair",
+            "what_text": "Busy seasons, stress, styling, and inconsistent routines can all affect how your hair looks and feels over time.",
+            "how_text": "Bloomli keeps hair wellness simple with an easy daily ritual designed to fit into real life."
+          }
+        }
+      },
+      "block_order": [
+        "concern_nutrient_gaps",
+        "concern_shedding",
+        "concern_breakage",
+        "concern_scalp",
+        "concern_lifestyle"
+      ],
+      "name": "Bloomli - Beneath Surface",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "What’s happening to your hair starts beneath the surface.",
+        "subtext": "<p>Tap each concern to see what may be affecting your hair — and how Bloomli supports your routine from the inside out.</p>",
+        "cta_label": "Shop the ritual",
+        "cta_link": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "bloomli_product_finder_JdwGUB": {
       "type": "bloomli-product-finder",
       "name": "Bloomli Product Finder",
@@ -510,6 +587,7 @@
   "order": [
     "bloomli_hero_7dR8fN",
     "bloomli_trust_row_6WztPT",
+    "bloomli_beneath_surface",
     "bloomli_product_finder_JdwGUB",
     "bloomli_product_picks_96EVCk",
     "bloomli_photo_mosaic_dYCUhp",

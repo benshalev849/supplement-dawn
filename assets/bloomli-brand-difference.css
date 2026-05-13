@@ -1,0 +1,196 @@
+.bloomli-brand-difference {
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+}
+
+.bloomli-brand-difference__statement {
+  display: grid;
+  gap: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.bloomli-brand-difference__heading {
+  max-width: 66rem;
+  margin: 0;
+  color: rgb(var(--color-foreground));
+}
+
+.bloomli-brand-difference__body {
+  max-width: 62rem;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+.bloomli-brand-difference__body p,
+.bloomli-brand-difference__card-text p {
+  margin-block: 0;
+}
+
+.bloomli-brand-difference__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+}
+
+.bloomli-brand-difference__card {
+  position: relative;
+  min-width: 0;
+  padding: 2rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.11);
+  border-radius: calc(var(--media-radius) + 0.6rem);
+  background:
+    linear-gradient(180deg, rgba(var(--color-foreground), 0.018), rgba(var(--color-foreground), 0)),
+    rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  box-shadow: 0 1.2rem 3.2rem rgba(var(--color-foreground), 0.055);
+}
+
+.bloomli-brand-difference__number {
+  margin: 0 0 2.2rem;
+  color: rgb(var(--color-button));
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+.bloomli-brand-difference__card-title {
+  margin: 0;
+  color: rgb(var(--color-foreground));
+}
+
+.bloomli-brand-difference__card-text {
+  margin-top: 1rem;
+  color: rgba(var(--color-foreground), 0.72);
+  font-size: 1.45rem;
+  line-height: 1.55;
+}
+
+.bloomli-brand-difference[data-padding-top-mobile="0"] { padding-top: 0; }
+.bloomli-brand-difference[data-padding-top-mobile="8"] { padding-top: 8px; }
+.bloomli-brand-difference[data-padding-top-mobile="16"] { padding-top: 16px; }
+.bloomli-brand-difference[data-padding-top-mobile="24"] { padding-top: 24px; }
+.bloomli-brand-difference[data-padding-top-mobile="32"] { padding-top: 32px; }
+.bloomli-brand-difference[data-padding-top-mobile="40"] { padding-top: 40px; }
+.bloomli-brand-difference[data-padding-top-mobile="48"] { padding-top: 48px; }
+.bloomli-brand-difference[data-padding-top-mobile="56"] { padding-top: 56px; }
+.bloomli-brand-difference[data-padding-top-mobile="64"] { padding-top: 64px; }
+.bloomli-brand-difference[data-padding-top-mobile="72"] { padding-top: 72px; }
+.bloomli-brand-difference[data-padding-top-mobile="80"] { padding-top: 80px; }
+.bloomli-brand-difference[data-padding-top-mobile="88"] { padding-top: 88px; }
+.bloomli-brand-difference[data-padding-top-mobile="96"] { padding-top: 96px; }
+.bloomli-brand-difference[data-padding-top-mobile="104"] { padding-top: 104px; }
+.bloomli-brand-difference[data-padding-top-mobile="112"] { padding-top: 112px; }
+.bloomli-brand-difference[data-padding-top-mobile="120"] { padding-top: 120px; }
+
+.bloomli-brand-difference[data-padding-bottom-mobile="0"] { padding-bottom: 0; }
+.bloomli-brand-difference[data-padding-bottom-mobile="8"] { padding-bottom: 8px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="16"] { padding-bottom: 16px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="24"] { padding-bottom: 24px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="32"] { padding-bottom: 32px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="40"] { padding-bottom: 40px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="48"] { padding-bottom: 48px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="56"] { padding-bottom: 56px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="64"] { padding-bottom: 64px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="72"] { padding-bottom: 72px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="80"] { padding-bottom: 80px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="88"] { padding-bottom: 88px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="96"] { padding-bottom: 96px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="104"] { padding-bottom: 104px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="112"] { padding-bottom: 112px; }
+.bloomli-brand-difference[data-padding-bottom-mobile="120"] { padding-bottom: 120px; }
+
+@media screen and (min-width: 750px) {
+  .bloomli-brand-difference__statement {
+    grid-template-columns: minmax(0, 1.05fr) minmax(28rem, 0.8fr);
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 3.2rem;
+  }
+
+  .bloomli-brand-difference__body {
+    justify-self: end;
+    font-size: 1.7rem;
+    line-height: 1.6;
+  }
+
+  .bloomli-brand-difference__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.8rem;
+  }
+
+  .bloomli-brand-difference__card {
+    padding: 2.4rem;
+    border-radius: calc(var(--media-radius) + 0.8rem);
+  }
+
+  .bloomli-brand-difference__number {
+    margin-bottom: 3.6rem;
+  }
+
+  .bloomli-brand-difference__card-text {
+    font-size: 1.5rem;
+  }
+
+  .bloomli-brand-difference[data-padding-top-desktop="0"] { padding-top: 0; }
+  .bloomli-brand-difference[data-padding-top-desktop="8"] { padding-top: 8px; }
+  .bloomli-brand-difference[data-padding-top-desktop="16"] { padding-top: 16px; }
+  .bloomli-brand-difference[data-padding-top-desktop="24"] { padding-top: 24px; }
+  .bloomli-brand-difference[data-padding-top-desktop="32"] { padding-top: 32px; }
+  .bloomli-brand-difference[data-padding-top-desktop="40"] { padding-top: 40px; }
+  .bloomli-brand-difference[data-padding-top-desktop="48"] { padding-top: 48px; }
+  .bloomli-brand-difference[data-padding-top-desktop="56"] { padding-top: 56px; }
+  .bloomli-brand-difference[data-padding-top-desktop="64"] { padding-top: 64px; }
+  .bloomli-brand-difference[data-padding-top-desktop="72"] { padding-top: 72px; }
+  .bloomli-brand-difference[data-padding-top-desktop="80"] { padding-top: 80px; }
+  .bloomli-brand-difference[data-padding-top-desktop="88"] { padding-top: 88px; }
+  .bloomli-brand-difference[data-padding-top-desktop="96"] { padding-top: 96px; }
+  .bloomli-brand-difference[data-padding-top-desktop="104"] { padding-top: 104px; }
+  .bloomli-brand-difference[data-padding-top-desktop="112"] { padding-top: 112px; }
+  .bloomli-brand-difference[data-padding-top-desktop="120"] { padding-top: 120px; }
+
+  .bloomli-brand-difference[data-padding-bottom-desktop="0"] { padding-bottom: 0; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="8"] { padding-bottom: 8px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="16"] { padding-bottom: 16px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="24"] { padding-bottom: 24px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="32"] { padding-bottom: 32px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="40"] { padding-bottom: 40px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="48"] { padding-bottom: 48px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="56"] { padding-bottom: 56px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="64"] { padding-bottom: 64px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="72"] { padding-bottom: 72px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="80"] { padding-bottom: 80px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="88"] { padding-bottom: 88px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="96"] { padding-bottom: 96px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="104"] { padding-bottom: 104px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="112"] { padding-bottom: 112px; }
+  .bloomli-brand-difference[data-padding-bottom-desktop="120"] { padding-bottom: 120px; }
+}
+
+@media screen and (min-width: 990px) {
+  .bloomli-brand-difference__statement {
+    gap: 7rem;
+    margin-bottom: 4rem;
+  }
+
+  .bloomli-brand-difference__cards {
+    gap: 2.4rem;
+  }
+
+  .bloomli-brand-difference__card {
+    padding: 2.8rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .bloomli-brand-difference__statement {
+    margin-bottom: 2rem;
+  }
+
+  .bloomli-brand-difference__card {
+    padding: 1.8rem;
+  }
+
+  .bloomli-brand-difference__number {
+    margin-bottom: 1.8rem;
+  }
+}

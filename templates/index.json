@@ -208,6 +208,50 @@
         "oil_badge": "+ Add on"
       }
     },
+    "bloomli_brand_difference": {
+      "type": "bloomli-brand-difference",
+      "blocks": {
+        "brand_difference_inside_out": {
+          "type": "card",
+          "settings": {
+            "number": "01",
+            "title": "Inside-out support",
+            "text": "<p>Daily nutrients chosen to support the foundation of healthier-looking hair, from roots to strands.</p>"
+          }
+        },
+        "brand_difference_format": {
+          "type": "card",
+          "settings": {
+            "number": "02",
+            "title": "Choose your format",
+            "text": "<p>Gummies or capsules, so your hair wellness routine fits your real life &mdash; not the other way around.</p>"
+          }
+        },
+        "brand_difference_ritual": {
+          "type": "card",
+          "settings": {
+            "number": "03",
+            "title": "Complete the ritual",
+            "text": "<p>Add botanical hair oil for outside-in scalp, strand, and end care when you want the full routine.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "brand_difference_inside_out",
+        "brand_difference_format",
+        "brand_difference_ritual"
+      ],
+      "name": "Bloomli - Brand Difference",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Not just another hair supplement.",
+        "body": "<p>Bloomli is built as a daily hair ritual &mdash; inside-out nutrients, flexible formats, and outside-in care for the scalp and strands.</p>",
+        "padding_top_desktop": 72,
+        "padding_bottom_desktop": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
     "bloomli_product_picks_96EVCk": {
       "type": "bloomli-product-picks",
       "blocks": {
@@ -581,6 +625,7 @@
     "bloomli_trust_row_6WztPT",
     "bloomli_beneath_surface",
     "bloomli_product_finder_JdwGUB",
+    "bloomli_brand_difference",
     "bloomli_product_picks_96EVCk",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_reviews_GyTkzh",

@@ -5,9 +5,30 @@
   assign gummies_product = section.settings.card_2_product
   assign oil_product = section.settings.card_3_product
 
-  assign capsules_title = section.settings.capsules_title | default: capsules_product.title | default: 'Daily Hair Support Capsules'
-  assign gummies_title = section.settings.gummies_title | default: gummies_product.title | default: 'Ultra Strength Hair Gummies'
-  assign oil_title = section.settings.oil_title | default: oil_product.title | default: 'Botanical Hair Oil'
+  assign capsules_title_override = section.settings.capsules_title | strip
+  assign gummies_title_override = section.settings.gummies_title | strip
+  assign oil_title_override = section.settings.oil_title | strip
+
+  assign capsules_title = 'Daily Hair Support Capsules'
+  if capsules_title_override != blank
+    assign capsules_title = capsules_title_override
+  elsif capsules_product != blank and capsules_product.handle != gummies_product.handle
+    assign capsules_title = capsules_product.title
+  endif
+
+  assign gummies_title = 'Ultra Strength Hair Gummies'
+  if gummies_title_override != blank
+    assign gummies_title = gummies_title_override
+  elsif gummies_product != blank
+    assign gummies_title = gummies_product.title
+  endif
+
+  assign oil_title = 'Botanical Hair Oil'
+  if oil_title_override != blank
+    assign oil_title = oil_title_override
+  elsif oil_product != blank
+    assign oil_title = oil_product.title
+  endif
 
   assign capsules_description = section.settings.capsules_short_description | default: section.settings.capsules_subhead | default: 'Daily hair support in an easy capsule.'
   assign gummies_description = section.settings.gummies_short_description | default: section.settings.gummies_subhead | default: 'Daily beauty nutrients in a flavorful gummy.'

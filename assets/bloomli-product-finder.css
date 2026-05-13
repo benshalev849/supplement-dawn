@@ -171,14 +171,11 @@
 }
 
 .bloomli-product-finder__body {
-  display: -webkit-box;
-  overflow: hidden;
+  display: none;
   margin: 0.55rem 0 0.75rem;
   color: rgba(var(--color-foreground), 0.72);
   font-size: 1.15rem;
   line-height: 1.32;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
 }
 
 .bloomli-product-finder__price {
@@ -272,7 +269,7 @@
   }
 
   .bloomli-product-finder__card {
-    min-height: 48rem;
+    min-height: 42rem;
   }
 
   .bloomli-product-finder__badge {
@@ -284,7 +281,7 @@
   }
 
   .bloomli-product-finder__media {
-    min-height: 29rem;
+    min-height: clamp(24rem, 22vw, 30rem);
   }
 
   .bloomli-product-finder__content {
@@ -312,9 +309,12 @@
   }
 
   .bloomli-product-finder__body {
+    display: -webkit-box;
+    overflow: hidden;
     margin: 0.9rem 0 1.1rem;
     font-size: 1.5rem;
     line-height: 1.45;
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
 
@@ -358,11 +358,11 @@
   }
 
   .bloomli-product-finder__card {
-    min-height: 50rem;
+    min-height: 46rem;
   }
 
   .bloomli-product-finder__media {
-    min-height: 31rem;
+    min-height: clamp(24rem, 22vw, 30rem);
   }
 
   .bloomli-product-finder__content {
@@ -396,7 +396,7 @@
   }
 
   .bloomli-product-finder__body {
-    font-size: 1.1rem;
+    display: none;
   }
 
   .bloomli-product-finder__price {

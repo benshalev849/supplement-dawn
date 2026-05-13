@@ -44,34 +44,33 @@
   }
 
   .bloomli-trust__grid {
-    width: 100%;
-    display: flex;
-    gap: 1.8rem;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: x proximity;
-    padding-inline: 1.6rem;
-    scrollbar-width: none;
-  }
-
-  .bloomli-trust__grid::-webkit-scrollbar {
-    display: none;
+    width: min(100% - 2.4rem, var(--page-width, 120rem));
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem 1rem;
+    overflow: visible;
+    padding-inline: 0;
   }
 
   .bloomli-trust__item {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    justify-content: flex-start;
-    white-space: nowrap;
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: start;
+    text-align: left;
   }
 
   .bloomli-trust__icon {
-    width: 1.7rem;
-    height: 1.7rem;
-    flex-basis: 1.7rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-basis: 1.5rem;
   }
 
   .bloomli-trust__label {
-    font-size: 1rem;
+    overflow-wrap: anywhere;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    line-height: 1.25;
   }
 }

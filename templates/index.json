@@ -96,6 +96,7 @@
         "trust_item_guarantee",
         "trust_item_pause"
       ],
+      "disabled": true,
       "name": "Bloomli — Trust Row",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",

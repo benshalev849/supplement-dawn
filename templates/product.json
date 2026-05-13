@@ -807,7 +807,7 @@
           "type": "product",
           "settings": {
             "product": "test-supplement",
-            "image_scale": 100,
+            "image_scale": 70,
             "title": "Root Ritual Capsules",
             "link": "",
             "price": "$48",
@@ -819,7 +819,7 @@
           "type": "product",
           "settings": {
             "product": "",
-            "image_scale": 100,
+            "image_scale": 70,
             "title": "Root Ritual Strips",
             "link": "",
             "price": "$36",
@@ -831,7 +831,7 @@
           "type": "product",
           "settings": {
             "product": "",
-            "image_scale": 100,
+            "image_scale": 70,
             "title": "Scalp Serum",
             "link": "",
             "price": "$58",
@@ -843,7 +843,7 @@
           "type": "product",
           "settings": {
             "product": "",
-            "image_scale": 100,
+            "image_scale": 70,
             "title": "Starter Duo",
             "link": "",
             "price": "$68",

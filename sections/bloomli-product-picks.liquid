@@ -2,6 +2,67 @@
   class="bloomli-product-picks bloomli-section color-{{ section.settings.color_scheme }} gradient"
   style="{% if section.settings.use_custom_background %}--bpp-bg: {{ section.settings.background_color }};{% else %}--bpp-bg: var(--bloomli-bg);{% endif %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bpp-columns-desktop: {{ section.settings.columns_desktop }}; --bpp-columns-mobile: {{ section.settings.columns_mobile }}; --bpp-image-box-height: {{ section.settings.image_box_height }}px;"
 >
+  <style>
+    #shopify-section-{{ section.id }} .bloomli-product-picks__badge.badge {
+      position: relative;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: auto;
+      z-index: 2;
+      display: block;
+      width: fit-content;
+      margin: 0 auto 0.8rem;
+    }
+
+    #shopify-section-{{ section.id }} .bloomli-product-picks__media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #shopify-section-{{ section.id }} .bloomli-product-picks__image,
+    #shopify-section-{{ section.id }} .bloomli-product-picks__media > svg {
+      width: var(--bpp-image-scale-percent, 70%);
+      max-width: var(--bpp-image-scale-percent, 70%);
+      max-height: var(--bpp-image-scale-percent, 70%);
+      height: auto;
+      object-fit: contain;
+    }
+
+    #shopify-section-{{ section.id }} .bloomli-product-picks__stars {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    #shopify-section-{{ section.id }} .bloomli-product-picks__stars-meter {
+      position: relative;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    #shopify-section-{{ section.id }} .bloomli-product-picks__stars-base {
+      color: rgba(var(--color-foreground), 0.22);
+    }
+
+    #shopify-section-{{ section.id }} .bloomli-product-picks__stars-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--bpp-rating-percent, 100%);
+      overflow: hidden;
+      color: rgb(var(--color-foreground));
+      white-space: nowrap;
+    }
+
+    #shopify-section-{{ section.id }} .bloomli-product-picks__rating-text {
+      font-size: 1.2rem;
+      color: rgba(var(--color-foreground), 0.72);
+      line-height: 1.2;
+    }
+  </style>
+
   <div class="bloomli-section__inner">
     <div class="bloomli-product-picks__header">
       <h2 class="bloomli-product-picks__heading">{{ section.settings.heading }}</h2>
@@ -14,9 +75,15 @@
       {%- for block in section.blocks -%}
         {%- assign picked_product = block.settings.product -%}
         {%- assign card_url = picked_product.url | default: block.settings.link -%}
+        {%- assign image_scale = block.settings.image_scale | default: 70 -%}
+        {%- assign image_scale_factor = image_scale | divided_by: 100.0 -%}
+        {%- assign image_scale_percent = image_scale | append: '%' -%}
+        {%- assign image_style = '--bpp-image-scale: ' | append: image_scale_factor | append: '; --bpp-image-scale-percent: ' | append: image_scale_percent | append: ';' -%}
         <div class="bloomli-product-picks__card" {{ block.shopify_attributes }}>
           {%- if block.settings.badge != blank -%}
-            <div class="bloomli-product-picks__badge">{{ block.settings.badge }}</div>
+            <span class="bloomli-product-picks__badge badge badge--top-left color-{{ settings.sale_badge_color_scheme | default: section.settings.color_scheme }}">
+              {{- block.settings.badge -}}
+            </span>
           {%- endif -%}
 
           {%- if card_url != blank -%}
@@ -24,10 +91,8 @@
           {%- else -%}
             <div class="bloomli-product-picks__link">
           {%- endif -%}
-            <div class="bloomli-product-picks__media">
+            <div class="bloomli-product-picks__media" style="{{ image_style }}">
               {%- if block.settings.image != blank -%}
-                {%- assign image_scale = block.settings.image_scale | default: 100 | divided_by: 100.0 -%}
-                {%- assign image_style = '--bpp-image-scale: ' | append: image_scale | append: ';' -%}
                 {%- assign image_alt = block.settings.image.alt | default: block.settings.title -%}
                 {{
                   block.settings.image
@@ -37,8 +102,8 @@
                     alt: image_alt,
                     widths: '240, 360, 520',
                     sizes: '(max-width: 749px) 50vw, 260px',
-                    loading: 'lazy', decoding: 'async',
-                    style: image_style
+                    loading: 'lazy',
+                    decoding: 'async'
                 }}
               {%- elsif picked_product.featured_image != blank -%}
                 {%- assign product_image_alt = picked_product.featured_image.alt | default: picked_product.title -%}
@@ -69,7 +134,25 @@
               <div>
                 <h3 class="bloomli-product-picks__title">{{ block.settings.title | default: picked_product.title }}</h3>
                 {%- if block.settings.show_stars -%}
-                  <div class="bloomli-product-picks__stars" aria-label="Five star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  {%- if block.settings.rating_source == 'judgeme' and picked_product != blank -%}
+                    <div class="bloomli-product-picks__stars bloomli-product-picks__stars--judgeme">
+                      <div class="jdgm-widget jdgm-preview-badge" data-id="{{ picked_product.id }}">
+                        {{ picked_product.metafields.judgeme.badge }}
+                      </div>
+                    </div>
+                  {%- else -%}
+                    {%- assign custom_rating = block.settings.custom_star_rating | default: '5' | plus: 0 -%}
+                    {%- assign rating_percent = custom_rating | times: 20 -%}
+                    <div class="bloomli-product-picks__stars" aria-label="{{ custom_rating }} out of 5 star rating">
+                      <span class="bloomli-product-picks__stars-meter" style="--bpp-rating-percent: {{ rating_percent }}%;">
+                        <span class="bloomli-product-picks__stars-base" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        <span class="bloomli-product-picks__stars-fill" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                      </span>
+                      {%- if block.settings.rating_text != blank -%}
+                        <span class="bloomli-product-picks__rating-text">{{ block.settings.rating_text }}</span>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
                 {%- endif -%}
               </div>
               <div class="bloomli-product-picks__price">
@@ -118,12 +201,30 @@
       "settings": [
         { "type": "product", "id": "product", "label": "Product" },
         { "type": "image_picker", "id": "image", "label": "Custom image override" },
-        { "type": "range", "id": "image_scale", "label": "Uploaded image scale", "min": 70, "max": 140, "step": 5, "default": 100, "unit": "%" },
+        { "type": "range", "id": "image_scale", "label": "Image scale", "min": 70, "max": 140, "step": 5, "default": 70, "unit": "%" },
         { "type": "text", "id": "title", "label": "Custom title" },
         { "type": "url", "id": "link", "label": "Fallback link if no product selected" },
         { "type": "text", "id": "price", "label": "Custom price" },
         { "type": "text", "id": "badge", "label": "Badge" },
-        { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": true }
+        { "type": "checkbox", "id": "show_stars", "label": "Show rating", "default": true },
+        { "type": "select", "id": "rating_source", "label": "Rating source", "options": [
+          { "value": "custom", "label": "Custom stars" },
+          { "value": "judgeme", "label": "Judge.me product rating" }
+        ], "default": "custom" },
+        { "type": "select", "id": "custom_star_rating", "label": "Custom star rating", "options": [
+          { "value": "0", "label": "0" },
+          { "value": "0.5", "label": "0.5" },
+          { "value": "1", "label": "1" },
+          { "value": "1.5", "label": "1.5" },
+          { "value": "2", "label": "2" },
+          { "value": "2.5", "label": "2.5" },
+          { "value": "3", "label": "3" },
+          { "value": "3.5", "label": "3.5" },
+          { "value": "4", "label": "4" },
+          { "value": "4.5", "label": "4.5" },
+          { "value": "5", "label": "5" }
+        ], "default": "5" },
+        { "type": "text", "id": "rating_text", "label": "Optional rating text" }
       ]
     }
   ],

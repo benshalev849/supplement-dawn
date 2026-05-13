@@ -95,7 +95,7 @@
           "type": "product",
           "settings": {
             "product": "ultra-strength-hair-gummies-copy",
-            "image_scale": 100,
+            "image_scale": 70,
             "title": "",
             "link": "",
             "price": "",
@@ -107,7 +107,7 @@
           "type": "product",
           "settings": {
             "product": "test-supplement",
-            "image_scale": 100,
+            "image_scale": 70,
             "title": "",
             "link": "",
             "price": "",
@@ -119,7 +119,7 @@
           "type": "product",
           "settings": {
             "product": "",
-            "image_scale": 100,
+            "image_scale": 70,
             "title": "Starter Duo",
             "link": "",
             "price": "$68",

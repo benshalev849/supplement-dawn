@@ -1,6 +1,6 @@
 .bloomli-bundle {
-  background: #FAF5F3;
-  color: var(--bloomli-text);
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
   padding-block: var(--bloomli-padding-top) var(--bloomli-padding-bottom);
   padding-inline: 2rem;
 }
@@ -10,33 +10,17 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  column-gap: clamp(3.2rem, 5vw, 5.6rem);
-  row-gap: 0;
+  gap: clamp(4rem, 5vw, 6.4rem);
   align-items: center;
-  text-align: left;
 }
 
-.bloomli-bundle__eyebrow,
-.bloomli-bundle__heading,
-.bloomli-bundle__subheading,
-.bloomli-bundle__copy,
-.bloomli-bundle__cta-wrap {
-  grid-column: 1;
-}
-
-.bloomli-bundle__eyebrow {
-  margin: 0 0 1.2rem;
-  color: rgb(var(--color-button));
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  line-height: 1.2;
-  text-transform: uppercase;
+.bloomli-bundle__content {
+  max-width: 54rem;
 }
 
 .bloomli-bundle__heading {
   margin: 0;
-  color: var(--bloomli-text);
+  color: rgb(var(--color-foreground));
   font-family: var(--font-heading-family);
   font-size: clamp(4.8rem, 7vw, 8.4rem);
   font-style: var(--font-heading-style);
@@ -45,25 +29,33 @@
   line-height: 0.95;
 }
 
-.bloomli-bundle__subheading {
-  max-width: 62rem;
-  margin: 2.4rem 0 0;
-  color: var(--bloomli-text);
-  font-size: clamp(2.2rem, 3vw, 3.4rem);
-  line-height: 1.2;
-}
-
 .bloomli-bundle__copy {
   max-width: 52rem;
-  margin: 1.8rem 0 0;
-  color: var(--bloomli-text-muted);
+  margin: 2rem 0 0;
+  color: rgba(var(--color-foreground), 0.75);
   font-size: 1.7rem;
   line-height: 1.65;
 }
 
+.bloomli-bundle__visual {
+  text-align: center;
+}
+
+.bloomli-bundle__badge {
+  display: inline-flex;
+  margin: 0 0 1.6rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--buttons-radius-outset);
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
 .bloomli-bundle__products {
-  grid-column: 2;
-  grid-row: 1 / span 5;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: clamp(1.4rem, 2vw, 2.2rem);
@@ -71,21 +63,32 @@
 }
 
 .bloomli-bundle__card {
-  min-height: 34rem;
-  padding: 2.4rem 2.2rem 2.6rem;
+  min-width: 0;
+  min-height: 37rem;
+  padding: 2.4rem 2.2rem 2.8rem;
   border: 0.1rem solid rgba(var(--color-foreground), 0.1);
   border-radius: 2.4rem;
-  background: rgba(255, 255, 255, 0.74);
+  background: var(--bloomli-card-background);
   box-shadow: 0 2.4rem 7rem rgba(var(--color-foreground), 0.08);
+  color: rgb(var(--color-foreground));
   text-align: center;
 }
 
-.bloomli-bundle__image-link {
+.bloomli-bundle__step {
+  margin: 0 0 1.4rem;
+  color: rgb(var(--color-button));
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.bloomli-bundle__image-wrap {
   display: flex;
   min-height: 22rem;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
 }
 
 .bloomli-bundle__product-image {
@@ -98,7 +101,7 @@
 
 .bloomli-bundle__product-title {
   margin: 1.6rem 0 0.4rem;
-  color: var(--bloomli-text);
+  color: rgb(var(--color-foreground));
   font-family: var(--font-heading-family);
   font-size: 2rem;
   font-weight: var(--font-heading-weight);
@@ -127,24 +130,16 @@
   line-height: 1;
 }
 
-.bloomli-bundle__inline-saving {
-  grid-column: 2;
-  margin: 1.8rem 0 0;
-  color: rgb(var(--color-button));
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1.4;
-  text-align: center;
-}
-
 .bloomli-bundle__cta-wrap {
-  margin-top: 3.2rem;
+  margin-top: 2.8rem;
 }
 
 .bloomli-bundle__dynamic-saving {
   margin: 1rem 0 0;
+  color: rgba(var(--color-foreground), 0.72);
   font-size: 1.2rem;
   font-style: italic;
+  line-height: 1.4;
 }
 
 .bloomli-bundle__one-time {
@@ -153,7 +148,7 @@
   padding: 0;
   border: 0;
   background: none;
-  color: inherit;
+  color: rgb(var(--color-foreground));
   cursor: pointer;
   font: inherit;
   font-size: 1.2rem;
@@ -163,11 +158,13 @@
 
 .bloomli-bundle__subscription-note {
   max-width: 32rem;
-  margin: 1rem 0 0;
+  margin: 1rem auto 0;
   padding-top: 0.9rem;
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.18);
+  color: rgba(var(--color-foreground), 0.72);
   font-size: 1.2rem;
   font-style: italic;
+  line-height: 1.4;
 }
 
 @media screen and (max-width: 900px) {
@@ -176,28 +173,90 @@
   }
 
   .bloomli-bundle__inner {
-    display: block;
+    grid-template-columns: 1fr;
+    gap: 3.6rem;
     text-align: center;
   }
 
-  .bloomli-bundle__copy,
-  .bloomli-bundle__subheading,
-  .bloomli-bundle__subscription-note {
-    margin-left: auto;
-    margin-right: auto;
+  .bloomli-bundle__content,
+  .bloomli-bundle__copy {
+    max-width: 58rem;
+    margin-inline: auto;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .bloomli-bundle {
+    padding-inline: 1.4rem;
+  }
+
+  .bloomli-bundle__inner {
+    gap: 2.8rem;
+  }
+
+  .bloomli-bundle__heading {
+    font-size: clamp(4rem, 13vw, 5.2rem);
+  }
+
+  .bloomli-bundle__copy {
+    margin-top: 1.4rem;
+    font-size: 1.45rem;
+    line-height: 1.55;
+  }
+
+  .bloomli-bundle__badge {
+    margin-bottom: 1.2rem;
+    padding: 0.55rem 0.9rem;
+    font-size: 1rem;
   }
 
   .bloomli-bundle__products {
-    margin-top: 4.2rem;
-    grid-template-columns: 1fr;
-    gap: 1.8rem;
+    grid-template-columns: minmax(0, 1fr) 2.4rem minmax(0, 1fr);
+    gap: 0.6rem;
   }
 
   .bloomli-bundle__card {
-    min-height: 33rem;
+    min-height: 20rem;
+    padding: 1rem 0.6rem 1.2rem;
+    border-radius: 1.4rem;
+    box-shadow: 0 1rem 2.4rem rgba(var(--color-foreground), 0.08);
+  }
+
+  .bloomli-bundle__step {
+    margin-bottom: 0.7rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+  }
+
+  .bloomli-bundle__image-wrap {
+    min-height: 8.8rem;
+  }
+
+  .bloomli-bundle__product-image {
+    max-width: 92%;
+    max-height: 8.8rem;
+    filter: drop-shadow(0 1rem 1.2rem rgba(var(--color-foreground), 0.14));
+  }
+
+  .bloomli-bundle__product-title {
+    margin-top: 0.8rem;
+    font-size: 1.25rem;
+    line-height: 1.15;
+  }
+
+  .bloomli-bundle__product-description {
+    font-size: 1rem;
+    line-height: 1.25;
   }
 
   .bloomli-bundle__plus {
-    margin: -0.4rem auto;
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1.8rem;
+    box-shadow: 0 0.6rem 1.4rem rgba(var(--color-foreground), 0.1);
+  }
+
+  .bloomli-bundle__cta-wrap {
+    margin-top: 2rem;
   }
 }

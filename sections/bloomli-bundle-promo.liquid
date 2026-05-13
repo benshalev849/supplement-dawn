@@ -71,31 +71,37 @@
     endfor
   endif
 
-  assign eyebrow_text = section.settings.eyebrow_text | default: 'COMPLETE YOUR RITUAL'
-  assign inline_saving_text = section.settings.inline_saving_text | default: 'Save 15% on hair oil when bundled'
-  assign first_title = first_product.title
-  assign second_title = second_product.title
-  assign first_description = ''
-  assign second_description = ''
+  assign first_step = section.settings.product_1_step
+  assign first_title = section.settings.product_1_title
+  assign first_description = section.settings.product_1_description
+  assign second_step = section.settings.product_2_step
+  assign second_title = section.settings.product_2_title
+  assign second_description = section.settings.product_2_description
 
-  if first_product != blank and gummies_product != blank and first_product.id == gummies_product.id
-    assign first_title = section.settings.product_1_title | default: first_product.title
-    assign first_description = section.settings.product_1_description
-  elsif first_product != blank and hair_oil_product != blank and first_product.id == hair_oil_product.id
+  if first_product != blank and hair_oil_product != blank and first_product.id == hair_oil_product.id
+    assign first_step = section.settings.product_2_step
     assign first_title = section.settings.product_2_title | default: first_product.title
     assign first_description = section.settings.product_2_description
-  elsif first_product.description != blank
-    assign first_description = first_product.description | strip_html | truncate: 72
+  elsif first_product != blank and gummies_product != blank and first_product.id == gummies_product.id
+    assign first_title = section.settings.product_1_title | default: first_product.title
+  elsif first_product != blank
+    assign first_title = first_product.title
+    if first_product.description != blank
+      assign first_description = first_product.description | strip_html | truncate: 72
+    endif
   endif
 
   if second_product != blank and gummies_product != blank and second_product.id == gummies_product.id
+    assign second_step = section.settings.product_1_step
     assign second_title = section.settings.product_1_title | default: second_product.title
     assign second_description = section.settings.product_1_description
   elsif second_product != blank and hair_oil_product != blank and second_product.id == hair_oil_product.id
     assign second_title = section.settings.product_2_title | default: second_product.title
-    assign second_description = section.settings.product_2_description
-  elsif second_product.description != blank
-    assign second_description = second_product.description | strip_html | truncate: 72
+  elsif second_product != blank
+    assign second_title = second_product.title
+    if second_product.description != blank
+      assign second_description = second_product.description | strip_html | truncate: 72
+    endif
   endif
 
   assign first_in_cart = false
@@ -186,10 +192,8 @@
   endif
 
   assign primary_price_cents = 0
-  assign one_time_price_cents = 0
   assign bundle_price_cents = 0
   if first_missing
-    assign one_time_price_cents = one_time_price_cents | plus: first_variant.price
     assign bundle_price_cents = bundle_price_cents | plus: first_bundle_price
     if active_purchase_type == 'subscription'
       assign primary_price_cents = primary_price_cents | plus: first_subscription_price
@@ -198,7 +202,6 @@
     endif
   endif
   if second_missing
-    assign one_time_price_cents = one_time_price_cents | plus: second_variant.price
     assign bundle_price_cents = bundle_price_cents | plus: second_bundle_price
     if active_purchase_type == 'subscription'
       assign primary_price_cents = primary_price_cents | plus: second_subscription_price
@@ -218,7 +221,7 @@
   assign primary_price_money = primary_price_cents | money
   assign button_text = button_label
   if first_missing or second_missing
-    assign button_text = button_label | append: ' · ' | append: primary_price_money
+    assign button_text = button_label | append: ' - ' | append: primary_price_money
   endif
 
   assign show_one_time_btn = false
@@ -340,185 +343,175 @@
 
 <section
   class="bloomli-bundle bloomli-section color-{{ section.settings.color_scheme }} gradient"
-  style="--bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bloomli-text: rgb(var(--color-foreground)); --bloomli-text-muted: rgba(var(--color-foreground), 0.75);"
+  style="
+    --bloomli-padding-top: {{ section.settings.padding_top }}px;
+    --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --bloomli-card-background: {{ section.settings.product_card_background }};
+  "
 >
   <div class="bloomli-bundle__inner">
-    {%- if eyebrow_text != blank -%}
-      <p class="bloomli-bundle__eyebrow">{{ eyebrow_text | escape }}</p>
-    {%- endif -%}
+    <div class="bloomli-bundle__content">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="bloomli-bundle__heading">
+          {{ section.settings.heading | escape | newline_to_br }}
+        </h2>
+      {%- endif -%}
 
-    {%- if section.settings.heading != blank -%}
-      <h2 class="bloomli-bundle__heading">
-        {{ section.settings.heading | escape | newline_to_br }}
-      </h2>
-    {%- endif -%}
-
-    {%- if section.settings.subheading != blank -%}
-      <p class="bloomli-bundle__subheading">
-        {{ section.settings.subheading | escape }}
-      </p>
-    {%- endif -%}
-
-    {%- if section.settings.body_text != blank -%}
-      <p class="bloomli-bundle__copy">
-        {{ section.settings.body_text | escape }}
-      </p>
-    {%- endif -%}
-
-    <div class="bloomli-bundle__products">
-      <article class="bloomli-bundle__card">
-        {%- if first_product.url != blank -%}
-          <a href="{{ first_product.url }}" class="bloomli-bundle__image-link">
-        {%- else -%}
-          <div class="bloomli-bundle__image-link">
-        {%- endif -%}
-          {%- if first_image != blank -%}
-            {{
-              first_image
-              | image_url: width: 640
-              | image_tag:
-                class: 'bloomli-bundle__product-image',
-                widths: '180, 260, 360, 520, 640',
-                sizes: '(max-width: 900px) 70vw, 220px',
-                loading: 'lazy',
-                decoding: 'async',
-                alt: first_image.alt | default: first_title
-            }}
-          {%- elsif first_product.featured_image != blank -%}
-            {{
-              first_product.featured_image
-              | image_url: width: 640
-              | image_tag:
-                class: 'bloomli-bundle__product-image',
-                widths: '180, 260, 360, 520, 640',
-                sizes: '(max-width: 900px) 70vw, 220px',
-                loading: 'lazy',
-                decoding: 'async',
-                alt: first_product.featured_image.alt | default: first_title
-            }}
-          {%- endif -%}
-        {%- if first_product.url != blank -%}
-          </a>
-        {%- else -%}
-          </div>
-        {%- endif -%}
-
-        {%- if first_title != blank -%}
-          <h3 class="bloomli-bundle__product-title">{{ first_title | escape }}</h3>
-        {%- endif -%}
-        {%- if first_description != blank -%}
-          <p class="bloomli-bundle__product-description">{{ first_description | escape }}</p>
-        {%- endif -%}
-      </article>
-
-      <span class="bloomli-bundle__plus" aria-hidden="true">+</span>
-
-      <article class="bloomli-bundle__card">
-        {%- if second_product.url != blank -%}
-          <a href="{{ second_product.url }}" class="bloomli-bundle__image-link">
-        {%- else -%}
-          <div class="bloomli-bundle__image-link">
-        {%- endif -%}
-          {%- if second_image != blank -%}
-            {{
-              second_image
-              | image_url: width: 640
-              | image_tag:
-                class: 'bloomli-bundle__product-image',
-                widths: '180, 260, 360, 520, 640',
-                sizes: '(max-width: 900px) 70vw, 220px',
-                loading: 'lazy',
-                decoding: 'async',
-                alt: second_image.alt | default: second_title
-            }}
-          {%- elsif second_product.featured_image != blank -%}
-            {{
-              second_product.featured_image
-              | image_url: width: 640
-              | image_tag:
-                class: 'bloomli-bundle__product-image',
-                widths: '180, 260, 360, 520, 640',
-                sizes: '(max-width: 900px) 70vw, 220px',
-                loading: 'lazy',
-                decoding: 'async',
-                alt: second_product.featured_image.alt | default: second_title
-            }}
-          {%- endif -%}
-        {%- if second_product.url != blank -%}
-          </a>
-        {%- else -%}
-          </div>
-        {%- endif -%}
-
-        {%- if second_title != blank -%}
-          <h3 class="bloomli-bundle__product-title">{{ second_title | escape }}</h3>
-        {%- endif -%}
-        {%- if second_description != blank -%}
-          <p class="bloomli-bundle__product-description">{{ second_description | escape }}</p>
-        {%- endif -%}
-      </article>
+      {%- if section.settings.body_text != blank -%}
+        <p class="bloomli-bundle__copy">
+          {{ section.settings.body_text | escape }}
+        </p>
+      {%- endif -%}
     </div>
 
-    {%- if inline_saving_text != blank -%}
-      <p class="bloomli-bundle__inline-saving">{{ inline_saving_text | escape }}</p>
-    {%- endif -%}
+    <div class="bloomli-bundle__visual">
+      {%- if section.settings.badge_text != blank -%}
+        <p class="bloomli-bundle__badge">{{ section.settings.badge_text | escape }}</p>
+      {%- endif -%}
 
-    <div class="bloomli-bundle__cta-wrap">
-      <button
-        type="button"
-        class="button button--primary"
-        data-bloomli-bundle-promo-button
-        data-first-variant-id="{{ first_variant.id }}"
-        data-second-variant-id="{{ second_variant.id }}"
-        data-first-price-cents="{{ first_variant.price | default: 0 }}"
-        data-second-price-cents="{{ second_variant.price | default: 0 }}"
-        data-first-subscription-price-cents="{{ first_subscription_price | default: 0 }}"
-        data-second-subscription-price-cents="{{ second_subscription_price | default: 0 }}"
-        data-first-bundle-price-cents="{{ first_bundle_price | default: 0 }}"
-        data-second-bundle-price-cents="{{ second_bundle_price | default: 0 }}"
-        data-first-is-add-on="{{ first_is_add_on }}"
-        data-second-is-add-on="{{ second_is_add_on }}"
-        data-first-in-cart="{{ first_in_cart }}"
-        data-second-in-cart="{{ second_in_cart }}"
-        data-active-purchase-type="{{ active_purchase_type }}"
-        data-cart-has-subscription="{{ cart_has_subscription }}"
-        data-subscription-plan-qty="1"
-        data-add-both-label="{{ add_both_label | escape }}"
-        data-add-missing-label="{{ add_missing_label | escape }}"
-        data-view-routine-label="{{ view_routine_label | escape }}"
-        data-money-format="{{ shop.money_format | escape }}"
-        {{ first_selling_plan_attrs }}
-        {{ second_selling_plan_attrs }}
-        {% if first_variant == blank and second_variant == blank %}disabled{% endif %}
-      >
-        <span data-bundle-btn-label>{{ button_text | escape }}</span>
-        <span class="loading__spinner hidden" aria-hidden="true">
-          {{- 'loading-spinner.svg' | inline_asset_content -}}
-        </span>
-      </button>
-      <p
-        class="bloomli-bundle__dynamic-saving"
-        data-bloomli-bundle-saving-callout
-        data-saving-template="{{ saving_callout_template | escape }}"
-        {% if saving_cents <= 0 or first_in_cart and second_in_cart %}hidden{% endif %}
-      >
-        {{ saving_callout_text | escape }}
-      </p>
-      <button
-        type="button"
-        class="bloomli-bundle__one-time"
-        data-bloomli-bundle-one-time-button
-        data-label="{{ one_time_label | escape }}"
-        {% unless show_one_time_btn %}hidden{% endunless %}
-      >
-        {{ one_time_label | escape }} · {{ bundle_price_cents | money }}
-      </button>
-      <div
-        class="bloomli-bundle__subscription-note"
-        data-bloomli-bundle-subscription-note
-        {% unless show_subscription_note %}hidden{% endunless %}
-      >
-        {{ subscription_note_text | escape }}
+      <div class="bloomli-bundle__products">
+        <article class="bloomli-bundle__card">
+          {%- if first_step != blank -%}
+            <p class="bloomli-bundle__step">{{ first_step | escape }}</p>
+          {%- endif -%}
+
+          <div class="bloomli-bundle__image-wrap">
+            {%- if first_image != blank -%}
+              {{
+                first_image
+                | image_url: width: 640
+                | image_tag:
+                  class: 'bloomli-bundle__product-image',
+                  widths: '180, 260, 360, 520, 640',
+                  sizes: '(max-width: 749px) 36vw, 220px',
+                  loading: 'lazy',
+                  decoding: 'async',
+                  alt: first_image.alt | default: first_title
+              }}
+            {%- elsif first_product.featured_image != blank -%}
+              {{
+                first_product.featured_image
+                | image_url: width: 640
+                | image_tag:
+                  class: 'bloomli-bundle__product-image',
+                  widths: '180, 260, 360, 520, 640',
+                  sizes: '(max-width: 749px) 36vw, 220px',
+                  loading: 'lazy',
+                  decoding: 'async',
+                  alt: first_product.featured_image.alt | default: first_title
+              }}
+            {%- endif -%}
+          </div>
+
+          {%- if first_title != blank -%}
+            <h3 class="bloomli-bundle__product-title">{{ first_title | escape }}</h3>
+          {%- endif -%}
+          {%- if first_description != blank -%}
+            <p class="bloomli-bundle__product-description">{{ first_description | escape }}</p>
+          {%- endif -%}
+        </article>
+
+        <span class="bloomli-bundle__plus" aria-hidden="true">+</span>
+
+        <article class="bloomli-bundle__card">
+          {%- if second_step != blank -%}
+            <p class="bloomli-bundle__step">{{ second_step | escape }}</p>
+          {%- endif -%}
+
+          <div class="bloomli-bundle__image-wrap">
+            {%- if second_image != blank -%}
+              {{
+                second_image
+                | image_url: width: 640
+                | image_tag:
+                  class: 'bloomli-bundle__product-image',
+                  widths: '180, 260, 360, 520, 640',
+                  sizes: '(max-width: 749px) 36vw, 220px',
+                  loading: 'lazy',
+                  decoding: 'async',
+                  alt: second_image.alt | default: second_title
+              }}
+            {%- elsif second_product.featured_image != blank -%}
+              {{
+                second_product.featured_image
+                | image_url: width: 640
+                | image_tag:
+                  class: 'bloomli-bundle__product-image',
+                  widths: '180, 260, 360, 520, 640',
+                  sizes: '(max-width: 749px) 36vw, 220px',
+                  loading: 'lazy',
+                  decoding: 'async',
+                  alt: second_product.featured_image.alt | default: second_title
+              }}
+            {%- endif -%}
+          </div>
+
+          {%- if second_title != blank -%}
+            <h3 class="bloomli-bundle__product-title">{{ second_title | escape }}</h3>
+          {%- endif -%}
+          {%- if second_description != blank -%}
+            <p class="bloomli-bundle__product-description">{{ second_description | escape }}</p>
+          {%- endif -%}
+        </article>
+      </div>
+
+      <div class="bloomli-bundle__cta-wrap">
+        <button
+          type="button"
+          class="button button--primary bloomli-bundle__button"
+          data-bloomli-bundle-promo-button
+          data-first-variant-id="{{ first_variant.id }}"
+          data-second-variant-id="{{ second_variant.id }}"
+          data-first-price-cents="{{ first_variant.price | default: 0 }}"
+          data-second-price-cents="{{ second_variant.price | default: 0 }}"
+          data-first-subscription-price-cents="{{ first_subscription_price | default: 0 }}"
+          data-second-subscription-price-cents="{{ second_subscription_price | default: 0 }}"
+          data-first-bundle-price-cents="{{ first_bundle_price | default: 0 }}"
+          data-second-bundle-price-cents="{{ second_bundle_price | default: 0 }}"
+          data-first-is-add-on="{{ first_is_add_on }}"
+          data-second-is-add-on="{{ second_is_add_on }}"
+          data-first-in-cart="{{ first_in_cart }}"
+          data-second-in-cart="{{ second_in_cart }}"
+          data-active-purchase-type="{{ active_purchase_type }}"
+          data-cart-has-subscription="{{ cart_has_subscription }}"
+          data-subscription-plan-qty="1"
+          data-add-both-label="{{ add_both_label | escape }}"
+          data-add-missing-label="{{ add_missing_label | escape }}"
+          data-view-routine-label="{{ view_routine_label | escape }}"
+          data-money-format="{{ shop.money_format | escape }}"
+          {{ first_selling_plan_attrs }}
+          {{ second_selling_plan_attrs }}
+          {% if first_variant == blank and second_variant == blank %}disabled{% endif %}
+        >
+          <span data-bundle-btn-label>{{ button_text | escape }}</span>
+          <span class="loading__spinner hidden" aria-hidden="true">
+            {{- 'loading-spinner.svg' | inline_asset_content -}}
+          </span>
+        </button>
+        <p
+          class="bloomli-bundle__dynamic-saving"
+          data-bloomli-bundle-saving-callout
+          data-saving-template="{{ saving_callout_template | escape }}"
+          {% if saving_cents <= 0 or first_in_cart and second_in_cart %}hidden{% endif %}
+        >
+          {{ saving_callout_text | escape }}
+        </p>
+        <button
+          type="button"
+          class="bloomli-bundle__one-time"
+          data-bloomli-bundle-one-time-button
+          data-label="{{ one_time_label | escape }}"
+          {% unless show_one_time_btn %}hidden{% endunless %}
+        >
+          {{ one_time_label | escape }} - {{ bundle_price_cents | money }}
+        </button>
+        <div
+          class="bloomli-bundle__subscription-note"
+          data-bloomli-bundle-subscription-note
+          {% unless show_subscription_note %}hidden{% endunless %}
+        >
+          {{ subscription_note_text | escape }}
+        </div>
       </div>
     </div>
   </div>
@@ -621,7 +614,6 @@
 
       const firstIsAddOn = button.dataset.firstIsAddOn === 'true';
       const secondIsAddOn = button.dataset.secondIsAddOn === 'true';
-      const activeType = button.dataset.activePurchaseType;
       let saving = 0;
       if (firstIsAddOn) {
         saving = Math.max(
@@ -644,9 +636,9 @@
         if (oneTimeButton) oneTimeButton.hidden = true;
         if (subscriptionNote) subscriptionNote.hidden = true;
       } else if (firstInCart || secondInCart) {
-        setText(`${button.dataset.addMissingLabel || 'Complete My Ritual'} · ${formatMoney(primaryPrice)}`);
+        setText(`${button.dataset.addMissingLabel || 'Complete My Ritual'} - ${formatMoney(primaryPrice)}`);
       } else {
-        setText(`${button.dataset.addBothLabel || 'Start My Ritual'} · ${formatMoney(primaryPrice)}`);
+        setText(`${button.dataset.addBothLabel || 'Start My Ritual'} - ${formatMoney(primaryPrice)}`);
       }
 
       if (missingItems.length) {
@@ -656,7 +648,7 @@
           savingCallout.hidden = saving <= 0;
         }
         if (oneTimeButton) {
-          oneTimeButton.textContent = `${oneTimeButton.dataset.label || 'One Time Purchase'} · ${formatMoney(bundleTotalPrice)}`;
+          oneTimeButton.textContent = `${oneTimeButton.dataset.label || 'One Time Purchase'} - ${formatMoney(bundleTotalPrice)}`;
           oneTimeButton.hidden = purchaseType === 'one_time';
         }
         if (subscriptionNote) {
@@ -778,7 +770,7 @@
 
 {% schema %}
 {
-  "name": "Bloomli — Bundle Promo",
+  "name": "Bloomli \u2014 Bundle Promo",
   "tag": "div",
   "settings": [
     {
@@ -788,61 +780,81 @@
       "default": "scheme-1"
     },
     {
-      "type": "text",
-      "id": "eyebrow_text",
-      "label": "Eyebrow text",
-      "default": "COMPLETE YOUR RITUAL"
+      "type": "color",
+      "id": "product_card_background",
+      "label": "Product card background",
+      "default": "#FFFFFF"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "Section heading text",
+      "label": "Heading",
       "default": "Pair & Save"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Second header text",
-      "default": "15% off your hair oil when bundled."
     },
     {
       "type": "textarea",
       "id": "body_text",
       "label": "Body text",
-      "default": "Most people choose one. The ones who see results fastest use both."
+      "default": "Support your hair from within, then nourish your scalp and strands from the outside \u2014 a simple two-step ritual for fuller-looking, healthier-feeling hair."
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "15% off oil"
+    },
+    {
+      "type": "header",
+      "content": "Product card 1"
     },
     {
       "type": "image_picker",
       "id": "product_1_image",
-      "label": "Product 1 image"
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "product_1_step",
+      "label": "Step label",
+      "default": "Step 01"
     },
     {
       "type": "text",
       "id": "product_1_title",
-      "label": "Product 1 title",
+      "label": "Title",
       "default": "Hair Gummies"
     },
     {
       "type": "text",
       "id": "product_1_description",
-      "label": "Product 1 description",
+      "label": "Description",
       "default": "Daily beauty nutrients"
+    },
+    {
+      "type": "header",
+      "content": "Product card 2"
     },
     {
       "type": "image_picker",
       "id": "product_2_image",
-      "label": "Product 2 image"
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "product_2_step",
+      "label": "Step label",
+      "default": "Step 02"
     },
     {
       "type": "text",
       "id": "product_2_title",
-      "label": "Product 2 title",
+      "label": "Title",
       "default": "Hair Oil"
     },
     {
       "type": "text",
       "id": "product_2_description",
-      "label": "Product 2 description",
+      "label": "Description",
       "default": "Scalp & strand nourishment"
     },
     {
@@ -875,12 +887,6 @@
     },
     {
       "type": "text",
-      "id": "inline_saving_text",
-      "label": "Inline saving text",
-      "default": "Save 15% on hair oil when bundled"
-    },
-    {
-      "type": "text",
       "id": "one_time_label_text",
       "label": "One-time label text",
       "default": "One Time Purchase"
@@ -895,7 +901,7 @@
       "type": "range",
       "id": "padding_top",
       "label": "Padding top (px)",
-      "min": 48,
+      "min": 32,
       "max": 160,
       "step": 8,
       "default": 96
@@ -904,12 +910,16 @@
       "type": "range",
       "id": "padding_bottom",
       "label": "Padding bottom (px)",
-      "min": 48,
+      "min": 32,
       "max": 160,
       "step": 8,
       "default": 96
     }
   ],
-  "presets": [{ "name": "Bloomli — Bundle Promo" }]
+  "presets": [
+    {
+      "name": "Bloomli \u2014 Bundle Promo"
+    }
+  ]
 }
 {% endschema %}

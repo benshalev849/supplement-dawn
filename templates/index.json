@@ -32,6 +32,7 @@
         "trust_badge_1": "Third-Party Tested",
         "trust_badge_2": "NSF-Certified Facility",
         "trust_badge_3": "Made in the USA",
+<<<<<<< HEAD
         "editorial_image": "shopify://shop_images/hero-editorial.png",
         "editorial_placeholder_label": "Editorial photo",
         "bottle_width_desktop": 400,
@@ -49,6 +50,12 @@
         "text_color": "#2a2622",
         "use_custom_accent_color": false,
         "accent_color": "#b23a6f",
+=======
+        "desktop_image": "shopify://shop_images/Hero_Placeholder_Desktop.png",
+        "mobile_image": "shopify://shop_images/Hero_Placeholder_Mobile.png",
+        "overlay_opacity": 45,
+        "text_color": "#2a2622",
+>>>>>>> b26ecbff108bf253beac0cc7629e8f754f44c2c7
         "content_position_mobile": "top"
       }
     },

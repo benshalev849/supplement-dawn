@@ -1,5 +1,7 @@
+{{ 'bloomli-faq.css' | asset_url | stylesheet_tag }}
 {{ 'bloomli-beneath-surface.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'bloomli-beneath-surface.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'bloomli-faq.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign section_id = 'BloomliBeneathSurface-' | append: section.id
@@ -115,22 +117,20 @@
         </div>
       </div>
 
-      <div class="bloomli-beneath-surface__mobile" data-bbs-mobile>
+      <div class="bloomli-beneath-surface__mobile bloomli-faq__items" data-bbs-mobile data-bloomli-faq>
         {%- for block in section.blocks -%}
           {%- liquid
             assign mobile_button_id = section_id | append: '-mobile-button-' | append: forloop.index
             assign mobile_panel_id = section_id | append: '-mobile-panel-' | append: forloop.index
           -%}
-          <article class="bloomli-beneath-surface__accordion-item{% if forloop.first %} is-open{% endif %}" data-bbs-accordion-item>
+          <article class="bloomli-faq__item bloomli-beneath-surface__mobile-item" {{ block.shopify_attributes }}>
             <button
               id="{{ mobile_button_id }}"
-              class="bloomli-beneath-surface__accordion-button"
+              class="bloomli-faq__question bloomli-beneath-surface__mobile-question"
               type="button"
               aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
               aria-controls="{{ mobile_panel_id }}"
-              data-bbs-accordion-button
-              data-bbs-index="{{ forloop.index0 }}"
-              {{ block.shopify_attributes }}
+              data-bloomli-faq-button
             >
               <span class="bloomli-beneath-surface__accordion-copy">
                 <span class="bloomli-beneath-surface__tab-title">{{ block.settings.title | escape }}</span>
@@ -138,18 +138,17 @@
                   <span class="bloomli-beneath-surface__tab-subtitle">{{ block.settings.subtitle | escape }}</span>
                 {%- endif -%}
               </span>
-              <span class="bloomli-beneath-surface__accordion-icon" aria-hidden="true"></span>
+              <span class="bloomli-faq__plus" aria-hidden="true"></span>
             </button>
 
             <div
               id="{{ mobile_panel_id }}"
-              class="bloomli-beneath-surface__accordion-panel"
+              class="bloomli-faq__panel"
               role="region"
               aria-labelledby="{{ mobile_button_id }}"
-              data-bbs-accordion-panel
               {% unless forloop.first %}hidden{% endunless %}
             >
-              <div class="bloomli-beneath-surface__accordion-inner">
+              <div class="bloomli-faq__panel-inner bloomli-beneath-surface__mobile-panel-inner">
                 <div class="bloomli-beneath-surface__media">
                   {%- if block.settings.image != blank -%}
                     {{

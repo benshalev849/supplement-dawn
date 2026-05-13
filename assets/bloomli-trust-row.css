@@ -49,24 +49,37 @@
 .bloomli-trust--pb-48 { padding-bottom: 4.8rem; }
 
 .bloomli-trust__inner {
-  width: min(100% - 3.2rem, var(--page-width, 120rem));
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--bloomli-page-width, var(--page-width, 120rem));
   margin-inline: auto;
+  padding-inline: var(--bloomli-page-gutter-desktop, 1.6rem);
+}
+
+.bloomli-trust__gallery {
+  position: relative;
+}
+
+.bloomli-trust__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bloomli-trust__viewport::-webkit-scrollbar {
+  display: none;
 }
 
 .bloomli-trust__track {
   display: flex;
+  flex-wrap: nowrap;
   gap: 1.2rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: x mandatory;
-  scroll-padding-inline: 0;
-  padding-inline: 0;
-  scrollbar-width: none;
-}
-
-.bloomli-trust__track::-webkit-scrollbar {
-  display: none;
+  align-items: stretch;
+  min-width: 0;
 }
 
 .bloomli-trust__card {
@@ -140,43 +153,27 @@
 }
 
 .bloomli-trust__arrow {
-  position: relative;
-  width: 3.8rem;
-  height: 3.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.2rem;
+  height: 4.2rem;
   border: 0.1rem solid rgba(var(--color-foreground), 0.14);
-  border-radius: 50%;
+  border-radius: var(--buttons-radius, 0.4rem);
   background: rgb(var(--color-background));
-  color: rgb(var(--color-button));
+  color: rgb(var(--color-foreground));
   cursor: pointer;
-  box-shadow: 0 0.8rem 2rem rgba(var(--color-foreground), 0.06);
-  transition: opacity var(--duration-short) ease, border-color var(--duration-short) ease, transform var(--duration-short) ease;
+  transition: opacity 160ms ease, border-color 160ms ease, color 160ms ease;
 }
 
 .bloomli-trust__arrow:hover {
-  border-color: rgba(var(--color-button), 0.42);
-  transform: translateY(-0.1rem);
+  border-color: rgb(var(--color-button));
+  color: rgb(var(--color-button));
 }
 
 .bloomli-trust__arrow:disabled {
   cursor: default;
   opacity: 0.38;
-  transform: none;
-}
-
-.bloomli-trust__arrow-icon::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0.9rem;
-  height: 0.9rem;
-  border-top: 0.16rem solid currentColor;
-  border-right: 0.16rem solid currentColor;
-  transform: translate(-60%, -50%) rotate(45deg);
-}
-
-.bloomli-trust__arrow--prev .bloomli-trust__arrow-icon::before {
-  transform: translate(-40%, -50%) rotate(225deg);
 }
 
 @media screen and (min-width: 750px) {
@@ -216,5 +213,35 @@
 
   .bloomli-trust__card {
     flex-basis: calc((100% - 4rem) / 3);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .bloomli-trust__inner {
+    padding-inline: 2rem;
+  }
+
+  .bloomli-trust__viewport {
+    margin-inline: -2rem;
+    scroll-padding-left: 2rem;
+  }
+
+  .bloomli-trust__track {
+    padding-inline: 2rem;
+  }
+
+  .bloomli-trust__card {
+    flex-basis: calc(100vw - 7.2rem);
+    max-width: calc(100vw - 7.2rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloomli-trust__viewport {
+    scroll-behavior: auto;
+  }
+
+  .bloomli-trust__arrow {
+    transition: none;
   }
 }

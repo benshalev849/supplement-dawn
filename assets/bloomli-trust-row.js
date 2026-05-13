@@ -1,81 +1,68 @@
-(function () {
-  function initTrustRows(scope) {
-    var root = scope && scope.querySelectorAll ? scope : document;
-    var sections = root.querySelectorAll('[data-bloomli-trust-row]');
+(() => {
+  const selector = '[data-bloomli-trust-gallery]';
 
-    sections.forEach(function (section) {
-      if (section.dataset.bloomliTrustReady === 'true') return;
+  const getStep = (viewport) => {
+    const firstCard = viewport.querySelector('.bloomli-trust__card');
+    if (!firstCard) return viewport.clientWidth;
 
-      var track = section.querySelector('[data-bloomli-trust-track]');
-      var progress = section.querySelector('[data-bloomli-trust-progress]');
-      var prev = section.querySelector('[data-bloomli-trust-prev]');
-      var next = section.querySelector('[data-bloomli-trust-next]');
-      if (!track || !progress) return;
+    const styles = window.getComputedStyle(viewport.querySelector('[data-bloomli-trust-track]'));
+    const gap = parseFloat(styles.columnGap || styles.gap || 0);
 
-      section.dataset.bloomliTrustReady = 'true';
+    return firstCard.getBoundingClientRect().width + (Number.isNaN(gap) ? 0 : gap);
+  };
 
-      function getMaxScroll() {
-        return Math.max(track.scrollWidth - track.clientWidth, 0);
-      }
+  const updateControls = (section) => {
+    const viewport = section.querySelector('[data-bloomli-trust-viewport]');
+    const prev = section.querySelector('[data-bloomli-trust-prev]');
+    const next = section.querySelector('[data-bloomli-trust-next]');
+    const progress = section.querySelector('[data-bloomli-trust-progress]');
+    if (!viewport) return;
 
-      function getStep() {
-        var firstCard = track.querySelector('.bloomli-trust__card');
-        if (!firstCard) return track.clientWidth;
+    const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth - 1);
+    const progressRatio = maxScroll > 0 ? viewport.scrollLeft / maxScroll : 1;
 
-        var gap = parseFloat(window.getComputedStyle(track).columnGap || window.getComputedStyle(track).gap);
-        if (!Number.isFinite(gap)) gap = 0;
+    if (prev) prev.disabled = viewport.scrollLeft <= 1;
+    if (next) next.disabled = viewport.scrollLeft >= maxScroll;
+    if (progress) progress.style.transform = `scaleX(${Math.max(0, Math.min(progressRatio, 1))})`;
+  };
 
-        return firstCard.getBoundingClientRect().width + gap;
-      }
+  const initSection = (section) => {
+    if (section.dataset.bloomliTrustReady === 'true') return;
 
-      function update() {
-        var maxScroll = getMaxScroll();
-        var ratio = maxScroll > 0 ? track.scrollLeft / maxScroll : 1;
-        ratio = Math.max(0, Math.min(ratio, 1));
+    const viewport = section.querySelector('[data-bloomli-trust-viewport]');
+    const prev = section.querySelector('[data-bloomli-trust-prev]');
+    const next = section.querySelector('[data-bloomli-trust-next]');
+    if (!viewport) return;
 
-        progress.style.transform = 'scaleX(' + ratio + ')';
+    if (prev) {
+      prev.addEventListener('click', () => {
+        viewport.scrollBy({ left: -getStep(viewport), behavior: 'smooth' });
+      });
+    }
 
-        if (prev) prev.disabled = track.scrollLeft <= 1;
-        if (next) next.disabled = track.scrollLeft >= maxScroll - 1;
-        section.classList.toggle('is-scrollable', maxScroll > 1);
-      }
+    if (next) {
+      next.addEventListener('click', () => {
+        viewport.scrollBy({ left: getStep(viewport), behavior: 'smooth' });
+      });
+    }
 
-      function scrollByDirection(direction) {
-        track.scrollBy({
-          left: getStep() * direction,
-          behavior: 'smooth',
-        });
-      }
+    viewport.addEventListener('scroll', () => updateControls(section), { passive: true });
+    window.addEventListener('resize', () => updateControls(section), { passive: true });
 
-      track.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', update);
+    updateControls(section);
+    requestAnimationFrame(() => updateControls(section));
+    section.dataset.bloomliTrustReady = 'true';
+  };
 
-      if (prev) {
-        prev.addEventListener('click', function () {
-          scrollByDirection(-1);
-        });
-      }
-
-      if (next) {
-        next.addEventListener('click', function () {
-          scrollByDirection(1);
-        });
-      }
-
-      update();
-      requestAnimationFrame(update);
-    });
-  }
+  const initAll = (root = document) => {
+    root.querySelectorAll(selector).forEach(initSection);
+  };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-      initTrustRows(document);
-    });
+    document.addEventListener('DOMContentLoaded', () => initAll(), { once: true });
   } else {
-    initTrustRows(document);
+    initAll();
   }
 
-  document.addEventListener('shopify:section:load', function (event) {
-    initTrustRows(event.target);
-  });
+  document.addEventListener('shopify:section:load', (event) => initAll(event.target));
 })();

@@ -221,54 +221,15 @@
   display: none;
 }
 
-.bloomli-beneath-surface__accordion-icon {
-  position: relative;
-  width: 2rem;
-  height: 2rem;
-  color: rgb(var(--color-button));
-}
-
-.bloomli-beneath-surface__accordion-icon::before,
-.bloomli-beneath-surface__accordion-icon::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1.4rem;
-  height: 0.2rem;
-  border-radius: 999rem;
-  background: currentColor;
-  transform: translate(-50%, -50%);
-  transition: transform var(--duration-short) ease;
-}
-
-.bloomli-beneath-surface__accordion-icon::after {
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.bloomli-beneath-surface__accordion-item.is-open .bloomli-beneath-surface__accordion-icon::after {
-  transform: translate(-50%, -50%) rotate(0deg);
-}
-
-.bloomli-beneath-surface__accordion-panel {
-  overflow: hidden;
-  transition: height 280ms ease, opacity 220ms ease;
-}
-
-.bloomli-beneath-surface__accordion-inner {
-  display: grid;
-  gap: 1.4rem;
-  padding: 0 0 1.6rem;
-}
-
 @media screen and (max-width: 989px) {
   .bloomli-beneath-surface__desktop {
     display: none;
   }
 
   .bloomli-beneath-surface__mobile {
-    display: grid;
-    gap: 1rem;
+    display: block;
+    margin-top: 2.8rem;
+    border-top-color: rgba(var(--color-foreground), 0.12);
   }
 
   .bloomli-beneath-surface__header {
@@ -280,26 +241,23 @@
     margin-left: 0;
   }
 
-  .bloomli-beneath-surface__accordion-item {
-    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
-    border-radius: var(--media-radius);
-    background: rgb(var(--color-background));
-    overflow: hidden;
-  }
-
-  .bloomli-beneath-surface__accordion-button {
-    border: 0;
-    border-radius: 0;
+  .bloomli-beneath-surface__mobile-item {
+    border-bottom-color: rgba(var(--color-foreground), 0.12);
     background: transparent;
-    box-shadow: none;
   }
 
-  .bloomli-beneath-surface__accordion-item.is-open .bloomli-beneath-surface__accordion-button {
-    box-shadow: none;
+  .bloomli-beneath-surface__mobile-question {
+    padding: 1.8rem 0;
   }
 
-  .bloomli-beneath-surface__accordion-inner {
-    padding-inline: 1.6rem;
+  .bloomli-beneath-surface__mobile-question .bloomli-faq__plus {
+    color: rgb(var(--color-button));
+  }
+
+  .bloomli-beneath-surface__mobile-panel-inner {
+    display: grid;
+    gap: 1.4rem;
+    padding: 0 0 1.8rem;
   }
 
   .bloomli-beneath-surface__media {
@@ -355,10 +313,9 @@
     font-size: 1.5rem;
   }
 
-  .bloomli-beneath-surface__accordion-button {
-    grid-template-columns: minmax(0, 1fr) 2rem;
-    gap: 1rem;
-    padding: 1.5rem;
+  .bloomli-beneath-surface__mobile-question {
+    gap: 1.2rem;
+    padding: 1.6rem 0;
   }
 
   .bloomli-beneath-surface__tab-title {

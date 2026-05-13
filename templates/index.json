@@ -442,6 +442,7 @@
     },
     "bloomli_quiz_cta_z9xXxd": {
       "type": "bloomli-quiz-cta",
+      "disabled": true,
       "name": "Bloomli — Quiz CTA",
       "settings": {
         "color_scheme": "",

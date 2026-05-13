@@ -95,24 +95,30 @@
           "type": "product",
           "settings": {
             "product": "ultra-strength-hair-gummies-copy",
-            "image_scale": 70,
+            "image_scale": 110,
             "title": "",
             "link": "",
             "price": "",
             "badge": "",
-            "show_stars": true
+            "show_stars": true,
+            "rating_source": "custom",
+            "custom_star_rating": "5",
+            "rating_text": ""
           }
         },
         "product_dhpTYA": {
           "type": "product",
           "settings": {
             "product": "test-supplement",
-            "image_scale": 70,
+            "image_scale": 110,
             "title": "",
             "link": "",
             "price": "",
             "badge": "",
-            "show_stars": true
+            "show_stars": true,
+            "rating_source": "custom",
+            "custom_star_rating": "5",
+            "rating_text": ""
           }
         },
         "product_rDWDrE": {
@@ -124,7 +130,10 @@
             "link": "",
             "price": "$68",
             "badge": "",
-            "show_stars": true
+            "show_stars": true,
+            "rating_source": "custom",
+            "custom_star_rating": "5",
+            "rating_text": ""
           }
         }
       },

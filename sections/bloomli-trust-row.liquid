@@ -1,3 +1,5 @@
+{{ 'bloomli-trust-row.css' | asset_url | stylesheet_tag }}
+
 <section
   class="bloomli-trust bloomli-section color-{{ section.settings.color_scheme }} gradient"
   style="--bloomli-trust-icon-color: {{ section.settings.icon_accent_color | default: '#6F7A5A' }}; --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;"
@@ -18,12 +20,12 @@
 {
   "name": "Bloomli — Trust Row",
   "tag": "div",
-  "max_blocks": 4,
+  "max_blocks": 6,
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
-    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 20, "max": 80, "step": 4, "default": 56 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 20, "max": 80, "step": 4, "default": 56 }
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 8, "max": 48, "step": 2, "default": 14 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 8, "max": 48, "step": 2, "default": 14 }
   ],
   "blocks": [
     {
@@ -36,19 +38,23 @@
           { "value": "leaf", "label": "Leaf" },
           { "value": "star", "label": "Star" },
           { "value": "check", "label": "Circle check" },
-          { "value": "globe", "label": "Globe / USA" }
+          { "value": "globe", "label": "Globe / USA" },
+          { "value": "refresh", "label": "Refresh / Pause" },
+          { "value": "sparkle", "label": "Sparkle" }
         ], "default": "flask" },
-        { "type": "text", "id": "label", "label": "Label", "default": "Clinically-studied ingredients" }
+        { "type": "text", "id": "label", "label": "Label", "default": "Third-party tested" }
       ]
     }
   ],
   "presets": [{
     "name": "Bloomli — Trust Row",
     "blocks": [
-      { "type": "trust_item", "settings": { "icon": "flask", "label": "Clinically-studied ingredients" } },
-      { "type": "trust_item", "settings": { "icon": "shield", "label": "Dermatologist-approved" } },
-      { "type": "trust_item", "settings": { "icon": "leaf", "label": "Cruelty-free & vegan" } },
-      { "type": "trust_item", "settings": { "icon": "globe", "label": "Made in the USA" } }
+      { "type": "trust_item", "settings": { "icon": "shield", "label": "Third-party tested" } },
+      { "type": "trust_item", "settings": { "icon": "check", "label": "2g sugar per gummy" } },
+      { "type": "trust_item", "settings": { "icon": "leaf", "label": "Gelatin-free" } },
+      { "type": "trust_item", "settings": { "icon": "globe", "label": "Made in the USA" } },
+      { "type": "trust_item", "settings": { "icon": "star", "label": "30-day guarantee" } },
+      { "type": "trust_item", "settings": { "icon": "refresh", "label": "Pause or cancel anytime" } }
     ]
   }]
 }

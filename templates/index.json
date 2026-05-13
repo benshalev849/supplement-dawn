@@ -48,22 +48,22 @@
         "trust_item_ENiVhL": {
           "type": "trust_item",
           "settings": {
-            "icon": "flask",
-            "label": "Clinically-studied ingredients"
+            "icon": "shield",
+            "label": "Third-party tested"
           }
         },
         "trust_item_qt7KmA": {
           "type": "trust_item",
           "settings": {
-            "icon": "shield",
-            "label": "Third-Party Tested"
+            "icon": "check",
+            "label": "2g sugar per gummy"
           }
         },
         "trust_item_CtHkqq": {
           "type": "trust_item",
           "settings": {
             "icon": "leaf",
-            "label": "Gluten-Free"
+            "label": "Gelatin-free"
           }
         },
         "trust_item_KgjBGQ": {
@@ -72,20 +72,36 @@
             "icon": "globe",
             "label": "Made in the USA"
           }
+        },
+        "trust_item_guarantee": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "star",
+            "label": "30-day guarantee"
+          }
+        },
+        "trust_item_pause": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "refresh",
+            "label": "Pause or cancel anytime"
+          }
         }
       },
       "block_order": [
         "trust_item_ENiVhL",
         "trust_item_qt7KmA",
         "trust_item_CtHkqq",
-        "trust_item_KgjBGQ"
+        "trust_item_KgjBGQ",
+        "trust_item_guarantee",
+        "trust_item_pause"
       ],
       "name": "Bloomli — Trust Row",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "icon_accent_color": "#b23a6f",
-        "padding_top": 56,
-        "padding_bottom": 56
+        "padding_top": 14,
+        "padding_bottom": 14
       }
     },
     "bloomli_product_finder_JdwGUB": {

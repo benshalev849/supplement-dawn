@@ -1,7 +1,7 @@
 # Graph Report - supplement-dawn  (2026-05-13)
 
 ## Corpus Check
-- 39 files · ~33,302 words
+- 39 files · ~33,382 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary

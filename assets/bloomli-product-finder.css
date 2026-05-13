@@ -96,10 +96,11 @@
   flex: 0 0 auto;
 }
 
-.bloomli-product-finder__icon svg {
+.bloomli-product-finder__icon .ti {
   display: block;
-  width: 2rem;
-  height: 2rem;
+  color: rgb(var(--color-button));
+  font-size: 2rem;
+  line-height: 1;
 }
 
 .bloomli-product-finder__pill {

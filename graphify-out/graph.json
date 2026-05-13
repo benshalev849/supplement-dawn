@@ -525,7 +525,7 @@
       "source_file": "animations.js",
       "source_location": "L1",
       "id": "animations_js",
-      "community": 3,
+      "community": 2,
       "norm_label": "animations.js"
     },
     {
@@ -534,7 +534,7 @@
       "source_file": "animations.js",
       "source_location": "L7",
       "id": "assets_animations_onintersection",
-      "community": 3,
+      "community": 2,
       "norm_label": "onintersection()"
     },
     {
@@ -543,7 +543,7 @@
       "source_file": "animations.js",
       "source_location": "L24",
       "id": "assets_animations_initializescrollanimationtrigger",
-      "community": 3,
+      "community": 2,
       "norm_label": "initializescrollanimationtrigger()"
     },
     {
@@ -552,7 +552,7 @@
       "source_file": "animations.js",
       "source_location": "L42",
       "id": "assets_animations_initializescrollzoomanimationtrigger",
-      "community": 3,
+      "community": 2,
       "norm_label": "initializescrollzoomanimationtrigger()"
     },
     {
@@ -561,7 +561,7 @@
       "source_file": "animations.js",
       "source_location": "L74",
       "id": "assets_animations_percentageseen",
-      "community": 3,
+      "community": 2,
       "norm_label": "percentageseen()"
     },
     {
@@ -570,7 +570,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L1",
       "id": "bloomli_before_after_js",
-      "community": 27,
+      "community": 26,
       "norm_label": "bloomli-before-after.js"
     },
     {
@@ -579,7 +579,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L4",
       "id": "assets_bloomli_before_after_getstep",
-      "community": 27,
+      "community": 26,
       "norm_label": "getstep()"
     },
     {
@@ -588,7 +588,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L14",
       "id": "assets_bloomli_before_after_updatecontrols",
-      "community": 27,
+      "community": 26,
       "norm_label": "updatecontrols()"
     },
     {
@@ -597,7 +597,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L25",
       "id": "assets_bloomli_before_after_initsection",
-      "community": 27,
+      "community": 26,
       "norm_label": "initsection()"
     },
     {
@@ -606,7 +606,7 @@
       "source_file": "bloomli-before-after.js",
       "source_location": "L48",
       "id": "assets_bloomli_before_after_initall",
-      "community": 27,
+      "community": 26,
       "norm_label": "initall()"
     },
     {
@@ -1038,7 +1038,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L1",
       "id": "bloomli_timeline_js",
-      "community": 23,
+      "community": 22,
       "norm_label": "bloomli-timeline.js"
     },
     {
@@ -1047,7 +1047,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L13",
       "id": "assets_bloomli_timeline_clamp",
-      "community": 23,
+      "community": 22,
       "norm_label": "clamp()"
     },
     {
@@ -1056,7 +1056,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L17",
       "id": "assets_bloomli_timeline_update",
-      "community": 23,
+      "community": 22,
       "norm_label": "update()"
     },
     {
@@ -1065,7 +1065,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L58",
       "id": "assets_bloomli_timeline_getmobileprogress",
-      "community": 23,
+      "community": 22,
       "norm_label": "getmobileprogress()"
     },
     {
@@ -1074,7 +1074,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L67",
       "id": "assets_bloomli_timeline_getdesktopprogress",
-      "community": 23,
+      "community": 22,
       "norm_label": "getdesktopprogress()"
     },
     {
@@ -1083,7 +1083,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L77",
       "id": "assets_bloomli_timeline_setreachedstepsfromline",
-      "community": 23,
+      "community": 22,
       "norm_label": "setreachedstepsfromline()"
     },
     {
@@ -1092,7 +1092,7 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L98",
       "id": "assets_bloomli_timeline_setreachedsteps",
-      "community": 23,
+      "community": 22,
       "norm_label": "setreachedsteps()"
     },
     {
@@ -1101,8 +1101,26 @@
       "source_file": "bloomli-timeline.js",
       "source_location": "L121",
       "id": "assets_bloomli_timeline_requestupdate",
-      "community": 23,
+      "community": 22,
       "norm_label": "requestupdate()"
+    },
+    {
+      "label": "bloomli-trust-row.js",
+      "file_type": "code",
+      "source_file": "bloomli-trust-row.js",
+      "source_location": "L1",
+      "id": "bloomli_trust_row_js",
+      "community": 45,
+      "norm_label": "bloomli-trust-row.js"
+    },
+    {
+      "label": "initTrustRows()",
+      "file_type": "code",
+      "source_file": "bloomli-trust-row.js",
+      "source_location": "L2",
+      "id": "assets_bloomli_trust_row_inittrustrows",
+      "community": 45,
+      "norm_label": "inittrustrows()"
     },
     {
       "label": "bloomli-volume-tier.js",
@@ -1110,7 +1128,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L1",
       "id": "bloomli_volume_tier_js",
-      "community": 24,
+      "community": 23,
       "norm_label": "bloomli-volume-tier.js"
     },
     {
@@ -1119,7 +1137,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L7",
       "id": "assets_bloomli_volume_tier_ensuredollarprefix",
-      "community": 24,
+      "community": 23,
       "norm_label": "ensuredollarprefix()"
     },
     {
@@ -1128,7 +1146,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L13",
       "id": "assets_bloomli_volume_tier_formatmoney",
-      "community": 24,
+      "community": 23,
       "norm_label": "formatmoney()"
     },
     {
@@ -1137,7 +1155,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L30",
       "id": "assets_bloomli_volume_tier_formatdiscount",
-      "community": 24,
+      "community": 23,
       "norm_label": "formatdiscount()"
     },
     {
@@ -1146,7 +1164,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L34",
       "id": "assets_bloomli_volume_tier_parsecents",
-      "community": 24,
+      "community": 23,
       "norm_label": "parsecents()"
     },
     {
@@ -1155,7 +1173,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L39",
       "id": "assets_bloomli_volume_tier_formattemplate",
-      "community": 24,
+      "community": 23,
       "norm_label": "formattemplate()"
     },
     {
@@ -1164,7 +1182,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L45",
       "id": "assets_bloomli_volume_tier_initroot",
-      "community": 24,
+      "community": 23,
       "norm_label": "initroot()"
     },
     {
@@ -1173,7 +1191,7 @@
       "source_file": "bloomli-volume-tier.js",
       "source_location": "L369",
       "id": "assets_bloomli_volume_tier_init",
-      "community": 24,
+      "community": 23,
       "norm_label": "init()"
     },
     {
@@ -1227,7 +1245,7 @@
       "source_file": "cart-drawer.js",
       "source_location": "L52",
       "id": "assets_cart_drawer_cartdrawer_close",
-      "community": 0,
+      "community": 1,
       "norm_label": ".close()"
     },
     {
@@ -1308,7 +1326,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L1",
       "id": "cart_notification_js",
-      "community": 0,
+      "community": 1,
       "norm_label": "cart-notification.js"
     },
     {
@@ -1317,7 +1335,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L1",
       "id": "assets_cart_notification_cartnotification",
-      "community": 0,
+      "community": 1,
       "norm_label": "cartnotification"
     },
     {
@@ -1326,7 +1344,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L2",
       "id": "assets_cart_notification_cartnotification_constructor",
-      "community": 0,
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -1335,7 +1353,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L15",
       "id": "assets_cart_notification_cartnotification_open",
-      "community": 0,
+      "community": 1,
       "norm_label": ".open()"
     },
     {
@@ -1344,7 +1362,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L30",
       "id": "assets_cart_notification_cartnotification_close",
-      "community": 0,
+      "community": 1,
       "norm_label": ".close()"
     },
     {
@@ -1353,7 +1371,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L37",
       "id": "assets_cart_notification_cartnotification_rendercontents",
-      "community": 0,
+      "community": 1,
       "norm_label": ".rendercontents()"
     },
     {
@@ -1362,7 +1380,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L50",
       "id": "assets_cart_notification_cartnotification_getsectionstorender",
-      "community": 0,
+      "community": 1,
       "norm_label": ".getsectionstorender()"
     },
     {
@@ -1371,7 +1389,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L65",
       "id": "assets_cart_notification_cartnotification_getsectioninnerhtml",
-      "community": 0,
+      "community": 1,
       "norm_label": ".getsectioninnerhtml()"
     },
     {
@@ -1380,7 +1398,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L69",
       "id": "assets_cart_notification_cartnotification_handlebodyclick",
-      "community": 0,
+      "community": 1,
       "norm_label": ".handlebodyclick()"
     },
     {
@@ -1389,7 +1407,7 @@
       "source_file": "cart-notification.js",
       "source_location": "L78",
       "id": "assets_cart_notification_cartnotification_setactiveelement",
-      "community": 0,
+      "community": 1,
       "norm_label": ".setactiveelement()"
     },
     {
@@ -1398,7 +1416,7 @@
       "source_file": "cart.js",
       "source_location": "L1",
       "id": "cart_js",
-      "community": 6,
+      "community": 5,
       "norm_label": "cart.js"
     },
     {
@@ -1407,7 +1425,7 @@
       "source_file": "cart.js",
       "source_location": "L1",
       "id": "assets_cart_cartremovebutton",
-      "community": 6,
+      "community": 5,
       "norm_label": "cartremovebutton"
     },
     {
@@ -1416,7 +1434,7 @@
       "source_file": "cart.js",
       "source_location": "L2",
       "id": "assets_cart_cartremovebutton_constructor",
-      "community": 6,
+      "community": 5,
       "norm_label": ".constructor()"
     },
     {
@@ -1425,7 +1443,7 @@
       "source_file": "cart.js",
       "source_location": "L15",
       "id": "assets_cart_cartitems",
-      "community": 6,
+      "community": 5,
       "norm_label": "cartitems"
     },
     {
@@ -1434,7 +1452,7 @@
       "source_file": "cart.js",
       "source_location": "L16",
       "id": "assets_cart_cartitems_constructor",
-      "community": 6,
+      "community": 5,
       "norm_label": ".constructor()"
     },
     {
@@ -1443,7 +1461,7 @@
       "source_file": "cart.js",
       "source_location": "L30",
       "id": "assets_cart_cartitems_connectedcallback",
-      "community": 2,
+      "community": 3,
       "norm_label": ".connectedcallback()"
     },
     {
@@ -1452,7 +1470,7 @@
       "source_file": "cart.js",
       "source_location": "L39",
       "id": "assets_cart_cartitems_disconnectedcallback",
-      "community": 6,
+      "community": 5,
       "norm_label": ".disconnectedcallback()"
     },
     {
@@ -1461,7 +1479,7 @@
       "source_file": "cart.js",
       "source_location": "L45",
       "id": "assets_cart_cartitems_resetquantityinput",
-      "community": 6,
+      "community": 5,
       "norm_label": ".resetquantityinput()"
     },
     {
@@ -1470,7 +1488,7 @@
       "source_file": "cart.js",
       "source_location": "L51",
       "id": "assets_cart_cartitems_setvalidity",
-      "community": 6,
+      "community": 5,
       "norm_label": ".setvalidity()"
     },
     {
@@ -1479,7 +1497,7 @@
       "source_file": "cart.js",
       "source_location": "L58",
       "id": "assets_cart_cartitems_validatequantity",
-      "community": 6,
+      "community": 5,
       "norm_label": ".validatequantity()"
     },
     {
@@ -1488,7 +1506,7 @@
       "source_file": "cart.js",
       "source_location": "L86",
       "id": "assets_cart_cartitems_onchange",
-      "community": 6,
+      "community": 5,
       "norm_label": ".onchange()"
     },
     {
@@ -1497,7 +1515,7 @@
       "source_file": "cart.js",
       "source_location": "L90",
       "id": "assets_cart_cartitems_getsellingplanforquantity",
-      "community": 6,
+      "community": 5,
       "norm_label": ".getsellingplanforquantity()"
     },
     {
@@ -1506,7 +1524,7 @@
       "source_file": "cart.js",
       "source_location": "L98",
       "id": "assets_cart_cartitems_oncartupdate",
-      "community": 6,
+      "community": 5,
       "norm_label": ".oncartupdate()"
     },
     {
@@ -1515,7 +1533,7 @@
       "source_file": "cart.js",
       "source_location": "L130",
       "id": "assets_cart_cartitems_getsectionstorender",
-      "community": 6,
+      "community": 5,
       "norm_label": ".getsectionstorender()"
     },
     {
@@ -1524,7 +1542,7 @@
       "source_file": "cart.js",
       "source_location": "L155",
       "id": "assets_cart_cartitems_updatequantity",
-      "community": 6,
+      "community": 5,
       "norm_label": ".updatequantity()"
     },
     {
@@ -1533,7 +1551,7 @@
       "source_file": "cart.js",
       "source_location": "L244",
       "id": "assets_cart_cartitems_updateliveregions",
-      "community": 6,
+      "community": 5,
       "norm_label": ".updateliveregions()"
     },
     {
@@ -1542,7 +1560,7 @@
       "source_file": "cart.js",
       "source_location": "L260",
       "id": "assets_cart_cartitems_getsectioninnerhtml",
-      "community": 6,
+      "community": 5,
       "norm_label": ".getsectioninnerhtml()"
     },
     {
@@ -1551,7 +1569,7 @@
       "source_file": "cart.js",
       "source_location": "L264",
       "id": "assets_cart_cartitems_enableloading",
-      "community": 6,
+      "community": 5,
       "norm_label": ".enableloading()"
     },
     {
@@ -1560,7 +1578,7 @@
       "source_file": "cart.js",
       "source_location": "L281",
       "id": "assets_cart_cartitems_disableloading",
-      "community": 6,
+      "community": 5,
       "norm_label": ".disableloading()"
     },
     {
@@ -1569,7 +1587,7 @@
       "source_file": "cart.js",
       "source_location": "L302",
       "id": "assets_cart_constructor",
-      "community": 6,
+      "community": 5,
       "norm_label": "constructor()"
     },
     {
@@ -1578,7 +1596,7 @@
       "source_file": "constants.js",
       "source_location": "L1",
       "id": "constants_js",
-      "community": 54,
+      "community": 55,
       "norm_label": "constants.js"
     },
     {
@@ -1650,7 +1668,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L1",
       "id": "details_disclosure_js",
-      "community": 21,
+      "community": 20,
       "norm_label": "details-disclosure.js"
     },
     {
@@ -1659,7 +1677,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L1",
       "id": "assets_details_disclosure_detailsdisclosure",
-      "community": 21,
+      "community": 20,
       "norm_label": "detailsdisclosure"
     },
     {
@@ -1668,7 +1686,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L2",
       "id": "assets_details_disclosure_detailsdisclosure_constructor",
-      "community": 21,
+      "community": 20,
       "norm_label": ".constructor()"
     },
     {
@@ -1677,7 +1695,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L11",
       "id": "assets_details_disclosure_detailsdisclosure_onfocusout",
-      "community": 21,
+      "community": 20,
       "norm_label": ".onfocusout()"
     },
     {
@@ -1686,7 +1704,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L17",
       "id": "assets_details_disclosure_detailsdisclosure_ontoggle",
-      "community": 21,
+      "community": 20,
       "norm_label": ".ontoggle()"
     },
     {
@@ -1695,7 +1713,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L27",
       "id": "assets_details_disclosure_detailsdisclosure_close",
-      "community": 21,
+      "community": 20,
       "norm_label": ".close()"
     },
     {
@@ -1704,7 +1722,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L35",
       "id": "assets_details_disclosure_headermenu",
-      "community": 21,
+      "community": 20,
       "norm_label": "headermenu"
     },
     {
@@ -1713,7 +1731,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L36",
       "id": "assets_details_disclosure_headermenu_constructor",
-      "community": 21,
+      "community": 20,
       "norm_label": ".constructor()"
     },
     {
@@ -1722,7 +1740,7 @@
       "source_file": "details-disclosure.js",
       "source_location": "L41",
       "id": "assets_details_disclosure_headermenu_ontoggle",
-      "community": 21,
+      "community": 20,
       "norm_label": ".ontoggle()"
     },
     {
@@ -1731,7 +1749,7 @@
       "source_file": "details-modal.js",
       "source_location": "L1",
       "id": "details_modal_js",
-      "community": 0,
+      "community": 1,
       "norm_label": "details-modal.js"
     },
     {
@@ -1740,7 +1758,7 @@
       "source_file": "details-modal.js",
       "source_location": "L1",
       "id": "assets_details_modal_detailsmodal",
-      "community": 0,
+      "community": 1,
       "norm_label": "detailsmodal"
     },
     {
@@ -1749,7 +1767,7 @@
       "source_file": "details-modal.js",
       "source_location": "L2",
       "id": "assets_details_modal_detailsmodal_constructor",
-      "community": 0,
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -1758,7 +1776,7 @@
       "source_file": "details-modal.js",
       "source_location": "L14",
       "id": "assets_details_modal_detailsmodal_isopen",
-      "community": 0,
+      "community": 1,
       "norm_label": ".isopen()"
     },
     {
@@ -1767,7 +1785,7 @@
       "source_file": "details-modal.js",
       "source_location": "L18",
       "id": "assets_details_modal_detailsmodal_onsummaryclick",
-      "community": 0,
+      "community": 1,
       "norm_label": ".onsummaryclick()"
     },
     {
@@ -1776,7 +1794,7 @@
       "source_file": "details-modal.js",
       "source_location": "L23",
       "id": "assets_details_modal_detailsmodal_onbodyclick",
-      "community": 0,
+      "community": 1,
       "norm_label": ".onbodyclick()"
     },
     {
@@ -1785,7 +1803,7 @@
       "source_file": "details-modal.js",
       "source_location": "L27",
       "id": "assets_details_modal_detailsmodal_open",
-      "community": 0,
+      "community": 1,
       "norm_label": ".open()"
     },
     {
@@ -1794,7 +1812,7 @@
       "source_file": "details-modal.js",
       "source_location": "L39",
       "id": "assets_details_modal_detailsmodal_close",
-      "community": 0,
+      "community": 1,
       "norm_label": ".close()"
     },
     {
@@ -1803,7 +1821,7 @@
       "source_file": "facets.js",
       "source_location": "L1",
       "id": "facets_js",
-      "community": 3,
+      "community": 2,
       "norm_label": "facets.js"
     },
     {
@@ -1812,7 +1830,7 @@
       "source_file": "facets.js",
       "source_location": "L1",
       "id": "assets_facets_facetfiltersform",
-      "community": 3,
+      "community": 2,
       "norm_label": "facetfiltersform"
     },
     {
@@ -1821,7 +1839,7 @@
       "source_file": "facets.js",
       "source_location": "L2",
       "id": "assets_facets_facetfiltersform_constructor",
-      "community": 6,
+      "community": 5,
       "norm_label": ".constructor()"
     },
     {
@@ -1830,7 +1848,7 @@
       "source_file": "facets.js",
       "source_location": "L17",
       "id": "assets_facets_facetfiltersform_setlisteners",
-      "community": 3,
+      "community": 2,
       "norm_label": ".setlisteners()"
     },
     {
@@ -1839,7 +1857,7 @@
       "source_file": "facets.js",
       "source_location": "L26",
       "id": "assets_facets_facetfiltersform_toggleactivefacets",
-      "community": 3,
+      "community": 2,
       "norm_label": ".toggleactivefacets()"
     },
     {
@@ -1848,7 +1866,7 @@
       "source_file": "facets.js",
       "source_location": "L32",
       "id": "assets_facets_facetfiltersform_renderpage",
-      "community": 3,
+      "community": 2,
       "norm_label": ".renderpage()"
     },
     {
@@ -1857,7 +1875,7 @@
       "source_file": "facets.js",
       "source_location": "L61",
       "id": "assets_facets_facetfiltersform_rendersectionfromfetch",
-      "community": 3,
+      "community": 2,
       "norm_label": ".rendersectionfromfetch()"
     },
     {
@@ -1866,7 +1884,7 @@
       "source_file": "facets.js",
       "source_location": "L74",
       "id": "assets_facets_facetfiltersform_rendersectionfromcache",
-      "community": 3,
+      "community": 2,
       "norm_label": ".rendersectionfromcache()"
     },
     {
@@ -1875,7 +1893,7 @@
       "source_file": "facets.js",
       "source_location": "L82",
       "id": "assets_facets_facetfiltersform_renderproductgridcontainer",
-      "community": 3,
+      "community": 2,
       "norm_label": ".renderproductgridcontainer()"
     },
     {
@@ -1884,7 +1902,7 @@
       "source_file": "facets.js",
       "source_location": "L95",
       "id": "assets_facets_facetfiltersform_renderproductcount",
-      "community": 3,
+      "community": 2,
       "norm_label": ".renderproductcount()"
     },
     {
@@ -1893,7 +1911,7 @@
       "source_file": "facets.js",
       "source_location": "L111",
       "id": "assets_facets_facetfiltersform_renderfilters",
-      "community": 3,
+      "community": 2,
       "norm_label": ".renderfilters()"
     },
     {
@@ -1902,7 +1920,7 @@
       "source_file": "facets.js",
       "source_location": "L179",
       "id": "assets_facets_facetfiltersform_renderactivefacets",
-      "community": 3,
+      "community": 2,
       "norm_label": ".renderactivefacets()"
     },
     {
@@ -1911,7 +1929,7 @@
       "source_file": "facets.js",
       "source_location": "L191",
       "id": "assets_facets_facetfiltersform_renderadditionalelements",
-      "community": 3,
+      "community": 2,
       "norm_label": ".renderadditionalelements()"
     },
     {
@@ -1920,7 +1938,7 @@
       "source_file": "facets.js",
       "source_location": "L202",
       "id": "assets_facets_facetfiltersform_rendercounts",
-      "community": 3,
+      "community": 2,
       "norm_label": ".rendercounts()"
     },
     {
@@ -1929,7 +1947,7 @@
       "source_file": "facets.js",
       "source_location": "L232",
       "id": "assets_facets_facetfiltersform_rendermobilecounts",
-      "community": 3,
+      "community": 2,
       "norm_label": ".rendermobilecounts()"
     },
     {
@@ -1938,7 +1956,7 @@
       "source_file": "facets.js",
       "source_location": "L241",
       "id": "assets_facets_facetfiltersform_updateurlhash",
-      "community": 3,
+      "community": 2,
       "norm_label": ".updateurlhash()"
     },
     {
@@ -1947,7 +1965,7 @@
       "source_file": "facets.js",
       "source_location": "L245",
       "id": "assets_facets_facetfiltersform_getsections",
-      "community": 3,
+      "community": 2,
       "norm_label": ".getsections()"
     },
     {
@@ -1956,7 +1974,7 @@
       "source_file": "facets.js",
       "source_location": "L253",
       "id": "assets_facets_facetfiltersform_createsearchparams",
-      "community": 3,
+      "community": 2,
       "norm_label": ".createsearchparams()"
     },
     {
@@ -1965,7 +1983,7 @@
       "source_file": "facets.js",
       "source_location": "L258",
       "id": "assets_facets_facetfiltersform_onsubmitform",
-      "community": 3,
+      "community": 2,
       "norm_label": ".onsubmitform()"
     },
     {
@@ -1974,7 +1992,7 @@
       "source_file": "facets.js",
       "source_location": "L262",
       "id": "assets_facets_facetfiltersform_onsubmithandler",
-      "community": 3,
+      "community": 2,
       "norm_label": ".onsubmithandler()"
     },
     {
@@ -1983,7 +2001,7 @@
       "source_file": "facets.js",
       "source_location": "L285",
       "id": "assets_facets_facetfiltersform_onactivefilterclick",
-      "community": 3,
+      "community": 2,
       "norm_label": ".onactivefilterclick()"
     },
     {
@@ -1992,7 +2010,7 @@
       "source_file": "facets.js",
       "source_location": "L302",
       "id": "assets_facets_pricerange",
-      "community": 3,
+      "community": 2,
       "norm_label": "pricerange"
     },
     {
@@ -2001,7 +2019,7 @@
       "source_file": "facets.js",
       "source_location": "L303",
       "id": "assets_facets_pricerange_constructor",
-      "community": 3,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
@@ -2010,7 +2028,7 @@
       "source_file": "facets.js",
       "source_location": "L312",
       "id": "assets_facets_pricerange_onrangechange",
-      "community": 3,
+      "community": 2,
       "norm_label": ".onrangechange()"
     },
     {
@@ -2019,7 +2037,7 @@
       "source_file": "facets.js",
       "source_location": "L317",
       "id": "assets_facets_pricerange_onkeydown",
-      "community": 3,
+      "community": 2,
       "norm_label": ".onkeydown()"
     },
     {
@@ -2028,7 +2046,7 @@
       "source_file": "facets.js",
       "source_location": "L324",
       "id": "assets_facets_pricerange_setminandmaxvalues",
-      "community": 3,
+      "community": 2,
       "norm_label": ".setminandmaxvalues()"
     },
     {
@@ -2037,7 +2055,7 @@
       "source_file": "facets.js",
       "source_location": "L334",
       "id": "assets_facets_pricerange_adjusttovalidvalues",
-      "community": 3,
+      "community": 2,
       "norm_label": ".adjusttovalidvalues()"
     },
     {
@@ -2046,7 +2064,7 @@
       "source_file": "facets.js",
       "source_location": "L346",
       "id": "assets_facets_facetremove",
-      "community": 3,
+      "community": 2,
       "norm_label": "facetremove"
     },
     {
@@ -2055,7 +2073,7 @@
       "source_file": "facets.js",
       "source_location": "L347",
       "id": "assets_facets_facetremove_constructor",
-      "community": 3,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
@@ -2064,7 +2082,7 @@
       "source_file": "facets.js",
       "source_location": "L358",
       "id": "assets_facets_facetremove_closefilter",
-      "community": 3,
+      "community": 2,
       "norm_label": ".closefilter()"
     },
     {
@@ -2073,7 +2091,7 @@
       "source_file": "global.js",
       "source_location": "L1",
       "id": "global_js",
-      "community": 1,
+      "community": 0,
       "norm_label": "global.js"
     },
     {
@@ -2082,7 +2100,7 @@
       "source_file": "global.js",
       "source_location": "L1",
       "id": "assets_global_getfocusableelements",
-      "community": 0,
+      "community": 1,
       "norm_label": "getfocusableelements()"
     },
     {
@@ -2091,7 +2109,7 @@
       "source_file": "global.js",
       "source_location": "L9",
       "id": "assets_global_sectionid",
-      "community": 1,
+      "community": 0,
       "norm_label": "sectionid"
     },
     {
@@ -2100,7 +2118,7 @@
       "source_file": "global.js",
       "source_location": "L13",
       "id": "assets_global_sectionid_parseid",
-      "community": 1,
+      "community": 0,
       "norm_label": ".parseid()"
     },
     {
@@ -2109,7 +2127,7 @@
       "source_file": "global.js",
       "source_location": "L18",
       "id": "assets_global_sectionid_parsesectionname",
-      "community": 1,
+      "community": 0,
       "norm_label": ".parsesectionname()"
     },
     {
@@ -2118,7 +2136,7 @@
       "source_file": "global.js",
       "source_location": "L23",
       "id": "assets_global_sectionid_getidforsection",
-      "community": 1,
+      "community": 0,
       "norm_label": ".getidforsection()"
     },
     {
@@ -2127,7 +2145,7 @@
       "source_file": "global.js",
       "source_location": "L28",
       "id": "assets_global_htmlupdateutility",
-      "community": 1,
+      "community": 0,
       "norm_label": "htmlupdateutility"
     },
     {
@@ -2136,7 +2154,7 @@
       "source_file": "global.js",
       "source_location": "L35",
       "id": "assets_global_htmlupdateutility_viewtransition",
-      "community": 1,
+      "community": 0,
       "norm_label": ".viewtransition()"
     },
     {
@@ -2145,7 +2163,7 @@
       "source_file": "global.js",
       "source_location": "L58",
       "id": "assets_global_htmlupdateutility_setinnerhtml",
-      "community": 1,
+      "community": 0,
       "norm_label": ".setinnerhtml()"
     },
     {
@@ -2154,7 +2172,7 @@
       "source_file": "global.js",
       "source_location": "L89",
       "id": "assets_global_trapfocus",
-      "community": 0,
+      "community": 1,
       "norm_label": "trapfocus()"
     },
     {
@@ -2163,7 +2181,7 @@
       "source_file": "global.js",
       "source_location": "L142",
       "id": "assets_global_focusvisiblepolyfill",
-      "community": 1,
+      "community": 0,
       "norm_label": "focusvisiblepolyfill()"
     },
     {
@@ -2172,7 +2190,7 @@
       "source_file": "global.js",
       "source_location": "L184",
       "id": "assets_global_pauseallmedia",
-      "community": 1,
+      "community": 0,
       "norm_label": "pauseallmedia()"
     },
     {
@@ -2181,7 +2199,7 @@
       "source_file": "global.js",
       "source_location": "L197",
       "id": "assets_global_removetrapfocus",
-      "community": 0,
+      "community": 1,
       "norm_label": "removetrapfocus()"
     },
     {
@@ -2190,7 +2208,7 @@
       "source_file": "global.js",
       "source_location": "L205",
       "id": "assets_global_onkeyupescape",
-      "community": 1,
+      "community": 0,
       "norm_label": "onkeyupescape()"
     },
     {
@@ -2199,7 +2217,7 @@
       "source_file": "global.js",
       "source_location": "L217",
       "id": "assets_global_quantityinput",
-      "community": 2,
+      "community": 0,
       "norm_label": "quantityinput"
     },
     {
@@ -2208,7 +2226,7 @@
       "source_file": "global.js",
       "source_location": "L218",
       "id": "assets_global_quantityinput_constructor",
-      "community": 2,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -2217,7 +2235,7 @@
       "source_file": "global.js",
       "source_location": "L230",
       "id": "assets_global_quantityinput_connectedcallback",
-      "community": 2,
+      "community": 0,
       "norm_label": ".connectedcallback()"
     },
     {
@@ -2226,7 +2244,7 @@
       "source_file": "global.js",
       "source_location": "L235",
       "id": "assets_global_quantityinput_disconnectedcallback",
-      "community": 2,
+      "community": 0,
       "norm_label": ".disconnectedcallback()"
     },
     {
@@ -2235,7 +2253,7 @@
       "source_file": "global.js",
       "source_location": "L241",
       "id": "assets_global_quantityinput_oninputchange",
-      "community": 2,
+      "community": 0,
       "norm_label": ".oninputchange()"
     },
     {
@@ -2244,7 +2262,7 @@
       "source_file": "global.js",
       "source_location": "L245",
       "id": "assets_global_quantityinput_onbuttonclick",
-      "community": 2,
+      "community": 0,
       "norm_label": ".onbuttonclick()"
     },
     {
@@ -2253,7 +2271,7 @@
       "source_file": "global.js",
       "source_location": "L266",
       "id": "assets_global_quantityinput_validateqtyrules",
-      "community": 2,
+      "community": 0,
       "norm_label": ".validateqtyrules()"
     },
     {
@@ -2262,7 +2280,7 @@
       "source_file": "global.js",
       "source_location": "L282",
       "id": "assets_global_debounce",
-      "community": 6,
+      "community": 5,
       "norm_label": "debounce()"
     },
     {
@@ -2271,7 +2289,7 @@
       "source_file": "global.js",
       "source_location": "L291",
       "id": "assets_global_throttle",
-      "community": 1,
+      "community": 0,
       "norm_label": "throttle()"
     },
     {
@@ -2289,7 +2307,7 @@
       "source_file": "global.js",
       "source_location": "L422",
       "id": "assets_global_menudrawer",
-      "community": 0,
+      "community": 1,
       "norm_label": "menudrawer"
     },
     {
@@ -2298,7 +2316,7 @@
       "source_file": "global.js",
       "source_location": "L423",
       "id": "assets_global_menudrawer_constructor",
-      "community": 0,
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -2307,7 +2325,7 @@
       "source_file": "global.js",
       "source_location": "L433",
       "id": "assets_global_menudrawer_bindevents",
-      "community": 0,
+      "community": 1,
       "norm_label": ".bindevents()"
     },
     {
@@ -2316,7 +2334,7 @@
       "source_file": "global.js",
       "source_location": "L442",
       "id": "assets_global_menudrawer_onkeyup",
-      "community": 0,
+      "community": 1,
       "norm_label": ".onkeyup()"
     },
     {
@@ -2325,7 +2343,7 @@
       "source_file": "global.js",
       "source_location": "L453",
       "id": "assets_global_menudrawer_onsummaryclick",
-      "community": 0,
+      "community": 1,
       "norm_label": ".onsummaryclick()"
     },
     {
@@ -2334,7 +2352,7 @@
       "source_file": "global.js",
       "source_location": "L484",
       "id": "assets_global_menudrawer_openmenudrawer",
-      "community": 0,
+      "community": 1,
       "norm_label": ".openmenudrawer()"
     },
     {
@@ -2343,7 +2361,7 @@
       "source_file": "global.js",
       "source_location": "L493",
       "id": "assets_global_menudrawer_closemenudrawer",
-      "community": 0,
+      "community": 1,
       "norm_label": ".closemenudrawer()"
     },
     {
@@ -2352,7 +2370,7 @@
       "source_file": "global.js",
       "source_location": "L511",
       "id": "assets_global_menudrawer_onfocusout",
-      "community": 0,
+      "community": 1,
       "norm_label": ".onfocusout()"
     },
     {
@@ -2361,7 +2379,7 @@
       "source_file": "global.js",
       "source_location": "L518",
       "id": "assets_global_menudrawer_onclosebuttonclick",
-      "community": 0,
+      "community": 1,
       "norm_label": ".onclosebuttonclick()"
     },
     {
@@ -2370,7 +2388,7 @@
       "source_file": "global.js",
       "source_location": "L523",
       "id": "assets_global_menudrawer_closesubmenu",
-      "community": 0,
+      "community": 1,
       "norm_label": ".closesubmenu()"
     },
     {
@@ -2379,7 +2397,7 @@
       "source_file": "global.js",
       "source_location": "L532",
       "id": "assets_global_menudrawer_closeanimation",
-      "community": 0,
+      "community": 1,
       "norm_label": ".closeanimation()"
     },
     {
@@ -2388,7 +2406,7 @@
       "source_file": "global.js",
       "source_location": "L558",
       "id": "assets_global_headerdrawer",
-      "community": 0,
+      "community": 1,
       "norm_label": "headerdrawer"
     },
     {
@@ -2397,7 +2415,7 @@
       "source_file": "global.js",
       "source_location": "L559",
       "id": "assets_global_headerdrawer_constructor",
-      "community": 0,
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -2406,7 +2424,7 @@
       "source_file": "global.js",
       "source_location": "L563",
       "id": "assets_global_headerdrawer_openmenudrawer",
-      "community": 0,
+      "community": 1,
       "norm_label": ".openmenudrawer()"
     },
     {
@@ -2415,7 +2433,7 @@
       "source_file": "global.js",
       "source_location": "L583",
       "id": "assets_global_headerdrawer_closemenudrawer",
-      "community": 0,
+      "community": 1,
       "norm_label": ".closemenudrawer()"
     },
     {
@@ -2424,7 +2442,7 @@
       "source_file": "global.js",
       "source_location": "L602",
       "id": "assets_global_modaldialog",
-      "community": 1,
+      "community": 0,
       "norm_label": "modaldialog"
     },
     {
@@ -2433,7 +2451,7 @@
       "source_file": "global.js",
       "source_location": "L603",
       "id": "assets_global_modaldialog_constructor",
-      "community": 1,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -2442,7 +2460,7 @@
       "source_file": "global.js",
       "source_location": "L620",
       "id": "assets_global_modaldialog_connectedcallback",
-      "community": 1,
+      "community": 0,
       "norm_label": ".connectedcallback()"
     },
     {
@@ -2451,7 +2469,7 @@
       "source_file": "global.js",
       "source_location": "L627",
       "id": "assets_global_modaldialog_show",
-      "community": 1,
+      "community": 0,
       "norm_label": ".show()"
     },
     {
@@ -2460,7 +2478,7 @@
       "source_file": "global.js",
       "source_location": "L637",
       "id": "assets_global_modaldialog_hide",
-      "community": 1,
+      "community": 0,
       "norm_label": ".hide()"
     },
     {
@@ -2469,7 +2487,7 @@
       "source_file": "global.js",
       "source_location": "L647",
       "id": "assets_global_bulkmodal",
-      "community": 1,
+      "community": 0,
       "norm_label": "bulkmodal"
     },
     {
@@ -2478,7 +2496,7 @@
       "source_file": "global.js",
       "source_location": "L648",
       "id": "assets_global_bulkmodal_constructor",
-      "community": 1,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -2487,7 +2505,7 @@
       "source_file": "global.js",
       "source_location": "L652",
       "id": "assets_global_bulkmodal_connectedcallback",
-      "community": 1,
+      "community": 0,
       "norm_label": ".connectedcallback()"
     },
     {
@@ -2496,7 +2514,7 @@
       "source_file": "global.js",
       "source_location": "L679",
       "id": "assets_global_modalopener",
-      "community": 1,
+      "community": 0,
       "norm_label": "modalopener"
     },
     {
@@ -2505,7 +2523,7 @@
       "source_file": "global.js",
       "source_location": "L680",
       "id": "assets_global_modalopener_constructor",
-      "community": 1,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -2514,7 +2532,7 @@
       "source_file": "global.js",
       "source_location": "L694",
       "id": "assets_global_deferredmedia",
-      "community": 1,
+      "community": 0,
       "norm_label": "deferredmedia"
     },
     {
@@ -2523,7 +2541,7 @@
       "source_file": "global.js",
       "source_location": "L695",
       "id": "assets_global_deferredmedia_constructor",
-      "community": 1,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -2532,7 +2550,7 @@
       "source_file": "global.js",
       "source_location": "L702",
       "id": "assets_global_deferredmedia_loadcontent",
-      "community": 1,
+      "community": 0,
       "norm_label": ".loadcontent()"
     },
     {
@@ -2757,7 +2775,7 @@
       "source_file": "global.js",
       "source_location": "L1063",
       "id": "assets_global_variantselects",
-      "community": 1,
+      "community": 0,
       "norm_label": "variantselects"
     },
     {
@@ -2766,7 +2784,7 @@
       "source_file": "global.js",
       "source_location": "L1064",
       "id": "assets_global_variantselects_constructor",
-      "community": 1,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -2775,7 +2793,7 @@
       "source_file": "global.js",
       "source_location": "L1068",
       "id": "assets_global_variantselects_connectedcallback",
-      "community": 1,
+      "community": 0,
       "norm_label": ".connectedcallback()"
     },
     {
@@ -2784,7 +2802,7 @@
       "source_file": "global.js",
       "source_location": "L1083",
       "id": "assets_global_variantselects_updateselectionmetadata",
-      "community": 1,
+      "community": 0,
       "norm_label": ".updateselectionmetadata()"
     },
     {
@@ -2793,7 +2811,7 @@
       "source_file": "global.js",
       "source_location": "L1115",
       "id": "assets_global_variantselects_getinputforeventtarget",
-      "community": 1,
+      "community": 0,
       "norm_label": ".getinputforeventtarget()"
     },
     {
@@ -2802,7 +2820,7 @@
       "source_file": "global.js",
       "source_location": "L1119",
       "id": "assets_global_variantselects_selectedoptionvalues",
-      "community": 1,
+      "community": 0,
       "norm_label": ".selectedoptionvalues()"
     },
     {
@@ -2811,7 +2829,7 @@
       "source_file": "global.js",
       "source_location": "L1128",
       "id": "assets_global_productrecommendations",
-      "community": 1,
+      "community": 0,
       "norm_label": "productrecommendations"
     },
     {
@@ -2820,7 +2838,7 @@
       "source_file": "global.js",
       "source_location": "L1131",
       "id": "assets_global_productrecommendations_constructor",
-      "community": 1,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -2829,7 +2847,7 @@
       "source_file": "global.js",
       "source_location": "L1135",
       "id": "assets_global_productrecommendations_connectedcallback",
-      "community": 1,
+      "community": 0,
       "norm_label": ".connectedcallback()"
     },
     {
@@ -2838,7 +2856,7 @@
       "source_file": "global.js",
       "source_location": "L1139",
       "id": "assets_global_productrecommendations_initializerecommendations",
-      "community": 1,
+      "community": 0,
       "norm_label": ".initializerecommendations()"
     },
     {
@@ -2847,7 +2865,7 @@
       "source_file": "global.js",
       "source_location": "L1152",
       "id": "assets_global_productrecommendations_loadrecommendations",
-      "community": 1,
+      "community": 0,
       "norm_label": ".loadrecommendations()"
     },
     {
@@ -2856,7 +2874,7 @@
       "source_file": "global.js",
       "source_location": "L1180",
       "id": "assets_global_accounticon",
-      "community": 1,
+      "community": 0,
       "norm_label": "accounticon"
     },
     {
@@ -2865,7 +2883,7 @@
       "source_file": "global.js",
       "source_location": "L1181",
       "id": "assets_global_accounticon_constructor",
-      "community": 1,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -2874,7 +2892,7 @@
       "source_file": "global.js",
       "source_location": "L1187",
       "id": "assets_global_accounticon_connectedcallback",
-      "community": 1,
+      "community": 0,
       "norm_label": ".connectedcallback()"
     },
     {
@@ -2883,7 +2901,7 @@
       "source_file": "global.js",
       "source_location": "L1191",
       "id": "assets_global_accounticon_handlestorefrontsignincompleted",
-      "community": 1,
+      "community": 0,
       "norm_label": ".handlestorefrontsignincompleted()"
     },
     {
@@ -2892,7 +2910,7 @@
       "source_file": "global.js",
       "source_location": "L1200",
       "id": "assets_global_bulkadd",
-      "community": 18,
+      "community": 17,
       "norm_label": "bulkadd"
     },
     {
@@ -2901,7 +2919,7 @@
       "source_file": "global.js",
       "source_location": "L1203",
       "id": "assets_global_bulkadd_constructor",
-      "community": 18,
+      "community": 17,
       "norm_label": ".constructor()"
     },
     {
@@ -2910,7 +2928,7 @@
       "source_file": "global.js",
       "source_location": "L1210",
       "id": "assets_global_bulkadd_startqueue",
-      "community": 18,
+      "community": 17,
       "norm_label": ".startqueue()"
     },
     {
@@ -2919,7 +2937,7 @@
       "source_file": "global.js",
       "source_location": "L1224",
       "id": "assets_global_bulkadd_sendrequest",
-      "community": 18,
+      "community": 17,
       "norm_label": ".sendrequest()"
     },
     {
@@ -2928,7 +2946,7 @@
       "source_file": "global.js",
       "source_location": "L1236",
       "id": "assets_global_bulkadd_setrequeststarted",
-      "community": 18,
+      "community": 17,
       "norm_label": ".setrequeststarted()"
     },
     {
@@ -2937,7 +2955,7 @@
       "source_file": "global.js",
       "source_location": "L1240",
       "id": "assets_global_bulkadd_requeststarted",
-      "community": 18,
+      "community": 17,
       "norm_label": ".requeststarted()"
     },
     {
@@ -2946,7 +2964,7 @@
       "source_file": "global.js",
       "source_location": "L1244",
       "id": "assets_global_bulkadd_resetquantityinput",
-      "community": 18,
+      "community": 17,
       "norm_label": ".resetquantityinput()"
     },
     {
@@ -2955,7 +2973,7 @@
       "source_file": "global.js",
       "source_location": "L1250",
       "id": "assets_global_bulkadd_setvalidity",
-      "community": 18,
+      "community": 17,
       "norm_label": ".setvalidity()"
     },
     {
@@ -2964,7 +2982,7 @@
       "source_file": "global.js",
       "source_location": "L1257",
       "id": "assets_global_bulkadd_validatequantity",
-      "community": 18,
+      "community": 17,
       "norm_label": ".validatequantity()"
     },
     {
@@ -2973,7 +2991,7 @@
       "source_file": "global.js",
       "source_location": "L1275",
       "id": "assets_global_bulkadd_getsectioninnerhtml",
-      "community": 18,
+      "community": 17,
       "norm_label": ".getsectioninnerhtml()"
     },
     {
@@ -2982,7 +3000,7 @@
       "source_file": "global.js",
       "source_location": "L1284",
       "id": "assets_global_cartperformance",
-      "community": 1,
+      "community": 0,
       "norm_label": "cartperformance"
     },
     {
@@ -2991,7 +3009,7 @@
       "source_file": "global.js",
       "source_location": "L1287",
       "id": "assets_global_cartperformance_createstartingmarker",
-      "community": 1,
+      "community": 0,
       "norm_label": ".createstartingmarker()"
     },
     {
@@ -3000,7 +3018,7 @@
       "source_file": "global.js",
       "source_location": "L1292",
       "id": "assets_global_cartperformance_measurefromevent",
-      "community": 1,
+      "community": 0,
       "norm_label": ".measurefromevent()"
     },
     {
@@ -3009,7 +3027,7 @@
       "source_file": "global.js",
       "source_location": "L1307",
       "id": "assets_global_cartperformance_measurefrommarker",
-      "community": 1,
+      "community": 0,
       "norm_label": ".measurefrommarker()"
     },
     {
@@ -3018,7 +3036,7 @@
       "source_file": "global.js",
       "source_location": "L1318",
       "id": "assets_global_cartperformance_measure",
-      "community": 1,
+      "community": 0,
       "norm_label": ".measure()"
     },
     {
@@ -3216,7 +3234,7 @@
       "source_file": "main-search.js",
       "source_location": "L1",
       "id": "main_search_js",
-      "community": 25,
+      "community": 24,
       "norm_label": "main-search.js"
     },
     {
@@ -3225,7 +3243,7 @@
       "source_file": "main-search.js",
       "source_location": "L1",
       "id": "assets_main_search_mainsearch",
-      "community": 25,
+      "community": 24,
       "norm_label": "mainsearch"
     },
     {
@@ -3234,7 +3252,7 @@
       "source_file": "main-search.js",
       "source_location": "L2",
       "id": "assets_main_search_mainsearch_constructor",
-      "community": 25,
+      "community": 24,
       "norm_label": ".constructor()"
     },
     {
@@ -3243,7 +3261,7 @@
       "source_file": "main-search.js",
       "source_location": "L8",
       "id": "assets_main_search_mainsearch_setupeventlisteners",
-      "community": 25,
+      "community": 24,
       "norm_label": ".setupeventlisteners()"
     },
     {
@@ -3252,7 +3270,7 @@
       "source_file": "main-search.js",
       "source_location": "L17",
       "id": "assets_main_search_mainsearch_onformreset",
-      "community": 25,
+      "community": 24,
       "norm_label": ".onformreset()"
     },
     {
@@ -3261,7 +3279,7 @@
       "source_file": "main-search.js",
       "source_location": "L24",
       "id": "assets_main_search_mainsearch_oninput",
-      "community": 25,
+      "community": 24,
       "norm_label": ".oninput()"
     },
     {
@@ -3270,7 +3288,7 @@
       "source_file": "main-search.js",
       "source_location": "L29",
       "id": "assets_main_search_mainsearch_oninputfocus",
-      "community": 25,
+      "community": 24,
       "norm_label": ".oninputfocus()"
     },
     {
@@ -3279,7 +3297,7 @@
       "source_file": "main-search.js",
       "source_location": "L36",
       "id": "assets_main_search_mainsearch_keepinsync",
-      "community": 25,
+      "community": 24,
       "norm_label": ".keepinsync()"
     },
     {
@@ -3288,7 +3306,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L1",
       "id": "media_gallery_js",
-      "community": 17,
+      "community": 5,
       "norm_label": "media-gallery.js"
     },
     {
@@ -3297,7 +3315,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L5",
       "id": "assets_media_gallery_constructor",
-      "community": 17,
+      "community": 5,
       "norm_label": "constructor()"
     },
     {
@@ -3306,7 +3324,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L31",
       "id": "assets_media_gallery_onbulletclick",
-      "community": 17,
+      "community": 5,
       "norm_label": "onbulletclick()"
     },
     {
@@ -3315,7 +3333,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L38",
       "id": "assets_media_gallery_onslidechangedbullets",
-      "community": 17,
+      "community": 5,
       "norm_label": "onslidechangedbullets()"
     },
     {
@@ -3324,7 +3342,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L45",
       "id": "assets_media_gallery_onslidechanged",
-      "community": 17,
+      "community": 5,
       "norm_label": "onslidechanged()"
     },
     {
@@ -3333,7 +3351,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L52",
       "id": "assets_media_gallery_setactivemedia",
-      "community": 17,
+      "community": 5,
       "norm_label": "setactivemedia()"
     },
     {
@@ -3342,7 +3360,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L94",
       "id": "assets_media_gallery_setactivethumbnail",
-      "community": 17,
+      "community": 5,
       "norm_label": "setactivethumbnail()"
     },
     {
@@ -3351,7 +3369,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L106",
       "id": "assets_media_gallery_announceliveregion",
-      "community": 17,
+      "community": 5,
       "norm_label": "announceliveregion()"
     },
     {
@@ -3360,7 +3378,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L119",
       "id": "assets_media_gallery_playactivemedia",
-      "community": 17,
+      "community": 5,
       "norm_label": "playactivemedia()"
     },
     {
@@ -3369,7 +3387,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L125",
       "id": "assets_media_gallery_preventstickyheader",
-      "community": 17,
+      "community": 5,
       "norm_label": "preventstickyheader()"
     },
     {
@@ -3378,7 +3396,7 @@
       "source_file": "media-gallery.js",
       "source_location": "L131",
       "id": "assets_media_gallery_removelistsemantic",
-      "community": 17,
+      "community": 5,
       "norm_label": "removelistsemantic()"
     },
     {
@@ -3387,7 +3405,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L1",
       "id": "pickup_availability_js",
-      "community": 0,
+      "community": 1,
       "norm_label": "pickup-availability.js"
     },
     {
@@ -3396,7 +3414,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L5",
       "id": "assets_pickup_availability_constructor",
-      "community": 0,
+      "community": 1,
       "norm_label": "constructor()"
     },
     {
@@ -3405,7 +3423,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L15",
       "id": "assets_pickup_availability_fetchavailability",
-      "community": 0,
+      "community": 1,
       "norm_label": "fetchavailability()"
     },
     {
@@ -3414,7 +3432,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L39",
       "id": "assets_pickup_availability_onclickrefreshlist",
-      "community": 0,
+      "community": 1,
       "norm_label": "onclickrefreshlist()"
     },
     {
@@ -3423,7 +3441,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L43",
       "id": "assets_pickup_availability_update",
-      "community": 0,
+      "community": 1,
       "norm_label": "update()"
     },
     {
@@ -3432,7 +3450,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L52",
       "id": "assets_pickup_availability_rendererror",
-      "community": 0,
+      "community": 1,
       "norm_label": "rendererror()"
     },
     {
@@ -3441,7 +3459,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L59",
       "id": "assets_pickup_availability_renderpreview",
-      "community": 0,
+      "community": 1,
       "norm_label": "renderpreview()"
     },
     {
@@ -3450,7 +3468,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L105",
       "id": "assets_pickup_availability_handlebodyclick",
-      "community": 0,
+      "community": 1,
       "norm_label": "handlebodyclick()"
     },
     {
@@ -3459,7 +3477,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L116",
       "id": "assets_pickup_availability_hide",
-      "community": 0,
+      "community": 1,
       "norm_label": "hide()"
     },
     {
@@ -3468,7 +3486,7 @@
       "source_file": "pickup-availability.js",
       "source_location": "L123",
       "id": "assets_pickup_availability_show",
-      "community": 0,
+      "community": 1,
       "norm_label": "show()"
     },
     {
@@ -3693,7 +3711,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L1",
       "id": "price_per_item_js",
-      "community": 26,
+      "community": 25,
       "norm_label": "price-per-item.js"
     },
     {
@@ -3702,7 +3720,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L5",
       "id": "assets_price_per_item_constructor",
-      "community": 26,
+      "community": 25,
       "norm_label": "constructor()"
     },
     {
@@ -3711,7 +3729,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L19",
       "id": "assets_price_per_item_connectedcallback",
-      "community": 26,
+      "community": 25,
       "norm_label": "connectedcallback()"
     },
     {
@@ -3720,7 +3738,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L49",
       "id": "assets_price_per_item_disconnectedcallback",
-      "community": 26,
+      "community": 25,
       "norm_label": "disconnectedcallback()"
     },
     {
@@ -3729,7 +3747,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L58",
       "id": "assets_price_per_item_oninputchange",
-      "community": 26,
+      "community": 25,
       "norm_label": "oninputchange()"
     },
     {
@@ -3738,7 +3756,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L62",
       "id": "assets_price_per_item_updatepriceperitem",
-      "community": 26,
+      "community": 25,
       "norm_label": "updatepriceperitem()"
     },
     {
@@ -3747,7 +3765,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L84",
       "id": "assets_price_per_item_getcartquantity",
-      "community": 26,
+      "community": 25,
       "norm_label": "getcartquantity()"
     },
     {
@@ -3756,7 +3774,7 @@
       "source_file": "price-per-item.js",
       "source_location": "L88",
       "id": "assets_price_per_item_getvolumepricingarray",
-      "community": 26,
+      "community": 25,
       "norm_label": "getvolumepricingarray()"
     },
     {
@@ -3819,7 +3837,7 @@
       "source_file": "product-info.js",
       "source_location": "L1",
       "id": "product_info_js",
-      "community": 2,
+      "community": 3,
       "norm_label": "product-info.js"
     },
     {
@@ -3828,7 +3846,7 @@
       "source_file": "product-info.js",
       "source_location": "L14",
       "id": "assets_product_info_constructor",
-      "community": 2,
+      "community": 3,
       "norm_label": "constructor()"
     },
     {
@@ -3837,7 +3855,7 @@
       "source_file": "product-info.js",
       "source_location": "L20",
       "id": "assets_product_info_connectedcallback",
-      "community": 2,
+      "community": 3,
       "norm_label": "connectedcallback()"
     },
     {
@@ -3846,7 +3864,7 @@
       "source_file": "product-info.js",
       "source_location": "L32",
       "id": "assets_product_info_addpreprocesscallback",
-      "community": 2,
+      "community": 3,
       "norm_label": "addpreprocesscallback()"
     },
     {
@@ -3855,7 +3873,7 @@
       "source_file": "product-info.js",
       "source_location": "L36",
       "id": "assets_product_info_initquantityhandlers",
-      "community": 2,
+      "community": 3,
       "norm_label": "initquantityhandlers()"
     },
     {
@@ -3864,7 +3882,7 @@
       "source_file": "product-info.js",
       "source_location": "L48",
       "id": "assets_product_info_disconnectedcallback",
-      "community": 2,
+      "community": 3,
       "norm_label": "disconnectedcallback()"
     },
     {
@@ -3873,7 +3891,7 @@
       "source_file": "product-info.js",
       "source_location": "L53",
       "id": "assets_product_info_initializeproductswaputility",
-      "community": 2,
+      "community": 3,
       "norm_label": "initializeproductswaputility()"
     },
     {
@@ -3882,7 +3900,7 @@
       "source_file": "product-info.js",
       "source_location": "L63",
       "id": "assets_product_info_handleoptionvaluechange",
-      "community": 2,
+      "community": 3,
       "norm_label": "handleoptionvaluechange()"
     },
     {
@@ -3891,7 +3909,7 @@
       "source_file": "product-info.js",
       "source_location": "L82",
       "id": "assets_product_info_resetproductformstate",
-      "community": 2,
+      "community": 3,
       "norm_label": "resetproductformstate()"
     },
     {
@@ -3900,7 +3918,7 @@
       "source_file": "product-info.js",
       "source_location": "L88",
       "id": "assets_product_info_handleswapproduct",
-      "community": 2,
+      "community": 3,
       "norm_label": "handleswapproduct()"
     },
     {
@@ -3909,7 +3927,7 @@
       "source_file": "product-info.js",
       "source_location": "L116",
       "id": "assets_product_info_renderproductinfo",
-      "community": 2,
+      "community": 3,
       "norm_label": "renderproductinfo()"
     },
     {
@@ -3918,7 +3936,7 @@
       "source_file": "product-info.js",
       "source_location": "L140",
       "id": "assets_product_info_getselectedvariant",
-      "community": 2,
+      "community": 3,
       "norm_label": "getselectedvariant()"
     },
     {
@@ -3927,7 +3945,7 @@
       "source_file": "product-info.js",
       "source_location": "L145",
       "id": "assets_product_info_buildrequesturlwithparams",
-      "community": 2,
+      "community": 3,
       "norm_label": "buildrequesturlwithparams()"
     },
     {
@@ -3936,7 +3954,7 @@
       "source_file": "product-info.js",
       "source_location": "L157",
       "id": "assets_product_info_updateoptionvalues",
-      "community": 2,
+      "community": 3,
       "norm_label": "updateoptionvalues()"
     },
     {
@@ -3945,7 +3963,7 @@
       "source_file": "product-info.js",
       "source_location": "L164",
       "id": "assets_product_info_handleupdateproductinfo",
-      "community": 2,
+      "community": 3,
       "norm_label": "handleupdateproductinfo()"
     },
     {
@@ -3954,7 +3972,7 @@
       "source_file": "product-info.js",
       "source_location": "L214",
       "id": "assets_product_info_updatevariantinputs",
-      "community": 2,
+      "community": 3,
       "norm_label": "updatevariantinputs()"
     },
     {
@@ -3963,7 +3981,7 @@
       "source_file": "product-info.js",
       "source_location": "L224",
       "id": "assets_product_info_updateurl",
-      "community": 2,
+      "community": 3,
       "norm_label": "updateurl()"
     },
     {
@@ -3972,7 +3990,7 @@
       "source_file": "product-info.js",
       "source_location": "L233",
       "id": "assets_product_info_setunavailable",
-      "community": 2,
+      "community": 3,
       "norm_label": "setunavailable()"
     },
     {
@@ -3981,7 +3999,7 @@
       "source_file": "product-info.js",
       "source_location": "L242",
       "id": "assets_product_info_updatemedia",
-      "community": 2,
+      "community": 3,
       "norm_label": "updatemedia()"
     },
     {
@@ -3990,7 +4008,7 @@
       "source_file": "product-info.js",
       "source_location": "L313",
       "id": "assets_product_info_setquantityboundries",
-      "community": 2,
+      "community": 3,
       "norm_label": "setquantityboundries()"
     },
     {
@@ -3999,7 +4017,7 @@
       "source_file": "product-info.js",
       "source_location": "L338",
       "id": "assets_product_info_fetchquantityrules",
-      "community": 2,
+      "community": 3,
       "norm_label": "fetchquantityrules()"
     },
     {
@@ -4008,7 +4026,7 @@
       "source_file": "product-info.js",
       "source_location": "L353",
       "id": "assets_product_info_updatequantityrules",
-      "community": 2,
+      "community": 3,
       "norm_label": "updatequantityrules()"
     },
     {
@@ -4017,7 +4035,7 @@
       "source_file": "product-info.js",
       "source_location": "L392",
       "id": "assets_product_info_productform",
-      "community": 2,
+      "community": 3,
       "norm_label": "productform()"
     },
     {
@@ -4026,7 +4044,7 @@
       "source_file": "product-info.js",
       "source_location": "L396",
       "id": "assets_product_info_productmodal",
-      "community": 2,
+      "community": 3,
       "norm_label": "productmodal()"
     },
     {
@@ -4035,7 +4053,7 @@
       "source_file": "product-info.js",
       "source_location": "L400",
       "id": "assets_product_info_pickupavailability",
-      "community": 2,
+      "community": 3,
       "norm_label": "pickupavailability()"
     },
     {
@@ -4044,7 +4062,7 @@
       "source_file": "product-info.js",
       "source_location": "L404",
       "id": "assets_product_info_variantselectors",
-      "community": 2,
+      "community": 3,
       "norm_label": "variantselectors()"
     },
     {
@@ -4053,7 +4071,7 @@
       "source_file": "product-info.js",
       "source_location": "L408",
       "id": "assets_product_info_relatedproducts",
-      "community": 2,
+      "community": 3,
       "norm_label": "relatedproducts()"
     },
     {
@@ -4062,7 +4080,7 @@
       "source_file": "product-info.js",
       "source_location": "L416",
       "id": "assets_product_info_quickorderlist",
-      "community": 2,
+      "community": 3,
       "norm_label": "quickorderlist()"
     },
     {
@@ -4071,7 +4089,7 @@
       "source_file": "product-info.js",
       "source_location": "L424",
       "id": "assets_product_info_sectionid",
-      "community": 2,
+      "community": 3,
       "norm_label": "sectionid()"
     },
     {
@@ -4179,7 +4197,7 @@
       "source_file": "pubsub.js",
       "source_location": "L1",
       "id": "pubsub_js",
-      "community": 2,
+      "community": 3,
       "norm_label": "pubsub.js"
     },
     {
@@ -4188,7 +4206,7 @@
       "source_file": "pubsub.js",
       "source_location": "L3",
       "id": "assets_pubsub_subscribe",
-      "community": 2,
+      "community": 3,
       "norm_label": "subscribe()"
     },
     {
@@ -4260,7 +4278,7 @@
       "source_file": "quick-add-bulk.js",
       "source_location": "L23",
       "id": "assets_quick_add_bulk_connectedcallback",
-      "community": 2,
+      "community": 3,
       "norm_label": "connectedcallback()"
     },
     {
@@ -4377,7 +4395,7 @@
       "source_file": "quick-add.js",
       "source_location": "L1",
       "id": "quick_add_js",
-      "community": 19,
+      "community": 18,
       "norm_label": "quick-add.js"
     },
     {
@@ -4386,7 +4404,7 @@
       "source_file": "quick-add.js",
       "source_location": "L5",
       "id": "assets_quick_add_constructor",
-      "community": 19,
+      "community": 18,
       "norm_label": "constructor()"
     },
     {
@@ -4395,7 +4413,7 @@
       "source_file": "quick-add.js",
       "source_location": "L14",
       "id": "assets_quick_add_hide",
-      "community": 19,
+      "community": 18,
       "norm_label": "hide()"
     },
     {
@@ -4404,7 +4422,7 @@
       "source_file": "quick-add.js",
       "source_location": "L23",
       "id": "assets_quick_add_show",
-      "community": 19,
+      "community": 18,
       "norm_label": "show()"
     },
     {
@@ -4413,7 +4431,7 @@
       "source_file": "quick-add.js",
       "source_location": "L51",
       "id": "assets_quick_add_preprocesshtml",
-      "community": 19,
+      "community": 18,
       "norm_label": "preprocesshtml()"
     },
     {
@@ -4422,7 +4440,7 @@
       "source_file": "quick-add.js",
       "source_location": "L63",
       "id": "assets_quick_add_preventvarianturlswitching",
-      "community": 19,
+      "community": 18,
       "norm_label": "preventvarianturlswitching()"
     },
     {
@@ -4431,7 +4449,7 @@
       "source_file": "quick-add.js",
       "source_location": "L67",
       "id": "assets_quick_add_removedomelements",
-      "community": 19,
+      "community": 18,
       "norm_label": "removedomelements()"
     },
     {
@@ -4440,7 +4458,7 @@
       "source_file": "quick-add.js",
       "source_location": "L78",
       "id": "assets_quick_add_preventduplicatedids",
-      "community": 19,
+      "community": 18,
       "norm_label": "preventduplicatedids()"
     },
     {
@@ -4449,7 +4467,7 @@
       "source_file": "quick-add.js",
       "source_location": "L93",
       "id": "assets_quick_add_removegallerylistsemantic",
-      "community": 19,
+      "community": 18,
       "norm_label": "removegallerylistsemantic()"
     },
     {
@@ -4458,7 +4476,7 @@
       "source_file": "quick-add.js",
       "source_location": "L101",
       "id": "assets_quick_add_updateimagesizes",
-      "community": 19,
+      "community": 18,
       "norm_label": "updateimagesizes()"
     },
     {
@@ -4467,7 +4485,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L1",
       "id": "quick_order_list_js",
-      "community": 5,
+      "community": 6,
       "norm_label": "quick-order-list.js"
     },
     {
@@ -4476,7 +4494,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L7",
       "id": "assets_quick_order_list_constructor",
-      "community": 5,
+      "community": 6,
       "norm_label": "constructor()"
     },
     {
@@ -4485,7 +4503,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L30",
       "id": "assets_quick_order_list_connectedcallback",
-      "community": 5,
+      "community": 6,
       "norm_label": "connectedcallback()"
     },
     {
@@ -4494,7 +4512,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L43",
       "id": "assets_quick_order_list_disconnectedcallback",
-      "community": 5,
+      "community": 6,
       "norm_label": "disconnectedcallback()"
     },
     {
@@ -4503,7 +4521,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L48",
       "id": "assets_quick_order_list_handleresize",
-      "community": 5,
+      "community": 6,
       "norm_label": "handleresize()"
     },
     {
@@ -4512,7 +4530,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L53",
       "id": "assets_quick_order_list_initeventlisteners",
-      "community": 5,
+      "community": 6,
       "norm_label": "initeventlisteners()"
     },
     {
@@ -4521,7 +4539,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L78",
       "id": "assets_quick_order_list_initvarianteventlisteners",
-      "community": 5,
+      "community": 6,
       "norm_label": "initvarianteventlisteners()"
     },
     {
@@ -4530,7 +4548,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L98",
       "id": "assets_quick_order_list_currentpage",
-      "community": 5,
+      "community": 6,
       "norm_label": "currentpage()"
     },
     {
@@ -4539,7 +4557,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L102",
       "id": "assets_quick_order_list_cartvariantsforproduct",
-      "community": 5,
+      "community": 6,
       "norm_label": "cartvariantsforproduct()"
     },
     {
@@ -4548,7 +4566,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L106",
       "id": "assets_quick_order_list_onchange",
-      "community": 5,
+      "community": 6,
       "norm_label": "onchange()"
     },
     {
@@ -4557,7 +4575,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L117",
       "id": "assets_quick_order_list_cleanerrormessageontype",
-      "community": 5,
+      "community": 6,
       "norm_label": "cleanerrormessageontype()"
     },
     {
@@ -4566,7 +4584,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L127",
       "id": "assets_quick_order_list_validateinput",
-      "community": 5,
+      "community": 6,
       "norm_label": "validateinput()"
     },
     {
@@ -4575,7 +4593,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L142",
       "id": "assets_quick_order_list_quickorderlisttable",
-      "community": 5,
+      "community": 6,
       "norm_label": "quickorderlisttable()"
     },
     {
@@ -4584,7 +4602,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L146",
       "id": "assets_quick_order_list_getsectionstorender",
-      "community": 5,
+      "community": 6,
       "norm_label": "getsectionstorender()"
     },
     {
@@ -4593,7 +4611,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L171",
       "id": "assets_quick_order_list_toggletableloading",
-      "community": 5,
+      "community": 6,
       "norm_label": "toggletableloading()"
     },
     {
@@ -4602,7 +4620,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L176",
       "id": "assets_quick_order_list_refresh",
-      "community": 5,
+      "community": 6,
       "norm_label": "refresh()"
     },
     {
@@ -4611,7 +4629,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L197",
       "id": "assets_quick_order_list_rendersections",
-      "community": 5,
+      "community": 6,
       "norm_label": "rendersections()"
     },
     {
@@ -4620,7 +4638,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L246",
       "id": "assets_quick_order_list_gettotalbar",
-      "community": 5,
+      "community": 6,
       "norm_label": "gettotalbar()"
     },
     {
@@ -4629,7 +4647,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L250",
       "id": "assets_quick_order_list_scrolltop",
-      "community": 5,
+      "community": 6,
       "norm_label": "scrolltop()"
     },
     {
@@ -4638,7 +4656,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L260",
       "id": "assets_quick_order_list_scrollquickorderlisttable",
-      "community": 5,
+      "community": 6,
       "norm_label": "scrollquickorderlisttable()"
     },
     {
@@ -4647,7 +4665,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L298",
       "id": "assets_quick_order_list_scrolltocenter",
-      "community": 5,
+      "community": 6,
       "norm_label": "scrolltocenter()"
     },
     {
@@ -4656,7 +4674,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L305",
       "id": "assets_quick_order_list_handlescrollintoview",
-      "community": 5,
+      "community": 6,
       "norm_label": "handlescrollintoview()"
     },
     {
@@ -4665,7 +4683,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L311",
       "id": "assets_quick_order_list_handleswitchvariantonenter",
-      "community": 5,
+      "community": 6,
       "norm_label": "handleswitchvariantonenter()"
     },
     {
@@ -4674,7 +4692,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L326",
       "id": "assets_quick_order_list_updatemultipleqty",
-      "community": 5,
+      "community": 6,
       "norm_label": "updatemultipleqty()"
     },
     {
@@ -4683,7 +4701,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L361",
       "id": "assets_quick_order_list_seterrormessage",
-      "community": 5,
+      "community": 6,
       "norm_label": "seterrormessage()"
     },
     {
@@ -4692,7 +4710,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L376",
       "id": "assets_quick_order_list_updatemessage",
-      "community": 5,
+      "community": 6,
       "norm_label": "updatemessage()"
     },
     {
@@ -4701,7 +4719,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L404",
       "id": "assets_quick_order_list_updateerror",
-      "community": 5,
+      "community": 6,
       "norm_label": "updateerror()"
     },
     {
@@ -4710,7 +4728,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L414",
       "id": "assets_quick_order_list_updateliveregions",
-      "community": 5,
+      "community": 6,
       "norm_label": "updateliveregions()"
     },
     {
@@ -4719,7 +4737,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L433",
       "id": "assets_quick_order_list_toggleloading",
-      "community": 5,
+      "community": 6,
       "norm_label": "toggleloading()"
     },
     {
@@ -4728,7 +4746,7 @@
       "source_file": "quick-order-list.js",
       "source_location": "L475",
       "id": "assets_quick_order_list_toggleconfirmation",
-      "community": 5,
+      "community": 6,
       "norm_label": "toggleconfirmation()"
     },
     {
@@ -4755,7 +4773,7 @@
       "source_file": "recipient-form.js",
       "source_location": "L32",
       "id": "assets_recipient_form_connectedcallback",
-      "community": 2,
+      "community": 3,
       "norm_label": "connectedcallback()"
     },
     {
@@ -4863,7 +4881,7 @@
       "source_file": "search-form.js",
       "source_location": "L1",
       "id": "search_form_js",
-      "community": 6,
+      "community": 28,
       "norm_label": "search-form.js"
     },
     {
@@ -4872,7 +4890,7 @@
       "source_file": "search-form.js",
       "source_location": "L1",
       "id": "assets_search_form_searchform",
-      "community": 6,
+      "community": 28,
       "norm_label": "searchform"
     },
     {
@@ -4881,7 +4899,7 @@
       "source_file": "search-form.js",
       "source_location": "L2",
       "id": "assets_search_form_searchform_constructor",
-      "community": 6,
+      "community": 28,
       "norm_label": ".constructor()"
     },
     {
@@ -4890,7 +4908,7 @@
       "source_file": "search-form.js",
       "source_location": "L18",
       "id": "assets_search_form_searchform_toggleresetbutton",
-      "community": 6,
+      "community": 28,
       "norm_label": ".toggleresetbutton()"
     },
     {
@@ -4899,7 +4917,7 @@
       "source_file": "search-form.js",
       "source_location": "L27",
       "id": "assets_search_form_searchform_onchange",
-      "community": 6,
+      "community": 28,
       "norm_label": ".onchange()"
     },
     {
@@ -4908,7 +4926,7 @@
       "source_file": "search-form.js",
       "source_location": "L31",
       "id": "assets_search_form_searchform_shouldresetform",
-      "community": 6,
+      "community": 28,
       "norm_label": ".shouldresetform()"
     },
     {
@@ -4917,7 +4935,7 @@
       "source_file": "search-form.js",
       "source_location": "L35",
       "id": "assets_search_form_searchform_onformreset",
-      "community": 6,
+      "community": 28,
       "norm_label": ".onformreset()"
     },
     {
@@ -4998,7 +5016,7 @@
       "source_file": "theme-editor.js",
       "source_location": "L1",
       "id": "theme_editor_js",
-      "community": 45,
+      "community": 46,
       "norm_label": "theme-editor.js"
     },
     {
@@ -5007,7 +5025,7 @@
       "source_file": "theme-editor.js",
       "source_location": "L1",
       "id": "assets_theme_editor_hideproductmodal",
-      "community": 45,
+      "community": 46,
       "norm_label": "hideproductmodal()"
     },
     {
@@ -5015,7 +5033,7 @@
       "file_type": "code",
       "source_file": "bloomli-before-after.js",
       "source_location": "L5",
-      "community": 27,
+      "community": 26,
       "norm_label": "clamp()",
       "id": "assets_bloomli_before_after_clamp"
     },
@@ -5024,7 +5042,7 @@
       "file_type": "code",
       "source_file": "bloomli-before-after.js",
       "source_location": "L7",
-      "community": 27,
+      "community": 26,
       "norm_label": "update()",
       "id": "assets_bloomli_before_after_update"
     },
@@ -5033,7 +5051,7 @@
       "file_type": "code",
       "source_file": "bloomli-before-after.js",
       "source_location": "L11",
-      "community": 27,
+      "community": 26,
       "norm_label": "updatefrompointer()",
       "id": "assets_bloomli_before_after_updatefrompointer"
     },
@@ -5293,7 +5311,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "email signup banner background (mobile)",
       "id": "email_signup_banner_background_mobile_bg"
     },
@@ -5306,7 +5324,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "email signup banner background (desktop)",
       "id": "email_signup_banner_background_bg"
     },
@@ -5319,7 +5337,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 28,
+      "community": 27,
       "norm_label": "icon: 3d model",
       "id": "icon_3d_model_icon"
     },
@@ -5345,7 +5363,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 28,
+      "community": 27,
       "norm_label": "icon: apple (fruit)",
       "id": "icon_apple_icon"
     },
@@ -5358,7 +5376,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "icon: arrow (right-pointing)",
       "id": "icon_arrow_icon"
     },
@@ -5371,7 +5389,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 28,
+      "community": 27,
       "norm_label": "icon: banana (fruit)",
       "id": "icon_banana_icon"
     },
@@ -5384,7 +5402,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 28,
+      "community": 27,
       "norm_label": "icon: bottle (supplement container)",
       "id": "icon_bottle_icon"
     },
@@ -5397,7 +5415,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 28,
+      "community": 27,
       "norm_label": "icon: box (3d package)",
       "id": "icon_box_icon"
     },
@@ -5410,7 +5428,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "icon: caret (dropdown chevron)",
       "id": "icon_caret_icon"
     },
@@ -5423,7 +5441,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 28,
+      "community": 27,
       "norm_label": "icon: carrot (vegetable)",
       "id": "icon_carrot_icon"
     },
@@ -5475,7 +5493,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "icon: check mark (checkbox with border)",
       "id": "icon_check_mark_icon"
     },
@@ -5488,7 +5506,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "icon: checkmark (simple tick)",
       "id": "icon_checkmark_icon"
     },
@@ -5501,7 +5519,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "icon: clipboard (notes/list)",
       "id": "icon_clipboard_icon"
     },
@@ -5514,7 +5532,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "icon: close small (x dismiss)",
       "id": "icon_close_small_icon"
     },
@@ -5527,7 +5545,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "icon: close (x dismiss large)",
       "id": "icon_close_icon"
     },
@@ -5540,7 +5558,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "icon: copy (duplicate document)",
       "id": "icon_copy_icon"
     },
@@ -5553,7 +5571,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 28,
+      "community": 27,
       "norm_label": "icon: dairy free (badge/dietary label)",
       "id": "icon_dairy_free_icon"
     },
@@ -5566,7 +5584,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 28,
+      "community": 27,
       "norm_label": "icon: dairy (milk jug/bottle badge)",
       "id": "icon_dairy_icon"
     },
@@ -5631,7 +5649,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "facebook social media icon",
       "id": "icon-facebook_facebook"
     },
@@ -5722,7 +5740,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "instagram social media icon",
       "id": "icon-instagram_instagram"
     },
@@ -5878,7 +5896,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "social media share icons",
       "id": "category_social_media_icons"
     },
@@ -5956,7 +5974,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "padlock icon",
       "id": "icon-padlock_security"
     },
@@ -5969,7 +5987,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 43,
+      "community": 42,
       "norm_label": "pants icon",
       "id": "icon-pants_apparel"
     },
@@ -5982,7 +6000,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "pause icon",
       "id": "icon-pause_media"
     },
@@ -5995,7 +6013,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "paw print icon",
       "id": "icon-paw-print_pet"
     },
@@ -6008,7 +6026,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "pepper icon",
       "id": "icon-pepper_food"
     },
@@ -6021,7 +6039,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "perfume bottle icon",
       "id": "icon-perfume_beauty"
     },
@@ -6034,7 +6052,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 54,
       "norm_label": "pinterest icon",
       "id": "icon-pinterest_social"
     },
@@ -6047,7 +6065,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "airplane / shipping icon",
       "id": "icon-plane_shipping"
     },
@@ -6060,7 +6078,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "plant / leaf icon",
       "id": "icon-plant_nature"
     },
@@ -6073,7 +6091,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "play button icon",
       "id": "icon-play_media"
     },
@@ -6086,7 +6104,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 43,
       "norm_label": "plus / add icon",
       "id": "icon-plus_ui"
     },
@@ -6099,7 +6117,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "price tag icon",
       "id": "icon-price-tag_ecommerce"
     },
@@ -6112,7 +6130,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "question mark / help icon",
       "id": "icon-question-mark_ui"
     },
@@ -6125,7 +6143,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "recycle icon",
       "id": "icon-recycle_sustainability"
     },
@@ -6138,7 +6156,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 43,
       "norm_label": "remove / trash icon",
       "id": "icon-remove_ui"
     },
@@ -6151,7 +6169,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 43,
       "norm_label": "reset / close icon",
       "id": "icon-reset_ui"
     },
@@ -6164,7 +6182,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "return / back arrow icon",
       "id": "icon-return_ecommerce"
     },
@@ -6177,7 +6195,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 43,
+      "community": 42,
       "norm_label": "ruler / measurement icon",
       "id": "icon-ruler_sizing"
     },
@@ -6190,7 +6208,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "search / magnifier icon",
       "id": "icon-search_ui"
     },
@@ -6203,7 +6221,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 19,
       "norm_label": "serving dish / cloche icon",
       "id": "icon-serving-dish_food"
     },
@@ -6216,7 +6234,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 54,
       "norm_label": "share icon",
       "id": "icon-share_social"
     },
@@ -6229,7 +6247,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 43,
+      "community": 42,
       "norm_label": "shirt / t-shirt icon",
       "id": "icon-shirt_apparel"
     },
@@ -6281,7 +6299,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "snapchat social media icon",
       "id": "icon_snapchat"
     },
@@ -6359,7 +6377,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "tiktok social media icon",
       "id": "icon_tiktok"
     },
@@ -6385,7 +6403,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "tumblr social media icon",
       "id": "icon_tumblr"
     },
@@ -6398,7 +6416,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "twitter / x social media icon",
       "id": "icon_twitter"
     },
@@ -6424,7 +6442,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "vimeo social media icon",
       "id": "icon_vimeo"
     },
@@ -6450,7 +6468,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "youtube social media icon",
       "id": "icon_youtube"
     },
@@ -7769,6 +7787,16 @@
       "confidence_score": 1.0,
       "source": "assets_bloomli_timeline_setreachedstepsfromline",
       "target": "assets_bloomli_timeline_setreachedsteps"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bloomli-trust-row.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bloomli_trust_row_js",
+      "target": "assets_bloomli_trust_row_inittrustrows"
     },
     {
       "relation": "contains",

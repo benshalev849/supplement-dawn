@@ -87,9 +87,9 @@
 .bloomli-beneath-surface__tab:hover,
 .bloomli-beneath-surface__tab.is-active,
 .bloomli-beneath-surface__accordion-item.is-open .bloomli-beneath-surface__accordion-button {
-  border-color: rgba(var(--color-button), 0.36);
-  background: rgba(var(--color-button), 0.08);
-  box-shadow: 0 1.2rem 3.2rem rgba(var(--color-foreground), 0.06);
+  border-color: rgba(var(--color-foreground), 0.18);
+  background: rgb(var(--color-background));
+  box-shadow: 0 1.2rem 3.2rem rgba(var(--color-foreground), 0.055);
 }
 
 .bloomli-beneath-surface__tab:focus-visible,
@@ -134,7 +134,7 @@
 .bloomli-beneath-surface__media {
   overflow: hidden;
   aspect-ratio: 16 / 9;
-  background: rgba(var(--color-button), 0.08);
+  background: rgba(var(--color-foreground), 0.04);
 }
 
 .bloomli-beneath-surface__image,
@@ -152,9 +152,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background:
-    linear-gradient(135deg, rgba(var(--color-button), 0.12), rgba(var(--color-foreground), 0.04)),
-    rgb(var(--color-background));
+  background: rgba(var(--color-foreground), 0.035);
   color: rgb(var(--color-button));
 }
 

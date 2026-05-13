@@ -49,7 +49,7 @@
 .bloomli-trust--pb-48 { padding-bottom: 4.8rem; }
 
 .bloomli-trust__inner {
-  width: min(100%, var(--page-width, 120rem));
+  width: min(100% - 3.2rem, var(--page-width, 120rem));
   margin-inline: auto;
 }
 
@@ -60,8 +60,8 @@
   overflow-y: hidden;
   overscroll-behavior-inline: contain;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 1.6rem;
-  padding-inline: 1.6rem;
+  scroll-padding-inline: 0;
+  padding-inline: 0;
   scrollbar-width: none;
 }
 
@@ -70,70 +70,119 @@
 }
 
 .bloomli-trust__card {
-  flex: 0 0 min(82vw, 31rem);
-  min-height: 11.2rem;
+  box-sizing: border-box;
+  flex: 0 0 min(82vw, 30rem);
+  min-width: 0;
+  min-height: 10.6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   scroll-snap-align: start;
-  padding: 2rem;
+  padding: 1.7rem;
   border: 0.1rem solid rgba(var(--color-foreground), 0.1);
   border-radius: calc(var(--media-radius) + 0.8rem);
-  background:
-    linear-gradient(145deg, rgba(var(--color-button), 0.08), rgba(var(--color-foreground), 0.025)),
-    rgb(var(--color-background));
-  box-shadow: 0 1.4rem 3.6rem rgba(var(--color-foreground), 0.07);
+  background: rgb(var(--color-background));
+  box-shadow: 0 1rem 2.6rem rgba(var(--color-foreground), 0.055);
 }
 
 .bloomli-trust__quote {
-  margin: 0;
+  margin: 0.8rem 0 0;
   color: rgb(var(--color-foreground));
   font-family: var(--font-heading-family);
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   letter-spacing: 0;
-  line-height: 1.18;
+  line-height: 1.24;
 }
 
 .bloomli-trust__title {
-  margin: 1.2rem 0 0;
+  margin: 0;
   color: rgb(var(--color-button));
   font-family: var(--font-body-family);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 1.25;
   text-transform: uppercase;
 }
 
-.bloomli-trust__dots {
+.bloomli-trust__footer {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  margin-top: 1.2rem;
+  gap: 1.2rem;
+  width: 100%;
+  margin-top: 1.4rem;
 }
 
-.bloomli-trust__dot {
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  background: rgba(var(--color-foreground), 0.24);
+.bloomli-trust__progress {
+  width: min(16rem, 46vw);
+  height: 0.3rem;
+  overflow: hidden;
+  border-radius: 999rem;
+  background: rgba(var(--color-foreground), 0.14);
 }
 
-.bloomli-trust__dot:first-child {
+.bloomli-trust__progress-bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
   background: rgb(var(--color-button));
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.bloomli-trust__controls {
+  display: none;
+  gap: 0.8rem;
+}
+
+.bloomli-trust__arrow {
+  position: relative;
+  width: 3.8rem;
+  height: 3.8rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.14);
+  border-radius: 50%;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-button));
+  cursor: pointer;
+  box-shadow: 0 0.8rem 2rem rgba(var(--color-foreground), 0.06);
+  transition: opacity var(--duration-short) ease, border-color var(--duration-short) ease, transform var(--duration-short) ease;
+}
+
+.bloomli-trust__arrow:hover {
+  border-color: rgba(var(--color-button), 0.42);
+  transform: translateY(-0.1rem);
+}
+
+.bloomli-trust__arrow:disabled {
+  cursor: default;
+  opacity: 0.38;
+  transform: none;
+}
+
+.bloomli-trust__arrow-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-top: 0.16rem solid currentColor;
+  border-right: 0.16rem solid currentColor;
+  transform: translate(-60%, -50%) rotate(45deg);
+}
+
+.bloomli-trust__arrow--prev .bloomli-trust__arrow-icon::before {
+  transform: translate(-40%, -50%) rotate(225deg);
 }
 
 @media screen and (min-width: 750px) {
-  .bloomli-trust__inner {
-    width: min(100% - 3.2rem, var(--page-width, 120rem));
-  }
-
   .bloomli-trust__track {
     gap: 1.6rem;
     overflow-x: auto;
-    padding-inline: 0;
   }
 
   .bloomli-trust__card {
@@ -143,16 +192,29 @@
   }
 
   .bloomli-trust__quote {
-    font-size: clamp(2rem, 1.7vw, 2.6rem);
+    margin-top: 1rem;
+    font-size: clamp(1.9rem, 1.35vw, 2.4rem);
   }
 
-  .bloomli-trust__dots {
-    display: none;
+  .bloomli-trust__footer {
+    justify-content: space-between;
+  }
+
+  .bloomli-trust__progress {
+    width: min(24rem, 32vw);
+  }
+
+  .bloomli-trust__controls {
+    display: flex;
   }
 }
 
 @media screen and (min-width: 990px) {
   .bloomli-trust__track {
     gap: 2rem;
+  }
+
+  .bloomli-trust__card {
+    flex-basis: calc((100% - 4rem) / 3);
   }
 }

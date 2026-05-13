@@ -1,28 +1,39 @@
 {{ 'bloomli-trust-row.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-trust-row.js' | asset_url }}" defer="defer"></script>
 
 <section
   class="bloomli-trust bloomli-trust--pt-{{ section.settings.padding_top }} bloomli-trust--pb-{{ section.settings.padding_bottom }} color-{{ section.settings.color_scheme }} gradient"
+  data-bloomli-trust-row
 >
   <div class="bloomli-trust__inner">
-    <div class="bloomli-trust__track" aria-label="Bloomli proof points">
+    <div class="bloomli-trust__track" aria-label="Bloomli proof points" data-bloomli-trust-track>
       {%- for block in section.blocks -%}
         <article class="bloomli-trust__card" {{ block.shopify_attributes }}>
-          {%- if block.settings.quote != blank -%}
-            <p class="bloomli-trust__quote">{{ block.settings.quote | escape }}</p>
-          {%- endif -%}
-
           {%- if block.settings.title != blank -%}
             <h3 class="bloomli-trust__title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.quote != blank -%}
+            <p class="bloomli-trust__quote">{{ block.settings.quote | escape }}</p>
           {%- endif -%}
         </article>
       {%- endfor -%}
     </div>
 
     {%- if section.blocks.size > 1 -%}
-      <div class="bloomli-trust__dots" aria-hidden="true">
-        {%- for block in section.blocks -%}
-          <span class="bloomli-trust__dot"></span>
-        {%- endfor -%}
+      <div class="bloomli-trust__footer">
+        <div class="bloomli-trust__progress" aria-hidden="true">
+          <span class="bloomli-trust__progress-bar" data-bloomli-trust-progress></span>
+        </div>
+
+        <div class="bloomli-trust__controls" data-bloomli-trust-controls>
+          <button class="bloomli-trust__arrow bloomli-trust__arrow--prev" type="button" aria-label="Previous proof card" data-bloomli-trust-prev>
+            <span class="bloomli-trust__arrow-icon" aria-hidden="true"></span>
+          </button>
+          <button class="bloomli-trust__arrow bloomli-trust__arrow--next" type="button" aria-label="Next proof card" data-bloomli-trust-next>
+            <span class="bloomli-trust__arrow-icon" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
     {%- endif -%}
   </div>

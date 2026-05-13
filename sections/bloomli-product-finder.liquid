@@ -1,0 +1,341 @@
+{{ 'bloomli-product-finder.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign cards = 'capsules,gummies,oil' | split: ','
+-%}
+
+<section class="bloomli-product-finder color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="bloomli-product-finder__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="bloomli-product-finder__heading h1">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <div class="bloomli-product-finder__subheading rte">
+          {{ section.settings.subheading }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="bloomli-product-finder__grid">
+      {%- for card in cards -%}
+        {%- liquid
+          assign card_modifier = card
+          assign icon = 'ti-pill'
+          assign heading_key = card | append: '_heading'
+          assign subhead_key = card | append: '_subhead'
+          assign best_for_key = card | append: '_best_for'
+          assign check_1_key = card | append: '_check_1'
+          assign check_2_key = card | append: '_check_2'
+          assign check_3_key = card | append: '_check_3'
+          assign button_label_key = card | append: '_button_label'
+          assign button_url_key = card | append: '_button_url'
+          assign badge_key = card | append: '_badge'
+
+          if card == 'gummies'
+            assign icon = 'ti-candy'
+          elsif card == 'oil'
+            assign icon = 'ti-droplet'
+          endif
+
+          assign card_heading = section.settings[heading_key]
+          assign card_subhead = section.settings[subhead_key]
+          assign best_for = section.settings[best_for_key]
+          assign check_1 = section.settings[check_1_key]
+          assign check_2 = section.settings[check_2_key]
+          assign check_3 = section.settings[check_3_key]
+          assign button_label = section.settings[button_label_key]
+          assign button_url = section.settings[button_url_key]
+          assign badge_text = section.settings[badge_key]
+        -%}
+
+        <article class="bloomli-product-finder__card bloomli-product-finder__card--{{ card_modifier }}{% if card == 'gummies' %} bloomli-product-finder__card--featured{% endif %}">
+          {%- if card == 'gummies' and section.settings.most_popular_badge != blank -%}
+            <span class="bloomli-product-finder__floating-badge">
+              {{ section.settings.most_popular_badge | escape }}
+            </span>
+          {%- endif -%}
+
+          <div class="bloomli-product-finder__icon-row">
+            <span class="bloomli-product-finder__icon" aria-hidden="true">
+              <i class="ti {{ icon }}"></i>
+            </span>
+
+            {%- if badge_text != blank -%}
+              {%- unless card == 'oil' and section.settings.show_oil_add_on_pill == false -%}
+                <span class="bloomli-product-finder__pill">
+                  {{ badge_text | escape }}
+                </span>
+              {%- endunless -%}
+            {%- endif -%}
+          </div>
+
+          {%- if best_for != blank -%}
+            <p class="bloomli-product-finder__best-for">
+              {{ best_for | escape }}
+            </p>
+          {%- endif -%}
+
+          {%- if card_heading != blank -%}
+            <h3 class="bloomli-product-finder__title h3">
+              {{ card_heading | escape }}
+            </h3>
+          {%- endif -%}
+
+          {%- if card_subhead != blank -%}
+            <p class="bloomli-product-finder__body">
+              {{ card_subhead | escape }}
+            </p>
+          {%- endif -%}
+
+          <ul class="bloomli-product-finder__checks list-unstyled" role="list">
+            {%- if check_1 != blank -%}
+              <li>
+                <i class="ti ti-check" aria-hidden="true"></i>
+                <span>{{ check_1 | escape }}</span>
+              </li>
+            {%- endif -%}
+            {%- if check_2 != blank -%}
+              <li>
+                <i class="ti ti-check" aria-hidden="true"></i>
+                <span>{{ check_2 | escape }}</span>
+              </li>
+            {%- endif -%}
+            {%- if check_3 != blank -%}
+              <li>
+                <i class="ti ti-check" aria-hidden="true"></i>
+                <span>{{ check_3 | escape }}</span>
+              </li>
+            {%- endif -%}
+          </ul>
+
+          {%- if button_label != blank -%}
+            <a
+              class="button button--primary bloomli-product-finder__button"
+              href="{{ button_url | default: '#' }}"
+            >
+              {{ button_label | escape }}
+            </a>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli Product Finder",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find Your Hair Ritual"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Choose the daily support that fits your routine, then pair it with nourishing botanical care when you want the full ritual.</p>"
+    },
+    {
+      "type": "text",
+      "id": "most_popular_badge",
+      "label": "Most popular badge text",
+      "default": "Most popular"
+    },
+    {
+      "type": "header",
+      "content": "Hair Capsules"
+    },
+    {
+      "type": "text",
+      "id": "capsules_heading",
+      "label": "Heading",
+      "default": "Hair Capsules"
+    },
+    {
+      "type": "text",
+      "id": "capsules_subhead",
+      "label": "Subhead",
+      "default": "Daily hair support in an easy capsule."
+    },
+    {
+      "type": "text",
+      "id": "capsules_best_for",
+      "label": "Best for label",
+      "default": "Best for simple routines"
+    },
+    {
+      "type": "text",
+      "id": "capsules_check_1",
+      "label": "Checkmark line 1",
+      "default": "Targeted daily nutrients"
+    },
+    {
+      "type": "text",
+      "id": "capsules_check_2",
+      "label": "Checkmark line 2",
+      "default": "Capsule format"
+    },
+    {
+      "type": "text",
+      "id": "capsules_check_3",
+      "label": "Checkmark line 3",
+      "default": "Made for everyday consistency"
+    },
+    {
+      "type": "text",
+      "id": "capsules_button_label",
+      "label": "Button label",
+      "default": "Shop Capsules"
+    },
+    {
+      "type": "url",
+      "id": "capsules_button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "text",
+      "id": "capsules_badge",
+      "label": "Badge text",
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Hair Gummies"
+    },
+    {
+      "type": "text",
+      "id": "gummies_heading",
+      "label": "Heading",
+      "default": "Hair Gummies"
+    },
+    {
+      "type": "text",
+      "id": "gummies_subhead",
+      "label": "Subhead",
+      "default": "Daily beauty nutrients in a flavorful gummy."
+    },
+    {
+      "type": "text",
+      "id": "gummies_best_for",
+      "label": "Best for label",
+      "default": "Best for daily beauty support"
+    },
+    {
+      "type": "text",
+      "id": "gummies_check_1",
+      "label": "Checkmark line 1",
+      "default": "Beauty-focused nutrient blend"
+    },
+    {
+      "type": "text",
+      "id": "gummies_check_2",
+      "label": "Checkmark line 2",
+      "default": "Easy daily gummy format"
+    },
+    {
+      "type": "text",
+      "id": "gummies_check_3",
+      "label": "Checkmark line 3",
+      "default": "Pairs beautifully with hair oil"
+    },
+    {
+      "type": "text",
+      "id": "gummies_button_label",
+      "label": "Button label",
+      "default": "Shop Gummies"
+    },
+    {
+      "type": "url",
+      "id": "gummies_button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "text",
+      "id": "gummies_badge",
+      "label": "Badge text",
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Botanical Hair Oil"
+    },
+    {
+      "type": "text",
+      "id": "oil_heading",
+      "label": "Heading",
+      "default": "Botanical Hair Oil"
+    },
+    {
+      "type": "text",
+      "id": "oil_subhead",
+      "label": "Subhead",
+      "default": "Scalp and strand nourishment for your outside-in ritual."
+    },
+    {
+      "type": "text",
+      "id": "oil_best_for",
+      "label": "Best for label",
+      "default": "Best as an add-on"
+    },
+    {
+      "type": "text",
+      "id": "oil_check_1",
+      "label": "Checkmark line 1",
+      "default": "Botanical scalp care"
+    },
+    {
+      "type": "text",
+      "id": "oil_check_2",
+      "label": "Checkmark line 2",
+      "default": "Nourishes strands and ends"
+    },
+    {
+      "type": "text",
+      "id": "oil_check_3",
+      "label": "Checkmark line 3",
+      "default": "Save 15% when bundled"
+    },
+    {
+      "type": "text",
+      "id": "oil_button_label",
+      "label": "Button label",
+      "default": "Shop Hair Oil"
+    },
+    {
+      "type": "url",
+      "id": "oil_button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "text",
+      "id": "oil_badge",
+      "label": "Badge text",
+      "default": "+ Add on"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_oil_add_on_pill",
+      "label": "Show hair oil add-on pill",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli Product Finder"
+    }
+  ]
+}
+{% endschema %}

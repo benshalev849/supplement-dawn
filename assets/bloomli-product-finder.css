@@ -1,0 +1,214 @@
+.bloomli-product-finder {
+  padding-block: 6.4rem;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+}
+
+.bloomli-product-finder__header {
+  max-width: 72rem;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.bloomli-product-finder__heading {
+  margin: 0;
+  color: rgb(var(--color-foreground));
+}
+
+.bloomli-product-finder__subheading {
+  margin: 1.4rem auto 0;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+.bloomli-product-finder__subheading p {
+  margin-block: 0;
+}
+
+.bloomli-product-finder__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.4rem;
+  align-items: stretch;
+}
+
+.bloomli-product-finder__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 3.2rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  border-radius: calc(var(--media-radius) + 1rem);
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  box-shadow: 0 1.8rem 4.8rem rgba(var(--color-foreground), 0.08);
+}
+
+.bloomli-product-finder__card--featured {
+  border: 0.2rem solid rgb(var(--color-button));
+  padding: 3.1rem;
+}
+
+.bloomli-product-finder__card--oil {
+  background:
+    linear-gradient(rgba(var(--color-foreground), 0.045), rgba(var(--color-foreground), 0.045)),
+    rgb(var(--color-background));
+  box-shadow: 0 1.2rem 3.6rem rgba(var(--color-foreground), 0.06);
+}
+
+.bloomli-product-finder__floating-badge {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.2rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--buttons-radius-outset);
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.bloomli-product-finder__icon-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.bloomli-product-finder__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  background: rgba(var(--color-button), 0.12);
+  color: rgb(var(--color-button));
+  flex: 0 0 auto;
+}
+
+.bloomli-product-finder__icon .ti {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.bloomli-product-finder__pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.8rem;
+  padding: 0.5rem 1.1rem;
+  border: 0.1rem solid rgba(var(--color-button), 0.28);
+  border-radius: var(--buttons-radius-outset);
+  background: rgba(var(--color-button), 0.1);
+  color: rgb(var(--color-button));
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.bloomli-product-finder__best-for {
+  margin: 0 0 1rem;
+  color: rgb(var(--color-button));
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bloomli-product-finder__title {
+  margin: 0;
+  color: rgb(var(--color-foreground));
+}
+
+.bloomli-product-finder__body {
+  margin: 1.2rem 0 2.4rem;
+  color: rgba(var(--color-foreground), 0.72);
+  font-size: 1.5rem;
+  line-height: 1.55;
+}
+
+.bloomli-product-finder__checks {
+  display: grid;
+  gap: 1.2rem;
+  margin: 0 0 2.8rem;
+  padding: 0;
+}
+
+.bloomli-product-finder__checks li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: start;
+  color: rgba(var(--color-foreground), 0.72);
+  font-size: 1.4rem;
+  line-height: 1.45;
+}
+
+.bloomli-product-finder__checks .ti {
+  color: rgb(var(--color-button));
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+.bloomli-product-finder__button {
+  width: 100%;
+  margin-top: auto;
+}
+
+@media screen and (max-width: 989px) {
+  .bloomli-product-finder__grid {
+    gap: 1.8rem;
+  }
+
+  .bloomli-product-finder__card {
+    padding: 2.4rem;
+  }
+
+  .bloomli-product-finder__card--featured {
+    padding: 2.3rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bloomli-product-finder {
+    padding-block: 4.8rem;
+  }
+
+  .bloomli-product-finder__header {
+    margin-bottom: 3.2rem;
+  }
+
+  .bloomli-product-finder__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bloomli-product-finder__card--gummies {
+    order: -1;
+  }
+
+  .bloomli-product-finder__card {
+    padding: 2.2rem;
+    border-radius: var(--media-radius);
+  }
+
+  .bloomli-product-finder__card--featured {
+    padding: 2.1rem;
+  }
+
+  .bloomli-product-finder__icon-row {
+    margin-bottom: 1.8rem;
+  }
+}

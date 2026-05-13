@@ -23,14 +23,14 @@
 
   if current_product != blank
     if current_is_add_on
-      assign first_product = current_product
-      assign second_product = gummies_product
+      assign first_product = gummies_product
+      assign second_product = current_product
+      assign first_image = section.settings.product_1_image
       if hair_oil_product != blank and current_product.id == hair_oil_product.id
-        assign first_image = section.settings.product_2_image
+        assign second_image = section.settings.product_2_image
       else
-        assign first_image = current_product.featured_image
+        assign second_image = current_product.featured_image
       endif
-      assign second_image = section.settings.product_1_image
     elsif current_is_supplement
       assign first_product = current_product
       assign second_product = hair_oil_product
@@ -173,22 +173,22 @@
     assign button_label = view_routine_label
   endif
 
-  assign first_subscription_price = first_variant.price | times: subscription_factor | divided_by: 100.0 | round
+  assign first_subscription_price = first_variant.price | times: subscription_factor | divided_by: 100.0 | floor
   if first_is_add_on
-    assign first_subscription_price = first_variant.price | times: subscription_factor | times: bundle_factor | divided_by: 10000.0 | round
+    assign first_subscription_price = first_variant.price | times: subscription_factor | times: bundle_factor | divided_by: 10000.0 | floor
   endif
-  assign second_subscription_price = second_variant.price | times: subscription_factor | divided_by: 100.0 | round
+  assign second_subscription_price = second_variant.price | times: subscription_factor | divided_by: 100.0 | floor
   if second_is_add_on
-    assign second_subscription_price = second_variant.price | times: subscription_factor | times: bundle_factor | divided_by: 10000.0 | round
+    assign second_subscription_price = second_variant.price | times: subscription_factor | times: bundle_factor | divided_by: 10000.0 | floor
   endif
 
   assign first_bundle_price = first_variant.price
   if first_is_add_on
-    assign first_bundle_price = first_variant.price | times: bundle_factor | divided_by: 100.0 | round
+    assign first_bundle_price = first_variant.price | times: bundle_factor | divided_by: 100.0 | floor
   endif
   assign second_bundle_price = second_variant.price
   if second_is_add_on
-    assign second_bundle_price = second_variant.price | times: bundle_factor | divided_by: 100.0 | round
+    assign second_bundle_price = second_variant.price | times: bundle_factor | divided_by: 100.0 | floor
   endif
 
   assign primary_price_cents = 0

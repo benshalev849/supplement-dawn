@@ -292,10 +292,12 @@
 
   .bloomli-hero--has-bg-image .bloomli-hero__inner {
     min-height: var(--hero-min-height);
+    padding-top: 24px;
   }
 
   .bloomli-hero--has-bg-image .bloomli-hero__inner--mobile-top {
     justify-content: flex-start;
+    padding-top: 20px;
   }
 
   .bloomli-hero--has-bg-image .bloomli-hero__inner--mobile-center {

@@ -227,9 +227,7 @@
   }
 
   .bloomli-trust__footer {
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 0.9rem;
+    display: none;
   }
 
   .bloomli-trust__controls {
@@ -237,7 +235,7 @@
     position: absolute;
     inset-inline: 0;
     top: 0;
-    bottom: 3.7rem;
+    bottom: 0;
     align-items: center;
     justify-content: space-between;
     gap: 0;

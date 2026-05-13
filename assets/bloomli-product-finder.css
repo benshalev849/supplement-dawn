@@ -50,9 +50,7 @@
 }
 
 .bloomli-product-finder__card--oil {
-  background:
-    linear-gradient(rgba(var(--color-foreground), 0.045), rgba(var(--color-foreground), 0.045)),
-    rgb(var(--color-background));
+  background: var(--bpf-oil-card-background, rgb(var(--color-background)));
   box-shadow: 0 1.2rem 3.6rem rgba(var(--color-foreground), 0.06);
 }
 
@@ -98,9 +96,10 @@
   flex: 0 0 auto;
 }
 
-.bloomli-product-finder__icon .ti {
-  font-size: 2rem;
-  line-height: 1;
+.bloomli-product-finder__icon svg {
+  display: block;
+  width: 2rem;
+  height: 2rem;
 }
 
 .bloomli-product-finder__pill {
@@ -147,7 +146,7 @@
   padding: 0;
 }
 
-.bloomli-product-finder__checks li {
+.bloomli-product-finder .bloomli-proof-split__bullet {
   display: grid;
   grid-template-columns: 2rem minmax(0, 1fr);
   gap: 0.8rem;
@@ -157,10 +156,30 @@
   line-height: 1.45;
 }
 
-.bloomli-product-finder__checks .ti {
-  color: rgb(var(--color-button));
-  font-size: 1.6rem;
-  line-height: 1.4;
+.bloomli-product-finder .bloomli-proof-split__check {
+  position: relative;
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: 0.2rem;
+  border-radius: 50%;
+  background: var(--bps-icon-color, rgb(var(--color-button)));
+}
+
+.bloomli-product-finder .bloomli-proof-split__check::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 0.3rem;
+  width: 0.45rem;
+  height: 0.8rem;
+  border: solid rgb(var(--color-button-text));
+  border-width: 0 0.15rem 0.15rem 0;
+  transform: rotate(45deg);
+}
+
+.bloomli-product-finder .bloomli-proof-split__bullet-text {
+  min-width: 0;
 }
 
 .bloomli-product-finder__button {

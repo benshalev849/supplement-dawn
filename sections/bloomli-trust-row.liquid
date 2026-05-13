@@ -25,13 +25,22 @@
       >
         <div class="bloomli-trust__track" data-bloomli-trust-track>
           {%- for block in section.blocks -%}
+            {%- liquid
+              assign card_label = block.settings.label | default: block.settings.title
+              assign card_body = block.settings.body | default: block.settings.quote
+              assign card_icon = block.settings.icon | default: 'shield-check' | remove: 'ti-' | strip | handleize
+            -%}
             <article class="bloomli-trust__card" {{ block.shopify_attributes }}>
-              {%- if block.settings.title != blank -%}
-                <h3 class="bloomli-trust__title">{{ block.settings.title | escape }}</h3>
+              {%- if card_icon != blank and card_icon != 'none' -%}
+                <i class="bloomli-trust__icon ti ti-{{ card_icon }}" aria-hidden="true"></i>
               {%- endif -%}
 
-              {%- if block.settings.quote != blank -%}
-                <p class="bloomli-trust__quote">{{ block.settings.quote | escape }}</p>
+              {%- if card_label != blank -%}
+                <h3 class="bloomli-trust__title">{{ card_label | escape }}</h3>
+              {%- endif -%}
+
+              {%- if card_body != blank -%}
+                <p class="bloomli-trust__quote">{{ card_body | escape }}</p>
               {%- endif -%}
             </article>
           {%- endfor -%}
@@ -90,7 +99,7 @@
 {
   "name": "Bloomli - Trust Row",
   "tag": "div",
-  "max_blocks": 6,
+  "max_blocks": 12,
   "settings": [
     {
       "type": "color_scheme",
@@ -123,33 +132,23 @@
       "name": "Proof card",
       "settings": [
         {
-          "type": "textarea",
-          "id": "quote",
-          "label": "Proof sentence",
-          "default": "Tested for purity, label accuracy, and quality."
+          "type": "text",
+          "id": "icon",
+          "label": "Tabler icon name",
+          "default": "shield-check",
+          "info": "Use the icon name without the ti- prefix, for example shield-check."
         },
         {
           "type": "text",
-          "id": "title",
-          "label": "Proof title",
-          "default": "Third-party tested"
+          "id": "label",
+          "label": "Label",
+          "default": "Third-Party Tested"
         },
         {
-          "type": "select",
-          "id": "icon",
-          "label": "Optional icon",
-          "options": [
-            { "value": "none", "label": "None" },
-            { "value": "flask", "label": "Flask" },
-            { "value": "shield", "label": "Shield / Check" },
-            { "value": "leaf", "label": "Leaf" },
-            { "value": "star", "label": "Star" },
-            { "value": "check", "label": "Circle check" },
-            { "value": "globe", "label": "Globe / USA" },
-            { "value": "refresh", "label": "Refresh / Pause" },
-            { "value": "sparkle", "label": "Sparkle" }
-          ],
-          "default": "none"
+          "type": "textarea",
+          "id": "body",
+          "label": "Body text",
+          "default": "Tested for purity, label accuracy, and quality."
         }
       ]
     }
@@ -161,43 +160,49 @@
         {
           "type": "proof",
           "settings": {
-            "quote": "Tested for purity, label accuracy, and quality.",
-            "title": "Third-party tested"
+            "icon": "shield-check",
+            "label": "Third-Party Tested",
+            "body": "Tested for purity, label accuracy, and quality."
           }
         },
         {
           "type": "proof",
           "settings": {
-            "quote": "Daily beauty support without turning your supplement into candy.",
-            "title": "2g sugar per gummy"
+            "icon": "candy",
+            "label": "2G Sugar Per Gummy",
+            "body": "Daily beauty support without turning your supplement into candy."
           }
         },
         {
           "type": "proof",
           "settings": {
-            "quote": "Pectin-based gummies made without gelatin.",
-            "title": "Gelatin-free"
+            "icon": "leaf",
+            "label": "Gelatin-Free",
+            "body": "Pectin-based gummies made without gelatin."
           }
         },
         {
           "type": "proof",
           "settings": {
-            "quote": "Produced with quality standards you can trust.",
-            "title": "Made in the USA"
+            "icon": "map-pin",
+            "label": "Made in the USA",
+            "body": "Produced with quality standards you can trust."
           }
         },
         {
           "type": "proof",
           "settings": {
-            "quote": "Try the ritual and see how it fits.",
-            "title": "30-day guarantee"
+            "icon": "pill",
+            "label": "6,000MCG Biotin",
+            "body": "The gold standard dose for hair, skin and nail support."
           }
         },
         {
           "type": "proof",
           "settings": {
-            "quote": "Subscriptions should feel easy, not stressful.",
-            "title": "Cancel anytime"
+            "icon": "certificate",
+            "label": "NSF-Certified Facility",
+            "body": "Manufactured to the highest quality standards."
           }
         }
       ]

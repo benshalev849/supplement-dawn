@@ -6735,9 +6735,9 @@
       "source_file": "bloomli-beneath-surface.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_beneath_surface_js",
-      "target": "assets_bloomli_beneath_surface_initbeneathsurface",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_beneath_surface_initbeneathsurface"
     },
     {
       "relation": "contains",
@@ -6745,9 +6745,9 @@
       "source_file": "bloomli-beneath-surface.js",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_beneath_surface_js",
-      "target": "assets_bloomli_beneath_surface_getinitialindex",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_beneath_surface_getinitialindex"
     },
     {
       "relation": "contains",
@@ -6755,9 +6755,9 @@
       "source_file": "bloomli-beneath-surface.js",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_beneath_surface_js",
-      "target": "assets_bloomli_beneath_surface_setactive",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_beneath_surface_setactive"
     },
     {
       "relation": "contains",
@@ -6765,9 +6765,9 @@
       "source_file": "bloomli-beneath-surface.js",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_beneath_surface_js",
-      "target": "assets_bloomli_beneath_surface_setaccordionstate",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_beneath_surface_setaccordionstate"
     },
     {
       "relation": "contains",
@@ -6775,9 +6775,9 @@
       "source_file": "bloomli-beneath-surface.js",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_beneath_surface_js",
-      "target": "assets_bloomli_beneath_surface_finishaftertransition",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_beneath_surface_finishaftertransition"
     },
     {
       "relation": "calls",
@@ -6786,9 +6786,9 @@
       "source_file": "bloomli-beneath-surface.js",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_beneath_surface_initbeneathsurface",
-      "target": "assets_bloomli_beneath_surface_setactive",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_beneath_surface_setactive"
     },
     {
       "relation": "calls",
@@ -6797,9 +6797,9 @@
       "source_file": "bloomli-beneath-surface.js",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_beneath_surface_initbeneathsurface",
-      "target": "assets_bloomli_beneath_surface_setaccordionstate",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_beneath_surface_setaccordionstate"
     },
     {
       "relation": "calls",
@@ -6808,9 +6808,9 @@
       "source_file": "bloomli-beneath-surface.js",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_beneath_surface_initbeneathsurface",
-      "target": "assets_bloomli_beneath_surface_getinitialindex",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_beneath_surface_getinitialindex"
     },
     {
       "relation": "calls",
@@ -6819,9 +6819,9 @@
       "source_file": "bloomli-beneath-surface.js",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_beneath_surface_setactive",
-      "target": "assets_bloomli_beneath_surface_setaccordionstate",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_beneath_surface_setaccordionstate"
     },
     {
       "relation": "calls",
@@ -6830,9 +6830,9 @@
       "source_file": "bloomli-beneath-surface.js",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_beneath_surface_setaccordionstate",
-      "target": "assets_bloomli_beneath_surface_finishaftertransition",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_beneath_surface_finishaftertransition"
     },
     {
       "relation": "contains",

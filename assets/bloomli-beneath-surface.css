@@ -65,7 +65,7 @@
 .bloomli-beneath-surface__tab,
 .bloomli-beneath-surface__accordion-button {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 1.4rem;
   align-items: center;
   width: 100%;
@@ -81,7 +81,7 @@
 }
 
 .bloomli-beneath-surface__tab {
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .bloomli-beneath-surface__tab:hover,
@@ -96,23 +96,6 @@
 .bloomli-beneath-surface__accordion-button:focus-visible {
   outline: 0.2rem solid rgba(var(--color-button), 0.72);
   outline-offset: 0.3rem;
-}
-
-.bloomli-beneath-surface__tab-marker {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 3.2rem;
-  height: 3.2rem;
-  padding-inline: 0.8rem;
-  border-radius: 999rem;
-  background: rgba(var(--color-button), 0.12);
-  color: rgb(var(--color-button));
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  text-transform: uppercase;
 }
 
 .bloomli-beneath-surface__tab-copy,
@@ -375,15 +358,9 @@
   }
 
   .bloomli-beneath-surface__accordion-button {
-    grid-template-columns: auto minmax(0, 1fr) 2rem;
+    grid-template-columns: minmax(0, 1fr) 2rem;
     gap: 1rem;
     padding: 1.5rem;
-  }
-
-  .bloomli-beneath-surface__tab-marker {
-    min-width: 2.8rem;
-    height: 2.8rem;
-    padding-inline: 0.6rem;
   }
 
   .bloomli-beneath-surface__tab-title {

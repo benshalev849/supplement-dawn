@@ -111,7 +111,6 @@
           "type": "concern",
           "settings": {
             "image": "shopify://shop_images/Model_Eating_Gummy_1.png",
-            "marker": "01",
             "title": "Nutrient gaps",
             "subtitle": "Daily support from within",
             "what_text": "Hair follicles rely on steady nutrients to support the normal growth cycle. When your routine is inconsistent, hair can look weaker, thinner, or more fragile.",
@@ -122,7 +121,6 @@
           "type": "concern",
           "settings": {
             "image": "shopify://shop_images/Client_Result_Selfie_11.png",
-            "marker": "02",
             "title": "Shedding",
             "subtitle": "When hair feels less full",
             "what_text": "Shedding can make hair feel thinner before visible density changes. Consistency matters because hair changes slowly over time.",
@@ -133,7 +131,6 @@
           "type": "concern",
           "settings": {
             "image": "shopify://shop_images/Model_Holding_Gummy_2_5dc2294b-1314-41eb-b66d-3fb3fb684a85.png",
-            "marker": "03",
             "title": "Breakage",
             "subtitle": "When strands feel fragile",
             "what_text": "When strands become dry or fragile, hair can look thinner through the lengths even when growth is still happening at the root.",
@@ -144,7 +141,6 @@
           "type": "concern",
           "settings": {
             "image": "shopify://shop_images/Gummy_Selfie_7.png",
-            "marker": "04",
             "title": "Scalp environment",
             "subtitle": "The foundation of the ritual",
             "what_text": "Your scalp is the foundation for fuller-looking hair. Dryness, buildup, and imbalance can make your routine feel less effective.",
@@ -155,7 +151,6 @@
           "type": "concern",
           "settings": {
             "image": "shopify://shop_images/Gummy_Selfie_5.png",
-            "marker": "05",
             "title": "Lifestyle stress",
             "subtitle": "When life shows up in your hair",
             "what_text": "Busy seasons, stress, styling, and inconsistent routines can all affect how your hair looks and feels over time.",

@@ -45,13 +45,6 @@
               data-bbs-index="{{ forloop.index0 }}"
               {{ block.shopify_attributes }}
             >
-              <span class="bloomli-beneath-surface__tab-marker">
-                {%- if block.settings.marker != blank -%}
-                  {{ block.settings.marker | escape }}
-                {%- else -%}
-                  {{ forloop.index }}
-                {%- endif -%}
-              </span>
               <span class="bloomli-beneath-surface__tab-copy">
                 <span class="bloomli-beneath-surface__tab-title">{{ block.settings.title | escape }}</span>
                 {%- if block.settings.subtitle != blank -%}
@@ -139,13 +132,6 @@
               data-bbs-index="{{ forloop.index0 }}"
               {{ block.shopify_attributes }}
             >
-              <span class="bloomli-beneath-surface__tab-marker">
-                {%- if block.settings.marker != blank -%}
-                  {{ block.settings.marker | escape }}
-                {%- else -%}
-                  {{ forloop.index }}
-                {%- endif -%}
-              </span>
               <span class="bloomli-beneath-surface__accordion-copy">
                 <span class="bloomli-beneath-surface__tab-title">{{ block.settings.title | escape }}</span>
                 {%- if block.settings.subtitle != blank -%}
@@ -275,12 +261,6 @@
         },
         {
           "type": "text",
-          "id": "marker",
-          "label": "Optional icon or number",
-          "default": "01"
-        },
-        {
-          "type": "text",
           "id": "title",
           "label": "Title",
           "default": "Nutrient gaps"
@@ -313,7 +293,6 @@
         {
           "type": "concern",
           "settings": {
-            "marker": "01",
             "title": "Nutrient gaps",
             "subtitle": "Daily support from within",
             "what_text": "Hair follicles rely on steady nutrients to support the normal growth cycle. When your routine is inconsistent, hair can look weaker, thinner, or more fragile.",
@@ -323,7 +302,6 @@
         {
           "type": "concern",
           "settings": {
-            "marker": "02",
             "title": "Shedding",
             "subtitle": "When hair feels less full",
             "what_text": "Shedding can make hair feel thinner before visible density changes. Consistency matters because hair changes slowly over time.",
@@ -333,7 +311,6 @@
         {
           "type": "concern",
           "settings": {
-            "marker": "03",
             "title": "Breakage",
             "subtitle": "When strands feel fragile",
             "what_text": "When strands become dry or fragile, hair can look thinner through the lengths even when growth is still happening at the root.",
@@ -343,7 +320,6 @@
         {
           "type": "concern",
           "settings": {
-            "marker": "04",
             "title": "Scalp environment",
             "subtitle": "The foundation of the ritual",
             "what_text": "Your scalp is the foundation for fuller-looking hair. Dryness, buildup, and imbalance can make your routine feel less effective.",
@@ -353,7 +329,6 @@
         {
           "type": "concern",
           "settings": {
-            "marker": "05",
             "title": "Lifestyle stress",
             "subtitle": "When life shows up in your hair",
             "what_text": "Busy seasons, stress, styling, and inconsistent routines can all affect how your hair looks and feels over time.",

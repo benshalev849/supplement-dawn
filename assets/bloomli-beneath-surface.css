@@ -213,10 +213,6 @@
   line-height: 1.55;
 }
 
-.bloomli-beneath-surface__cta {
-  margin-top: 2.4rem;
-}
-
 .bloomli-beneath-surface__mobile {
   display: none;
 }
@@ -268,10 +264,6 @@
     padding: 1.5rem;
   }
 
-  .bloomli-beneath-surface__cta {
-    width: 100%;
-    margin-top: 0.2rem;
-  }
 }
 
 @media screen and (max-width: 749px) {

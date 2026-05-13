@@ -7819,9 +7819,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_getstep",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_getstep"
     },
     {
       "relation": "contains",
@@ -7829,9 +7829,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_updatecontrols",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_updatecontrols"
     },
     {
       "relation": "contains",
@@ -7839,9 +7839,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_initsection",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_initsection"
     },
     {
       "relation": "contains",
@@ -7849,9 +7849,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_trust_row_js",
-      "target": "assets_bloomli_trust_row_initall",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_initall"
     },
     {
       "relation": "contains",
@@ -7870,9 +7870,9 @@
       "source_file": "bloomli-trust-row.js",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_trust_row_initsection",
-      "target": "assets_bloomli_trust_row_updatecontrols",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_trust_row_updatecontrols"
     },
     {
       "relation": "contains",

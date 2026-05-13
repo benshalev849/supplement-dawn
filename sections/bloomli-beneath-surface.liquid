@@ -106,11 +106,6 @@
                   </div>
                 </div>
 
-                {%- if section.settings.cta_label != blank -%}
-                  <a class="button button--primary bloomli-beneath-surface__cta" href="{{ section.settings.cta_link | default: '#' }}">
-                    {{ section.settings.cta_label | escape }}
-                  </a>
-                {%- endif -%}
               </div>
             </article>
           {%- endfor -%}
@@ -177,11 +172,6 @@
                   <p>{{ block.settings.how_text | escape }}</p>
                 </div>
 
-                {%- if section.settings.cta_label != blank -%}
-                  <a class="button button--primary bloomli-beneath-surface__cta" href="{{ section.settings.cta_link | default: '#' }}">
-                    {{ section.settings.cta_label | escape }}
-                  </a>
-                {%- endif -%}
               </div>
             </div>
           </article>
@@ -217,17 +207,6 @@
       "id": "subtext",
       "label": "Subtext",
       "default": "<p>Tap each concern to see what may be affecting your hair — and how Bloomli supports your routine from the inside out.</p>"
-    },
-    {
-      "type": "text",
-      "id": "cta_label",
-      "label": "CTA label",
-      "default": "Shop the ritual"
-    },
-    {
-      "type": "url",
-      "id": "cta_link",
-      "label": "CTA link"
     },
     {
       "type": "range",

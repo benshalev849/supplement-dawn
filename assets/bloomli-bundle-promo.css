@@ -1,0 +1,203 @@
+.bloomli-bundle {
+  background: #FAF5F3;
+  color: var(--bloomli-text);
+  padding-block: var(--bloomli-padding-top) var(--bloomli-padding-bottom);
+  padding-inline: 2rem;
+}
+
+.bloomli-bundle__inner {
+  max-width: 118rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  column-gap: clamp(3.2rem, 5vw, 5.6rem);
+  row-gap: 0;
+  align-items: center;
+  text-align: left;
+}
+
+.bloomli-bundle__eyebrow,
+.bloomli-bundle__heading,
+.bloomli-bundle__subheading,
+.bloomli-bundle__copy,
+.bloomli-bundle__cta-wrap {
+  grid-column: 1;
+}
+
+.bloomli-bundle__eyebrow {
+  margin: 0 0 1.2rem;
+  color: rgb(var(--color-button));
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.bloomli-bundle__heading {
+  margin: 0;
+  color: var(--bloomli-text);
+  font-family: var(--font-heading-family);
+  font-size: clamp(4.8rem, 7vw, 8.4rem);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+
+.bloomli-bundle__subheading {
+  max-width: 62rem;
+  margin: 2.4rem 0 0;
+  color: var(--bloomli-text);
+  font-size: clamp(2.2rem, 3vw, 3.4rem);
+  line-height: 1.2;
+}
+
+.bloomli-bundle__copy {
+  max-width: 52rem;
+  margin: 1.8rem 0 0;
+  color: var(--bloomli-text-muted);
+  font-size: 1.7rem;
+  line-height: 1.65;
+}
+
+.bloomli-bundle__products {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: clamp(1.4rem, 2vw, 2.2rem);
+  align-items: center;
+}
+
+.bloomli-bundle__card {
+  min-height: 34rem;
+  padding: 2.4rem 2.2rem 2.6rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  border-radius: 2.4rem;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 2.4rem 7rem rgba(var(--color-foreground), 0.08);
+  text-align: center;
+}
+
+.bloomli-bundle__image-link {
+  display: flex;
+  min-height: 22rem;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.bloomli-bundle__product-image {
+  width: auto;
+  max-width: 82%;
+  max-height: 22rem;
+  object-fit: contain;
+  filter: drop-shadow(0 2rem 2.5rem rgba(var(--color-foreground), 0.16));
+}
+
+.bloomli-bundle__product-title {
+  margin: 1.6rem 0 0.4rem;
+  color: var(--bloomli-text);
+  font-family: var(--font-heading-family);
+  font-size: 2rem;
+  font-weight: var(--font-heading-weight);
+  line-height: 1.2;
+}
+
+.bloomli-bundle__product-description {
+  margin: 0;
+  color: rgba(var(--color-foreground), 0.62);
+  font-size: 1.4rem;
+  line-height: 1.35;
+}
+
+.bloomli-bundle__plus {
+  display: inline-flex;
+  width: 4.6rem;
+  height: 4.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgb(var(--color-background));
+  box-shadow: 0 1.2rem 3rem rgba(var(--color-foreground), 0.1);
+  color: rgb(var(--color-button));
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.bloomli-bundle__inline-saving {
+  grid-column: 2;
+  margin: 1.8rem 0 0;
+  color: rgb(var(--color-button));
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.bloomli-bundle__cta-wrap {
+  margin-top: 3.2rem;
+}
+
+.bloomli-bundle__dynamic-saving {
+  margin: 1rem 0 0;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.bloomli-bundle__one-time {
+  appearance: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+.bloomli-bundle__subscription-note {
+  max-width: 32rem;
+  margin: 1rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.18);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+@media screen and (max-width: 900px) {
+  .bloomli-bundle {
+    padding-inline: 1.8rem;
+  }
+
+  .bloomli-bundle__inner {
+    display: block;
+    text-align: center;
+  }
+
+  .bloomli-bundle__copy,
+  .bloomli-bundle__subheading,
+  .bloomli-bundle__subscription-note {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bloomli-bundle__products {
+    margin-top: 4.2rem;
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .bloomli-bundle__card {
+    min-height: 33rem;
+  }
+
+  .bloomli-bundle__plus {
+    margin: -0.4rem auto;
+  }
+}

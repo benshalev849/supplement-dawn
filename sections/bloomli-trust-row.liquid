@@ -39,9 +39,23 @@
       </div>
 
       {%- if section.blocks.size > 1 -%}
-        <div class="bloomli-trust__footer">
-          <div class="bloomli-trust__progress" aria-hidden="true">
-            <span class="bloomli-trust__progress-bar" data-bloomli-trust-progress></span>
+        <div class="bloomli-trust__footer slider-buttons">
+          <div class="bloomli-trust__counter slider-counter slider-counter--dots" aria-label="Proof card pagination">
+            {%- for block in section.blocks -%}
+              <button
+                class="slider-counter__link slider-counter__link--dots link{% if forloop.first %} slider-counter__link--active{% endif %}"
+                type="button"
+                aria-label="Go to proof card {{ forloop.index }} of {{ section.blocks.size }}"
+                aria-controls="{{ track_id }}"
+                {% if forloop.first %}
+                  aria-current="true"
+                {% endif %}
+                data-bloomli-trust-dot
+                data-bloomli-trust-index="{{ forloop.index0 }}"
+              >
+                <span class="dot"></span>
+              </button>
+            {%- endfor -%}
           </div>
 
           {%- if use_carousel -%}

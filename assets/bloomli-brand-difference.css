@@ -292,6 +292,33 @@
     min-width: 62rem;
   }
 
+  .bloomli-brand-difference__table th:first-child,
+  .bloomli-brand-difference__table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    width: 155px;
+    background: rgb(var(--color-background));
+  }
+
+  .bloomli-brand-difference__table th:nth-child(2),
+  .bloomli-brand-difference__table td:nth-child(2) {
+    position: sticky;
+    left: 155px;
+    z-index: 2;
+    width: 155px;
+    background: #fbeaf0;
+  }
+
+  .bloomli-brand-difference__table thead th:first-child {
+    z-index: 3;
+  }
+
+  .bloomli-brand-difference__table thead th:nth-child(2) {
+    z-index: 3;
+    background: #B23A6F;
+  }
+
   .bloomli-brand-difference__feature-heading,
   .bloomli-brand-difference__column-heading {
     padding: 1.2rem 1rem;

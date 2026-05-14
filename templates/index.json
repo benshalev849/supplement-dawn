@@ -540,6 +540,7 @@
         "review_YfrhBY": {
           "type": "review",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_6.png",
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,

@@ -213,8 +213,8 @@
       "name": "Bloomli - Beneath Surface",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "What’s happening to your hair starts beneath the surface.",
-        "subtext": "<p>Tap each concern to see what may be affecting your hair — and how Bloomli supports your routine from the inside out.</p>",
+        "heading": "Most hair concerns start somewhere you can't see.",
+        "subtext": "<p>Every hair concern has a <strong>root cause.</strong> Here's what may be <strong>behind yours.</strong></p>",
         "padding_top": 80,
         "padding_bottom": 80
       }

@@ -103,7 +103,7 @@
 }
 
 .bloomli-brand-difference__value-cell--bloomli {
-  background: #fdf0f4;
+  background: #fbeaf0;
 }
 
 .bloomli-brand-difference__value {
@@ -123,11 +123,26 @@
 }
 
 .bloomli-brand-difference__value--check {
-  color: #B23A6F;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: #B23A6F;
+  color: #fff;
 }
 
 .bloomli-brand-difference__value--competitor-check {
-  color: rgba(var(--color-foreground), 0.55);
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: rgba(var(--color-foreground), 0.78);
+  color: #fff;
+}
+
+.bloomli-brand-difference__value--check .ti,
+.bloomli-brand-difference__value--competitor-check .ti {
+  color: #fff;
+  font-size: 1.4rem;
+  stroke-width: 3;
 }
 
 .bloomli-brand-difference__value--cross {

@@ -71,7 +71,8 @@
   background: transparent;
 }
 
-.bloomli-brand-difference__column-heading--bloomli {
+.bloomli-brand-difference__column-heading--bloomli,
+.bloomli-brand-difference__table th:nth-child(2) {
   background: #B23A6F;
   border-radius: 1.6rem 1.6rem 0 0;
   color: #fff;
@@ -103,12 +104,14 @@
   vertical-align: middle;
 }
 
-.bloomli-brand-difference__value-cell--bloomli {
+.bloomli-brand-difference__value-cell--bloomli,
+.bloomli-brand-difference__table td:nth-child(2) {
   background: #fbeaf0;
   border-radius: 0;
 }
 
-.bloomli-brand-difference__table tr:last-child .bloomli-brand-difference__value-cell--bloomli {
+.bloomli-brand-difference__table tr:last-child .bloomli-brand-difference__value-cell--bloomli,
+.bloomli-brand-difference__table tr:last-child td:nth-child(2) {
   border-radius: 0 0 1.6rem 1.6rem;
 }
 
@@ -293,40 +296,49 @@
   }
 
   .bloomli-brand-difference__table {
-    width: 100%;
-    min-width: 100%;
-    table-layout: fixed;
+    display: table;
+    width: auto;
+    min-width: 44rem;
+    table-layout: auto;
   }
 
   .bloomli-brand-difference__table th:first-child,
   .bloomli-brand-difference__table td:first-child {
     position: static;
-    width: 34%;
+    min-width: 15rem;
+    max-width: 15rem;
+    width: 15rem;
     background: transparent;
   }
 
   .bloomli-brand-difference__table th:nth-child(2),
   .bloomli-brand-difference__table td:nth-child(2) {
-    position: sticky;
-    left: 34%;
-    z-index: 2;
-    width: 24%;
+    position: static;
+    left: auto;
+    z-index: auto;
+    min-width: 11rem;
+    max-width: 11rem;
+    width: 11rem;
     background: #fbeaf0;
   }
 
   .bloomli-brand-difference__table thead th:nth-child(2) {
-    z-index: 3;
+    z-index: auto;
     background: #B23A6F;
   }
 
   .bloomli-brand-difference__table th:nth-child(3),
   .bloomli-brand-difference__table td:nth-child(3) {
-    width: 21%;
+    min-width: 9rem;
+    max-width: 9rem;
+    width: 9rem;
   }
 
   .bloomli-brand-difference__table th:nth-child(4),
   .bloomli-brand-difference__table td:nth-child(4) {
-    width: 21%;
+    min-width: 9rem;
+    max-width: 9rem;
+    width: 9rem;
   }
 
   .bloomli-brand-difference__table th:nth-child(3),

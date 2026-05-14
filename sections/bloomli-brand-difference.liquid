@@ -2,6 +2,7 @@
 
 {%- liquid
   assign custom_check_icon = section.settings.custom_check_icon
+  assign bloomli_header_logo = section.settings.bloomli_header_logo
 -%}
 
 <section
@@ -35,7 +36,20 @@
                 {{ section.settings.feature_header | escape }}
               </th>
               <th scope="col" class="bloomli-brand-difference__column-heading bloomli-brand-difference__column-heading--bloomli">
-                {{ section.settings.bloomli_header | escape }}
+                {%- if bloomli_header_logo != blank -%}
+                  {{
+                    bloomli_header_logo
+                    | image_url: width: 240
+                    | image_tag:
+                      class: 'bloomli-brand-difference__header-logo',
+                      widths: '120, 180, 240',
+                      width: 120,
+                      loading: 'lazy',
+                      alt: section.settings.bloomli_header
+                  }}
+                {%- else -%}
+                  {{ section.settings.bloomli_header | escape }}
+                {%- endif -%}
               </th>
               <th scope="col" class="bloomli-brand-difference__column-heading">
                 {{ section.settings.biotin_header | escape }}
@@ -166,6 +180,11 @@
       "id": "bloomli_header",
       "label": "Bloomli column header",
       "default": "Complete Hair Ritual"
+    },
+    {
+      "type": "image_picker",
+      "id": "bloomli_header_logo",
+      "label": "Bloomli column logo"
     },
     {
       "type": "text",

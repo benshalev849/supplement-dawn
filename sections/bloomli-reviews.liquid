@@ -26,25 +26,67 @@
 
     </div>
 
-    <div class="bloomli-reviews__viewport" aria-label="{{ section.settings.heading | default: 'Customer reviews' | escape }}">
-      <div class="bloomli-reviews__track">
-        <div class="bloomli-reviews__group">
-          {%- for block in section.blocks -%}
-            {%- render 'bloomli-review-card', block: block -%}
-          {%- endfor -%}
-        </div>
+    {%- liquid
+      assign review_count_metafield = shop.metafields.judgeme.review_count
+      assign avg_rating_metafield = shop.metafields.judgeme.avg_rating
+      assign review_count = review_count_metafield.value | default: review_count_metafield
+      assign avg_rating = avg_rating_metafield.value | default: avg_rating_metafield
+      assign avg_rating_number = avg_rating | plus: 0
+      assign rating_times_ten = avg_rating_number | times: 10 | round
+      assign rating_whole = rating_times_ten | divided_by: 10
+      assign rating_decimal = rating_times_ten | modulo: 10
+    -%}
 
-        {%- if section.blocks.size > 0 -%}
-          <div class="bloomli-reviews__group" aria-hidden="true">
+    {%- if section.settings.show_aggregate_rating and avg_rating != blank and review_count != blank -%}
+      <div
+        class="bloomli-reviews__aggregate"
+        aria-label="{{ rating_whole }}.{{ rating_decimal }} stars from {{ review_count }} reviews"
+      >
+        <span class="bloomli-reviews__aggregate-stars" aria-hidden="true">
+          <span class="bloomli-reviews__aggregate-star">&#9733;</span>
+          <span class="bloomli-reviews__aggregate-star">&#9733;</span>
+          <span class="bloomli-reviews__aggregate-star">&#9733;</span>
+          <span class="bloomli-reviews__aggregate-star">&#9733;</span>
+          <span class="bloomli-reviews__aggregate-star">&#9733;</span>
+        </span>
+        <span class="bloomli-reviews__aggregate-rating">{{ rating_whole }}.{{ rating_decimal }}</span>
+        <span class="bloomli-reviews__aggregate-count">from {{ review_count }} reviews</span>
+      </div>
+    {%- endif -%}
+
+    <div class="bloomli-reviews__carousel" data-bloomli-reviews-carousel>
+      <button
+        class="button button--secondary bloomli-reviews__arrow bloomli-reviews__arrow--prev"
+        type="button"
+        aria-label="Previous review"
+        data-bloomli-reviews-prev
+      >
+        <i class="ti ti-chevron-left" aria-hidden="true"></i>
+      </button>
+
+      <div class="bloomli-reviews__viewport" aria-label="{{ section.settings.heading | default: 'Customer reviews' | escape }}" data-bloomli-reviews-viewport>
+        <div class="bloomli-reviews__track">
+          <div class="bloomli-reviews__group">
             {%- for block in section.blocks -%}
-              {%- render 'bloomli-review-card', block: block, is_clone: true -%}
+              {%- render 'bloomli-review-card', block: block -%}
             {%- endfor -%}
           </div>
-        {%- endif -%}
+        </div>
       </div>
+
+      <button
+        class="button button--secondary bloomli-reviews__arrow bloomli-reviews__arrow--next"
+        type="button"
+        aria-label="Next review"
+        data-bloomli-reviews-next
+      >
+        <i class="ti ti-chevron-right" aria-hidden="true"></i>
+      </button>
     </div>
   </div>
 </section>
+
+<script src="{{ 'bloomli-reviews.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
@@ -53,6 +95,7 @@
   "max_blocks": 16,
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Real women. Real results." },
+    { "type": "checkbox", "id": "show_aggregate_rating", "label": "Show aggregate Judge.me rating", "default": true },
     { "type": "color", "id": "background_color", "label": "Background color", "default": "#F2E7E4" },
     { "type": "color", "id": "card_background", "label": "Card background", "default": "#FDFAF7" },
     { "type": "color", "id": "placeholder_color", "label": "Photo placeholder color", "default": "#F7F0E9" },

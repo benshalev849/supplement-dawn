@@ -219,42 +219,120 @@
     "bloomli_brand_difference": {
       "type": "bloomli-brand-difference",
       "blocks": {
-        "brand_difference_inside_out": {
+        "brand_difference_high_dose_biotin": {
           "type": "card",
           "settings": {
-            "number": "01",
-            "title": "Inside-out support",
-            "text": "<p>Daily nutrients chosen to support the foundation of healthier-looking hair, from roots to strands.</p>"
+            "feature_label": "High-dose Biotin",
+            "bloomli_value": "check",
+            "biotin_value": "check",
+            "standard_value": "check"
           }
         },
-        "brand_difference_format": {
+        "brand_difference_b_complex": {
           "type": "card",
           "settings": {
-            "number": "02",
-            "title": "Choose your format",
-            "text": "<p>Gummies or capsules, so your hair wellness routine fits your real life &mdash; not the other way around.</p>"
+            "feature_label": "Full B vitamin complex",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "check"
           }
         },
-        "brand_difference_ritual": {
+        "brand_difference_minerals": {
           "type": "card",
           "settings": {
-            "number": "03",
-            "title": "Complete the ritual",
-            "text": "<p>Add botanical hair oil for outside-in scalp, strand, and end care when you want the full routine.</p>"
+            "feature_label": "Complete mineral blend",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "partial"
+          }
+        },
+        "brand_difference_botanicals": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Botanical herbal blend?",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        "brand_difference_formats": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Choice of format ? gummies or capsules",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        "brand_difference_oil": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Botanical scalp oil",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        "brand_difference_testing": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Third-party tested",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        "brand_difference_nsf": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Manufactured in NSF-certified facility",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        "brand_difference_usa": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Made in the USA",
+            "bloomli_value": "check",
+            "biotin_value": "partial",
+            "standard_value": "partial"
+          }
+        },
+        "brand_difference_gluten_free": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Gluten-free",
+            "bloomli_value": "check",
+            "biotin_value": "partial",
+            "standard_value": "partial"
           }
         }
       },
       "block_order": [
-        "brand_difference_inside_out",
-        "brand_difference_format",
-        "brand_difference_ritual"
+        "brand_difference_high_dose_biotin",
+        "brand_difference_b_complex",
+        "brand_difference_minerals",
+        "brand_difference_botanicals",
+        "brand_difference_formats",
+        "brand_difference_oil",
+        "brand_difference_testing",
+        "brand_difference_nsf",
+        "brand_difference_usa",
+        "brand_difference_gluten_free"
       ],
       "name": "Bloomli - Brand Difference",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "card_background_color": "#ffffff",
-        "heading": "Not just another hair supplement.",
-        "body": "<p>Bloomli is built as a daily hair ritual — inside-out nutrients, flexible formats, and outside-in care for the scalp and strands.</p>",
+        "heading": "How we stack up",
+        "body": "Not all hair supplements are built the same.",
+        "feature_header": "Feature",
+        "bloomli_header": "Complete Hair Ritual",
+        "biotin_header": "Biotin supplement",
+        "standard_header": "Standard hair supplement",
+        "custom_check_icon": "",
+        "footnote": "? Botanical herbal blend available in capsules formula. ? Based on general market data for mass-market hair supplements. Individual products may vary.",
         "padding_top_desktop": 72,
         "padding_bottom_desktop": 72,
         "padding_top_mobile": 48,

@@ -1,12 +1,11 @@
 {{ 'bloomli-brand-difference.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign card_background_color = section.settings.card_background_color | default: '#FAF5F3'
+  assign custom_check_icon = section.settings.custom_check_icon
 -%}
 
 <section
   class="bloomli-brand-difference color-{{ section.settings.color_scheme }} gradient"
-  style="--bloomli-brand-card-background: {{ card_background_color }};"
   data-padding-top-mobile="{{ section.settings.padding_top_mobile }}"
   data-padding-bottom-mobile="{{ section.settings.padding_bottom_mobile }}"
   data-padding-top-desktop="{{ section.settings.padding_top_desktop }}"
@@ -21,36 +20,110 @@
       {%- endif -%}
 
       {%- if section.settings.body != blank -%}
-        <div class="bloomli-brand-difference__body rte">
-          {{ section.settings.body }}
-        </div>
+        <p class="bloomli-brand-difference__body">
+          {{ section.settings.body | escape }}
+        </p>
       {%- endif -%}
     </div>
 
     {%- if section.blocks.size > 0 -%}
-      <div class="bloomli-brand-difference__cards">
-        {%- for block in section.blocks -%}
-          <article class="bloomli-brand-difference__card" {{ block.shopify_attributes }}>
-            {%- if block.settings.number != blank -%}
-              <p class="bloomli-brand-difference__number">
-                {{ block.settings.number | escape }}
-              </p>
-            {%- endif -%}
-
-            {%- if block.settings.title != blank -%}
-              <h3 class="bloomli-brand-difference__card-title h4">
-                {{ block.settings.title | escape }}
-              </h3>
-            {%- endif -%}
-
-            {%- if block.settings.text != blank -%}
-              <div class="bloomli-brand-difference__card-text rte">
-                {{ block.settings.text }}
-              </div>
-            {%- endif -%}
-          </article>
-        {%- endfor -%}
+      <div class="bloomli-brand-difference__table-wrap">
+        <table class="bloomli-brand-difference__table">
+          <thead>
+            <tr>
+              <th scope="col" class="bloomli-brand-difference__feature-heading">
+                {{ section.settings.feature_header | escape }}
+              </th>
+              <th scope="col" class="bloomli-brand-difference__column-heading bloomli-brand-difference__column-heading--bloomli">
+                {{ section.settings.bloomli_header | escape }}
+              </th>
+              <th scope="col" class="bloomli-brand-difference__column-heading">
+                {{ section.settings.biotin_header | escape }}
+              </th>
+              <th scope="col" class="bloomli-brand-difference__column-heading">
+                {{ section.settings.standard_header | escape }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in section.blocks -%}
+              <tr {{ block.shopify_attributes }}>
+                <th scope="row" class="bloomli-brand-difference__feature">
+                  {{ block.settings.feature_label | escape }}
+                </th>
+                <td class="bloomli-brand-difference__value-cell bloomli-brand-difference__value-cell--bloomli">
+                  {%- case block.settings.bloomli_value -%}
+                    {%- when 'cross' -%}
+                      <span class="bloomli-brand-difference__value bloomli-brand-difference__value--cross" aria-label="Not included">
+                        <i class="ti ti-circle-x" aria-hidden="true"></i>
+                      </span>
+                    {%- when 'partial' -%}
+                      <span class="bloomli-brand-difference__value bloomli-brand-difference__value--partial" aria-label="Partial">
+                        <i class="ti ti-minus" aria-hidden="true"></i>
+                      </span>
+                    {%- else -%}
+                      <span class="bloomli-brand-difference__value bloomli-brand-difference__value--check" aria-label="Included">
+                        {%- if custom_check_icon != blank -%}
+                          {{
+                            custom_check_icon
+                            | image_url: width: 40
+                            | image_tag:
+                              class: 'bloomli-brand-difference__custom-check',
+                              widths: '20, 40',
+                              width: 20,
+                              height: 20,
+                              loading: 'lazy',
+                              alt: 'Included'
+                          }}
+                        {%- else -%}
+                          <i class="ti ti-circle-check" aria-hidden="true"></i>
+                        {%- endif -%}
+                      </span>
+                  {%- endcase -%}
+                </td>
+                <td class="bloomli-brand-difference__value-cell">
+                  {%- case block.settings.biotin_value -%}
+                    {%- when 'check' -%}
+                      <span class="bloomli-brand-difference__value bloomli-brand-difference__value--competitor-check" aria-label="Included">
+                        <i class="ti ti-circle-check" aria-hidden="true"></i>
+                      </span>
+                    {%- when 'partial' -%}
+                      <span class="bloomli-brand-difference__value bloomli-brand-difference__value--competitor-partial" aria-label="Partial">
+                        <i class="ti ti-minus" aria-hidden="true"></i>
+                      </span>
+                    {%- else -%}
+                      <span class="bloomli-brand-difference__value bloomli-brand-difference__value--competitor-cross" aria-label="Not included">
+                        <i class="ti ti-circle-x" aria-hidden="true"></i>
+                      </span>
+                  {%- endcase -%}
+                </td>
+                <td class="bloomli-brand-difference__value-cell">
+                  {%- case block.settings.standard_value -%}
+                    {%- when 'check' -%}
+                      <span class="bloomli-brand-difference__value bloomli-brand-difference__value--competitor-check" aria-label="Included">
+                        <i class="ti ti-circle-check" aria-hidden="true"></i>
+                      </span>
+                    {%- when 'partial' -%}
+                      <span class="bloomli-brand-difference__value bloomli-brand-difference__value--competitor-partial" aria-label="Partial">
+                        <i class="ti ti-minus" aria-hidden="true"></i>
+                      </span>
+                    {%- else -%}
+                      <span class="bloomli-brand-difference__value bloomli-brand-difference__value--competitor-cross" aria-label="Not included">
+                        <i class="ti ti-circle-x" aria-hidden="true"></i>
+                      </span>
+                  {%- endcase -%}
+                </td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
       </div>
+    {%- endif -%}
+
+    {%- if section.settings.footnote != blank -%}
+      <p class="bloomli-brand-difference__footnote">
+        {{ section.settings.footnote | escape }}
+      </p>
     {%- endif -%}
   </div>
 </section>
@@ -71,22 +144,51 @@
       "default": "scheme-1"
     },
     {
-      "type": "color",
-      "id": "card_background_color",
-      "label": "Card background",
-      "default": "#FAF5F3"
-    },
-    {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Not just another hair supplement."
+      "default": "How we stack up"
     },
     {
-      "type": "richtext",
+      "type": "text",
       "id": "body",
-      "label": "Body",
-      "default": "<p>Bloomli is built as a daily hair ritual &mdash; inside-out nutrients, flexible formats, and outside-in care for the scalp and strands.</p>"
+      "label": "Subheading",
+      "default": "Not all hair supplements are built the same."
+    },
+    {
+      "type": "text",
+      "id": "feature_header",
+      "label": "Feature column header",
+      "default": "Feature"
+    },
+    {
+      "type": "text",
+      "id": "bloomli_header",
+      "label": "Bloomli column header",
+      "default": "Complete Hair Ritual"
+    },
+    {
+      "type": "text",
+      "id": "biotin_header",
+      "label": "Biotin-only column header",
+      "default": "Biotin supplement"
+    },
+    {
+      "type": "text",
+      "id": "standard_header",
+      "label": "Standard supplement column header",
+      "default": "Standard hair supplement"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_check_icon",
+      "label": "Custom Bloomli check icon"
+    },
+    {
+      "type": "textarea",
+      "id": "footnote",
+      "label": "Footnote",
+      "default": "† Botanical herbal blend available in capsules formula. ‡ Based on general market data for mass-market hair supplements. Individual products may vary."
     },
     {
       "type": "header",
@@ -95,21 +197,19 @@
     {
       "type": "range",
       "id": "padding_top_desktop",
+      "label": "Padding top",
       "min": 0,
       "max": 120,
       "step": 8,
-      "unit": "px",
-      "label": "Padding top",
       "default": 72
     },
     {
       "type": "range",
       "id": "padding_bottom_desktop",
+      "label": "Padding bottom",
       "min": 0,
       "max": 120,
       "step": 8,
-      "unit": "px",
-      "label": "Padding bottom",
       "default": 72
     },
     {
@@ -119,46 +219,65 @@
     {
       "type": "range",
       "id": "padding_top_mobile",
+      "label": "Padding top",
       "min": 0,
       "max": 120,
       "step": 8,
-      "unit": "px",
-      "label": "Padding top",
       "default": 48
     },
     {
       "type": "range",
       "id": "padding_bottom_mobile",
+      "label": "Padding bottom",
       "min": 0,
       "max": 120,
       "step": 8,
-      "unit": "px",
-      "label": "Padding bottom",
       "default": 48
     }
   ],
   "blocks": [
     {
       "type": "card",
-      "name": "Card",
+      "name": "Comparison row",
       "settings": [
         {
           "type": "text",
-          "id": "number",
-          "label": "Number",
-          "default": "01"
+          "id": "feature_label",
+          "label": "Feature label",
+          "default": "High-dose Biotin"
         },
         {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Inside-out support"
+          "type": "select",
+          "id": "bloomli_value",
+          "label": "Bloomli value",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "cross", "label": "Cross" },
+            { "value": "partial", "label": "Partial" }
+          ],
+          "default": "check"
         },
         {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text",
-          "default": "<p>Daily nutrients chosen to support the foundation of healthier-looking hair, from roots to strands.</p>"
+          "type": "select",
+          "id": "biotin_value",
+          "label": "Biotin-only value",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "cross", "label": "Cross" },
+            { "value": "partial", "label": "Partial" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "select",
+          "id": "standard_value",
+          "label": "Standard value",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "cross", "label": "Cross" },
+            { "value": "partial", "label": "Partial" }
+          ],
+          "default": "check"
         }
       ]
     }
@@ -170,25 +289,91 @@
         {
           "type": "card",
           "settings": {
-            "number": "01",
-            "title": "Inside-out support",
-            "text": "<p>Daily nutrients chosen to support the foundation of healthier-looking hair, from roots to strands.</p>"
+            "feature_label": "High-dose Biotin",
+            "bloomli_value": "check",
+            "biotin_value": "check",
+            "standard_value": "check"
           }
         },
         {
           "type": "card",
           "settings": {
-            "number": "02",
-            "title": "Choose your format",
-            "text": "<p>Gummies or capsules, so your hair wellness routine fits your real life &mdash; not the other way around.</p>"
+            "feature_label": "Full B vitamin complex",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "check"
           }
         },
         {
           "type": "card",
           "settings": {
-            "number": "03",
-            "title": "Complete the ritual",
-            "text": "<p>Add botanical hair oil for outside-in scalp, strand, and end care when you want the full routine.</p>"
+            "feature_label": "Complete mineral blend",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "partial"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "feature_label": "Botanical herbal blend†",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "feature_label": "Choice of format — gummies or capsules",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "feature_label": "Botanical scalp oil",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "feature_label": "Third-party tested",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "feature_label": "Manufactured in NSF-certified facility",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "feature_label": "Made in the USA",
+            "bloomli_value": "check",
+            "biotin_value": "partial",
+            "standard_value": "partial"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "feature_label": "Gluten-free",
+            "bloomli_value": "check",
+            "biotin_value": "partial",
+            "standard_value": "partial"
           }
         }
       ]

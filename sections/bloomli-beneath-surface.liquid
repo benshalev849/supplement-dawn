@@ -5,11 +5,14 @@
 
 {%- liquid
   assign section_id = 'BloomliBeneathSurface-' | append: section.id
+  assign row_background_color = section.settings.row_background_color | default: '#FAF5F3'
+  assign content_card_background_color = section.settings.content_card_background_color | default: '#FAF5F3'
 -%}
 
 <section
   id="{{ section_id }}"
-  class="bloomli-beneath-surface bloomli-beneath-surface--pt-{{ section.settings.padding_top }} bloomli-beneath-surface--pb-{{ section.settings.padding_bottom }} bloomli-beneath-surface--card-bg-{{ section.settings.card_background }} color-{{ section.settings.color_scheme }} gradient"
+  class="bloomli-beneath-surface bloomli-beneath-surface--pt-{{ section.settings.padding_top }} bloomli-beneath-surface--pb-{{ section.settings.padding_bottom }} color-{{ section.settings.color_scheme }} gradient"
+  style="--bloomli-beneath-row-background: {{ row_background_color }}; --bloomli-beneath-content-card-background: {{ content_card_background_color }};"
   data-bloomli-beneath-surface
 >
   <div class="page-width">
@@ -174,28 +177,16 @@
       "default": "<p>Tap each concern to see what may be affecting your hair — and how Bloomli supports your routine from the inside out.</p>"
     },
     {
-      "type": "select",
-      "id": "card_background",
+      "type": "color",
+      "id": "row_background_color",
+      "label": "Concern row background",
+      "default": "#FAF5F3"
+    },
+    {
+      "type": "color",
+      "id": "content_card_background_color",
       "label": "Content card background",
-      "options": [
-        {
-          "value": "tint",
-          "label": "Soft tint"
-        },
-        {
-          "value": "white",
-          "label": "White"
-        },
-        {
-          "value": "section",
-          "label": "Section background"
-        },
-        {
-          "value": "transparent",
-          "label": "Transparent"
-        }
-      ],
-      "default": "tint"
+      "default": "#FAF5F3"
     },
     {
       "type": "range",

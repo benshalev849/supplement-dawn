@@ -249,7 +249,7 @@
         "brand_difference_botanicals": {
           "type": "card",
           "settings": {
-            "feature_label": "Botanical herbal blend?",
+            "feature_label": "Botanical herbal blend*",
             "bloomli_value": "check",
             "biotin_value": "cross",
             "standard_value": "cross"
@@ -258,16 +258,7 @@
         "brand_difference_formats": {
           "type": "card",
           "settings": {
-            "feature_label": "Choice of format ? gummies or capsules",
-            "bloomli_value": "check",
-            "biotin_value": "cross",
-            "standard_value": "cross"
-          }
-        },
-        "brand_difference_oil": {
-          "type": "card",
-          "settings": {
-            "feature_label": "Botanical scalp oil",
+            "feature_label": "Choice of format",
             "bloomli_value": "check",
             "biotin_value": "cross",
             "standard_value": "cross"
@@ -316,7 +307,6 @@
         "brand_difference_minerals",
         "brand_difference_botanicals",
         "brand_difference_formats",
-        "brand_difference_oil",
         "brand_difference_testing",
         "brand_difference_nsf",
         "brand_difference_usa",
@@ -327,12 +317,11 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "How we stack up",
         "body": "<p>Not all hair supplements are built the same.</p>",
-        "feature_header": "Feature",
-        "bloomli_header": "Complete Hair Ritual",
+        "feature_header": "",
+        "bloomli_header": "Bloomli",
         "biotin_header": "Biotin supplement",
-        "standard_header": "Standard hair supplement",
-        "custom_check_icon": "",
-        "footnote": "? Botanical herbal blend available in capsules formula. ? Based on general market data for mass-market hair supplements. Individual products may vary.",
+        "standard_header": "Traditional hair supplement",
+        "footnote": "* Botanical herbal blend available in capsules formula. \n** Based on general market data for mass-market hair supplements. Individual products may vary.",
         "padding_top_desktop": 72,
         "padding_bottom_desktop": 72,
         "padding_top_mobile": 48,

@@ -20,9 +20,9 @@
       {%- endif -%}
 
       {%- if section.settings.body != blank -%}
-        <p class="bloomli-brand-difference__body">
-          {{ section.settings.body | escape }}
-        </p>
+        <div class="bloomli-brand-difference__body rte">
+          {{ section.settings.body }}
+        </div>
       {%- endif -%}
     </div>
 
@@ -150,10 +150,10 @@
       "default": "How we stack up"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "body",
       "label": "Subheading",
-      "default": "Not all hair supplements are built the same."
+      "default": "<p>Not all hair supplements are built the same.</p>"
     },
     {
       "type": "text",

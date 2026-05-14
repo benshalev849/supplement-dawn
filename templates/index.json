@@ -157,17 +157,17 @@
           "settings": {
             "title": "Nutrient gaps",
             "subtitle": "When your diet isn't filling the gaps",
-            "what_text": "Hair follicles rely on steady nutrients to support the normal growth cycle. When your routine is inconsistent, hair can look weaker, thinner, or more fragile.",
-            "how_text": "Bloomli gummies provide daily beauty nutrients chosen to support hair from within - helping your routine stay simple and consistent."
+            "what_text": "When key nutrients are missing, hair follicles struggle to complete their natural growth cycle, leading to thinning, shedding, and strands that feel fragile.",
+            "how_text": "Every Bloomli supplement is formulated to fill the nutritional gaps your hair actually needs. Consistently, daily, without the guesswork."
           }
         },
         "concern_shedding": {
           "type": "concern",
           "settings": {
             "title": "Shedding",
-            "subtitle": "When hair feels less full",
-            "what_text": "Shedding can make hair feel thinner before visible density changes. Consistency matters because hair changes slowly over time.",
-            "how_text": "Bloomli supports your daily hair wellness routine with nutrients that help nourish follicles from within."
+            "subtitle": "When the drain tells a different story",
+            "what_text": "Noticing more hair in the shower or on your brush is one of the first signs something is off. Shedding increases when the growth cycle is disrupted, long before visible thinning appears.",
+            "how_text": "The nutrients in Bloomli's daily formula help support follicles through their natural growth cycle, encouraging strands to stay in the growth phase longer."
           }
         },
         "concern_breakage": {

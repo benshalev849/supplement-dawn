@@ -252,8 +252,9 @@
       "name": "Bloomli - Brand Difference",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "card_background_color": "#ffffff",
         "heading": "Not just another hair supplement.",
-        "body": "<p>Bloomli is built as a daily hair ritual &mdash; inside-out nutrients, flexible formats, and outside-in care for the scalp and strands.</p>",
+        "body": "<p>Bloomli is built as a daily hair ritual — inside-out nutrients, flexible formats, and outside-in care for the scalp and strands.</p>",
         "padding_top_desktop": 72,
         "padding_bottom_desktop": 72,
         "padding_top_mobile": 48,

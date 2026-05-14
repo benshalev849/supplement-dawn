@@ -64,14 +64,15 @@
 
 .bloomli-beneath-surface__tab,
 .bloomli-beneath-surface__accordion-button {
+  --bloomli-beneath-row-border: 0.1rem solid rgba(var(--color-foreground), 0.12);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1.4rem;
   align-items: center;
   width: 100%;
   padding: 2rem;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.12);
-  border-left: 0.3rem solid transparent;
+  border: var(--bloomli-beneath-row-border);
+  border-left: var(--bloomli-beneath-row-border);
   border-radius: var(--media-radius);
   background: var(--bloomli-beneath-row-background, rgba(var(--color-foreground), 0.045));
   color: rgb(var(--color-foreground));
@@ -95,6 +96,7 @@
 .bloomli-beneath-surface__tab.is-active,
 .bloomli-beneath-surface__accordion-item.is-open .bloomli-beneath-surface__accordion-button {
   border-color: rgba(var(--color-foreground), 0.14);
+  border-left-width: 0.3rem;
   border-left-color: rgb(var(--color-button));
   background: var(--bloomli-beneath-row-background, rgba(var(--color-foreground), 0.045));
   box-shadow: 0 1.2rem 3.2rem rgba(var(--color-foreground), 0.055);
@@ -287,10 +289,11 @@
   }
 
   .bloomli-beneath-surface__mobile-item {
+    --bloomli-beneath-row-border: 0.1rem solid rgba(var(--color-foreground), 0.1);
     margin-bottom: 1rem;
     overflow: hidden;
-    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
-    border-left: 0.3rem solid transparent;
+    border: var(--bloomli-beneath-row-border);
+    border-left: var(--bloomli-beneath-row-border);
     border-radius: var(--media-radius);
     background: var(--bloomli-beneath-row-background, rgba(var(--color-foreground), 0.045));
     transition: background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
@@ -308,6 +311,7 @@
 
   .bloomli-beneath-surface__mobile-item:has(.bloomli-beneath-surface__mobile-question[aria-expanded="true"]) {
     border-color: rgba(var(--color-foreground), 0.14);
+    border-left-width: 0.3rem;
     border-left-color: rgb(var(--color-button));
     background: var(--bloomli-beneath-row-background, rgba(var(--color-foreground), 0.045));
     box-shadow: 0 1.2rem 3rem rgba(var(--color-foreground), 0.045);
@@ -387,8 +391,14 @@
 }
 
 @media screen and (max-width: 768px) {
+  .bloomli-beneath-surface__mobile-item:first-child {
+    margin-top: 0;
+    border-top: 0;
+  }
+
   .bloomli-beneath-surface__mobile-item:has(.bloomli-beneath-surface__mobile-question[aria-expanded="true"]) {
     border-color: rgba(var(--color-foreground), 0.08);
+    border-left-width: 0.3rem;
     border-left-color: rgb(var(--color-button));
     background: var(--bloomli-beneath-row-background, rgb(var(--color-background)));
     box-shadow: none;

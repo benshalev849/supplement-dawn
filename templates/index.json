@@ -155,7 +155,6 @@
         "concern_nutrient_gaps": {
           "type": "concern",
           "settings": {
-            "image": "shopify://shop_images/Model_Eating_Gummy_1.png",
             "title": "Nutrient gaps",
             "subtitle": "Daily support from within",
             "what_text": "Hair follicles rely on steady nutrients to support the normal growth cycle. When your routine is inconsistent, hair can look weaker, thinner, or more fragile.",
@@ -214,7 +213,7 @@
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "Most hair concerns start somewhere you can't see.",
-        "subtext": "<p>Every hair concern has a <strong>root cause.</strong> Here's what may be <strong>behind yours.</strong></p>",
+        "subtext": "<p>Every hair concern has a <strong>root cause.</strong> Here's what may be behind yours.</p>",
         "padding_top": 80,
         "padding_bottom": 80
       }

@@ -239,6 +239,18 @@
   background: rgba(var(--color-foreground), 0.045);
 }
 
+.bloomli-beneath-surface--card-bg-white .bloomli-beneath-surface__explain {
+  background: rgb(255, 255, 255);
+}
+
+.bloomli-beneath-surface--card-bg-section .bloomli-beneath-surface__explain {
+  background: rgb(var(--color-background));
+}
+
+.bloomli-beneath-surface--card-bg-transparent .bloomli-beneath-surface__explain {
+  background: transparent;
+}
+
 .bloomli-beneath-surface__explain-heading {
   margin: 0 0 0.8rem;
   color: rgb(var(--color-foreground));

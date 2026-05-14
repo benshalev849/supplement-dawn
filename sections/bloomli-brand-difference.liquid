@@ -52,10 +52,10 @@
                 {%- endif -%}
               </th>
               <th scope="col" class="bloomli-brand-difference__column-heading">
-                {{ section.settings.biotin_header | escape }}
+                {{ section.settings.standard_header | escape }}
               </th>
               <th scope="col" class="bloomli-brand-difference__column-heading">
-                {{ section.settings.standard_header | escape }}
+                {{ section.settings.biotin_header | escape }}
               </th>
             </tr>
           </thead>
@@ -96,7 +96,7 @@
                   {%- endcase -%}
                 </td>
                 <td class="bloomli-brand-difference__value-cell">
-                  {%- case block.settings.biotin_value -%}
+                  {%- case block.settings.standard_value -%}
                     {%- when 'check' -%}
                       <span class="bloomli-brand-difference__value bloomli-brand-difference__value--competitor-check" aria-label="Included">
                         <i class="ti ti-check" aria-hidden="true"></i>
@@ -112,7 +112,7 @@
                   {%- endcase -%}
                 </td>
                 <td class="bloomli-brand-difference__value-cell">
-                  {%- case block.settings.standard_value -%}
+                  {%- case block.settings.biotin_value -%}
                     {%- when 'check' -%}
                       <span class="bloomli-brand-difference__value bloomli-brand-difference__value--competitor-check" aria-label="Included">
                         <i class="ti ti-check" aria-hidden="true"></i>

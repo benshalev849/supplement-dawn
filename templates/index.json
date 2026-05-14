@@ -219,61 +219,43 @@
     "bloomli_brand_difference": {
       "type": "bloomli-brand-difference",
       "blocks": {
-        "brand_difference_high_dose_biotin": {
+        "brand_difference_complete_formula": {
           "type": "card",
           "settings": {
-            "feature_label": "High-dose Biotin",
-            "bloomli_value": "check",
-            "biotin_value": "check",
-            "standard_value": "check"
-          }
-        },
-        "brand_difference_b_complex": {
-          "type": "card",
-          "settings": {
-            "feature_label": "Full B vitamin complex",
-            "bloomli_value": "check",
-            "biotin_value": "cross",
-            "standard_value": "check"
-          }
-        },
-        "brand_difference_minerals": {
-          "type": "card",
-          "settings": {
-            "feature_label": "Complete mineral blend",
+            "feature_label": "Complete hair formula",
             "bloomli_value": "check",
             "biotin_value": "cross",
             "standard_value": "partial"
           }
         },
-        "brand_difference_botanicals": {
+        "brand_difference_botanical_herbs": {
           "type": "card",
           "settings": {
-            "feature_label": "Botanical herbal blend**",
+            "feature_label": "Botanical herbs for hair growth**",
             "bloomli_value": "check",
             "biotin_value": "cross",
             "standard_value": "cross"
           }
         },
-        "card_9XymyL": {
+        "brand_difference_easy_daily": {
           "type": "card",
           "settings": {
-            "feature_label": "High-dose Biotin",
+            "feature_label": "Easy to take daily",
             "bloomli_value": "check",
             "biotin_value": "check",
             "standard_value": "check"
           }
         },
-        "brand_difference_formats": {
+        "brand_difference_delicious_flavour": {
           "type": "card",
           "settings": {
-            "feature_label": "Choice of format",
+            "feature_label": "Delicious flavour",
             "bloomli_value": "check",
-            "biotin_value": "cross",
+            "biotin_value": "check",
             "standard_value": "cross"
           }
         },
-        "brand_difference_testing": {
+        "brand_difference_third_party": {
           "type": "card",
           "settings": {
             "feature_label": "Third-party tested",
@@ -282,45 +264,23 @@
             "standard_value": "cross"
           }
         },
-        "brand_difference_nsf": {
+        "brand_difference_nsf_facility": {
           "type": "card",
           "settings": {
-            "feature_label": "Manufactured in NSF-certified facility",
+            "feature_label": "NSF-certified facility",
             "bloomli_value": "check",
             "biotin_value": "cross",
             "standard_value": "cross"
           }
-        },
-        "brand_difference_usa": {
-          "type": "card",
-          "settings": {
-            "feature_label": "Made in the USA",
-            "bloomli_value": "check",
-            "biotin_value": "partial",
-            "standard_value": "partial"
-          }
-        },
-        "brand_difference_gluten_free": {
-          "type": "card",
-          "settings": {
-            "feature_label": "Gluten-free",
-            "bloomli_value": "check",
-            "biotin_value": "partial",
-            "standard_value": "partial"
-          }
         }
       },
       "block_order": [
-        "brand_difference_high_dose_biotin",
-        "brand_difference_b_complex",
-        "brand_difference_minerals",
-        "brand_difference_botanicals",
-        "card_9XymyL",
-        "brand_difference_formats",
-        "brand_difference_testing",
-        "brand_difference_nsf",
-        "brand_difference_usa",
-        "brand_difference_gluten_free"
+        "brand_difference_complete_formula",
+        "brand_difference_botanical_herbs",
+        "brand_difference_easy_daily",
+        "brand_difference_delicious_flavour",
+        "brand_difference_third_party",
+        "brand_difference_nsf_facility"
       ],
       "name": "Bloomli - Brand Difference",
       "settings": {
@@ -331,8 +291,8 @@
         "bloomli_header": "Bloomli",
         "bloomli_header_logo": "shopify://shop_images/Final_Logo_Cropped_White_Colored.png",
         "biotin_header": "Biotin supplement",
-        "standard_header": "Traditional hair supplement",
-        "footnote": "** Botanical herbal blend available in capsules formula. \n† Based on general market data for mass-market hair supplements. Individual products may vary.",
+        "standard_header": "Standard hair supplement",
+        "footnote": "** Botanical herbal blend available in capsules formula. ? Based on general market data for mass-market hair supplements. Individual products may vary.",
         "padding_top_desktop": 72,
         "padding_bottom_desktop": 72,
         "padding_top_mobile": 48,

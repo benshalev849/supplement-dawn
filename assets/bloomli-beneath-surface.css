@@ -116,6 +116,7 @@
 .bloomli-beneath-surface__tab-title {
   color: rgb(var(--color-foreground));
   font-family: 'Fraunces', sans-serif;
+  font-style: normal;
   font-variation-settings: "SOFT" 100, "opsz" 144;
   font-size: 2rem;
   font-weight: 500;
@@ -165,6 +166,15 @@
   animation: bloomli-beneath-surface-fade 200ms ease both;
 }
 
+@media screen and (min-width: 768px) {
+  .bloomli-beneath-surface__panel {
+    padding: clamp(2rem, 2.4vw, 3rem);
+    border: 0.1rem solid rgba(var(--color-foreground), var(--text-boxes-border-opacity, 0.1));
+    border-radius: var(--media-radius);
+    background: rgb(255, 255, 255);
+  }
+}
+
 .bloomli-beneath-surface__media {
   overflow: hidden;
   aspect-ratio: 16 / 9;
@@ -212,6 +222,7 @@
 .bloomli-beneath-surface__panel-title {
   margin: 0;
   color: rgb(var(--color-foreground));
+  font-style: normal;
 }
 
 .bloomli-beneath-surface__explain-grid {

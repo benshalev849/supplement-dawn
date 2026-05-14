@@ -225,7 +225,7 @@
             "feature_label": "Complete hair formula",
             "bloomli_value": "check",
             "biotin_value": "cross",
-            "standard_value": "partial"
+            "standard_value": "check"
           }
         },
         "brand_difference_botanical_herbs": {
@@ -251,8 +251,8 @@
           "settings": {
             "feature_label": "Delicious flavour",
             "bloomli_value": "check",
-            "biotin_value": "check",
-            "standard_value": "cross"
+            "biotin_value": "cross",
+            "standard_value": "partial"
           }
         },
         "brand_difference_third_party": {
@@ -290,8 +290,8 @@
         "feature_header": "",
         "bloomli_header": "Bloomli",
         "bloomli_header_logo": "shopify://shop_images/Final_Logo_Cropped_White_Colored.png",
-        "biotin_header": "Biotin supplement",
-        "standard_header": "Other hair supplement",
+        "biotin_header": "Biotin Only Supplements",
+        "standard_header": "Other Hair Supplements",
         "footnote": "** Botanical herbal blend available in capsules formula. ? Based on general market data for mass-market hair supplements. Individual products may vary.",
         "padding_top_desktop": 72,
         "padding_bottom_desktop": 72,

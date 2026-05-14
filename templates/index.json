@@ -164,7 +164,6 @@
         "concern_shedding": {
           "type": "concern",
           "settings": {
-            "image": "shopify://shop_images/Client_Result_Selfie_11.png",
             "title": "Shedding",
             "subtitle": "When hair feels less full",
             "what_text": "Shedding can make hair feel thinner before visible density changes. Consistency matters because hair changes slowly over time.",
@@ -174,7 +173,6 @@
         "concern_breakage": {
           "type": "concern",
           "settings": {
-            "image": "shopify://shop_images/Model_Holding_Gummy_2_5dc2294b-1314-41eb-b66d-3fb3fb684a85.png",
             "title": "Breakage",
             "subtitle": "When strands feel fragile",
             "what_text": "When strands become dry or fragile, hair can look thinner through the lengths even when growth is still happening at the root.",
@@ -184,7 +182,6 @@
         "concern_scalp": {
           "type": "concern",
           "settings": {
-            "image": "shopify://shop_images/Gummy_Selfie_7.png",
             "title": "Scalp environment",
             "subtitle": "The foundation of the ritual",
             "what_text": "Your scalp is the foundation for fuller-looking hair. Dryness, buildup, and imbalance can make your routine feel less effective.",
@@ -194,7 +191,6 @@
         "concern_lifestyle": {
           "type": "concern",
           "settings": {
-            "image": "shopify://shop_images/Gummy_Selfie_5.png",
             "title": "Lifestyle stress",
             "subtitle": "When life shows up in your hair",
             "what_text": "Busy seasons, stress, styling, and inconsistent routines can all affect how your hair looks and feels over time.",
@@ -214,6 +210,8 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "Most hair concerns start somewhere you can't see.",
         "subtext": "<p>Every hair concern has a <strong>root cause.</strong> Here's what may be behind yours.</p>",
+        "row_background_color": "#ffffff",
+        "content_card_background_color": "#fdfaf7",
         "padding_top": 80,
         "padding_bottom": 80
       }

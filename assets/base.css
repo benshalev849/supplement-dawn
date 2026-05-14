@@ -640,6 +640,30 @@
 
 }
 
+@media (max-width: 768px) {
+  .bloomli-reviews__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .bloomli-reviews__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bloomli-reviews__group {
+    gap: 16px;
+    padding-right: 40px;
+  }
+
+  .bloomli-reviews__card {
+    flex: 0 0 80%;
+    min-width: 80%;
+    scroll-snap-align: start;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .bloomli-reviews__viewport {
     scroll-behavior: auto;

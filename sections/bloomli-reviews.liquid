@@ -29,9 +29,10 @@
     {%- liquid
       assign all_rating = shop.metafields.judgeme.all_reviews_rating | round: 1
       assign all_count = shop.metafields.judgeme.all_reviews_count
+      assign all_count_number = all_count | plus: 0
     -%}
 
-    {%- if all_count > 0 -%}
+    {%- if all_count_number > 0 -%}
       <div class="bloomli-reviews__aggregate">
         <span class="bloomli-reviews__stars">★★★★★</span>
         <span class="bloomli-reviews__rating">{{ all_rating }}</span>

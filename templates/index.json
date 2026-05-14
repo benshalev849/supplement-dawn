@@ -222,7 +222,16 @@
         "brand_difference_complete_formula": {
           "type": "card",
           "settings": {
-            "feature_label": "Complete hair formula",
+            "feature_label": "15+ hair-targeted nutrients",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        "card_FWNhGY": {
+          "type": "card",
+          "settings": {
+            "feature_label": "More than biotin alone",
             "bloomli_value": "check",
             "biotin_value": "cross",
             "standard_value": "check"
@@ -249,7 +258,7 @@
         "brand_difference_delicious_flavour": {
           "type": "card",
           "settings": {
-            "feature_label": "Delicious flavour",
+            "feature_label": "Available as a tasty gummy",
             "bloomli_value": "check",
             "biotin_value": "cross",
             "standard_value": "partial"
@@ -276,6 +285,7 @@
       },
       "block_order": [
         "brand_difference_complete_formula",
+        "card_FWNhGY",
         "brand_difference_botanical_herbs",
         "brand_difference_easy_daily",
         "brand_difference_delicious_flavour",
@@ -292,7 +302,7 @@
         "bloomli_header_logo": "shopify://shop_images/Final_Logo_Cropped_White_Colored.png",
         "biotin_header": "Biotin Only Supplements",
         "standard_header": "Other Hair Supplements",
-        "footnote": "** Botanical herbal blend available in capsules formula. ? Based on general market data for mass-market hair supplements. Individual products may vary.",
+        "footnote": "** Botanical herbal blend available in capsules formula. † Based on general market data for mass-market hair supplements. Individual products may vary.",
         "padding_top_desktop": 72,
         "padding_bottom_desktop": 72,
         "padding_top_mobile": 48,

@@ -652,14 +652,10 @@
     display: none;
   }
 
-  .bloomli-reviews__group {
-    gap: 16px;
-    padding-right: 40px;
-  }
-
   .bloomli-reviews__card {
-    flex: 0 0 80%;
-    min-width: 80%;
+    flex-shrink: 0;
+    width: 80%;
+    max-width: 80%;
     scroll-snap-align: start;
   }
 }

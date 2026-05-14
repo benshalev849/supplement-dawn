@@ -23,7 +23,6 @@
           <h2 class="bloomli-reviews__heading">{{ section.settings.heading }}</h2>
         {%- endif -%}
       </div>
-
     </div>
 
     {%- liquid
@@ -35,7 +34,7 @@
     {%- if all_count_number > 0 -%}
       <div class="bloomli-reviews__aggregate">
         <span class="bloomli-reviews__stars">★★★★★</span>
-        <span class="bloomli-reviews__rating">{{ all_rating }}</span>
+        <span class="bloomli-reviews__rating">{{ all_rating }}/5.0</span>
         <span class="bloomli-reviews__count">from {{ all_count }} reviews</span>
       </div>
     {%- endif -%}
@@ -50,7 +49,11 @@
         <i class="ti ti-chevron-left" aria-hidden="true"></i>
       </button>
 
-      <div class="bloomli-reviews__viewport" aria-label="{{ section.settings.heading | default: 'Customer reviews' | escape }}" data-bloomli-reviews-viewport>
+      <div
+        class="bloomli-reviews__viewport"
+        aria-label="{{ section.settings.heading | default: 'Customer reviews' | escape }}"
+        data-bloomli-reviews-viewport
+      >
         <div class="bloomli-reviews__track">
           <div class="bloomli-reviews__group">
             {%- for block in section.blocks -%}
@@ -86,14 +89,87 @@
     { "type": "color", "id": "placeholder_color", "label": "Photo placeholder color", "default": "#F7F0E9" },
     { "type": "color", "id": "text_color", "label": "Text color", "default": "#2A2622" },
     { "type": "color", "id": "muted_color", "label": "Muted text color", "default": "#7C7169" },
-    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 34, "max": 64, "step": 2, "default": 46, "unit": "px" },
-    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 30, "max": 46, "step": 2, "default": 36, "unit": "px" },
-    { "type": "range", "id": "card_gap", "label": "Card gap desktop", "min": 16, "max": 40, "step": 4, "default": 20, "unit": "px" },
-    { "type": "range", "id": "scroll_duration", "label": "Carousel speed", "info": "Higher numbers move more slowly.", "min": 30, "max": 120, "step": 5, "default": 70, "unit": "s" },
-    { "type": "range", "id": "mobile_card_width", "label": "Mobile card width", "min": 70, "max": 90, "step": 2, "default": 82, "unit": "vw" },
-    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 4, "max": 20, "step": 2, "default": 10, "unit": "px" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 56, "max": 160, "step": 8, "default": 96, "unit": "px" },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 56, "max": 160, "step": 8, "default": 96, "unit": "px" }
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size desktop",
+      "min": 34,
+      "max": 64,
+      "step": 2,
+      "default": 46,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size mobile",
+      "min": 30,
+      "max": 46,
+      "step": 2,
+      "default": 36,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Card gap desktop",
+      "min": 16,
+      "max": 40,
+      "step": 4,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "scroll_duration",
+      "label": "Carousel speed",
+      "info": "Higher numbers move more slowly.",
+      "min": 30,
+      "max": 120,
+      "step": 5,
+      "default": 70,
+      "unit": "s"
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_width",
+      "label": "Mobile card width",
+      "min": 70,
+      "max": 90,
+      "step": 2,
+      "default": 82,
+      "unit": "vw"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 56,
+      "max": 160,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 56,
+      "max": 160,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
+    }
   ],
   "blocks": [
     {
@@ -101,10 +177,29 @@
       "name": "Review",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Customer photo" },
-        { "type": "range", "id": "image_scale", "label": "Uploaded image zoom", "min": 100, "max": 140, "step": 5, "default": 100, "unit": "%" },
-        { "type": "text", "id": "photo_label", "label": "Placeholder label", "default": "Customer photo - natural light" },
+        {
+          "type": "range",
+          "id": "image_scale",
+          "label": "Uploaded image zoom",
+          "min": 100,
+          "max": 140,
+          "step": 5,
+          "default": 100,
+          "unit": "%"
+        },
+        {
+          "type": "text",
+          "id": "photo_label",
+          "label": "Placeholder label",
+          "default": "Customer photo - natural light"
+        },
         { "type": "range", "id": "rating", "label": "Rating", "min": 1, "max": 5, "step": 1, "default": 5 },
-        { "type": "textarea", "id": "quote", "label": "Quote", "default": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"" },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\""
+        },
         { "type": "text", "id": "name", "label": "Customer name", "default": "Priya K." },
         { "type": "text", "id": "meta", "label": "Meta", "default": "Gummies - 6 months" },
         { "type": "text", "id": "verified_label", "label": "Verified label", "default": "Verified" }
@@ -115,9 +210,30 @@
     {
       "name": "Bloomli - Reviews",
       "blocks": [
-        { "type": "review", "settings": { "name": "Priya K.", "meta": "Gummies - 6 months", "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"" } },
-        { "type": "review", "settings": { "name": "Leah M.", "meta": "Capsules - 4 months", "quote": "\"Less shedding within weeks. I was skeptical - I'm not anymore.\"" } },
-        { "type": "review", "settings": { "name": "Marisol R.", "meta": "Strips - 3 months", "quote": "\"The strips are my travel secret. I keep them in my bag.\"" } }
+        {
+          "type": "review",
+          "settings": {
+            "name": "Priya K.",
+            "meta": "Gummies - 6 months",
+            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\""
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "name": "Leah M.",
+            "meta": "Capsules - 4 months",
+            "quote": "\"Less shedding within weeks. I was skeptical - I'm not anymore.\""
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "name": "Marisol R.",
+            "meta": "Strips - 3 months",
+            "quote": "\"The strips are my travel secret. I keep them in my bag.\""
+          }
+        }
       ]
     }
   ]

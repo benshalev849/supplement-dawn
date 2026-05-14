@@ -249,10 +249,19 @@
         "brand_difference_botanicals": {
           "type": "card",
           "settings": {
-            "feature_label": "Botanical herbal blend*",
+            "feature_label": "Botanical herbal blend**",
             "bloomli_value": "check",
             "biotin_value": "cross",
             "standard_value": "cross"
+          }
+        },
+        "card_9XymyL": {
+          "type": "card",
+          "settings": {
+            "feature_label": "High-dose Biotin",
+            "bloomli_value": "check",
+            "biotin_value": "check",
+            "standard_value": "check"
           }
         },
         "brand_difference_formats": {
@@ -306,6 +315,7 @@
         "brand_difference_b_complex",
         "brand_difference_minerals",
         "brand_difference_botanicals",
+        "card_9XymyL",
         "brand_difference_formats",
         "brand_difference_testing",
         "brand_difference_nsf",
@@ -322,7 +332,7 @@
         "bloomli_header_logo": "shopify://shop_images/Final_Logo_Cropped_White_Colored.png",
         "biotin_header": "Biotin supplement",
         "standard_header": "Traditional hair supplement",
-        "footnote": "* Botanical herbal blend available in capsules formula. \n** Based on general market data for mass-market hair supplements. Individual products may vary.",
+        "footnote": "** Botanical herbal blend available in capsules formula. \n† Based on general market data for mass-market hair supplements. Individual products may vary.",
         "padding_top_desktop": 72,
         "padding_bottom_desktop": 72,
         "padding_top_mobile": 48,

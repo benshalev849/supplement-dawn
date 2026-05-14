@@ -31,13 +31,13 @@
       assign all_count = shop.metafields.judgeme.all_reviews_count
     -%}
 
-    <div class="bloomli-reviews__aggregate">
-      {%- for i in (1..5) -%}
-        <i class="ti ti-star-filled" aria-hidden="true"></i>
-      {%- endfor -%}
-      <span class="bloomli-reviews__rating">{{ all_rating }}</span>
-      <span class="bloomli-reviews__count">from {{ all_count }} reviews</span>
-    </div>
+    {%- if all_count > 0 -%}
+      <div class="bloomli-reviews__aggregate">
+        <span class="bloomli-reviews__stars">★★★★★</span>
+        <span class="bloomli-reviews__rating">{{ all_rating }}</span>
+        <span class="bloomli-reviews__count">from {{ all_count }} reviews</span>
+      </div>
+    {%- endif -%}
 
     <div class="bloomli-reviews__carousel" data-bloomli-reviews-carousel>
       <button

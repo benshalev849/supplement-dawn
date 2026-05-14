@@ -399,10 +399,12 @@
   text-align: center;
 }
 
-.bloomli-reviews__aggregate i {
+.bloomli-reviews__aggregate .bloomli-reviews__stars {
   color: #b23a6f;
   font-size: 14px;
+  letter-spacing: 0.1rem;
   line-height: 1;
+  margin: 0;
 }
 
 .bloomli-reviews__rating {
@@ -438,6 +440,7 @@
 }
 
 .bloomli-reviews__carousel {
+  padding: 0 48px;
   position: relative;
 }
 
@@ -467,16 +470,16 @@
   color: #b23a6f;
   cursor: pointer;
   display: inline-flex;
-  height: 4rem;
+  height: 48px;
   justify-content: center;
   min-height: 0;
   min-width: 0;
-  padding: 0;
   position: absolute;
+  padding: 8px;
   top: 50%;
   transform: translateY(-50%);
   transition: color 180ms ease, opacity 180ms ease;
-  width: 4rem;
+  width: 48px;
   z-index: 2;
 }
 
@@ -487,11 +490,11 @@
 }
 
 .bloomli-reviews__prev {
-  left: 1.2rem;
+  left: 0;
 }
 
 .bloomli-reviews__next {
-  right: 1.2rem;
+  right: 0;
 }
 
 .bloomli-reviews__prev:hover,
@@ -597,6 +600,17 @@
   }
 }
 
+@media (max-width: 768px) {
+  .bloomli-reviews__carousel {
+    padding: 0;
+  }
+
+  .bloomli-reviews__prev,
+  .bloomli-reviews__next {
+    display: none;
+  }
+}
+
 @media (max-width: 749px) {
   .bloomli-reviews {
     padding: 64px 20px !important;
@@ -624,10 +638,6 @@
     padding: 16px;
   }
 
-  .bloomli-reviews__prev,
-  .bloomli-reviews__next {
-    display: none;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,7 +1,12 @@
 {{ 'bloomli-brand-difference.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+  assign card_background_color = section.settings.card_background_color | default: '#FAF5F3'
+-%}
+
 <section
   class="bloomli-brand-difference color-{{ section.settings.color_scheme }} gradient"
+  style="--bloomli-brand-card-background: {{ card_background_color }};"
   data-padding-top-mobile="{{ section.settings.padding_top_mobile }}"
   data-padding-bottom-mobile="{{ section.settings.padding_bottom_mobile }}"
   data-padding-top-desktop="{{ section.settings.padding_top_desktop }}"
@@ -64,6 +69,12 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Card background",
+      "default": "#FAF5F3"
     },
     {
       "type": "text",

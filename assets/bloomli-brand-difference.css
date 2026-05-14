@@ -39,7 +39,7 @@
   border-radius: calc(var(--media-radius) + 0.6rem);
   background:
     linear-gradient(180deg, rgba(var(--color-foreground), 0.018), rgba(var(--color-foreground), 0)),
-    rgb(var(--color-background));
+    var(--bloomli-brand-card-background, rgb(var(--color-background)));
   color: rgb(var(--color-foreground));
   box-shadow: 0 1.2rem 3.2rem rgba(var(--color-foreground), 0.055);
 }

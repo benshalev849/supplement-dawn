@@ -391,9 +391,14 @@
 }
 
 @media screen and (max-width: 768px) {
+  .bloomli-beneath-surface__mobile.bloomli-faq__items {
+    border-top: 0;
+  }
+
   .bloomli-beneath-surface__mobile-item:first-child {
     margin-top: 0;
-    border-top: 0;
+    border-top-left-radius: var(--media-radius);
+    border-top-right-radius: var(--media-radius);
   }
 
   .bloomli-beneath-surface__mobile-item:has(.bloomli-beneath-surface__mobile-question[aria-expanded="true"]) {

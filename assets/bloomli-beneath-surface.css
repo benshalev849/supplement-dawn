@@ -200,7 +200,7 @@
 }
 
 .bloomli-beneath-surface__eyebrow {
-  margin: 0 0 0.8rem;
+  margin: 0.8rem 0 0;
   color: rgb(var(--color-button));
   font-size: 1.2rem;
   font-weight: 700;
@@ -217,7 +217,7 @@
 .bloomli-beneath-surface__explain-grid {
   display: grid;
   gap: 1.6rem;
-  margin-top: 2.4rem;
+  margin-top: 2rem;
 }
 
 .bloomli-beneath-surface__explain {

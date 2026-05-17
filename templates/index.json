@@ -537,10 +537,10 @@
     "bloomli_reviews_GyTkzh": {
       "type": "bloomli-reviews",
       "blocks": {
-        "review_YfrhBY": {
+        "review_nLLi94": {
           "type": "review",
           "settings": {
-            "image": "shopify://shop_images/Client_Result_Selfie_6.png",
+            "image": "shopify://shop_images/Client_Result_Selfie_14.png",
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
@@ -553,6 +553,20 @@
         "review_cAEHBb": {
           "type": "review",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_12.png",
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
+            "name": "Priya K.",
+            "meta": "Gummies - 6 months",
+            "verified_label": "Verified"
+          }
+        },
+        "review_YfrhBY": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_3.png",
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
@@ -565,6 +579,7 @@
         "review_3anYEq": {
           "type": "review",
           "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_10.png",
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
@@ -577,18 +592,7 @@
         "review_Gpe3h6": {
           "type": "review",
           "settings": {
-            "image_scale": 100,
-            "photo_label": "Customer photo - natural light",
-            "rating": 5,
-            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
-            "name": "Priya K.",
-            "meta": "Gummies - 6 months",
-            "verified_label": "Verified"
-          }
-        },
-        "review_nLLi94": {
-          "type": "review",
-          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_8.png",
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
@@ -609,41 +613,15 @@
             "meta": "Gummies - 6 months",
             "verified_label": "Verified"
           }
-        },
-        "review_48pdbW": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Customer photo - natural light",
-            "rating": 5,
-            "quote": "\"Less shedding within weeks. I was skeptical - I'm not anymore.\"",
-            "name": "Leah M.",
-            "meta": "Capsules - 4 months",
-            "verified_label": "Verified"
-          }
-        },
-        "review_hbDXrg": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Customer photo - natural light",
-            "rating": 5,
-            "quote": "\"The strips are my travel secret. I keep them in my bag.\"",
-            "name": "Marisol R.",
-            "meta": "Strips - 3 months",
-            "verified_label": "Verified"
-          }
         }
       },
       "block_order": [
-        "review_YfrhBY",
+        "review_nLLi94",
         "review_cAEHBb",
+        "review_YfrhBY",
         "review_3anYEq",
         "review_Gpe3h6",
-        "review_nLLi94",
-        "review_zXimdY",
-        "review_48pdbW",
-        "review_hbDXrg"
+        "review_zXimdY"
       ],
       "name": "Bloomli - Reviews",
       "settings": {

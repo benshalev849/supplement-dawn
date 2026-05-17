@@ -1,3 +1,5 @@
+{{ 'bloomli-reviews.css' | asset_url | stylesheet_tag }}
+
 <section
   class="bloomli-reviews"
   style="
@@ -5,6 +7,7 @@
     --br-card-bg: {{ section.settings.card_background }};
     --br-text: {{ section.settings.text_color }};
     --br-muted: {{ section.settings.muted_color }};
+    --br-accent: {{ section.settings.accent_color }};
     --br-placeholder: {{ section.settings.placeholder_color }};
     --br-radius: {{ section.settings.card_radius }}px;
     --br-heading-size: {{ section.settings.heading_size }}px;
@@ -34,8 +37,8 @@
     {%- if all_count_number > 0 -%}
       <div class="bloomli-reviews__aggregate">
         <span class="bloomli-reviews__stars">★★★★★</span>
-        <span class="bloomli-reviews__rating">{{ all_rating }}/5.0</span>
-        <span class="bloomli-reviews__count">from {{ all_count }} reviews</span>
+        <span class="bloomli-reviews__rating">{{ all_rating }}</span>
+        <span class="bloomli-reviews__count">from {{ all_count }} {{ all_count | pluralize: 'review', 'reviews' }}</span>
       </div>
     {%- endif -%}
 
@@ -89,6 +92,7 @@
     { "type": "color", "id": "placeholder_color", "label": "Photo placeholder color", "default": "#F7F0E9" },
     { "type": "color", "id": "text_color", "label": "Text color", "default": "#2A2622" },
     { "type": "color", "id": "muted_color", "label": "Muted text color", "default": "#7C7169" },
+    { "type": "color", "id": "accent_color", "label": "Star and verified accent", "default": "#B23A6F" },
     {
       "type": "range",
       "id": "heading_size",

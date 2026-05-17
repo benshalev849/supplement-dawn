@@ -544,22 +544,9 @@
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
-            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
-            "name": "Priya K.",
-            "meta": "Gummies - 6 months",
-            "verified_label": "Verified"
-          }
-        },
-        "review_cAEHBb": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Client_Result_Selfie_12.png",
-            "image_scale": 100,
-            "photo_label": "Customer photo - natural light",
-            "rating": 5,
-            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
-            "name": "Priya K.",
-            "meta": "Gummies - 6 months",
+            "quote": "\"My hairdresser noticed before I even said anything. After about three months she asked what I had been doing differently because my hair looked so much thicker and healthier. Seven months in and it just keeps getting better.\"",
+            "name": "Daniela M.",
+            "meta": "Gummies · 7 months",
             "verified_label": "Verified"
           }
         },
@@ -570,9 +557,22 @@
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
-            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
-            "name": "Priya K.",
-            "meta": "Gummies - 6 months",
+            "quote": "\"My temples are so much fuller now. New hairs grew in where it had gotten really thin and it has made such a big difference. Four months and I genuinely love how my hairline looks again.\"",
+            "name": "Christine B.",
+            "meta": "Capsules · 4 months",
+            "verified_label": "Verified"
+          }
+        },
+        "review_cAEHBb": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_12.png",
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"Less hair in the shower, less on my pillow. My part is starting to fill back in and I finally feel like it is actually working. Sticking with it.\"",
+            "name": "Megan R.",
+            "meta": "Gummies · 3 months",
             "verified_label": "Verified"
           }
         },
@@ -583,9 +583,22 @@
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
-            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
-            "name": "Priya K.",
-            "meta": "Gummies - 6 months",
+            "quote": "\"My hairline completely changed. All these baby hairs grew in and my hair looks so much fuller and thicker than it ever did. My family kept asking what I was doing and honestly I could not believe it either.\"",
+            "name": "Sunita P.",
+            "meta": "Gummies · 6 months",
+            "verified_label": "Verified"
+          }
+        },
+        "review_zXimdY": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_15.png",
+            "image_scale": 100,
+            "photo_label": "Customer photo - natural light",
+            "rating": 5,
+            "quote": "\"My hair is longer and fuller than it has been in years. I was losing so much after a really stressful period and now I actually get excited about my hair again. Worth every penny.\"",
+            "name": "Jessica A.",
+            "meta": "Gummies · 6 months",
             "verified_label": "Verified"
           }
         },
@@ -596,32 +609,20 @@
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
-            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
-            "name": "Priya K.",
-            "meta": "Gummies - 6 months",
-            "verified_label": "Verified"
-          }
-        },
-        "review_zXimdY": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Customer photo - natural light",
-            "rating": 5,
-            "quote": "\"My part line filled in noticeably at month four. The gummies feel like a real ritual.\"",
-            "name": "Priya K.",
-            "meta": "Gummies - 6 months",
+            "quote": "\"My crown was so thin I stopped wearing my hair down. Five months later it is covered and full and I finally feel confident again. The difference is night and day.\"",
+            "name": "Michelle T.",
+            "meta": "Capsules · 5 months",
             "verified_label": "Verified"
           }
         }
       },
       "block_order": [
         "review_nLLi94",
-        "review_cAEHBb",
         "review_YfrhBY",
+        "review_cAEHBb",
         "review_3anYEq",
-        "review_Gpe3h6",
-        "review_zXimdY"
+        "review_zXimdY",
+        "review_Gpe3h6"
       ],
       "name": "Bloomli - Reviews",
       "settings": {

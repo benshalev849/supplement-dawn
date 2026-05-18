@@ -487,3 +487,16 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .bloomli-beneath-surface .bloomli-beneath-surface__mobile-question.bloomli-faq__question {
+    padding-left: 2.8rem;
+    padding-right: 2.2rem;
+  }
+
+  .bloomli-beneath-surface .bloomli-beneath-surface__mobile-panel-inner.bloomli-faq__panel-inner {
+    padding-left: 2.8rem;
+    padding-right: 2.2rem;
+    padding-bottom: 2rem;
+  }
+}

@@ -5,16 +5,22 @@
   =============================================
 {% endcomment %}
 {% assign use_judgeme = section.settings.use_judgeme %}
-{% assign manual_aggregate = section.settings.manual_aggregate | default: "4.8 · 2,400+ reviews" %}
+{% assign manual_aggregate = section.settings.manual_aggregate | default: "4.8 Stars · 2,400+ reviews" %}
+{% if manual_aggregate contains ' Stars · ' %}
+  {% assign manual_aggregate_parts = manual_aggregate | split: ' Stars · ' %}
+{% else %}
+  {% assign manual_aggregate_parts = manual_aggregate | split: ' · ' %}
+{% endif %}
+{% assign manual_rating = manual_aggregate_parts[0] | remove: ' Stars' | default: '4.8' %}
+{% assign manual_count = manual_aggregate_parts[1] | remove: ' reviews' | default: '2,400+' %}
 
 {% comment %} JudgeMe live data {% endcomment %}
 {% if use_judgeme %}
-  {% assign jm_rating = shop.metafields.judgeme.all_reviews_rating | round: 1 %}
-  {% assign jm_count = shop.metafields.judgeme.all_reviews_count %}
-  {% assign jm_plural = jm_count | pluralize: 'review', 'reviews' %}
-  {% assign display_aggregate = jm_rating | append: " · " | append: jm_count | append: "+ " | append: jm_plural %}
+  {% assign display_rating = shop.metafields.judgeme.all_reviews_rating | round: 1 %}
+  {% assign display_count = shop.metafields.judgeme.all_reviews_count | floor | append: '+' %}
 {% else %}
-  {% assign display_aggregate = manual_aggregate %}
+  {% assign display_rating = manual_rating %}
+  {% assign display_count = manual_count %}
 {% endif %}
 
 {{ 'bloomli-reviews.css' | asset_url | stylesheet_tag }}
@@ -42,7 +48,7 @@
     <div class="bloomli-reviews__header">
       <div class="bloomli-reviews__stars-large" aria-hidden="true">★★★★★</div>
       <div class="bloomli-reviews__aggregate">
-        <strong>{{ display_aggregate }}</strong>
+        <strong>{{ display_rating }}</strong> Stars · <strong>{{ display_count }}</strong> reviews
       </div>
       <h2 class="bloomli-reviews__title">{{ section.settings.title | default: section.settings.heading }}</h2>
     </div>
@@ -103,7 +109,7 @@
       "type": "text",
       "id": "manual_aggregate",
       "label": "Manual aggregate text",
-      "default": "4.8 · 2,400+ reviews",
+      "default": "4.8 Stars · 2,400+ reviews",
       "visible_if": "{{ section.settings.use_judgeme == false }}"
     },
     { "type": "color", "id": "background_color", "label": "Background color", "default": "#F2E7E4" },

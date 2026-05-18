@@ -96,9 +96,9 @@
   }
 
   .bloomli-reviews .bloomli-reviews__card {
-    flex: 0 0 70%;
-    width: 70%;
-    max-width: 70%;
+    flex: 0 0 86%;
+    width: 86%;
+    max-width: 86%;
     padding: 14px;
     scroll-snap-align: start;
   }

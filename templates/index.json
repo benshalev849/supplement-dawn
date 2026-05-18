@@ -27,8 +27,6 @@
         "cta_secondary_url": "",
         "show_reviews": true,
         "star_rating_text": "4.8 Stars from 2,400+ Reviews",
-        "review_score": "",
-        "review_count": "",
         "trust_badge_1": "Third-Party Tested",
         "trust_badge_2": "NSF-Certified Facility",
         "trust_badge_3": "Made in the USA",
@@ -544,7 +542,7 @@
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
-            "quote": "\"My hairdresser noticed before I even said anything. After about three months she asked what I had been doing differently because my hair looked so much thicker and healthier. Seven months in and it just keeps getting better.\"",
+            "quote": "\"My hairdresser asked what I had been doing differently because my hair looked so much thicker. Seven months in and it just keeps getting better.\"",
             "name": "Daniela M.",
             "meta": "Gummies · 7 months",
             "verified_label": "Verified"
@@ -583,7 +581,7 @@
             "image_scale": 100,
             "photo_label": "Customer photo - natural light",
             "rating": 5,
-            "quote": "\"My hairline completely changed. All these baby hairs grew in and my hair looks so much fuller and thicker than it ever did. My family kept asking what I was doing and honestly I could not believe it either.\"",
+            "quote": "\"All these baby hairs grew in and my hairline completely changed. My family kept asking what I was doing and I could not believe it either.\"",
             "name": "Sunita P.",
             "meta": "Gummies · 6 months",
             "verified_label": "Verified"
@@ -626,7 +624,9 @@
       ],
       "name": "Bloomli - Reviews",
       "settings": {
-        "heading": "Don't Take Our Word for It",
+        "title": "Real women. Real results.",
+        "use_judgeme": false,
+        "manual_aggregate": "4.8 · 2,400+ reviews",
         "background_color": "#fdfaf7",
         "card_background": "#ffffff",
         "placeholder_color": "#f7f0e9",

@@ -55,12 +55,9 @@
   overflow: visible;
   border-width: 0.32rem;
   border-color: rgba(var(--color-button), 0.75);
-  box-shadow: 0 1.8rem 4.8rem rgba(var(--color-button), 0.11);
-}
-
-.bloomli-product-finder__card--featured .bloomli-product-finder__media {
-  border-top-left-radius: calc(var(--media-radius) + 0.8rem);
-  border-top-right-radius: calc(var(--media-radius) + 0.8rem);
+  box-shadow:
+    0 0 0 0.22rem rgba(var(--color-button), 0.75),
+    0 1.8rem 4.8rem rgba(var(--color-button), 0.11);
 }
 
 .bloomli-product-finder__badge {

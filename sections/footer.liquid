@@ -4,6 +4,8 @@
 {{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{{ 'bloomli-faq.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-faq.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .footer {
@@ -155,6 +157,53 @@
                     </div>
                 {%- endcase -%}
               </div>
+            {%- endfor -%}
+          </div>
+
+          <div class="footer__mobile-nav bloomli-collapsible-row bloomli-faq__items" data-bloomli-faq>
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'link_list' and block.settings.menu != blank -%}
+                {%- liquid
+                  assign mobile_button_id = 'FooterMobileNavButton-' | append: section.id | append: '-' | append: forloop.index
+                  assign mobile_panel_id = 'FooterMobileNavPanel-' | append: section.id | append: '-' | append: forloop.index
+                -%}
+                <article class="footer__mobile-nav-item bloomli-faq__item" {{ block.shopify_attributes }}>
+                  <button
+                    id="{{ mobile_button_id }}"
+                    class="footer__mobile-nav-question bloomli-faq__question"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="{{ mobile_panel_id }}"
+                    data-bloomli-faq-button
+                  >
+                    <span>{{ block.settings.heading }}</span>
+                    <span class="bloomli-faq__plus" aria-hidden="true"></span>
+                  </button>
+
+                  <div
+                    id="{{ mobile_panel_id }}"
+                    class="footer__mobile-nav-panel bloomli-faq__panel"
+                    role="region"
+                    aria-labelledby="{{ mobile_button_id }}"
+                    hidden
+                  >
+                    <div class="footer__mobile-nav-panel-inner bloomli-faq__panel-inner">
+                      <ul class="footer-block__details-content list-unstyled">
+                        {%- for link in block.settings.menu.links -%}
+                          <li>
+                            <a
+                              href="{{ link.url }}"
+                              class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                            >
+                              {{ link.title | escape }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+              {%- endif -%}
             {%- endfor -%}
           </div>
         {%- endif -%}

@@ -7108,9 +7108,9 @@
       "source_file": "bloomli-brand-difference.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_brand_difference_js",
-      "target": "assets_bloomli_brand_difference_initbranddifference",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_brand_difference_initbranddifference"
     },
     {
       "relation": "contains",

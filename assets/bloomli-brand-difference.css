@@ -331,16 +331,18 @@
 
   .bloomli-brand-difference__table th:nth-child(2),
   .bloomli-brand-difference__table td:nth-child(2) {
-    position: sticky;
-    left: 34%;
-    z-index: 2;
+    position: static;
     width: 24%;
     background: #fbeaf0;
   }
 
   .bloomli-brand-difference__table thead th:nth-child(2) {
-    z-index: 3;
     background: #B23A6F;
+  }
+
+  .bloomli-brand-difference__column-heading--bloomli,
+  .bloomli-brand-difference__table tr:last-child .bloomli-brand-difference__value-cell--bloomli {
+    border-radius: 0;
   }
 
   .bloomli-brand-difference__table th:nth-child(3),

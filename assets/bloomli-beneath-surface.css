@@ -300,7 +300,7 @@
   }
 
   .bloomli-beneath-surface__mobile-question {
-    padding: 1.9rem 1.6rem;
+    padding: 1.9rem 2.4rem;
   }
 
   .bloomli-beneath-surface__mobile-item:hover {
@@ -324,7 +324,7 @@
   .bloomli-beneath-surface__mobile-panel-inner {
     display: grid;
     gap: 1.4rem;
-    padding: 0 1.6rem 1.6rem;
+    padding: 0 2.4rem 1.8rem;
   }
 
   .bloomli-beneath-surface__explain {
@@ -374,7 +374,7 @@
 
   .bloomli-beneath-surface__mobile-question {
     gap: 1.2rem;
-    padding: 1.7rem 1.4rem;
+    padding: 1.7rem 2.4rem;
   }
 
   .bloomli-beneath-surface__tab-title {
@@ -411,7 +411,7 @@
 
   .bloomli-beneath-surface__mobile-panel-inner {
     gap: 0;
-    padding: 0 2rem 1.6rem;
+    padding: 0 2.4rem 1.8rem;
   }
 
   .bloomli-beneath-surface__explain {

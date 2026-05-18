@@ -317,22 +317,22 @@
   }
 
   .bloomli-brand-difference__table {
-    width: max-content;
-    min-width: 64rem;
+    width: 133vw;
+    min-width: 0;
     table-layout: fixed;
   }
 
   .bloomli-brand-difference__table th:first-child,
   .bloomli-brand-difference__table td:first-child {
     position: static;
-    width: 22rem;
+    width: 26%;
     background: transparent;
   }
 
   .bloomli-brand-difference__table th:nth-child(2),
   .bloomli-brand-difference__table td:nth-child(2) {
     position: static;
-    width: 14rem;
+    width: 24.75%;
     background: #fbeaf0;
   }
 
@@ -342,12 +342,12 @@
 
   .bloomli-brand-difference__table th:nth-child(3),
   .bloomli-brand-difference__table td:nth-child(3) {
-    width: 14rem;
+    width: 24.75%;
   }
 
   .bloomli-brand-difference__table th:nth-child(4),
   .bloomli-brand-difference__table td:nth-child(4) {
-    width: 14rem;
+    width: 24.5%;
   }
 
   .bloomli-brand-difference__table th:nth-child(3),

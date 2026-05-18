@@ -71,7 +71,7 @@
   background: transparent;
 }
 
-.bloomli-brand-difference__column-heading--bloomli {
+.bloomli-brand-difference__table .bloomli-brand-difference__column-heading--bloomli {
   background: #B23A6F;
   border-radius: 1.6rem 1.6rem 0 0;
   color: #fff;
@@ -103,7 +103,7 @@
   vertical-align: middle;
 }
 
-.bloomli-brand-difference__value-cell--bloomli {
+.bloomli-brand-difference__table .bloomli-brand-difference__value-cell--bloomli {
   background: #fbeaf0;
   border-radius: 0;
 }

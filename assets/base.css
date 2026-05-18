@@ -21,6 +21,22 @@
   --card-shadow: 0 4px 16px rgba(138, 102, 120, 0.06);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+#MainContent,
+#bloomli-product-finder,
+#bloomli-product-form {
+  scroll-margin-top: var(--bloomli-sticky-offset, 90px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .bloomli-section {
   --bloomli-bg: rgb(var(--color-background));
   --bloomli-text: rgb(var(--color-foreground));

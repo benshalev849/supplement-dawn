@@ -76,7 +76,10 @@
   endif
 -%}
 
-<section class="bloomli-product-finder {{ image_fit_class }} color-{{ section.settings.color_scheme }} gradient">
+<section
+  id="bloomli-product-finder"
+  class="bloomli-product-finder {{ image_fit_class }} color-{{ section.settings.color_scheme }} gradient"
+>
   <div class="page-width">
     <div class="bloomli-product-finder__header">
       {%- if section.settings.heading != blank -%}

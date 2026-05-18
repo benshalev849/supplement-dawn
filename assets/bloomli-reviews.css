@@ -9,7 +9,7 @@
 }
 
 .bloomli-reviews .bloomli-reviews__stars-large {
-  font-size: 40px;
+  font-size: 30px;
   color: #b23a6f;
   line-height: 1;
   margin-bottom: 10px;
@@ -17,7 +17,7 @@
 
 .bloomli-reviews .bloomli-reviews__aggregate {
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: #b23a6f;
   margin: 0 0 16px;
@@ -108,7 +108,7 @@
   }
 
   .bloomli-reviews .bloomli-reviews__card .bloomli-reviews__stars {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .bloomli-reviews .bloomli-reviews__quote {

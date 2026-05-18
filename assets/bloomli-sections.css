@@ -984,7 +984,7 @@
 
 @media (max-width: 899px) {
   .bloomli-proof-panel {
-    padding: 72px 18px;
+    padding: var(--bloomli-padding-top, 72px) 18px var(--bloomli-padding-bottom, 72px);
   }
 
   .bloomli-proof-panel__header {

@@ -1,0 +1,156 @@
+{{ 'bloomli-inline-cta.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign button_href = section.settings.button_link
+  if section.settings.button_behavior == 'top'
+    assign button_href = '#MainContent'
+  endif
+
+  assign button_classes = 'button bloomli-inline-cta__button'
+  if section.settings.button_style == 'secondary'
+    assign button_classes = button_classes | append: ' button--secondary'
+  endif
+  if section.settings.mobile_full_width
+    assign button_classes = button_classes | append: ' bloomli-inline-cta__button--mobile-full'
+  endif
+-%}
+
+<section
+  class="bloomli-inline-cta color-{{ section.settings.color_scheme }} gradient"
+  data-padding-top-mobile="{{ section.settings.padding_top_mobile }}"
+  data-padding-bottom-mobile="{{ section.settings.padding_bottom_mobile }}"
+  data-padding-top-desktop="{{ section.settings.padding_top }}"
+  data-padding-bottom-desktop="{{ section.settings.padding_bottom }}"
+>
+  <div class="page-width">
+    <div class="bloomli-inline-cta__inner bloomli-inline-cta__inner--{{ section.settings.alignment }}">
+      {%- if section.settings.button_label != blank and button_href != blank -%}
+        <a href="{{ button_href }}" class="{{ button_classes }}">
+          {{ section.settings.button_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli Inline CTA",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+    "templates": ["index", "product"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Find My Ritual"
+    },
+    {
+      "type": "select",
+      "id": "button_behavior",
+      "label": "Button behavior",
+      "options": [
+        { "value": "link", "label": "Link" },
+        { "value": "top", "label": "Back to top" }
+      ],
+      "default": "link"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button link",
+      "default": "#bloomli-product-finder",
+      "visible_if": "{{ section.settings.button_behavior == 'link' }}"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_full_width",
+      "label": "Full width button on mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Desktop spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli Inline CTA"
+    }
+  ]
+}
+{% endschema %}

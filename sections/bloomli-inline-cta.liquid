@@ -1,9 +1,12 @@
 {{ 'bloomli-inline-cta.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-inline-cta.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign button_href = section.settings.button_link
   if section.settings.button_behavior == 'top'
     assign button_href = '#MainContent'
+  elsif section.settings.button_behavior == 'selector'
+    assign button_href = '#'
   endif
 
   assign button_classes = 'button bloomli-inline-cta__button'
@@ -25,7 +28,13 @@
   <div class="page-width">
     <div class="bloomli-inline-cta__inner bloomli-inline-cta__inner--{{ section.settings.alignment }}">
       {%- if section.settings.button_label != blank and button_href != blank -%}
-        <a href="{{ button_href }}" class="{{ button_classes }}">
+        <a
+          href="{{ button_href }}"
+          class="{{ button_classes }}"
+          {% if section.settings.button_behavior == 'selector' %}
+            data-bloomli-inline-cta-selector="{{ section.settings.scroll_selector | escape }}"
+          {% endif %}
+        >
           {{ section.settings.button_label | escape }}
         </a>
       {%- endif -%}
@@ -60,7 +69,8 @@
       "label": "Button behavior",
       "options": [
         { "value": "link", "label": "Link" },
-        { "value": "top", "label": "Back to top" }
+        { "value": "top", "label": "Back to top" },
+        { "value": "selector", "label": "Scroll to selector" }
       ],
       "default": "link"
     },
@@ -70,6 +80,13 @@
       "label": "Button link",
       "default": "#bloomli-product-finder",
       "visible_if": "{{ section.settings.button_behavior == 'link' }}"
+    },
+    {
+      "type": "text",
+      "id": "scroll_selector",
+      "label": "Scroll selector",
+      "default": ".bloomli-vt",
+      "visible_if": "{{ section.settings.button_behavior == 'selector' }}"
     },
     {
       "type": "select",

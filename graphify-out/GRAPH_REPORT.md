@@ -1,11 +1,11 @@
 # Graph Report - supplement-dawn  (2026-05-18)
 
 ## Corpus Check
-- 43 files · ~34,493 words
+- 44 files · ~34,642 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 652 nodes · 911 edges · 52 communities detected
+- 656 nodes · 916 edges · 53 communities detected
 - Extraction: 87% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 116 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
@@ -47,14 +47,14 @@
 - [[_COMMUNITY_Community 34|Community 34]]
 - [[_COMMUNITY_Community 36|Community 36]]
 - [[_COMMUNITY_Community 38|Community 38]]
-- [[_COMMUNITY_Community 40|Community 40]]
+- [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
 - [[_COMMUNITY_Community 43|Community 43]]
-- [[_COMMUNITY_Community 45|Community 45]]
+- [[_COMMUNITY_Community 44|Community 44]]
 - [[_COMMUNITY_Community 46|Community 46]]
 - [[_COMMUNITY_Community 47|Community 47]]
-- [[_COMMUNITY_Community 50|Community 50]]
+- [[_COMMUNITY_Community 48|Community 48]]
 - [[_COMMUNITY_Community 51|Community 51]]
 - [[_COMMUNITY_Community 52|Community 52]]
 - [[_COMMUNITY_Community 53|Community 53]]
@@ -62,6 +62,7 @@
 - [[_COMMUNITY_Community 55|Community 55]]
 - [[_COMMUNITY_Community 56|Community 56]]
 - [[_COMMUNITY_Community 57|Community 57]]
+- [[_COMMUNITY_Community 58|Community 58]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `PredictiveSearch` - 23 edges
@@ -125,7 +126,7 @@
 - **UI Shapes / Structural Elements: Mask Arch, Square, Sparkle GIF, Loading Spinner, Zoom** — mask_arch, square, sparkle_gif, loading_spinner, icon_zoom, category_ui_shapes [INFERRED 0.85]
 - **Platform Branding: Shopify Logo** — icon_shopify, category_platform_branding [EXTRACTED 1.00]
 
-## Communities (59 total, 18 thin omitted)
+## Communities (60 total, 18 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -168,12 +169,12 @@ Cohesion: 0.14
 Nodes (18): E-Commerce / Shopping Icons Group, Platform Branding Icons Group, UI Feedback Icons Group, UI Shapes / Structural Elements Group, Shoe Icon, Shopify Logo Icon, Person Silhouette / User Account Icon, Star / Rating Icon (+10 more)
 
 ### Community 12 - "Community 12"
-Cohesion: 0.23
-Nodes (8): constructor(), getSectionsToRender(), getSectionsUrl(), listenForActiveInput(), listenForKeydown(), renderSections(), selectProgressBar(), updateMultipleQty()
-
-### Community 13 - "Community 13"
 Cohesion: 0.21
 Nodes (7): closeSelector(), filterCountries(), hidePanel(), normalizeString(), onContainerKeyUp(), openSelector(), resetFilter()
+
+### Community 13 - "Community 13"
+Cohesion: 0.23
+Nodes (8): constructor(), getSectionsToRender(), getSectionsUrl(), listenForActiveInput(), listenForKeydown(), renderSections(), selectProgressBar(), updateMultipleQty()
 
 ### Community 14 - "Community 14"
 Cohesion: 0.21
@@ -208,16 +209,16 @@ Cohesion: 0.25
 Nodes (9): Social Media Share Icons, Facebook Social Media Icon, Instagram Social Media Icon, Snapchat Social Media Icon, TikTok Social Media Icon, Tumblr Social Media Icon, Twitter / X Social Media Icon, Vimeo Social Media Icon (+1 more)
 
 ### Community 26 - "Community 26"
+Cohesion: 0.43
+Nodes (5): clamp(), initSection(), update(), updateControls(), updateFromPointer()
+
+### Community 27 - "Community 27"
 Cohesion: 0.54
 Nodes (6): clamp(), getDesktopProgress(), getMobileProgress(), setReachedSteps(), setReachedStepsFromLine(), update()
 
-### Community 29 - "Community 29"
+### Community 30 - "Community 30"
 Cohesion: 0.36
 Nodes (6): connectedCallback(), constructor(), getCartQuantity(), getVolumePricingArray(), onInputChange(), updatePricePerItem()
-
-### Community 30 - "Community 30"
-Cohesion: 0.43
-Nodes (5): clamp(), initSection(), update(), updateControls(), updateFromPointer()
 
 ### Community 31 - "Community 31"
 Cohesion: 0.29
@@ -235,31 +236,35 @@ Nodes (5): finishAfterTransition(), getInitialIndex(), initBeneathSurface(), set
 Cohesion: 0.83
 Nodes (3): finishAfterTransition(), initFaq(), setPanelState()
 
-### Community 40 - "Community 40"
+### Community 39 - "Community 39"
+Cohesion: 0.83
+Nodes (3): getHeaderStackHeight(), getSelectorTarget(), initInlineCtas()
+
+### Community 41 - "Community 41"
 Cohesion: 0.5
 Nodes (4): Icon: Account (User Profile), Icon: Cart Empty, Icon: Cart (Shopping Bag), Icon: Chat Bubble (Message/Support)
 
-### Community 41 - "Community 41"
+### Community 42 - "Community 42"
 Cohesion: 0.83
 Nodes (4): UI Status / Feedback Icons, Error / Alert Status Icon, Info / Tooltip Icon, Inventory / Stock Status Indicator Icon
 
-### Community 42 - "Community 42"
+### Community 43 - "Community 43"
 Cohesion: 0.5
 Nodes (4): UI Navigation Icons, Filter / Sort Controls Icon, Hamburger / Navigation Menu Icon, Map Pin / Location Icon
 
-### Community 43 - "Community 43"
+### Community 44 - "Community 44"
 Cohesion: 0.67
 Nodes (4): Laundry / Material Care Icons, Dryer / Laundry Care Icon, Iron / Laundry Care Icon, Leather / Material Care Icon
-
-### Community 45 - "Community 45"
-Cohesion: 1.0
-Nodes (3): Pants Icon, Ruler / Measurement Icon, Shirt / T-Shirt Icon
 
 ### Community 46 - "Community 46"
 Cohesion: 1.0
 Nodes (3): Plus / Add Icon, Remove / Trash Icon, Reset / Close Icon
 
 ### Community 47 - "Community 47"
+Cohesion: 1.0
+Nodes (3): Pants Icon, Ruler / Measurement Icon, Shirt / T-Shirt Icon
+
+### Community 48 - "Community 48"
 Cohesion: 1.0
 Nodes (3): Product / Care Instructions Icons Group, Snowflake / Cold Storage Icon, Washing / Care Instructions Icon
 
@@ -277,12 +282,12 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Shoe Icon` and `Arch Shape Clip Path Mask`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `fetchConfig()` connect `Community 4` to `Community 0`, `Community 12`, `Community 5`, `Community 6`?**
-  _High betweenness centrality (0.102) - this node is a cross-community bridge._
-- **Why does `debounce()` connect `Community 6` to `Community 0`, `Community 18`, `Community 12`?**
-  _High betweenness centrality (0.090) - this node is a cross-community bridge._
-- **Why does `subscribe()` connect `Community 1` to `Community 5`, `Community 29`?**
-  _High betweenness centrality (0.061) - this node is a cross-community bridge._
+- **Why does `fetchConfig()` connect `Community 4` to `Community 0`, `Community 5`, `Community 13`, `Community 6`?**
+  _High betweenness centrality (0.101) - this node is a cross-community bridge._
+- **Why does `debounce()` connect `Community 6` to `Community 0`, `Community 18`, `Community 13`?**
+  _High betweenness centrality (0.089) - this node is a cross-community bridge._
+- **Why does `subscribe()` connect `Community 1` to `Community 5`, `Community 30`?**
+  _High betweenness centrality (0.060) - this node is a cross-community bridge._
 - **What connects `Shopify Dawn License`, `Online Store 2.0`, `Progressive Enhancement` to the rest of the system?**
   _47 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**

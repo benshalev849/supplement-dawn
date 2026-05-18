@@ -17,7 +17,6 @@
         "padding_bottom": 28
       }
     },
-
     "science_hero": {
       "type": "rich-text",
       "blocks": {
@@ -54,7 +53,12 @@
           }
         }
       },
-      "block_order": ["hero_cap", "hero_head", "hero_body", "hero_btn"],
+      "block_order": [
+        "hero_cap",
+        "hero_head",
+        "hero_body",
+        "hero_btn"
+      ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -64,7 +68,6 @@
         "padding_bottom": 100
       }
     },
-
     "science_trust": {
       "type": "bloomli-trust-row",
       "blocks": {
@@ -117,14 +120,20 @@
           }
         }
       },
-      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4", "trust_5", "trust_6"],
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4",
+        "trust_5",
+        "trust_6"
+      ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "padding_top": 22,
         "padding_bottom": 22
       }
     },
-
     "science_meaning": {
       "type": "rich-text",
       "blocks": {
@@ -150,7 +159,11 @@
           }
         }
       },
-      "block_order": ["mean_cap", "mean_head", "mean_body"],
+      "block_order": [
+        "mean_cap",
+        "mean_head",
+        "mean_body"
+      ],
       "settings": {
         "desktop_content_position": "left",
         "content_alignment": "left",
@@ -160,57 +173,56 @@
         "padding_bottom": 64
       }
     },
-
     "science_gummies": {
       "type": "bloomli-formula-gallery",
       "blocks": {
         "gg_1": {
           "type": "item",
           "settings": {
+            "photo_label": "Biotin — crystalline powder",
             "icon": "leaf",
             "title": "Biotin — 6,000 MCG",
             "text": "The keratin co-factor. At 6,000 MCG we're dosing where clinical research on hair outcomes actually operates — not at a trace level included for label credibility.",
-            "photo_label": "Biotin — crystalline powder",
             "source_line": "Supports keratin infrastructure"
           }
         },
         "gg_2": {
           "type": "item",
           "settings": {
+            "photo_label": "Marine collagen — hydrolyzed flake",
             "icon": "drop",
             "title": "Marine Collagen",
             "text": "Hydrolyzed type I and III collagen peptides — the amino acid precursors that hair relies on for elasticity, strand strength, and moisture retention. Sustainably sourced.",
-            "photo_label": "Marine collagen — hydrolyzed flake",
             "source_line": "Type I & III peptides"
           }
         },
         "gg_3": {
           "type": "item",
           "settings": {
+            "photo_label": "Saw palmetto — berry cluster",
             "icon": "palm",
             "title": "Saw Palmetto",
             "text": "A plant-based botanical studied for its role in DHT modulation at the follicle level. Included as a standardised extract to ensure consistent potency.",
-            "photo_label": "Saw palmetto — berry cluster",
             "source_line": "Standardised botanical extract"
           }
         },
         "gg_4": {
           "type": "item",
           "settings": {
+            "photo_label": "Zinc — mineral granule",
             "icon": "zinc",
             "title": "Zinc",
             "text": "An essential mineral for follicle repair, sebum regulation, and scalp health. Zinc deficiency is more common than most women realise, and the follicle is one of the first places it shows.",
-            "photo_label": "Zinc — mineral granule",
             "source_line": "Supports follicle function"
           }
         },
         "gg_5": {
           "type": "item",
           "settings": {
+            "photo_label": "Ashwagandha — dried root",
             "icon": "root",
             "title": "Ashwagandha",
             "text": "An adaptogen included for its cortisol-modulating properties. Elevated cortisol is one of the most common drivers of stress-related shedding — ashwagandha supports the body's resilience during high-stress periods.",
-            "photo_label": "Ashwagandha — dried root",
             "source_line": "Adaptogenic cortisol support"
           }
         },
@@ -233,13 +245,21 @@
           }
         }
       },
-      "block_order": ["gg_1", "gg_2", "gg_3", "gg_4", "gg_5", "gg_proof_1", "gg_proof_2"],
+      "block_order": [
+        "gg_1",
+        "gg_2",
+        "gg_3",
+        "gg_4",
+        "gg_5",
+        "gg_proof_1",
+        "gg_proof_2"
+      ],
       "settings": {
+        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
         "heading_line2": "Hair Gummies. Built to support from within.",
         "copy": "<p>A clinically dosed daily blend in a pectin-based, gelatin-free gummy — because a supplement only works if you actually take it. Formulated around five evidence-selected actives, each with a clear role.</p>",
         "header_alignment": "left",
         "desktop_columns": "2",
-        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
         "media_background": "surface",
         "proof_background": "accent_soft",
         "header_width": 680,
@@ -257,57 +277,56 @@
         "padding_bottom": 88
       }
     },
-
     "science_pills": {
       "type": "bloomli-formula-gallery",
       "blocks": {
         "cp_1": {
           "type": "item",
           "settings": {
+            "photo_label": "Biotin — powder",
             "icon": "leaf",
             "title": "Biotin — Clinical Dose",
             "text": "The same evidence-backed biotin dose as the gummy formula. Biotin is a B-vitamin that supports the metabolic pathways involved in keratin protein production.",
-            "photo_label": "Biotin — powder",
             "source_line": "Supports keratin synthesis"
           }
         },
         "cp_2": {
           "type": "item",
           "settings": {
+            "photo_label": "Saw palmetto — concentrated extract",
             "icon": "palm",
             "title": "Saw Palmetto Extract",
             "text": "In capsule form, saw palmetto can be delivered at a more concentrated standardised dose. It's studied for DHT modulation — supporting the follicle environment directly at the root level.",
-            "photo_label": "Saw palmetto — concentrated extract",
             "source_line": "DHT-balancing botanical"
           }
         },
         "cp_3": {
           "type": "item",
           "settings": {
+            "photo_label": "Ashwagandha — root extract",
             "icon": "root",
             "title": "Ashwagandha Root Extract",
             "text": "Adaptogen standardised for withanolide content — the active compounds linked to cortisol regulation in clinical research. Stress-related telogen effluvium is among the most common causes of sudden shedding.",
-            "photo_label": "Ashwagandha — root extract",
             "source_line": "Standardised withanolide extract"
           }
         },
         "cp_4": {
           "type": "item",
           "settings": {
+            "photo_label": "Bamboo — silica extract",
             "icon": "drop",
             "title": "Bamboo Silica",
             "text": "A plant-derived source of bioavailable silica — a structural mineral that supports connective tissue including the hair shaft. Bamboo is among the richest natural silica sources available.",
-            "photo_label": "Bamboo — silica extract",
             "source_line": "Structural mineral support"
           }
         },
         "cp_5": {
           "type": "item",
           "settings": {
+            "photo_label": "Zinc — mineral",
             "icon": "zinc",
             "title": "Zinc",
             "text": "Included across both Bloomli formulas because zinc deficiency is widely underdiagnosed in women. Supports follicle repair, sebum balance, and scalp health at the root.",
-            "photo_label": "Zinc — mineral",
             "source_line": "Essential mineral"
           }
         },
@@ -330,13 +349,21 @@
           }
         }
       },
-      "block_order": ["cp_1", "cp_2", "cp_3", "cp_4", "cp_5", "cp_proof_1", "cp_proof_2"],
+      "block_order": [
+        "cp_1",
+        "cp_2",
+        "cp_3",
+        "cp_4",
+        "cp_5",
+        "cp_proof_1",
+        "cp_proof_2"
+      ],
       "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading_line2": "Hair Capsules. The full botanical formula.",
         "copy": "<p>The capsule formula carries the complete Bloomli botanical blend — including concentrated saw palmetto, ashwagandha, and bamboo silica alongside the core actives. Designed for those who want the most comprehensive inside-out approach.</p>",
         "header_alignment": "left",
         "desktop_columns": "2",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "media_background": "surface_strong",
         "proof_background": "accent_soft",
         "header_width": 680,
@@ -354,7 +381,6 @@
         "padding_bottom": 88
       }
     },
-
     "science_testing": {
       "type": "bloomli-proof-split",
       "blocks": {
@@ -387,24 +413,27 @@
           }
         }
       },
-      "block_order": ["bt_1", "bt_2", "bt_3", "bt_4"],
+      "block_order": [
+        "bt_1",
+        "bt_2",
+        "bt_3",
+        "bt_4"
+      ],
       "settings": {
         "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
         "use_custom_background": false,
         "icon_accent_color": "#6F7A5A",
+        "image_side": "right",
         "media_background": "accent_soft",
         "image_label": "Lab testing — COA document — clean facility environment",
         "image_radius": 16,
-        "image_side": "right",
-        "heading_line1": "Independent testing,",
-        "heading_line2": "not marketing.",
-        "copy": "<p>We test because hair supplement quality varies wildly across brands. Third-party verification catches what internal teams miss — or ignore. Every Bloomli batch is tested by an accredited independent laboratory before it ships. That's not a claim. It's a process with paperwork behind it.</p>",
         "show_card_borders": true,
+        "heading_line1": "Independent testing,",
+        "copy": "<p>We test because hair supplement quality varies wildly across brands. Third-party verification catches what internal teams miss — or ignore. Every Bloomli batch is tested by an accredited independent laboratory before it ships. That's not a claim. It's a process with paperwork behind it.</p>",
         "padding_top": 112,
         "padding_bottom": 112
       }
     },
-
     "science_concerns": {
       "type": "bloomli-faq",
       "blocks": {
@@ -449,7 +478,13 @@
           }
         }
       },
-      "block_order": ["con_1", "con_2", "con_3", "con_4", "con_5"],
+      "block_order": [
+        "con_1",
+        "con_2",
+        "con_3",
+        "con_4",
+        "con_5"
+      ],
       "settings": {
         "heading": "What's happening beneath the surface.",
         "intro": "<p>Most visible hair changes have an internal cause that starts before you notice anything in the mirror. Expand each to understand the biology — and how Bloomli addresses it at the source.</p>",
@@ -458,7 +493,6 @@
         "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "border_color": "#E8DED8",
-        "content_width": 1180,
         "image_width": 460,
         "corner_radius": 16,
         "heading_size": 48,
@@ -468,7 +502,6 @@
         "padding_bottom": 88
       }
     },
-
     "science_timeline": {
       "type": "bloomli-timeline",
       "blocks": {
@@ -500,23 +533,26 @@
           }
         }
       },
-      "block_order": ["tl_1", "tl_2", "tl_3"],
+      "block_order": [
+        "tl_1",
+        "tl_2",
+        "tl_3"
+      ],
       "settings": {
         "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
         "timeline_icon_color": "#6F7A5A",
         "heading": "Why consistency is the whole point.",
         "subheadline": "<p>Hair grows in cycles — and each cycle takes months to complete. Bloomli is designed for the long game. Here is what that looks like in practice.</p>",
         "circle_background": "surface",
+        "circle_size": 280,
+        "icon_size": 160,
         "show_connector": true,
         "connector_style": "dashed",
         "connector_width": 1,
-        "circle_size": 280,
-        "icon_size": 160,
         "padding_top": 128,
         "padding_bottom": 128
       }
     },
-
     "science_principles": {
       "type": "multicolumn",
       "blocks": {
@@ -549,7 +585,12 @@
           }
         }
       },
-      "block_order": ["pri_1", "pri_2", "pri_3", "pri_4"],
+      "block_order": [
+        "pri_1",
+        "pri_2",
+        "pri_3",
+        "pri_4"
+      ],
       "settings": {
         "title": "The four things we won't compromise on.",
         "heading_size": "h1",
@@ -565,7 +606,6 @@
         "padding_bottom": 96
       }
     },
-
     "science_faq": {
       "type": "bloomli-faq",
       "blocks": {
@@ -626,7 +666,15 @@
           }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7"],
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7"
+      ],
       "settings": {
         "heading": "Science questions, plain answers.",
         "intro": "<p>The most common questions about how Bloomli formulas work, what's in them, and what to realistically expect.</p>",
@@ -635,7 +683,6 @@
         "container_color_scheme": "scheme-4",
         "color_scheme": "scheme-1",
         "border_color": "#E8DED8",
-        "content_width": 1180,
         "image_width": 460,
         "corner_radius": 16,
         "heading_size": 48,
@@ -645,7 +692,6 @@
         "padding_bottom": 96
       }
     },
-
     "science_cta": {
       "type": "rich-text",
       "blocks": {
@@ -682,7 +728,12 @@
           }
         }
       },
-      "block_order": ["cta_cap", "cta_head", "cta_body", "cta_btn"],
+      "block_order": [
+        "cta_cap",
+        "cta_head",
+        "cta_body",
+        "cta_btn"
+      ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -693,7 +744,6 @@
       }
     }
   },
-
   "order": [
     "main",
     "science_hero",

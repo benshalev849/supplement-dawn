@@ -303,12 +303,6 @@
     padding: 1.9rem 2.4rem;
   }
 
-  .bloomli-beneath-surface__mobile-item:hover {
-    border-color: rgba(var(--color-foreground), 0.18);
-    border-left-color: rgba(var(--color-button), 0.45);
-    background: color-mix(in srgb, var(--bloomli-beneath-row-background, rgb(var(--color-background))) 92%, rgb(var(--color-foreground)) 8%);
-  }
-
   .bloomli-beneath-surface__mobile-item:has(.bloomli-beneath-surface__mobile-question[aria-expanded="true"]) {
     border-color: rgba(var(--color-foreground), 0.14);
     border-left-width: 0.3rem;
@@ -331,6 +325,20 @@
     padding: 1.5rem;
   }
 
+}
+
+@media (hover: hover) and (pointer: fine) and (max-width: 989px) {
+  .bloomli-beneath-surface__mobile-item:hover {
+    border-color: rgba(var(--color-foreground), 0.18);
+    border-left-color: rgba(var(--color-button), 0.45);
+    background: color-mix(in srgb, var(--bloomli-beneath-row-background, rgb(var(--color-background))) 92%, rgb(var(--color-foreground)) 8%);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) and (max-width: 989px) {
+  .bloomli-beneath-surface__mobile-item:not(:has(.bloomli-beneath-surface__mobile-question[aria-expanded="true"])) {
+    background: var(--bloomli-beneath-row-background, rgba(var(--color-foreground), 0.045));
+  }
 }
 
 @media screen and (max-width: 749px) {

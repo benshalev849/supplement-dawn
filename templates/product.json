@@ -303,6 +303,24 @@
         "padding_bottom_mobile": 32
       }
     },
+    "bloomli_inline_cta_aew3it": {
+      "type": "bloomli-inline-cta",
+      "name": "Bloomli Inline CTA",
+      "settings": {
+        "color_scheme": "",
+        "button_label": "Start Your Journey",
+        "button_behavior": "selector",
+        "button_link": "#bloomli-product-form",
+        "scroll_selector": ".bloomli-vt",
+        "button_style": "primary",
+        "alignment": "center",
+        "mobile_full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 32
+      }
+    },
     "bloomli_before_after_U7dPaV": {
       "type": "bloomli-before-after",
       "blocks": {
@@ -957,6 +975,7 @@
     "bloomli_inline_cta_XNzPMh",
     "bloomli_before_after_U7dPaV",
     "bloomli_formula_gallery_ypjbMe",
+    "bloomli_inline_cta_aew3it",
     "bloomli_faq_N48arU",
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",

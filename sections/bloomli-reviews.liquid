@@ -1,3 +1,27 @@
+{% comment %}
+  =============================================
+  REVIEW AGGREGATE SETTINGS
+  Set use_judgeme to true to pull live data
+  Set use_judgeme to false to use fallback values
+  =============================================
+{% endcomment %}
+{% assign use_judgeme = false %}
+
+{% comment %} Fallback values — edit these manually {% endcomment %}
+{% assign fallback_rating = "5.0" %}
+{% assign fallback_count_display = "1+ reviews" %}
+
+{% comment %} JudgeMe live data {% endcomment %}
+{% if use_judgeme %}
+  {% assign display_rating = shop.metafields.judgeme.all_reviews_rating | round: 1 %}
+  {% assign display_count_raw = shop.metafields.judgeme.all_reviews_count %}
+  {% assign display_count_text = display_count_raw | pluralize: 'review', 'reviews' %}
+  {% assign display_count_display = display_count_raw | append: " " | append: display_count_text %}
+{% else %}
+  {% assign display_rating = fallback_rating %}
+  {% assign display_count_display = fallback_count_display %}
+{% endif %}
+
 {{ 'bloomli-reviews.css' | asset_url | stylesheet_tag }}
 
 <section
@@ -21,26 +45,12 @@
 >
   <div class="bloomli-reviews__inner">
     <div class="bloomli-reviews__header">
-      <div>
-        {%- if section.settings.heading != blank -%}
-          <h2 class="bloomli-reviews__heading">{{ section.settings.heading }}</h2>
-        {%- endif -%}
-      </div>
-    </div>
-
-    {%- liquid
-      assign all_rating = shop.metafields.judgeme.all_reviews_rating | round: 1
-      assign all_count = shop.metafields.judgeme.all_reviews_count
-      assign all_count_number = all_count | plus: 0
-    -%}
-
-    {%- if all_count_number > 0 -%}
+      <div class="bloomli-reviews__stars-large" aria-hidden="true">★★★★★</div>
       <div class="bloomli-reviews__aggregate">
-        <span class="bloomli-reviews__stars">★★★★★</span>
-        <span class="bloomli-reviews__rating">{{ all_rating }}</span>
-        <span class="bloomli-reviews__count">from {{ all_count }} {{ all_count | pluralize: 'review', 'reviews' }}</span>
+        {{ display_rating }} · {{ display_count_display }}
       </div>
-    {%- endif -%}
+      <h2 class="bloomli-reviews__title">{{ section.settings.title | default: section.settings.heading }}</h2>
+    </div>
 
     <div class="bloomli-reviews__carousel" data-bloomli-reviews-carousel>
       <button
@@ -54,7 +64,7 @@
 
       <div
         class="bloomli-reviews__viewport"
-        aria-label="{{ section.settings.heading | default: 'Customer reviews' | escape }}"
+        aria-label="{{ section.settings.title | default: section.settings.heading | default: 'Customer reviews' | escape }}"
         data-bloomli-reviews-viewport
       >
         <div class="bloomli-reviews__track">
@@ -86,7 +96,7 @@
   "tag": "div",
   "max_blocks": 16,
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Real women. Real results." },
+    { "type": "text", "id": "title", "label": "Title", "default": "Real women. Real results." },
     { "type": "color", "id": "background_color", "label": "Background color", "default": "#F2E7E4" },
     { "type": "color", "id": "card_background", "label": "Card background", "default": "#FDFAF7" },
     { "type": "color", "id": "placeholder_color", "label": "Photo placeholder color", "default": "#F7F0E9" },

@@ -71,7 +71,7 @@
 .bloomli-hero__inner {
   max-width: var(--bloomli-page-width);
   margin: 0 auto;
-  padding: 96px var(--bloomli-page-gutter-desktop);
+  padding: var(--section-padding-top, 80px) var(--bloomli-page-gutter-desktop) var(--section-padding-bottom, 80px);
   display: flex;
   align-items: center;
   min-height: var(--hero-min-height);
@@ -170,7 +170,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 48px 20px;
+    padding: var(--section-padding-top-mobile, 56px) 20px var(--section-padding-bottom-mobile, 56px);
     min-height: auto;
   }
 
@@ -311,8 +311,15 @@
 
 /* Simple CTA sections */
 .bloomli-quiz {
-  padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);
+  padding: var(--section-padding-top-mobile) var(--bloomli-page-gutter-desktop) var(--section-padding-bottom-mobile);
   text-align: center;
+}
+
+@media (min-width: 750px) {
+  .bloomli-quiz {
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+  }
 }
 
 .bloomli-quiz__inner {
@@ -511,7 +518,7 @@
 
 /* Product picks */
 .bloomli-product-picks {
-  padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);
+  padding: var(--section-padding-top) var(--bloomli-page-gutter-desktop) var(--section-padding-bottom);
   background: var(--bpp-bg);
 }
 
@@ -624,7 +631,7 @@
 
 @media (max-width: 749px) {
   .bloomli-product-picks {
-    padding: 64px 20px;
+    padding: var(--section-padding-top-mobile) 20px var(--section-padding-bottom-mobile);
   }
 
   .bloomli-product-picks__heading {
@@ -648,7 +655,7 @@
 
 /* Photo mosaic */
 .bloomli-photo-mosaic {
-  padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);
+  padding: var(--section-padding-top) var(--bloomli-page-gutter-desktop) var(--section-padding-bottom);
   background: var(--bpm-bg);
 }
 
@@ -705,7 +712,7 @@
 
 @media (max-width: 749px) {
   .bloomli-photo-mosaic {
-    padding: 64px 20px;
+    padding: var(--section-padding-top-mobile) 20px var(--section-padding-bottom-mobile);
   }
 
   .bloomli-photo-mosaic__header {
@@ -775,7 +782,7 @@
 .bloomli-proof-panel {
   background: var(--bpp-bg, rgb(var(--color-background)));
   color: rgb(var(--color-foreground));
-  padding: var(--bloomli-padding-top, 96px) 24px var(--bloomli-padding-bottom, 96px);
+  padding: var(--section-padding-top, 80px) 24px var(--section-padding-bottom, 80px);
   font-family: var(--font-body-family);
 }
 
@@ -984,7 +991,7 @@
 
 @media (max-width: 899px) {
   .bloomli-proof-panel {
-    padding: var(--bloomli-padding-top, 72px) 18px var(--bloomli-padding-bottom, 72px);
+    padding: var(--section-padding-top-mobile, 56px) 18px var(--section-padding-bottom-mobile, 56px);
   }
 
   .bloomli-proof-panel__header {
@@ -1068,7 +1075,7 @@
 
 /* Timeline */
 .bloomli-timeline {
-  padding: var(--bloomli-padding-top) var(--bloomli-page-gutter-desktop) var(--bloomli-padding-bottom);
+  padding: var(--section-padding-top) var(--bloomli-page-gutter-desktop) var(--section-padding-bottom);
 }
 
 .bloomli-timeline__header {
@@ -1260,7 +1267,7 @@
 
 @media (max-width: 749px) {
   .bloomli-timeline {
-    padding: 64px 16px;
+    padding: var(--section-padding-top-mobile) 16px var(--section-padding-bottom-mobile);
   }
 
   .bloomli-timeline__step::after {
@@ -1365,6 +1372,16 @@
 }
 
 /* Formula gallery */
+.bloomli-formula-gallery {
+  padding: var(--section-padding-top) var(--bloomli-page-gutter-desktop) var(--section-padding-bottom);
+}
+
+@media (max-width: 749px) {
+  .bloomli-formula-gallery {
+    padding: var(--section-padding-top-mobile) 20px var(--section-padding-bottom-mobile);
+  }
+}
+
 .bloomli-formula-gallery__heading {
   font-family: 'Fraunces', serif;
   font-variation-settings: 'SOFT' 100;

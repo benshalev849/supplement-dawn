@@ -7,7 +7,7 @@
 
 <section
   class="bloomli-product-picks bloomli-section color-{{ section.settings.color_scheme }} gradient"
-  style="{% if section.settings.use_custom_background %}--bpp-bg: {{ section.settings.background_color }};{% else %}--bpp-bg: var(--bloomli-bg);{% endif %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bpp-columns-desktop: {{ section.settings.columns_desktop }}; --bpp-columns-mobile: {{ section.settings.columns_mobile }}; --bpp-image-box-height: {{ section.settings.image_box_height }}px; --bpp-stars-color: {{ stars_color }};"
+  style="{% if section.settings.use_custom_background %}--bpp-bg: {{ section.settings.background_color }};{% else %}--bpp-bg: var(--bloomli-bg);{% endif %} --section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px; --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px; --bpp-columns-desktop: {{ section.settings.columns_desktop }}; --bpp-columns-mobile: {{ section.settings.columns_mobile }}; --bpp-image-box-height: {{ section.settings.image_box_height }}px; --bpp-stars-color: {{ stars_color }};"
 >
   <style>
     #shopify-section-{{ section.id }} .bloomli-product-picks__badge.badge {
@@ -211,8 +211,10 @@
       { "value": "2", "label": "2" }
     ], "default": "2" },
     { "type": "range", "id": "image_box_height", "label": "Image box height", "min": 160, "max": 320, "step": 10, "default": 240, "unit": "px" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 88, "unit": "px" },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 88, "unit": "px" }
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 64, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 64, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 176, "step": 8, "default": 48, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 176, "step": 8, "default": 48, "unit": "px" }
   ],
   "blocks": [
     {

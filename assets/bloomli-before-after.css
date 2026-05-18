@@ -11,7 +11,7 @@
   --bba-cards-desktop: 3;
   --bba-cards-current: var(--bba-cards-desktop);
 
-  padding: var(--bba-padding-top) var(--bloomli-page-gutter-desktop) var(--bba-padding-bottom);
+  padding: var(--section-padding-top) var(--bloomli-page-gutter-desktop) var(--section-padding-bottom);
   color: rgb(var(--color-foreground));
   font-family: var(--font-commerce-ui, var(--font-body-family));
 }
@@ -308,7 +308,7 @@
   .bloomli-before-after {
     --bba-cards-current: 1;
 
-    padding: var(--bba-padding-top-mobile) 20px var(--bba-padding-bottom-mobile);
+    padding: var(--section-padding-top-mobile) 20px var(--section-padding-bottom-mobile);
   }
 
   .bloomli-before-after__header {

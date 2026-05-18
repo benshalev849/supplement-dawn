@@ -1,6 +1,6 @@
 <section
   class="bloomli-quiz bloomli-section color-{{ section.settings.color_scheme }} gradient"
-  style="--bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px; --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;"
 >
   <div class="bloomli-quiz__inner">
 
@@ -35,8 +35,10 @@
     { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Take our 2-minute quiz and get a personalized hair wellness routine." },
     { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Take the Quiz" },
     { "type": "url", "id": "cta_url", "label": "CTA URL" },
-    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 0, "max": 176, "step": 8, "default": 128 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 0, "max": 176, "step": 8, "default": 128 }
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 0, "max": 176, "step": 8, "default": 32 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 0, "max": 176, "step": 8, "default": 32 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile (px)", "min": 0, "max": 176, "step": 8, "default": 24 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile (px)", "min": 0, "max": 176, "step": 8, "default": 24 }
   ],
   "presets": [{ "name": "Bloomli — Quiz CTA" }]
 }

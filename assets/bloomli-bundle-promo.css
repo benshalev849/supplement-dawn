@@ -1,7 +1,7 @@
 .bloomli-bundle {
   background: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
-  padding-block: var(--bloomli-padding-top) var(--bloomli-padding-bottom);
+  padding-block: var(--section-padding-top-mobile) var(--section-padding-bottom-mobile);
   padding-inline: 2rem;
 }
 
@@ -182,6 +182,12 @@
   .bloomli-bundle__copy {
     max-width: 58rem;
     margin-inline: auto;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .bloomli-bundle {
+    padding-block: var(--section-padding-top) var(--section-padding-bottom);
   }
 }
 

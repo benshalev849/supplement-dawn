@@ -1,6 +1,6 @@
 <script src="{{ 'bloomli-timeline.js' | asset_url }}" defer="defer"></script>
 
-<section class="bloomli-timeline bloomli-journey bloomli-section color-{{ section.settings.color_scheme }} gradient" data-bloomli-journey style="--journey-progress: 0%; --journey-progress-color: var(--bloomli-accent, #B23A6F); --timeline-icon-color: {{ section.settings.timeline_icon_color | default: '#6F7A5A' }}; {% case section.settings.circle_background %}{% when 'background' %}--timeline-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--timeline-circle-bg: #F1EDE8;{% when 'accent_soft' %}--timeline-circle-bg: var(--bloomli-soft-blush);{% else %}--timeline-circle-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;">
+<section class="bloomli-timeline bloomli-journey bloomli-section color-{{ section.settings.color_scheme }} gradient" data-bloomli-journey style="--journey-progress: 0%; --journey-progress-color: var(--bloomli-accent, #B23A6F); --timeline-icon-color: {{ section.settings.timeline_icon_color | default: '#6F7A5A' }}; {% case section.settings.circle_background %}{% when 'background' %}--timeline-circle-bg: var(--bloomli-bg);{% when 'surface_strong' %}--timeline-circle-bg: #F1EDE8;{% when 'accent_soft' %}--timeline-circle-bg: var(--bloomli-soft-blush);{% else %}--timeline-circle-bg: var(--bloomli-surface);{% endcase %} --section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px; --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;">
   <div class="bloomli-section__inner">
 
     <div class="bloomli-timeline__header">
@@ -101,8 +101,10 @@
     ], "default": "dashed" },
     { "type": "range", "id": "connector_width", "label": "Connector width", "min": 1, "max": 4, "step": 1, "default": 1, "unit": "px" },
     { "type": "header", "content": "Spacing" },
-    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 0, "max": 160, "step": 8, "default": 128 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 0, "max": 160, "step": 8, "default": 128 }
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 0, "max": 160, "step": 8, "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 0, "max": 160, "step": 8, "default": 80 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile (px)", "min": 0, "max": 160, "step": 8, "default": 56 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile (px)", "min": 0, "max": 160, "step": 8, "default": 56 }
   ],
   "blocks": [
     {

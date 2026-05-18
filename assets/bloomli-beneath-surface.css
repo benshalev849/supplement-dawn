@@ -1,4 +1,6 @@
 .bloomli-beneath-surface {
+  padding-top: var(--section-padding-top-mobile, 5.6rem);
+  padding-bottom: var(--section-padding-bottom-mobile, 5.6rem);
   background: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
 }
@@ -342,36 +344,6 @@
 }
 
 @media screen and (max-width: 749px) {
-  .bloomli-beneath-surface--pt-32,
-  .bloomli-beneath-surface--pt-40,
-  .bloomli-beneath-surface--pt-48,
-  .bloomli-beneath-surface--pt-56,
-  .bloomli-beneath-surface--pt-64,
-  .bloomli-beneath-surface--pt-72,
-  .bloomli-beneath-surface--pt-80,
-  .bloomli-beneath-surface--pt-88,
-  .bloomli-beneath-surface--pt-96,
-  .bloomli-beneath-surface--pt-104,
-  .bloomli-beneath-surface--pt-112,
-  .bloomli-beneath-surface--pt-120 {
-    padding-top: 4.8rem;
-  }
-
-  .bloomli-beneath-surface--pb-32,
-  .bloomli-beneath-surface--pb-40,
-  .bloomli-beneath-surface--pb-48,
-  .bloomli-beneath-surface--pb-56,
-  .bloomli-beneath-surface--pb-64,
-  .bloomli-beneath-surface--pb-72,
-  .bloomli-beneath-surface--pb-80,
-  .bloomli-beneath-surface--pb-88,
-  .bloomli-beneath-surface--pb-96,
-  .bloomli-beneath-surface--pb-104,
-  .bloomli-beneath-surface--pb-112,
-  .bloomli-beneath-surface--pb-120 {
-    padding-bottom: 4.8rem;
-  }
-
   .bloomli-beneath-surface__heading {
     font-size: clamp(3rem, 9vw, 4rem);
   }
@@ -395,6 +367,13 @@
 
   .bloomli-beneath-surface__explain p {
     font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .bloomli-beneath-surface {
+    padding-top: var(--section-padding-top, 8rem);
+    padding-bottom: var(--section-padding-bottom, 8rem);
   }
 }
 

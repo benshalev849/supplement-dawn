@@ -6,6 +6,10 @@
   style="
     --hero-min-height: {{ section.settings.min_height }}px;
     --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
     {%- if section.settings.use_custom_text_color -%}
       --hero-text-color: {{ section.settings.text_color }};
     {%- endif -%}
@@ -117,6 +121,10 @@
     { "type": "text",     "id": "headline_line2",  "label": "Headline line 2 (italic)", "default": "visible results." },
     { "type": "textarea", "id": "subtext",         "label": "Subtext",                 "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },
     { "type": "range",    "id": "min_height",      "label": "Min height (px)",         "min": 500, "max": 900, "step": 20, "default": 720 },
+    { "type": "range",    "id": "padding_top",     "label": "Padding top",             "min": 0, "max": 176, "step": 8, "default": 80, "unit": "px" },
+    { "type": "range",    "id": "padding_bottom",  "label": "Padding bottom",          "min": 0, "max": 176, "step": 8, "default": 80, "unit": "px" },
+    { "type": "range",    "id": "padding_top_mobile", "label": "Padding top mobile",   "min": 0, "max": 176, "step": 8, "default": 56, "unit": "px" },
+    { "type": "range",    "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 176, "step": 8, "default": 56, "unit": "px" },
     { "type": "header", "content": "CTAs" },
     { "type": "color_scheme", "id": "button_color_scheme", "label": "Button color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "text", "id": "cta_primary_label",   "label": "CTA button label",    "default": "Start Your Ritual" },

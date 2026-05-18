@@ -12,8 +12,10 @@
   style="
     --bpp-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
     --bpp-accent: {% if icon_accent_color == '#6f7a5a' %}var(--bloomli-primary-action){% else %}{{ section.settings.icon_accent_color | default: 'var(--bloomli-primary-action)' }}{% endif %};
-    --bloomli-padding-top: {{ section.settings.padding_top }}px;
-    --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
     --bpp-image-width: {{ section.settings.image_width | default: 620 }}px;
     --bpp-image-desktop-scale: {{ desktop_image_scale }};
     --bpp-image-mobile-size: {{ section.settings.image_size | default: 100 }}%;
@@ -119,8 +121,10 @@
     { "type": "checkbox", "id": "show_card_borders", "label": "Show card borders", "default": true },
     { "type": "text", "id": "heading_line1", "label": "Heading", "default": "Every milligram, intentional." },
     { "type": "richtext", "id": "copy", "label": "Copy", "default": "<p>We formulate at clinical doses - the amounts used in peer-reviewed studies - not the sprinkle-doses you'll find in most gummies. Every batch is independently tested. Nothing added for color, nothing hidden in a proprietary blend.</p>" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" }
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 80, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 80, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 176, "step": 8, "default": 56, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 176, "step": 8, "default": 56, "unit": "px" }
   ],
   "blocks": [
     {

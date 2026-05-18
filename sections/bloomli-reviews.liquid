@@ -40,7 +40,10 @@
     --br-card-gap: {{ section.settings.card_gap }}px;
     --br-scroll-duration: {{ section.settings.scroll_duration }}s;
     --br-mobile-card-width: {{ section.settings.mobile_card_width | default: 82 }}vw;
-    padding: {{ section.settings.padding_top }}px var(--bloomli-page-gutter-desktop) {{ section.settings.padding_bottom }}px;
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
     background: var(--br-bg);
   "
 >
@@ -186,7 +189,7 @@
       "min": 0,
       "max": 160,
       "step": 8,
-      "default": 96,
+      "default": 64,
       "unit": "px"
     },
     {
@@ -196,7 +199,27 @@
       "min": 0,
       "max": 160,
       "step": 8,
-      "default": 96,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 48,
       "unit": "px"
     }
   ],

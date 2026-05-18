@@ -11,7 +11,13 @@
 
 <section
   id="{{ section_id }}"
-  class="bloomli-beneath-surface bloomli-beneath-surface--pt-{{ section.settings.padding_top }} bloomli-beneath-surface--pb-{{ section.settings.padding_bottom }} color-{{ section.settings.color_scheme }} gradient"
+  class="bloomli-beneath-surface color-{{ section.settings.color_scheme }} gradient"
+  style="
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
   style="--bloomli-beneath-row-background: {{ row_background_color }}; --bloomli-beneath-content-card-background: {{ content_card_background_color }};"
   data-bloomli-beneath-surface
 >
@@ -204,6 +210,24 @@
       "max": 120,
       "step": 8,
       "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "default": 56
     }
   ],
   "blocks": [

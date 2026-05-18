@@ -29,10 +29,10 @@
     --bba-gap: {{ section.settings.card_gap }}px;
     --bba-cards-desktop: {{ visible_desktop }};
     --bba-static-count: {{ static_count }};
-    --bba-padding-top: {{ section.settings.padding_top }}px;
-    --bba-padding-bottom: {{ section.settings.padding_bottom }}px;
-    --bba-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
-    --bba-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
   "
 >
   <div class="bloomli-before-after__inner">
@@ -356,7 +356,7 @@
       "min": 0,
       "max": 176,
       "step": 8,
-      "default": 96,
+      "default": 64,
       "unit": "px"
     },
     {
@@ -366,7 +366,7 @@
       "min": 0,
       "max": 176,
       "step": 8,
-      "default": 96,
+      "default": 64,
       "unit": "px"
     },
     {
@@ -376,7 +376,7 @@
       "min": 0,
       "max": 120,
       "step": 8,
-      "default": 64,
+      "default": 48,
       "unit": "px"
     },
     {
@@ -386,7 +386,7 @@
       "min": 0,
       "max": 120,
       "step": 8,
-      "default": 64,
+      "default": 48,
       "unit": "px"
     }
   ],

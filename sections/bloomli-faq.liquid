@@ -15,8 +15,10 @@
     --bf-heading-size: {{ section.settings.heading_size }}px;
     --bf-question-size: {{ section.settings.question_size }}px;
     --bf-body-size: {{ section.settings.body_size }}px;
-    --bf-padding-top: {{ section.settings.padding_top }}px;
-    --bf-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
   "
 >
   <div class="bloomli-faq__inner">
@@ -226,7 +228,7 @@
       "min": 0,
       "max": 160,
       "step": 8,
-      "default": 88,
+      "default": 64,
       "unit": "px"
     },
     {
@@ -236,7 +238,27 @@
       "min": 0,
       "max": 160,
       "step": 8,
-      "default": 88,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 48,
       "unit": "px"
     }
   ],

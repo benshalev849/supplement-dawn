@@ -1,4 +1,4 @@
-<section class="bloomli-photo-mosaic bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% if section.settings.use_custom_background %}--bpm-bg: {{ section.settings.background_color }};{% else %}--bpm-bg: var(--bloomli-bg);{% endif %}{% case section.settings.placeholder_background %}{% when 'background' %}--bpm-placeholder-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bpm-placeholder-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bpm-placeholder-bg: rgba(var(--color-button), 0.12);{% else %}--bpm-placeholder-bg: var(--bloomli-surface);{% endcase %} --bloomli-padding-top: {{ section.settings.padding_top }}px; --bloomli-padding-bottom: {{ section.settings.padding_bottom }}px; --bpm-columns-desktop: {{ section.settings.columns_desktop }}; --bpm-columns-mobile: {{ section.settings.columns_mobile }}; --bpm-gap: {{ section.settings.gap }}px; --bpm-radius: {{ section.settings.radius }}px;">
+<section class="bloomli-photo-mosaic bloomli-section color-{{ section.settings.color_scheme }} gradient" style="{% if section.settings.use_custom_background %}--bpm-bg: {{ section.settings.background_color }};{% else %}--bpm-bg: var(--bloomli-bg);{% endif %}{% case section.settings.placeholder_background %}{% when 'background' %}--bpm-placeholder-bg: var(--bloomli-bg);{% when 'surface_strong' %}--bpm-placeholder-bg: var(--bloomli-surface-strong);{% when 'accent_soft' %}--bpm-placeholder-bg: rgba(var(--color-button), 0.12);{% else %}--bpm-placeholder-bg: var(--bloomli-surface);{% endcase %} --section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px; --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px; --bpm-columns-desktop: {{ section.settings.columns_desktop }}; --bpm-columns-mobile: {{ section.settings.columns_mobile }}; --bpm-gap: {{ section.settings.gap }}px; --bpm-radius: {{ section.settings.radius }}px;">
   <div class="bloomli-section__inner">
     <div class="bloomli-photo-mosaic__header">
       <h2 class="bloomli-photo-mosaic__heading">{{ section.settings.heading }}</h2>
@@ -59,8 +59,10 @@
     ], "default": "2" },
     { "type": "range", "id": "gap", "label": "Gap desktop", "min": 0, "max": 24, "step": 2, "default": 10, "unit": "px" },
     { "type": "range", "id": "radius", "label": "Corner radius", "min": 0, "max": 24, "step": 2, "default": 8, "unit": "px" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 96, "unit": "px" },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 96, "unit": "px" }
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 64, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 64, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 176, "step": 8, "default": 48, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 176, "step": 8, "default": 48, "unit": "px" }
   ],
   "blocks": [
     {

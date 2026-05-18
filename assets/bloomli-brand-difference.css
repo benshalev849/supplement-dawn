@@ -340,11 +340,6 @@
     background: #B23A6F;
   }
 
-  .bloomli-brand-difference__column-heading--bloomli,
-  .bloomli-brand-difference__table tr:last-child .bloomli-brand-difference__value-cell--bloomli {
-    border-radius: 0;
-  }
-
   .bloomli-brand-difference__table th:nth-child(3),
   .bloomli-brand-difference__table td:nth-child(3) {
     width: 21%;
@@ -399,8 +394,10 @@
   }
 
   .bloomli-brand-difference__header-logo {
+    width: min(100%, 8rem);
     max-width: 8rem;
     max-height: 2.6rem;
+    height: auto;
   }
 
   .bloomli-brand-difference__body {

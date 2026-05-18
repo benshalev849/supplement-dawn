@@ -1,25 +1,23 @@
 {% comment %}
   =============================================
   REVIEW AGGREGATE SETTINGS
-  Set use_judgeme to true to pull live data
-  Set use_judgeme to false to use fallback values
+  Set use_judgeme to true to pull live from JudgeMe
+  Set use_judgeme to false to use the manual override text below
   =============================================
 {% endcomment %}
 {% assign use_judgeme = false %}
 
-{% comment %} Fallback values — edit these manually {% endcomment %}
-{% assign fallback_rating = "5.0" %}
-{% assign fallback_count_display = "1+ reviews" %}
+{% comment %} Manual override — edit this line directly {% endcomment %}
+{% assign manual_aggregate = "4.8 · 2,400+ reviews" %}
 
 {% comment %} JudgeMe live data {% endcomment %}
 {% if use_judgeme %}
-  {% assign display_rating = shop.metafields.judgeme.all_reviews_rating | round: 1 %}
-  {% assign display_count_raw = shop.metafields.judgeme.all_reviews_count %}
-  {% assign display_count_text = display_count_raw | pluralize: 'review', 'reviews' %}
-  {% assign display_count_display = display_count_raw | append: " " | append: display_count_text %}
+  {% assign jm_rating = shop.metafields.judgeme.all_reviews_rating | round: 1 %}
+  {% assign jm_count = shop.metafields.judgeme.all_reviews_count %}
+  {% assign jm_plural = jm_count | pluralize: 'review', 'reviews' %}
+  {% assign display_aggregate = jm_rating | append: " · " | append: jm_count | append: "+ " | append: jm_plural %}
 {% else %}
-  {% assign display_rating = fallback_rating %}
-  {% assign display_count_display = fallback_count_display %}
+  {% assign display_aggregate = manual_aggregate %}
 {% endif %}
 
 {{ 'bloomli-reviews.css' | asset_url | stylesheet_tag }}
@@ -47,7 +45,7 @@
     <div class="bloomli-reviews__header">
       <div class="bloomli-reviews__stars-large" aria-hidden="true">★★★★★</div>
       <div class="bloomli-reviews__aggregate">
-        {{ display_rating }} · {{ display_count_display }}
+        <strong>{{ display_aggregate }}</strong>
       </div>
       <h2 class="bloomli-reviews__title">{{ section.settings.title | default: section.settings.heading }}</h2>
     </div>

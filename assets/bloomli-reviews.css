@@ -9,19 +9,19 @@
 }
 
 .bloomli-reviews .bloomli-reviews__stars-large {
-  font-size: 32px;
+  font-size: 40px;
   color: #b23a6f;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .bloomli-reviews .bloomli-reviews__aggregate {
   display: block;
-  font-size: 14px;
-  color: rgb(var(--color-foreground));
-  opacity: 0.7;
-  margin: 0 0 12px;
-  letter-spacing: 0.02em;
+  font-size: 18px;
+  font-weight: 500;
+  color: #b23a6f;
+  margin: 0 0 16px;
+  letter-spacing: 0.01em;
 }
 
 .bloomli-reviews .bloomli-reviews__title {

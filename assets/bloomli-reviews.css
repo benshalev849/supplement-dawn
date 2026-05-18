@@ -97,13 +97,26 @@
 
   .bloomli-reviews .bloomli-reviews__media {
     aspect-ratio: auto;
-    height: clamp(132px, 34vw, 160px);
+    height: 210px;
     margin-bottom: 16px;
   }
 
   .bloomli-reviews .bloomli-reviews__media img {
     height: 100%;
     max-width: 100%;
-    object-fit: cover;
+    object-fit: contain;
+  }
+
+  .bloomli-reviews .bloomli-reviews__card .bloomli-reviews__stars {
+    font-size: 25px;
+  }
+
+  .bloomli-reviews .bloomli-reviews__quote {
+    font-size: 15px;
+  }
+
+  .bloomli-reviews .bloomli-reviews__name,
+  .bloomli-reviews .bloomli-reviews__meta {
+    font-size: 13px;
   }
 }

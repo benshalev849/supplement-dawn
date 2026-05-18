@@ -291,8 +291,9 @@
       "settings": {
         "color_scheme": "",
         "button_label": "Start Your Journey",
-        "button_behavior": "link",
+        "button_behavior": "selector",
         "button_link": "#bloomli-product-form",
+        "scroll_selector": ".bloomli-vt",
         "button_style": "primary",
         "alignment": "center",
         "mobile_full_width": false,

@@ -317,22 +317,22 @@
   }
 
   .bloomli-brand-difference__table {
-    width: 100%;
-    min-width: 100%;
+    width: max-content;
+    min-width: 64rem;
     table-layout: fixed;
   }
 
   .bloomli-brand-difference__table th:first-child,
   .bloomli-brand-difference__table td:first-child {
     position: static;
-    width: 34%;
+    width: 22rem;
     background: transparent;
   }
 
   .bloomli-brand-difference__table th:nth-child(2),
   .bloomli-brand-difference__table td:nth-child(2) {
     position: static;
-    width: 24%;
+    width: 14rem;
     background: #fbeaf0;
   }
 
@@ -342,12 +342,12 @@
 
   .bloomli-brand-difference__table th:nth-child(3),
   .bloomli-brand-difference__table td:nth-child(3) {
-    width: 21%;
+    width: 14rem;
   }
 
   .bloomli-brand-difference__table th:nth-child(4),
   .bloomli-brand-difference__table td:nth-child(4) {
-    width: 21%;
+    width: 14rem;
   }
 
   .bloomli-brand-difference__table th:nth-child(3),

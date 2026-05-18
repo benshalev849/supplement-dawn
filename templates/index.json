@@ -663,8 +663,8 @@
       "settings": {
         "color_scheme": "",
         "button_label": "Start My Journey",
-        "button_behavior": "top",
-        "button_link": "",
+        "button_behavior": "link",
+        "button_link": "#bloomli-product-finder",
         "button_style": "primary",
         "alignment": "center",
         "mobile_full_width": false,

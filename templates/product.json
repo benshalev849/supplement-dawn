@@ -185,7 +185,7 @@
         "step_UQiCKB": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Model_Back_Month_7_V2_back.png",
+            "image": "shopify://shop_images/Model_Back_Month_7_V2_V2.png",
             "image_scale": 100,
             "icon": "seed",
             "range": "Month 7+",

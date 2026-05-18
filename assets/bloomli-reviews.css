@@ -83,9 +83,10 @@
   }
 
   .bloomli-reviews .bloomli-reviews__card {
-    flex: 0 0 80%;
-    width: 80%;
-    max-width: 80%;
+    flex: 0 0 70%;
+    width: 70%;
+    max-width: 70%;
+    padding: 14px;
     scroll-snap-align: start;
   }
 
@@ -94,7 +95,14 @@
     width: 100%;
   }
 
+  .bloomli-reviews .bloomli-reviews__media {
+    aspect-ratio: auto;
+    height: clamp(132px, 34vw, 160px);
+    margin-bottom: 16px;
+  }
+
   .bloomli-reviews .bloomli-reviews__media img {
+    height: 100%;
     max-width: 100%;
     object-fit: cover;
   }

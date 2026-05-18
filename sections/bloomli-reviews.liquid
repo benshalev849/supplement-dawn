@@ -1,14 +1,11 @@
 {% comment %}
   =============================================
   REVIEW AGGREGATE SETTINGS
-  Set use_judgeme to true to pull live from JudgeMe
-  Set use_judgeme to false to use the manual override text below
+  use_judgeme and manual_aggregate are editable in the section settings.
   =============================================
 {% endcomment %}
-{% assign use_judgeme = false %}
-
-{% comment %} Manual override — edit this line directly {% endcomment %}
-{% assign manual_aggregate = "4.8 · 2,400+ reviews" %}
+{% assign use_judgeme = section.settings.use_judgeme %}
+{% assign manual_aggregate = section.settings.manual_aggregate | default: "4.8 · 2,400+ reviews" %}
 
 {% comment %} JudgeMe live data {% endcomment %}
 {% if use_judgeme %}
@@ -95,6 +92,20 @@
   "max_blocks": 16,
   "settings": [
     { "type": "text", "id": "title", "label": "Title", "default": "Real women. Real results." },
+    { "type": "header", "content": "Review aggregate" },
+    {
+      "type": "checkbox",
+      "id": "use_judgeme",
+      "label": "Use JudgeMe live aggregate",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "manual_aggregate",
+      "label": "Manual aggregate text",
+      "default": "4.8 · 2,400+ reviews",
+      "visible_if": "{{ section.settings.use_judgeme == false }}"
+    },
     { "type": "color", "id": "background_color", "label": "Background color", "default": "#F2E7E4" },
     { "type": "color", "id": "card_background", "label": "Card background", "default": "#FDFAF7" },
     { "type": "color", "id": "placeholder_color", "label": "Photo placeholder color", "default": "#F7F0E9" },

@@ -107,7 +107,8 @@
           </span>
         {%- endif -%}
 
-        <div class="bloomli-product-finder__media">
+        <div class="bloomli-product-finder__card-inner">
+          <div class="bloomli-product-finder__media">
             {%- if gummies_image != blank -%}
               {{
                 gummies_image
@@ -124,9 +125,9 @@
                 <i class="ti ti-candy"></i>
               </span>
             {%- endif -%}
-        </div>
+          </div>
 
-        <div class="bloomli-product-finder__content">
+          <div class="bloomli-product-finder__content">
             {%- if section.settings.gummies_rating_source != 'hide' and gummies_rating != blank -%}
               <p class="bloomli-product-finder__rating">
                 <span class="bloomli-product-finder__stars" aria-hidden="true">★★★★★</span>
@@ -153,11 +154,13 @@
                 {{ section.settings.gummies_button_label | escape }}
               </a>
             {%- endif -%}
+          </div>
         </div>
       </article>
 
       <article class="bloomli-product-finder__card bloomli-product-finder__card--capsules">
-        <div class="bloomli-product-finder__media">
+        <div class="bloomli-product-finder__card-inner">
+          <div class="bloomli-product-finder__media">
             {%- if capsules_image != blank -%}
               {{
                 capsules_image
@@ -174,9 +177,9 @@
                 <i class="ti ti-pill"></i>
               </span>
             {%- endif -%}
-        </div>
+          </div>
 
-        <div class="bloomli-product-finder__content">
+          <div class="bloomli-product-finder__content">
             {%- if section.settings.capsules_rating_source != 'hide' and capsules_rating != blank -%}
               <p class="bloomli-product-finder__rating">
                 <span class="bloomli-product-finder__stars" aria-hidden="true">★★★★★</span>
@@ -203,6 +206,7 @@
                 {{ section.settings.capsules_button_label | escape }}
               </a>
             {%- endif -%}
+          </div>
         </div>
       </article>
     </div>

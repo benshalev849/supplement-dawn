@@ -76,7 +76,9 @@
               aria-labelledby="{{ tab_id }}"
               data-bbs-panel
               data-bbs-index="{{ forloop.index0 }}"
-              {% unless forloop.first %}hidden{% endunless %}
+              {% unless forloop.first %}
+                hidden
+              {% endunless %}
             >
               <div class="bloomli-beneath-surface__panel-copy">
                 <h3 class="bloomli-beneath-surface__panel-title h2">{{ block.settings.title | escape }}</h3>
@@ -92,7 +94,6 @@
                     <p>{{ block.settings.how_text | escape }}</p>
                   </div>
                 </div>
-
               </div>
             </article>
           {%- endfor -%}
@@ -128,7 +129,9 @@
               class="bloomli-faq__panel"
               role="region"
               aria-labelledby="{{ mobile_button_id }}"
-              {% unless forloop.first %}hidden{% endunless %}
+              {% unless forloop.first %}
+                hidden
+              {% endunless %}
             >
               <div class="bloomli-faq__panel-inner bloomli-beneath-surface__mobile-panel-inner">
                 <div class="bloomli-beneath-surface__explain">
@@ -139,7 +142,6 @@
                   <h4 class="bloomli-beneath-surface__explain-heading">How Bloomli supports it</h4>
                   <p>{{ block.settings.how_text | escape }}</p>
                 </div>
-
               </div>
             </div>
           </article>
@@ -154,9 +156,6 @@
   "name": "Bloomli - Beneath Surface",
   "tag": "section",
   "class": "section",
-  "enabled_on": {
-    "templates": ["index"]
-  },
   "settings": [
     {
       "type": "color_scheme",

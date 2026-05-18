@@ -17,31 +17,32 @@
         "padding_bottom": 28
       }
     },
+
     "science_hero": {
       "type": "rich-text",
       "blocks": {
-        "caption": {
+        "hero_cap": {
           "type": "caption",
           "settings": {
-            "caption": "The Bloomli approach",
+            "caption": "The Bloomli formulation standard",
             "text_style": "caption-with-letter-spacing",
             "text_size": "medium"
           }
         },
-        "heading": {
+        "hero_head": {
           "type": "heading",
           "settings": {
-            "heading": "Science you can actually feel.",
+            "heading": "Every ingredient earns its spot.",
             "heading_size": "hxl"
           }
         },
-        "text": {
+        "hero_body": {
           "type": "text",
           "settings": {
-            "text": "<p>Our ingredients are chosen on evidence. Our formulas are designed with clear roles. Our quality standard is simple: make hair wellness feel understandable, beautiful, and easy to trust.</p>"
+            "text": "<p>Hair wellness doesn't need to be complicated — it needs to be consistent, purposeful, and honest. Bloomli formulas are built around evidence, dosed to matter, and designed so you never have to guess what you're taking or why.</p>"
           }
         },
-        "button": {
+        "hero_btn": {
           "type": "button",
           "settings": {
             "button_label": "Shop Bloomli",
@@ -53,307 +54,579 @@
           }
         }
       },
-      "block_order": [
-        "caption",
-        "heading",
-        "text",
-        "button"
-      ],
+      "block_order": ["hero_cap", "hero_head", "hero_body", "hero_btn"],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
         "full_width": true,
-        "padding_top": 96,
-        "padding_bottom": 96
+        "padding_top": 112,
+        "padding_bottom": 104
       }
     },
+
+    "science_trust": {
+      "type": "bloomli-trust-row",
+      "blocks": {
+        "trust_1": {
+          "type": "proof",
+          "settings": {
+            "icon": "shield-check",
+            "label": "Third-Party Tested",
+            "body": "Every batch verified by an independent accredited lab — purity, potency, and heavy metals."
+          }
+        },
+        "trust_2": {
+          "type": "proof",
+          "settings": {
+            "icon": "certificate",
+            "label": "GMP-Certified Facility",
+            "body": "Manufactured to Current Good Manufacturing Practice standards."
+          }
+        },
+        "trust_3": {
+          "type": "proof",
+          "settings": {
+            "icon": "map-pin",
+            "label": "Made in the USA",
+            "body": "Domestic production with quality standards you can hold to account."
+          }
+        },
+        "trust_4": {
+          "type": "proof",
+          "settings": {
+            "icon": "pill",
+            "label": "6,000 MCG Biotin",
+            "body": "The clinical dose — not a trace amount added for label appeal."
+          }
+        },
+        "trust_5": {
+          "type": "proof",
+          "settings": {
+            "icon": "leaf",
+            "label": "Gelatin-Free Gummies",
+            "body": "Pectin-based and vegan. No gelatin, no artificial dyes."
+          }
+        },
+        "trust_6": {
+          "type": "proof",
+          "settings": {
+            "icon": "flask",
+            "label": "No Proprietary Blends",
+            "body": "Full label transparency — every ingredient, every dose, fully disclosed."
+          }
+        }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4", "trust_5", "trust_6"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "padding_top": 22,
+        "padding_bottom": 22
+      }
+    },
+
     "science_meaning": {
       "type": "rich-text",
       "blocks": {
-        "caption": {
+        "mean_cap": {
           "type": "caption",
           "settings": {
-            "caption": "What science-backed means at Bloomli",
+            "caption": "What science-backed actually means",
             "text_style": "caption-with-letter-spacing",
             "text_size": "medium"
           }
         },
-        "heading": {
+        "mean_head": {
           "type": "heading",
           "settings": {
-            "heading": "We do not add ingredients just for the label.",
+            "heading": "We don't add ingredients for the label.",
             "heading_size": "h1"
           }
         },
-        "text": {
+        "mean_body": {
           "type": "text",
           "settings": {
-            "text": "<p>Science-backed is a process, not a decoration. Every active should have a clear purpose in the formula, a sensible dose, and a role customers can understand without reading a textbook.</p><p>Bloomli is built around plain-language beauty wellness: thoughtful ingredients, consistent routines, and realistic expectations.</p>"
+            "text": "<p>In the supplement industry, 'science-backed' is often a marketing phrase applied to any ingredient that appears in at least one study somewhere. At Bloomli it's a process. Published human data is preferred over animal or in-vitro research. Doses are chosen to match the clinical research — not to look impressive on the label. Every active has a clear role, and we can explain that role in plain language before you buy.</p><p>Hair wellness is gradual by biology — follicles operate on cycles that take months to complete. We don't promise overnight results. What we promise is a formula you can trust, a routine you can maintain, and expectations that are honest from the start.</p>"
           }
         }
       },
-      "block_order": [
-        "caption",
-        "heading",
-        "text"
-      ],
+      "block_order": ["mean_cap", "mean_head", "mean_body"],
       "settings": {
         "desktop_content_position": "left",
         "content_alignment": "left",
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "full_width": false,
+        "padding_top": 96,
+        "padding_bottom": 64
+      }
+    },
+
+    "science_gummies": {
+      "type": "bloomli-formula-gallery",
+      "blocks": {
+        "gg_1": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Biotin — 6,000 MCG",
+            "text": "The keratin co-factor. At 6,000 MCG we're dosing where clinical research on hair outcomes actually operates — not at a trace level included for label credibility.",
+            "photo_label": "Biotin — crystalline powder",
+            "source_line": "Supports keratin infrastructure"
+          }
+        },
+        "gg_2": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "title": "Marine Collagen",
+            "text": "Hydrolyzed type I and III collagen peptides — the amino acid precursors that hair relies on for elasticity, strand strength, and moisture retention. Sustainably sourced.",
+            "photo_label": "Marine collagen — hydrolyzed flake",
+            "source_line": "Type I & III peptides"
+          }
+        },
+        "gg_3": {
+          "type": "item",
+          "settings": {
+            "icon": "palm",
+            "title": "Saw Palmetto",
+            "text": "A plant-based botanical studied for its role in DHT modulation at the follicle level. Included as a standardised extract to ensure consistent potency.",
+            "photo_label": "Saw palmetto — berry cluster",
+            "source_line": "Standardised botanical extract"
+          }
+        },
+        "gg_4": {
+          "type": "item",
+          "settings": {
+            "icon": "zinc",
+            "title": "Zinc",
+            "text": "An essential mineral for follicle repair, sebum regulation, and scalp health. Zinc deficiency is more common than most women realise, and the follicle is one of the first places it shows.",
+            "photo_label": "Zinc — mineral granule",
+            "source_line": "Supports follicle function"
+          }
+        },
+        "gg_5": {
+          "type": "item",
+          "settings": {
+            "icon": "root",
+            "title": "Ashwagandha",
+            "text": "An adaptogen included for its cortisol-modulating properties. Elevated cortisol is one of the most common drivers of stress-related shedding — ashwagandha supports the body's resilience during high-stress periods.",
+            "photo_label": "Ashwagandha — dried root",
+            "source_line": "Adaptogenic cortisol support"
+          }
+        },
+        "gg_proof_1": {
+          "type": "item",
+          "settings": {
+            "is_proof": true,
+            "icon": "spark",
+            "title": "2g sugar per serving",
+            "text": "Daily hair support without the candy. Natural strawberry-forward flavour, pectin base, never chalky or artificial-tasting."
+          }
+        },
+        "gg_proof_2": {
+          "type": "item",
+          "settings": {
+            "is_proof": true,
+            "icon": "tested",
+            "title": "Every batch independently tested",
+            "text": "Potency, purity, and heavy metals verified by a third-party accredited lab before release. No batch ships without sign-off."
+          }
+        }
+      },
+      "block_order": ["gg_1", "gg_2", "gg_3", "gg_4", "gg_5", "gg_proof_1", "gg_proof_2"],
+      "settings": {
+        "heading_line2": "Hair Gummies. Built to support from within.",
+        "copy": "<p>A clinically dosed daily blend in a pectin-based, gelatin-free gummy — because a supplement only works if you actually take it. Formulated around five evidence-selected actives, each with a clear role.</p>",
+        "header_alignment": "left",
+        "desktop_columns": "2",
+        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
+        "media_background": "surface",
+        "proof_background": "accent_soft",
+        "header_width": 680,
+        "heading_size": 48,
+        "heading_size_mobile": 36,
+        "title_size": 26,
+        "title_size_mobile": 22,
+        "image_size": 180,
+        "image_size_mobile": 120,
+        "proof_icon_size": 64,
+        "proof_icon_size_mobile": 56,
+        "column_gap": 56,
+        "row_gap": 48,
+        "padding_top": 112,
+        "padding_bottom": 88
+      }
+    },
+
+    "science_pills": {
+      "type": "bloomli-formula-gallery",
+      "blocks": {
+        "cp_1": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Biotin — Clinical Dose",
+            "text": "The same evidence-backed biotin dose as the gummy formula. Biotin is a B-vitamin that supports the metabolic pathways involved in keratin protein production.",
+            "photo_label": "Biotin — powder",
+            "source_line": "Supports keratin synthesis"
+          }
+        },
+        "cp_2": {
+          "type": "item",
+          "settings": {
+            "icon": "palm",
+            "title": "Saw Palmetto Extract",
+            "text": "In capsule form, saw palmetto can be delivered at a more concentrated standardised dose. It's studied for DHT modulation — supporting the follicle environment directly at the root level.",
+            "photo_label": "Saw palmetto — concentrated extract",
+            "source_line": "DHT-balancing botanical"
+          }
+        },
+        "cp_3": {
+          "type": "item",
+          "settings": {
+            "icon": "root",
+            "title": "Ashwagandha Root Extract",
+            "text": "Adaptogen standardised for withanolide content — the active compounds linked to cortisol regulation in clinical research. Stress-related telogen effluvium is among the most common causes of sudden shedding.",
+            "photo_label": "Ashwagandha — root extract",
+            "source_line": "Standardised withanolide extract"
+          }
+        },
+        "cp_4": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "title": "Bamboo Silica",
+            "text": "A plant-derived source of bioavailable silica — a structural mineral that supports connective tissue including the hair shaft. Bamboo is among the richest natural silica sources available.",
+            "photo_label": "Bamboo — silica extract",
+            "source_line": "Structural mineral support"
+          }
+        },
+        "cp_5": {
+          "type": "item",
+          "settings": {
+            "icon": "zinc",
+            "title": "Zinc",
+            "text": "Included across both Bloomli formulas because zinc deficiency is widely underdiagnosed in women. Supports follicle repair, sebum balance, and scalp health at the root.",
+            "photo_label": "Zinc — mineral",
+            "source_line": "Essential mineral"
+          }
+        },
+        "cp_proof_1": {
+          "type": "item",
+          "settings": {
+            "is_proof": true,
+            "icon": "spark",
+            "title": "Full botanical herbal blend",
+            "text": "The capsule formula includes a concentrated botanical blend not achievable at effective doses in gummy format — for a more comprehensive approach to hair wellness."
+          }
+        },
+        "cp_proof_2": {
+          "type": "item",
+          "settings": {
+            "is_proof": true,
+            "icon": "tested",
+            "title": "Same lab testing standard",
+            "text": "Every capsule batch tested by an independent accredited lab for purity, potency, and heavy metals before release."
+          }
+        }
+      },
+      "block_order": ["cp_1", "cp_2", "cp_3", "cp_4", "cp_5", "cp_proof_1", "cp_proof_2"],
+      "settings": {
+        "heading_line2": "Hair Capsules. The full botanical formula.",
+        "copy": "<p>The capsule formula carries the complete Bloomli botanical blend — including concentrated saw palmetto, ashwagandha, and bamboo silica alongside the core actives. Designed for those who want the most comprehensive inside-out approach.</p>",
+        "header_alignment": "left",
+        "desktop_columns": "2",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "media_background": "surface_strong",
+        "proof_background": "accent_soft",
+        "header_width": 680,
+        "heading_size": 48,
+        "heading_size_mobile": 36,
+        "title_size": 26,
+        "title_size_mobile": 22,
+        "image_size": 180,
+        "image_size_mobile": 120,
+        "proof_icon_size": 64,
+        "proof_icon_size_mobile": 56,
+        "column_gap": 56,
+        "row_gap": 48,
         "padding_top": 88,
         "padding_bottom": 88
       }
     },
-    "science_principles": {
-      "type": "multicolumn",
+
+    "science_testing": {
+      "type": "bloomli-proof-split",
       "blocks": {
-        "principle_1": {
-          "type": "column",
+        "bt_1": {
+          "type": "bullet",
           "settings": {
-            "title": "01. Evidence-based selection",
-            "text": "<p>Every ingredient is chosen for a clear role in supporting hair, beauty, or daily wellness routines.</p>",
-            "link_label": "",
-            "link": ""
+            "bullet_title": "Potency",
+            "text": "Label accuracy independently verified — the dose on the panel matches what's actually in the product. No under-dosed actives, no inflated claims."
           }
         },
-        "principle_2": {
-          "type": "column",
+        "bt_2": {
+          "type": "bullet",
           "settings": {
-            "title": "02. Thoughtful dosing",
-            "text": "<p>We avoid sprinkle-dose thinking. The amount should make sense for the purpose of the formula.</p>",
-            "link_label": "",
-            "link": ""
+            "bullet_title": "Purity",
+            "text": "Every batch screened for heavy metals (lead, arsenic, mercury, cadmium), microbial contamination, and common adulterants."
           }
         },
-        "principle_3": {
-          "type": "column",
+        "bt_3": {
+          "type": "bullet",
           "settings": {
-            "title": "03. Responsible review",
-            "text": "<p>Product claims should stay clear, realistic, and easy for customers to understand before purchase.</p>",
-            "link_label": "",
-            "link": ""
+            "bullet_title": "Certificate of Analysis",
+            "text": "Each batch produces a COA from an accredited third-party laboratory. Results are on file and available on request."
           }
         },
-        "principle_4": {
-          "type": "column",
+        "bt_4": {
+          "type": "bullet",
           "settings": {
-            "title": "04. Quality mindset",
-            "text": "<p>We look at formula fit, customer clarity, packaging, and routine experience together.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "principle_5": {
-          "type": "column",
-          "settings": {
-            "title": "05. Honest labels",
-            "text": "<p>No mystery language, no overcomplication, and no beauty wellness designed to feel intimidating.</p>",
-            "link_label": "",
-            "link": ""
+            "bullet_title": "No proprietary blends",
+            "text": "We don't hide doses behind proprietary blend labels. Every ingredient and amount is fully disclosed — so you know exactly what you're buying."
           }
         }
       },
-      "block_order": [
-        "principle_1",
-        "principle_2",
-        "principle_3",
-        "principle_4",
-        "principle_5"
-      ],
+      "block_order": ["bt_1", "bt_2", "bt_3", "bt_4"],
       "settings": {
-        "title": "Five non-negotiables.",
+        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
+        "use_custom_background": false,
+        "icon_accent_color": "#6F7A5A",
+        "media_background": "accent_soft",
+        "image_label": "Lab testing — COA document — clean facility environment",
+        "image_radius": 16,
+        "image_side": "right",
+        "heading_line1": "Independent testing,",
+        "heading_line2": "not marketing.",
+        "copy": "<p>We test because hair supplement quality varies wildly across brands. Third-party verification catches what internal teams miss — or ignore. Every Bloomli batch is tested by an accredited independent laboratory before it ships. That's not a claim. It's a process with paperwork behind it.</p>",
+        "show_card_borders": true,
+        "padding_top": 112,
+        "padding_bottom": 112
+      }
+    },
+
+    "science_concerns": {
+      "type": "bloomli-beneath-surface",
+      "blocks": {
+        "con_1": {
+          "type": "concern",
+          "settings": {
+            "title": "Nutrient gaps",
+            "subtitle": "Filling the daily deficit",
+            "what_text": "Hair follicles are among the fastest-dividing cells in the body and have some of the highest nutritional demands of any tissue. When diet, absorption, or consistency is off, the follicle is one of the first places it shows — through increased shedding, slower growth, or reduced density over time.",
+            "how_text": "Bloomli formulas address the micronutrients most commonly depleted in women and most directly linked to hair health: biotin, zinc, and collagen-building amino acids. Consistent daily use helps maintain the steady nourishment follicles rely on throughout each growth cycle."
+          }
+        },
+        "con_2": {
+          "type": "concern",
+          "settings": {
+            "title": "DHT sensitivity",
+            "subtitle": "Follicle-level support",
+            "what_text": "Dihydrotestosterone (DHT) is a hormone that can progressively miniaturise hair follicles over time, gradually reducing strand diameter and density. DHT sensitivity has a genetic component, but the follicle environment — and how well it can resist miniaturisation — can be influenced.",
+            "how_text": "Saw palmetto extract is included in both Bloomli formulas as a plant-based DHT balancer. Research suggests it may support a healthier follicle environment by modulating DHT activity at the scalp level, particularly with consistent long-term use."
+          }
+        },
+        "con_3": {
+          "type": "concern",
+          "settings": {
+            "title": "Stress shedding",
+            "subtitle": "The cortisol-hair connection",
+            "what_text": "Elevated cortisol can push hair follicles prematurely into the resting and shedding phase (telogen effluvium). The effect is often delayed — increased shedding typically appears 2–4 months after a stressful period, which is why many women feel like they're losing more hair without an obvious current cause.",
+            "how_text": "Ashwagandha is included in both Bloomli formulas for its evidence-backed role in cortisol regulation. It supports the kind of stress resilience that may help reduce the impact of high-cortisol periods on the hair cycle — without sedation or side effects at normal supplement doses."
+          }
+        },
+        "con_4": {
+          "type": "concern",
+          "settings": {
+            "title": "Strand weakness",
+            "subtitle": "Structural integrity from within",
+            "what_text": "When hair feels brittle, breaks easily, or lacks shine, it often points to gaps in the structural proteins that make up the strand — particularly collagen and keratin. Styling damage reaches from the outside. Nutritional gaps work from within.",
+            "how_text": "Marine collagen peptides provide the amino acid building blocks for keratin synthesis. Biotin supports the metabolic pathways involved in hair protein production. Together they address strand integrity at the source, not just at the surface."
+          }
+        },
+        "con_5": {
+          "type": "concern",
+          "settings": {
+            "title": "Scalp environment",
+            "subtitle": "The foundation of healthy growth",
+            "what_text": "A healthy scalp is the foundation of healthy hair. Excess sebum, dryness, and microbiome imbalance can all affect how the follicle performs over time. The scalp is skin — and it responds to the same nutritional and environmental factors.",
+            "how_text": "Zinc supports sebum regulation and follicle repair at the scalp level. The full Bloomli ritual — supplements plus topical scalp care — is designed to address both the internal and external dimensions of scalp health for a genuinely comprehensive inside-out approach."
+          }
+        }
+      },
+      "block_order": ["con_1", "con_2", "con_3", "con_4", "con_5"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "What's happening beneath the surface.",
+        "subtext": "<p>Most visible hair changes have an internal cause that starts well before you notice anything in the mirror. Tap each concern to understand the biology — and how Bloomli addresses it at the source.</p>",
+        "row_background_color": "#FAF5F3",
+        "content_card_background_color": "#FAF5F3",
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
+
+    "science_timeline": {
+      "type": "bloomli-timeline",
+      "blocks": {
+        "tl_1": {
+          "type": "step",
+          "settings": {
+            "icon": "seed",
+            "range": "Weeks 1–4",
+            "title": "Foundation",
+            "description": "Nutrients begin reaching follicles through daily consistency. Most users notice improved scalp comfort and reduced daily shedding before any visible density change — this is the quiet work happening below the surface."
+          }
+        },
+        "tl_2": {
+          "type": "step",
+          "settings": {
+            "icon": "sprout",
+            "range": "Months 2–4",
+            "title": "Visible shift",
+            "description": "New anagen (growth phase) hairs begin emerging with better nutritional support behind them. Many users report fuller-feeling density at the part line and hairline. The investment in consistency starts to show."
+          }
+        },
+        "tl_3": {
+          "type": "step",
+          "settings": {
+            "icon": "bloom",
+            "range": "Months 5–6+",
+            "title": "Full bloom",
+            "description": "Strands feel thicker, stronger, and more resilient. Results consolidate as each hair cycle completes with full support. This is the phase worth protecting — keeping the routine going is what sustains it."
+          }
+        }
+      },
+      "block_order": ["tl_1", "tl_2", "tl_3"],
+      "settings": {
+        "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
+        "timeline_icon_color": "#6F7A5A",
+        "heading": "Why consistency is the whole point.",
+        "subheadline": "<p>Hair grows in cycles — and each cycle takes months to complete. Bloomli is designed for the long game. Here is what that looks like in practice.</p>",
+        "circle_background": "surface",
+        "show_connector": true,
+        "connector_style": "dashed",
+        "connector_width": 1,
+        "circle_size": 280,
+        "icon_size": 160,
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
+    },
+
+    "science_principles": {
+      "type": "multicolumn",
+      "blocks": {
+        "pri_1": {
+          "type": "column",
+          "settings": {
+            "title": "01. Published human data",
+            "text": "<p>We prefer ingredients supported by peer-reviewed human trials. Animal studies and in-vitro research can inform hypotheses — but the closer the evidence is to a real person taking a supplement daily, the more weight it carries in our formulation decisions.</p>"
+          }
+        },
+        "pri_2": {
+          "type": "column",
+          "settings": {
+            "title": "02. Clinically meaningful doses",
+            "text": "<p>Doses in Bloomli formulas are set to match the amounts used in clinical research. We don't use token amounts that look good on a Supplement Facts panel but deliver no meaningful physiological effect. This is what 'clinically dosed' actually means.</p>"
+          }
+        },
+        "pri_3": {
+          "type": "column",
+          "settings": {
+            "title": "03. A clear role in every formula",
+            "text": "<p>Every active ingredient has a specific, explainable purpose. If we can't clearly describe what an ingredient does — in plain language, without jargon — it doesn't belong in the formula. No fillers added to extend the ingredient list.</p>"
+          }
+        },
+        "pri_4": {
+          "type": "column",
+          "settings": {
+            "title": "04. Honest claim language",
+            "text": "<p>Bloomli supplements are routine wellness products, not medical treatments. We communicate benefits clearly without overpromising. You'll never see language implying these products diagnose, treat, cure, or prevent any disease — because they don't, and saying otherwise would be misleading.</p>"
+          }
+        }
+      },
+      "block_order": ["pri_1", "pri_2", "pri_3", "pri_4"],
+      "settings": {
+        "title": "The four things we won't compromise on.",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
         "columns_desktop": 2,
         "column_alignment": "left",
         "background_style": "primary",
         "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 88,
-        "padding_bottom": 88
+        "padding_top": 96,
+        "padding_bottom": 96
       }
     },
-    "science_criteria": {
-      "type": "bloomli-proof-split",
-      "blocks": {
-        "criteria_1": {
-          "type": "bullet",
-          "settings": {
-            "text": "Published human data is preferred over animal or in-vitro-only support."
-          }
-        },
-        "criteria_2": {
-          "type": "bullet",
-          "settings": {
-            "text": "Ingredient amounts should match the intended customer benefit."
-          }
-        },
-        "criteria_3": {
-          "type": "bullet",
-          "settings": {
-            "text": "Each formula should be easy to explain in plain language."
-          }
-        },
-        "criteria_4": {
-          "type": "bullet",
-          "settings": {
-            "text": "Sourcing, safety, and customer clarity are reviewed together."
-          }
-        }
-      },
-      "block_order": [
-        "criteria_1",
-        "criteria_2",
-        "criteria_3",
-        "criteria_4"
-      ],
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "use_custom_background": false,
-        "background_color": "#FDFAF7",
-        "icon_accent_color": "#6F7A5A",
-        "media_background": "accent_soft",
-        "image_label": "Editorial - lab glass - raw ingredients - soft light",
-        "image_scale": 100,
-        "image_position": "center center",
-        "image_radius": 16,
-        "heading_line1": "How an ingredient earns",
-        "heading_line2": "a spot in the bottle.",
-        "copy": "<p>It starts with a question: what outcome are we trying to support? From there, each ingredient is evaluated for purpose, dose, customer fit, and responsible positioning.</p>",
-        "padding_top": 104,
-        "padding_bottom": 104
-      }
-    },
-    "science_packaging": {
-      "type": "image-with-text",
-      "blocks": {
-        "caption": {
-          "type": "caption",
-          "settings": {
-            "caption": "Packaging transparency",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "The bottle is part of the formula.",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>How a supplement is stored and used matters. We consider format, packaging, instructions, and customer routine together so the product feels as clear as it looks.</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "caption",
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "height": "medium",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
-        "padding_top": 88,
-        "padding_bottom": 88
-      }
-    },
-    "science_founder": {
-      "type": "rich-text",
-      "blocks": {
-        "caption": {
-          "type": "caption",
-          "settings": {
-            "caption": "A note from Bloomli",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>Hair wellness can feel confusing. Bloomli exists to make it gentler: thoughtful formulas, plain language, and routines that fit real life.</em></p>"
-          }
-        }
-      },
-      "block_order": [
-        "caption",
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
+
     "science_faq": {
       "type": "bloomli-faq",
       "blocks": {
-        "question_1": {
+        "faq_1": {
           "type": "question",
           "settings": {
-            "question": "How long until I see results?",
-            "answer": "<p>Hair support is gradual because hair grows in cycles. Many customers build a consistent routine for at least 3 to 6 months.</p>",
+            "question": "How long does it take to see results?",
+            "answer": "<p>Hair grows approximately half an inch per month, and each follicle follows its own independent growth cycle. Most users notice reduced daily shedding and improved scalp comfort within 3–5 weeks of consistent use. Visible density and thickness changes typically emerge between months 2 and 4. Full results — where strands feel markedly thicker and stronger — generally consolidate around months 5 to 6. Results vary, and consistency is the primary variable in the outcome.</p>",
             "open_by_default": true
           }
         },
-        "question_2": {
+        "faq_2": {
           "type": "question",
           "settings": {
-            "question": "Are Bloomli products medical treatments?",
-            "answer": "<p>No. Bloomli supplements are routine wellness products and are not intended to diagnose, treat, cure, or prevent any disease.</p>",
+            "question": "What does 'third-party tested' actually mean?",
+            "answer": "<p>It means an independent laboratory — one not affiliated with Bloomli or our manufacturer — tests each batch against the product label. They verify potency (does the product contain what the label says, at the dose listed?), purity (is it free from heavy metals, microbial contamination, and adulterants?), and product integrity. A Certificate of Analysis (COA) is produced for every batch. This is the standard that separates credible supplement brands from those relying on self-reported quality claims.</p>",
             "open_by_default": false
           }
         },
-        "question_3": {
+        "faq_3": {
           "type": "question",
           "settings": {
-            "question": "Can I take Bloomli with medication?",
-            "answer": "<p>If you take medication, are pregnant, nursing, or have a medical condition, check with your clinician before starting any supplement.</p>",
+            "question": "What is the difference between the gummies and the capsules?",
+            "answer": "<p>Both formulas share the core actives: biotin, zinc, saw palmetto, and ashwagandha. The differences reflect what each format makes possible. The gummies include marine collagen peptides and are pectin-based (vegan, gelatin-free, 2g sugar per serving). The capsule formula includes bamboo silica and a more concentrated botanical herbal blend — delivering actives at doses that are difficult to achieve in gummy format without compromising taste or texture. Both are third-party tested to the same standard. The quiz can help if you're not sure which suits your goals.</p>",
             "open_by_default": false
           }
         },
-        "question_4": {
+        "faq_4": {
           "type": "question",
           "settings": {
-            "question": "Why does consistency matter?",
-            "answer": "<p>Hair and beauty routines work best when they are easy to repeat. Bloomli is designed to make daily consistency feel simple and approachable.</p>",
+            "question": "Why is the biotin dose 6,000 MCG — isn't that very high?",
+            "answer": "<p>6,000 MCG (6 mg) is the dose used in multiple peer-reviewed clinical studies on biotin and hair outcomes in adults. Below roughly 2,500–5,000 MCG, most human research doesn't demonstrate meaningful results for hair support. We dose at 6,000 MCG so the formula operates in the range where the clinical evidence actually lives. The RDI for biotin is much lower, but RDI figures are designed for prevention of deficiency — not for therapeutic or cosmetic supplementation. Biotin has an established safety profile at this dose, and excess is excreted renally.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_5": {
+          "type": "question",
+          "settings": {
+            "question": "What does saw palmetto actually do for hair?",
+            "answer": "<p>Saw palmetto is a botanical extract studied for its role in inhibiting 5-alpha-reductase — the enzyme that converts testosterone into DHT. DHT (dihydrotestosterone) is the hormone most associated with follicle miniaturisation and androgenetic hair thinning. By modulating DHT activity at the scalp level, saw palmetto may help support a more favourable follicle environment, particularly for those with hormonal hair concerns. It's included in both Bloomli formulas as a standardised extract to ensure consistent potency batch to batch.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_6": {
+          "type": "question",
+          "settings": {
+            "question": "Are Bloomli supplements a medical treatment?",
+            "answer": "<p>No. Bloomli supplements are routine wellness products and are not intended to diagnose, treat, cure, or prevent any disease. These statements have not been evaluated by the Food and Drug Administration. If you are experiencing significant or sudden hair loss, changes in hair health that concern you, or any medical symptoms, we recommend consulting a qualified healthcare provider. Supplements can support a healthy routine, but they are not a substitute for medical care when that's what's needed.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_7": {
+          "type": "question",
+          "settings": {
+            "question": "Can I take Bloomli alongside medications or other supplements?",
+            "answer": "<p>The Bloomli formulas are built around nutrients with well-established safety profiles. That said, if you take prescription medications, are pregnant, nursing, trying to conceive, or have an existing medical condition, we recommend checking with your doctor or registered dietitian before adding any supplement to your routine. This is standard advice for supplementation generally — not a flag specific to Bloomli. When in doubt, ask your clinician.</p>",
             "open_by_default": false
           }
         }
       },
-      "block_order": [
-        "question_1",
-        "question_2",
-        "question_3",
-        "question_4"
-      ],
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7"],
       "settings": {
-        "heading": "Common questions, plain answers.",
-        "intro": "<p>A quick guide to how Bloomli thinks about hair wellness, consistency, and responsible expectations.</p>",
-        "image_alt": "",
+        "heading": "Science questions, plain answers.",
+        "intro": "<p>The most common questions about how Bloomli formulas work, what's in them, and what to realistically expect.</p>",
         "show_placeholder": false,
         "image_position": "right",
         "container_color_scheme": "scheme-4",
@@ -365,19 +638,71 @@
         "heading_size": 48,
         "question_size": 17,
         "body_size": 15,
-        "padding_top": 88,
-        "padding_bottom": 88
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+
+    "science_cta": {
+      "type": "rich-text",
+      "blocks": {
+        "cta_cap": {
+          "type": "caption",
+          "settings": {
+            "caption": "Start your ritual",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "cta_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hair wellness that's honest, consistent, and built to last.",
+            "heading_size": "h1"
+          }
+        },
+        "cta_body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Not sure whether gummies or capsules are right for you? Take the quiz and we'll point you in the right direction.</p>"
+          }
+        },
+        "cta_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Bloomli",
+            "button_link": "/collections/all",
+            "button_style_secondary": false,
+            "button_label_2": "Take the Quiz",
+            "button_link_2": "/pages/quiz",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": ["cta_cap", "cta_head", "cta_body", "cta_btn"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
+        "full_width": true,
+        "padding_top": 104,
+        "padding_bottom": 104
       }
     }
   },
+
   "order": [
     "main",
     "science_hero",
+    "science_trust",
     "science_meaning",
+    "science_gummies",
+    "science_pills",
+    "science_testing",
+    "science_concerns",
+    "science_timeline",
     "science_principles",
-    "science_criteria",
-    "science_packaging",
-    "science_founder",
-    "science_faq"
+    "science_faq",
+    "science_cta"
   ]
 }

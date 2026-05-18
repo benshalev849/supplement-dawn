@@ -20,6 +20,10 @@
         "headline_line2": "",
         "subtext": "Most supplements stop at biotin. We didn't.",
         "min_height": 720,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56,
         "button_color_scheme": "",
         "cta_primary_label": "Start Your Ritual",
         "cta_primary_url": "",
@@ -105,7 +109,9 @@
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "padding_top": 18,
-        "padding_bottom": 18
+        "padding_bottom": 18,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24
       }
     },
     "bloomli_product_finder_JdwGUB": {
@@ -113,6 +119,10 @@
       "name": "Bloomli Product Finder",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
         "heading": "Build Your Ritual",
         "subheading": "<p>Gummies or capsules — same science, different format.</p>",
         "image_fit": "cover",
@@ -211,7 +221,9 @@
         "row_background_color": "#ffffff",
         "content_card_background_color": "#fdfaf7",
         "padding_top": 80,
-        "padding_bottom": 80
+        "padding_bottom": 80,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
       }
     },
     "bloomli_brand_difference": {
@@ -375,7 +387,9 @@
         "columns_mobile": "1",
         "image_box_height": 240,
         "padding_top": 88,
-        "padding_bottom": 88
+        "padding_bottom": 88,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "bloomli_photo_mosaic_dYCUhp": {
@@ -529,7 +543,9 @@
         "gap": 10,
         "radius": 8,
         "padding_top": 96,
-        "padding_bottom": 96
+        "padding_bottom": 96,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "bloomli_reviews_GyTkzh": {
@@ -640,7 +656,9 @@
         "mobile_card_width": 82,
         "card_radius": 10,
         "padding_top": 96,
-        "padding_bottom": 56
+        "padding_bottom": 56,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "bloomli_quiz_cta_z9xXxd": {
@@ -654,7 +672,9 @@
         "cta_label": "Take the Quiz",
         "cta_url": "",
         "padding_top": 128,
-        "padding_bottom": 128
+        "padding_bottom": 128,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24
       }
     },
     "bloomli_inline_cta_9wbgtc": {
@@ -665,6 +685,7 @@
         "button_label": "Start My Journey",
         "button_behavior": "link",
         "button_link": "#bloomli-product-finder",
+        "scroll_selector": ".bloomli-vt",
         "button_style": "primary",
         "alignment": "center",
         "mobile_full_width": false,

@@ -48,18 +48,25 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-0": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
-          }
-        },
         "footer-1": {
           "type": "link_list",
           "settings": {
-            "heading": "Info",
-            "menu": "footer"
+            "heading": "Shop",
+            "menu": "shop-now-menu"
+          }
+        },
+        "link_list_XjfT8Y": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Support",
+            "menu": "support-menu"
+          }
+        },
+        "link_list_nC86PG": {
+          "type": "link_list",
+          "settings": {
+            "heading": "About",
+            "menu": "about-menu"
           }
         },
         "footer-2": {
@@ -71,8 +78,9 @@
         }
       },
       "block_order": [
-        "footer-0",
         "footer-1",
+        "link_list_XjfT8Y",
+        "link_list_nC86PG",
         "footer-2"
       ],
       "settings": {

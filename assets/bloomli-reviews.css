@@ -119,4 +119,33 @@
   .bloomli-reviews .bloomli-reviews__meta {
     font-size: 13px;
   }
+
+  .bloomli-reviews .bloomli-reviews__footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 4px 10px;
+  }
+
+  .bloomli-reviews .bloomli-reviews__footer > div:first-child {
+    display: contents;
+  }
+
+  .bloomli-reviews .bloomli-reviews__name {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
+
+  .bloomli-reviews .bloomli-reviews__meta {
+    grid-column: 1;
+    min-width: 0;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .bloomli-reviews .bloomli-reviews__verified {
+    grid-column: 2;
+    justify-self: end;
+    align-self: center;
+  }
 }

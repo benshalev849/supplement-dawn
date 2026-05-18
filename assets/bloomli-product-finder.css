@@ -53,7 +53,7 @@
 
 .bloomli-product-finder__card--featured {
   overflow: visible;
-  border-width: 0.2rem;
+  border-width: 0.25rem;
   border-color: rgba(var(--color-button), 0.55);
   box-shadow: 0 1.8rem 4.8rem rgba(var(--color-button), 0.11);
 }

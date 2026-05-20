@@ -24,7 +24,7 @@
         "paragraph_NgaH87": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Get up to 47% off your first subscription. Plus the occasional note from us on hair, wellness, and what's new at Bloomli.</p>"
+            "text": "<p>Sign up and get up to 52% Off, plus the occasional note from us on hair, wellness, and what's new at Bloomli.</p>"
           }
         },
         "email_form_xWxFqC": {
@@ -86,7 +86,7 @@
       "settings": {
         "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
         "newsletter_enable": false,
-        "newsletter_heading": "Join us.",
+        "newsletter_heading": "",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": false,

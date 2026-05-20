@@ -33,6 +33,9 @@
         "trust_badge_2": "Scalp care",
         "trust_badge_3": "Documented quality",
         "desktop_image": "shopify://shop_images/Science_Hero_Desktop.png",
+        "desktop_image_layout": "image_ratio_16_9",
+        "desktop_image_fit": "cover",
+        "desktop_image_position": "center",
         "mobile_image": "shopify://shop_images/Science_Hero_Mobile_88278f58-cdb2-465f-a17b-ef844beadaf7.png",
         "overlay_opacity": 20,
         "use_custom_text_color": false,
@@ -43,26 +46,26 @@
       }
     },
     "hair_biology": {
-      "type": "bloomli-hair-biology",
+      "type": "bloomli-proof-split",
       "blocks": {
         "phase_growth": {
-          "type": "phase",
+          "type": "bullet",
           "settings": {
-            "title": "Growth phase",
+            "bullet_title": "Growth phase",
             "text": "The active phase where hair fibers are produced. Nutrient availability and overall wellness help support normal hair structure during this phase."
           }
         },
         "phase_transition": {
-          "type": "phase",
+          "type": "bullet",
           "settings": {
-            "title": "Transition phase",
+            "bullet_title": "Transition phase",
             "text": "A short reset period where the follicle prepares to move from active growth into rest."
           }
         },
         "phase_resting": {
-          "type": "phase",
+          "type": "bullet",
           "settings": {
-            "title": "Resting + shedding phase",
+            "bullet_title": "Resting + shedding phase",
             "text": "Shedding is a normal part of the cycle. The goal is not to stop shedding, but to support the conditions for healthy-looking hair over time."
           }
         }
@@ -74,10 +77,32 @@
       ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "Visible hair changes don't happen overnight - and that's biology.",
-        "body": "<p>Each hair follicle moves through its own cycle of growth, transition, rest, and shedding. Because those cycles unfold gradually, the most meaningful support comes from consistency: nourishing the body daily, supporting stronger-looking strands, and caring for the scalp environment over time.</p>",
-        "cycle_image": "shopify://shop_images/Hair_Follicle_Timeline_eb216e44-b5fe-4b32-9762-44c7c3e00072.png",
-        "placeholder_label": "Hair cycle diagram - simple follicle/cycle graphic",
+        "section_id": "hair-biology",
+        "layout_style": "split",
+        "header_alignment": "left",
+        "header_position": "with_items",
+        "content_density": "compact",
+        "use_custom_background": false,
+        "icon_accent_color": "#6F7A5A",
+        "show_image": true,
+        "image": "shopify://shop_images/Hair_Follicle_Timeline_eb216e44-b5fe-4b32-9762-44c7c3e00072.png",
+        "image_side": "left",
+        "mobile_image_position": "after_items",
+        "image_label": "Hair cycle diagram - simple follicle/cycle graphic",
+        "image_scale": 100,
+        "image_fit": "contain",
+        "enable_image_animation": false,
+        "image_position": "center center",
+        "image_width": 520,
+        "desktop_image_size": 100,
+        "image_size": 85,
+        "image_radius": 16,
+        "show_card_borders": true,
+        "number_style": "plain",
+        "card_columns_desktop": 3,
+        "card_columns_tablet": 1,
+        "heading_line1": "Visible hair changes don't happen overnight - and that's biology.",
+        "copy": "<p>Each hair follicle moves through its own cycle of growth, transition, rest, and shedding. Because those cycles unfold gradually, the most meaningful support comes from consistency: nourishing the body daily, supporting stronger-looking strands, and caring for the scalp environment over time.</p>",
         "padding_top": 96,
         "padding_bottom": 88,
         "padding_top_mobile": 56,
@@ -129,33 +154,33 @@
       }
     },
     "science_standard": {
-      "type": "bloomli-science-standard",
+      "type": "bloomli-proof-split",
       "blocks": {
         "standard_purpose": {
-          "type": "standard",
+          "type": "bullet",
           "settings": {
-            "title": "Purpose before hype",
+            "bullet_title": "Purpose before hype",
             "text": "We choose ingredients because they have a clear role in the formula - not because they are trending on TikTok."
           }
         },
         "standard_format": {
-          "type": "standard",
+          "type": "bullet",
           "settings": {
-            "title": "Format matters",
+            "bullet_title": "Format matters",
             "text": "A gummy, capsule, and topical serum do different jobs. Bloomli treats each format as part of a ritual, not as interchangeable versions of the same product."
           }
         },
         "standard_consistency": {
-          "type": "standard",
+          "type": "bullet",
           "settings": {
-            "title": "Consistency matters",
+            "bullet_title": "Consistency matters",
             "text": "Hair support is not instant. The most important part of any routine is choosing one you can actually stick with."
           }
         },
         "standard_claims": {
-          "type": "standard",
+          "type": "bullet",
           "settings": {
-            "title": "Claims stay honest",
+            "bullet_title": "Claims stay honest",
             "text": "We use support language because Bloomli products are wellness products - not medical treatments."
           }
         }
@@ -168,8 +193,31 @@
       ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "Science-backed should mean more than a trendy ingredient list.",
-        "body": "<p>In beauty supplements, \"science-backed\" can mean many things. At Bloomli, it means every formula starts with a clear purpose, uses ingredients with a relevant role in hair, skin, nail, or scalp wellness, and avoids claims that sound bigger than the evidence behind them.</p>",
+        "section_id": "",
+        "layout_style": "cards_grid",
+        "header_alignment": "left",
+        "header_position": "above_grid",
+        "content_density": "compact",
+        "use_custom_background": false,
+        "icon_accent_color": "#6F7A5A",
+        "show_image": false,
+        "image_side": "left",
+        "mobile_image_position": "before_items",
+        "image_label": "",
+        "image_scale": 100,
+        "image_fit": "cover",
+        "enable_image_animation": true,
+        "image_position": "center center",
+        "image_width": 620,
+        "desktop_image_size": 100,
+        "image_size": 100,
+        "image_radius": 16,
+        "show_card_borders": true,
+        "number_style": "leading_zero",
+        "card_columns_desktop": 4,
+        "card_columns_tablet": 2,
+        "heading_line1": "Science-backed should mean more than a trendy ingredient list.",
+        "copy": "<p>In beauty supplements, \"science-backed\" can mean many things. At Bloomli, it means every formula starts with a clear purpose, uses ingredients with a relevant role in hair, skin, nail, or scalp wellness, and avoids claims that sound bigger than the evidence behind them.</p>",
         "padding_top": 96,
         "padding_bottom": 88,
         "padding_top_mobile": 56,

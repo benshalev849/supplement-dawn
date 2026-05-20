@@ -174,86 +174,23 @@
   scroll-margin-top: 9rem;
 }
 
-.bloomli-hair-biology__grid,
 .bloomli-quality-standards__grid {
   grid-template-columns: minmax(26rem, 0.82fr) minmax(0, 1fr);
   align-items: center;
 }
 
-.bloomli-hair-biology__grid {
-  grid-template-columns: minmax(24rem, 0.72fr) minmax(0, 1fr);
-  gap: clamp(2rem, 3vw, 4rem);
-  align-items: stretch;
-}
-
-.bloomli-hair-biology .bloomli-science-section__heading {
-  max-width: 64rem;
-  font-size: clamp(3rem, 4vw, 4.8rem);
-  line-height: 1.06;
-}
-
-.bloomli-hair-biology .bloomli-science-section__copy {
-  max-width: 58rem;
-  margin-top: 1.4rem;
-  font-size: clamp(1.45rem, 1.5vw, 1.65rem);
-  line-height: 1.55;
-}
-
-.bloomli-hair-biology .bloomli-science-media {
-  min-height: clamp(24rem, 28vw, 36rem);
-  height: 100%;
-}
-
-.bloomli-hair-biology .bloomli-science-media img {
-  object-fit: contain;
-}
-
-.bloomli-hair-biology__cards,
 .bloomli-quality-standards__cards {
   display: grid;
   gap: 1.4rem;
 }
 
-.bloomli-hair-biology__cards {
-  margin-top: 1.8rem;
-  gap: 1.2rem;
-}
-
-.bloomli-hair-biology .bloomli-science-card {
-  padding: 1.8rem;
-}
-
-.bloomli-hair-biology .bloomli-science-card__number {
-  width: 3rem;
-  height: 3rem;
-  margin-bottom: 1.2rem;
-  font-size: 1.1rem;
-}
-
-.bloomli-hair-biology .bloomli-science-card h3 {
-  font-size: clamp(1.75rem, 1.6vw, 2.1rem);
-  line-height: 1.16;
-}
-
-.bloomli-hair-biology .bloomli-science-card p {
-  margin-top: 0.8rem;
-  font-size: 1.38rem;
-  line-height: 1.5;
-}
-
-.bloomli-science-pillars__header,
-.bloomli-science-standard__header {
+.bloomli-science-pillars__header {
   max-width: 72rem;
   margin-bottom: 3rem;
 }
 
-.bloomli-science-pillars__grid,
-.bloomli-science-standard__grid {
+.bloomli-science-pillars__grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.bloomli-science-standard__grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .bloomli-science-pillars__media {
@@ -302,44 +239,14 @@
 @media screen and (max-width: 989px) {
   .bloomli-science-grid,
   .bloomli-science-hero__grid,
-  .bloomli-hair-biology__grid,
   .bloomli-quality-standards__grid,
   .bloomli-science-pillars__grid,
-  .bloomli-science-standard__grid,
   .bloomli-science-cta__panel {
     grid-template-columns: 1fr;
   }
 }
 
 @media screen and (max-width: 749px) {
-  .bloomli-hair-biology__grid > .bloomli-science-media {
-    order: 2;
-    width: 88%;
-    min-height: 21rem;
-    height: auto;
-    margin: 2rem auto 0;
-  }
-
-  .bloomli-hair-biology__grid > div:not(.bloomli-science-media) {
-    order: 1;
-  }
-
-  .bloomli-hair-biology .bloomli-science-section__heading {
-    font-size: clamp(2.8rem, 9vw, 3.8rem);
-  }
-
-  .bloomli-hair-biology .bloomli-science-section__copy {
-    font-size: 1.42rem;
-  }
-
-  .bloomli-hair-biology__cards {
-    margin-top: 2.2rem;
-  }
-
-  .bloomli-hair-biology .bloomli-science-card {
-    padding: 1.6rem;
-  }
-
   .bloomli-science-section__heading {
     font-size: clamp(2.8rem, 9vw, 3.8rem);
     line-height: 1.06;

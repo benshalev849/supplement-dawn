@@ -5,10 +5,27 @@
   assign image_alt = section.settings.image.alt | default: section.settings.heading_line1
   assign image_style = 'object-position: ' | append: section.settings.image_position | append: ';'
   assign icon_accent_color = section.settings.icon_accent_color | downcase
+  assign layout_style = section.settings.layout_style | default: 'split'
+  assign header_alignment = section.settings.header_alignment | default: 'left'
+  assign header_position = section.settings.header_position | default: 'above_grid'
+  assign mobile_image_position = section.settings.mobile_image_position | default: 'before_items'
+  assign number_style = section.settings.number_style | default: 'leading_zero'
+  assign content_density = section.settings.content_density | default: 'standard'
+  assign show_image = section.settings.show_image
+  if show_image == nil
+    assign show_image = true
+  endif
+  assign enable_image_animation = section.settings.enable_image_animation
+  if enable_image_animation == nil
+    assign enable_image_animation = true
+  endif
 -%}
 
 <section
-  class="bloomli-proof-panel bloomli-proof-panel--image-{{ section.settings.image_side | default: 'left' }} bloomli-section color-{{ section.settings.color_scheme }} gradient"
+  {% if section.settings.section_id != blank %}
+    id="{{ section.settings.section_id | handleize }}"
+  {% endif %}
+  class="bloomli-proof-panel bloomli-proof-panel--layout-{{ layout_style }} bloomli-proof-panel--density-{{ content_density }} bloomli-proof-panel--image-{{ section.settings.image_side | default: 'left' }} bloomli-proof-panel--header-{{ header_alignment }} bloomli-proof-panel--header-position-{{ header_position }} bloomli-proof-panel--mobile-image-{{ mobile_image_position }}{% unless show_image %} bloomli-proof-panel--no-image{% endunless %}{% unless enable_image_animation %} bloomli-proof-panel--static-image{% endunless %} bloomli-section color-{{ section.settings.color_scheme }} gradient"
   style="
     --bpp-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
     --bpp-accent: {% if icon_accent_color == '#6f7a5a' %}var(--bloomli-primary-action){% else %}{{ section.settings.icon_accent_color | default: 'var(--bloomli-primary-action)' }}{% endif %};
@@ -21,51 +38,38 @@
     --bpp-image-mobile-size: {{ section.settings.image_size | default: 100 }}%;
     --bpp-image-radius: {{ section.settings.image_radius | default: 16 }}px;
     --bpp-image-scale: {{ image_scale }};
+    --bpp-image-fit: {{ section.settings.image_fit | default: 'cover' }};
+    --bpp-header-align: {{ header_alignment }};
+    --bpp-card-columns-desktop: {{ section.settings.card_columns_desktop | default: 4 }};
+    --bpp-card-columns-tablet: {{ section.settings.card_columns_tablet | default: 2 }};
     --bpp-card-border: {% if section.settings.show_card_borders %}1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 18%, transparent){% else %}0{% endif %};
   "
 >
   <div class="bloomli-proof-panel__inner">
-    <div class="bloomli-proof-panel__header">
-      <h2>
-        {{ section.settings.heading_line1 | escape }}
-      </h2>
-      {%- if section.settings.copy != blank -%}
-        <div class="bloomli-proof-panel__copy">{{ section.settings.copy }}</div>
-      {%- endif -%}
-    </div>
-
-    <div class="bloomli-proof-panel__grid">
-      <div class="bloomli-proof-panel__visual">
-        {%- if section.settings.image != blank -%}
-          <div class="bloomli-proof-panel__image-wrap">
-            {{
-              section.settings.image
-              | image_url: width: 1400
-              | image_tag:
-                class: 'bloomli-proof-panel__image',
-                alt: image_alt,
-                widths: '500, 700, 900, 1200, 1400',
-                sizes: '(max-width: 899px) calc(100vw - 84px), min(42vw, 560px)',
-                loading: 'lazy',
-                decoding: 'async',
-                style: image_style
-            }}
-          </div>
-        {%- elsif section.settings.image_label != blank -%}
-          <span class="smallcaps bloomli-section-placeholder-label">{{ section.settings.image_label }}</span>
-        {%- endif -%}
-
-        {%- if section.settings.image_caption != blank -%}
-          <div class="bloomli-proof-panel__image-caption">{{ section.settings.image_caption }}</div>
+    {%- capture proof_header -%}
+      <div class="bloomli-proof-panel__header">
+        <h2>
+          {{ section.settings.heading_line1 | escape }}
+        </h2>
+        {%- if section.settings.copy != blank -%}
+          <div class="bloomli-proof-panel__copy">{{ section.settings.copy }}</div>
         {%- endif -%}
       </div>
+    {%- endcapture -%}
 
+    {%- capture proof_list -%}
       <div class="bloomli-proof-panel__proof-list">
         {%- for block in section.blocks -%}
+          {%- liquid
+            assign displayed_number = forloop.index
+            if number_style == 'leading_zero' and forloop.index < 10
+              assign displayed_number = displayed_number | prepend: '0'
+            endif
+          -%}
           <article class="bloomli-proof-panel__proof-item" {{ block.shopify_attributes }}>
-            <span class="bloomli-proof-panel__number">
-              {%- if forloop.index < 10 -%}0{%- endif -%}{{ forloop.index }}
-            </span>
+            {%- unless number_style == 'none' -%}
+              <span class="bloomli-proof-panel__number">{{ displayed_number }}</span>
+            {%- endunless -%}
             <div>
               {%- if block.settings.bullet_title != blank -%}
                 <h3>{{ block.settings.bullet_title | escape }}</h3>
@@ -79,6 +83,48 @@
           </article>
         {%- endfor -%}
       </div>
+    {%- endcapture -%}
+
+    {%- if header_position == 'above_grid' -%}
+      {{ proof_header }}
+    {%- endif -%}
+
+    <div class="bloomli-proof-panel__grid">
+      {%- if show_image -%}
+        <div class="bloomli-proof-panel__visual">
+          {%- if section.settings.image != blank -%}
+            <div class="bloomli-proof-panel__image-wrap">
+              {{
+                section.settings.image
+                | image_url: width: 1400
+                | image_tag:
+                  class: 'bloomli-proof-panel__image',
+                  alt: image_alt,
+                  widths: '500, 700, 900, 1200, 1400',
+                  sizes: '(max-width: 899px) calc(100vw - 84px), min(42vw, 560px)',
+                  loading: 'lazy',
+                  decoding: 'async',
+                  style: image_style
+              }}
+            </div>
+          {%- elsif section.settings.image_label != blank -%}
+            <span class="smallcaps bloomli-section-placeholder-label">{{ section.settings.image_label }}</span>
+          {%- endif -%}
+
+          {%- if section.settings.image_caption != blank -%}
+            <div class="bloomli-proof-panel__image-caption">{{ section.settings.image_caption }}</div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if header_position == 'with_items' -%}
+        <div class="bloomli-proof-panel__content">
+          {{ proof_header }}
+          {{ proof_list }}
+        </div>
+      {%- else -%}
+        {{ proof_list }}
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -90,14 +136,36 @@
   "max_blocks": 6,
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
+    { "type": "text", "id": "section_id", "label": "Optional section anchor ID" },
+    { "type": "select", "id": "layout_style", "label": "Layout style", "options": [
+      { "value": "split", "label": "Split image and proof list" },
+      { "value": "cards_grid", "label": "Header with card grid" }
+    ], "default": "split" },
+    { "type": "select", "id": "header_alignment", "label": "Header alignment", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" }
+    ], "default": "left" },
+    { "type": "select", "id": "header_position", "label": "Header position", "options": [
+      { "value": "above_grid", "label": "Above image and items" },
+      { "value": "with_items", "label": "With proof items" }
+    ], "default": "above_grid" },
+    { "type": "select", "id": "content_density", "label": "Content density", "options": [
+      { "value": "standard", "label": "Standard" },
+      { "value": "compact", "label": "Compact" }
+    ], "default": "standard" },
     { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
     { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FDFAF7" },
     { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
+    { "type": "checkbox", "id": "show_image", "label": "Show image / visual column", "default": true },
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "select", "id": "image_side", "label": "Image position on desktop", "options": [
       { "value": "left", "label": "Left" },
       { "value": "right", "label": "Right" }
     ], "default": "left" },
+    { "type": "select", "id": "mobile_image_position", "label": "Image position on mobile", "options": [
+      { "value": "before_items", "label": "Before proof items" },
+      { "value": "after_items", "label": "After proof items" }
+    ], "default": "before_items" },
     { "type": "select", "id": "media_background", "label": "Image placeholder background", "options": [
       { "value": "surface", "label": "Scheme soft surface" },
       { "value": "surface_strong", "label": "Scheme stronger surface" },
@@ -107,6 +175,11 @@
     { "type": "text", "id": "image_label", "label": "Placeholder label", "default": "Editorial - morning ritual - natural light" },
     { "type": "richtext", "id": "image_caption", "label": "Text below image" },
     { "type": "range", "id": "image_scale", "label": "Uploaded image zoom", "min": 100, "max": 140, "step": 5, "default": 100, "unit": "%" },
+    { "type": "select", "id": "image_fit", "label": "Image fit", "options": [
+      { "value": "cover", "label": "Cover" },
+      { "value": "contain", "label": "Contain" }
+    ], "default": "cover" },
+    { "type": "checkbox", "id": "enable_image_animation", "label": "Enable floating image animation", "default": true },
     { "type": "select", "id": "image_position", "label": "Image crop position", "options": [
       { "value": "center center", "label": "Center" },
       { "value": "center top", "label": "Top" },
@@ -119,6 +192,13 @@
     { "type": "range", "id": "image_size", "label": "Mobile image size", "min": 40, "max": 100, "step": 5, "default": 100, "unit": "%" },
     { "type": "range", "id": "image_radius", "label": "Image corner radius", "min": 0, "max": 40, "step": 2, "default": 16, "unit": "px" },
     { "type": "checkbox", "id": "show_card_borders", "label": "Show card borders", "default": true },
+    { "type": "select", "id": "number_style", "label": "Number style", "options": [
+      { "value": "leading_zero", "label": "01, 02, 03" },
+      { "value": "plain", "label": "1, 2, 3" },
+      { "value": "none", "label": "Hide numbers" }
+    ], "default": "leading_zero" },
+    { "type": "range", "id": "card_columns_desktop", "label": "Card columns on desktop", "min": 2, "max": 4, "step": 1, "default": 4 },
+    { "type": "range", "id": "card_columns_tablet", "label": "Card columns on tablet", "min": 1, "max": 3, "step": 1, "default": 2 },
     { "type": "text", "id": "heading_line1", "label": "Heading", "default": "Every milligram, intentional." },
     { "type": "richtext", "id": "copy", "label": "Copy", "default": "<p>We formulate at clinical doses - the amounts used in peer-reviewed studies - not the sprinkle-doses you'll find in most gummies. Every batch is independently tested. Nothing added for color, nothing hidden in a proprietary blend.</p>" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 80, "unit": "px" },
@@ -129,9 +209,9 @@
   "blocks": [
     {
       "type": "bullet",
-      "name": "Checklist item",
+      "name": "Proof item",
       "settings": [
-        { "type": "text", "id": "bullet_title", "label": "Bullet title" },
+        { "type": "text", "id": "bullet_title", "label": "Item title" },
         { "type": "text", "id": "text", "label": "Text", "default": "Clinically-dosed actives. No fairy dust." }
       ]
     }

@@ -261,16 +261,17 @@
 @media (min-width: 768px) {
   .bloomli-hero--fit-16-9 {
     aspect-ratio: 16 / 9;
-    min-height: 0;
+    min-height: auto;
   }
 
   .bloomli-hero--fit-16-9 .bloomli-hero__inner {
-    min-height: 0;
+    height: 100%;
+    min-height: auto;
+    box-sizing: border-box;
   }
 
   .bloomli-hero--fit-16-9 .bloomli-hero__bg-img--desktop {
-    object-fit: contain;
-    object-position: center bottom;
+    object-fit: cover;
   }
 }
 
@@ -813,7 +814,12 @@
 .bloomli-proof-panel__header {
   max-width: 760px;
   margin: 0 0 52px;
-  text-align: left;
+  text-align: var(--bpp-header-align, left);
+}
+
+.bloomli-proof-panel--header-center .bloomli-proof-panel__header {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .bloomli-proof-panel__header h2 {
@@ -833,6 +839,11 @@
   color: rgba(var(--color-foreground), 0.76);
 }
 
+.bloomli-proof-panel--header-center .bloomli-proof-panel__copy {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .bloomli-proof-panel__copy p {
   margin: 0;
 }
@@ -850,6 +861,18 @@
 
 .bloomli-proof-panel--image-right .bloomli-proof-panel__proof-list {
   order: 1;
+}
+
+.bloomli-proof-panel--image-right .bloomli-proof-panel__content {
+  order: 1;
+}
+
+.bloomli-proof-panel__content {
+  min-width: 0;
+}
+
+.bloomli-proof-panel--header-position-with_items .bloomli-proof-panel__header {
+  margin-bottom: 24px;
 }
 
 .bloomli-proof-panel__proof-list {
@@ -908,7 +931,7 @@
   min-height: 0;
   flex: 1 1 auto;
   border-radius: inherit;
-  object-fit: cover;
+  object-fit: var(--bpp-image-fit, cover);
   transform: scale(var(--bpp-image-desktop-scale, 1));
   transform-origin: center;
 }
@@ -944,6 +967,11 @@
 .bloomli-proof-panel__image {
   animation: bloomli-proof-float 3s ease-in-out infinite;
   will-change: transform;
+}
+
+.bloomli-proof-panel--static-image .bloomli-proof-panel__image {
+  animation: none;
+  will-change: auto;
 }
 
 @media (min-width: 900px) {
@@ -1008,6 +1036,92 @@
   color: rgba(var(--color-foreground), 0.72);
 }
 
+.bloomli-proof-panel--density-compact .bloomli-proof-panel__header {
+  margin-bottom: 36px;
+}
+
+.bloomli-proof-panel--density-compact .bloomli-proof-panel__header h2 {
+  font-size: 40px;
+}
+
+.bloomli-proof-panel--density-compact .bloomli-proof-panel__copy {
+  margin-top: 14px;
+  font-size: 15.5px;
+}
+
+.bloomli-proof-panel--density-compact .bloomli-proof-panel__grid {
+  gap: 30px;
+}
+
+.bloomli-proof-panel--density-compact .bloomli-proof-panel__proof-item {
+  grid-template-columns: 58px 1fr;
+  gap: 16px;
+  padding: 22px 26px;
+}
+
+.bloomli-proof-panel--density-compact .bloomli-proof-panel__number {
+  font-size: 28px;
+}
+
+.bloomli-proof-panel--density-compact .bloomli-proof-panel__proof-item h3 {
+  font-size: 24px;
+}
+
+.bloomli-proof-panel--density-compact .bloomli-proof-panel__proof-item p {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.bloomli-proof-panel--layout-cards_grid .bloomli-proof-panel__grid {
+  display: block;
+}
+
+.bloomli-proof-panel--layout-cards_grid .bloomli-proof-panel__proof-list {
+  display: grid;
+  grid-template-columns: repeat(var(--bpp-card-columns-desktop, 4), minmax(0, 1fr));
+  gap: 16px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.bloomli-proof-panel--layout-cards_grid .bloomli-proof-panel__proof-item {
+  display: block;
+  padding: 20px;
+  border: var(--bpp-card-border);
+  border-radius: var(--text-boxes-radius, 12px);
+  background: rgba(var(--color-background), 0.74);
+  box-shadow: 0 10px 28px rgba(42, 38, 34, 0.04);
+}
+
+.bloomli-proof-panel--layout-cards_grid .bloomli-proof-panel__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 12px;
+  border: 1px solid color-mix(in srgb, var(--bpp-accent, var(--bloomli-primary-action)) 20%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bpp-accent, var(--bloomli-primary-action)) 8%, transparent);
+  font-family: var(--font-body-family);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.bloomli-proof-panel--layout-cards_grid .bloomli-proof-panel__proof-item h3 {
+  font-size: 21px;
+  line-height: 1.14;
+}
+
+.bloomli-proof-panel--layout-cards_grid .bloomli-proof-panel__proof-item p {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.52;
+}
+
 @media (max-width: 899px) {
   .bloomli-proof-panel {
     padding: var(--section-padding-top-mobile, 56px) 18px var(--section-padding-bottom-mobile, 56px);
@@ -1033,7 +1147,8 @@
   }
 
   .bloomli-proof-panel--image-right .bloomli-proof-panel__visual,
-  .bloomli-proof-panel--image-right .bloomli-proof-panel__proof-list {
+  .bloomli-proof-panel--image-right .bloomli-proof-panel__proof-list,
+  .bloomli-proof-panel--image-right .bloomli-proof-panel__content {
     order: initial;
   }
 
@@ -1089,6 +1204,72 @@
 
   .bloomli-proof-panel__proof-item p {
     font-size: 15px;
+  }
+
+  .bloomli-proof-panel--density-compact .bloomli-proof-panel__header {
+    margin-bottom: 0;
+  }
+
+  .bloomli-proof-panel--density-compact .bloomli-proof-panel__header h2 {
+    font-size: 32px;
+  }
+
+  .bloomli-proof-panel--density-compact .bloomli-proof-panel__copy {
+    font-size: 14px;
+  }
+
+  .bloomli-proof-panel--density-compact .bloomli-proof-panel__proof-item {
+    grid-template-columns: 48px 1fr;
+    padding: 20px 18px;
+  }
+
+  .bloomli-proof-panel--density-compact .bloomli-proof-panel__proof-item h3 {
+    font-size: 22px;
+  }
+
+  .bloomli-proof-panel--density-compact .bloomli-proof-panel__proof-item p {
+    font-size: 14px;
+  }
+
+  .bloomli-proof-panel--mobile-image-after_items .bloomli-proof-panel__visual {
+    order: 2;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .bloomli-proof-panel--mobile-image-after_items .bloomli-proof-panel__proof-list {
+    order: 1;
+    margin-top: 24px;
+  }
+
+  .bloomli-proof-panel--mobile-image-after_items .bloomli-proof-panel__content {
+    order: 1;
+  }
+
+  .bloomli-proof-panel--mobile-image-after_items.bloomli-proof-panel--header-position-with_items .bloomli-proof-panel__proof-list {
+    margin-top: 24px;
+  }
+
+  .bloomli-proof-panel--layout-cards_grid .bloomli-proof-panel__proof-list {
+    grid-template-columns: repeat(var(--bpp-card-columns-tablet, 2), minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 30px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .bloomli-proof-panel--layout-cards_grid .bloomli-proof-panel__proof-item {
+    display: block;
+    padding: 18px;
+    border: var(--bpp-card-border);
+    border-radius: var(--text-boxes-radius, 12px);
+  }
+}
+
+@media (max-width: 749px) {
+  .bloomli-proof-panel--layout-cards_grid .bloomli-proof-panel__proof-list {
+    grid-template-columns: 1fr;
   }
 }
 

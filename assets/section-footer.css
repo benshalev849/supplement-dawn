@@ -345,10 +345,10 @@
   max-width: 96rem;
   margin: 0 auto;
   padding: 1.4rem 1.6rem;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.14);
+  border: 0.2rem solid rgba(var(--color-foreground), 0.85);
   border-radius: 0.8rem;
-  color: rgba(var(--color-foreground), 0.72);
-  background: rgba(var(--color-foreground), 0.03);
+  color: rgb(var(--color-foreground));
+  background: transparent;
   text-align: center;
   font-size: 1.1rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));

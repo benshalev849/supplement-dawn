@@ -107,102 +107,106 @@
           </span>
         {%- endif -%}
 
-        <div class="bloomli-product-finder__media">
-          {%- if gummies_image != blank -%}
-            {{
-              gummies_image
-              | image_url: width: 1100
-              | image_tag:
-                loading: 'lazy',
-                widths: '320, 480, 640, 820, 1100',
-                sizes: '(min-width: 990px) 560px, 82vw',
-                class: 'bloomli-product-finder__image',
-                alt: gummies_title
-            }}
-          {%- else -%}
-            <span class="bloomli-product-finder__media-icon" aria-hidden="true">
-              <i class="ti ti-candy"></i>
-            </span>
-          {%- endif -%}
-        </div>
+        <div class="bloomli-product-finder__card-body">
+          <div class="bloomli-product-finder__media">
+            {%- if gummies_image != blank -%}
+              {{
+                gummies_image
+                | image_url: width: 1100
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '320, 480, 640, 820, 1100',
+                  sizes: '(min-width: 990px) 560px, 82vw',
+                  class: 'bloomli-product-finder__image',
+                  alt: gummies_title
+              }}
+            {%- else -%}
+              <span class="bloomli-product-finder__media-icon" aria-hidden="true">
+                <i class="ti ti-candy"></i>
+              </span>
+            {%- endif -%}
+          </div>
 
-        <div class="bloomli-product-finder__content">
-          {%- if section.settings.gummies_rating_source != 'hide' and gummies_rating != blank -%}
-            <p class="bloomli-product-finder__rating">
-              <span class="bloomli-product-finder__stars" aria-hidden="true">★★★★★</span>
-              <span>{{ gummies_rating | escape }}</span>
-              {%- if gummies_review_text != blank -%}
-                <span class="bloomli-product-finder__rating-divider" aria-hidden="true">·</span>
-                <span>{{ gummies_review_text | escape }}</span>
-              {%- endif -%}
-            </p>
-          {%- endif -%}
+          <div class="bloomli-product-finder__content">
+            {%- if section.settings.gummies_rating_source != 'hide' and gummies_rating != blank -%}
+              <p class="bloomli-product-finder__rating">
+                <span class="bloomli-product-finder__stars" aria-hidden="true">★★★★★</span>
+                <span>{{ gummies_rating | escape }}</span>
+                {%- if gummies_review_text != blank -%}
+                  <span class="bloomli-product-finder__rating-divider" aria-hidden="true">·</span>
+                  <span>{{ gummies_review_text | escape }}</span>
+                {%- endif -%}
+              </p>
+            {%- endif -%}
 
-          <h3 class="bloomli-product-finder__title h3">{{ gummies_title | escape }}</h3>
+            <h3 class="bloomli-product-finder__title h3">{{ gummies_title | escape }}</h3>
 
-          {%- if gummies_description != blank -%}
-            <p class="bloomli-product-finder__body">{{ gummies_description | escape }}</p>
-          {%- endif -%}
+            {%- if gummies_description != blank -%}
+              <p class="bloomli-product-finder__body">{{ gummies_description | escape }}</p>
+            {%- endif -%}
 
-          {%- if section.settings.gummies_price_text != blank -%}
-            <p class="bloomli-product-finder__price">{{ section.settings.gummies_price_text | escape }}</p>
-          {%- endif -%}
+            {%- if section.settings.gummies_price_text != blank -%}
+              <p class="bloomli-product-finder__price">{{ section.settings.gummies_price_text | escape }}</p>
+            {%- endif -%}
 
-          {%- if section.settings.gummies_button_label != blank -%}
-            <a class="button button--primary bloomli-product-finder__button" href="{{ gummies_url | default: '#' }}">
-              {{ section.settings.gummies_button_label | escape }}
-            </a>
-          {%- endif -%}
+            {%- if section.settings.gummies_button_label != blank -%}
+              <a class="button button--primary bloomli-product-finder__button" href="{{ gummies_url | default: '#' }}">
+                {{ section.settings.gummies_button_label | escape }}
+              </a>
+            {%- endif -%}
+          </div>
         </div>
       </article>
 
       <article class="bloomli-product-finder__card bloomli-product-finder__card--capsules">
-        <div class="bloomli-product-finder__media">
-          {%- if capsules_image != blank -%}
-            {{
-              capsules_image
-              | image_url: width: 1100
-              | image_tag:
-                loading: 'lazy',
-                widths: '320, 480, 640, 820, 1100',
-                sizes: '(min-width: 990px) 560px, 82vw',
-                class: 'bloomli-product-finder__image',
-                alt: capsules_title
-            }}
-          {%- else -%}
-            <span class="bloomli-product-finder__media-icon" aria-hidden="true">
-              <i class="ti ti-pill"></i>
-            </span>
-          {%- endif -%}
-        </div>
+        <div class="bloomli-product-finder__card-body">
+          <div class="bloomli-product-finder__media">
+            {%- if capsules_image != blank -%}
+              {{
+                capsules_image
+                | image_url: width: 1100
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '320, 480, 640, 820, 1100',
+                  sizes: '(min-width: 990px) 560px, 82vw',
+                  class: 'bloomli-product-finder__image',
+                  alt: capsules_title
+              }}
+            {%- else -%}
+              <span class="bloomli-product-finder__media-icon" aria-hidden="true">
+                <i class="ti ti-pill"></i>
+              </span>
+            {%- endif -%}
+          </div>
 
-        <div class="bloomli-product-finder__content">
-          {%- if section.settings.capsules_rating_source != 'hide' and capsules_rating != blank -%}
-            <p class="bloomli-product-finder__rating">
-              <span class="bloomli-product-finder__stars" aria-hidden="true">★★★★★</span>
-              <span>{{ capsules_rating | escape }}</span>
-              {%- if capsules_review_text != blank -%}
-                <span class="bloomli-product-finder__rating-divider" aria-hidden="true">·</span>
-                <span>{{ capsules_review_text | escape }}</span>
-              {%- endif -%}
-            </p>
-          {%- endif -%}
+          <div class="bloomli-product-finder__content">
+            {%- if section.settings.capsules_rating_source != 'hide' and capsules_rating != blank -%}
+              <p class="bloomli-product-finder__rating">
+                <span class="bloomli-product-finder__stars" aria-hidden="true">★★★★★</span>
+                <span>{{ capsules_rating | escape }}</span>
+                {%- if capsules_review_text != blank -%}
+                  <span class="bloomli-product-finder__rating-divider" aria-hidden="true">·</span>
+                  <span>{{ capsules_review_text | escape }}</span>
+                {%- endif -%}
+              </p>
+            {%- endif -%}
 
-          <h3 class="bloomli-product-finder__title h3">{{ capsules_title | escape }}</h3>
+            <h3 class="bloomli-product-finder__title h3">{{ capsules_title | escape }}</h3>
 
-          {%- if capsules_description != blank -%}
-            <p class="bloomli-product-finder__body">{{ capsules_description | escape }}</p>
-          {%- endif -%}
+            {%- if capsules_description != blank -%}
+              <p class="bloomli-product-finder__body">{{ capsules_description | escape }}</p>
+            {%- endif -%}
 
-          {%- if section.settings.capsules_price_text != blank -%}
-            <p class="bloomli-product-finder__price">{{ section.settings.capsules_price_text | escape }}</p>
-          {%- endif -%}
+            {%- if section.settings.capsules_price_text != blank -%}
+              <p class="bloomli-product-finder__price">{{ section.settings.capsules_price_text | escape }}</p>
+            {%- endif -%}
 
-          {%- if section.settings.capsules_button_label != blank -%}
-            <a class="button button--primary bloomli-product-finder__button" href="{{ capsules_url | default: '#' }}">
-              {{ section.settings.capsules_button_label | escape }}
-            </a>
-          {%- endif -%}
+            {%- if section.settings.capsules_button_label != blank -%}
+              <a class="button button--primary bloomli-product-finder__button" href="{{ capsules_url | default: '#' }}">
+                {{ section.settings.capsules_button_label | escape }}
+              </a>
+            {%- endif -%}
+          </div>
         </div>
       </article>
     </div>

@@ -980,7 +980,7 @@
   }
 }
 
-.bloomli-proof-panel__image {
+.bloomli-proof-panel--movement .bloomli-proof-panel__image {
   animation: bloomli-proof-float 3s ease-in-out infinite;
   will-change: transform;
 }
@@ -991,7 +991,7 @@
 }
 
 @media (min-width: 900px) {
-  .bloomli-proof-panel__image {
+  .bloomli-proof-panel--movement .bloomli-proof-panel__image {
     animation-name: bloomli-proof-float-desktop;
   }
 }

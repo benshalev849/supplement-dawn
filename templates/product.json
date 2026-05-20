@@ -275,6 +275,7 @@
         "image_label": "Editorial - morning ritual - natural light",
         "image_caption": "",
         "image_scale": 100,
+        "enable_image_animation": true,
         "image_position": "center center",
         "image_width": 760,
         "desktop_image_size": 80,

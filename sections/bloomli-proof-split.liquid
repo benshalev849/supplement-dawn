@@ -25,7 +25,7 @@
   {% if section.settings.section_id != blank %}
     id="{{ section.settings.section_id | handleize }}"
   {% endif %}
-  class="bloomli-proof-panel bloomli-proof-panel--layout-{{ layout_style }} bloomli-proof-panel--density-{{ content_density }} bloomli-proof-panel--image-{{ section.settings.image_side | default: 'left' }} bloomli-proof-panel--header-{{ header_alignment }} bloomli-proof-panel--header-position-{{ header_position }} bloomli-proof-panel--mobile-image-{{ mobile_image_position }}{% unless show_image %} bloomli-proof-panel--no-image{% endunless %}{% unless enable_image_animation %} bloomli-proof-panel--static-image{% endunless %} bloomli-section color-{{ section.settings.color_scheme }} gradient"
+  class="bloomli-proof-panel bloomli-proof-panel--layout-{{ layout_style }} bloomli-proof-panel--density-{{ content_density }} bloomli-proof-panel--image-{{ section.settings.image_side | default: 'left' }} bloomli-proof-panel--header-{{ header_alignment }} bloomli-proof-panel--header-position-{{ header_position }} bloomli-proof-panel--mobile-image-{{ mobile_image_position }}{% unless show_image %} bloomli-proof-panel--no-image{% endunless %}{% if enable_image_animation %} bloomli-proof-panel--movement{% else %} bloomli-proof-panel--static-image{% endif %} bloomli-section color-{{ section.settings.color_scheme }} gradient"
   style="
     --bpp-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
     --bpp-accent: {% if icon_accent_color == '#6f7a5a' %}var(--bloomli-primary-action){% else %}{{ section.settings.icon_accent_color | default: 'var(--bloomli-primary-action)' }}{% endif %};
@@ -179,7 +179,7 @@
       { "value": "cover", "label": "Cover" },
       { "value": "contain", "label": "Contain" }
     ], "default": "cover" },
-    { "type": "checkbox", "id": "enable_image_animation", "label": "Enable floating image animation", "default": true },
+    { "type": "checkbox", "id": "enable_image_animation", "label": "Movement", "default": true },
     { "type": "select", "id": "image_position", "label": "Image crop position", "options": [
       { "value": "center center", "label": "Center" },
       { "value": "center top", "label": "Top" },

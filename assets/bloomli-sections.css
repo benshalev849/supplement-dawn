@@ -256,6 +256,24 @@
   }
 }
 
+/* Hero — fit-16-9 desktop layout */
+
+@media (min-width: 768px) {
+  .bloomli-hero--fit-16-9 {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .bloomli-hero--fit-16-9 .bloomli-hero__inner {
+    min-height: 0;
+  }
+
+  .bloomli-hero--fit-16-9 .bloomli-hero__bg-img--desktop {
+    object-fit: contain;
+    object-position: center bottom;
+  }
+}
+
 .bloomli-hero__overlay {
   position: absolute;
   inset: 0;

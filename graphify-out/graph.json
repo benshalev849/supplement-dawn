@@ -1051,15 +1051,6 @@
       "norm_label": "initall()"
     },
     {
-      "label": "bloomli-science-nav.js",
-      "file_type": "code",
-      "source_file": "bloomli-science-nav.js",
-      "source_location": "L1",
-      "id": "bloomli_science_nav_js",
-      "community": 59,
-      "norm_label": "bloomli-science-nav.js"
-    },
-    {
       "label": "bloomli-theme.js",
       "file_type": "code",
       "source_file": "bloomli-theme.js",
@@ -1848,7 +1839,7 @@
       "source_file": "constants.js",
       "source_location": "L1",
       "id": "constants_js",
-      "community": 60,
+      "community": 59,
       "norm_label": "constants.js"
     },
     {
@@ -5279,6 +5270,15 @@
       "id": "assets_theme_editor_hideproductmodal",
       "community": 50,
       "norm_label": "hideproductmodal()"
+    },
+    {
+      "label": "bloomli-science-nav.js",
+      "file_type": "code",
+      "source_file": "bloomli-science-nav.js",
+      "source_location": "L1",
+      "community": 60,
+      "norm_label": "bloomli-science-nav.js",
+      "id": "bloomli_science_nav_js"
     },
     {
       "label": "getStep()",

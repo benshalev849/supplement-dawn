@@ -42,64 +42,6 @@
         "content_position_mobile": "top"
       }
     },
-    "science_nav": {
-      "type": "bloomli-science-nav",
-      "blocks": {
-        "nav_hair_biology": {
-          "type": "link",
-          "settings": {
-            "label": "Hair Biology",
-            "link": "#hair-biology"
-          }
-        },
-        "nav_approach": {
-          "type": "link",
-          "settings": {
-            "label": "Approach",
-            "link": "#approach"
-          }
-        },
-        "nav_ritual": {
-          "type": "link",
-          "settings": {
-            "label": "Ritual",
-            "link": "#ritual"
-          }
-        },
-        "nav_standards": {
-          "type": "link",
-          "settings": {
-            "label": "Standards",
-            "link": "#standards"
-          }
-        },
-        "nav_timeline": {
-          "type": "link",
-          "settings": {
-            "label": "Timeline",
-            "link": "#timeline"
-          }
-        },
-        "nav_faq": {
-          "type": "link",
-          "settings": {
-            "label": "FAQ",
-            "link": "#faq"
-          }
-        }
-      },
-      "block_order": [
-        "nav_hair_biology",
-        "nav_approach",
-        "nav_ritual",
-        "nav_standards",
-        "nav_timeline",
-        "nav_faq"
-      ],
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f"
-      }
-    },
     "hair_biology": {
       "type": "bloomli-hair-biology",
       "blocks": {
@@ -132,7 +74,6 @@
       ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "eyebrow": "Hair has a timeline.",
         "heading": "Visible hair changes don't happen overnight - and that's biology.",
         "body": "<p>Each hair follicle moves through its own cycle of growth, transition, rest, and shedding. Because those cycles unfold gradually, the most meaningful support comes from consistency: nourishing the body daily, supporting stronger-looking strands, and caring for the scalp environment over time.</p>",
         "placeholder_label": "Hair cycle diagram - simple follicle/cycle graphic",
@@ -180,63 +121,6 @@
         "heading": "Hair wellness works best when you support the whole ritual.",
         "intro": "<p>Hair is influenced by what happens inside the body and at the scalp. That's why Bloomli is built around a 3-part approach: daily nutrient support, strand-strength support, and topical scalp care.</p>",
         "placeholder_label": "3-part ritual visual - gummies, capsules, serum",
-        "padding_top": 96,
-        "padding_bottom": 88,
-        "padding_top_mobile": 56,
-        "padding_bottom_mobile": 56
-      }
-    },
-    "ritual": {
-      "type": "bloomli-ritual-system",
-      "blocks": {
-        "ritual_gummies": {
-          "type": "product_role",
-          "settings": {
-            "title": "Hair Vitamins Gummies",
-            "role": "Daily beauty-nutrient support",
-            "copy": "<p>A simple daily gummy designed to support hair, skin, and nails from within, with beauty-supporting nutrients like biotin, vitamins, zinc, collagen, and silicon.</p>",
-            "routine_detail": "2 gummies daily",
-            "note": "Contains fish-derived collagen.",
-            "cta_label": "View Gummies",
-            "cta_link": "/products/hair-vitamins-gummies"
-          }
-        },
-        "ritual_capsules": {
-          "type": "product_role",
-          "settings": {
-            "title": "Hair Essentials Capsules",
-            "role": "Comprehensive nutrient + botanical support",
-            "copy": "<p>A capsule formula for deeper daily support, combining vitamins, minerals, and a botanical blend selected for a more complete inside-out hair wellness routine.</p>",
-            "routine_detail": "2 capsules daily with food",
-            "note": "Contains soy. Includes iron.",
-            "cta_label": "View Capsules",
-            "cta_link": "/products/hair-skin-nails-essentials"
-          }
-        },
-        "ritual_serum": {
-          "type": "product_role",
-          "settings": {
-            "title": "Botanical Hair Serum",
-            "role": "Topical scalp ritual",
-            "copy": "<p>A lightweight botanical serum designed to support scalp wellness and help make daily scalp care feel simple, clean, and consistent.</p>",
-            "routine_detail": "Apply to scalp as directed",
-            "note": "External use only.",
-            "cta_label": "View Serum",
-            "cta_link": "/products/botanical-hair-growth-serum"
-          }
-        }
-      },
-      "block_order": [
-        "ritual_gummies",
-        "ritual_capsules",
-        "ritual_serum"
-      ],
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "One routine. Three ways to support healthier-looking hair.",
-        "intro": "<p>Each Bloomli product has a different role in the ritual. The gummies make daily beauty-nutrient support simple. The capsules offer more comprehensive inside-out support. The serum brings the routine directly to the scalp.</p>",
-        "footnote": "Full ingredients and Supplement Facts are available on each product page.",
-        "placeholder_label": "Product ritual image - gummies, capsules, serum together",
         "padding_top": 96,
         "padding_bottom": 88,
         "padding_top_mobile": 56,
@@ -345,62 +229,6 @@
         "placeholder_label": "Quality/testing image - COA/testing/document visual",
         "padding_top": 96,
         "padding_bottom": 88,
-        "padding_top_mobile": 56,
-        "padding_bottom_mobile": 56
-      }
-    },
-    "timeline": {
-      "type": "bloomli-timeline",
-      "blocks": {
-        "timeline_1": {
-          "type": "step",
-          "settings": {
-            "image_scale": 100,
-            "icon": "seed",
-            "range": "Weeks 1-4",
-            "title": "Build the habit",
-            "description": "Your body is receiving daily nutrient support, and your scalp ritual becomes consistent. Most visible hair changes will not happen yet - this stage is about laying the foundation."
-          }
-        },
-        "timeline_2": {
-          "type": "step",
-          "settings": {
-            "image_scale": 100,
-            "icon": "sprout",
-            "range": "Months 2-3",
-            "title": "Early support phase",
-            "description": "Some customers may begin noticing softer-feeling strands, improved shine, or a healthier-feeling scalp. Visible fullness varies from person to person."
-          }
-        },
-        "timeline_3": {
-          "type": "step",
-          "settings": {
-            "image_scale": 100,
-            "icon": "bloom",
-            "range": "Months 4-6",
-            "title": "Fuller-looking routine results",
-            "description": "With consistent use, fuller-looking hair, stronger-feeling strands, and improved overall hair appearance may become more noticeable."
-          }
-        }
-      },
-      "block_order": [
-        "timeline_1",
-        "timeline_2",
-        "timeline_3"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
-        "timeline_icon_color": "#6f7a5a",
-        "heading": "Why consistency is the whole point.",
-        "subheadline": "<p>Hair wellness is a long-game routine. Because hair grows gradually and each follicle follows its own cycle, visible changes may take several months of consistent use.</p><p>Results vary. Bloomli products are designed to support hair wellness and are not intended to treat medical hair loss.</p>",
-        "circle_background": "surface",
-        "circle_size": 280,
-        "icon_size": 120,
-        "show_connector": true,
-        "connector_style": "dashed",
-        "connector_width": 1,
-        "padding_top": 104,
-        "padding_bottom": 104,
         "padding_top_mobile": 56,
         "padding_bottom_mobile": 56
       }
@@ -541,13 +369,10 @@
   },
   "order": [
     "science_hero",
-    "science_nav",
     "hair_biology",
     "approach",
-    "ritual",
     "science_standard",
     "standards",
-    "timeline",
     "faq",
     "science_cta"
   ]

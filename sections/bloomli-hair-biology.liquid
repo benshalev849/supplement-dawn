@@ -29,9 +29,6 @@
       </div>
 
       <div>
-        {%- if section.settings.eyebrow != blank -%}
-          <div class="bloomli-science-section__eyebrow">{{ section.settings.eyebrow | escape }}</div>
-        {%- endif -%}
         {%- if section.settings.heading != blank -%}
           <h2 class="bloomli-science-section__heading">{{ section.settings.heading | escape }}</h2>
         {%- endif -%}
@@ -60,7 +57,6 @@
   "max_blocks": 3,
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Hair has a timeline." },
     { "type": "text", "id": "heading", "label": "Headline", "default": "Visible hair changes don't happen overnight - and that's biology." },
     { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Each hair follicle moves through its own cycle of growth, transition, rest, and shedding. Because those cycles unfold gradually, the most meaningful support comes from consistency: nourishing the body daily, supporting stronger-looking strands, and caring for the scalp environment over time.*</p>" },
     { "type": "image_picker", "id": "cycle_image", "label": "Hair cycle diagram - simple follicle/cycle graphic" },

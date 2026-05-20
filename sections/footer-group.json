@@ -17,14 +17,14 @@
         "heading_Ujdxr9": {
           "type": "heading",
           "settings": {
-            "heading": "Join Us.",
+            "heading": "Join the Ritual.",
             "heading_size": "h1"
           }
         },
         "paragraph_NgaH87": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Get $10 off your first subscription and weekly-ish letters from our team.</p>"
+            "text": "<p>Sign up and get up to 52% off. Plus, the occasional note from us on hair, wellness, and what's new at Bloomli.</p>"
           }
         },
         "email_form_xWxFqC": {
@@ -73,7 +73,7 @@
           "type": "text",
           "settings": {
             "heading": "",
-            "subtext": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.<br/></p>"
+            "subtext": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>"
           }
         }
       },
@@ -86,7 +86,7 @@
       "settings": {
         "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
         "newsletter_enable": false,
-        "newsletter_heading": "Join us.",
+        "newsletter_heading": "",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": false,

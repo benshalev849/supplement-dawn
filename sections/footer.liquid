@@ -43,8 +43,25 @@
     if section.blocks.size == 1 and section.blocks[0].type == 'brand_information' and brand_empty and has_social_icons == false and section.settings.newsletter_enable == false and section.settings.enable_follow_on_shop == false
       assign only_empty_brand = true
     endif
+
+    assign fda_disclaimer_text = blank
+    assign footer_display_block_count = 0
+
+    for block in section.blocks
+      assign is_fda_disclaimer_block = false
+      if block.type == 'text' and block.settings.subtext contains 'Food and Drug Administration'
+        assign is_fda_disclaimer_block = true
+        if fda_disclaimer_text == blank
+          assign fda_disclaimer_text = block.settings.subtext
+        endif
+      endif
+
+      unless is_fda_disclaimer_block
+        assign footer_display_block_count = footer_display_block_count | plus: 1
+      endunless
+    endfor
   -%}
-  {%- if section.blocks.size > 0
+  {%- if footer_display_block_count > 0
     or section.settings.newsletter_enable
     or section.settings.show_social
     and has_social_icons == true
@@ -52,13 +69,13 @@
   -%}
     {%- unless only_empty_brand -%}
       <div class="footer__content-top page-width">
-        {%- if section.blocks.size > 0 -%}
+        {%- if footer_display_block_count > 0 -%}
           {%- liquid
-            if section.blocks.size == 9
+            if footer_display_block_count == 9
               assign footer_grid_class = 'grid--3-col-tablet'
-            elsif section.blocks.size > 6
+            elsif footer_display_block_count > 6
               assign footer_grid_class = 'grid--4-col-desktop'
-            elsif section.blocks.size > 4
+            elsif footer_display_block_count > 4
               assign footer_grid_class = 'grid--3-col-tablet'
             endif
           -%}
@@ -69,6 +86,15 @@
             {% endif %}
           >
             {%- for block in section.blocks -%}
+              {%- liquid
+                assign is_fda_disclaimer_block = false
+                if block.type == 'text' and block.settings.subtext contains 'Food and Drug Administration'
+                  assign is_fda_disclaimer_block = true
+                endif
+              -%}
+              {%- if is_fda_disclaimer_block -%}
+                {%- continue -%}
+              {%- endif -%}
               <div
                 class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
@@ -162,6 +188,15 @@
 
           <div class="footer__mobile-nav bloomli-collapsible-row bloomli-faq__items" data-bloomli-faq>
             {%- for block in section.blocks -%}
+              {%- liquid
+                assign is_fda_disclaimer_block = false
+                if block.type == 'text' and block.settings.subtext contains 'Food and Drug Administration'
+                  assign is_fda_disclaimer_block = true
+                endif
+              -%}
+              {%- if is_fda_disclaimer_block -%}
+                {%- continue -%}
+              {%- endif -%}
               {%- if block.type == 'link_list' and block.settings.menu != blank -%}
                 {%- liquid
                   assign mobile_button_id = 'FooterMobileNavButton-' | append: section.id | append: '-' | append: forloop.index
@@ -367,6 +402,13 @@
         {%- endif -%}
       </div>
     </div>
+    {%- if fda_disclaimer_text != blank -%}
+      <div class="footer__fda-disclaimer page-width">
+        <div class="footer__fda-disclaimer-box rte">
+          {{ fda_disclaimer_text }}
+        </div>
+      </div>
+    {%- endif -%}
   </div>
 </footer>
 

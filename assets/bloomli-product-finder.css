@@ -53,7 +53,7 @@
 
 .bloomli-product-finder__card--featured {
   overflow: visible;
-  border-width: 0.32rem;
+  border-width: 0.25rem;
   border-color: rgba(var(--color-button), 0.75);
   box-shadow:
     0 0 0 0.22rem rgba(var(--color-button), 0.75),
@@ -94,8 +94,8 @@
 }
 
 .bloomli-product-finder__card--featured .bloomli-product-finder__media {
-  border-top-left-radius: calc(var(--media-radius) + 1rem);
-  border-top-right-radius: calc(var(--media-radius) + 1rem);
+  border-top-left-radius: calc(var(--media-radius) + 1rem - 0.25rem);
+  border-top-right-radius: calc(var(--media-radius) + 1rem - 0.25rem);
 }
 
 .bloomli-product-finder__image,
@@ -385,6 +385,11 @@
   .bloomli-product-finder__card,
   .bloomli-product-finder__addon {
     border-radius: calc(var(--media-radius) + 1.2rem);
+  }
+
+  .bloomli-product-finder__card--featured .bloomli-product-finder__media {
+    border-top-left-radius: calc(var(--media-radius) + 1.2rem - 0.25rem);
+    border-top-right-radius: calc(var(--media-radius) + 1.2rem - 0.25rem);
   }
 
   .bloomli-product-finder__card {

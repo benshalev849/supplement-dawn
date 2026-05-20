@@ -1,4 +1,4 @@
-# Graph Report - supplement-dawn  (2026-05-20)
+# Graph Report - supplement-dawn  (2026-05-21)
 
 ## Corpus Check
 - 44 files · ~34,642 words

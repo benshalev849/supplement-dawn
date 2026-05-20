@@ -236,6 +236,12 @@
   display: block;
 }
 
+@media (min-width: 768px) {
+  .bloomli-hero__bg-img--desktop {
+    object-fit: contain;
+  }
+}
+
 @media (max-width: 767px) {
   .bloomli-hero__bg-img {
     object-position: center bottom;

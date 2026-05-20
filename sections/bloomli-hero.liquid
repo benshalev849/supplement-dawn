@@ -10,6 +10,10 @@
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
     --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
     --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --hero-desktop-image-fit: {{ section.settings.desktop_image_fit | default: 'contain' }};
+    --hero-desktop-image-position: {{ section.settings.desktop_image_position | default: 'center' }};
+    --hero-mobile-image-fit: {{ section.settings.mobile_image_fit | default: 'contain' }};
+    --hero-mobile-image-position: {{ section.settings.mobile_image_position | default: 'center bottom' }};
     {%- if section.settings.use_custom_text_color -%}
       --hero-text-color: {{ section.settings.text_color }};
     {%- endif -%}
@@ -140,7 +144,53 @@
     { "type": "text", "id": "trust_badge_3", "label": "Badge 3 text", "default": "Made in the USA" },
     { "type": "header", "content": "Background image" },
     { "type": "image_picker", "id": "desktop_image", "label": "Desktop background (16:9 landscape)" },
+    {
+      "type": "select",
+      "id": "desktop_image_fit",
+      "label": "Desktop image fit",
+      "default": "contain",
+      "options": [
+        { "value": "contain", "label": "Contain (show full image)" },
+        { "value": "cover",   "label": "Cover (crop to fill)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_position",
+      "label": "Desktop image position",
+      "default": "center",
+      "options": [
+        { "value": "center",        "label": "Center" },
+        { "value": "center top",    "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" },
+        { "value": "left center",   "label": "Left" },
+        { "value": "right center",  "label": "Right" }
+      ]
+    },
     { "type": "image_picker", "id": "mobile_image",  "label": "Mobile background (3:4 portrait, optional — falls back to desktop)" },
+    {
+      "type": "select",
+      "id": "mobile_image_fit",
+      "label": "Mobile image fit",
+      "default": "contain",
+      "options": [
+        { "value": "contain", "label": "Contain (show full image)" },
+        { "value": "cover",   "label": "Cover (crop to fill)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_position",
+      "label": "Mobile image position",
+      "default": "center bottom",
+      "options": [
+        { "value": "center",        "label": "Center" },
+        { "value": "center top",    "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" },
+        { "value": "left center",   "label": "Left" },
+        { "value": "right center",  "label": "Right" }
+      ]
+    },
     { "type": "range",  "id": "overlay_opacity", "label": "Overlay opacity", "min": 0, "max": 80, "step": 5, "default": 45 },
     { "type": "checkbox", "id": "use_custom_text_color", "label": "Override hero text color", "default": false },
     { "type": "color",  "id": "text_color", "label": "Text color override", "default": "#2a2622" },

@@ -13,7 +13,7 @@
 .bloomli-science-card__kicker,
 .bloomli-science-pill {
   color: rgb(var(--color-button));
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   line-height: 1.2;
@@ -22,10 +22,10 @@
 
 .bloomli-science-section__heading {
   max-width: 82rem;
-  margin: 1rem 0 0;
+  margin: 0.8rem 0 0;
   color: rgb(var(--color-foreground));
   font-family: 'Fraunces', serif;
-  font-size: clamp(3.4rem, 6vw, var(--bloomli-science-heading-size, 6.4rem));
+  font-size: clamp(3rem, 4.8vw, var(--bloomli-science-heading-size, 5.4rem));
   font-variation-settings: "SOFT" 100, "opsz" 144;
   font-weight: 400;
   letter-spacing: 0;
@@ -33,11 +33,11 @@
 }
 
 .bloomli-science-section__copy {
-  max-width: 66rem;
-  margin: 1.8rem 0 0;
+  max-width: 62rem;
+  margin: 1.4rem 0 0;
   color: rgba(var(--color-foreground), 0.74);
-  font-size: clamp(1.55rem, 2vw, 1.8rem);
-  line-height: 1.62;
+  font-size: clamp(1.42rem, 1.7vw, 1.65rem);
+  line-height: 1.56;
 }
 
 .bloomli-science-section__copy p,
@@ -47,12 +47,12 @@
 
 .bloomli-science-grid {
   display: grid;
-  gap: clamp(2.4rem, 4vw, 5.6rem);
+  gap: clamp(2rem, 3.2vw, 4.4rem);
 }
 
 .bloomli-science-media {
   display: grid;
-  min-height: 32rem;
+  min-height: 28rem;
   overflow: hidden;
   border: 0.1rem solid rgba(var(--color-foreground), 0.08);
   border-radius: calc(var(--media-radius, 0.8rem) + 1rem);
@@ -70,10 +70,10 @@
 }
 
 .bloomli-science-media__placeholder {
-  max-width: 24rem;
-  padding: 2.4rem;
+  max-width: 22rem;
+  padding: 2rem;
   color: rgba(var(--color-foreground), 0.48);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   line-height: 1.4;
@@ -83,47 +83,47 @@
 
 .bloomli-science-card {
   min-width: 0;
-  padding: 2.4rem;
+  padding: 1.9rem;
   border: 0.1rem solid rgba(var(--color-foreground), 0.1);
   border-radius: calc(var(--media-radius, 0.8rem) + 0.6rem);
   background: rgba(var(--color-background), 0.74);
-  box-shadow: 0 1.4rem 3.6rem rgba(var(--color-foreground), 0.045);
+  box-shadow: 0 1rem 2.8rem rgba(var(--color-foreground), 0.04);
 }
 
 .bloomli-science-card__number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3.6rem;
-  height: 3.6rem;
-  margin-bottom: 1.6rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  margin-bottom: 1.2rem;
   border: 0.1rem solid rgba(var(--color-button), 0.2);
   border-radius: 999rem;
   background: rgba(var(--color-button), 0.08);
   color: rgb(var(--color-button));
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .bloomli-science-card h3 {
   margin: 0;
   color: rgb(var(--color-foreground));
-  font-size: clamp(2rem, 2vw, 2.4rem);
+  font-size: clamp(1.8rem, 1.7vw, 2.15rem);
   line-height: 1.14;
 }
 
 .bloomli-science-card p,
 .bloomli-science-card__text {
-  margin: 1rem 0 0;
+  margin: 0.8rem 0 0;
   color: rgba(var(--color-foreground), 0.74);
-  font-size: 1.5rem;
-  line-height: 1.58;
+  font-size: 1.38rem;
+  line-height: 1.52;
 }
 
 .bloomli-science-card__note {
-  margin-top: 1.8rem;
+  margin-top: 1.4rem;
   color: rgb(var(--color-button));
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   line-height: 1.25;
@@ -134,14 +134,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.2rem;
-  margin-top: 3rem;
+  margin-top: 2.4rem;
 }
 
 .bloomli-science-disclaimer {
   max-width: 74rem;
-  margin-top: 2.4rem;
+  margin-top: 2rem;
   color: rgba(var(--color-foreground), 0.62);
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   line-height: 1.5;
 }
 
@@ -150,18 +150,18 @@
 }
 
 .bloomli-science-hero__grid {
-  grid-template-columns: minmax(0, 0.95fr) minmax(28rem, 1fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(26rem, 1fr);
   align-items: center;
 }
 
 .bloomli-science-hero__media {
-  min-height: clamp(36rem, 48vw, 58rem);
+  min-height: clamp(32rem, 42vw, 50rem);
 }
 
 .bloomli-science-hero__trust {
-  margin-top: 1.8rem;
+  margin-top: 1.4rem;
   color: rgba(var(--color-foreground), 0.66);
-  font-size: 1.3rem;
+  font-size: 1.18rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -176,7 +176,7 @@
 
 .bloomli-hair-biology__grid,
 .bloomli-quality-standards__grid {
-  grid-template-columns: minmax(28rem, 0.88fr) minmax(0, 1fr);
+  grid-template-columns: minmax(26rem, 0.82fr) minmax(0, 1fr);
   align-items: center;
 }
 
@@ -243,8 +243,8 @@
 
 .bloomli-science-pillars__header,
 .bloomli-science-standard__header {
-  max-width: 78rem;
-  margin-bottom: 3.6rem;
+  max-width: 72rem;
+  margin-bottom: 3rem;
 }
 
 .bloomli-science-pillars__grid,
@@ -257,33 +257,33 @@
 }
 
 .bloomli-science-pillars__media {
-  margin-top: 3.2rem;
-  min-height: 28rem;
+  margin-top: 2.6rem;
+  min-height: 24rem;
 }
 
 .bloomli-quality-standards__note {
   color: rgba(var(--color-foreground), 0.68);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 1.45;
 }
 
 .bloomli-quality-standards__media {
-  min-height: 44rem;
+  min-height: 38rem;
 }
 
 .bloomli-science-cta__panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(28rem, 0.72fr);
-  gap: clamp(2.4rem, 5vw, 6rem);
+  grid-template-columns: minmax(0, 0.95fr) minmax(26rem, 0.68fr);
+  gap: clamp(2rem, 4vw, 4.8rem);
   align-items: center;
-  padding: clamp(3.2rem, 6vw, 6.4rem);
+  padding: clamp(2.8rem, 5vw, 5.2rem);
   border: 0.1rem solid rgba(var(--color-foreground), 0.08);
   border-radius: calc(var(--media-radius, 0.8rem) + 1.2rem);
   background: rgba(var(--color-button), 0.06);
 }
 
 .bloomli-science-cta__media {
-  min-height: 30rem;
+  min-height: 26rem;
 }
 
 @media screen and (min-width: 750px) {
@@ -341,25 +341,25 @@
   }
 
   .bloomli-science-section__heading {
-    font-size: clamp(3.2rem, 11vw, 4.4rem);
+    font-size: clamp(2.8rem, 9vw, 3.8rem);
     line-height: 1.06;
   }
 
   .bloomli-science-section__copy {
-    font-size: 1.5rem;
+    font-size: 1.42rem;
   }
 
   .bloomli-science-card {
-    padding: 2rem;
+    padding: 1.6rem;
   }
 
   .bloomli-science-media,
   .bloomli-quality-standards__media {
-    min-height: 24rem;
+    min-height: 21rem;
   }
 
   .bloomli-science-hero__media {
-    min-height: 30rem;
+    min-height: 26rem;
   }
 
   .bloomli-science-actions {
@@ -371,6 +371,6 @@
   }
 
   .bloomli-science-cta__panel {
-    padding: 2.4rem;
+    padding: 2rem;
   }
 }

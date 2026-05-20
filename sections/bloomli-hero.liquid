@@ -1,8 +1,13 @@
 {%- assign has_bg_image = false -%}
 {%- if section.settings.desktop_image != blank -%}{%- assign has_bg_image = true -%}{%- endif -%}
+{%- assign desktop_image_layout = section.settings.desktop_image_layout | default: 'banner_fixed_height' -%}
+{%- assign use_banner_layout = false -%}
+{%- if desktop_image_layout == 'banner_fixed_height' or desktop_image_layout == 'fixed_height_background' -%}
+  {%- assign use_banner_layout = true -%}
+{%- endif -%}
 
 <section
-  class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient{% unless has_bg_image %}{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}{% endunless %}{% if has_bg_image %} bloomli-hero--has-bg-image{% if section.settings.desktop_image_layout == 'image_ratio_16_9' %} bloomli-hero--fit-16-9{% endif %}{% endif %}"
+  class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient{% unless has_bg_image %}{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}{% endunless %}{% if has_bg_image %} bloomli-hero--has-bg-image{% if use_banner_layout %} bloomli-hero--banner-fixed-height{% endif %}{% if desktop_image_layout == 'image_ratio_16_9' %} bloomli-hero--fit-16-9{% endif %}{% endif %}"
   style="
     --hero-min-height: {{ section.settings.min_height }}px;
     --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
@@ -148,9 +153,9 @@
       "type": "select",
       "id": "desktop_image_layout",
       "label": "Desktop image layout",
-      "default": "fixed_height_background",
+      "default": "banner_fixed_height",
       "options": [
-        { "value": "fixed_height_background", "label": "Background fill (fixed height)" },
+        { "value": "banner_fixed_height", "label": "Banner fixed height (recommended)" },
         { "value": "image_ratio_16_9",        "label": "16:9 — show full image" }
       ]
     },

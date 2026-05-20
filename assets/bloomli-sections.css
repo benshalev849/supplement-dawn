@@ -256,9 +256,25 @@
   }
 }
 
-/* Hero — fit-16-9 desktop layout */
+/* Hero — desktop background layouts */
 
 @media (min-width: 768px) {
+  .bloomli-hero--has-bg-image.bloomli-hero--banner-fixed-height {
+    height: clamp(620px, 42vw, 760px);
+    min-height: 0;
+  }
+
+  .bloomli-hero--has-bg-image.bloomli-hero--banner-fixed-height .bloomli-hero__inner {
+    height: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+  }
+
+  .bloomli-hero--has-bg-image.bloomli-hero--banner-fixed-height .bloomli-hero__bg-img--desktop {
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
   .bloomli-hero--fit-16-9 {
     aspect-ratio: 16 / 9;
     min-height: auto;

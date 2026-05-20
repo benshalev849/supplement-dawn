@@ -34,7 +34,7 @@
         "trust_badge_3": "Documented quality",
         "desktop_image": "shopify://shop_images/Science_Hero_Desktop_21-9.png",
         "desktop_image_layout": "banner_fixed_height",
-        "desktop_image_fit": "cover",
+        "desktop_image_fit": "contain",
         "desktop_image_position": "center bottom",
         "mobile_image": "shopify://shop_images/Science_Hero_Mobile_88278f58-cdb2-465f-a17b-ef844beadaf7.png",
         "mobile_image_fit": "contain",

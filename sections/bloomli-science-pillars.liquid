@@ -1,0 +1,83 @@
+{{ 'bloomli-science.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign image_alt = section.settings.approach_image.alt | default: section.settings.heading
+-%}
+
+<section
+  id="approach"
+  class="bloomli-science-section bloomli-science-pillars color-{{ section.settings.color_scheme }} gradient"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px; --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;"
+>
+  <div class="bloomli-science-section__inner">
+    <div class="bloomli-science-pillars__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="bloomli-science-section__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <div class="bloomli-science-section__copy rte">{{ section.settings.intro }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="bloomli-science-grid bloomli-science-pillars__grid">
+      {%- for block in section.blocks -%}
+        <article class="bloomli-science-card" {{ block.shopify_attributes }}>
+          <span class="bloomli-science-card__number">{{ forloop.index }}</span>
+          <h3>{{ block.settings.title | escape }}</h3>
+          <div class="bloomli-science-card__text">{{ block.settings.text }}</div>
+          {%- if block.settings.product_note != blank -%}
+            <div class="bloomli-science-card__note">{{ block.settings.product_note | escape }}</div>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+
+    <div class="bloomli-science-media bloomli-science-pillars__media">
+      {%- if section.settings.approach_image != blank -%}
+        {{
+          section.settings.approach_image
+          | image_url: width: 1400
+          | image_tag:
+            widths: '500, 700, 900, 1100, 1400',
+            sizes: '(min-width: 990px) 88vw, 100vw',
+            loading: 'lazy',
+            decoding: 'async',
+            alt: image_alt
+        }}
+      {%- else -%}
+        <div class="bloomli-science-media__placeholder">{{ section.settings.placeholder_label | escape }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli - Science Pillars",
+  "tag": "div",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Hair wellness works best when you support the whole ritual." },
+    { "type": "richtext", "id": "intro", "label": "Intro", "default": "<p>Hair is influenced by what happens inside the body and at the scalp. That's why Bloomli is built around a 3-part approach: daily nutrient support, strand-strength support, and topical scalp care.</p>" },
+    { "type": "image_picker", "id": "approach_image", "label": "3-part ritual visual - gummies, capsules, serum" },
+    { "type": "text", "id": "placeholder_label", "label": "Placeholder label", "default": "3-part ritual visual - gummies, capsules, serum" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 8, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 8, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 120, "step": 8, "default": 56, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 120, "step": 8, "default": 56, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Nourish from within" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Hair follicles are active, nutrient-demanding structures. Bloomli supplements help provide key vitamins, minerals, and beauty-supporting nutrients that contribute to normal hair, skin, and nail wellness.*</p>" },
+        { "type": "text", "id": "product_note", "label": "Product note", "default": "Gummies + Capsules" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Bloomli - Science Pillars" }]
+}
+{% endschema %}

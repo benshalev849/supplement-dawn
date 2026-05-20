@@ -1,0 +1,75 @@
+{{ 'bloomli-science.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign image_alt = section.settings.cta_image.alt | default: section.settings.heading
+-%}
+
+<section
+  class="bloomli-science-section bloomli-science-cta color-{{ section.settings.color_scheme }} gradient"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px; --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;"
+>
+  <div class="bloomli-science-section__inner">
+    <div class="bloomli-science-cta__panel">
+      <div>
+        {%- if section.settings.heading != blank -%}
+          <h2 class="bloomli-science-section__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.body != blank -%}
+          <div class="bloomli-science-section__copy rte">{{ section.settings.body }}</div>
+        {%- endif -%}
+        <div class="bloomli-science-actions">
+          {%- if section.settings.primary_label != blank -%}
+            <a class="button" href="{{ section.settings.primary_link }}">{{ section.settings.primary_label | escape }}</a>
+          {%- endif -%}
+          {%- if section.settings.secondary_label != blank -%}
+            <a class="button button--secondary" href="{{ section.settings.secondary_link }}">{{ section.settings.secondary_label | escape }}</a>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.disclaimer != blank -%}
+          <div class="bloomli-science-disclaimer">{{ section.settings.disclaimer }}</div>
+        {%- endif -%}
+      </div>
+
+      <div class="bloomli-science-media bloomli-science-cta__media">
+        {%- if section.settings.cta_image != blank -%}
+          {{
+            section.settings.cta_image
+            | image_url: width: 1000
+            | image_tag:
+              widths: '420, 640, 800, 1000',
+              sizes: '(min-width: 990px) 34vw, 100vw',
+              loading: 'lazy',
+              decoding: 'async',
+              alt: image_alt
+          }}
+        {%- else -%}
+          <div class="bloomli-science-media__placeholder">{{ section.settings.placeholder_label | escape }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli - Science CTA",
+  "tag": "div",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Build your daily hair ritual." },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Support your hair from within and care for your scalp from the outside with a routine designed for consistency.</p>" },
+    { "type": "text", "id": "primary_label", "label": "Primary button label", "default": "Shop Bloomli" },
+    { "type": "url", "id": "primary_link", "label": "Primary button link", "default": "/collections/all" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "Take the Hair Quiz" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary button link", "default": "/pages/quiz" },
+    { "type": "richtext", "id": "disclaimer", "label": "FDA disclaimer", "default": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>" },
+    { "type": "image_picker", "id": "cta_image", "label": "Final CTA image - Bloomli product ritual/trio" },
+    { "type": "text", "id": "placeholder_label", "label": "Placeholder label", "default": "Final CTA image - Bloomli product ritual/trio" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 8, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 8, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 120, "step": 8, "default": 56, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 120, "step": 8, "default": 56, "unit": "px" }
+  ],
+  "presets": [{ "name": "Bloomli - Science CTA" }]
+}
+{% endschema %}

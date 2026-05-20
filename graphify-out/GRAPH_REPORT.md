@@ -1,11 +1,11 @@
 # Graph Report - supplement-dawn  (2026-05-20)
 
 ## Corpus Check
-- 44 files · ~34,642 words
+- 45 files · ~34,717 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 656 nodes · 916 edges · 53 communities detected
+- 657 nodes · 916 edges · 53 communities detected
 - Extraction: 87% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 116 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
@@ -126,7 +126,7 @@
 - **UI Shapes / Structural Elements: Mask Arch, Square, Sparkle GIF, Loading Spinner, Zoom** — mask_arch, square, sparkle_gif, loading_spinner, icon_zoom, category_ui_shapes [INFERRED 0.85]
 - **Platform Branding: Shopify Logo** — icon_shopify, category_platform_branding [EXTRACTED 1.00]
 
-## Communities (60 total, 18 thin omitted)
+## Communities (61 total, 18 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -283,7 +283,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `Shoe Icon` and `Arch Shape Clip Path Mask`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **Why does `fetchConfig()` connect `Community 4` to `Community 0`, `Community 5`, `Community 13`, `Community 6`?**
-  _High betweenness centrality (0.101) - this node is a cross-community bridge._
+  _High betweenness centrality (0.100) - this node is a cross-community bridge._
 - **Why does `debounce()` connect `Community 6` to `Community 0`, `Community 18`, `Community 13`?**
   _High betweenness centrality (0.089) - this node is a cross-community bridge._
 - **Why does `subscribe()` connect `Community 1` to `Community 5`, `Community 30`?**

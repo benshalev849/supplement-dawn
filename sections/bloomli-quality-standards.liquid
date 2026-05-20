@@ -1,0 +1,84 @@
+{{ 'bloomli-science.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign image_alt = section.settings.quality_image.alt | default: section.settings.heading
+-%}
+
+<section
+  id="standards"
+  class="bloomli-science-section bloomli-quality-standards color-{{ section.settings.color_scheme }} gradient"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px; --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;"
+>
+  <div class="bloomli-science-section__inner">
+    <div class="bloomli-science-grid bloomli-quality-standards__grid">
+      <div>
+        {%- if section.settings.heading != blank -%}
+          <h2 class="bloomli-science-section__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.body != blank -%}
+          <div class="bloomli-science-section__copy rte">{{ section.settings.body }}</div>
+        {%- endif -%}
+        <div class="bloomli-quality-standards__cards">
+          {%- for block in section.blocks -%}
+            <article class="bloomli-science-card" {{ block.shopify_attributes }}>
+              <span class="bloomli-science-card__number">{{ forloop.index }}</span>
+              <h3>{{ block.settings.title | escape }}</h3>
+              <p>{{ block.settings.text | escape }}</p>
+            </article>
+          {%- endfor -%}
+        </div>
+        {%- if section.settings.note != blank -%}
+          <div class="bloomli-quality-standards__note">{{ section.settings.note | escape }}</div>
+        {%- endif -%}
+      </div>
+
+      <div class="bloomli-science-media bloomli-quality-standards__media">
+        {%- if section.settings.quality_image != blank -%}
+          {{
+            section.settings.quality_image
+            | image_url: width: 1200
+            | image_tag:
+              widths: '420, 640, 900, 1200',
+              sizes: '(min-width: 990px) 42vw, 100vw',
+              loading: 'lazy',
+              decoding: 'async',
+              alt: image_alt
+          }}
+        {%- else -%}
+          <div class="bloomli-science-media__placeholder">{{ section.settings.placeholder_label | escape }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli - Standards",
+  "tag": "div",
+  "max_blocks": 5,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Clean standards. Documented quality." },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Bloomli products are produced through a supplier system with documented quality processes and lot-level testing information. We believe supplement trust should come from clear standards, not vague promises.</p>" },
+    { "type": "text", "id": "note", "label": "Small note", "default": "Documentation varies by product and lot. Contact support for current product-specific information." },
+    { "type": "image_picker", "id": "quality_image", "label": "Quality/testing image - COA/testing/document visual" },
+    { "type": "text", "id": "placeholder_label", "label": "Placeholder label", "default": "Quality/testing image - COA/testing/document visual" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 8, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 8, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 120, "step": 8, "default": 56, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 120, "step": 8, "default": 56, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "quality_item",
+      "name": "Quality item",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "USA manufacturing" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Produced in the USA through established supplement and personal-care manufacturing partners." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Bloomli - Quality Standards" }]
+}
+{% endschema %}

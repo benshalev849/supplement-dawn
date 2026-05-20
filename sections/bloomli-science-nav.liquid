@@ -1,0 +1,51 @@
+{{ 'bloomli-science.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-science-nav.js' | asset_url }}" defer="defer"></script>
+
+<nav
+  class="bloomli-science-nav color-{{ section.settings.color_scheme }} gradient"
+  aria-label="Science page navigation"
+  data-bloomli-science-nav
+>
+  <div class="bloomli-science-section__inner">
+    <div class="bloomli-science-nav__scroll">
+      {%- for block in section.blocks -%}
+        <a class="bloomli-science-nav__link" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+          {{ block.settings.label | escape }}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Bloomli - Science Nav",
+  "tag": "div",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Anchor link",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Hair Biology" },
+        { "type": "text", "id": "link", "label": "Anchor link", "default": "#hair-biology" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli - Science Nav",
+      "blocks": [
+        { "type": "link", "settings": { "label": "Hair Biology", "link": "#hair-biology" } },
+        { "type": "link", "settings": { "label": "Approach", "link": "#approach" } },
+        { "type": "link", "settings": { "label": "Ritual", "link": "#ritual" } },
+        { "type": "link", "settings": { "label": "Standards", "link": "#standards" } },
+        { "type": "link", "settings": { "label": "Timeline", "link": "#timeline" } },
+        { "type": "link", "settings": { "label": "FAQ", "link": "#faq" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

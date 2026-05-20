@@ -1,0 +1,85 @@
+{{ 'bloomli-science.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign image_alt = section.settings.cycle_image.alt | default: section.settings.heading
+-%}
+
+<section
+  id="hair-biology"
+  class="bloomli-science-section bloomli-hair-biology color-{{ section.settings.color_scheme }} gradient"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px; --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;"
+>
+  <div class="bloomli-science-section__inner">
+    <div class="bloomli-science-grid bloomli-hair-biology__grid">
+      <div class="bloomli-science-media">
+        {%- if section.settings.cycle_image != blank -%}
+          {{
+            section.settings.cycle_image
+            | image_url: width: 1200
+            | image_tag:
+              widths: '420, 640, 900, 1200',
+              sizes: '(min-width: 990px) 42vw, 100vw',
+              loading: 'lazy',
+              decoding: 'async',
+              alt: image_alt
+          }}
+        {%- else -%}
+          <div class="bloomli-science-media__placeholder">{{ section.settings.placeholder_label | escape }}</div>
+        {%- endif -%}
+      </div>
+
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="bloomli-science-section__eyebrow">{{ section.settings.eyebrow | escape }}</div>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="bloomli-science-section__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.body != blank -%}
+          <div class="bloomli-science-section__copy rte">{{ section.settings.body }}</div>
+        {%- endif -%}
+
+        <div class="bloomli-hair-biology__cards">
+          {%- for block in section.blocks -%}
+            <article class="bloomli-science-card" {{ block.shopify_attributes }}>
+              <span class="bloomli-science-card__number">{{ forloop.index }}</span>
+              <h3>{{ block.settings.title | escape }}</h3>
+              <p>{{ block.settings.text | escape }}</p>
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli - Hair Biology",
+  "tag": "div",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Hair has a timeline." },
+    { "type": "text", "id": "heading", "label": "Headline", "default": "Visible hair changes don't happen overnight - and that's biology." },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Each hair follicle moves through its own cycle of growth, transition, rest, and shedding. Because those cycles unfold gradually, the most meaningful support comes from consistency: nourishing the body daily, supporting stronger-looking strands, and caring for the scalp environment over time.*</p>" },
+    { "type": "image_picker", "id": "cycle_image", "label": "Hair cycle diagram - simple follicle/cycle graphic" },
+    { "type": "text", "id": "placeholder_label", "label": "Placeholder label", "default": "Hair cycle diagram - simple follicle/cycle graphic" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 8, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 8, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 120, "step": 8, "default": 56, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 120, "step": 8, "default": 56, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "phase",
+      "name": "Cycle phase",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Growth phase" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "The active phase where hair fibers are produced. Nutrient availability and overall wellness help support normal hair structure during this phase.*" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Bloomli - Hair Biology" }]
+}
+{% endschema %}

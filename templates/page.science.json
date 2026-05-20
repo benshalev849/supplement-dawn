@@ -10,23 +10,34 @@
 {
   "sections": {
     "science_hero": {
-      "type": "bloomli-science-hero",
+      "type": "bloomli-hero",
       "settings": {
         "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
-        "eyebrow": "The Bloomli Science Standard",
-        "heading": "The science behind fuller-looking hair starts at the root.",
-        "body": "<p>Healthy-looking hair is built over time - through consistent nutrition, strand support, and care for the scalp environment. Bloomli brings all three together in a simple daily ritual designed to support hair wellness from the inside and outside.*</p>",
-        "primary_label": "Shop the Ritual",
-        "primary_link": "/collections/all",
-        "secondary_label": "Explore the Science",
-        "secondary_link": "#hair-biology",
-        "trust_line": "Daily hair wellness - Scalp care - Documented quality",
-        "disclaimer": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>",
-        "placeholder_label": "Hero image - healthy hair / beauty science visual",
-        "padding_top": 88,
-        "padding_bottom": 88,
+        "use_brand_gradient": true,
+        "headline_line1": "The science behind",
+        "headline_line2": "fuller-looking hair.",
+        "subtext": "Healthy-looking hair is built over time - through consistent nutrition, strand support, and care for the scalp environment. Bloomli brings all three together in a simple daily ritual designed to support hair wellness from the inside and outside.",
+        "min_height": 700,
+        "padding_top": 80,
+        "padding_bottom": 80,
         "padding_top_mobile": 56,
-        "padding_bottom_mobile": 56
+        "padding_bottom_mobile": 56,
+        "button_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "cta_primary_label": "Shop the Ritual",
+        "cta_primary_url": "/collections/all",
+        "cta_secondary_label": "Explore the Science",
+        "cta_secondary_url": "#hair-biology",
+        "show_reviews": false,
+        "star_rating_text": "",
+        "trust_badge_1": "Daily hair wellness",
+        "trust_badge_2": "Scalp care",
+        "trust_badge_3": "Documented quality",
+        "overlay_opacity": 20,
+        "use_custom_text_color": false,
+        "text_color": "#2a2622",
+        "use_custom_accent_color": false,
+        "accent_color": "#b23a6f",
+        "content_position_mobile": "top"
       }
     },
     "science_nav": {
@@ -94,7 +105,7 @@
           "type": "phase",
           "settings": {
             "title": "Growth phase",
-            "text": "The active phase where hair fibers are produced. Nutrient availability and overall wellness help support normal hair structure during this phase.*"
+            "text": "The active phase where hair fibers are produced. Nutrient availability and overall wellness help support normal hair structure during this phase."
           }
         },
         "phase_transition": {
@@ -108,7 +119,7 @@
           "type": "phase",
           "settings": {
             "title": "Resting + shedding phase",
-            "text": "Shedding is a normal part of the cycle. The goal is not to stop shedding, but to support the conditions for healthy-looking hair over time.*"
+            "text": "Shedding is a normal part of the cycle. The goal is not to stop shedding, but to support the conditions for healthy-looking hair over time."
           }
         }
       },
@@ -121,7 +132,7 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "eyebrow": "Hair has a timeline.",
         "heading": "Visible hair changes don't happen overnight - and that's biology.",
-        "body": "<p>Each hair follicle moves through its own cycle of growth, transition, rest, and shedding. Because those cycles unfold gradually, the most meaningful support comes from consistency: nourishing the body daily, supporting stronger-looking strands, and caring for the scalp environment over time.*</p>",
+        "body": "<p>Each hair follicle moves through its own cycle of growth, transition, rest, and shedding. Because those cycles unfold gradually, the most meaningful support comes from consistency: nourishing the body daily, supporting stronger-looking strands, and caring for the scalp environment over time.</p>",
         "placeholder_label": "Hair cycle diagram - simple follicle/cycle graphic",
         "padding_top": 96,
         "padding_bottom": 88,
@@ -136,7 +147,7 @@
           "type": "pillar",
           "settings": {
             "title": "Nourish from within",
-            "text": "<p>Hair follicles are active, nutrient-demanding structures. Bloomli supplements help provide key vitamins, minerals, and beauty-supporting nutrients that contribute to normal hair, skin, and nail wellness.*</p>",
+            "text": "<p>Hair follicles are active, nutrient-demanding structures. Bloomli supplements help provide key vitamins, minerals, and beauty-supporting nutrients that contribute to normal hair, skin, and nail wellness.</p>",
             "product_note": "Gummies + Capsules"
           }
         },
@@ -144,7 +155,7 @@
           "type": "pillar",
           "settings": {
             "title": "Support stronger-looking strands",
-            "text": "<p>Healthy-looking hair depends on the building blocks that support structure, shine, and resilience. Bloomli's ingestible formulas include nutrients selected to support stronger-looking strands from within.*</p>",
+            "text": "<p>Healthy-looking hair depends on the building blocks that support structure, shine, and resilience. Bloomli's ingestible formulas include nutrients selected to support stronger-looking strands from within.</p>",
             "product_note": "Gummies + Capsules"
           }
         },
@@ -181,7 +192,7 @@
           "settings": {
             "title": "Hair Vitamins Gummies",
             "role": "Daily beauty-nutrient support",
-            "copy": "<p>A simple daily gummy designed to support hair, skin, and nails from within, with beauty-supporting nutrients like biotin, vitamins, zinc, collagen, and silicon.*</p>",
+            "copy": "<p>A simple daily gummy designed to support hair, skin, and nails from within, with beauty-supporting nutrients like biotin, vitamins, zinc, collagen, and silicon.</p>",
             "routine_detail": "2 gummies daily",
             "note": "Contains fish-derived collagen.",
             "cta_label": "View Gummies",
@@ -193,7 +204,7 @@
           "settings": {
             "title": "Hair Essentials Capsules",
             "role": "Comprehensive nutrient + botanical support",
-            "copy": "<p>A capsule formula for deeper daily support, combining vitamins, minerals, and a botanical blend selected for a more complete inside-out hair wellness routine.*</p>",
+            "copy": "<p>A capsule formula for deeper daily support, combining vitamins, minerals, and a botanical blend selected for a more complete inside-out hair wellness routine.</p>",
             "routine_detail": "2 capsules daily with food",
             "note": "Contains soy. Includes iron.",
             "cta_label": "View Capsules",
@@ -363,7 +374,7 @@
             "icon": "bloom",
             "range": "Months 4-6",
             "title": "Fuller-looking routine results",
-            "description": "With consistent use, fuller-looking hair, stronger-feeling strands, and improved overall hair appearance may become more noticeable.*"
+            "description": "With consistent use, fuller-looking hair, stronger-feeling strands, and improved overall hair appearance may become more noticeable."
           }
         }
       },
@@ -376,7 +387,7 @@
         "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
         "timeline_icon_color": "#6F7A5A",
         "heading": "Why consistency is the whole point.",
-        "subheadline": "<p>Hair wellness is a long-game routine. Because hair grows gradually and each follicle follows its own cycle, visible changes may take several months of consistent use.*</p><p>Results vary. Bloomli products are designed to support hair wellness and are not intended to treat medical hair loss.</p>",
+        "subheadline": "<p>Hair wellness is a long-game routine. Because hair grows gradually and each follicle follows its own cycle, visible changes may take several months of consistent use.</p><p>Results vary. Bloomli products are designed to support hair wellness and are not intended to treat medical hair loss.</p>",
         "circle_background": "surface",
         "circle_size": 280,
         "icon_size": 120,
@@ -460,7 +471,7 @@
           "type": "question",
           "settings": {
             "question": "Are these products FDA-approved?",
-            "answer": "<p>Dietary supplements are not approved by the FDA before sale in the same way drugs are. Bloomli uses structure/function support language and includes the required supplement disclaimer.</p><p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>",
+            "answer": "<p>Dietary supplements are not approved by the FDA before sale in the same way drugs are. Bloomli uses structure/function support language and keeps supplement claims within wellness-support language.</p>",
             "open_by_default": false
           }
         },
@@ -512,9 +523,8 @@
         "body": "<p>Support your hair from within and care for your scalp from the outside with a routine designed for consistency.</p>",
         "primary_label": "Shop Bloomli",
         "primary_link": "/collections/all",
-        "secondary_label": "Take the Hair Quiz",
-        "secondary_link": "/pages/quiz",
-        "disclaimer": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>",
+        "secondary_label": "Explore the Ritual",
+        "secondary_link": "#ritual",
         "placeholder_label": "Final CTA image - Bloomli product ritual/trio",
         "padding_top": 88,
         "padding_bottom": 88,

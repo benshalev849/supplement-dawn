@@ -337,6 +337,27 @@
   }
 }
 
+.footer__fda-disclaimer {
+  margin-top: 2rem;
+}
+
+.footer__fda-disclaimer-box {
+  max-width: 96rem;
+  margin: 0 auto;
+  padding: 1.4rem 1.6rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.14);
+  border-radius: 0.8rem;
+  color: rgba(var(--color-foreground), 0.72);
+  background: rgba(var(--color-foreground), 0.03);
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: calc(1 + 0.5 / var(--font-body-scale));
+}
+
+.footer__fda-disclaimer-box p {
+  margin: 0;
+}
+
 @keyframes appear-down {
   0% {
     opacity: 0;

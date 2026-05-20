@@ -1068,7 +1068,7 @@ label,
 }
 
 #MainContent {
-  padding-top: var(--bloomli-header-stack-height, 0px);
+  padding-top: max(0px, calc(var(--bloomli-header-stack-height, 0px) - 1px));
 }
 
 .shopify-section-header-sticky {

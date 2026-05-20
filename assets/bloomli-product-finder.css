@@ -56,19 +56,16 @@
   min-height: 35rem;
   width: 100%;
   overflow: hidden;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
   border-radius: calc(var(--media-radius) + 1rem);
+  outline: 0.1rem solid rgba(var(--color-foreground), 0.1);
   background: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
   box-shadow: 0 1.4rem 3.8rem rgba(var(--color-foreground), 0.07);
 }
 
 .bloomli-product-finder__card--featured .bloomli-product-finder__card-body {
-  border-width: 0.25rem;
-  border-color: rgba(var(--color-button), 0.75);
-  box-shadow:
-    0 0 0 0.22rem rgba(var(--color-button), 0.75),
-    0 1.8rem 4.8rem rgba(var(--color-button), 0.11);
+  outline: 0.47rem solid rgba(var(--color-button), 0.75);
+  box-shadow: 0 1.8rem 4.8rem rgba(var(--color-button), 0.11);
 }
 
 .bloomli-product-finder__badge {

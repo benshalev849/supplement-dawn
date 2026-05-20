@@ -32,6 +32,8 @@
         "trust_badge_1": "Daily hair wellness",
         "trust_badge_2": "Scalp care",
         "trust_badge_3": "Documented quality",
+        "desktop_image": "shopify://shop_images/Science_Hero_Desktop.png",
+        "mobile_image": "shopify://shop_images/Science_Hero_Mobile.png",
         "overlay_opacity": 20,
         "use_custom_text_color": false,
         "text_color": "#2a2622",
@@ -353,6 +355,7 @@
         "timeline_1": {
           "type": "step",
           "settings": {
+            "image_scale": 100,
             "icon": "seed",
             "range": "Weeks 1-4",
             "title": "Build the habit",
@@ -362,6 +365,7 @@
         "timeline_2": {
           "type": "step",
           "settings": {
+            "image_scale": 100,
             "icon": "sprout",
             "range": "Months 2-3",
             "title": "Early support phase",
@@ -371,6 +375,7 @@
         "timeline_3": {
           "type": "step",
           "settings": {
+            "image_scale": 100,
             "icon": "bloom",
             "range": "Months 4-6",
             "title": "Fuller-looking routine results",
@@ -385,7 +390,7 @@
       ],
       "settings": {
         "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
-        "timeline_icon_color": "#6F7A5A",
+        "timeline_icon_color": "#6f7a5a",
         "heading": "Why consistency is the whole point.",
         "subheadline": "<p>Hair wellness is a long-game routine. Because hair grows gradually and each follicle follows its own cycle, visible changes may take several months of consistent use.</p><p>Results vary. Bloomli products are designed to support hair wellness and are not intended to treat medical hair loss.</p>",
         "circle_background": "surface",
@@ -499,11 +504,12 @@
       "settings": {
         "heading": "Science questions, plain answers.",
         "intro": "<p>Clear answers about Bloomli's hair wellness ritual, what to expect, and where to find product-specific details.</p>",
+        "image_alt": "",
         "show_placeholder": false,
         "image_position": "right",
         "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "border_color": "#E8DED8",
+        "border_color": "#e8ded8",
         "image_width": 460,
         "corner_radius": 16,
         "heading_size": 48,

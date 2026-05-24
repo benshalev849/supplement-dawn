@@ -159,7 +159,7 @@
         "ingredient_zinc": {
           "type": "ingredient",
           "settings": {
-            "image": "shopify://shop_images/Zinc_Square.png",
+            "image": "shopify://shop_images/Zinc_Square_4d47934d-33c0-4bd6-b9b2-71f8ee3a6f3c.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Mineral support",
             "role": "Inside + outside",

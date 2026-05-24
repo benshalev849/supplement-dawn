@@ -125,7 +125,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "section_id": "inside-out",
-        "use_custom_background": true,
+        "use_custom_background": false,
         "background_color": "#f7efec",
         "heading": "Hair wellness works from the inside out.",
         "copy": "<p>Hair is shaped by what happens inside the body and at the scalp. Bloomli is designed to support both — daily supplements to nourish from within, and a topical serum to care for the scalp surface.</p>",
@@ -147,7 +147,7 @@
         "ingredient_biotin": {
           "type": "ingredient",
           "settings": {
-            "image_placeholder": "[ IMAGE: Biotin-rich supplement texture, warm golden tone ]",
+            "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Inside support",
             "role": "Gummies",
             "title": "Biotin",
@@ -157,7 +157,7 @@
         "ingredient_zinc": {
           "type": "ingredient",
           "settings": {
-            "image_placeholder": "[ IMAGE: Abstract mineral or crystal texture on warm neutral surface ]",
+            "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Mineral support",
             "role": "Inside + outside",
             "title": "Zinc",
@@ -167,7 +167,7 @@
         "ingredient_b_vitamins": {
           "type": "ingredient",
           "settings": {
-            "image_placeholder": "[ IMAGE: B-vitamin supplement texture on warm cream surface ]",
+            "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Daily metabolism",
             "role": "Capsules",
             "title": "Folate + B-vitamins",
@@ -177,7 +177,7 @@
         "ingredient_vitamin_c": {
           "type": "ingredient",
           "settings": {
-            "image_placeholder": "[ IMAGE: Vitamin C citrus or botanical macro on neutral surface ]",
+            "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Antioxidant support",
             "role": "Inside + outside",
             "title": "Vitamin C",
@@ -187,7 +187,7 @@
         "ingredient_rosemary": {
           "type": "ingredient",
           "settings": {
-            "image_placeholder": "[ IMAGE: Rosemary sprig close-up with soft natural light ]",
+            "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Scalp ritual",
             "role": "Serum",
             "title": "Rosemary Extract",
@@ -197,7 +197,7 @@
         "ingredient_densidyl": {
           "type": "ingredient",
           "settings": {
-            "image_placeholder": "[ IMAGE: Chlorella and spirulina botanical texture on cream surface ]",
+            "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Topical blend",
             "role": "Serum",
             "title": "Densidyl components",
@@ -216,7 +216,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "section_id": "ingredients",
-        "use_custom_background": true,
+        "use_custom_background": false,
         "background_color": "#faf5f3",
         "heading": "Six ingredients worth knowing by name.",
         "copy": "<p>Not every ingredient list earns attention. These six have a specific role, a specific reason for being included, and research behind the way they’re used in hair, skin, nail, or scalp wellness.</p>",
@@ -275,10 +275,10 @@
       "settings": {
         "color_scheme": "scheme-1",
         "section_id": "testing",
-        "use_custom_background": true,
+        "use_custom_background": false,
         "background_color": "#ede3dd",
         "heading": "What third-party testing actually confirmed.",
-        "copy": "<p>We don&rsquo;t just say &ldquo;tested.&rdquo; Here&rsquo;s what the documentation shows.</p>",
+        "copy": "<p>We don’t just say “tested.” Here’s what the documentation shows.</p>",
         "coa_label": "Request a COA ->",
         "coa_link": "mailto:support@bloomliwellness.com?subject=COA Request",
         "footnote": "<p>*These are quality and testing data, not clinical outcome statistics. Results vary by lot. Product documentation is available on request.</p>",

@@ -34,7 +34,7 @@
         "trust_badge_3": "Documented quality",
         "desktop_image": "shopify://shop_images/Science_Hero_Desktop_21-9.png",
         "desktop_image_layout": "banner_fixed_height",
-        "desktop_image_fit": "contain",
+        "desktop_image_fit": "cover",
         "desktop_image_position": "center bottom",
         "mobile_image": "shopify://shop_images/Science_Hero_Mobile_88278f58-cdb2-465f-a17b-ef844beadaf7.png",
         "mobile_image_fit": "contain",
@@ -115,30 +115,30 @@
       }
     },
     "approach": {
-      "type": "bloomli-science-pillars",
+      "type": "bloomli-proof-split",
       "blocks": {
         "pillar_nourish": {
-          "type": "pillar",
+          "type": "bullet",
           "settings": {
-            "title": "Nourish from within",
-            "text": "<p>Hair follicles are active, nutrient-demanding structures. Bloomli supplements help provide key vitamins, minerals, and beauty-supporting nutrients that contribute to normal hair, skin, and nail wellness.</p>",
-            "product_note": "Gummies + Capsules"
+            "bullet_title": "Nourish from within",
+            "text": "Hair follicles are active, nutrient-demanding structures. Bloomli supplements help provide key vitamins, minerals, and beauty-supporting nutrients that contribute to normal hair, skin, and nail wellness.",
+            "note": "Gummies + Capsules"
           }
         },
         "pillar_strands": {
-          "type": "pillar",
+          "type": "bullet",
           "settings": {
-            "title": "Support stronger-looking strands",
-            "text": "<p>Healthy-looking hair depends on the building blocks that support structure, shine, and resilience. Bloomli's ingestible formulas include nutrients selected to support stronger-looking strands from within.</p>",
-            "product_note": "Gummies + Capsules"
+            "bullet_title": "Support stronger-looking strands",
+            "text": "Healthy-looking hair depends on the building blocks that support structure, shine, and resilience. Bloomli's ingestible formulas include nutrients selected to support stronger-looking strands from within.",
+            "note": "Gummies + Capsules"
           }
         },
         "pillar_scalp": {
-          "type": "pillar",
+          "type": "bullet",
           "settings": {
-            "title": "Care for the scalp environment",
-            "text": "<p>The scalp is skin - and the environment hair grows from. Bloomli's botanical serum supports a consistent scalp-care ritual with lightweight, plant-powered topical care.</p>",
-            "product_note": "Oil / Serum"
+            "bullet_title": "Care for the scalp environment",
+            "text": "The scalp is skin - and the environment hair grows from. Bloomli's botanical serum supports a consistent scalp-care ritual with lightweight, plant-powered topical care.",
+            "note": "Oil / Serum"
           }
         }
       },
@@ -149,9 +149,37 @@
       ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "Hair wellness works best when you support the whole ritual.",
-        "intro": "<p>Hair is influenced by what happens inside the body and at the scalp. That's why Bloomli is built around a 3-part approach: daily nutrient support, strand-strength support, and topical scalp care.</p>",
-        "placeholder_label": "3-part ritual visual - gummies, capsules, serum",
+        "section_id": "approach",
+        "layout_style": "cards_grid",
+        "header_alignment": "left",
+        "header_position": "above_grid",
+        "content_density": "compact",
+        "use_custom_background": false,
+        "background_color": "#fdfaf7",
+        "icon_accent_color": "#6f7a5a",
+        "show_image": true,
+        "image_side": "left",
+        "mobile_image_position": "before_items",
+        "media_background": "surface",
+        "image_label": "3-part ritual visual - gummies, capsules, serum",
+        "image_caption": "",
+        "image_scale": 100,
+        "image_fit": "cover",
+        "enable_image_animation": false,
+        "image_position": "center center",
+        "image_width": 760,
+        "desktop_image_size": 100,
+        "image_size": 100,
+        "image_radius": 16,
+        "card_grid_image_position": "after_cards",
+        "card_grid_image_height": 240,
+        "show_card_borders": true,
+        "number_style": "plain",
+        "card_columns_desktop": 3,
+        "card_columns_tablet": 1,
+        "heading_line1": "Hair wellness works best when you support the whole ritual.",
+        "copy": "<p>Hair is influenced by what happens inside the body and at the scalp. That's why Bloomli is built around a 3-part approach: daily nutrient support, strand-strength support, and topical scalp care.</p>",
+        "items_note": "",
         "padding_top": 96,
         "padding_bottom": 88,
         "padding_top_mobile": 56,
@@ -233,40 +261,40 @@
       }
     },
     "standards": {
-      "type": "bloomli-quality-standards",
+      "type": "bloomli-proof-split",
       "blocks": {
         "quality_usa": {
-          "type": "quality_item",
+          "type": "bullet",
           "settings": {
-            "title": "USA manufacturing",
+            "bullet_title": "USA manufacturing",
             "text": "Produced in the USA through established supplement and personal-care manufacturing partners."
           }
         },
         "quality_scope": {
-          "type": "quality_item",
+          "type": "bullet",
           "settings": {
-            "title": "Supplier quality scope",
+            "bullet_title": "Supplier quality scope",
             "text": "Our supplier documentation includes NSF/ANSI quality-system certification scope for relevant supplement operations and product categories."
           }
         },
         "quality_metals": {
-          "type": "quality_item",
+          "type": "bullet",
           "settings": {
-            "title": "Heavy metals testing",
+            "bullet_title": "Heavy metals testing",
             "text": "Current lot documentation includes heavy metal screening for relevant supplement products."
           }
         },
         "quality_micro": {
-          "type": "quality_item",
+          "type": "bullet",
           "settings": {
-            "title": "Microbial testing",
+            "bullet_title": "Microbial testing",
             "text": "Current lot documentation includes microbial testing to help verify product quality."
           }
         },
         "quality_coa": {
-          "type": "quality_item",
+          "type": "bullet",
           "settings": {
-            "title": "COAs available",
+            "bullet_title": "COAs available",
             "text": "Quality documentation is available for current production lots, including heavy metal and microbial testing."
           }
         }
@@ -280,11 +308,38 @@
       ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "Clean standards. Documented quality.",
-        "body": "<p>Bloomli products are produced through a supplier system with documented quality processes and lot-level testing information. We believe supplement trust should come from clear standards, not vague promises.</p>",
-        "note": "Documentation varies by product and lot. Contact support for current product-specific information.",
-        "quality_image": "shopify://shop_images/Hand_Inspecting_Vial_342317ae-c2d7-48fd-9495-01f8fb62dc3e.png",
-        "placeholder_label": "Quality/testing image - COA/testing/document visual",
+        "section_id": "standards",
+        "layout_style": "split",
+        "header_alignment": "left",
+        "header_position": "with_items",
+        "content_density": "compact",
+        "use_custom_background": false,
+        "background_color": "#fdfaf7",
+        "icon_accent_color": "#6f7a5a",
+        "show_image": true,
+        "image": "shopify://shop_images/Hand_Inspecting_Vial_342317ae-c2d7-48fd-9495-01f8fb62dc3e.png",
+        "image_side": "right",
+        "mobile_image_position": "after_items",
+        "media_background": "surface",
+        "image_label": "Quality/testing image - COA/testing/document visual",
+        "image_caption": "",
+        "image_scale": 100,
+        "image_fit": "cover",
+        "enable_image_animation": false,
+        "image_position": "center center",
+        "image_width": 520,
+        "desktop_image_size": 100,
+        "image_size": 85,
+        "image_radius": 16,
+        "card_grid_image_position": "before_cards",
+        "card_grid_image_height": 240,
+        "show_card_borders": true,
+        "number_style": "plain",
+        "card_columns_desktop": 3,
+        "card_columns_tablet": 1,
+        "heading_line1": "Clean standards. Documented quality.",
+        "copy": "<p>Bloomli products are produced through a supplier system with documented quality processes and lot-level testing information. We believe supplement trust should come from clear standards, not vague promises.</p>",
+        "items_note": "<p>Documentation varies by product and lot. Contact support for current product-specific information.</p>",
         "padding_top": 96,
         "padding_bottom": 88,
         "padding_top_mobile": 56,

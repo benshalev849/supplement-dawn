@@ -12,3 +12,5 @@ Thumbs.db
 graphify-out/manifest.json
 graphify-out/cost.json
 .playwright-mcp/
+.agents/skills/
+.claude/skills/

@@ -275,20 +275,6 @@
     object-position: center bottom;
   }
 
-  .bloomli-hero--fit-16-9 {
-    aspect-ratio: 16 / 9;
-    min-height: auto;
-  }
-
-  .bloomli-hero--fit-16-9 .bloomli-hero__inner {
-    height: 100%;
-    min-height: auto;
-    box-sizing: border-box;
-  }
-
-  .bloomli-hero--fit-16-9 .bloomli-hero__bg-img--desktop {
-    object-fit: cover;
-  }
 }
 
 .bloomli-hero__overlay {

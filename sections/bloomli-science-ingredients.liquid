@@ -26,7 +26,28 @@
 
     <div class="bloomli-science-ingredients__grid">
       {%- for block in section.blocks -%}
+        {%- assign ingredient_image_alt = block.settings.image.alt | default: block.settings.title -%}
         <article class="bloomli-science-ingredients__card" {{ block.shopify_attributes }}>
+          <div class="bloomli-science-ingredients__media">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 900
+                | image_tag:
+                  widths: '320, 480, 640, 800, 900',
+                  sizes: '(min-width: 990px) 28vw, (min-width: 750px) 45vw, 50vw',
+                  loading: 'lazy',
+                  decoding: 'async',
+                  alt: ingredient_image_alt,
+                  class: 'bloomli-science-ingredients__image'
+              }}
+            {%- elsif block.settings.image_placeholder != blank -%}
+              <div class="bloomli-science-ingredients__placeholder">
+                {{ block.settings.image_placeholder | escape }}
+              </div>
+            {%- endif -%}
+          </div>
+
           <div class="bloomli-science-ingredients__content">
             <div class="bloomli-science-ingredients__meta">
               {%- if block.settings.label != blank -%}
@@ -77,6 +98,8 @@
       "type": "ingredient",
       "name": "Ingredient",
       "settings": [
+        { "type": "image_picker", "id": "image", "label": "Ingredient image" },
+        { "type": "text", "id": "image_placeholder", "label": "Missing-image placeholder", "default": "[ IMAGE: Ingredient close-up on a warm neutral surface ]" },
         { "type": "text", "id": "label", "label": "Small label", "default": "Inside support" },
         { "type": "text", "id": "role", "label": "Product role tag", "default": "Gummies" },
         { "type": "text", "id": "title", "label": "Ingredient name", "default": "Biotin" },
@@ -89,11 +112,11 @@
       "name": "Bloomli Sci Ingredients",
       "blocks": [
         { "type": "ingredient" },
-        { "type": "ingredient", "settings": { "label": "Mineral support", "role": "Inside + outside", "title": "Zinc", "text": "<p>A mineral involved in normal skin, hair, and nail health. Included to support the beauty-from-within side of the Bloomli ritual.</p>" } },
-        { "type": "ingredient", "settings": { "label": "Daily metabolism", "role": "Capsules", "title": "Folate + B-vitamins", "text": "<p>B-vitamins help support normal nutrient metabolism and daily wellness. Bloomli formulas use B-vitamin support as part of a broader hair, skin, and nail routine.</p>" } },
-        { "type": "ingredient", "settings": { "label": "Antioxidant support", "role": "Inside + outside", "title": "Vitamin C", "text": "<p>Supports normal collagen formation and antioxidant protection. In a hair wellness formula, Vitamin C belongs because healthy-looking hair starts with overall tissue and skin support.</p>" } },
-        { "type": "ingredient", "settings": { "label": "Scalp ritual", "role": "Serum", "title": "Rosemary Extract", "text": "<p>A botanical used in Bloomli&rsquo;s topical serum to support a consistent scalp-care ritual and help the scalp feel refreshed.</p>" } },
-        { "type": "ingredient", "settings": { "label": "Topical blend", "role": "Serum", "title": "Densidyl components", "text": "<p>A topical blend built around Chlorella and Spirulina extracts, included in the serum to help support the scalp environment.</p>" } }
+        { "type": "ingredient", "settings": { "image_placeholder": "[ IMAGE: Abstract mineral or crystal texture on warm neutral surface ]", "label": "Mineral support", "role": "Inside + outside", "title": "Zinc", "text": "<p>A mineral involved in normal skin, hair, and nail health. Included to support the beauty-from-within side of the Bloomli ritual.</p>" } },
+        { "type": "ingredient", "settings": { "image_placeholder": "[ IMAGE: B-vitamin supplement texture on warm cream surface ]", "label": "Daily metabolism", "role": "Capsules", "title": "Folate + B-vitamins", "text": "<p>B-vitamins help support normal nutrient metabolism and daily wellness. Bloomli formulas use B-vitamin support as part of a broader hair, skin, and nail routine.</p>" } },
+        { "type": "ingredient", "settings": { "image_placeholder": "[ IMAGE: Vitamin C citrus or botanical macro on neutral surface ]", "label": "Antioxidant support", "role": "Inside + outside", "title": "Vitamin C", "text": "<p>Supports normal collagen formation and antioxidant protection. In a hair wellness formula, Vitamin C belongs because healthy-looking hair starts with overall tissue and skin support.</p>" } },
+        { "type": "ingredient", "settings": { "image_placeholder": "[ IMAGE: Rosemary sprig close-up with soft natural light ]", "label": "Scalp ritual", "role": "Serum", "title": "Rosemary Extract", "text": "<p>A botanical used in Bloomli&rsquo;s topical serum to support a consistent scalp-care ritual and help the scalp feel refreshed.</p>" } },
+        { "type": "ingredient", "settings": { "image_placeholder": "[ IMAGE: Chlorella and spirulina botanical texture on cream surface ]", "label": "Topical blend", "role": "Serum", "title": "Densidyl components", "text": "<p>A topical blend built around Chlorella and Spirulina extracts, included in the serum to help support the scalp environment.</p>" } }
       ]
     }
   ]

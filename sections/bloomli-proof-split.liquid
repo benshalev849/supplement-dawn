@@ -11,6 +11,7 @@
   assign mobile_image_position = section.settings.mobile_image_position | default: 'before_items'
   assign number_style = section.settings.number_style | default: 'leading_zero'
   assign content_density = section.settings.content_density | default: 'standard'
+  assign card_grid_image_position = section.settings.card_grid_image_position | default: 'before_cards'
   assign show_image = section.settings.show_image
   if show_image == nil
     assign show_image = true
@@ -25,7 +26,7 @@
   {% if section.settings.section_id != blank %}
     id="{{ section.settings.section_id | handleize }}"
   {% endif %}
-  class="bloomli-proof-panel bloomli-proof-panel--layout-{{ layout_style }} bloomli-proof-panel--density-{{ content_density }} bloomli-proof-panel--image-{{ section.settings.image_side | default: 'left' }} bloomli-proof-panel--header-{{ header_alignment }} bloomli-proof-panel--header-position-{{ header_position }} bloomli-proof-panel--mobile-image-{{ mobile_image_position }}{% unless show_image %} bloomli-proof-panel--no-image{% endunless %}{% if enable_image_animation %} bloomli-proof-panel--movement{% else %} bloomli-proof-panel--static-image{% endif %} bloomli-section color-{{ section.settings.color_scheme }} gradient"
+  class="bloomli-proof-panel bloomli-proof-panel--layout-{{ layout_style }} bloomli-proof-panel--density-{{ content_density }} bloomli-proof-panel--image-{{ section.settings.image_side | default: 'left' }} bloomli-proof-panel--header-{{ header_alignment }} bloomli-proof-panel--header-position-{{ header_position }} bloomli-proof-panel--mobile-image-{{ mobile_image_position }} bloomli-proof-panel--card-image-{{ card_grid_image_position }}{% unless show_image %} bloomli-proof-panel--no-image{% endunless %}{% if enable_image_animation %} bloomli-proof-panel--movement{% else %} bloomli-proof-panel--static-image{% endif %} bloomli-section color-{{ section.settings.color_scheme }} gradient"
   style="
     --bpp-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
     --bpp-accent: {% if icon_accent_color == '#6f7a5a' %}var(--bloomli-primary-action){% else %}{{ section.settings.icon_accent_color | default: 'var(--bloomli-primary-action)' }}{% endif %};
@@ -42,6 +43,7 @@
     --bpp-header-align: {{ header_alignment }};
     --bpp-card-columns-desktop: {{ section.settings.card_columns_desktop | default: 4 }};
     --bpp-card-columns-tablet: {{ section.settings.card_columns_tablet | default: 2 }};
+    --bpp-card-grid-image-height: {{ section.settings.card_grid_image_height | default: 240 }}px;
     --bpp-card-border: {% if section.settings.show_card_borders %}1px solid color-mix(in srgb, var(--bloomli-editorial-accent) 18%, transparent){% else %}0{% endif %};
   "
 >
@@ -76,6 +78,9 @@
                 {%- if block.settings.text != blank -%}
                   <p>{{ block.settings.text }}</p>
                 {%- endif -%}
+                {%- if block.settings.note != blank -%}
+                  <div class="bloomli-proof-panel__proof-item-note">{{ block.settings.note | escape }}</div>
+                {%- endif -%}
               {%- elsif block.settings.text != blank -%}
                 <h3>{{ block.settings.text }}</h3>
               {%- endif -%}
@@ -85,45 +90,73 @@
       </div>
     {%- endcapture -%}
 
+    {%- capture proof_items -%}
+      {{ proof_list }}
+      {%- if section.settings.items_note != blank -%}
+        <div class="bloomli-proof-panel__items-note rte">{{ section.settings.items_note }}</div>
+      {%- endif -%}
+    {%- endcapture -%}
+
+    {%- capture proof_visual -%}
+      <div class="bloomli-proof-panel__visual">
+        {%- if section.settings.image != blank -%}
+          <div class="bloomli-proof-panel__image-wrap">
+            {{
+              section.settings.image
+              | image_url: width: 1400
+              | image_tag:
+                class: 'bloomli-proof-panel__image',
+                alt: image_alt,
+                widths: '500, 700, 900, 1200, 1400',
+                sizes: '(max-width: 899px) calc(100vw - 84px), min(42vw, 560px)',
+                loading: 'lazy',
+                decoding: 'async',
+                style: image_style
+            }}
+          </div>
+        {%- elsif section.settings.image_label != blank -%}
+          <span class="smallcaps bloomli-section-placeholder-label">{{ section.settings.image_label }}</span>
+        {%- endif -%}
+
+        {%- if section.settings.image_caption != blank -%}
+          <div class="bloomli-proof-panel__image-caption">{{ section.settings.image_caption }}</div>
+        {%- endif -%}
+      </div>
+    {%- endcapture -%}
+
     {%- if header_position == 'above_grid' -%}
       {{ proof_header }}
     {%- endif -%}
 
     <div class="bloomli-proof-panel__grid">
-      {%- if show_image -%}
-        <div class="bloomli-proof-panel__visual">
-          {%- if section.settings.image != blank -%}
-            <div class="bloomli-proof-panel__image-wrap">
-              {{
-                section.settings.image
-                | image_url: width: 1400
-                | image_tag:
-                  class: 'bloomli-proof-panel__image',
-                  alt: image_alt,
-                  widths: '500, 700, 900, 1200, 1400',
-                  sizes: '(max-width: 899px) calc(100vw - 84px), min(42vw, 560px)',
-                  loading: 'lazy',
-                  decoding: 'async',
-                  style: image_style
-              }}
-            </div>
-          {%- elsif section.settings.image_label != blank -%}
-            <span class="smallcaps bloomli-section-placeholder-label">{{ section.settings.image_label }}</span>
-          {%- endif -%}
+      {%- liquid
+        assign show_visual_before_items = false
+        if show_image
+          if layout_style == 'cards_grid'
+            if card_grid_image_position == 'before_cards'
+              assign show_visual_before_items = true
+            endif
+          else
+            assign show_visual_before_items = true
+          endif
+        endif
+      -%}
 
-          {%- if section.settings.image_caption != blank -%}
-            <div class="bloomli-proof-panel__image-caption">{{ section.settings.image_caption }}</div>
-          {%- endif -%}
-        </div>
+      {%- if show_visual_before_items -%}
+        {{ proof_visual }}
       {%- endif -%}
 
       {%- if header_position == 'with_items' -%}
         <div class="bloomli-proof-panel__content">
           {{ proof_header }}
-          {{ proof_list }}
+          {{ proof_items }}
         </div>
       {%- else -%}
-        {{ proof_list }}
+        {{ proof_items }}
+      {%- endif -%}
+
+      {%- if show_image and layout_style == 'cards_grid' and card_grid_image_position == 'after_cards' -%}
+        {{ proof_visual }}
       {%- endif -%}
     </div>
   </div>
@@ -191,6 +224,11 @@
     { "type": "range", "id": "desktop_image_size", "label": "Desktop image size", "min": 40, "max": 100, "step": 5, "default": 100, "unit": "%" },
     { "type": "range", "id": "image_size", "label": "Mobile image size", "min": 40, "max": 100, "step": 5, "default": 100, "unit": "%" },
     { "type": "range", "id": "image_radius", "label": "Image corner radius", "min": 0, "max": 40, "step": 2, "default": 16, "unit": "px" },
+    { "type": "select", "id": "card_grid_image_position", "label": "Card grid image position", "options": [
+      { "value": "before_cards", "label": "Before cards" },
+      { "value": "after_cards", "label": "After cards" }
+    ], "default": "before_cards" },
+    { "type": "range", "id": "card_grid_image_height", "label": "Card grid image height", "min": 160, "max": 420, "step": 20, "default": 240, "unit": "px" },
     { "type": "checkbox", "id": "show_card_borders", "label": "Show card borders", "default": true },
     { "type": "select", "id": "number_style", "label": "Number style", "options": [
       { "value": "leading_zero", "label": "01, 02, 03" },
@@ -201,6 +239,7 @@
     { "type": "range", "id": "card_columns_tablet", "label": "Card columns on tablet", "min": 1, "max": 3, "step": 1, "default": 2 },
     { "type": "text", "id": "heading_line1", "label": "Heading", "default": "Every milligram, intentional." },
     { "type": "richtext", "id": "copy", "label": "Copy", "default": "<p>We formulate at clinical doses - the amounts used in peer-reviewed studies - not the sprinkle-doses you'll find in most gummies. Every batch is independently tested. Nothing added for color, nothing hidden in a proprietary blend.</p>" },
+    { "type": "richtext", "id": "items_note", "label": "Text below proof items" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 80, "unit": "px" },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 80, "unit": "px" },
     { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 176, "step": 8, "default": 56, "unit": "px" },
@@ -212,7 +251,8 @@
       "name": "Proof item",
       "settings": [
         { "type": "text", "id": "bullet_title", "label": "Item title" },
-        { "type": "text", "id": "text", "label": "Text", "default": "Clinically-dosed actives. No fairy dust." }
+        { "type": "text", "id": "text", "label": "Text", "default": "Clinically-dosed actives. No fairy dust." },
+        { "type": "text", "id": "note", "label": "Small note" }
       ]
     }
   ],

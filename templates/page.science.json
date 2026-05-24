@@ -119,7 +119,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "section_id": "inside-out",
-        "use_custom_background": true,
+        "use_custom_background": false,
         "background_color": "#F7EFEC",
         "heading": "Hair wellness works from the inside out.",
         "copy": "<p>Hair is shaped by what happens inside the body and at the scalp. Bloomli is designed to support both &mdash; daily supplements to nourish from within, and a topical serum to care for the scalp surface.</p>",
@@ -204,7 +204,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "section_id": "ingredients",
-        "use_custom_background": true,
+        "use_custom_background": false,
         "background_color": "#FAF5F3",
         "heading": "Six ingredients worth knowing by name.",
         "copy": "<p>Not every ingredient list earns attention. These six have a specific role, a specific reason for being included, and research behind the way they&rsquo;re used in hair, skin, nail, or scalp wellness.</p>",
@@ -263,7 +263,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "section_id": "testing",
-        "use_custom_background": true,
+        "use_custom_background": false,
         "background_color": "#EDE3DD",
         "heading": "What third-party testing actually confirmed.",
         "copy": "<p>We don&rsquo;t just say &ldquo;tested.&rdquo; Here&rsquo;s what the documentation shows.</p>",
@@ -282,7 +282,7 @@
         "show_expert_review": false,
         "color_scheme": "scheme-1",
         "section_id": "expert-review",
-        "use_custom_background": true,
+        "use_custom_background": false,
         "background_color": "#FAF5F3",
         "expert_placeholder": "[ PHOTO: Real advisor portrait. Do not publish without permission. ]",
         "heading": "Reviewed for ingredient logic and safety context.",

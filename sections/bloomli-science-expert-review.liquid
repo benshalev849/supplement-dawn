@@ -85,7 +85,7 @@
     { "type": "checkbox", "id": "show_expert_review", "label": "Show expert review", "default": false },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f", "visible_if": "{{ section.settings.show_expert_review }}" },
     { "type": "text", "id": "section_id", "label": "Optional section anchor ID", "default": "expert-review", "visible_if": "{{ section.settings.show_expert_review }}" },
-    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": true, "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false, "visible_if": "{{ section.settings.show_expert_review }}" },
     { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FAF5F3", "visible_if": "{{ section.settings.show_expert_review and section.settings.use_custom_background }}" },
     { "type": "image_picker", "id": "expert_image", "label": "Expert image", "visible_if": "{{ section.settings.show_expert_review }}" },
     { "type": "text", "id": "expert_placeholder", "label": "Missing-image placeholder", "default": "[ PHOTO: Real advisor portrait. Do not publish without permission. ]", "visible_if": "{{ section.settings.show_expert_review }}" },

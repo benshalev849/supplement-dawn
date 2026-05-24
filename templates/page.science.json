@@ -12,7 +12,7 @@
     "science_hero": {
       "type": "bloomli-hero",
       "settings": {
-        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
+        "color_scheme": "scheme-1",
         "use_brand_gradient": true,
         "headline_line1": "The science behind fuller-looking hair.",
         "headline_line2": "",
@@ -22,7 +22,7 @@
         "padding_bottom": 80,
         "padding_top_mobile": 56,
         "padding_bottom_mobile": 56,
-        "button_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "button_color_scheme": "scheme-1",
         "cta_primary_label": "Shop the Ritual",
         "cta_primary_url": "/collections/all",
         "cta_secondary_label": "",
@@ -78,7 +78,7 @@
         "phase_resting"
       ],
       "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-1",
         "section_id": "hair-biology",
         "layout_style": "split",
         "header_alignment": "left",
@@ -117,7 +117,7 @@
     "inside_out": {
       "type": "bloomli-science-inside-out",
       "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-1",
         "section_id": "inside-out",
         "use_custom_background": true,
         "background_color": "#F7EFEC",
@@ -202,7 +202,7 @@
         "ingredient_densidyl"
       ],
       "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-1",
         "section_id": "ingredients",
         "use_custom_background": true,
         "background_color": "#FAF5F3",
@@ -261,7 +261,7 @@
         "testing_nsf"
       ],
       "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-1",
         "section_id": "testing",
         "use_custom_background": true,
         "background_color": "#EDE3DD",
@@ -280,7 +280,7 @@
       "type": "bloomli-science-expert-review",
       "settings": {
         "show_expert_review": false,
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-1",
         "section_id": "expert-review",
         "use_custom_background": true,
         "background_color": "#FAF5F3",
@@ -363,8 +363,8 @@
         "image_alt": "",
         "show_placeholder": false,
         "image_position": "right",
-        "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "container_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
         "border_color": "#e8ded8",
         "image_width": 460,
         "corner_radius": 16,
@@ -380,7 +380,7 @@
     "science_cta": {
       "type": "bloomli-science-cta",
       "settings": {
-        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
+        "color_scheme": "scheme-1",
         "heading": "Build your daily hair ritual.",
         "body": "<p>Support your hair from within and care for your scalp from the outside with a routine designed for consistency.</p>",
         "primary_label": "Shop Bloomli",

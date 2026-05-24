@@ -35,17 +35,11 @@
           {%- if block.settings.text != blank -%}
             <div class="bloomli-science-testing__text rte">{{ block.settings.text }}</div>
           {%- endif -%}
-          {%- if block.settings.source != blank -%}
-            <div class="bloomli-science-testing__source">{{ block.settings.source | escape }}</div>
-          {%- endif -%}
         </article>
       {%- endfor -%}
     </div>
 
     <div class="bloomli-science-testing__footer">
-      {%- if section.settings.coa_label != blank and section.settings.coa_link != blank -%}
-        <a class="bloomli-science-testing__link" href="{{ section.settings.coa_link }}">{{ section.settings.coa_label | escape }}</a>
-      {%- endif -%}
       {%- if section.settings.footnote != blank -%}
         <div class="bloomli-science-disclaimer rte">{{ section.settings.footnote }}</div>
       {%- endif -%}

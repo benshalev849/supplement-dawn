@@ -30,6 +30,15 @@
 
     <div class="bloomli-science-inside-out__grid">
       <article class="bloomli-science-inside-out__card bloomli-science-inside-out__card--warm">
+        <div class="bloomli-science-inside-out__body">
+          {%- if section.settings.left_heading != blank -%}
+            <h3>{{ section.settings.left_heading | escape }}</h3>
+          {%- endif -%}
+          {%- if section.settings.left_body != blank -%}
+            <div class="rte">{{ section.settings.left_body }}</div>
+          {%- endif -%}
+        </div>
+
         <div class="bloomli-science-inside-out__media">
           {%- if section.settings.supplement_image != blank -%}
             {{
@@ -49,18 +58,18 @@
             </div>
           {%- endif -%}
         </div>
-
-        <div class="bloomli-science-inside-out__body">
-          {%- if section.settings.left_heading != blank -%}
-            <h3>{{ section.settings.left_heading | escape }}</h3>
-          {%- endif -%}
-          {%- if section.settings.left_body != blank -%}
-            <div class="rte">{{ section.settings.left_body }}</div>
-          {%- endif -%}
-        </div>
       </article>
 
       <article class="bloomli-science-inside-out__card bloomli-science-inside-out__card--sage">
+        <div class="bloomli-science-inside-out__body">
+          {%- if section.settings.right_heading != blank -%}
+            <h3>{{ section.settings.right_heading | escape }}</h3>
+          {%- endif -%}
+          {%- if section.settings.right_body != blank -%}
+            <div class="rte">{{ section.settings.right_body }}</div>
+          {%- endif -%}
+        </div>
+
         <div class="bloomli-science-inside-out__media">
           {%- if section.settings.serum_image != blank -%}
             {{
@@ -78,15 +87,6 @@
             <div class="bloomli-science-inside-out__placeholder">
               {{ section.settings.serum_placeholder | escape }}
             </div>
-          {%- endif -%}
-        </div>
-
-        <div class="bloomli-science-inside-out__body">
-          {%- if section.settings.right_heading != blank -%}
-            <h3>{{ section.settings.right_heading | escape }}</h3>
-          {%- endif -%}
-          {%- if section.settings.right_body != blank -%}
-            <div class="rte">{{ section.settings.right_body }}</div>
           {%- endif -%}
         </div>
       </article>

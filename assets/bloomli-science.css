@@ -326,6 +326,42 @@
 }
 
 .bloomli-science-ingredients__card {
+  overflow: hidden;
+}
+
+.bloomli-science-ingredients__media {
+  display: grid;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background:
+    linear-gradient(135deg, rgba(var(--color-button), 0.1), rgba(var(--color-foreground), 0.04)),
+    rgb(var(--color-background));
+  place-items: center;
+}
+
+.bloomli-science-ingredients__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bloomli-science-ingredients__placeholder {
+  display: grid;
+  width: calc(100% - 3.2rem);
+  height: calc(100% - 3.2rem);
+  align-items: center;
+  justify-items: center;
+  padding: 2.8rem;
+  border: 0.1rem dashed rgba(var(--color-foreground), 0.2);
+  border-radius: 1.2rem;
+  color: rgba(var(--color-foreground), 0.52);
+  font-size: clamp(1.2rem, 1.3vw, 1.42rem);
+  line-height: 1.55;
+  text-align: center;
+}
+
+.bloomli-science-ingredients__content {
   padding: clamp(2.4rem, 3vw, 3.2rem);
 }
 

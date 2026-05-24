@@ -141,6 +141,7 @@
         "ingredient_biotin": {
           "type": "ingredient",
           "settings": {
+            "image_placeholder": "[ IMAGE: Biotin-rich supplement texture, warm golden tone ]",
             "label": "Inside support",
             "role": "Gummies",
             "title": "Biotin",
@@ -150,6 +151,7 @@
         "ingredient_zinc": {
           "type": "ingredient",
           "settings": {
+            "image_placeholder": "[ IMAGE: Abstract mineral or crystal texture on warm neutral surface ]",
             "label": "Mineral support",
             "role": "Inside + outside",
             "title": "Zinc",
@@ -159,6 +161,7 @@
         "ingredient_b_vitamins": {
           "type": "ingredient",
           "settings": {
+            "image_placeholder": "[ IMAGE: B-vitamin supplement texture on warm cream surface ]",
             "label": "Daily metabolism",
             "role": "Capsules",
             "title": "Folate + B-vitamins",
@@ -168,6 +171,7 @@
         "ingredient_vitamin_c": {
           "type": "ingredient",
           "settings": {
+            "image_placeholder": "[ IMAGE: Vitamin C citrus or botanical macro on neutral surface ]",
             "label": "Antioxidant support",
             "role": "Inside + outside",
             "title": "Vitamin C",
@@ -177,6 +181,7 @@
         "ingredient_rosemary": {
           "type": "ingredient",
           "settings": {
+            "image_placeholder": "[ IMAGE: Rosemary sprig close-up with soft natural light ]",
             "label": "Scalp ritual",
             "role": "Serum",
             "title": "Rosemary Extract",
@@ -186,6 +191,7 @@
         "ingredient_densidyl": {
           "type": "ingredient",
           "settings": {
+            "image_placeholder": "[ IMAGE: Chlorella and spirulina botanical texture on cream surface ]",
             "label": "Topical blend",
             "role": "Serum",
             "title": "Densidyl components",

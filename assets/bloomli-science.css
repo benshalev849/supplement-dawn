@@ -182,13 +182,16 @@
 .bloomli-science-ingredients,
 .bloomli-science-testing,
 .bloomli-science-expert {
-  --bloomli-card: rgb(var(--color-background));
-  --bloomli-card-soft: rgba(var(--color-foreground), 0.035);
-  --bloomli-accent: rgb(var(--color-button));
-  --bloomli-border: rgba(var(--color-foreground), 0.12);
-  --bloomli-shadow: rgba(var(--color-foreground), 0.07);
-  --bloomli-media-warm: rgba(var(--color-button), 0.13);
-  --bloomli-media-cool: rgba(var(--color-foreground), 0.065);
+  --bloomli-bg: #f7efec;
+  --bloomli-bg-deeper: #ede3dd;
+  --bloomli-cream: #faf5f3;
+  --bloomli-card: #ffffff;
+  --bloomli-berry: #b23a6f;
+  --bloomli-text: #2a2622;
+  --bloomli-muted: #6f6865;
+  --bloomli-border: rgba(42, 38, 34, 0.1);
+  --bloomli-sage: #dde6d6;
+  --bloomli-warm: #efe0be;
 }
 
 .bloomli-science-inside-out {
@@ -242,15 +245,11 @@
 }
 
 .bloomli-science-inside-out__card--warm .bloomli-science-inside-out__media {
-  background:
-    linear-gradient(135deg, var(--bloomli-media-warm), rgba(var(--color-background), 0.72)),
-    rgb(var(--color-background));
+  background: var(--bloomli-warm);
 }
 
 .bloomli-science-inside-out__card--sage .bloomli-science-inside-out__media {
-  background:
-    linear-gradient(135deg, var(--bloomli-media-cool), rgba(var(--color-background), 0.76)),
-    rgb(var(--color-background));
+  background: var(--bloomli-sage);
 }
 
 .bloomli-science-inside-out__image {
@@ -267,9 +266,9 @@
   align-items: center;
   justify-items: center;
   padding: 3.2rem;
-  border: 0.1rem dashed rgba(var(--color-foreground), 0.2);
+  border: 0.1rem dashed rgba(42, 38, 34, 0.18);
   border-radius: 1.6rem;
-  color: rgba(var(--color-foreground), 0.5);
+  color: rgba(42, 38, 34, 0.46);
   font-size: clamp(1.2rem, 1.4vw, 1.45rem);
   line-height: 1.55;
   text-align: center;
@@ -319,10 +318,8 @@
   flex-direction: column;
   border: 0.1rem solid var(--bloomli-border);
   border-radius: 1.8rem;
-  background:
-    linear-gradient(180deg, rgba(var(--color-foreground), 0.025), transparent),
-    var(--bloomli-card);
-  box-shadow: 0 1.6rem 4rem var(--bloomli-shadow);
+  background: var(--bloomli-card);
+  box-shadow: 0 1.6rem 4rem rgba(77, 54, 43, 0.07);
 }
 
 .bloomli-science-ingredients__card {
@@ -351,12 +348,12 @@
 }
 
 .bloomli-science-ingredients__label {
-  background: rgba(var(--color-button), 0.1);
-  color: rgb(var(--color-button));
+  background: rgba(178, 58, 111, 0.1);
+  color: var(--bloomli-berry);
 }
 
 .bloomli-science-ingredients__role {
-  background: rgba(var(--color-foreground), 0.06);
+  background: rgba(42, 38, 34, 0.06);
   color: rgba(var(--color-foreground), 0.68);
 }
 
@@ -378,7 +375,7 @@
 }
 
 .bloomli-science-testing__number {
-  color: rgb(var(--color-button));
+  color: var(--bloomli-berry);
   font-family: 'Fraunces', serif;
   font-size: clamp(3.8rem, 4.8vw, 5.8rem);
   font-variation-settings: "SOFT" 100, "opsz" 144;
@@ -403,11 +400,11 @@
 }
 
 .bloomli-science-testing__link {
-  color: rgb(var(--color-button));
+  color: var(--bloomli-berry);
   font-size: 1.55rem;
   font-weight: 700;
   text-decoration: underline;
-  text-decoration-color: rgba(var(--color-button), 0.28);
+  text-decoration-color: rgba(178, 58, 111, 0.28);
   text-underline-offset: 0.45rem;
   transition: color 180ms ease, text-decoration-color 180ms ease;
 }
@@ -443,9 +440,7 @@
   aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: 2rem;
-  background:
-    linear-gradient(135deg, rgba(var(--color-button), 0.1), rgba(var(--color-foreground), 0.04)),
-    rgb(var(--color-background));
+  background: #ead5d1;
   place-items: center;
 }
 
@@ -463,9 +458,9 @@
   align-items: center;
   justify-items: center;
   padding: 3.2rem;
-  border: 0.1rem dashed rgba(var(--color-foreground), 0.2);
+  border: 0.1rem dashed rgba(42, 38, 34, 0.18);
   border-radius: 1.6rem;
-  color: rgba(var(--color-foreground), 0.5);
+  color: rgba(42, 38, 34, 0.46);
   font-size: 1.35rem;
   line-height: 1.55;
   text-align: center;
@@ -475,10 +470,8 @@
   padding: 2.2rem 2.4rem;
   border: 0.1rem solid var(--bloomli-border);
   border-radius: 1.4rem;
-  background:
-    linear-gradient(180deg, rgba(var(--color-foreground), 0.025), transparent),
-    var(--bloomli-card);
-  box-shadow: 0 1.4rem 3.4rem var(--bloomli-shadow);
+  background: var(--bloomli-card);
+  box-shadow: 0 1.4rem 3.4rem rgba(77, 54, 43, 0.07);
 }
 
 .bloomli-science-expert__name {
@@ -491,7 +484,7 @@
 
 .bloomli-science-expert__title {
   margin-top: 0.8rem;
-  color: rgb(var(--color-button));
+  color: var(--bloomli-berry);
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -507,8 +500,8 @@
 .bloomli-science-expert__quote {
   margin: 2.8rem 0 0;
   padding: 0.4rem 0 0.4rem 2.4rem;
-  border-left: 0.2rem solid rgb(var(--color-button));
-  color: rgb(var(--color-button));
+  border-left: 0.2rem solid var(--bloomli-berry);
+  color: var(--bloomli-berry);
   font-family: 'Fraunces', serif;
   font-size: clamp(2.1rem, 2.4vw, 2.8rem);
   font-style: italic;
@@ -529,9 +522,7 @@
   padding: 0.9rem 1.5rem;
   border: 0.1rem solid var(--bloomli-border);
   border-radius: 999rem;
-  background:
-    linear-gradient(180deg, rgba(var(--color-foreground), 0.025), transparent),
-    var(--bloomli-card);
+  background: var(--bloomli-card);
   color: rgb(var(--color-foreground));
   font-size: 1.35rem;
 }

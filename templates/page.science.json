@@ -54,21 +54,24 @@
           "type": "bullet",
           "settings": {
             "bullet_title": "Growth phase",
-            "text": "The active phase where hair fibers are produced. Nutrient availability and overall wellness help support normal hair structure during this phase."
+            "text": "The active phase where hair fibers are produced. Nutrient availability and overall wellness help support normal hair structure during this phase.",
+            "note": ""
           }
         },
         "phase_transition": {
           "type": "bullet",
           "settings": {
             "bullet_title": "Transition phase",
-            "text": "A short reset period where the follicle prepares to move from active growth into rest."
+            "text": "A short reset period where the follicle prepares to move from active growth into rest.",
+            "note": ""
           }
         },
         "phase_resting": {
           "type": "bullet",
           "settings": {
             "bullet_title": "Resting + shedding phase",
-            "text": "Shedding is a normal part of the cycle. The goal is not to stop shedding, but to support the conditions for healthy-looking hair over time."
+            "text": "Shedding is a normal part of the cycle. The goal is not to stop shedding, but to support the conditions for healthy-looking hair over time.",
+            "note": ""
           }
         }
       },
@@ -102,12 +105,15 @@
         "desktop_image_size": 100,
         "image_size": 85,
         "image_radius": 16,
+        "card_grid_image_position": "before_cards",
+        "card_grid_image_height": 240,
         "show_card_borders": true,
         "number_style": "plain",
         "card_columns_desktop": 3,
         "card_columns_tablet": 1,
         "heading_line1": "Visible hair changes don't happen overnight - and that's biology.",
         "copy": "<p>Each hair follicle moves through its own cycle of growth, transition, rest, and shedding. Because those cycles unfold gradually, the most meaningful support comes from consistency: nourishing the body daily, supporting stronger-looking strands, and caring for the scalp environment over time.</p>",
+        "items_note": "",
         "padding_top": 96,
         "padding_bottom": 88,
         "padding_top_mobile": 56,
@@ -119,16 +125,16 @@
       "settings": {
         "color_scheme": "scheme-1",
         "section_id": "inside-out",
-        "use_custom_background": false,
-        "background_color": "#F7EFEC",
+        "use_custom_background": true,
+        "background_color": "#f7efec",
         "heading": "Hair wellness works from the inside out.",
-        "copy": "<p>Hair is shaped by what happens inside the body and at the scalp. Bloomli is designed to support both &mdash; daily supplements to nourish from within, and a topical serum to care for the scalp surface.</p>",
+        "copy": "<p>Hair is shaped by what happens inside the body and at the scalp. Bloomli is designed to support both — daily supplements to nourish from within, and a topical serum to care for the scalp surface.</p>",
         "supplement_placeholder": "[ PHOTO: Hair supplement gummies or capsules on a warm cream surface, soft natural daylight. Aspect 4:3. ]",
         "left_heading": "Nourish from within.",
-        "left_body": "<p>Hair follicles are metabolically active structures &mdash; they need a consistent daily supply of vitamins, minerals, and botanical compounds. Bloomli&rsquo;s ingestible formulas include Biotin, Zinc, Folate, B-vitamins, Vitamin C, and botanical nutrients selected to support normal hair, skin, and nail wellness from the inside.</p>",
+        "left_body": "<p>Hair follicles are metabolically active structures — they need a consistent daily supply of vitamins, minerals, and botanical compounds. Bloomli’s ingestible formulas include Biotin, Zinc, Folate, B-vitamins, Vitamin C, and botanical nutrients selected to support normal hair, skin, and nail wellness from the inside.</p>",
         "serum_placeholder": "[ PHOTO: Botanical serum bottle with dropper, rosemary or botanical element, cream surface. Aspect 4:3. ]",
         "right_heading": "Support the scalp from outside.",
-        "right_body": "<p>The scalp is skin &mdash; and the environment every strand grows from. Bloomli&rsquo;s botanical serum brings Rosemary Extract, Densidyl&reg; components, Ginger Root, and hydrating ingredients directly to the scalp surface. Internal nutrition and topical care work in the same direction.</p>",
+        "right_body": "<p>The scalp is skin — and the environment every strand grows from. Bloomli’s botanical serum brings Rosemary Extract, Densidyl® components, Ginger Root, and hydrating ingredients directly to the scalp surface. Internal nutrition and topical care work in the same direction.</p>",
         "padding_top": 104,
         "padding_bottom": 104,
         "padding_top_mobile": 64,
@@ -204,10 +210,10 @@
       "settings": {
         "color_scheme": "scheme-1",
         "section_id": "ingredients",
-        "use_custom_background": false,
-        "background_color": "#FAF5F3",
+        "use_custom_background": true,
+        "background_color": "#faf5f3",
         "heading": "Six ingredients worth knowing by name.",
-        "copy": "<p>Not every ingredient list earns attention. These six have a specific role, a specific reason for being included, and research behind the way they&rsquo;re used in hair, skin, nail, or scalp wellness.</p>",
+        "copy": "<p>Not every ingredient list earns attention. These six have a specific role, a specific reason for being included, and research behind the way they’re used in hair, skin, nail, or scalp wellness.</p>",
         "padding_top": 104,
         "padding_bottom": 104,
         "padding_top_mobile": 64,
@@ -263,8 +269,8 @@
       "settings": {
         "color_scheme": "scheme-1",
         "section_id": "testing",
-        "use_custom_background": false,
-        "background_color": "#EDE3DD",
+        "use_custom_background": true,
+        "background_color": "#ede3dd",
         "heading": "What third-party testing actually confirmed.",
         "copy": "<p>We don&rsquo;t just say &ldquo;tested.&rdquo; Here&rsquo;s what the documentation shows.</p>",
         "coa_label": "Request a COA ->",
@@ -278,18 +284,19 @@
     },
     "expert_review": {
       "type": "bloomli-science-expert-review",
+      "disabled": true,
       "settings": {
-        "show_expert_review": false,
+        "show_expert_review": true,
         "color_scheme": "scheme-1",
         "section_id": "expert-review",
-        "use_custom_background": false,
-        "background_color": "#FAF5F3",
+        "use_custom_background": true,
+        "background_color": "#faf5f3",
         "expert_placeholder": "[ PHOTO: Real advisor portrait. Do not publish without permission. ]",
         "heading": "Reviewed for ingredient logic and safety context.",
         "expert_name": "",
         "expert_title": "",
-        "expert_quote": "<p>&ldquo;Hair wellness works best when the formula matches the biology. Bloomli&rsquo;s combination of internal nutrient support and topical scalp care addresses both sides of the routine.&rdquo;</p>",
-        "expert_body": "<p>[Expert name] reviewed Bloomli&rsquo;s formulations for ingredient rationale, dose appropriateness, and interaction considerations. The review covered the gummies, capsule formula, and botanical serum.</p>",
+        "expert_quote": "<p>“Hair wellness works best when the formula matches the biology. Bloomli’s combination of internal nutrient support and topical scalp care addresses both sides of the routine.”</p>",
+        "expert_body": "<p>[Expert name] reviewed Bloomli’s formulations for ingredient rationale, dose appropriateness, and interaction considerations. The review covered the gummies, capsule formula, and botanical serum.</p>",
         "footnote": "<p>*Advisory review does not constitute a clinical endorsement of efficacy outcomes. Individual results vary.</p>",
         "padding_top": 104,
         "padding_bottom": 104,

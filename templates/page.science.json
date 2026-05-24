@@ -181,7 +181,7 @@
         "ingredient_vitamin_c": {
           "type": "ingredient",
           "settings": {
-            "image": "shopify://shop_images/Vitamin_C_-_Zoomed_Out.png",
+            "image": "shopify://shop_images/Vitamin_C_-_Zoomed_Out_20de48de-4dcf-447c-ac90-5479c2a51d56.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Antioxidant support",
             "role": "Inside + outside",
@@ -192,16 +192,18 @@
         "ingredient_rosemary": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Rosemary_-_Zoomed_Out.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Scalp ritual",
             "role": "Serum",
             "title": "Rosemary Extract",
-            "text": "<p>A botanical used in Bloomli&rsquo;s topical serum to support a consistent scalp-care ritual and help the scalp feel refreshed.</p>"
+            "text": "<p>A botanical used in Bloomli’s topical serum to support a consistent scalp-care ritual and help the scalp feel refreshed.</p>"
           }
         },
         "ingredient_densidyl": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Densidyl_-_Zoomed_Out.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Topical blend",
             "role": "Serum",

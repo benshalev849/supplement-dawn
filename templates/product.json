@@ -102,7 +102,7 @@
           "type": "bloomli_collapsible_row",
           "settings": {
             "title": "How to Take",
-            "content": "<p>Chew 2 gummies any time, daily. With or without food.</p>"
+            "content": "<p></p>{{ product.metafields.custom.how_to_take | metafield_tag }}"
           }
         },
         "bloomli_collapsible_row_BBNpQF": {

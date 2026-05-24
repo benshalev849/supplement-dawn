@@ -181,6 +181,7 @@
         "ingredient_vitamin_c": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Vitamin_C_-_Zoomed_Out.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Antioxidant support",
             "role": "Inside + outside",

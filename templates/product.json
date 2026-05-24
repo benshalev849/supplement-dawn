@@ -55,7 +55,7 @@
             "tier_2_count_text": "120 Count",
             "tier_2_daily_text": "",
             "tier_2_badge": "",
-            "tier_2_tag": "Most popular",
+            "tier_2_tag": "",
             "tier_2_discount_pct": 10,
             "tier_2_subscription_discount_pct": "23.5",
             "tier_2_plan_filter": "2-pack",
@@ -66,7 +66,7 @@
             "tier_3_count_text": "180 Count",
             "tier_3_daily_text": "",
             "tier_3_badge": "",
-            "tier_3_tag": "Best value",
+            "tier_3_tag": "",
             "tier_3_discount_pct": 15,
             "tier_3_subscription_discount_pct": "27.75",
             "tier_3_plan_filter": "3-pack",
@@ -224,35 +224,40 @@
           "type": "bullet",
           "settings": {
             "bullet_title": "No fairy dust.",
-            "text": "No under-dosed filler blends or trendy label dust."
+            "text": "No under-dosed filler blends or trendy label dust.",
+            "note": ""
           }
         },
         "bullet_f68cpc": {
           "type": "bullet",
           "settings": {
             "bullet_title": "Beyond biotin alone.",
-            "text": "A complete blend of vitamins and minerals, each chosen for a specific role in supporting your hair."
+            "text": "A complete blend of vitamins and minerals, each chosen for a specific role in supporting your hair.",
+            "note": ""
           }
         },
         "bullet_9GzmFm": {
           "type": "bullet",
           "settings": {
             "bullet_title": "Light by design.",
-            "text": "Only 15 calories per serving, just 2g sugar per gummy."
+            "text": "Only 15 calories per serving, just 2g sugar per gummy.",
+            "note": ""
           }
         },
         "bullet_NjdcCt": {
           "type": "bullet",
           "settings": {
             "bullet_title": "Nothing unwanted.",
-            "text": "Gluten-free, gelatin-free, and pectin-based. No artificial dyes or flavors."
+            "text": "Gluten-free, gelatin-free, and pectin-based. No artificial dyes or flavors.",
+            "note": ""
           }
         },
         "bullet_F7gTNi": {
           "type": "bullet",
           "settings": {
             "bullet_title": "Tested for trust.",
-            "text": "Third-party tested for heavy metals, microbial contaminants, and label accuracy."
+            "text": "Third-party tested for heavy metals, microbial contaminants, and label accuracy.",
+            "note": ""
           }
         }
       },
@@ -266,24 +271,38 @@
       "name": "Bloomli - Proof Split",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "section_id": "",
+        "layout_style": "split",
+        "header_alignment": "left",
+        "header_position": "above_grid",
+        "content_density": "standard",
         "use_custom_background": false,
         "background_color": "#fdfaf7",
         "icon_accent_color": "#b23a6f",
+        "show_image": true,
         "image": "shopify://shop_images/Floating_Single_Gummy_Transparent_No_Shadow.png",
         "image_side": "right",
+        "mobile_image_position": "before_items",
         "media_background": "background",
         "image_label": "Editorial - morning ritual - natural light",
         "image_caption": "",
         "image_scale": 100,
+        "image_fit": "cover",
         "enable_image_animation": true,
         "image_position": "center center",
         "image_width": 760,
         "desktop_image_size": 80,
         "image_size": 100,
         "image_radius": 10,
+        "card_grid_image_position": "before_cards",
+        "card_grid_image_height": 240,
         "show_card_borders": false,
+        "number_style": "leading_zero",
+        "card_columns_desktop": 4,
+        "card_columns_tablet": 2,
         "heading_line1": "Every milligram, intentional.",
         "copy": "<p>Most supplements are built around a story. Ours is built around your hair.</p>",
+        "items_note": "",
         "padding_top": 48,
         "padding_bottom": 48,
         "padding_top_mobile": 56,

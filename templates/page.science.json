@@ -188,16 +188,6 @@
             "text": "<p>Supports normal collagen formation and antioxidant protection. In a hair wellness formula, Vitamin C belongs because healthy-looking hair starts with overall tissue and skin support.</p>"
           }
         },
-        "ingredient_4WWKCn": {
-          "type": "ingredient",
-          "settings": {
-            "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
-            "label": "Inside support",
-            "role": "Gummies",
-            "title": "Biotin",
-            "text": "<p>Supports normal hair and nail wellness and helps the body metabolize fats and proteins. Bloomli gummies are formulated with 6,000 mcg Biotin per serving.</p>"
-          }
-        },
         "ingredient_rosemary": {
           "type": "ingredient",
           "settings": {
@@ -224,7 +214,6 @@
         "ingredient_zinc",
         "ingredient_b_vitamins",
         "ingredient_vitamin_c",
-        "ingredient_4WWKCn",
         "ingredient_rosemary",
         "ingredient_densidyl"
       ],

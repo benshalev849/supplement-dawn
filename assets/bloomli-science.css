@@ -174,6 +174,77 @@
   scroll-margin-top: 9rem;
 }
 
+.bloomli-science-standard {
+  --bss-rule: rgba(var(--color-foreground), 0.14);
+  --bss-muted: rgba(var(--color-foreground), 0.68);
+}
+
+.bloomli-science-standard__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(3.2rem, 7vw, 9.6rem);
+  align-items: start;
+}
+
+.bloomli-science-standard__thesis {
+  max-width: 62rem;
+}
+
+.bloomli-science-standard__thesis .bloomli-science-section__heading {
+  max-width: 58rem;
+  font-size: clamp(3.4rem, 5.2vw, 6.6rem);
+}
+
+.bloomli-science-standard__thesis .bloomli-science-section__copy {
+  max-width: 56rem;
+}
+
+.bloomli-science-standard__items {
+  border-top: 0.1rem solid var(--bss-rule);
+}
+
+.bloomli-science-standard__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.8rem;
+  padding: clamp(2rem, 3vw, 3rem) 0;
+  border-bottom: 0.1rem solid var(--bss-rule);
+}
+
+.bloomli-science-standard--numbered .bloomli-science-standard__item {
+  grid-template-columns: 4.4rem minmax(0, 1fr);
+}
+
+.bloomli-science-standard__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.16);
+  border-radius: 999rem;
+  background: rgba(var(--color-background), 0.62);
+  color: var(--bss-accent);
+  font-size: 1.24rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.bloomli-science-standard__item h3 {
+  margin: 0;
+  color: rgb(var(--color-foreground));
+  font-size: clamp(1.9rem, 2vw, 2.35rem);
+  line-height: 1.15;
+}
+
+.bloomli-science-standard__item p {
+  max-width: 68rem;
+  margin: 0.8rem 0 0;
+  color: var(--bss-muted);
+  font-size: clamp(1.42rem, 1.3vw, 1.62rem);
+  line-height: 1.58;
+}
+
 .bloomli-science-cta__panel {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(26rem, 0.68fr);
@@ -205,7 +276,8 @@
 @media screen and (max-width: 989px) {
   .bloomli-science-grid,
   .bloomli-science-hero__grid,
-  .bloomli-science-cta__panel {
+  .bloomli-science-cta__panel,
+  .bloomli-science-standard__layout {
     grid-template-columns: 1fr;
   }
 }
@@ -226,6 +298,16 @@
 
   .bloomli-science-media {
     min-height: 21rem;
+  }
+
+  .bloomli-science-standard--numbered .bloomli-science-standard__item {
+    grid-template-columns: 3.6rem minmax(0, 1fr);
+  }
+
+  .bloomli-science-standard__number {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.1rem;
   }
 
   .bloomli-science-hero__media {

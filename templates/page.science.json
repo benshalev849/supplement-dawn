@@ -187,33 +187,33 @@
       }
     },
     "science_standard": {
-      "type": "bloomli-proof-split",
+      "type": "bloomli-science-standard",
       "blocks": {
         "standard_purpose": {
-          "type": "bullet",
+          "type": "principle",
           "settings": {
-            "bullet_title": "Purpose before hype",
+            "title": "Purpose before hype",
             "text": "We choose ingredients because they have a clear role in the formula - not because they are trending on TikTok."
           }
         },
         "standard_format": {
-          "type": "bullet",
+          "type": "principle",
           "settings": {
-            "bullet_title": "Format matters",
+            "title": "Format matters",
             "text": "A gummy, capsule, and topical serum do different jobs. Bloomli treats each format as part of a ritual, not as interchangeable versions of the same product."
           }
         },
         "standard_consistency": {
-          "type": "bullet",
+          "type": "principle",
           "settings": {
-            "bullet_title": "Consistency matters",
+            "title": "Consistency matters",
             "text": "Hair support is not instant. The most important part of any routine is choosing one you can actually stick with."
           }
         },
         "standard_claims": {
-          "type": "bullet",
+          "type": "principle",
           "settings": {
-            "bullet_title": "Claims stay honest",
+            "title": "Claims stay honest",
             "text": "We use support language because Bloomli products are wellness products - not medical treatments."
           }
         }
@@ -225,36 +225,15 @@
         "standard_claims"
       ],
       "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
         "section_id": "",
-        "layout_style": "cards_grid",
-        "header_alignment": "left",
-        "header_position": "above_grid",
-        "content_density": "compact",
-        "use_custom_background": false,
-        "background_color": "#fdfaf7",
-        "icon_accent_color": "#6f7a5a",
-        "show_image": false,
-        "image_side": "left",
-        "mobile_image_position": "before_items",
-        "media_background": "surface",
-        "image_label": "",
-        "image_caption": "",
-        "image_scale": 100,
-        "image_fit": "cover",
-        "enable_image_animation": false,
-        "image_position": "center center",
-        "image_width": 620,
-        "desktop_image_size": 100,
-        "image_size": 100,
-        "image_radius": 16,
-        "show_card_borders": true,
-        "number_style": "leading_zero",
-        "card_columns_desktop": 4,
-        "card_columns_tablet": 2,
-        "heading_line1": "Science-backed should mean more than a trendy ingredient list.",
+        "eyebrow": "Bloomli standard",
+        "heading": "Science-backed should mean more than a trendy ingredient list.",
         "copy": "<p>In beauty supplements, \"science-backed\" can mean many things. At Bloomli, it means every formula starts with a clear purpose, uses ingredients with a relevant role in hair, skin, nail, or scalp wellness, and avoids claims that sound bigger than the evidence behind them.</p>",
-        "padding_top": 96,
+        "show_numbers": true,
+        "use_custom_accent_color": true,
+        "accent_color": "#6f7a5a",
+        "padding_top": 112,
         "padding_bottom": 88,
         "padding_top_mobile": 56,
         "padding_bottom_mobile": 56
@@ -280,31 +259,15 @@
         "quality_metals": {
           "type": "bullet",
           "settings": {
-            "bullet_title": "Heavy metals testing",
-            "text": "Current lot documentation includes heavy metal screening for relevant supplement products."
-          }
-        },
-        "quality_micro": {
-          "type": "bullet",
-          "settings": {
-            "bullet_title": "Microbial testing",
-            "text": "Current lot documentation includes microbial testing to help verify product quality."
-          }
-        },
-        "quality_coa": {
-          "type": "bullet",
-          "settings": {
-            "bullet_title": "COAs available",
-            "text": "Quality documentation is available for current production lots, including heavy metal and microbial testing."
+            "bullet_title": "Heavy metals + microbial testing",
+            "text": "Current lot documentation includes both screens. COAs available on request."
           }
         }
       },
       "block_order": [
         "quality_usa",
         "quality_scope",
-        "quality_metals",
-        "quality_micro",
-        "quality_coa"
+        "quality_metals"
       ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
@@ -341,7 +304,7 @@
         "copy": "<p>Bloomli products are produced through a supplier system with documented quality processes and lot-level testing information. We believe supplement trust should come from clear standards, not vague promises.</p>",
         "items_note": "<p>Documentation varies by product and lot. Contact support for current product-specific information.</p>",
         "padding_top": 96,
-        "padding_bottom": 88,
+        "padding_bottom": 104,
         "padding_top_mobile": 56,
         "padding_bottom_mobile": 56
       }
@@ -380,67 +343,13 @@
             "answer": "<p>Not everyone needs all three. Gummies are the easiest starting point. Capsules are for customers who want more comprehensive daily support. The serum is for customers who want to add a topical scalp ritual.</p>",
             "open_by_default": false
           }
-        },
-        "faq_5": {
-          "type": "question",
-          "settings": {
-            "question": "What is the difference between gummies and capsules?",
-            "answer": "<p>The gummies are simple and enjoyable for daily beauty support. The capsules are more comprehensive and allow ingredients that are harder to fit into a pleasant gummy format. For exact ingredients and supplement facts, see each product page.</p>",
-            "open_by_default": false
-          }
-        },
-        "faq_6": {
-          "type": "question",
-          "settings": {
-            "question": "Does biotin affect lab tests?",
-            "answer": "<p>Biotin may interfere with certain lab tests. Tell your healthcare provider that you take a biotin-containing supplement before bloodwork.</p>",
-            "open_by_default": false
-          }
-        },
-        "faq_7": {
-          "type": "question",
-          "settings": {
-            "question": "Are there allergens?",
-            "answer": "<p>The gummies contain fish-derived collagen. The capsules contain soy. Always review the full product label before use.</p>",
-            "open_by_default": false
-          }
-        },
-        "faq_8": {
-          "type": "question",
-          "settings": {
-            "question": "Can I take Bloomli while pregnant, nursing, taking medication, or managing a medical condition?",
-            "answer": "<p>Consult a healthcare professional before using any dietary supplement if you are pregnant, nursing, taking medication, or managing a medical condition.</p>",
-            "open_by_default": false
-          }
-        },
-        "faq_9": {
-          "type": "question",
-          "settings": {
-            "question": "Are these products FDA-approved?",
-            "answer": "<p>Dietary supplements are not approved by the FDA before sale in the same way drugs are. Bloomli uses structure/function support language and keeps supplement claims within wellness-support language.</p>",
-            "open_by_default": false
-          }
-        },
-        "faq_10": {
-          "type": "question",
-          "settings": {
-            "question": "Where can I see the full ingredients?",
-            "answer": "<p>Each product page includes the full ingredient list, Supplement Facts or product details, suggested use, allergens, and warnings.</p>",
-            "open_by_default": false
-          }
         }
       },
       "block_order": [
         "faq_1",
         "faq_2",
         "faq_3",
-        "faq_4",
-        "faq_5",
-        "faq_6",
-        "faq_7",
-        "faq_8",
-        "faq_9",
-        "faq_10"
+        "faq_4"
       ],
       "settings": {
         "heading": "Science questions, plain answers.",
@@ -470,8 +379,8 @@
         "body": "<p>Support your hair from within and care for your scalp from the outside with a routine designed for consistency.</p>",
         "primary_label": "Shop Bloomli",
         "primary_link": "/collections/all",
-        "secondary_label": "Explore the Ritual",
-        "secondary_link": "#ritual",
+        "secondary_label": "",
+        "secondary_link": "",
         "placeholder_label": "Final CTA image - Bloomli product ritual/trio",
         "padding_top": 88,
         "padding_bottom": 88,

@@ -186,6 +186,189 @@
         "padding_bottom_mobile": 56
       }
     },
+    "inside_out": {
+      "type": "bloomli-science-inside-out",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "section_id": "inside-out",
+        "use_custom_background": true,
+        "background_color": "#F7EFEC",
+        "heading": "Hair wellness works from the inside out.",
+        "copy": "<p>Hair is shaped by what happens inside the body and at the scalp. Bloomli is designed to support both &mdash; daily supplements to nourish from within, and a topical serum to care for the scalp surface.</p>",
+        "supplement_placeholder": "[ PHOTO: Hair supplement gummies or capsules on a warm cream surface, soft natural daylight. Aspect 4:3. ]",
+        "left_heading": "Nourish from within.",
+        "left_body": "<p>Hair follicles are metabolically active structures &mdash; they need a consistent daily supply of vitamins, minerals, and botanical compounds. Bloomli&rsquo;s ingestible formulas include Biotin, Zinc, Folate, B-vitamins, Vitamin C, and botanical nutrients selected to support normal hair, skin, and nail wellness from the inside.</p>",
+        "serum_placeholder": "[ PHOTO: Botanical serum bottle with dropper, rosemary or botanical element, cream surface. Aspect 4:3. ]",
+        "right_heading": "Support the scalp from outside.",
+        "right_body": "<p>The scalp is skin &mdash; and the environment every strand grows from. Bloomli&rsquo;s botanical serum brings Rosemary Extract, Densidyl&reg; components, Ginger Root, and hydrating ingredients directly to the scalp surface. Internal nutrition and topical care work in the same direction.</p>",
+        "padding_top": 104,
+        "padding_bottom": 104,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64
+      }
+    },
+    "ingredients": {
+      "type": "bloomli-science-ingredients",
+      "blocks": {
+        "ingredient_biotin": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Inside support",
+            "role": "Gummies",
+            "title": "Biotin",
+            "text": "<p>Supports normal hair and nail wellness and helps the body metabolize fats and proteins. Bloomli gummies are formulated with 6,000 mcg Biotin per serving.</p>"
+          }
+        },
+        "ingredient_zinc": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Mineral support",
+            "role": "Inside + outside",
+            "title": "Zinc",
+            "text": "<p>A mineral involved in normal skin, hair, and nail health. Included to support the beauty-from-within side of the Bloomli ritual.</p>"
+          }
+        },
+        "ingredient_b_vitamins": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Daily metabolism",
+            "role": "Capsules",
+            "title": "Folate + B-vitamins",
+            "text": "<p>B-vitamins help support normal nutrient metabolism and daily wellness. Bloomli formulas use B-vitamin support as part of a broader hair, skin, and nail routine.</p>"
+          }
+        },
+        "ingredient_vitamin_c": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Antioxidant support",
+            "role": "Inside + outside",
+            "title": "Vitamin C",
+            "text": "<p>Supports normal collagen formation and antioxidant protection. In a hair wellness formula, Vitamin C belongs because healthy-looking hair starts with overall tissue and skin support.</p>"
+          }
+        },
+        "ingredient_rosemary": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Scalp ritual",
+            "role": "Serum",
+            "title": "Rosemary Extract",
+            "text": "<p>A botanical used in Bloomli&rsquo;s topical serum to support a consistent scalp-care ritual and help the scalp feel refreshed.</p>"
+          }
+        },
+        "ingredient_densidyl": {
+          "type": "ingredient",
+          "settings": {
+            "label": "Topical blend",
+            "role": "Serum",
+            "title": "Densidyl® components",
+            "text": "<p>A topical blend built around Chlorella and Spirulina extracts, included in the serum to help support the scalp environment.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_biotin",
+        "ingredient_zinc",
+        "ingredient_b_vitamins",
+        "ingredient_vitamin_c",
+        "ingredient_rosemary",
+        "ingredient_densidyl"
+      ],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "section_id": "ingredients",
+        "use_custom_background": true,
+        "background_color": "#FAF5F3",
+        "heading": "Six ingredients worth knowing by name.",
+        "copy": "<p>Not every ingredient list earns attention. These six have a specific role, a specific reason for being included, and research behind the way they&rsquo;re used in hair, skin, nail, or scalp wellness.</p>",
+        "padding_top": 104,
+        "padding_bottom": 104,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64
+      }
+    },
+    "testing": {
+      "type": "bloomli-science-testing",
+      "blocks": {
+        "testing_biotin": {
+          "type": "proof",
+          "settings": {
+            "number": "104.57%",
+            "label": "Biotin at label claim",
+            "text": "<p>Independent COA testing confirmed the gummies met the labeled 6,000 mcg Biotin per serving, with a reported result of 6,274 mcg per serving.</p>",
+            "source": "COA lot #258079401"
+          }
+        },
+        "testing_heavy_metals": {
+          "type": "proof",
+          "settings": {
+            "number": "0",
+            "label": "Heavy metal failures",
+            "text": "<p>The tested gummy lot passed USP &lt;233&gt; screening for Lead, Mercury, Arsenic, and Cadmium, with reported results below the listed limits.</p>",
+            "source": "ICP-MS testing"
+          }
+        },
+        "testing_microbials": {
+          "type": "proof",
+          "settings": {
+            "number": "100%",
+            "label": "Microbial screens passed",
+            "text": "<p>The tested gummy lot reported passing results for standard plate count, yeast and mold, E. coli, Salmonella, and Staphylococcus aureus.</p>",
+            "source": "USP <2021>/<2022>"
+          }
+        },
+        "testing_nsf": {
+          "type": "proof",
+          "settings": {
+            "number": "NSF / 455-2",
+            "label": "Certified manufacturing scope",
+            "text": "<p>Supplier documentation confirms NSF/ANSI 455-2 certification scope for relevant supplement manufacturing, packaging, quality, and warehousing operations.</p>",
+            "source": "Certificate on file"
+          }
+        }
+      },
+      "block_order": [
+        "testing_biotin",
+        "testing_heavy_metals",
+        "testing_microbials",
+        "testing_nsf"
+      ],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "section_id": "testing",
+        "use_custom_background": true,
+        "background_color": "#EDE3DD",
+        "heading": "What third-party testing actually confirmed.",
+        "copy": "<p>We don&rsquo;t just say &ldquo;tested.&rdquo; Here&rsquo;s what the documentation shows.</p>",
+        "coa_label": "Request a COA ->",
+        "coa_link": "mailto:support@bloomliwellness.com?subject=COA Request",
+        "footnote": "<p>*These are quality and testing data, not clinical outcome statistics. Results vary by lot. Product documentation is available on request.</p>",
+        "padding_top": 104,
+        "padding_bottom": 104,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64
+      }
+    },
+    "expert_review": {
+      "type": "bloomli-science-expert-review",
+      "settings": {
+        "show_expert_review": false,
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "section_id": "expert-review",
+        "use_custom_background": true,
+        "background_color": "#FAF5F3",
+        "expert_placeholder": "[ PHOTO: Real advisor portrait. Do not publish without permission. ]",
+        "heading": "Reviewed for ingredient logic and safety context.",
+        "expert_name": "",
+        "expert_title": "",
+        "expert_quote": "<p>&ldquo;Hair wellness works best when the formula matches the biology. Bloomli&rsquo;s combination of internal nutrient support and topical scalp care addresses both sides of the routine.&rdquo;</p>",
+        "expert_body": "<p>[Expert name] reviewed Bloomli&rsquo;s formulations for ingredient rationale, dose appropriateness, and interaction considerations. The review covered the gummies, capsule formula, and botanical serum.</p>",
+        "footnote": "<p>*Advisory review does not constitute a clinical endorsement of efficacy outcomes. Individual results vary.</p>",
+        "padding_top": 104,
+        "padding_bottom": 104,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64
+      }
+    },
     "science_standard": {
       "type": "bloomli-science-standard",
       "blocks": {
@@ -343,13 +526,31 @@
             "answer": "<p>Not everyone needs all three. Gummies are the easiest starting point. Capsules are for customers who want more comprehensive daily support. The serum is for customers who want to add a topical scalp ritual.</p>",
             "open_by_default": false
           }
+        },
+        "faq_5": {
+          "type": "question",
+          "settings": {
+            "question": "What does third-party testing prove?",
+            "answer": "<p>Third-party testing is quality documentation. It can confirm things like label-claim amount, microbial screening, and heavy-metal screening for a tested lot. It is not clinical outcome data and does not mean every person will see the same visible hair results.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_6": {
+          "type": "question",
+          "settings": {
+            "question": "Can I request product documentation?",
+            "answer": "<p>Yes. Product documentation varies by product and lot, but current COA information is available on request through Bloomli support.</p>",
+            "open_by_default": false
+          }
         }
       },
       "block_order": [
         "faq_1",
         "faq_2",
         "faq_3",
-        "faq_4"
+        "faq_4",
+        "faq_5",
+        "faq_6"
       ],
       "settings": {
         "heading": "Science questions, plain answers.",
@@ -392,9 +593,10 @@
   "order": [
     "science_hero",
     "hair_biology",
-    "approach",
-    "science_standard",
-    "standards",
+    "inside_out",
+    "ingredients",
+    "testing",
+    "expert_review",
     "faq",
     "science_cta"
   ]

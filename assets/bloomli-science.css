@@ -169,9 +169,370 @@
 
 #hair-biology,
 #approach,
+#inside-out,
+#ingredients,
+#testing,
+#expert-review,
 #standards,
 #faq {
   scroll-margin-top: 9rem;
+}
+
+.bloomli-science-inside-out,
+.bloomli-science-ingredients,
+.bloomli-science-testing,
+.bloomli-science-expert {
+  --bloomli-bg: #f7efec;
+  --bloomli-bg-deeper: #ede3dd;
+  --bloomli-cream: #faf5f3;
+  --bloomli-card: #ffffff;
+  --bloomli-berry: #b23a6f;
+  --bloomli-text: #2a2622;
+  --bloomli-muted: #6f6865;
+  --bloomli-border: rgba(42, 38, 34, 0.1);
+  --bloomli-sage: #dde6d6;
+  --bloomli-warm: #efe0be;
+}
+
+.bloomli-science-inside-out {
+  background: var(--bsio-bg, rgb(var(--color-background)));
+}
+
+.bloomli-science-inside-out__inner,
+.bloomli-science-ingredients .bloomli-science-section__inner,
+.bloomli-science-testing .bloomli-science-section__inner,
+.bloomli-science-expert .bloomli-science-section__inner {
+  max-width: 124rem;
+}
+
+.bloomli-science-inside-out__header,
+.bloomli-science-ingredients__header,
+.bloomli-science-testing__header {
+  max-width: 82rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.bloomli-science-inside-out__header .bloomli-science-section__heading,
+.bloomli-science-inside-out__header .bloomli-science-section__copy,
+.bloomli-science-ingredients__header .bloomli-science-section__heading,
+.bloomli-science-ingredients__header .bloomli-science-section__copy,
+.bloomli-science-testing__header .bloomli-science-section__heading,
+.bloomli-science-testing__header .bloomli-science-section__copy {
+  margin-inline: auto;
+}
+
+.bloomli-science-inside-out__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(3.2rem, 6vw, 8rem);
+  margin-top: clamp(4.8rem, 7vw, 7.2rem);
+}
+
+.bloomli-science-inside-out__card {
+  min-width: 0;
+}
+
+.bloomli-science-inside-out__media {
+  display: grid;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 2rem;
+  place-items: center;
+}
+
+.bloomli-science-inside-out__card--warm .bloomli-science-inside-out__media {
+  background: var(--bloomli-warm);
+}
+
+.bloomli-science-inside-out__card--sage .bloomli-science-inside-out__media {
+  background: var(--bloomli-sage);
+}
+
+.bloomli-science-inside-out__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bloomli-science-inside-out__placeholder {
+  display: grid;
+  width: calc(100% - 3.2rem);
+  height: calc(100% - 3.2rem);
+  align-items: center;
+  justify-items: center;
+  padding: 3.2rem;
+  border: 0.1rem dashed rgba(42, 38, 34, 0.18);
+  border-radius: 1.6rem;
+  color: rgba(42, 38, 34, 0.46);
+  font-size: clamp(1.2rem, 1.4vw, 1.45rem);
+  line-height: 1.55;
+  text-align: center;
+}
+
+.bloomli-science-inside-out__body {
+  margin-top: 3.2rem;
+}
+
+.bloomli-science-inside-out__body h3,
+.bloomli-science-ingredients__card h3 {
+  margin: 0;
+  color: rgb(var(--color-foreground));
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.8rem, 3.1vw, 3.8rem);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.bloomli-science-inside-out__body .rte,
+.bloomli-science-ingredients__text,
+.bloomli-science-testing__text,
+.bloomli-science-expert__body {
+  margin-top: 1.6rem;
+  color: rgba(var(--color-foreground), 0.72);
+  font-size: clamp(1.45rem, 1.4vw, 1.65rem);
+  line-height: 1.7;
+}
+
+.bloomli-science-ingredients {
+  background: var(--bsi-bg, rgb(var(--color-background)));
+}
+
+.bloomli-science-ingredients__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.8rem, 2.4vw, 2.8rem);
+  margin-top: clamp(4.8rem, 6vw, 6.4rem);
+}
+
+.bloomli-science-ingredients__card,
+.bloomli-science-testing__card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border: 0.1rem solid var(--bloomli-border);
+  border-radius: 1.8rem;
+  background: var(--bloomli-card);
+  box-shadow: 0 1.6rem 4rem rgba(77, 54, 43, 0.07);
+}
+
+.bloomli-science-ingredients__card {
+  padding: clamp(2.4rem, 3vw, 3.2rem);
+}
+
+.bloomli-science-ingredients__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.bloomli-science-ingredients__label,
+.bloomli-science-ingredients__role {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.8rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.bloomli-science-ingredients__label {
+  background: rgba(178, 58, 111, 0.1);
+  color: var(--bloomli-berry);
+}
+
+.bloomli-science-ingredients__role {
+  background: rgba(42, 38, 34, 0.06);
+  color: rgba(var(--color-foreground), 0.68);
+}
+
+.bloomli-science-testing {
+  background: var(--bst-bg, rgb(var(--color-background)));
+}
+
+.bloomli-science-testing__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 2.8vw, 3.2rem);
+  max-width: 96rem;
+  margin: clamp(4.8rem, 6vw, 6.4rem) auto 0;
+}
+
+.bloomli-science-testing__card {
+  min-height: 25rem;
+  padding: clamp(2.8rem, 4vw, 4.8rem);
+}
+
+.bloomli-science-testing__number {
+  color: var(--bloomli-berry);
+  font-family: 'Fraunces', serif;
+  font-size: clamp(4.4rem, 6vw, 7rem);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+
+.bloomli-science-testing__card h3 {
+  margin: 2rem 0 0;
+  color: rgb(var(--color-foreground));
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.bloomli-science-testing__source {
+  margin-top: auto;
+  padding-top: 2rem;
+  color: var(--bloomli-berry);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.bloomli-science-testing__footer {
+  display: grid;
+  justify-items: center;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.bloomli-science-testing__link {
+  color: var(--bloomli-berry);
+  font-size: 1.55rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(178, 58, 111, 0.28);
+  text-underline-offset: 0.45rem;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.bloomli-science-testing__link:hover {
+  color: rgb(var(--color-foreground));
+  text-decoration-color: currentColor;
+}
+
+.bloomli-science-testing__footer .bloomli-science-disclaimer {
+  margin-top: 2rem;
+}
+
+.bloomli-science-expert {
+  background: var(--bse-bg, rgb(var(--color-background)));
+}
+
+.bloomli-science-expert__grid {
+  display: grid;
+  grid-template-columns: minmax(28rem, 0.72fr) minmax(0, 1fr);
+  gap: clamp(4rem, 7vw, 9rem);
+  align-items: center;
+}
+
+.bloomli-science-expert__left {
+  display: grid;
+  gap: 2rem;
+  max-width: 44rem;
+}
+
+.bloomli-science-expert__photo {
+  display: grid;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 2rem;
+  background: #ead5d1;
+  place-items: center;
+}
+
+.bloomli-science-expert__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bloomli-science-expert__placeholder {
+  display: grid;
+  width: calc(100% - 3.2rem);
+  height: calc(100% - 3.2rem);
+  align-items: center;
+  justify-items: center;
+  padding: 3.2rem;
+  border: 0.1rem dashed rgba(42, 38, 34, 0.18);
+  border-radius: 1.6rem;
+  color: rgba(42, 38, 34, 0.46);
+  font-size: 1.35rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.bloomli-science-expert__name-card {
+  padding: 2.2rem 2.4rem;
+  border: 0.1rem solid var(--bloomli-border);
+  border-radius: 1.4rem;
+  background: var(--bloomli-card);
+  box-shadow: 0 1.4rem 3.4rem rgba(77, 54, 43, 0.07);
+}
+
+.bloomli-science-expert__name {
+  color: rgb(var(--color-foreground));
+  font-family: 'Fraunces', serif;
+  font-size: 2.4rem;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  line-height: 1.12;
+}
+
+.bloomli-science-expert__title {
+  margin-top: 0.8rem;
+  color: var(--bloomli-berry);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.bloomli-science-expert__content .bloomli-science-section__heading {
+  max-width: 62rem;
+  font-size: clamp(3.2rem, 4.2vw, 4.8rem);
+}
+
+.bloomli-science-expert__quote {
+  margin: 2.8rem 0 0;
+  padding: 0.4rem 0 0.4rem 2.4rem;
+  border-left: 0.2rem solid var(--bloomli-berry);
+  color: var(--bloomli-berry);
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.1rem, 2.4vw, 2.8rem);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.bloomli-science-expert__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+
+.bloomli-science-expert__chips span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.8rem;
+  padding: 0.9rem 1.5rem;
+  border: 0.1rem solid var(--bloomli-border);
+  border-radius: 999rem;
+  background: var(--bloomli-card);
+  color: rgb(var(--color-foreground));
+  font-size: 1.35rem;
 }
 
 .bloomli-science-standard {
@@ -277,8 +638,14 @@
   .bloomli-science-grid,
   .bloomli-science-hero__grid,
   .bloomli-science-cta__panel,
-  .bloomli-science-standard__layout {
+  .bloomli-science-standard__layout,
+  .bloomli-science-inside-out__grid,
+  .bloomli-science-expert__grid {
     grid-template-columns: 1fr;
+  }
+
+  .bloomli-science-ingredients__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -324,5 +691,15 @@
 
   .bloomli-science-cta__panel {
     padding: 2rem;
+  }
+
+  .bloomli-science-inside-out__grid,
+  .bloomli-science-testing__grid,
+  .bloomli-science-ingredients__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bloomli-science-testing__card {
+    min-height: 0;
   }
 }

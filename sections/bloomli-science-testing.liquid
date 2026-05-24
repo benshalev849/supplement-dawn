@@ -1,0 +1,103 @@
+{{ 'bloomli-science.css' | asset_url | stylesheet_tag }}
+
+<section
+  {% if section.settings.section_id != blank %}
+    id="{{ section.settings.section_id | handleize }}"
+  {% endif %}
+  class="bloomli-science-section bloomli-science-testing color-{{ section.settings.color_scheme }} gradient"
+  style="
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --bst-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
+  "
+>
+  <div class="bloomli-science-section__inner">
+    <div class="bloomli-science-testing__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="bloomli-science-section__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.copy != blank -%}
+        <div class="bloomli-science-section__copy rte">{{ section.settings.copy }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="bloomli-science-testing__grid">
+      {%- for block in section.blocks -%}
+        <article class="bloomli-science-testing__card" {{ block.shopify_attributes }}>
+          {%- if block.settings.number != blank -%}
+            <div class="bloomli-science-testing__number">{{ block.settings.number | escape }}</div>
+          {%- endif -%}
+          {%- if block.settings.label != blank -%}
+            <h3>{{ block.settings.label | escape }}</h3>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class="bloomli-science-testing__text rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+          {%- if block.settings.source != blank -%}
+            <div class="bloomli-science-testing__source">{{ block.settings.source | escape }}</div>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+
+    <div class="bloomli-science-testing__footer">
+      {%- if section.settings.coa_label != blank and section.settings.coa_link != blank -%}
+        <a class="bloomli-science-testing__link" href="{{ section.settings.coa_link }}">{{ section.settings.coa_label | escape }}</a>
+      {%- endif -%}
+      {%- if section.settings.footnote != blank -%}
+        <div class="bloomli-science-disclaimer rte">{{ section.settings.footnote }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli Science Testing",
+  "tag": "div",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "max_blocks": 6,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
+    { "type": "text", "id": "section_id", "label": "Optional section anchor ID", "default": "testing" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": true },
+    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#EDE3DD", "visible_if": "{{ section.settings.use_custom_background }}" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What third-party testing actually confirmed." },
+    { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>We don&rsquo;t just say &ldquo;tested.&rdquo; Here&rsquo;s what the documentation shows.</p>" },
+    { "type": "text", "id": "coa_label", "label": "COA link label", "default": "Request a COA ->" },
+    { "type": "text", "id": "coa_link", "label": "COA link URL", "default": "mailto:support@bloomliwellness.com?subject=COA Request" },
+    { "type": "richtext", "id": "footnote", "label": "Footnote", "default": "<p>*These are quality and testing data, not clinical outcome statistics. Results vary by lot. Product documentation is available on request.</p>" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Proof card",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Large number", "default": "104.57%" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Biotin at label claim" },
+        { "type": "richtext", "id": "text", "label": "Body", "default": "<p>Independent COA testing confirmed the gummies met the labeled 6,000 mcg Biotin per serving, with a reported result of 6,274 mcg per serving.</p>" },
+        { "type": "text", "id": "source", "label": "Source note", "default": "COA lot #258079401" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli Science Testing",
+      "blocks": [
+        { "type": "proof" },
+        { "type": "proof", "settings": { "number": "0", "label": "Heavy metal failures", "text": "<p>The tested gummy lot passed USP &lt;233&gt; screening for Lead, Mercury, Arsenic, and Cadmium, with reported results below the listed limits.</p>", "source": "ICP-MS testing" } },
+        { "type": "proof", "settings": { "number": "100%", "label": "Microbial screens passed", "text": "<p>The tested gummy lot reported passing results for standard plate count, yeast and mold, E. coli, Salmonella, and Staphylococcus aureus.</p>", "source": "USP <2021>/<2022>" } },
+        { "type": "proof", "settings": { "number": "NSF / 455-2", "label": "Certified manufacturing scope", "text": "<p>Supplier documentation confirms NSF/ANSI 455-2 certification scope for relevant supplement manufacturing, packaging, quality, and warehousing operations.</p>", "source": "Certificate on file" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

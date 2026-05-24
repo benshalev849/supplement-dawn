@@ -1,0 +1,128 @@
+{{ 'bloomli-science.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign supplement_alt = section.settings.supplement_image.alt | default: section.settings.left_heading
+  assign serum_alt = section.settings.serum_image.alt | default: section.settings.right_heading
+-%}
+
+<section
+  {% if section.settings.section_id != blank %}
+    id="{{ section.settings.section_id | handleize }}"
+  {% endif %}
+  class="bloomli-science-section bloomli-science-inside-out color-{{ section.settings.color_scheme }} gradient"
+  style="
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --bsio-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
+  "
+>
+  <div class="bloomli-science-section__inner bloomli-science-inside-out__inner">
+    <div class="bloomli-science-inside-out__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="bloomli-science-section__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.copy != blank -%}
+        <div class="bloomli-science-section__copy rte">{{ section.settings.copy }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="bloomli-science-inside-out__grid">
+      <article class="bloomli-science-inside-out__card bloomli-science-inside-out__card--warm">
+        <div class="bloomli-science-inside-out__media">
+          {%- if section.settings.supplement_image != blank -%}
+            {{
+              section.settings.supplement_image
+              | image_url: width: 1100
+              | image_tag:
+                widths: '420, 640, 840, 1100',
+                sizes: '(min-width: 990px) 42vw, 100vw',
+                loading: 'lazy',
+                decoding: 'async',
+                alt: supplement_alt,
+                class: 'bloomli-science-inside-out__image'
+            }}
+          {%- else -%}
+            <div class="bloomli-science-inside-out__placeholder">
+              {{ section.settings.supplement_placeholder | escape }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="bloomli-science-inside-out__body">
+          {%- if section.settings.left_heading != blank -%}
+            <h3>{{ section.settings.left_heading | escape }}</h3>
+          {%- endif -%}
+          {%- if section.settings.left_body != blank -%}
+            <div class="rte">{{ section.settings.left_body }}</div>
+          {%- endif -%}
+        </div>
+      </article>
+
+      <article class="bloomli-science-inside-out__card bloomli-science-inside-out__card--sage">
+        <div class="bloomli-science-inside-out__media">
+          {%- if section.settings.serum_image != blank -%}
+            {{
+              section.settings.serum_image
+              | image_url: width: 1100
+              | image_tag:
+                widths: '420, 640, 840, 1100',
+                sizes: '(min-width: 990px) 42vw, 100vw',
+                loading: 'lazy',
+                decoding: 'async',
+                alt: serum_alt,
+                class: 'bloomli-science-inside-out__image'
+            }}
+          {%- else -%}
+            <div class="bloomli-science-inside-out__placeholder">
+              {{ section.settings.serum_placeholder | escape }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="bloomli-science-inside-out__body">
+          {%- if section.settings.right_heading != blank -%}
+            <h3>{{ section.settings.right_heading | escape }}</h3>
+          {%- endif -%}
+          {%- if section.settings.right_body != blank -%}
+            <div class="rte">{{ section.settings.right_body }}</div>
+          {%- endif -%}
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli Sci Inside Out",
+  "tag": "div",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
+    { "type": "text", "id": "section_id", "label": "Optional section anchor ID", "default": "inside-out" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": true },
+    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#F7EFEC", "visible_if": "{{ section.settings.use_custom_background }}" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Hair wellness works from the inside out." },
+    { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>Hair is shaped by what happens inside the body and at the scalp. Bloomli is designed to support both &mdash; daily supplements to nourish from within, and a topical serum to care for the scalp surface.</p>" },
+    { "type": "header", "content": "Left card" },
+    { "type": "image_picker", "id": "supplement_image", "label": "Supplement image" },
+    { "type": "text", "id": "supplement_placeholder", "label": "Missing-image placeholder", "default": "[ PHOTO: Hair supplement gummies or capsules on a warm cream surface, soft natural daylight. Aspect 4:3. ]" },
+    { "type": "text", "id": "left_heading", "label": "Heading", "default": "Nourish from within." },
+    { "type": "richtext", "id": "left_body", "label": "Body", "default": "<p>Hair follicles are metabolically active structures &mdash; they need a consistent daily supply of vitamins, minerals, and botanical compounds. Bloomli&rsquo;s ingestible formulas include Biotin, Zinc, Folate, B-vitamins, Vitamin C, and botanical nutrients selected to support normal hair, skin, and nail wellness from the inside.</p>" },
+    { "type": "header", "content": "Right card" },
+    { "type": "image_picker", "id": "serum_image", "label": "Serum image" },
+    { "type": "text", "id": "serum_placeholder", "label": "Missing-image placeholder", "default": "[ PHOTO: Botanical serum bottle with dropper, rosemary or botanical element, cream surface. Aspect 4:3. ]" },
+    { "type": "text", "id": "right_heading", "label": "Heading", "default": "Support the scalp from outside." },
+    { "type": "richtext", "id": "right_body", "label": "Body", "default": "<p>The scalp is skin &mdash; and the environment every strand grows from. Bloomli&rsquo;s botanical serum brings Rosemary Extract, Densidyl&reg; components, Ginger Root, and hydrating ingredients directly to the scalp surface. Internal nutrition and topical care work in the same direction.</p>" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px" }
+  ],
+  "presets": [{ "name": "Bloomli Sci Inside Out" }]
+}
+{% endschema %}

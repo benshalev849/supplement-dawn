@@ -1,0 +1,105 @@
+{{ 'bloomli-science.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.show_expert_review -%}
+  {%- liquid
+    assign expert_alt = section.settings.expert_image.alt | default: section.settings.expert_name
+  -%}
+
+  <section
+    {% if section.settings.section_id != blank %}
+      id="{{ section.settings.section_id | handleize }}"
+    {% endif %}
+    class="bloomli-science-section bloomli-science-expert color-{{ section.settings.color_scheme }} gradient"
+    style="
+      --section-padding-top: {{ section.settings.padding_top }}px;
+      --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+      --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+      --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+      --bse-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
+    "
+  >
+    <div class="bloomli-science-section__inner">
+      <div class="bloomli-science-expert__grid">
+        <div class="bloomli-science-expert__left">
+          <div class="bloomli-science-expert__photo">
+            {%- if section.settings.expert_image != blank -%}
+              {{
+                section.settings.expert_image
+                | image_url: width: 900
+                | image_tag:
+                  widths: '360, 540, 720, 900',
+                  sizes: '(min-width: 990px) 34vw, 100vw',
+                  loading: 'lazy',
+                  decoding: 'async',
+                  alt: expert_alt,
+                  class: 'bloomli-science-expert__image'
+              }}
+            {%- else -%}
+              <div class="bloomli-science-expert__placeholder">
+                {{ section.settings.expert_placeholder | escape }}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="bloomli-science-expert__name-card">
+            {%- if section.settings.expert_name != blank -%}
+              <div class="bloomli-science-expert__name">{{ section.settings.expert_name | escape }}</div>
+            {%- endif -%}
+            {%- if section.settings.expert_title != blank -%}
+              <div class="bloomli-science-expert__title">{{ section.settings.expert_title | escape }}</div>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <div class="bloomli-science-expert__content">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="bloomli-science-section__heading">{{ section.settings.heading | escape }}</h2>
+          {%- endif -%}
+          {%- if section.settings.expert_quote != blank -%}
+            <blockquote class="bloomli-science-expert__quote rte">{{ section.settings.expert_quote }}</blockquote>
+          {%- endif -%}
+          {%- if section.settings.expert_body != blank -%}
+            <div class="bloomli-science-expert__body rte">{{ section.settings.expert_body }}</div>
+          {%- endif -%}
+          <div class="bloomli-science-expert__chips" aria-label="Review scope">
+            <span>Ingredient safety reviewed</span>
+            <span>Dose rationale reviewed</span>
+          </div>
+          {%- if section.settings.footnote != blank -%}
+            <div class="bloomli-science-disclaimer rte">{{ section.settings.footnote }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bloomli Sci Expert",
+  "tag": "div",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    { "type": "checkbox", "id": "show_expert_review", "label": "Show expert review", "default": false },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "text", "id": "section_id", "label": "Optional section anchor ID", "default": "expert-review", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": true, "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FAF5F3", "visible_if": "{{ section.settings.show_expert_review and section.settings.use_custom_background }}" },
+    { "type": "image_picker", "id": "expert_image", "label": "Expert image", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "text", "id": "expert_placeholder", "label": "Missing-image placeholder", "default": "[ PHOTO: Real advisor portrait. Do not publish without permission. ]", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Reviewed for ingredient logic and safety context.", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "text", "id": "expert_name", "label": "Expert name", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "text", "id": "expert_title", "label": "Expert title", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "richtext", "id": "expert_quote", "label": "Expert quote", "default": "<p>&ldquo;Hair wellness works best when the formula matches the biology. Bloomli&rsquo;s combination of internal nutrient support and topical scalp care addresses both sides of the routine.&rdquo;</p>", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "richtext", "id": "expert_body", "label": "Expert body", "default": "<p>[Expert name] reviewed Bloomli&rsquo;s formulations for ingredient rationale, dose appropriateness, and interaction considerations. The review covered the gummies, capsule formula, and botanical serum.</p>", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "richtext", "id": "footnote", "label": "Footnote", "default": "<p>*Advisory review does not constitute a clinical endorsement of efficacy outcomes. Individual results vary.</p>", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px", "visible_if": "{{ section.settings.show_expert_review }}" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px", "visible_if": "{{ section.settings.show_expert_review }}" }
+  ],
+  "presets": [{ "name": "Bloomli Sci Expert" }]
+}
+{% endschema %}

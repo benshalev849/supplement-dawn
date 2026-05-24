@@ -108,8 +108,8 @@
         "bloomli_collapsible_row_BBNpQF": {
           "type": "bloomli_collapsible_row",
           "settings": {
-            "title": "Allergen Information",
-            "content": "<p>Contains: Fish (Tilapia) and Tree Nuts (Coconut). Manufactured in a facility that may also process milk, soy, wheat, eggs, peanuts, and shellfish.</p>"
+            "title": "Ingredients & Allergens",
+            "content": "<p></p>{{ product.metafields.custom.ingredients_allergens | metafield_tag }}"
           }
         },
         "bloomli_collapsible_row_RTP9fp": {

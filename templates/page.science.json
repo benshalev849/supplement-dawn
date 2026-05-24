@@ -148,6 +148,7 @@
         "ingredient_biotin": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Biotin_Circle.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Inside support",
             "role": "Gummies",
@@ -158,6 +159,7 @@
         "ingredient_zinc": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Zinc_Square.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Mineral support",
             "role": "Inside + outside",
@@ -168,6 +170,7 @@
         "ingredient_b_vitamins": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Folate_-_Splash.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Daily metabolism",
             "role": "Capsules",
@@ -183,6 +186,16 @@
             "role": "Inside + outside",
             "title": "Vitamin C",
             "text": "<p>Supports normal collagen formation and antioxidant protection. In a hair wellness formula, Vitamin C belongs because healthy-looking hair starts with overall tissue and skin support.</p>"
+          }
+        },
+        "ingredient_4WWKCn": {
+          "type": "ingredient",
+          "settings": {
+            "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
+            "label": "Inside support",
+            "role": "Gummies",
+            "title": "Biotin",
+            "text": "<p>Supports normal hair and nail wellness and helps the body metabolize fats and proteins. Bloomli gummies are formulated with 6,000 mcg Biotin per serving.</p>"
           }
         },
         "ingredient_rosemary": {
@@ -211,6 +224,7 @@
         "ingredient_zinc",
         "ingredient_b_vitamins",
         "ingredient_vitamin_c",
+        "ingredient_4WWKCn",
         "ingredient_rosemary",
         "ingredient_densidyl"
       ],

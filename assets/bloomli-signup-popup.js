@@ -229,7 +229,6 @@
       if (!form) return;
 
       form.addEventListener('submit', () => this.rememberSubmissionAttempt(form), true);
-      form.addEventListener('submit', (event) => this.submitForm(event));
     }
 
     rememberSubmissionAttempt(form) {
@@ -242,68 +241,10 @@
       this.writeSessionStorage(PENDING_SUBMISSION_KEY, JSON.stringify(submission));
     }
 
-    async submitForm(event) {
-      event.preventDefault();
-      const form = event.currentTarget;
-      if (!(form instanceof HTMLFormElement) || !form.reportValidity()) return;
-
-      this.setFormPending(form, true);
-      this.clearFormError(form);
-
-      try {
-        const response = await window.fetch(form.action, {
-          method: form.method || 'POST',
-          body: new FormData(form),
-          credentials: 'same-origin',
-          headers: {
-            'X-Requested-With': 'XMLHttpRequest',
-          },
-        });
-        const responseText = await response.text();
-        const responseDocument = new DOMParser().parseFromString(responseText, 'text/html');
-
-        if (this.isCaptchaChallengeResponse(response)) {
-          window.location.assign(response.url);
-          return;
-        }
-
-        const successful = response.ok && (
-          response.url.includes('customer_posted=true') ||
-          responseDocument.querySelector('[data-bloomli-popup-form-state="success"]') ||
-          responseDocument.querySelector('.newsletter-form__message--success')
-        );
-
-        if (!successful) {
-          this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-          this.showFormError(form);
-          return;
-        }
-
-        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-        this.hideThemeNewsletterSuccess();
-        this.recordSubmission();
-        this.showSuccess();
-        form.reset();
-      } catch (_error) {
-        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-        this.showFormError(form);
-      } finally {
-        this.setFormPending(form, false);
-      }
-    }
-
     bindFooterForms() {
       this.footerForms.forEach((form) => {
         this.bindSignupForm(form);
       });
-    }
-
-    isCaptchaChallengeResponse(response) {
-      try {
-        return new URL(response.url).pathname.endsWith('/challenge');
-      } catch (_error) {
-        return false;
-      }
     }
 
     isSuccessfulSubmissionReturn() {
@@ -337,29 +278,6 @@
       if (Number.isFinite(pendingSubmission.scrollY)) {
         window.requestAnimationFrame(() => window.scrollTo(0, pendingSubmission.scrollY));
       }
-    }
-
-    setFormPending(form, pending) {
-      const submit = form.querySelector('[type="submit"]');
-      if (!submit) return;
-
-      submit.disabled = pending;
-      submit.setAttribute('aria-busy', String(pending));
-    }
-
-    clearFormError(form) {
-      form.querySelector('[data-bloomli-async-error]')?.remove();
-    }
-
-    showFormError(form) {
-      const error = document.createElement('small');
-      error.className = form === this.form
-        ? 'bloomli-signup-popup__message bloomli-signup-popup__message--error'
-        : 'newsletter-form__message form__message';
-      error.dataset.bloomliAsyncError = '';
-      error.setAttribute('role', 'alert');
-      error.textContent = 'Something went wrong. Please try again.';
-      form.append(error);
     }
 
     recordSubmission() {

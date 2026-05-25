@@ -1,11 +1,11 @@
 # Graph Report - supplement-dawn  (2026-05-25)
 
 ## Corpus Check
-- 45 files · ~35,694 words
+- 45 files · ~35,528 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 696 nodes · 1007 edges · 54 communities detected
+- 697 nodes · 1009 edges · 53 communities detected
 - Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 118 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
@@ -45,17 +45,17 @@
 - [[_COMMUNITY_Community 32|Community 32]]
 - [[_COMMUNITY_Community 33|Community 33]]
 - [[_COMMUNITY_Community 34|Community 34]]
-- [[_COMMUNITY_Community 35|Community 35]]
-- [[_COMMUNITY_Community 37|Community 37]]
+- [[_COMMUNITY_Community 36|Community 36]]
+- [[_COMMUNITY_Community 38|Community 38]]
 - [[_COMMUNITY_Community 39|Community 39]]
-- [[_COMMUNITY_Community 40|Community 40]]
+- [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
 - [[_COMMUNITY_Community 43|Community 43]]
 - [[_COMMUNITY_Community 44|Community 44]]
-- [[_COMMUNITY_Community 45|Community 45]]
+- [[_COMMUNITY_Community 46|Community 46]]
 - [[_COMMUNITY_Community 47|Community 47]]
 - [[_COMMUNITY_Community 48|Community 48]]
-- [[_COMMUNITY_Community 49|Community 49]]
+- [[_COMMUNITY_Community 51|Community 51]]
 - [[_COMMUNITY_Community 52|Community 52]]
 - [[_COMMUNITY_Community 53|Community 53]]
 - [[_COMMUNITY_Community 54|Community 54]]
@@ -63,10 +63,9 @@
 - [[_COMMUNITY_Community 56|Community 56]]
 - [[_COMMUNITY_Community 57|Community 57]]
 - [[_COMMUNITY_Community 58|Community 58]]
-- [[_COMMUNITY_Community 59|Community 59]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `BloomliSignupPopup` - 38 edges
+1. `BloomliSignupPopup` - 39 edges
 2. `PredictiveSearch` - 23 edges
 3. `FacetFiltersForm` - 20 edges
 4. `CartItems` - 16 edges
@@ -78,16 +77,16 @@
 10. `BulkAdd` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `connectedCallback()` --calls--> `subscribe()`  [INFERRED]
-  price-per-item.js → pubsub.js
-- `connectedCallback()` --calls--> `subscribe()`  [INFERRED]
-  quick-add-bulk.js → pubsub.js
-- `connectedCallback()` --calls--> `subscribe()`  [INFERRED]
-  recipient-form.js → pubsub.js
 - `constructor()` --calls--> `debounce()`  [INFERRED]
   cart.js → global.js
 - `show()` --calls--> `trapFocus()`  [INFERRED]
   pickup-availability.js → global.js
+- `constructor()` --calls--> `debounce()`  [INFERRED]
+  media-gallery.js → global.js
+- `constructor()` --calls--> `debounce()`  [INFERRED]
+  quick-add-bulk.js → global.js
+- `updateMultipleQty()` --calls--> `fetchConfig()`  [INFERRED]
+  quick-add-bulk.js → global.js
 
 ## Hyperedges (group relationships)
 - **CI Quality Pipeline: GitHub Actions, Lighthouse CI, Theme Check Action** — readme_github_actions, readme_lighthouse_ci_action, readme_theme_check_action [EXTRACTED 1.00]
@@ -127,18 +126,18 @@
 - **UI Shapes / Structural Elements: Mask Arch, Square, Sparkle GIF, Loading Spinner, Zoom** — mask_arch, square, sparkle_gif, loading_spinner, icon_zoom, category_ui_shapes [INFERRED 0.85]
 - **Platform Branding: Shopify Logo** — icon_shopify, category_platform_branding [EXTRACTED 1.00]
 
-## Communities (62 total, 19 thin omitted)
+## Communities (61 total, 19 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
+Nodes (21): QuantityInput, connectedCallback(), constructor(), getCartQuantity(), getVolumePricingArray(), onInputChange(), updatePricePerItem(), buildRequestUrlWithParams() (+13 more)
+
+### Community 1 - "Community 1"
+Cohesion: 0.05
 Nodes (11): AccountIcon, BulkModal, CartPerformance, DeferredMedia, HTMLUpdateUtility, ModalDialog, ModalOpener, pauseAllMedia() (+3 more)
 
-### Community 2 - "Community 2"
-Cohesion: 0.07
-Nodes (13): QuantityInput, buildRequestUrlWithParams(), connectedCallback(), handleOptionValueChange(), handleSwapProduct(), handleUpdateProductInfo(), initializeProductSwapUtility(), initQuantityHandlers() (+5 more)
-
 ### Community 3 - "Community 3"
-Cohesion: 0.08
+Cohesion: 0.09
 Nodes (13): DetailsModal, getFocusableElements(), HeaderDrawer, MenuDrawer, removeTrapFocus(), trapFocus(), constructor(), fetchAvailability() (+5 more)
 
 ### Community 4 - "Community 4"
@@ -169,21 +168,21 @@ Nodes (19): Shopify Dawn License, Contributing Guide, Dawn Theme, GitHub Actions
 Cohesion: 0.14
 Nodes (18): E-Commerce / Shopping Icons Group, Platform Branding Icons Group, UI Feedback Icons Group, UI Shapes / Structural Elements Group, Shoe Icon, Shopify Logo Icon, Person Silhouette / User Account Icon, Star / Rating Icon (+10 more)
 
-### Community 13 - "Community 13"
-Cohesion: 0.21
-Nodes (9): connectedCallback(), constructor(), getSectionsToRender(), getSectionsUrl(), listenForActiveInput(), listenForKeydown(), renderSections(), selectProgressBar() (+1 more)
-
 ### Community 14 - "Community 14"
 Cohesion: 0.21
 Nodes (7): closeSelector(), filterCountries(), hidePanel(), normalizeString(), onContainerKeyUp(), openSelector(), resetFilter()
 
 ### Community 15 - "Community 15"
-Cohesion: 0.27
-Nodes (11): clearErrorMessage(), clearInputFields(), connectedCallback(), constructor(), disableableFields(), disableInputFields(), displayErrorMessage(), enableInputFields() (+3 more)
+Cohesion: 0.23
+Nodes (8): constructor(), getSectionsToRender(), getSectionsUrl(), listenForActiveInput(), listenForKeydown(), renderSections(), selectProgressBar(), updateMultipleQty()
 
 ### Community 16 - "Community 16"
 Cohesion: 0.21
 Nodes (14): Dietary / Allergen Claim Icons, E-commerce Action / Interaction Icons, Product / Marketing Claim Icons, Discount / Price Tag Icon, Eye / Visibility Icon, Fire / Trending / Hot Icon, Gluten-Free Dietary Badge Icon, Heart / Wishlist / Favourite Icon (+6 more)
+
+### Community 17 - "Community 17"
+Cohesion: 0.31
+Nodes (10): clearErrorMessage(), clearInputFields(), constructor(), disableableFields(), disableInputFields(), displayErrorMessage(), enableInputFields(), inputFields() (+2 more)
 
 ### Community 18 - "Community 18"
 Cohesion: 0.27
@@ -218,54 +217,50 @@ Cohesion: 0.54
 Nodes (6): clamp(), getDesktopProgress(), getMobileProgress(), setReachedSteps(), setReachedStepsFromLine(), update()
 
 ### Community 31 - "Community 31"
-Cohesion: 0.36
-Nodes (6): connectedCallback(), constructor(), getCartQuantity(), getVolumePricingArray(), onInputChange(), updatePricePerItem()
-
-### Community 32 - "Community 32"
 Cohesion: 0.29
 Nodes (8): Icon: 3D Model, Icon: Apple (Fruit), Icon: Banana (Fruit), Icon: Bottle (Supplement Container), Icon: Box (3D Package), Icon: Carrot (Vegetable), Icon: Dairy Free (Badge/Dietary Label), Icon: Dairy (Milk Jug/Bottle Badge)
 
-### Community 34 - "Community 34"
+### Community 33 - "Community 33"
 Cohesion: 0.43
 Nodes (4): createOverlay(), magnify(), prepareOverlay(), toggleLoadingSpinner()
 
-### Community 35 - "Community 35"
+### Community 34 - "Community 34"
 Cohesion: 0.67
 Nodes (5): finishAfterTransition(), getInitialIndex(), initBeneathSurface(), setAccordionState(), setActive()
 
-### Community 39 - "Community 39"
+### Community 38 - "Community 38"
 Cohesion: 0.83
 Nodes (3): finishAfterTransition(), initFaq(), setPanelState()
 
-### Community 40 - "Community 40"
+### Community 39 - "Community 39"
 Cohesion: 0.83
 Nodes (3): getHeaderStackHeight(), getSelectorTarget(), initInlineCtas()
 
-### Community 42 - "Community 42"
+### Community 41 - "Community 41"
 Cohesion: 0.5
 Nodes (4): Icon: Account (User Profile), Icon: Cart Empty, Icon: Cart (Shopping Bag), Icon: Chat Bubble (Message/Support)
 
-### Community 43 - "Community 43"
+### Community 42 - "Community 42"
 Cohesion: 0.83
 Nodes (4): UI Status / Feedback Icons, Error / Alert Status Icon, Info / Tooltip Icon, Inventory / Stock Status Indicator Icon
 
-### Community 44 - "Community 44"
+### Community 43 - "Community 43"
 Cohesion: 0.5
 Nodes (4): UI Navigation Icons, Filter / Sort Controls Icon, Hamburger / Navigation Menu Icon, Map Pin / Location Icon
 
-### Community 45 - "Community 45"
+### Community 44 - "Community 44"
 Cohesion: 0.67
 Nodes (4): Laundry / Material Care Icons, Dryer / Laundry Care Icon, Iron / Laundry Care Icon, Leather / Material Care Icon
 
-### Community 47 - "Community 47"
+### Community 46 - "Community 46"
 Cohesion: 1.0
 Nodes (3): Pants Icon, Ruler / Measurement Icon, Shirt / T-Shirt Icon
 
-### Community 48 - "Community 48"
+### Community 47 - "Community 47"
 Cohesion: 1.0
 Nodes (3): Plus / Add Icon, Remove / Trash Icon, Reset / Close Icon
 
-### Community 49 - "Community 49"
+### Community 48 - "Community 48"
 Cohesion: 1.0
 Nodes (3): Product / Care Instructions Icons Group, Snowflake / Cold Storage Icon, Washing / Care Instructions Icon
 
@@ -283,15 +278,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Shoe Icon` and `Arch Shape Clip Path Mask`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `fetchConfig()` connect `Community 5` to `Community 0`, `Community 13`, `Community 6`, `Community 7`?**
+- **Why does `fetchConfig()` connect `Community 5` to `Community 1`, `Community 15`, `Community 6`, `Community 7`?**
   _High betweenness centrality (0.105) - this node is a cross-community bridge._
-- **Why does `debounce()` connect `Community 7` to `Community 0`, `Community 19`, `Community 13`?**
+- **Why does `debounce()` connect `Community 7` to `Community 1`, `Community 19`, `Community 15`?**
   _High betweenness centrality (0.090) - this node is a cross-community bridge._
-- **Why does `removeTrapFocus()` connect `Community 3` to `Community 0`, `Community 1`, `Community 21`?**
-  _High betweenness centrality (0.076) - this node is a cross-community bridge._
+- **Why does `removeTrapFocus()` connect `Community 3` to `Community 1`, `Community 2`, `Community 21`, `Community 13`?**
+  _High betweenness centrality (0.077) - this node is a cross-community bridge._
 - **What connects `Shopify Dawn License`, `Online Store 2.0`, `Progressive Enhancement` to the rest of the system?**
   _47 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.12 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05 - nodes in this community are weakly interconnected._

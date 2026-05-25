@@ -80,6 +80,7 @@
         "phase_transition",
         "phase_resting"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "section_id": "hair-biology",
@@ -91,6 +92,7 @@
         "background_color": "#fdfaf7",
         "icon_accent_color": "#6f7a5a",
         "show_image": false,
+        "no_image_content_position": "center",
         "image_side": "left",
         "mobile_image_position": "after_items",
         "media_background": "surface",
@@ -228,6 +230,8 @@
         "card_background_color": "#ede5dc",
         "heading": "Six ingredients worth knowing by name.",
         "copy": "<p>Most formulas list ingredients. We'd rather explain them. Each of these six ingredients has a distinct role and in depth research behind how they support hair, skin, and scalp wellness.</p>",
+        "image_height": 216,
+        "image_height_mobile": 128,
         "padding_top": 104,
         "padding_bottom": 104,
         "padding_top_mobile": 64,

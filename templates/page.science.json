@@ -127,15 +127,15 @@
         "use_custom_background": false,
         "background_color": "#f7efec",
         "heading": "Hair wellness works from the inside out.",
-        "copy": "<p>Hair is shaped by what happens inside the body and at the scalp. Bloomli is designed to support both — daily supplements to nourish from within, and a topical serum to care for the scalp surface.</p>",
+        "copy": "<p>Hair is shaped by what happens beneath the surface, in the follicle, at the scalp, and throughout the body. Bloomli supports both sides of that equation.</p>",
         "supplement_image": "shopify://shop_images/Gummy_Product_Image_Placeholder.png",
         "supplement_placeholder": "[ PHOTO: Hair supplement gummies or capsules on a warm cream surface, soft natural daylight. Aspect 4:3. ]",
         "left_heading": "Nourish from within.",
-        "left_body": "<p>Hair follicles are metabolically active structures — they need a consistent daily supply of vitamins, minerals, and botanical compounds. Bloomli’s ingestible formulas include Biotin, Zinc, Folate, B-vitamins, Vitamin C, and botanical nutrients selected to support normal hair, skin, and nail wellness from the inside.</p>",
+        "left_body": "<p><strong>Follicles need feeding.<br/></strong>Hair follicles are among the most nutrient-hungry cells in the body. Bloomli's daily supplements deliver Biotin, Zinc, Folate, B-vitamins, Vitamin C, and botanical compounds chosen to support healthy hair from the root up.</p>",
         "serum_image": "shopify://shop_images/Hair_Oil_Product_Image_Placeholder.png",
         "serum_placeholder": "[ PHOTO: Botanical serum bottle with dropper, rosemary or botanical element, cream surface. Aspect 4:3. ]",
         "right_heading": "Support the scalp from outside.",
-        "right_body": "<p>The scalp is skin — and the environment every strand grows from. Bloomli’s botanical serum brings Rosemary Extract, Densidyl® components, Ginger Root, and hydrating ingredients directly to the scalp surface. Internal nutrition and topical care work in the same direction.</p>",
+        "right_body": "<p><strong>Every strand starts here.</strong><br/>The scalp is the environment from which every hair grows. Bloomli's botanical serum brings Rosemary Extract, Ginger Root, and Densidyl directly to the scalp surface, nourishing the foundation while your supplements work from within.</p>",
         "padding_top": 104,
         "padding_bottom": 104,
         "padding_top_mobile": 64,
@@ -150,10 +150,10 @@
           "settings": {
             "image": "shopify://shop_images/Biotin_Circle.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
-            "label": "Inside support",
-            "role": "Gummies",
+            "label": "Inside Support",
+            "role": "Gummies + Capsules",
             "title": "Biotin",
-            "text": "<p>Supports normal hair and nail wellness and helps the body metabolize fats and proteins. Bloomli gummies are formulated with 6,000 mcg Biotin per serving.</p>"
+            "text": "<p>The most recognized nutrient for hair and nail wellness. Bloomli's gummies deliver 6,000mcg per serving, capsules 5,000mcg.</p>"
           }
         },
         "ingredient_zinc": {
@@ -162,9 +162,9 @@
             "image": "shopify://shop_images/Zinc_Square_4d47934d-33c0-4bd6-b9b2-71f8ee3a6f3c.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Mineral support",
-            "role": "Inside + outside",
+            "role": "Gummies + Capsules",
             "title": "Zinc",
-            "text": "<p>A mineral involved in normal skin, hair, and nail health. Included to support the beauty-from-within side of the Bloomli ritual.</p>"
+            "text": "<p>An essential mineral for protein synthesis and cell renewal, two processes central to healthy hair structure.</p>"
           }
         },
         "ingredient_b_vitamins": {
@@ -172,10 +172,10 @@
           "settings": {
             "image": "shopify://shop_images/Folate_-_Splash_2ef71adf-6dc3-4617-9bad-01b5578d27df.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
-            "label": "Daily metabolism",
-            "role": "Capsules",
+            "label": "Follicle Fuel",
+            "role": "Gummies + Capsules",
             "title": "Folate + B-vitamins",
-            "text": "<p>B-vitamins help support normal nutrient metabolism and daily wellness. Bloomli formulas use B-vitamin support as part of a broader hair, skin, and nail routine.</p>"
+            "text": "<p>B vitamins keep fast-growing cells like hair follicles functioning. Bloomli includes Folate, B6, B12, and Pantothenic Acid across both formulas.</p>"
           }
         },
         "ingredient_vitamin_c": {
@@ -183,10 +183,10 @@
           "settings": {
             "image": "shopify://shop_images/Vitamin_C_-_Zoomed_Out_20de48de-4dcf-447c-ac90-5479c2a51d56.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
-            "label": "Antioxidant support",
-            "role": "Inside + outside",
+            "label": "Cell Protection",
+            "role": "ALl Products",
             "title": "Vitamin C",
-            "text": "<p>Supports normal collagen formation and antioxidant protection. In a hair wellness formula, Vitamin C belongs because healthy-looking hair starts with overall tissue and skin support.</p>"
+            "text": "<p>Supports collagen formation and protects cells from oxidative stress. Present in all three Bloomli products, inside and out.</p>"
           }
         },
         "ingredient_rosemary": {
@@ -194,10 +194,10 @@
           "settings": {
             "image": "shopify://shop_images/Rosemary_-_Zoomed_Out.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
-            "label": "Scalp ritual",
-            "role": "Serum",
+            "label": "Scalp Support",
+            "role": "Hair Serum",
             "title": "Rosemary Extract",
-            "text": "<p>A botanical used in Bloomli’s topical serum to support a consistent scalp-care ritual and help the scalp feel refreshed.</p>"
+            "text": "<p>One of the most studied botanicals in scalp wellness. Applied directly to the scalp in Bloomli's serum, where it works at the surface.</p>"
           }
         },
         "ingredient_densidyl": {
@@ -206,9 +206,9 @@
             "image": "shopify://shop_images/Densidyl_-_Zoomed_Out.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Topical blend",
-            "role": "Serum",
+            "role": "Hair Serum",
             "title": "Densidyl components",
-            "text": "<p>A topical blend built around Chlorella and Spirulina extracts, included in the serum to help support the scalp environment.</p>"
+            "text": "<p>A blend of Chlorella and Spirulina extracts that delivers hydration directly to the scalp surface.</p>"
           }
         }
       },
@@ -227,7 +227,7 @@
         "background_color": "#ede5dc",
         "card_background_color": "#ede5dc",
         "heading": "Six ingredients worth knowing by name.",
-        "copy": "<p>Not every ingredient list earns attention. These six have a specific role, a specific reason for being included, and research behind the way they’re used in hair, skin, nail, or scalp wellness.</p>",
+        "copy": "<p>Most formulas list ingredients. We'd rather explain them. Each of these six ingredients has a distinct role and in depth research behind how they support hair, skin, and scalp wellness.</p>",
         "padding_top": 104,
         "padding_bottom": 104,
         "padding_top_mobile": 64,

@@ -24,6 +24,7 @@
       this.closeButtons = Array.from(root.querySelectorAll('[data-bloomli-popup-close], [data-bloomli-popup-decline]'));
       this.reopenButton = root.querySelector('[data-bloomli-popup-reopen]');
       this.launcherCloseButton = root.querySelector('[data-bloomli-popup-launcher-close]');
+      this.enabled = root.dataset.enabled !== 'false';
       this.isOpen = false;
       this.openTimer = null;
       this.hideTimer = null;
@@ -38,7 +39,7 @@
     }
 
     init() {
-      if (!this.modal || !this.steps || !this.tags) return;
+      if (!this.enabled || !this.modal || !this.steps || !this.tags) return;
 
       this.applySettings();
       this.bindEvents();

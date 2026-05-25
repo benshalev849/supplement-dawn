@@ -1,5 +1,8 @@
 {%- liquid
-  assign popup_enabled = settings.bloomli_email_popup_enabled | default: true, allow_false: true
+  assign popup_enabled = true
+  if settings.bloomli_email_popup_enabled == false
+    assign popup_enabled = false
+  endif
   assign popup_color_scheme = settings.bloomli_email_popup_color_scheme | default: 'scheme-1'
   assign popup_background_color = settings.bloomli_email_popup_background_color | default: '#f6eee8'
   assign popup_text_color = settings.bloomli_email_popup_text_color | default: '#322922'
@@ -36,7 +39,7 @@
   assign popup_content_padding_desktop = settings.bloomli_email_popup_content_padding_desktop | default: 64
 
   assign popup_visible = false
-  if popup_enabled and request.page_type != 'checkout'
+  if request.page_type != 'checkout'
     assign popup_visible = true
   endif
 
@@ -56,6 +59,7 @@
   <div
     class="bloomli-signup-popup color-{{ popup_color_scheme }} gradient"
     data-bloomli-signup-popup
+    data-enabled="{{ popup_enabled }}"
     data-close-cooldown-days="{{ popup_close_cooldown_days }}"
     data-show-launcher="{{ popup_show_launcher }}"
     data-customer-marketing="{% if customer and customer.accepts_marketing %}true{% else %}false{% endif %}"

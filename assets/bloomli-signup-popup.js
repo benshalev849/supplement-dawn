@@ -2,6 +2,7 @@
   const STORAGE_PREFIX = 'bloomliSignupPopup';
   const SELECTED_CONCERN_KEY = `${STORAGE_PREFIX}:selectedConcern`;
   const CLOSED_UNTIL_KEY = `${STORAGE_PREFIX}:closedUntil`;
+  const SUBMITTED_KEY = `${STORAGE_PREFIX}:submitted`;
   const LEGACY_SUBMITTED_UNTIL_KEY = `${STORAGE_PREFIX}:submittedUntil`;
   const LAUNCHER_HIDDEN_UNTIL_KEY = `${STORAGE_PREFIX}:launcherHiddenUntil`;
   const PENDING_SUBMISSION_KEY = `${STORAGE_PREFIX}:pendingSubmission`;
@@ -44,7 +45,6 @@
       this.applySettings();
       this.bindEvents();
       this.restoreSelectedConcern();
-      this.removeStorage(LEGACY_SUBMITTED_UNTIL_KEY);
 
       if (this.isDesignMode) {
         this.open();
@@ -54,12 +54,13 @@
       const pendingSubmission = this.readSessionStorage(PENDING_SUBMISSION_KEY) === 'true';
       if (this.formState === 'success' && pendingSubmission) {
         this.removeSessionStorage(PENDING_SUBMISSION_KEY);
+        this.hideThemeNewsletterSuccess();
         this.recordSubmission();
         this.showSuccess();
         return;
       }
 
-      if (this.customerAcceptsMarketing) return;
+      if (this.customerAcceptsMarketing || this.hasSubmitted()) return;
 
       if (this.formState === 'error' && pendingSubmission) {
         this.removeSessionStorage(PENDING_SUBMISSION_KEY);
@@ -223,6 +224,7 @@
     }
 
     recordSubmission() {
+      this.writeStorage(SUBMITTED_KEY, 'true');
       this.removeStorage(CLOSED_UNTIL_KEY);
       this.removeStorage(LAUNCHER_HIDDEN_UNTIL_KEY);
       this.close();
@@ -237,9 +239,22 @@
       }, 9500);
     }
 
+    hideThemeNewsletterSuccess() {
+      document.querySelectorAll('.newsletter-form__message--success').forEach((message) => {
+        if (this.root.contains(message)) return;
+
+        message.hidden = true;
+        message.removeAttribute('autofocus');
+        document.querySelectorAll(`[aria-describedby="${message.id}"]`).forEach((field) => {
+          field.removeAttribute('aria-describedby');
+        });
+      });
+    }
+
     showLauncher() {
       if (
         !this.showLauncherAfterClose ||
+        this.hasSubmitted() ||
         this.hasActiveCooldown(LAUNCHER_HIDDEN_UNTIL_KEY)
       ) {
         return;
@@ -253,6 +268,10 @@
 
     handleKeydown(event) {
       if (event.key === 'Escape') this.dismiss();
+    }
+
+    hasSubmitted() {
+      return this.readStorage(SUBMITTED_KEY) === 'true' || this.hasActiveCooldown(LEGACY_SUBMITTED_UNTIL_KEY);
     }
 
     hasActiveCooldown(key) {

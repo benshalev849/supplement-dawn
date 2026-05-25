@@ -151,7 +151,7 @@
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/Biotin_Circle.png",
-            "image_scale": 85,
+            "image_scale": 75,
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Inside Support",
             "role": "Gummies + Capsules",
@@ -163,7 +163,7 @@
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/Zinc_Square_4d47934d-33c0-4bd6-b9b2-71f8ee3a6f3c.png",
-            "image_scale": 85,
+            "image_scale": 75,
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Mineral support",
             "role": "Gummies + Capsules",
@@ -175,7 +175,7 @@
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/Folate_-_Splash_2ef71adf-6dc3-4617-9bad-01b5578d27df.png",
-            "image_scale": 85,
+            "image_scale": 75,
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Follicle Fuel",
             "role": "Gummies + Capsules",
@@ -187,7 +187,7 @@
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/Vitamin_C_-_Zoomed_Out_20de48de-4dcf-447c-ac90-5479c2a51d56.png",
-            "image_scale": 85,
+            "image_scale": 75,
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Cell Protection",
             "role": "ALl Products",
@@ -199,7 +199,7 @@
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/Rosemary_-_Zoomed_Out.png",
-            "image_scale": 85,
+            "image_scale": 75,
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Scalp Support",
             "role": "Hair Serum",
@@ -211,7 +211,7 @@
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/Densidyl_-_Zoomed_Out.png",
-            "image_scale": 85,
+            "image_scale": 75,
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Topical blend",
             "role": "Hair Serum",
@@ -236,8 +236,8 @@
         "card_background_color": "#ede5dc",
         "heading": "Six ingredients worth knowing by name.",
         "copy": "<p>Most formulas list ingredients. We'd rather explain them. Each of these six ingredients has a distinct role and in depth research behind how they support hair, skin, and scalp wellness.</p>",
-        "image_height": 184,
-        "image_height_mobile": 104,
+        "image_height": 240,
+        "image_height_mobile": 152,
         "padding_top": 104,
         "padding_bottom": 104,
         "padding_top_mobile": 64,

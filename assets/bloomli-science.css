@@ -358,19 +358,18 @@
 
 .bloomli-science-ingredients__media {
   display: grid;
-  height: var(--bsi-image-height, 18.4rem);
+  height: var(--bsi-image-height, 24rem);
   width: 100%;
+  padding: 1.6rem;
   overflow: hidden;
   place-items: center;
 }
 
 .bloomli-science-ingredients__image {
   display: block;
-  width: calc(100% - 3.2rem);
-  height: calc(100% - 3.2rem);
+  width: var(--bsi-item-image-scale, 75%);
+  height: var(--bsi-item-image-scale, 75%);
   object-fit: contain;
-  transform: scale(var(--bsi-item-image-scale, 1));
-  transform-origin: center;
 }
 
 .bloomli-science-ingredients__placeholder {
@@ -741,6 +740,10 @@
   .bloomli-science-cta__panel {
     gap: 2rem;
   }
+
+  .bloomli-science-testing__card h3 {
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -830,12 +833,13 @@
   }
 
   .bloomli-science-ingredients__media {
-    height: var(--bsi-image-height-mobile, 10.4rem);
+    height: var(--bsi-image-height-mobile, 15.2rem);
+    padding: 0.8rem;
   }
 
   .bloomli-science-ingredients__image {
-    width: calc(100% - 1.6rem);
-    height: calc(100% - 1.6rem);
+    width: var(--bsi-item-image-scale, 75%);
+    height: var(--bsi-item-image-scale, 75%);
   }
 
   .bloomli-science-ingredients__content {
@@ -888,7 +892,6 @@
 
   .bloomli-science-testing__card h3 {
     margin-top: 1rem;
-    font-size: 18px;
     line-height: 1.22;
   }
 

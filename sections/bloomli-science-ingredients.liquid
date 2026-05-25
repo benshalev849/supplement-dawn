@@ -12,6 +12,8 @@
     --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
     --bsi-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
     --bsi-card-bg: {{ section.settings.card_background_color }};
+    --bsi-image-height: {{ section.settings.image_height }}px;
+    --bsi-image-height-mobile: {{ section.settings.image_height_mobile }}px;
   "
 >
   <div class="bloomli-science-section__inner">
@@ -88,6 +90,8 @@
     { "type": "color", "id": "card_background_color", "label": "Ingredient card background color", "default": "#FFFFFF" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Six ingredients worth knowing by name." },
     { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>Not every ingredient list earns attention. These six have a specific role, a specific reason for being included, and research behind the way they&rsquo;re used in hair, skin, nail, or scalp wellness.</p>" },
+    { "type": "range", "id": "image_height", "label": "Ingredient image height", "min": 120, "max": 360, "step": 8, "default": 216, "unit": "px" },
+    { "type": "range", "id": "image_height_mobile", "label": "Ingredient image height mobile", "min": 80, "max": 240, "step": 8, "default": 128, "unit": "px" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
     { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px" },

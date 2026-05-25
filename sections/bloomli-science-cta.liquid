@@ -2,6 +2,12 @@
 
 {%- liquid
   assign image_alt = section.settings.cta_image.alt | default: section.settings.heading
+  assign show_actions = false
+  if section.settings.primary_label != blank
+    assign show_actions = true
+  elsif section.settings.secondary_label != blank and section.settings.secondary_link != blank
+    assign show_actions = true
+  endif
 -%}
 
 <section
@@ -10,21 +16,13 @@
 >
   <div class="bloomli-science-section__inner">
     <div class="bloomli-science-cta__panel">
-      <div>
+      <div class="bloomli-science-cta__content">
         {%- if section.settings.heading != blank -%}
           <h2 class="bloomli-science-section__heading">{{ section.settings.heading | escape }}</h2>
         {%- endif -%}
         {%- if section.settings.body != blank -%}
           <div class="bloomli-science-section__copy rte">{{ section.settings.body }}</div>
         {%- endif -%}
-        <div class="bloomli-science-actions">
-          {%- if section.settings.primary_label != blank -%}
-            <a class="button" href="{{ section.settings.primary_link }}">{{ section.settings.primary_label | escape }}</a>
-          {%- endif -%}
-          {%- if section.settings.secondary_label != blank and section.settings.secondary_link != blank -%}
-            <a class="button button--secondary" href="{{ section.settings.secondary_link }}">{{ section.settings.secondary_label | escape }}</a>
-          {%- endif -%}
-        </div>
       </div>
 
       <div class="bloomli-science-media bloomli-science-cta__media">
@@ -43,6 +41,17 @@
           <div class="bloomli-science-media__placeholder">{{ section.settings.placeholder_label | escape }}</div>
         {%- endif -%}
       </div>
+
+      {%- if show_actions -%}
+        <div class="bloomli-science-actions bloomli-science-cta__actions">
+          {%- if section.settings.primary_label != blank -%}
+            <a class="button" href="{{ section.settings.primary_link }}">{{ section.settings.primary_label | escape }}</a>
+          {%- endif -%}
+          {%- if section.settings.secondary_label != blank and section.settings.secondary_link != blank -%}
+            <a class="button button--secondary" href="{{ section.settings.secondary_link }}">{{ section.settings.secondary_label | escape }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
     </div>
   </div>
 </section>

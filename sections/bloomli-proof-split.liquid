@@ -16,6 +16,7 @@
   if show_image == nil
     assign show_image = true
   endif
+  assign no_image_content_position = section.settings.no_image_content_position | default: 'left'
   assign enable_image_animation = section.settings.enable_image_animation
   if enable_image_animation == nil
     assign enable_image_animation = true
@@ -26,7 +27,7 @@
   {% if section.settings.section_id != blank %}
     id="{{ section.settings.section_id | handleize }}"
   {% endif %}
-  class="bloomli-proof-panel bloomli-proof-panel--layout-{{ layout_style }} bloomli-proof-panel--density-{{ content_density }} bloomli-proof-panel--image-{{ section.settings.image_side | default: 'left' }} bloomli-proof-panel--header-{{ header_alignment }} bloomli-proof-panel--header-position-{{ header_position }} bloomli-proof-panel--mobile-image-{{ mobile_image_position }} bloomli-proof-panel--card-image-{{ card_grid_image_position }}{% unless show_image %} bloomli-proof-panel--no-image{% endunless %}{% if enable_image_animation %} bloomli-proof-panel--movement{% else %} bloomli-proof-panel--static-image{% endif %} bloomli-section color-{{ section.settings.color_scheme }} gradient"
+  class="bloomli-proof-panel bloomli-proof-panel--layout-{{ layout_style }} bloomli-proof-panel--density-{{ content_density }} bloomli-proof-panel--image-{{ section.settings.image_side | default: 'left' }} bloomli-proof-panel--header-{{ header_alignment }} bloomli-proof-panel--header-position-{{ header_position }} bloomli-proof-panel--mobile-image-{{ mobile_image_position }} bloomli-proof-panel--card-image-{{ card_grid_image_position }}{% unless show_image %} bloomli-proof-panel--no-image bloomli-proof-panel--no-image-content-{{ no_image_content_position }}{% endunless %}{% if enable_image_animation %} bloomli-proof-panel--movement{% else %} bloomli-proof-panel--static-image{% endif %} bloomli-section color-{{ section.settings.color_scheme }} gradient"
   style="
     --bpp-bg: {% if section.settings.use_custom_background %}{{ section.settings.background_color }}{% else %}rgb(var(--color-background)){% endif %};
     --bpp-accent: {% if icon_accent_color == '#6f7a5a' %}var(--bloomli-primary-action){% else %}{{ section.settings.icon_accent_color | default: 'var(--bloomli-primary-action)' }}{% endif %};
@@ -190,6 +191,11 @@
     { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FDFAF7" },
     { "type": "color", "id": "icon_accent_color", "label": "Icon accent color", "default": "#6F7A5A" },
     { "type": "checkbox", "id": "show_image", "label": "Show image / visual column", "default": true },
+    { "type": "select", "id": "no_image_content_position", "label": "Content position when image is hidden", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "right", "label": "Right" }
+    ], "default": "left", "visible_if": "{{ section.settings.show_image == false and section.settings.layout_style == 'split' }}" },
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "select", "id": "image_side", "label": "Image position on desktop", "options": [
       { "value": "left", "label": "Left" },

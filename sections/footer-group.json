@@ -24,7 +24,7 @@
         "paragraph_NgaH87": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Sign up and get up to 52% off. Plus, the occasional note from us on hair, wellness, and what's new at Bloomli.</p>"
+            "text": "<p>Sign up and get up to 47% off. Plus, the occasional note from us on hair, wellness, and what's new at Bloomli.</p>"
           }
         },
         "email_form_xWxFqC": {
@@ -100,7 +100,46 @@
     },
     "bloomli_signup_popup": {
       "type": "bloomli-signup-popup",
-      "settings": {}
+      "settings": {
+        "enabled": true,
+        "logo_text": "Bloomli",
+        "color_scheme": "",
+        "enable_custom_colors": false,
+        "popup_background_color": "#f6eee8",
+        "popup_text_color": "#322922",
+        "option_button_background_color": "#d56d78",
+        "option_button_text_color": "#fff9f4",
+        "pill_radius": 50,
+        "show_image": true,
+        "image_position_desktop": "right",
+        "headline_step_1": "Unlock Your",
+        "discount_line_step_1": "47% off",
+        "subheading_step_1": "To claim, share what problem you're trying to solve:",
+        "problem_option_1_label": "Shedding",
+        "problem_option_1_handle": "shedding",
+        "problem_option_2_label": "Breakage",
+        "problem_option_2_handle": "breakage",
+        "problem_option_3_label": "Slow growth",
+        "problem_option_3_handle": "slow-growth",
+        "problem_option_4_label": "Dry scalp",
+        "problem_option_4_handle": "dry-scalp",
+        "no_thanks_text": "No thanks, I don't like savings",
+        "options_group_label": "Select your hair concern",
+        "headline_step_2": "Unlock Your",
+        "discount_line_step_2": "47% off",
+        "body_step_2": "Sign up for email to receive your discount!",
+        "email_placeholder": "Enter your email",
+        "submit_button_label": "Get My 47% Off",
+        "success_message": "Check your email for your Bloomli offer.",
+        "delay_seconds": 7,
+        "close_cooldown_days": 7,
+        "show_launcher_after_close": true,
+        "close_button_label": "Close signup offer",
+        "launcher_label": "Get 47% Off",
+        "launcher_close_button_label": "Dismiss signup offer",
+        "content_padding_mobile": 28,
+        "content_padding_desktop": 64
+      }
     }
   },
   "order": [

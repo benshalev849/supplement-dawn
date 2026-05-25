@@ -211,7 +211,7 @@
       this.options.forEach((option) => {
         option.setAttribute('aria-pressed', String(option.dataset.concernTag === tag));
       });
-      this.tags.value = tag;
+      this.tags.value = `newsletter,bloomli-email-popup,${tag}`;
       this.writeStorage(SELECTED_CONCERN_KEY, tag);
     }
 

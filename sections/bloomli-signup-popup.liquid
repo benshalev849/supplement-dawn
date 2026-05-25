@@ -160,7 +160,7 @@
                 <div
                   data-bloomli-popup-form-state="{% if form.posted_successfully? %}success{% elsif form.errors %}error{% else %}idle{% endif %}"
                 >
-                  <input type="hidden" name="contact[tags]" value="" data-bloomli-popup-tags>
+                  <input type="hidden" name="contact[tags]" value="newsletter,bloomli-email-popup" data-bloomli-popup-tags>
                   <label class="visually-hidden" for="{{ email_id }}">{{ popup_email_placeholder | escape }}</label>
                   <input
                     class="bloomli-signup-popup__email"

@@ -46,7 +46,7 @@
         {%- when 'email_form' -%}
           <div class="newsletter__form-block" {{ block.shopify_attributes }}>
             {% form 'customer', class: 'newsletter-form' %}
-              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="hidden" name="contact[tags]" value="newsletter,bloomli-footer-signup">
               <div
                 class="newsletter-form__field-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {% if settings.animations_reveal_on_scroll %}

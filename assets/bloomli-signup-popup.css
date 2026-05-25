@@ -1,0 +1,401 @@
+.bloomli-signup-popup {
+  --bsp-background: rgb(var(--color-background));
+  --bsp-text: rgb(var(--color-foreground));
+  --bsp-button-background: rgb(var(--color-button));
+  --bsp-button-text: rgb(var(--color-button-text));
+  --bsp-padding-mobile: 2.8rem;
+  --bsp-padding-desktop: 6.4rem;
+  --bsp-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--bsp-text);
+}
+
+.bloomli-signup-popup [hidden] {
+  display: none !important;
+}
+
+.bloomli-signup-popup__modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--bsp-background);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 280ms var(--bsp-ease), visibility 280ms var(--bsp-ease);
+}
+
+.bloomli-signup-popup__modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bloomli-signup-popup__dialog {
+  display: grid;
+  grid-template-rows: minmax(0, 63fr) minmax(19rem, 37fr);
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bsp-background);
+}
+
+.bloomli-signup-popup__dialog--no-media {
+  display: block;
+}
+
+.bloomli-signup-popup__close {
+  position: absolute;
+  top: clamp(1.6rem, 3vw, 2.6rem);
+  right: clamp(1.6rem, 3vw, 2.6rem);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  padding: 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  color: var(--bsp-text);
+  background: color-mix(in srgb, var(--bsp-background) 58%, transparent);
+  cursor: pointer;
+  transition: transform 180ms var(--bsp-ease), background-color 180ms var(--bsp-ease);
+}
+
+.bloomli-signup-popup__close:hover {
+  transform: scale(1.06);
+  background: color-mix(in srgb, var(--bsp-background) 84%, transparent);
+}
+
+.bloomli-signup-popup__close svg,
+.bloomli-signup-popup__launcher-close svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bloomli-signup-popup__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+  overflow-y: auto;
+  padding: max(5.2rem, var(--bsp-padding-mobile)) var(--bsp-padding-mobile) var(--bsp-padding-mobile);
+  text-align: center;
+  background: var(--bsp-background);
+}
+
+.bloomli-signup-popup__dialog--no-media .bloomli-signup-popup__content {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.bloomli-signup-popup__logo {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto clamp(2.1rem, 5vw, 3rem);
+}
+
+.bloomli-signup-popup__logo-image {
+  display: block;
+  width: auto;
+  max-width: min(16rem, 45vw);
+  max-height: 5.5rem;
+  object-fit: contain;
+}
+
+.bloomli-signup-popup__logo-text {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.5rem, 8vw, 3.4rem);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.bloomli-signup-popup__title {
+  max-width: 11ch;
+  margin: 0 auto clamp(1.3rem, 3vw, 1.9rem);
+  color: var(--bsp-text);
+  font-family: var(--font-heading-family);
+  font-size: clamp(3.7rem, 10.5vw, 5.6rem);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.bloomli-signup-popup__steps {
+  display: grid;
+  width: min(100%, 50rem);
+  margin: 0 auto;
+}
+
+.bloomli-signup-popup__step {
+  grid-area: 1 / 1;
+  min-width: 0;
+  transition: transform 380ms var(--bsp-ease), opacity 260ms var(--bsp-ease), visibility 260ms var(--bsp-ease);
+}
+
+.bloomli-signup-popup__step--one {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.bloomli-signup-popup__step--two {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(2rem);
+}
+
+.bloomli-signup-popup__steps.is-step-two .bloomli-signup-popup__step--one {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-2rem);
+}
+
+.bloomli-signup-popup__steps.is-step-two .bloomli-signup-popup__step--two {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.bloomli-signup-popup__text {
+  max-width: 35ch;
+  margin: 0 auto 2rem;
+  color: var(--bsp-text);
+  font-size: clamp(1.55rem, 3.8vw, 1.9rem);
+  letter-spacing: -0.01em;
+  line-height: 1.32;
+}
+
+.bloomli-signup-popup__options {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.bloomli-signup-popup__option,
+.bloomli-signup-popup__submit {
+  min-height: 5rem;
+  padding: 1.15rem 2rem;
+  border: 1px solid color-mix(in srgb, var(--bsp-button-text) 46%, transparent);
+  border-radius: 999px;
+  color: var(--bsp-button-text);
+  background: var(--bsp-button-background);
+  font: inherit;
+  font-size: 1.55rem;
+  font-weight: var(--font-body-weight-bold);
+  letter-spacing: -0.01em;
+  line-height: 1.22;
+  cursor: pointer;
+  transition: filter 180ms var(--bsp-ease), transform 180ms var(--bsp-ease);
+}
+
+.bloomli-signup-popup__option:hover,
+.bloomli-signup-popup__submit:hover {
+  filter: brightness(0.94);
+  transform: translateY(-1px);
+}
+
+.bloomli-signup-popup__option:focus-visible,
+.bloomli-signup-popup__submit:focus-visible,
+.bloomli-signup-popup__email:focus-visible,
+.bloomli-signup-popup__decline:focus-visible,
+.bloomli-signup-popup__launcher button:focus-visible,
+.bloomli-signup-popup__close:focus-visible {
+  outline: 2px solid var(--bsp-text);
+  outline-offset: 3px;
+}
+
+.bloomli-signup-popup__option[aria-pressed='true'] {
+  filter: brightness(0.9);
+}
+
+.bloomli-signup-popup__decline {
+  margin: 1.35rem auto 0;
+  padding: 0.25rem;
+  border: 0;
+  color: var(--bsp-text);
+  background: transparent;
+  font: inherit;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  cursor: pointer;
+  opacity: 0.78;
+}
+
+.bloomli-signup-popup__form {
+  display: block;
+  margin-top: 0.4rem;
+}
+
+.bloomli-signup-popup__email {
+  display: block;
+  width: 100%;
+  min-height: 5.3rem;
+  margin: 0 0 1rem;
+  padding: 1.35rem 1.9rem;
+  border: 1px solid color-mix(in srgb, var(--bsp-text) 30%, transparent);
+  border-radius: 999px;
+  color: var(--bsp-text);
+  background: color-mix(in srgb, var(--bsp-background) 90%, transparent);
+  font: inherit;
+  font-size: 1.6rem;
+}
+
+.bloomli-signup-popup__email::placeholder {
+  color: var(--bsp-text);
+  opacity: 0.56;
+}
+
+.bloomli-signup-popup__submit {
+  width: 100%;
+}
+
+.bloomli-signup-popup__message {
+  display: block;
+  margin: 1rem 0 0;
+  color: var(--bsp-text);
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.bloomli-signup-popup__message--error {
+  color: var(--bsp-text);
+}
+
+.bloomli-signup-popup__media {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--bsp-text) 7%, transparent);
+}
+
+.bloomli-signup-popup__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.bloomli-signup-popup__image,
+.bloomli-signup-popup__image-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.bloomli-signup-popup__image-placeholder {
+  background:
+    radial-gradient(circle at 25% 20%, color-mix(in srgb, var(--bsp-button-background) 22%, transparent), transparent 35%),
+    radial-gradient(circle at 80% 80%, color-mix(in srgb, var(--bsp-text) 10%, transparent), transparent 36%),
+    var(--bsp-background);
+}
+
+.bloomli-signup-popup__launcher {
+  position: fixed;
+  left: max(1.6rem, env(safe-area-inset-left));
+  bottom: max(1.6rem, env(safe-area-inset-bottom));
+  z-index: 9998;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 999px;
+  color: var(--bsp-button-text);
+  background: var(--bsp-button-background);
+  box-shadow: 0 1rem 2.8rem rgba(var(--color-shadow), 0.2);
+}
+
+.bloomli-signup-popup__launcher-open,
+.bloomli-signup-popup__launcher-close {
+  border: 0;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.bloomli-signup-popup__launcher-open {
+  padding: 1.35rem 0.7rem 1.35rem 2rem;
+  font: inherit;
+  font-size: 1.45rem;
+  font-weight: var(--font-body-weight-bold);
+}
+
+.bloomli-signup-popup__launcher-close {
+  display: grid;
+  place-items: center;
+  width: 4.2rem;
+  padding: 1.45rem;
+  opacity: 0.8;
+}
+
+.bloomli-signup-popup__success {
+  position: fixed;
+  left: 50%;
+  bottom: max(2rem, env(safe-area-inset-bottom));
+  z-index: 10001;
+  width: min(calc(100vw - 3.2rem), 42rem);
+  margin: 0;
+  padding: 1.5rem 2rem;
+  border-radius: 999px;
+  color: var(--bsp-button-text);
+  background: var(--bsp-button-background);
+  box-shadow: 0 1rem 2.8rem rgba(var(--color-shadow), 0.2);
+  font-size: 1.45rem;
+  font-weight: var(--font-body-weight-bold);
+  line-height: 1.35;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+@media screen and (min-width: 750px) {
+  .bloomli-signup-popup__dialog {
+    grid-template-rows: none;
+    grid-template-columns: minmax(40rem, 60%) minmax(32rem, 40%);
+  }
+
+  .bloomli-signup-popup__dialog--media-left .bloomli-signup-popup__content {
+    order: 2;
+  }
+
+  .bloomli-signup-popup__dialog--media-left .bloomli-signup-popup__media {
+    order: 1;
+  }
+
+  .bloomli-signup-popup__dialog--no-media {
+    display: flex;
+    justify-content: center;
+  }
+
+  .bloomli-signup-popup__dialog--no-media .bloomli-signup-popup__content {
+    width: min(100%, 72rem);
+  }
+
+  .bloomli-signup-popup__content {
+    padding: var(--bsp-padding-desktop);
+  }
+
+  .bloomli-signup-popup__logo-image {
+    max-width: 18rem;
+    max-height: 6.4rem;
+  }
+
+  .bloomli-signup-popup__title {
+    font-size: clamp(5.2rem, 4.2vw, 6.8rem);
+  }
+
+  .bloomli-signup-popup__options {
+    gap: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloomli-signup-popup__modal,
+  .bloomli-signup-popup__step,
+  .bloomli-signup-popup__option,
+  .bloomli-signup-popup__submit,
+  .bloomli-signup-popup__close {
+    transition: none;
+  }
+}

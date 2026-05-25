@@ -153,7 +153,7 @@
             "label": "Inside Support",
             "role": "Gummies + Capsules",
             "title": "Biotin",
-            "text": "<p>One of the most researched nutrients for hair and nail wellness. Bloomli's gummies deliver 6,000mcg per serving and capsules 5,000mcg, as part of a broader daily formula that goes well beyond biotin alone.</p>"
+            "text": "<p>The most recognized nutrient for hair and nail wellness. Bloomli's gummies deliver 6,000mcg per serving, capsules 5,000mcg.</p>"
           }
         },
         "ingredient_zinc": {
@@ -164,7 +164,7 @@
             "label": "Mineral support",
             "role": "Gummies + Capsules",
             "title": "Zinc",
-            "text": "<p>An essential mineral involved in protein synthesis and cell renewal, two processes central to healthy hair structure. Found in both Bloomli formulas at meaningful daily doses.</p>"
+            "text": "<p>An essential mineral for protein synthesis and cell renewal, two processes central to healthy hair structure.</p>"
           }
         },
         "ingredient_b_vitamins": {
@@ -175,7 +175,7 @@
             "label": "Follicle Fuel",
             "role": "Gummies + Capsules",
             "title": "Folate + B-vitamins",
-            "text": "<p>B vitamins support the metabolic processes that keep fast-growing cells like hair follicles functioning. Bloomli's formulas include Folate, B6, B12, and Pantothenic Acid across both gummies and capsules.</p>"
+            "text": "<p>B vitamins keep fast-growing cells like hair follicles functioning. Bloomli includes Folate, B6, B12, and Pantothenic Acid across both formulas.</p>"
           }
         },
         "ingredient_vitamin_c": {
@@ -183,10 +183,10 @@
           "settings": {
             "image": "shopify://shop_images/Vitamin_C_-_Zoomed_Out_20de48de-4dcf-447c-ac90-5479c2a51d56.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
-            "label": "Antioxidant support",
+            "label": "Cell Protection",
             "role": "ALl Products",
             "title": "Vitamin C",
-            "text": "<p>Vitamin C supports collagen formation and helps protect cells from oxidative stress. It appears in all three Bloomli products, in both supplements and directly in the botanical serum.</p>"
+            "text": "<p>Supports collagen formation and protects cells from oxidative stress. Present in all three Bloomli products, inside and out.</p>"
           }
         },
         "ingredient_rosemary": {
@@ -197,7 +197,7 @@
             "label": "Scalp Support",
             "role": "Hair Serum",
             "title": "Rosemary Extract",
-            "text": "<p>One of the most studied botanicals in scalp wellness. Bloomli's serum uses Rosmarinus Officinalis Leaf Extract applied directly to the scalp, where it can work at the surface rather than from within.</p>"
+            "text": "<p>One of the most studied botanicals in scalp wellness. Applied directly to the scalp in Bloomli's serum, where it works at the surface.</p>"
           }
         },
         "ingredient_densidyl": {
@@ -208,7 +208,7 @@
             "label": "Topical blend",
             "role": "Hair Serum",
             "title": "Densidyl components",
-            "text": "<p>A combination of Chlorella Emersonii and Spirulina Maxima extracts formulated to deliver hydration directly to the scalp surface, creating the environment healthy hair grows from.</p>"
+            "text": "<p>A blend of Chlorella and Spirulina extracts that delivers hydration directly to the scalp surface.</p>"
           }
         }
       },

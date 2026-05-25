@@ -9,6 +9,7 @@
   assign title_id = 'BloomliSignupPopupTitle-' | append: section.id
   assign error_id = 'BloomliSignupPopupError-' | append: section.id
   assign success_id = 'BloomliSignupPopupSuccess-' | append: section.id
+  assign popup_logo = section.settings.logo_image | default: settings.logo
   assign primary_image = section.settings.image_desktop | default: section.settings.image_mobile
 -%}
 
@@ -51,9 +52,9 @@
 
         <div class="bloomli-signup-popup__content">
           <div class="bloomli-signup-popup__logo">
-            {%- if section.settings.logo_image != blank -%}
+            {%- if popup_logo != blank -%}
               {{
-                section.settings.logo_image
+                popup_logo
                 | image_url: width: 360
                 | image_tag:
                   class: 'bloomli-signup-popup__logo-image',
@@ -69,11 +70,21 @@
           <h2
             class="bloomli-signup-popup__title"
             id="{{ title_id }}"
-            data-bloomli-popup-title
-            data-title-step-one="{{ section.settings.headline_step_1 | escape }}"
-            data-title-step-two="{{ section.settings.headline_step_2 | escape }}"
           >
-            {{ section.settings.headline_step_1 | escape }}
+            <span
+              data-bloomli-popup-title-line
+              data-title-step-one="{{ section.settings.headline_step_1 | escape }}"
+              data-title-step-two="{{ section.settings.headline_step_2 | escape }}"
+            >
+              {{- section.settings.headline_step_1 | escape -}}
+            </span>
+            <span
+              data-bloomli-popup-title-line
+              data-title-step-one="{{ section.settings.discount_line_step_1 | escape }}"
+              data-title-step-two="{{ section.settings.discount_line_step_2 | escape }}"
+            >
+              {{- section.settings.discount_line_step_1 | escape -}}
+            </span>
           </h2>
 
           <div class="bloomli-signup-popup__steps" data-bloomli-popup-steps>
@@ -180,9 +191,6 @@
     </div>
 
     <div class="bloomli-signup-popup__launcher" data-bloomli-popup-launcher hidden>
-      <button class="bloomli-signup-popup__launcher-open" type="button" data-bloomli-popup-reopen>
-        {{ section.settings.launcher_label | escape }}
-      </button>
       <button
         class="bloomli-signup-popup__launcher-close"
         type="button"
@@ -190,6 +198,9 @@
         data-bloomli-popup-launcher-close
       >
         {{- 'icon-close.svg' | inline_asset_content -}}
+      </button>
+      <button class="bloomli-signup-popup__launcher-open" type="button" data-bloomli-popup-reopen>
+        {{ section.settings.launcher_label | escape }}
       </button>
     </div>
 
@@ -222,12 +233,13 @@
     {
       "type": "image_picker",
       "id": "logo_image",
-      "label": "Logo image"
+      "label": "Popup logo override",
+      "info": "Leave blank to use the same logo as the header."
     },
     {
       "type": "text",
       "id": "logo_text",
-      "label": "Logo text fallback",
+      "label": "Logo text if no header logo exists",
       "default": "Bloomli"
     },
     {
@@ -312,8 +324,14 @@
     {
       "type": "text",
       "id": "headline_step_1",
-      "label": "Headline",
-      "default": "Unlock Your 47% Off"
+      "label": "Headline line 1",
+      "default": "Unlock Your"
+    },
+    {
+      "type": "text",
+      "id": "discount_line_step_1",
+      "label": "Headline line 2",
+      "default": "47% off"
     },
     {
       "type": "textarea",
@@ -373,7 +391,7 @@
       "type": "text",
       "id": "no_thanks_text",
       "label": "No thanks text",
-      "default": "No thanks"
+      "default": "No thanks, I don't like savings"
     },
     {
       "type": "text",
@@ -388,9 +406,15 @@
     {
       "type": "text",
       "id": "headline_step_2",
-      "label": "Headline step 2",
-      "default": "Unlock Your 47% Off",
+      "label": "Headline step 2 line 1",
+      "default": "Unlock Your",
       "info": "Keep this the same as Step 1 for the smoothest transition."
+    },
+    {
+      "type": "text",
+      "id": "discount_line_step_2",
+      "label": "Headline step 2 line 2",
+      "default": "47% off"
     },
     {
       "type": "textarea",

@@ -8438,9 +8438,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L298",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_signup_popup_bloomlisignuppopup",
-      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_readsessionstorage",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_readsessionstorage"
     },
     {
       "relation": "method",
@@ -8448,9 +8448,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L306",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_signup_popup_bloomlisignuppopup",
-      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_writesessionstorage",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_writesessionstorage"
     },
     {
       "relation": "method",
@@ -8458,9 +8458,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L314",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_signup_popup_bloomlisignuppopup",
-      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_removesessionstorage",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_removesessionstorage"
     },
     {
       "relation": "calls",
@@ -8513,9 +8513,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_signup_popup_bloomlisignuppopup_init",
-      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_readsessionstorage",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_readsessionstorage"
     },
     {
       "relation": "calls",
@@ -8524,9 +8524,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_signup_popup_bloomlisignuppopup_init",
-      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_removesessionstorage",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_removesessionstorage"
     },
     {
       "relation": "calls",

@@ -13,7 +13,7 @@
       this.modal = root.querySelector('[data-bloomli-popup-modal]');
       this.dialog = root.querySelector('.bloomli-signup-popup__dialog');
       this.steps = root.querySelector('[data-bloomli-popup-steps]');
-      this.title = root.querySelector('[data-bloomli-popup-title]');
+      this.titleLines = Array.from(root.querySelectorAll('[data-bloomli-popup-title-line]'));
       this.options = Array.from(root.querySelectorAll('[data-bloomli-popup-option]'));
       this.email = root.querySelector('[data-bloomli-popup-email]');
       this.tags = root.querySelector('[data-bloomli-popup-tags]');
@@ -191,9 +191,9 @@
 
     goToStepTwo(moveFocus) {
       this.steps.classList.add('is-step-two');
-      if (this.title?.dataset.titleStepTwo) {
-        this.title.textContent = this.title.dataset.titleStepTwo;
-      }
+      this.titleLines.forEach((line) => {
+        if (line.dataset.titleStepTwo) line.textContent = line.dataset.titleStepTwo;
+      });
       this.steps.querySelector('[data-bloomli-popup-step="1"]')?.setAttribute('aria-hidden', 'true');
       this.steps.querySelector('[data-bloomli-popup-step="2"]')?.setAttribute('aria-hidden', 'false');
 

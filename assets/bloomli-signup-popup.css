@@ -5,6 +5,7 @@
   --bsp-button-text: rgb(var(--color-button-text));
   --bsp-padding-mobile: 2.8rem;
   --bsp-padding-desktop: 6.4rem;
+  --bsp-pill-radius: 50px;
   --bsp-ease: cubic-bezier(0.16, 1, 0.3, 1);
   color: var(--bsp-text);
 }
@@ -190,7 +191,7 @@
   min-height: 5rem;
   padding: 1.15rem 2rem;
   border: 1px solid color-mix(in srgb, var(--bsp-button-text) 46%, transparent);
-  border-radius: 999px;
+  border-radius: var(--bsp-pill-radius);
   color: var(--bsp-button-text);
   background: var(--bsp-button-background);
   font: inherit;

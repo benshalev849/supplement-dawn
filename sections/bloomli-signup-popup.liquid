@@ -5,6 +5,8 @@
   assign popup_text_color = settings.bloomli_email_popup_text_color | default: '#322922'
   assign popup_option_background_color = settings.bloomli_email_popup_option_background_color | default: '#d56d78'
   assign popup_option_text_color = settings.bloomli_email_popup_option_text_color | default: '#fff9f4'
+  assign popup_pill_radius = settings.bloomli_email_popup_pill_radius | default: 50
+  assign popup_delay_seconds = settings.bloomli_email_popup_delay_seconds | default: 7
   assign popup_close_cooldown_days = settings.bloomli_email_popup_close_cooldown_days | default: 7
   assign popup_show_launcher = settings.bloomli_email_popup_show_launcher_after_close | default: true, allow_false: true
   assign popup_launcher_label = settings.bloomli_email_popup_launcher_label | default: 'Get 47% Off'
@@ -17,13 +19,13 @@
   assign popup_discount_line_step_1 = settings.bloomli_email_popup_discount_line_step_1 | default: '47% off'
   assign popup_subheading_step_1 = settings.bloomli_email_popup_subheading_step_1 | default: 'To claim, share what problem you are trying to solve:'
   assign popup_problem_option_1_label = settings.bloomli_email_popup_problem_option_1_label | default: 'Shedding'
-  assign popup_problem_option_1_handle = settings.bloomli_email_popup_problem_option_1_handle | default: 'shedding'
+  assign popup_problem_option_1_tag = settings.bloomli_email_popup_problem_option_1_handle | default: 'shedding'
   assign popup_problem_option_2_label = settings.bloomli_email_popup_problem_option_2_label | default: 'Breakage'
-  assign popup_problem_option_2_handle = settings.bloomli_email_popup_problem_option_2_handle | default: 'breakage'
+  assign popup_problem_option_2_tag = settings.bloomli_email_popup_problem_option_2_handle | default: 'breakage'
   assign popup_problem_option_3_label = settings.bloomli_email_popup_problem_option_3_label | default: 'Slow growth'
-  assign popup_problem_option_3_handle = settings.bloomli_email_popup_problem_option_3_handle | default: 'slow-growth'
+  assign popup_problem_option_3_tag = settings.bloomli_email_popup_problem_option_3_handle | default: 'slow-growth'
   assign popup_problem_option_4_label = settings.bloomli_email_popup_problem_option_4_label | default: 'Dry scalp'
-  assign popup_problem_option_4_handle = settings.bloomli_email_popup_problem_option_4_handle | default: 'dry-scalp'
+  assign popup_problem_option_4_tag = settings.bloomli_email_popup_problem_option_4_handle | default: 'dry-scalp'
   assign popup_no_thanks_text = settings.bloomli_email_popup_no_thanks_text | default: "No thanks, I don't like savings"
   assign popup_options_group_label = settings.bloomli_email_popup_options_group_label | default: 'Select your hair concern'
   assign popup_headline_step_2 = settings.bloomli_email_popup_headline_step_2 | default: 'Unlock Your'
@@ -56,6 +58,7 @@
   <div
     class="bloomli-signup-popup color-{{ popup_color_scheme }} gradient"
     data-bloomli-signup-popup
+    data-delay-seconds="{{ popup_delay_seconds }}"
     data-close-cooldown-days="{{ popup_close_cooldown_days }}"
     data-show-launcher="{{ popup_show_launcher }}"
     data-customer-marketing="{% if customer and customer.accepts_marketing %}true{% else %}false{% endif %}"
@@ -64,6 +67,7 @@
     data-popup-text="{{ popup_text_color }}"
     data-option-background="{{ popup_option_background_color }}"
     data-option-text="{{ popup_option_text_color }}"
+    data-pill-radius="{{ popup_pill_radius }}"
     data-padding-mobile="{{ popup_content_padding_mobile }}"
     data-padding-desktop="{{ popup_content_padding_desktop }}"
   >
@@ -126,16 +130,16 @@
               <p class="bloomli-signup-popup__text">{{ popup_subheading_step_1 | escape }}</p>
 
               <div class="bloomli-signup-popup__options" aria-label="{{ popup_options_group_label | escape }}">
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ popup_problem_option_1_handle | handle | escape }}">
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_1_tag | escape }}">
                   {{ popup_problem_option_1_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ popup_problem_option_2_handle | handle | escape }}">
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_2_tag | escape }}">
                   {{ popup_problem_option_2_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ popup_problem_option_3_handle | handle | escape }}">
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_3_tag | escape }}">
                   {{ popup_problem_option_3_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ popup_problem_option_4_handle | handle | escape }}">
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_4_tag | escape }}">
                   {{ popup_problem_option_4_label | escape }}
                 </button>
               </div>
@@ -156,7 +160,7 @@
                 <div
                   data-bloomli-popup-form-state="{% if form.posted_successfully? %}success{% elsif form.errors %}error{% else %}idle{% endif %}"
                 >
-                  <input type="hidden" name="contact[tags]" value="newsletter,bloomli-popup" data-bloomli-popup-tags>
+                  <input type="hidden" name="contact[tags]" value="" data-bloomli-popup-tags>
                   <label class="visually-hidden" for="{{ email_id }}">{{ popup_email_placeholder | escape }}</label>
                   <input
                     class="bloomli-signup-popup__email"
@@ -320,6 +324,16 @@
       "visible_if": "{{ section.settings.enable_custom_colors }}"
     },
     {
+      "type": "range",
+      "id": "pill_radius",
+      "label": "Button/pill corner radius",
+      "unit": "px",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 50
+    },
+    {
       "type": "checkbox",
       "id": "show_image",
       "label": "Show image panel",
@@ -385,7 +399,7 @@
     {
       "type": "text",
       "id": "problem_option_1_handle",
-      "label": "Problem option 1 tag handle",
+      "label": "Problem option 1 customer tag",
       "default": "shedding"
     },
     {
@@ -397,7 +411,7 @@
     {
       "type": "text",
       "id": "problem_option_2_handle",
-      "label": "Problem option 2 tag handle",
+      "label": "Problem option 2 customer tag",
       "default": "breakage"
     },
     {
@@ -409,7 +423,7 @@
     {
       "type": "text",
       "id": "problem_option_3_handle",
-      "label": "Problem option 3 tag handle",
+      "label": "Problem option 3 customer tag",
       "default": "slow-growth"
     },
     {
@@ -421,7 +435,7 @@
     {
       "type": "text",
       "id": "problem_option_4_handle",
-      "label": "Problem option 4 tag handle",
+      "label": "Problem option 4 customer tag",
       "default": "dry-scalp"
     },
     {
@@ -480,6 +494,16 @@
     {
       "type": "header",
       "content": "Behavior"
+    },
+    {
+      "type": "range",
+      "id": "delay_seconds",
+      "label": "Open delay",
+      "unit": "s",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 7
     },
     {
       "type": "range",

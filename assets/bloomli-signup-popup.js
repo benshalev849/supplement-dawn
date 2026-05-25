@@ -31,6 +31,7 @@
       this.selectedConcern = null;
       this.isDesignMode = Boolean(window.Shopify && window.Shopify.designMode);
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      this.delay = this.numberSetting('delaySeconds', 7) * 1000;
       this.closeDays = this.numberSetting('closeCooldownDays', 7);
       this.showLauncherAfterClose = root.dataset.showLauncher === 'true';
       this.customerAcceptsMarketing = root.dataset.customerMarketing === 'true';
@@ -74,7 +75,7 @@
         return;
       }
 
-      this.open();
+      this.openTimer = window.setTimeout(() => this.open(), this.delay);
     }
 
     numberSetting(setting, fallback) {
@@ -86,6 +87,7 @@
       const values = {
         '--bsp-padding-mobile': `${this.numberSetting('paddingMobile', 28) / 10}rem`,
         '--bsp-padding-desktop': `${this.numberSetting('paddingDesktop', 64) / 10}rem`,
+        '--bsp-pill-radius': `${this.numberSetting('pillRadius', 50)}px`,
       };
 
       if (this.root.dataset.customColors === 'true') {
@@ -103,7 +105,7 @@
     bindEvents() {
       this.options.forEach((option) => {
         option.addEventListener('click', () => {
-          this.selectConcern(option.dataset.concernHandle);
+          this.selectConcern(option.dataset.concernTag);
           this.goToStepTwo(true);
         });
       });
@@ -201,23 +203,23 @@
       }
     }
 
-    selectConcern(handle) {
-      if (!handle) return;
+    selectConcern(tag) {
+      if (!tag) return;
 
-      this.selectedConcern = handle;
+      this.selectedConcern = tag;
       this.options.forEach((option) => {
-        option.setAttribute('aria-pressed', String(option.dataset.concernHandle === handle));
+        option.setAttribute('aria-pressed', String(option.dataset.concernTag === tag));
       });
-      this.tags.value = `newsletter,bloomli-popup,concern-${handle}`;
-      this.writeStorage(SELECTED_CONCERN_KEY, handle);
+      this.tags.value = tag;
+      this.writeStorage(SELECTED_CONCERN_KEY, tag);
     }
 
     restoreSelectedConcern() {
-      const handle = this.readStorage(SELECTED_CONCERN_KEY);
-      if (!handle) return;
+      const tag = this.readStorage(SELECTED_CONCERN_KEY);
+      if (!tag) return;
 
-      const matchingOption = this.options.find((option) => option.dataset.concernHandle === handle);
-      if (matchingOption) this.selectConcern(handle);
+      const matchingOption = this.options.find((option) => option.dataset.concernTag === tag);
+      if (matchingOption) this.selectConcern(tag);
     }
 
     recordSubmission() {
@@ -232,7 +234,7 @@
       this.success.hidden = false;
       window.setTimeout(() => {
         this.success.hidden = true;
-      }, 4500);
+      }, 9500);
     }
 
     showLauncher() {

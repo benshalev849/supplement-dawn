@@ -2233,6 +2233,16 @@
       },
       {
         "type": "range",
+        "id": "bloomli_email_popup_delay_seconds",
+        "label": "Open delay",
+        "unit": "s",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "default": 7
+      },
+      {
+        "type": "range",
         "id": "bloomli_email_popup_close_cooldown_days",
         "label": "Close cooldown",
         "unit": "day",
@@ -2348,6 +2358,16 @@
         "default": "#FFF9F4"
       },
       {
+        "type": "range",
+        "id": "bloomli_email_popup_pill_radius",
+        "label": "Button/pill corner radius",
+        "unit": "px",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "default": 50
+      },
+      {
         "type": "header",
         "content": "Step 1"
       },
@@ -2378,7 +2398,7 @@
       {
         "type": "text",
         "id": "bloomli_email_popup_problem_option_1_handle",
-        "label": "Problem option 1 tag handle",
+        "label": "Problem option 1 customer tag",
         "default": "shedding"
       },
       {
@@ -2390,7 +2410,7 @@
       {
         "type": "text",
         "id": "bloomli_email_popup_problem_option_2_handle",
-        "label": "Problem option 2 tag handle",
+        "label": "Problem option 2 customer tag",
         "default": "breakage"
       },
       {
@@ -2402,7 +2422,7 @@
       {
         "type": "text",
         "id": "bloomli_email_popup_problem_option_3_handle",
-        "label": "Problem option 3 tag handle",
+        "label": "Problem option 3 customer tag",
         "default": "slow-growth"
       },
       {
@@ -2414,7 +2434,7 @@
       {
         "type": "text",
         "id": "bloomli_email_popup_problem_option_4_handle",
-        "label": "Problem option 4 tag handle",
+        "label": "Problem option 4 customer tag",
         "default": "dry-scalp"
       },
       {

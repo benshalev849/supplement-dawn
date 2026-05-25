@@ -1,6 +1,6 @@
 {%- liquid
   assign popup_visible = false
-  if section.settings.enabled and request.page_type != 'checkout'
+  if settings.bloomli_email_popup_enabled and request.page_type != 'checkout'
     assign popup_visible = true
   endif
 
@@ -9,8 +9,8 @@
   assign title_id = 'BloomliSignupPopupTitle-' | append: section.id
   assign error_id = 'BloomliSignupPopupError-' | append: section.id
   assign success_id = 'BloomliSignupPopupSuccess-' | append: section.id
-  assign popup_logo = section.settings.logo_image | default: settings.logo
-  assign primary_image = section.settings.image_desktop | default: section.settings.image_mobile
+  assign popup_logo = settings.bloomli_email_popup_logo_image | default: settings.logo
+  assign primary_image = settings.bloomli_email_popup_image_desktop | default: settings.bloomli_email_popup_image_mobile
 -%}
 
 {%- if popup_visible -%}
@@ -18,24 +18,24 @@
   <script src="{{ 'bloomli-signup-popup.js' | asset_url }}" defer="defer"></script>
 
   <div
-    class="bloomli-signup-popup color-{{ section.settings.color_scheme }} gradient"
+    class="bloomli-signup-popup color-{{ settings.bloomli_email_popup_color_scheme }} gradient"
     data-bloomli-signup-popup
-    data-delay-seconds="{{ section.settings.delay_seconds }}"
-    data-close-cooldown-days="{{ section.settings.close_cooldown_days }}"
-    data-submit-cooldown-days="{{ section.settings.submit_cooldown_days }}"
-    data-show-launcher="{{ section.settings.show_launcher_after_close }}"
+    data-delay-seconds="{{ settings.bloomli_email_popup_delay_seconds }}"
+    data-close-cooldown-days="{{ settings.bloomli_email_popup_close_cooldown_days }}"
+    data-submit-cooldown-days="{{ settings.bloomli_email_popup_submit_cooldown_days }}"
+    data-show-launcher="{{ settings.bloomli_email_popup_show_launcher_after_close }}"
     data-customer-marketing="{% if customer and customer.accepts_marketing %}true{% else %}false{% endif %}"
-    data-custom-colors="{{ section.settings.enable_custom_colors }}"
-    data-popup-background="{{ section.settings.popup_background_color }}"
-    data-popup-text="{{ section.settings.popup_text_color }}"
-    data-option-background="{{ section.settings.option_button_background_color }}"
-    data-option-text="{{ section.settings.option_button_text_color }}"
-    data-padding-mobile="{{ section.settings.content_padding_mobile }}"
-    data-padding-desktop="{{ section.settings.content_padding_desktop }}"
+    data-custom-colors="true"
+    data-popup-background="{{ settings.bloomli_email_popup_background_color }}"
+    data-popup-text="{{ settings.bloomli_email_popup_text_color }}"
+    data-option-background="{{ settings.bloomli_email_popup_option_background_color }}"
+    data-option-text="{{ settings.bloomli_email_popup_option_text_color }}"
+    data-padding-mobile="{{ settings.bloomli_email_popup_content_padding_mobile }}"
+    data-padding-desktop="{{ settings.bloomli_email_popup_content_padding_desktop }}"
   >
     <div class="bloomli-signup-popup__modal" data-bloomli-popup-modal hidden>
       <div
-        class="bloomli-signup-popup__dialog bloomli-signup-popup__dialog--media-{{ section.settings.image_position_desktop }}{% unless section.settings.show_image %} bloomli-signup-popup__dialog--no-media{% endunless %}"
+        class="bloomli-signup-popup__dialog bloomli-signup-popup__dialog--media-{{ settings.bloomli_email_popup_image_position_desktop }}{% unless settings.bloomli_email_popup_show_image %} bloomli-signup-popup__dialog--no-media{% endunless %}"
         role="dialog"
         aria-modal="true"
         aria-labelledby="{{ title_id }}"
@@ -44,7 +44,7 @@
         <button
           class="bloomli-signup-popup__close"
           type="button"
-          aria-label="{{ section.settings.close_button_label | escape }}"
+          aria-label="{{ settings.bloomli_email_popup_close_button_label | escape }}"
           data-bloomli-popup-close
         >
           {{- 'icon-close.svg' | inline_asset_content -}}
@@ -62,8 +62,8 @@
                   widths: '80, 120, 160, 240',
                   sizes: '(max-width: 749px) 80px, 120px'
               }}
-            {%- elsif section.settings.logo_text != blank -%}
-              <span class="bloomli-signup-popup__logo-text">{{ section.settings.logo_text | escape }}</span>
+            {%- elsif settings.bloomli_email_popup_logo_text != blank -%}
+              <span class="bloomli-signup-popup__logo-text">{{ settings.bloomli_email_popup_logo_text | escape }}</span>
             {%- endif -%}
           </div>
 
@@ -73,41 +73,41 @@
           >
             <span
               data-bloomli-popup-title-line
-              data-title-step-one="{{ section.settings.headline_step_1 | escape }}"
-              data-title-step-two="{{ section.settings.headline_step_2 | escape }}"
+              data-title-step-one="{{ settings.bloomli_email_popup_headline_step_1 | escape }}"
+              data-title-step-two="{{ settings.bloomli_email_popup_headline_step_2 | escape }}"
             >
-              {{- section.settings.headline_step_1 | escape -}}
+              {{- settings.bloomli_email_popup_headline_step_1 | escape -}}
             </span>
             <span
               data-bloomli-popup-title-line
-              data-title-step-one="{{ section.settings.discount_line_step_1 | escape }}"
-              data-title-step-two="{{ section.settings.discount_line_step_2 | escape }}"
+              data-title-step-one="{{ settings.bloomli_email_popup_discount_line_step_1 | escape }}"
+              data-title-step-two="{{ settings.bloomli_email_popup_discount_line_step_2 | escape }}"
             >
-              {{- section.settings.discount_line_step_1 | escape -}}
+              {{- settings.bloomli_email_popup_discount_line_step_1 | escape -}}
             </span>
           </h2>
 
           <div class="bloomli-signup-popup__steps" data-bloomli-popup-steps>
             <div class="bloomli-signup-popup__step bloomli-signup-popup__step--one" data-bloomli-popup-step="1">
-              <p class="bloomli-signup-popup__text">{{ section.settings.subheading_step_1 | escape }}</p>
+              <p class="bloomli-signup-popup__text">{{ settings.bloomli_email_popup_subheading_step_1 | escape }}</p>
 
-              <div class="bloomli-signup-popup__options" aria-label="{{ section.settings.options_group_label | escape }}">
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ section.settings.problem_option_1_handle | handle | escape }}">
-                  {{ section.settings.problem_option_1_label | escape }}
+              <div class="bloomli-signup-popup__options" aria-label="{{ settings.bloomli_email_popup_options_group_label | escape }}">
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ settings.bloomli_email_popup_problem_option_1_handle | handle | escape }}">
+                  {{ settings.bloomli_email_popup_problem_option_1_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ section.settings.problem_option_2_handle | handle | escape }}">
-                  {{ section.settings.problem_option_2_label | escape }}
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ settings.bloomli_email_popup_problem_option_2_handle | handle | escape }}">
+                  {{ settings.bloomli_email_popup_problem_option_2_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ section.settings.problem_option_3_handle | handle | escape }}">
-                  {{ section.settings.problem_option_3_label | escape }}
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ settings.bloomli_email_popup_problem_option_3_handle | handle | escape }}">
+                  {{ settings.bloomli_email_popup_problem_option_3_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ section.settings.problem_option_4_handle | handle | escape }}">
-                  {{ section.settings.problem_option_4_label | escape }}
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ settings.bloomli_email_popup_problem_option_4_handle | handle | escape }}">
+                  {{ settings.bloomli_email_popup_problem_option_4_label | escape }}
                 </button>
               </div>
 
               <button class="bloomli-signup-popup__decline" type="button" data-bloomli-popup-decline>
-                {{ section.settings.no_thanks_text | escape }}
+                {{ settings.bloomli_email_popup_no_thanks_text | escape }}
               </button>
             </div>
 
@@ -116,14 +116,14 @@
               data-bloomli-popup-step="2"
               aria-hidden="true"
             >
-              <p class="bloomli-signup-popup__text">{{ section.settings.body_step_2 | escape }}</p>
+              <p class="bloomli-signup-popup__text">{{ settings.bloomli_email_popup_body_step_2 | escape }}</p>
 
               {%- form 'customer', id: form_id, class: 'bloomli-signup-popup__form' -%}
                 <div
                   data-bloomli-popup-form-state="{% if form.posted_successfully? %}success{% elsif form.errors %}error{% else %}idle{% endif %}"
                 >
                   <input type="hidden" name="contact[tags]" value="newsletter,bloomli-popup" data-bloomli-popup-tags>
-                  <label class="visually-hidden" for="{{ email_id }}">{{ section.settings.email_placeholder | escape }}</label>
+                  <label class="visually-hidden" for="{{ email_id }}">{{ settings.bloomli_email_popup_email_placeholder | escape }}</label>
                   <input
                     class="bloomli-signup-popup__email"
                     id="{{ email_id }}"
@@ -138,12 +138,12 @@
                       aria-invalid="true"
                       aria-describedby="{{ error_id }}"
                     {% endif %}
-                    placeholder="{{ section.settings.email_placeholder | escape }}"
+                    placeholder="{{ settings.bloomli_email_popup_email_placeholder | escape }}"
                     required
                     data-bloomli-popup-email
                   >
                   <button class="bloomli-signup-popup__submit" type="submit" name="commit">
-                    {{ section.settings.submit_button_label | escape }}
+                    {{ settings.bloomli_email_popup_submit_button_label | escape }}
                   </button>
 
                   {%- if form.errors -%}
@@ -157,17 +157,17 @@
           </div>
         </div>
 
-        {%- if section.settings.show_image -%}
+        {%- if settings.bloomli_email_popup_show_image -%}
           <div class="bloomli-signup-popup__media">
             {%- if primary_image != blank -%}
               <picture>
-                {%- if section.settings.image_mobile != blank -%}
+                {%- if settings.bloomli_email_popup_image_mobile != blank -%}
                   <source
                     media="(max-width: 749px)"
                     srcset="
-                      {{ section.settings.image_mobile | image_url: width: 480 }} 480w,
-                      {{ section.settings.image_mobile | image_url: width: 750 }} 750w,
-                      {{ section.settings.image_mobile | image_url: width: 1100 }} 1100w
+                      {{ settings.bloomli_email_popup_image_mobile | image_url: width: 480 }} 480w,
+                      {{ settings.bloomli_email_popup_image_mobile | image_url: width: 750 }} 750w,
+                      {{ settings.bloomli_email_popup_image_mobile | image_url: width: 1100 }} 1100w
                     "
                     sizes="100vw"
                   >
@@ -194,13 +194,13 @@
       <button
         class="bloomli-signup-popup__launcher-close"
         type="button"
-        aria-label="{{ section.settings.launcher_close_button_label | escape }}"
+        aria-label="{{ settings.bloomli_email_popup_launcher_close_button_label | escape }}"
         data-bloomli-popup-launcher-close
       >
         {{- 'icon-close.svg' | inline_asset_content -}}
       </button>
       <button class="bloomli-signup-popup__launcher-open" type="button" data-bloomli-popup-reopen>
-        {{ section.settings.launcher_label | escape }}
+        {{ settings.bloomli_email_popup_launcher_label | escape }}
       </button>
     </div>
 
@@ -211,7 +211,7 @@
       data-bloomli-popup-success
       hidden
     >
-      {{ section.settings.success_message | escape }}
+      {{ settings.bloomli_email_popup_success_message | escape }}
     </p>
   </div>
 {%- endif -%}

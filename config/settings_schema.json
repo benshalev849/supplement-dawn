@@ -2217,5 +2217,302 @@
         "default": "One Time Purchase"
       }
     ]
+  },
+  {
+    "name": "Bloomli Email Pop up",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Visibility and behavior"
+      },
+      {
+        "type": "checkbox",
+        "id": "bloomli_email_popup_enabled",
+        "label": "Enable email popup",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "bloomli_email_popup_delay_seconds",
+        "label": "Open delay",
+        "unit": "s",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "default": 7
+      },
+      {
+        "type": "range",
+        "id": "bloomli_email_popup_close_cooldown_days",
+        "label": "Close cooldown",
+        "unit": "day",
+        "min": 1,
+        "max": 30,
+        "step": 1,
+        "default": 7
+      },
+      {
+        "type": "range",
+        "id": "bloomli_email_popup_submit_cooldown_days",
+        "label": "Submit cooldown",
+        "unit": "day",
+        "min": 30,
+        "max": 365,
+        "step": 5,
+        "default": 180
+      },
+      {
+        "type": "checkbox",
+        "id": "bloomli_email_popup_show_launcher_after_close",
+        "label": "Show launcher after close",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_launcher_label",
+        "label": "Launcher label",
+        "default": "Get 47% Off"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_close_button_label",
+        "label": "Popup close accessible label",
+        "default": "Close signup offer"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_launcher_close_button_label",
+        "label": "Launcher close accessible label",
+        "default": "Dismiss signup offer"
+      },
+      {
+        "type": "header",
+        "content": "Logo and imagery"
+      },
+      {
+        "type": "image_picker",
+        "id": "bloomli_email_popup_logo_image",
+        "label": "Logo image",
+        "info": "Leave blank to use the same logo as the site header."
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_logo_text",
+        "label": "Logo text fallback",
+        "default": "Bloomli"
+      },
+      {
+        "type": "checkbox",
+        "id": "bloomli_email_popup_show_image",
+        "label": "Show image panel",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "bloomli_email_popup_image_desktop",
+        "label": "Desktop image"
+      },
+      {
+        "type": "image_picker",
+        "id": "bloomli_email_popup_image_mobile",
+        "label": "Mobile image"
+      },
+      {
+        "type": "select",
+        "id": "bloomli_email_popup_image_position_desktop",
+        "label": "Desktop image position",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color_scheme",
+        "id": "bloomli_email_popup_color_scheme",
+        "label": "Color scheme fallback",
+        "default": "scheme-1"
+      },
+      {
+        "type": "color",
+        "id": "bloomli_email_popup_background_color",
+        "label": "Section background color",
+        "default": "#FDFAF7"
+      },
+      {
+        "type": "color",
+        "id": "bloomli_email_popup_text_color",
+        "label": "Text color",
+        "default": "#2A2622"
+      },
+      {
+        "type": "color",
+        "id": "bloomli_email_popup_option_background_color",
+        "label": "Box/pill background color",
+        "default": "#B23A6F"
+      },
+      {
+        "type": "color",
+        "id": "bloomli_email_popup_option_text_color",
+        "label": "Box/pill text color",
+        "default": "#FDFAF7"
+      },
+      {
+        "type": "header",
+        "content": "Step 1"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_headline_step_1",
+        "label": "Headline line 1",
+        "default": "Unlock Your"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_discount_line_step_1",
+        "label": "Headline line 2",
+        "default": "47% off"
+      },
+      {
+        "type": "textarea",
+        "id": "bloomli_email_popup_subheading_step_1",
+        "label": "Subheading",
+        "default": "To claim, share what problem you're trying to solve:"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_problem_option_1_label",
+        "label": "Problem option 1 label",
+        "default": "Shedding"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_problem_option_1_handle",
+        "label": "Problem option 1 tag handle",
+        "default": "shedding"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_problem_option_2_label",
+        "label": "Problem option 2 label",
+        "default": "Breakage"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_problem_option_2_handle",
+        "label": "Problem option 2 tag handle",
+        "default": "breakage"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_problem_option_3_label",
+        "label": "Problem option 3 label",
+        "default": "Slow growth"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_problem_option_3_handle",
+        "label": "Problem option 3 tag handle",
+        "default": "slow-growth"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_problem_option_4_label",
+        "label": "Problem option 4 label",
+        "default": "Dry scalp"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_problem_option_4_handle",
+        "label": "Problem option 4 tag handle",
+        "default": "dry-scalp"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_no_thanks_text",
+        "label": "No thanks text",
+        "default": "No thanks, I don't like savings"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_options_group_label",
+        "label": "Options accessible label",
+        "default": "Select your hair concern"
+      },
+      {
+        "type": "header",
+        "content": "Step 2"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_headline_step_2",
+        "label": "Headline line 1",
+        "default": "Unlock Your"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_discount_line_step_2",
+        "label": "Headline line 2",
+        "default": "47% off"
+      },
+      {
+        "type": "textarea",
+        "id": "bloomli_email_popup_body_step_2",
+        "label": "Body text",
+        "default": "Sign up for email to receive your discount!"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_email_placeholder",
+        "label": "Email placeholder",
+        "default": "Enter your email"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_submit_button_label",
+        "label": "Submit button label",
+        "default": "Get My 47% Off"
+      },
+      {
+        "type": "text",
+        "id": "bloomli_email_popup_success_message",
+        "label": "Success message",
+        "default": "Check your email for your Bloomli offer."
+      },
+      {
+        "type": "header",
+        "content": "Spacing"
+      },
+      {
+        "type": "range",
+        "id": "bloomli_email_popup_content_padding_mobile",
+        "label": "Mobile content padding",
+        "unit": "px",
+        "min": 16,
+        "max": 56,
+        "step": 2,
+        "default": 28
+      },
+      {
+        "type": "range",
+        "id": "bloomli_email_popup_content_padding_desktop",
+        "label": "Desktop content padding",
+        "unit": "px",
+        "min": 32,
+        "max": 120,
+        "step": 4,
+        "default": 64
+      }
+    ]
   }
 ]

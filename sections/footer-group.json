@@ -97,10 +97,15 @@
         "padding_top": 16,
         "padding_bottom": 16
       }
+    },
+    "bloomli_signup_popup": {
+      "type": "bloomli-signup-popup",
+      "settings": {}
     }
   },
   "order": [
     "newsletter_4PUBTw",
-    "footer"
+    "footer",
+    "bloomli_signup_popup"
   ]
 }

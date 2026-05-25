@@ -69,6 +69,11 @@
   height: 100%;
 }
 
+.bloomli-signup-popup__launcher-close svg {
+  width: 50%;
+  height: 50%;
+}
+
 .bloomli-signup-popup__content {
   display: flex;
   flex-direction: column;
@@ -94,8 +99,8 @@
 .bloomli-signup-popup__logo-image {
   display: block;
   width: auto;
-  max-width: min(16rem, 45vw);
-  max-height: 5.5rem;
+  height: auto;
+  max-width: 80px;
   object-fit: contain;
 }
 
@@ -118,6 +123,10 @@
   font-weight: var(--font-heading-weight);
   letter-spacing: -0.06em;
   line-height: 0.98;
+}
+
+.bloomli-signup-popup__modal .bloomli-signup-popup__title {
+  font-size: 44px !important;
 }
 
 .bloomli-signup-popup__title span {
@@ -381,12 +390,11 @@
   }
 
   .bloomli-signup-popup__logo-image {
-    max-width: 18rem;
-    max-height: 6.4rem;
+    max-width: 120px;
   }
 
-  .bloomli-signup-popup__title {
-    font-size: 65px;
+  .bloomli-signup-popup__modal .bloomli-signup-popup__title {
+    font-size: 65px !important;
   }
 
   .bloomli-signup-popup__text {

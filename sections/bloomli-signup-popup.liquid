@@ -59,8 +59,8 @@
                 | image_tag:
                   class: 'bloomli-signup-popup__logo-image',
                   loading: 'lazy',
-                  widths: '120, 180, 240, 360',
-                  sizes: '(max-width: 749px) 150px, 180px'
+                  widths: '80, 120, 160, 240',
+                  sizes: '(max-width: 749px) 80px, 120px'
               }}
             {%- elsif section.settings.logo_text != blank -%}
               <span class="bloomli-signup-popup__logo-text">{{ section.settings.logo_text | escape }}</span>
@@ -219,6 +219,9 @@
 {% schema %}
 {
   "name": "Bloomli signup popup",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
   "settings": [
     {
       "type": "checkbox",
@@ -228,13 +231,13 @@
     },
     {
       "type": "header",
-      "content": "Brand and imagery"
+      "content": "Logo and imagery"
     },
     {
       "type": "image_picker",
       "id": "logo_image",
-      "label": "Popup logo override",
-      "info": "Leave blank to use the same logo as the header."
+      "label": "Logo image",
+      "info": "Upload a logo for this popup, or leave blank to use the header logo."
     },
     {
       "type": "text",

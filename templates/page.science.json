@@ -400,10 +400,9 @@
     },
     "science_cta": {
       "type": "bloomli-science-cta",
-      "disabled": true,
       "settings": {
-        "color_scheme": "scheme-1",
-        "heading": "Build your daily hair ritual.",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Start Your Journey Today!",
         "body": "<p>Support your hair from within and care for your scalp from the outside with a routine designed for consistency.</p>",
         "primary_label": "Shop Bloomli",
         "primary_link": "/collections/all",

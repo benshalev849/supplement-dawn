@@ -150,10 +150,10 @@
           "settings": {
             "image": "shopify://shop_images/Biotin_Circle.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
-            "label": "Inside support",
-            "role": "Gummies",
+            "label": "Inside Support",
+            "role": "Gummies + Capsules",
             "title": "Biotin",
-            "text": "<p>Supports normal hair and nail wellness and helps the body metabolize fats and proteins. Bloomli gummies are formulated with 6,000 mcg Biotin per serving.</p>"
+            "text": "<p>One of the most researched nutrients for hair and nail wellness. Bloomli's gummies deliver 6,000mcg per serving and capsules 5,000mcg, as part of a broader daily formula that goes well beyond biotin alone.</p>"
           }
         },
         "ingredient_zinc": {
@@ -162,9 +162,9 @@
             "image": "shopify://shop_images/Zinc_Square_4d47934d-33c0-4bd6-b9b2-71f8ee3a6f3c.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Mineral support",
-            "role": "Inside + outside",
+            "role": "Gummies + Capsules",
             "title": "Zinc",
-            "text": "<p>A mineral involved in normal skin, hair, and nail health. Included to support the beauty-from-within side of the Bloomli ritual.</p>"
+            "text": "<p>An essential mineral involved in protein synthesis and cell renewal, two processes central to healthy hair structure. Found in both Bloomli formulas at meaningful daily doses.</p>"
           }
         },
         "ingredient_b_vitamins": {
@@ -173,9 +173,9 @@
             "image": "shopify://shop_images/Folate_-_Splash_2ef71adf-6dc3-4617-9bad-01b5578d27df.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Daily metabolism",
-            "role": "Capsules",
+            "role": "Gummies + Capsules",
             "title": "Folate + B-vitamins",
-            "text": "<p>B-vitamins help support normal nutrient metabolism and daily wellness. Bloomli formulas use B-vitamin support as part of a broader hair, skin, and nail routine.</p>"
+            "text": "<p>B vitamins support the metabolic processes that keep fast-growing cells like hair follicles functioning. Bloomli's formulas include Folate, B6, B12, and Pantothenic Acid across both gummies and capsules.</p>"
           }
         },
         "ingredient_vitamin_c": {
@@ -184,9 +184,9 @@
             "image": "shopify://shop_images/Vitamin_C_-_Zoomed_Out_20de48de-4dcf-447c-ac90-5479c2a51d56.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Antioxidant support",
-            "role": "Inside + outside",
+            "role": "ALl Products",
             "title": "Vitamin C",
-            "text": "<p>Supports normal collagen formation and antioxidant protection. In a hair wellness formula, Vitamin C belongs because healthy-looking hair starts with overall tissue and skin support.</p>"
+            "text": "<p>Vitamin C supports collagen formation and helps protect cells from oxidative stress. It appears in all three Bloomli products, in both supplements and directly in the botanical serum.</p>"
           }
         },
         "ingredient_rosemary": {
@@ -195,9 +195,9 @@
             "image": "shopify://shop_images/Rosemary_-_Zoomed_Out.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Scalp ritual",
-            "role": "Serum",
+            "role": "Hair Serum",
             "title": "Rosemary Extract",
-            "text": "<p>A botanical used in Bloomli’s topical serum to support a consistent scalp-care ritual and help the scalp feel refreshed.</p>"
+            "text": "<p>One of the most studied botanicals in scalp wellness. Bloomli's serum uses Rosmarinus Officinalis Leaf Extract applied directly to the scalp, where it can work at the surface rather than from within.</p>"
           }
         },
         "ingredient_densidyl": {
@@ -206,9 +206,9 @@
             "image": "shopify://shop_images/Densidyl_-_Zoomed_Out.png",
             "image_placeholder": "[ IMAGE: Ingredient close-up on a warm neutral surface ]",
             "label": "Topical blend",
-            "role": "Serum",
+            "role": "Hair Serum",
             "title": "Densidyl components",
-            "text": "<p>A topical blend built around Chlorella and Spirulina extracts, included in the serum to help support the scalp environment.</p>"
+            "text": "<p>A combination of Chlorella Emersonii and Spirulina Maxima extracts formulated to deliver hydration directly to the scalp surface, creating the environment healthy hair grows from.</p>"
           }
         }
       },

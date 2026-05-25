@@ -45,6 +45,16 @@
       this.applySettings();
       this.bindFooterForms();
 
+      const pendingSubmission = this.getPendingSubmission();
+      if (pendingSubmission && this.isSuccessfulSubmissionReturn()) {
+        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
+        this.restoreSubmissionLocation(pendingSubmission);
+        this.hideThemeNewsletterSuccess();
+        this.recordSubmission();
+        this.showSuccess();
+        return;
+      }
+
       if (!this.enabled || !this.modal || !this.steps || !this.tags) return;
 
       this.bindEvents();
@@ -52,15 +62,6 @@
 
       if (this.isDesignMode) {
         this.open();
-        return;
-      }
-
-      const pendingSubmission = this.readSessionStorage(PENDING_SUBMISSION_KEY) === 'true';
-      if (this.formState === 'success' && pendingSubmission) {
-        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-        this.hideThemeNewsletterSuccess();
-        this.recordSubmission();
-        this.showSuccess();
         return;
       }
 
@@ -133,7 +134,7 @@
         this.hideLauncher();
       });
 
-      this.form?.addEventListener('submit', (event) => this.submitForm(event));
+      this.bindSignupForm(this.form);
       if (this.isDesignMode) {
         document.addEventListener('shopify:section:select', (event) => {
           if (event.detail.sectionId === this.root.closest('.shopify-section')?.id.replace('shopify-section-', '')) {
@@ -224,6 +225,23 @@
       if (matchingOption) this.selectConcern(tag);
     }
 
+    bindSignupForm(form) {
+      if (!form) return;
+
+      form.addEventListener('submit', () => this.rememberSubmissionAttempt(form), true);
+      form.addEventListener('submit', (event) => this.submitForm(event));
+    }
+
+    rememberSubmissionAttempt(form) {
+      const submission = {
+        source: form === this.form ? 'popup' : 'footer',
+        returnUrl: `${window.location.pathname}${window.location.search}${window.location.hash}`,
+        scrollY: Math.round(window.scrollY),
+      };
+
+      this.writeSessionStorage(PENDING_SUBMISSION_KEY, JSON.stringify(submission));
+    }
+
     async submitForm(event) {
       event.preventDefault();
       const form = event.currentTarget;
@@ -243,6 +261,12 @@
         });
         const responseText = await response.text();
         const responseDocument = new DOMParser().parseFromString(responseText, 'text/html');
+
+        if (this.isCaptchaChallengeResponse(response)) {
+          window.location.assign(response.url);
+          return;
+        }
+
         const successful = response.ok && (
           response.url.includes('customer_posted=true') ||
           responseDocument.querySelector('[data-bloomli-popup-form-state="success"]') ||
@@ -250,15 +274,18 @@
         );
 
         if (!successful) {
+          this.removeSessionStorage(PENDING_SUBMISSION_KEY);
           this.showFormError(form);
           return;
         }
 
+        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
         this.hideThemeNewsletterSuccess();
         this.recordSubmission();
         this.showSuccess();
         form.reset();
       } catch (_error) {
+        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
         this.showFormError(form);
       } finally {
         this.setFormPending(form, false);
@@ -267,8 +294,49 @@
 
     bindFooterForms() {
       this.footerForms.forEach((form) => {
-        form.addEventListener('submit', (event) => this.submitForm(event));
+        this.bindSignupForm(form);
       });
+    }
+
+    isCaptchaChallengeResponse(response) {
+      try {
+        return new URL(response.url).pathname.endsWith('/challenge');
+      } catch (_error) {
+        return false;
+      }
+    }
+
+    isSuccessfulSubmissionReturn() {
+      const postedSuccessfully = new URLSearchParams(window.location.search).get('customer_posted') === 'true';
+      return this.formState === 'success' || postedSuccessfully;
+    }
+
+    getPendingSubmission() {
+      const pendingSubmission = this.readSessionStorage(PENDING_SUBMISSION_KEY);
+      if (!pendingSubmission) return null;
+      if (pendingSubmission === 'true') return {};
+
+      try {
+        return JSON.parse(pendingSubmission);
+      } catch (_error) {
+        return {};
+      }
+    }
+
+    restoreSubmissionLocation(pendingSubmission) {
+      const locationUrl = new URL(window.location.href);
+      locationUrl.searchParams.delete('customer_posted');
+
+      if (/^#(?:BloomliSignupPopupForm-|ContactFooter|NewsletterForm--)/.test(locationUrl.hash)) {
+        locationUrl.hash = '';
+      }
+
+      const returnUrl = pendingSubmission.returnUrl || `${locationUrl.pathname}${locationUrl.search}${locationUrl.hash}`;
+      window.history.replaceState({}, '', returnUrl);
+
+      if (Number.isFinite(pendingSubmission.scrollY)) {
+        window.requestAnimationFrame(() => window.scrollTo(0, pendingSubmission.scrollY));
+      }
     }
 
     setFormPending(form, pending) {

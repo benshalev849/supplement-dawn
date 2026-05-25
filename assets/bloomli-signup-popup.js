@@ -2,7 +2,7 @@
   const STORAGE_PREFIX = 'bloomliSignupPopup';
   const SELECTED_CONCERN_KEY = `${STORAGE_PREFIX}:selectedConcern`;
   const CLOSED_UNTIL_KEY = `${STORAGE_PREFIX}:closedUntil`;
-  const SUBMITTED_UNTIL_KEY = `${STORAGE_PREFIX}:submittedUntil`;
+  const LEGACY_SUBMITTED_UNTIL_KEY = `${STORAGE_PREFIX}:submittedUntil`;
   const LAUNCHER_HIDDEN_UNTIL_KEY = `${STORAGE_PREFIX}:launcherHiddenUntil`;
   const PENDING_SUBMISSION_KEY = `${STORAGE_PREFIX}:pendingSubmission`;
   const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
@@ -31,9 +31,7 @@
       this.selectedConcern = null;
       this.isDesignMode = Boolean(window.Shopify && window.Shopify.designMode);
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      this.delay = this.numberSetting('delaySeconds', 7) * 1000;
       this.closeDays = this.numberSetting('closeCooldownDays', 7);
-      this.submitDays = this.numberSetting('submitCooldownDays', 180);
       this.showLauncherAfterClose = root.dataset.showLauncher === 'true';
       this.customerAcceptsMarketing = root.dataset.customerMarketing === 'true';
       this.handleKeydown = this.handleKeydown.bind(this);
@@ -45,6 +43,12 @@
       this.applySettings();
       this.bindEvents();
       this.restoreSelectedConcern();
+      this.removeStorage(LEGACY_SUBMITTED_UNTIL_KEY);
+
+      if (this.isDesignMode) {
+        this.open();
+        return;
+      }
 
       const pendingSubmission = this.readSessionStorage(PENDING_SUBMISSION_KEY) === 'true';
       if (this.formState === 'success' && pendingSubmission) {
@@ -54,7 +58,7 @@
         return;
       }
 
-      if (this.customerAcceptsMarketing || this.hasActiveCooldown(SUBMITTED_UNTIL_KEY)) return;
+      if (this.customerAcceptsMarketing) return;
 
       if (this.formState === 'error' && pendingSubmission) {
         this.removeSessionStorage(PENDING_SUBMISSION_KEY);
@@ -65,17 +69,12 @@
 
       this.removeSessionStorage(PENDING_SUBMISSION_KEY);
 
-      if (this.isDesignMode) {
-        this.open();
-        return;
-      }
-
       if (this.hasActiveCooldown(CLOSED_UNTIL_KEY)) {
         this.showLauncher();
         return;
       }
 
-      this.openTimer = window.setTimeout(() => this.open(), this.delay);
+      this.open();
     }
 
     numberSetting(setting, fallback) {
@@ -222,7 +221,6 @@
     }
 
     recordSubmission() {
-      this.setCooldown(SUBMITTED_UNTIL_KEY, this.submitDays);
       this.removeStorage(CLOSED_UNTIL_KEY);
       this.removeStorage(LAUNCHER_HIDDEN_UNTIL_KEY);
       this.close();
@@ -240,8 +238,6 @@
     showLauncher() {
       if (
         !this.showLauncherAfterClose ||
-        this.isDesignMode ||
-        this.hasActiveCooldown(SUBMITTED_UNTIL_KEY) ||
         this.hasActiveCooldown(LAUNCHER_HIDDEN_UNTIL_KEY)
       ) {
         return;

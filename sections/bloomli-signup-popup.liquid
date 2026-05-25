@@ -1,6 +1,42 @@
 {%- liquid
+  assign popup_enabled = settings.bloomli_email_popup_enabled | default: true, allow_false: true
+  assign popup_color_scheme = settings.bloomli_email_popup_color_scheme | default: 'scheme-1'
+  assign popup_background_color = settings.bloomli_email_popup_background_color | default: '#f6eee8'
+  assign popup_text_color = settings.bloomli_email_popup_text_color | default: '#322922'
+  assign popup_option_background_color = settings.bloomli_email_popup_option_background_color | default: '#d56d78'
+  assign popup_option_text_color = settings.bloomli_email_popup_option_text_color | default: '#fff9f4'
+  assign popup_close_cooldown_days = settings.bloomli_email_popup_close_cooldown_days | default: 7
+  assign popup_show_launcher = settings.bloomli_email_popup_show_launcher_after_close | default: true, allow_false: true
+  assign popup_launcher_label = settings.bloomli_email_popup_launcher_label | default: 'Get 47% Off'
+  assign popup_close_button_label = settings.bloomli_email_popup_close_button_label | default: 'Close signup offer'
+  assign popup_launcher_close_button_label = settings.bloomli_email_popup_launcher_close_button_label | default: 'Dismiss signup offer'
+  assign popup_logo_text = settings.bloomli_email_popup_logo_text | default: 'Bloomli'
+  assign popup_show_image = settings.bloomli_email_popup_show_image | default: true, allow_false: true
+  assign popup_image_position_desktop = settings.bloomli_email_popup_image_position_desktop | default: 'right'
+  assign popup_headline_step_1 = settings.bloomli_email_popup_headline_step_1 | default: 'Unlock Your'
+  assign popup_discount_line_step_1 = settings.bloomli_email_popup_discount_line_step_1 | default: '47% off'
+  assign popup_subheading_step_1 = settings.bloomli_email_popup_subheading_step_1 | default: 'To claim, share what problem you are trying to solve:'
+  assign popup_problem_option_1_label = settings.bloomli_email_popup_problem_option_1_label | default: 'Shedding'
+  assign popup_problem_option_1_handle = settings.bloomli_email_popup_problem_option_1_handle | default: 'shedding'
+  assign popup_problem_option_2_label = settings.bloomli_email_popup_problem_option_2_label | default: 'Breakage'
+  assign popup_problem_option_2_handle = settings.bloomli_email_popup_problem_option_2_handle | default: 'breakage'
+  assign popup_problem_option_3_label = settings.bloomli_email_popup_problem_option_3_label | default: 'Slow growth'
+  assign popup_problem_option_3_handle = settings.bloomli_email_popup_problem_option_3_handle | default: 'slow-growth'
+  assign popup_problem_option_4_label = settings.bloomli_email_popup_problem_option_4_label | default: 'Dry scalp'
+  assign popup_problem_option_4_handle = settings.bloomli_email_popup_problem_option_4_handle | default: 'dry-scalp'
+  assign popup_no_thanks_text = settings.bloomli_email_popup_no_thanks_text | default: "No thanks, I don't like savings"
+  assign popup_options_group_label = settings.bloomli_email_popup_options_group_label | default: 'Select your hair concern'
+  assign popup_headline_step_2 = settings.bloomli_email_popup_headline_step_2 | default: 'Unlock Your'
+  assign popup_discount_line_step_2 = settings.bloomli_email_popup_discount_line_step_2 | default: '47% off'
+  assign popup_body_step_2 = settings.bloomli_email_popup_body_step_2 | default: 'Sign up for email to receive your discount!'
+  assign popup_email_placeholder = settings.bloomli_email_popup_email_placeholder | default: 'Enter your email'
+  assign popup_submit_button_label = settings.bloomli_email_popup_submit_button_label | default: 'Get My 47% Off'
+  assign popup_success_message = settings.bloomli_email_popup_success_message | default: 'Check your email for your Bloomli offer.'
+  assign popup_content_padding_mobile = settings.bloomli_email_popup_content_padding_mobile | default: 28
+  assign popup_content_padding_desktop = settings.bloomli_email_popup_content_padding_desktop | default: 64
+
   assign popup_visible = false
-  if settings.bloomli_email_popup_enabled and request.page_type != 'checkout'
+  if popup_enabled and request.page_type != 'checkout'
     assign popup_visible = true
   endif
 
@@ -18,24 +54,22 @@
   <script src="{{ 'bloomli-signup-popup.js' | asset_url }}" defer="defer"></script>
 
   <div
-    class="bloomli-signup-popup color-{{ settings.bloomli_email_popup_color_scheme }} gradient"
+    class="bloomli-signup-popup color-{{ popup_color_scheme }} gradient"
     data-bloomli-signup-popup
-    data-delay-seconds="{{ settings.bloomli_email_popup_delay_seconds }}"
-    data-close-cooldown-days="{{ settings.bloomli_email_popup_close_cooldown_days }}"
-    data-submit-cooldown-days="{{ settings.bloomli_email_popup_submit_cooldown_days }}"
-    data-show-launcher="{{ settings.bloomli_email_popup_show_launcher_after_close }}"
+    data-close-cooldown-days="{{ popup_close_cooldown_days }}"
+    data-show-launcher="{{ popup_show_launcher }}"
     data-customer-marketing="{% if customer and customer.accepts_marketing %}true{% else %}false{% endif %}"
     data-custom-colors="true"
-    data-popup-background="{{ settings.bloomli_email_popup_background_color }}"
-    data-popup-text="{{ settings.bloomli_email_popup_text_color }}"
-    data-option-background="{{ settings.bloomli_email_popup_option_background_color }}"
-    data-option-text="{{ settings.bloomli_email_popup_option_text_color }}"
-    data-padding-mobile="{{ settings.bloomli_email_popup_content_padding_mobile }}"
-    data-padding-desktop="{{ settings.bloomli_email_popup_content_padding_desktop }}"
+    data-popup-background="{{ popup_background_color }}"
+    data-popup-text="{{ popup_text_color }}"
+    data-option-background="{{ popup_option_background_color }}"
+    data-option-text="{{ popup_option_text_color }}"
+    data-padding-mobile="{{ popup_content_padding_mobile }}"
+    data-padding-desktop="{{ popup_content_padding_desktop }}"
   >
     <div class="bloomli-signup-popup__modal" data-bloomli-popup-modal hidden>
       <div
-        class="bloomli-signup-popup__dialog bloomli-signup-popup__dialog--media-{{ settings.bloomli_email_popup_image_position_desktop }}{% unless settings.bloomli_email_popup_show_image %} bloomli-signup-popup__dialog--no-media{% endunless %}"
+        class="bloomli-signup-popup__dialog bloomli-signup-popup__dialog--media-{{ popup_image_position_desktop }}{% unless popup_show_image %} bloomli-signup-popup__dialog--no-media{% endunless %}"
         role="dialog"
         aria-modal="true"
         aria-labelledby="{{ title_id }}"
@@ -44,7 +78,7 @@
         <button
           class="bloomli-signup-popup__close"
           type="button"
-          aria-label="{{ settings.bloomli_email_popup_close_button_label | escape }}"
+          aria-label="{{ popup_close_button_label | escape }}"
           data-bloomli-popup-close
         >
           {{- 'icon-close.svg' | inline_asset_content -}}
@@ -62,8 +96,8 @@
                   widths: '80, 120, 160, 240',
                   sizes: '(max-width: 749px) 80px, 120px'
               }}
-            {%- elsif settings.bloomli_email_popup_logo_text != blank -%}
-              <span class="bloomli-signup-popup__logo-text">{{ settings.bloomli_email_popup_logo_text | escape }}</span>
+            {%- elsif popup_logo_text != blank -%}
+              <span class="bloomli-signup-popup__logo-text">{{ popup_logo_text | escape }}</span>
             {%- endif -%}
           </div>
 
@@ -73,41 +107,41 @@
           >
             <span
               data-bloomli-popup-title-line
-              data-title-step-one="{{ settings.bloomli_email_popup_headline_step_1 | escape }}"
-              data-title-step-two="{{ settings.bloomli_email_popup_headline_step_2 | escape }}"
+              data-title-step-one="{{ popup_headline_step_1 | escape }}"
+              data-title-step-two="{{ popup_headline_step_2 | escape }}"
             >
-              {{- settings.bloomli_email_popup_headline_step_1 | escape -}}
+              {{- popup_headline_step_1 | escape -}}
             </span>
             <span
               data-bloomli-popup-title-line
-              data-title-step-one="{{ settings.bloomli_email_popup_discount_line_step_1 | escape }}"
-              data-title-step-two="{{ settings.bloomli_email_popup_discount_line_step_2 | escape }}"
+              data-title-step-one="{{ popup_discount_line_step_1 | escape }}"
+              data-title-step-two="{{ popup_discount_line_step_2 | escape }}"
             >
-              {{- settings.bloomli_email_popup_discount_line_step_1 | escape -}}
+              {{- popup_discount_line_step_1 | escape -}}
             </span>
           </h2>
 
           <div class="bloomli-signup-popup__steps" data-bloomli-popup-steps>
             <div class="bloomli-signup-popup__step bloomli-signup-popup__step--one" data-bloomli-popup-step="1">
-              <p class="bloomli-signup-popup__text">{{ settings.bloomli_email_popup_subheading_step_1 | escape }}</p>
+              <p class="bloomli-signup-popup__text">{{ popup_subheading_step_1 | escape }}</p>
 
-              <div class="bloomli-signup-popup__options" aria-label="{{ settings.bloomli_email_popup_options_group_label | escape }}">
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ settings.bloomli_email_popup_problem_option_1_handle | handle | escape }}">
-                  {{ settings.bloomli_email_popup_problem_option_1_label | escape }}
+              <div class="bloomli-signup-popup__options" aria-label="{{ popup_options_group_label | escape }}">
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ popup_problem_option_1_handle | handle | escape }}">
+                  {{ popup_problem_option_1_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ settings.bloomli_email_popup_problem_option_2_handle | handle | escape }}">
-                  {{ settings.bloomli_email_popup_problem_option_2_label | escape }}
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ popup_problem_option_2_handle | handle | escape }}">
+                  {{ popup_problem_option_2_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ settings.bloomli_email_popup_problem_option_3_handle | handle | escape }}">
-                  {{ settings.bloomli_email_popup_problem_option_3_label | escape }}
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ popup_problem_option_3_handle | handle | escape }}">
+                  {{ popup_problem_option_3_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ settings.bloomli_email_popup_problem_option_4_handle | handle | escape }}">
-                  {{ settings.bloomli_email_popup_problem_option_4_label | escape }}
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-handle="{{ popup_problem_option_4_handle | handle | escape }}">
+                  {{ popup_problem_option_4_label | escape }}
                 </button>
               </div>
 
               <button class="bloomli-signup-popup__decline" type="button" data-bloomli-popup-decline>
-                {{ settings.bloomli_email_popup_no_thanks_text | escape }}
+                {{ popup_no_thanks_text | escape }}
               </button>
             </div>
 
@@ -116,14 +150,14 @@
               data-bloomli-popup-step="2"
               aria-hidden="true"
             >
-              <p class="bloomli-signup-popup__text">{{ settings.bloomli_email_popup_body_step_2 | escape }}</p>
+              <p class="bloomli-signup-popup__text">{{ popup_body_step_2 | escape }}</p>
 
               {%- form 'customer', id: form_id, class: 'bloomli-signup-popup__form' -%}
                 <div
                   data-bloomli-popup-form-state="{% if form.posted_successfully? %}success{% elsif form.errors %}error{% else %}idle{% endif %}"
                 >
                   <input type="hidden" name="contact[tags]" value="newsletter,bloomli-popup" data-bloomli-popup-tags>
-                  <label class="visually-hidden" for="{{ email_id }}">{{ settings.bloomli_email_popup_email_placeholder | escape }}</label>
+                  <label class="visually-hidden" for="{{ email_id }}">{{ popup_email_placeholder | escape }}</label>
                   <input
                     class="bloomli-signup-popup__email"
                     id="{{ email_id }}"
@@ -138,12 +172,12 @@
                       aria-invalid="true"
                       aria-describedby="{{ error_id }}"
                     {% endif %}
-                    placeholder="{{ settings.bloomli_email_popup_email_placeholder | escape }}"
+                    placeholder="{{ popup_email_placeholder | escape }}"
                     required
                     data-bloomli-popup-email
                   >
                   <button class="bloomli-signup-popup__submit" type="submit" name="commit">
-                    {{ settings.bloomli_email_popup_submit_button_label | escape }}
+                    {{ popup_submit_button_label | escape }}
                   </button>
 
                   {%- if form.errors -%}
@@ -157,7 +191,7 @@
           </div>
         </div>
 
-        {%- if settings.bloomli_email_popup_show_image -%}
+        {%- if popup_show_image -%}
           <div class="bloomli-signup-popup__media">
             {%- if primary_image != blank -%}
               <picture>
@@ -194,13 +228,13 @@
       <button
         class="bloomli-signup-popup__launcher-close"
         type="button"
-        aria-label="{{ settings.bloomli_email_popup_launcher_close_button_label | escape }}"
+        aria-label="{{ popup_launcher_close_button_label | escape }}"
         data-bloomli-popup-launcher-close
       >
         {{- 'icon-close.svg' | inline_asset_content -}}
       </button>
       <button class="bloomli-signup-popup__launcher-open" type="button" data-bloomli-popup-reopen>
-        {{ settings.bloomli_email_popup_launcher_label | escape }}
+        {{ popup_launcher_label | escape }}
       </button>
     </div>
 
@@ -211,7 +245,7 @@
       data-bloomli-popup-success
       hidden
     >
-      {{ settings.bloomli_email_popup_success_message | escape }}
+      {{ popup_success_message | escape }}
     </p>
   </div>
 {%- endif -%}
@@ -310,12 +344,12 @@
       "default": "right",
       "options": [
         {
-          "value": "right",
-          "label": "Right"
-        },
-        {
           "value": "left",
           "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
         }
       ],
       "visible_if": "{{ section.settings.show_image }}"
@@ -449,16 +483,6 @@
     },
     {
       "type": "range",
-      "id": "delay_seconds",
-      "label": "Open delay",
-      "unit": "s",
-      "min": 0,
-      "max": 30,
-      "step": 1,
-      "default": 7
-    },
-    {
-      "type": "range",
       "id": "close_cooldown_days",
       "label": "Close cooldown",
       "unit": "day",
@@ -466,16 +490,6 @@
       "max": 30,
       "step": 1,
       "default": 7
-    },
-    {
-      "type": "range",
-      "id": "submit_cooldown_days",
-      "label": "Submit cooldown",
-      "unit": "day",
-      "min": 30,
-      "max": 365,
-      "step": 5,
-      "default": 180
     },
     {
       "type": "checkbox",

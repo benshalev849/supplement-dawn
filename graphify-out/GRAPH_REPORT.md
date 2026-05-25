@@ -1,11 +1,11 @@
 # Graph Report - supplement-dawn  (2026-05-25)
 
 ## Corpus Check
-- 45 files · ~35,375 words
+- 45 files · ~35,353 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 683 nodes · 972 edges · 54 communities detected
+- 683 nodes · 973 edges · 54 communities detected
 - Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 118 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
@@ -288,7 +288,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `debounce()` connect `Community 5` to `Community 0`, `Community 18`, `Community 14`?**
   _High betweenness centrality (0.090) - this node is a cross-community bridge._
 - **Why does `removeTrapFocus()` connect `Community 0` to `Community 21`, `Community 12`, `Community 20`, `Community 6`?**
-  _High betweenness centrality (0.070) - this node is a cross-community bridge._
+  _High betweenness centrality (0.069) - this node is a cross-community bridge._
 - **What connects `Shopify Dawn License`, `Online Store 2.0`, `Progressive Enhancement` to the rest of the system?**
   _47 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**

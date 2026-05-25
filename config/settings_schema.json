@@ -2233,16 +2233,6 @@
       },
       {
         "type": "range",
-        "id": "bloomli_email_popup_delay_seconds",
-        "label": "Open delay",
-        "unit": "s",
-        "min": 0,
-        "max": 30,
-        "step": 1,
-        "default": 7
-      },
-      {
-        "type": "range",
         "id": "bloomli_email_popup_close_cooldown_days",
         "label": "Close cooldown",
         "unit": "day",
@@ -2250,16 +2240,6 @@
         "max": 30,
         "step": 1,
         "default": 7
-      },
-      {
-        "type": "range",
-        "id": "bloomli_email_popup_submit_cooldown_days",
-        "label": "Submit cooldown",
-        "unit": "day",
-        "min": 30,
-        "max": 365,
-        "step": 5,
-        "default": 180
       },
       {
         "type": "checkbox",
@@ -2324,12 +2304,12 @@
         "default": "right",
         "options": [
           {
-            "value": "right",
-            "label": "Right"
-          },
-          {
             "value": "left",
             "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
           }
         ]
       },
@@ -2347,25 +2327,25 @@
         "type": "color",
         "id": "bloomli_email_popup_background_color",
         "label": "Section background color",
-        "default": "#FDFAF7"
+        "default": "#F6EEE8"
       },
       {
         "type": "color",
         "id": "bloomli_email_popup_text_color",
         "label": "Text color",
-        "default": "#2A2622"
+        "default": "#322922"
       },
       {
         "type": "color",
         "id": "bloomli_email_popup_option_background_color",
         "label": "Box/pill background color",
-        "default": "#B23A6F"
+        "default": "#D56D78"
       },
       {
         "type": "color",
         "id": "bloomli_email_popup_option_text_color",
         "label": "Box/pill text color",
-        "default": "#FDFAF7"
+        "default": "#FFF9F4"
       },
       {
         "type": "header",

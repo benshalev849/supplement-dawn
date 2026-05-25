@@ -176,6 +176,9 @@
     "bloomli_email_popup_problem_option_3_handle": "hair-concern-growth",
     "bloomli_email_popup_problem_option_4_label": "My hair breaks before it gains length",
     "bloomli_email_popup_problem_option_4_handle": "hair-concern-breakage",
+    "bloomli_email_popup_body_step_2": "Sign up for email to receive your discount!",
+    "bloomli_email_popup_email_placeholder": "Your email address",
+    "bloomli_email_popup_success_message": "You're in. Welcome to the ritual. Your 47% off is ready to use now!",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

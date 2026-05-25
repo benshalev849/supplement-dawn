@@ -19,12 +19,14 @@
       this.email = root.querySelector('[data-bloomli-popup-email]');
       this.tags = root.querySelector('[data-bloomli-popup-tags]');
       this.form = root.querySelector('.bloomli-signup-popup__form');
+      this.footerForms = Array.from(document.querySelectorAll('form.newsletter-form')).filter((form) => !root.contains(form));
       this.formState = root.querySelector('[data-bloomli-popup-form-state]')?.dataset.bloomliPopupFormState || 'idle';
       this.launcher = root.querySelector('[data-bloomli-popup-launcher]');
       this.success = root.querySelector('[data-bloomli-popup-success]');
       this.closeButtons = Array.from(root.querySelectorAll('[data-bloomli-popup-close], [data-bloomli-popup-decline]'));
       this.reopenButton = root.querySelector('[data-bloomli-popup-reopen]');
       this.launcherCloseButton = root.querySelector('[data-bloomli-popup-launcher-close]');
+      this.enabled = root.dataset.enabled !== 'false';
       this.isOpen = false;
       this.openTimer = null;
       this.hideTimer = null;
@@ -40,9 +42,11 @@
     }
 
     init() {
-      if (!this.modal || !this.steps || !this.tags) return;
-
       this.applySettings();
+      this.bindFooterForms();
+
+      if (!this.enabled || !this.modal || !this.steps || !this.tags) return;
+
       this.bindEvents();
       this.restoreSelectedConcern();
 
@@ -129,10 +133,7 @@
         this.hideLauncher();
       });
 
-      this.form?.addEventListener('submit', () => {
-        this.writeSessionStorage(PENDING_SUBMISSION_KEY, 'true');
-      });
-
+      this.form?.addEventListener('submit', (event) => this.submitForm(event));
       if (this.isDesignMode) {
         document.addEventListener('shopify:section:select', (event) => {
           if (event.detail.sectionId === this.root.closest('.shopify-section')?.id.replace('shopify-section-', '')) {
@@ -223,7 +224,78 @@
       if (matchingOption) this.selectConcern(tag);
     }
 
+    async submitForm(event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      if (!(form instanceof HTMLFormElement) || !form.reportValidity()) return;
+
+      this.setFormPending(form, true);
+      this.clearFormError(form);
+
+      try {
+        const response = await window.fetch(form.action, {
+          method: form.method || 'POST',
+          body: new FormData(form),
+          credentials: 'same-origin',
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+        });
+        const responseText = await response.text();
+        const responseDocument = new DOMParser().parseFromString(responseText, 'text/html');
+        const successful = response.ok && (
+          response.url.includes('customer_posted=true') ||
+          responseDocument.querySelector('[data-bloomli-popup-form-state="success"]') ||
+          responseDocument.querySelector('.newsletter-form__message--success')
+        );
+
+        if (!successful) {
+          this.showFormError(form);
+          return;
+        }
+
+        this.hideThemeNewsletterSuccess();
+        this.recordSubmission();
+        this.showSuccess();
+        form.reset();
+      } catch (_error) {
+        this.showFormError(form);
+      } finally {
+        this.setFormPending(form, false);
+      }
+    }
+
+    bindFooterForms() {
+      this.footerForms.forEach((form) => {
+        form.addEventListener('submit', (event) => this.submitForm(event));
+      });
+    }
+
+    setFormPending(form, pending) {
+      const submit = form.querySelector('[type="submit"]');
+      if (!submit) return;
+
+      submit.disabled = pending;
+      submit.setAttribute('aria-busy', String(pending));
+    }
+
+    clearFormError(form) {
+      form.querySelector('[data-bloomli-async-error]')?.remove();
+    }
+
+    showFormError(form) {
+      const error = document.createElement('small');
+      error.className = form === this.form
+        ? 'bloomli-signup-popup__message bloomli-signup-popup__message--error'
+        : 'newsletter-form__message form__message';
+      error.dataset.bloomliAsyncError = '';
+      error.setAttribute('role', 'alert');
+      error.textContent = 'Something went wrong. Please try again.';
+      form.append(error);
+    }
+
     recordSubmission() {
+      window.clearTimeout(this.openTimer);
       this.writeStorage(SUBMITTED_KEY, 'true');
       this.removeStorage(CLOSED_UNTIL_KEY);
       this.removeStorage(LAUNCHER_HIDDEN_UNTIL_KEY);

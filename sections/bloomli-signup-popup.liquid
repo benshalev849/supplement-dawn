@@ -38,7 +38,7 @@
   assign popup_content_padding_desktop = settings.bloomli_email_popup_content_padding_desktop | default: 64
 
   assign popup_visible = false
-  if popup_enabled and request.page_type != 'checkout'
+  if request.page_type != 'checkout'
     assign popup_visible = true
   endif
 
@@ -58,6 +58,7 @@
   <div
     class="bloomli-signup-popup color-{{ popup_color_scheme }} gradient"
     data-bloomli-signup-popup
+    data-enabled="{{ popup_enabled }}"
     data-delay-seconds="{{ popup_delay_seconds }}"
     data-close-cooldown-days="{{ popup_close_cooldown_days }}"
     data-show-launcher="{{ popup_show_launcher }}"

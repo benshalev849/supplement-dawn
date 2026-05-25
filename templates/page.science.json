@@ -325,7 +325,7 @@
           "type": "question",
           "settings": {
             "question": "Is Bloomli a hair loss treatment?",
-            "answer": "<p>No. Bloomli products are wellness products designed to support healthier-looking hair, stronger-looking strands, and scalp care. They are not intended to diagnose, treat, cure, or prevent hair loss, alopecia, hormonal conditions, or any disease.</p>",
+            "answer": "<p>No, and that distinction matters.</p><p>Bloomli is a hair wellness supplement designed to support the conditions hair needs to grow: the right nutrients, a healthy scalp environment, and consistent daily nourishment.*</p><p>Hair loss with a medical cause, such as alopecia, thyroid conditions, or hormonal disorders, should be evaluated by a dermatologist. Bloomli is for women whose hair feels thinner, duller, or slower-growing due to stress, nutritional gaps, postpartum changes, or everyday depletion.</p>",
             "open_by_default": true
           }
         },
@@ -333,39 +333,55 @@
           "type": "question",
           "settings": {
             "question": "How long does it take to see results?",
-            "answer": "<p>Hair changes take time because hair grows in cycles. Many people think in terms of a 90-day routine because visible changes typically require consistency over several months. Results vary.</p>",
+            "answer": "<p>Hair grows roughly half an inch per month, and the growth cycle means visible change takes time.</p><p>Most women notice improvements in texture, shine, and reduced shedding between weeks 4 and 8.* Fuller, denser-looking hair typically becomes more visible between weeks 8 and 12.*</p><p>We recommend committing to at least one full 90-day cycle. That is when the compounding effect of consistent daily nourishment becomes most apparent.</p>",
             "open_by_default": false
           }
         },
         "faq_3": {
           "type": "question",
           "settings": {
-            "question": "Why does Bloomli include gummies, capsules, and serum?",
-            "answer": "<p>Each format has a different role. Gummies make daily beauty-nutrient support easy. Capsules allow for a more complete vitamin, mineral, and botanical formula. The serum supports topical scalp care as part of the routine.</p>",
+            "question": "What does each product actually do?",
+            "answer": "<p>The gummies and capsules work from within, delivering vitamins, minerals, and botanical extracts to your follicles through your bloodstream.*</p><p>The serum works from the outside, applying active botanicals including rosemary, ginger root, and Densidyl directly to the scalp to support the environment where hair growth begins.*</p><p>You can start with any one product, but the three are designed to work as a system. Internal and topical support together address more of what hair actually needs.</p>",
             "open_by_default": false
           }
         },
         "faq_4": {
           "type": "question",
           "settings": {
-            "question": "Should I use all three products?",
-            "answer": "<p>Not everyone needs all three. Gummies are the easiest starting point. Capsules are for customers who want more comprehensive daily support. The serum is for customers who want to add a topical scalp ritual.</p>",
+            "question": "What is in the botanical blend inside the capsules?",
+            "answer": "<p>The capsules contain an 11-ingredient proprietary blend alongside the core vitamin stack.</p><p>Key botanicals include:</p><p>Horsetail, a plant-based source of silica.<br/>Fo-Ti, used in traditional Chinese medicine to support healthy hair.*<br/>Saw Palmetto, studied for its role in scalp health.*<br/>Bamboo extract, Stinging Nettle, and Spirulina, among others.</p><p>These are not fillers. Each has a traditional or studied use in hair and scalp wellness, included to complement what vitamins alone do not cover.</p>",
             "open_by_default": false
           }
         },
         "faq_5": {
           "type": "question",
           "settings": {
-            "question": "What does third-party testing prove?",
-            "answer": "<p>Third-party testing is quality documentation. It can confirm things like label-claim amount, microbial screening, and heavy-metal screening for a tested lot. It is not clinical outcome data and does not mean every person will see the same visible hair results.</p>",
+            "question": "Are there any side effects?",
+            "answer": "<p>Most women tolerate Bloomli well.</p><p>A few things worth knowing before you start:</p><p>The gummies contain fish-derived collagen (Tilapia) and tree nuts (Coconut). The capsules contain soy. Check the labels if you have known allergies.</p><p>Taking the capsules with food can reduce any stomach sensitivity.</p><p>High-dose biotin can occasionally interfere with certain lab test results. If you have bloodwork coming up, mention it to your doctor.</p><p>If you are pregnant, nursing, or taking medication, speak with your healthcare provider before starting any new supplement.</p>",
             "open_by_default": false
           }
         },
         "faq_6": {
           "type": "question",
           "settings": {
-            "question": "Can I request product documentation?",
-            "answer": "<p>Yes. Product documentation varies by product and lot, but current COA information is available on request through Bloomli support.</p>",
+            "question": "Is it safe to take while pregnant or breastfeeding?",
+            "answer": "<p>We recommend checking with your healthcare provider first.</p><p>Bloomli contains iron, high-dose biotin, and several botanical extracts. These are nutrients and compounds where your individual circumstances matter more than a general answer.</p><p>Your doctor is the right person to make that call with you.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_QJAjrd": {
+          "type": "question",
+          "settings": {
+            "question": "What do the third-party tests actually confirm?",
+            "answer": "<p>Three things: potency, purity, and safety.</p><p>Independent lab testing confirmed the gummies contain 104% of the labeled biotin dose, 6,274 mcg against a stated 6,000 mcg.</p><p>Heavy metal screening across lead, mercury, arsenic, and cadmium came back undetected on finished product. All microbial tests passed.</p><p>Gummies, capsules, and serum each have their own Certificate of Analysis. Not one blanket document covering everything, three separate ones.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_EVGpAE": {
+          "type": "question",
+          "settings": {
+            "question": "What if I do not see results?",
+            "answer": "<p>The most common reason is stopping before the 8 to 12 week window where changes become visible.</p><p>Hair response also varies based on the root cause of your concerns. Stress, nutritional gaps, postpartum recovery, and hormonal shifts all respond on different timelines.</p><p>If you have completed a consistent 90 days and are not satisfied, our satisfaction guarantee covers you.</p><p>It is also worth considering whether other factors such as sleep, stress levels, or diet might be worth addressing alongside supplementation.</p>",
             "open_by_default": false
           }
         }
@@ -376,7 +392,9 @@
         "faq_3",
         "faq_4",
         "faq_5",
-        "faq_6"
+        "faq_6",
+        "question_QJAjrd",
+        "question_EVGpAE"
       ],
       "settings": {
         "heading": "Science questions, plain answers.",

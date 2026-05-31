@@ -169,8 +169,8 @@
           "type": "concern",
           "settings": {
             "title": "Nutrient gaps",
-            "subtitle": "When your diet isn't filling the gaps",
-            "what_text": "When key nutrients are missing, hair follicles struggle to complete their natural growth cycle, leading to thinning, shedding, and strands that feel fragile.",
+            "subtitle": "When key nutrients are missing",
+            "what_text": "Hair follicles struggle to complete their natural growth cycle, leading to thinning, shedding, and strands that feel fragile.",
             "how_text": "Every Bloomli supplement is formulated to fill the nutritional gaps your hair actually needs. Consistently, daily, without the guesswork."
           }
         },

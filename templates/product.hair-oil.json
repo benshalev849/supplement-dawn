@@ -647,23 +647,23 @@
           "type": "question",
           "settings": {
             "question": "How long does it take to work?",
-            "answer": "<p>Hair grows gradually, so results build over time rather than overnight. Most customers notice less shedding and improved texture within the first 4-8 weeks. Visible density and growth changes typically appear between months 3-6 with consistent daily use.</p>",
+            "answer": "<p>Scalp feel improves relatively quickly. Most women notice a difference in scalp comfort, absorption, and texture within the first few weeks of consistent use.</p><p>Visible hair results take longer and are best seen when the serum is used alongside the Bloomli supplements. The serum supports the scalp environment. The supplements drive the internal nourishment. Together they work faster than either one alone.</p>",
             "open_by_default": false
           }
         },
         "question_UfFpyj": {
           "type": "question",
           "settings": {
-            "question": "How do I take it?",
-            "answer": "<p>Two gummies a day, with or without food. Consistency matters more than timing. Pick a moment that fits your routine and stick to it.</p>",
+            "question": "How do I use it?",
+            "answer": "<p>Apply 3 to 5 drops directly to a clean, dry scalp. Section your hair and work the serum in with your fingertips, massaging gently for 1 to 2 minutes. Leave it on for at least 1 to 2 hours before washing. It can also be left on overnight.</p><p>Use it consistently. Results come from daily application, not occasional use.</p>",
             "open_by_default": false
           }
         },
         "question_h3AWWX": {
           "type": "question",
           "settings": {
-            "question": "What makes Bloomli different from other hair gummies?",
-            "answer": "<p>Most hair gummies are built around biotin alone. Bloomli combines 14 targeted nutrients at doses that actually do something, not the sprinkle amounts added just to earn a spot on the label.</p>",
+            "question": "What makes this different from other scalp serums?",
+            "answer": "<p>Most scalp serums lead with fragrance and a single hero ingredient. Ours leads with eight active botanicals including Rosemary, Ginger Root, Densidyl, and Licorice Root, and contains no fragrance, alcohol, silicone, or parabens.</p><p>The formula is built for your scalp, not your nose.</p>",
             "open_by_default": false
           }
         },
@@ -679,7 +679,7 @@
           "type": "question",
           "settings": {
             "question": "Does Bloomli contain any allergens?",
-            "answer": "<p>Yes. Bloomli Hair Gummies contain Fish (Tilapia) and Tree nuts (Coconut). They are gluten-free. If you have a known allergy to either, please consult your doctor before use.</p>",
+            "answer": "<p>The serum is for external use only and is free from fragrance, alcohol, silicone, parabens, sulfates, phthalates, and mineral oil.</p><p>If you have known sensitivities to any botanical ingredients, review the full ingredient list before use. When in doubt, patch test on a small area of skin first.</p>",
             "open_by_default": false
           }
         },

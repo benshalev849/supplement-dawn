@@ -199,6 +199,7 @@
         "step_ihr9qU",
         "step_UQiCKB"
       ],
+      "disabled": true,
       "name": "Bloomli — Timeline",
       "settings": {
         "color_scheme": "",
@@ -304,9 +305,9 @@
         "heading_line1": "Every milligram, intentional.",
         "copy": "<p>Most supplements are built around a trend. Ours is built around your hair.</p>",
         "items_note": "",
-        "padding_top": 48,
+        "padding_top": 96,
         "padding_bottom": 48,
-        "padding_top_mobile": 56,
+        "padding_top_mobile": 72,
         "padding_bottom_mobile": 56
       }
     },

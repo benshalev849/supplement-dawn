@@ -168,7 +168,7 @@
             "icon": "seed",
             "range": "Month 1–3",
             "title": "Build the Foundation",
-            "description": "Less shedding, stronger strands, a quieter scalp. The change starts internally, and you will feel it before you see it.*"
+            "description": "Less shedding, stronger strands, a quieter scalp. The change starts internally, and you will feel it before you see it."
           }
         },
         "step_ihr9qU": {
@@ -179,7 +179,7 @@
             "icon": "seed",
             "range": "Month 4-6",
             "title": "The Growth Phase",
-            "description": "New growth is visible now. Your part line looks tighter, your crown looks denser, and the formula is showing its work.*"
+            "description": "New growth is visible now. Your part line looks tighter, your crown looks denser, and the formula is showing its work."
           }
         },
         "step_UQiCKB": {
@@ -190,7 +190,7 @@
             "icon": "seed",
             "range": "Month 7+",
             "title": "Your Hair, Flourishing",
-            "description": "The results are compounding now. More density, more shine, more length. Hair that holds a style, survives a wash, and keeps getting better daily.*"
+            "description": "The results are compounding now. More density, more shine, more length. Hair that holds a style, survives a wash, and keeps getting better daily."
           }
         }
       },
@@ -507,7 +507,7 @@
             "photo_label": "Saw Palmetto",
             "icon": "drop",
             "title": "Saw Palmetto",
-            "text": "Supports the scalp environment where healthy hair growth begins.*",
+            "text": "Supports the scalp environment where healthy hair growth begins.",
             "source_line": ""
           }
         },
@@ -541,7 +541,7 @@
             "photo_label": "Fo-Ti",
             "icon": "zinc",
             "title": "Fo-Ti",
-            "text": "A root used in traditional Chinese medicine for centuries to support healthy hair.*",
+            "text": "A root used in traditional Chinese medicine for centuries to support healthy hair.",
             "source_line": ""
           }
         },

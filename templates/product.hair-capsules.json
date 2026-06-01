@@ -481,16 +481,16 @@
           "type": "item",
           "settings": {
             "is_proof": false,
-            "image": "shopify://shop_images/Folate_-_Cut_Out.png",
+            "image": "shopify://shop_images/Iron_-_Cut_Off.png",
             "image_scale": 100,
             "use_custom_circle_color": true,
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Folate",
+            "photo_label": "Iron",
             "icon": "palm",
-            "title": "Folate",
-            "text": "Drives the cell division hair follicles depend on to grow.",
+            "title": "Iron",
+            "text": "Carries oxygen to your follicles; without enough of it, the hair growth cycle slows down.",
             "source_line": ""
           }
         },
@@ -504,10 +504,10 @@
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin B12",
+            "photo_label": "Saw Palmetto",
             "icon": "drop",
-            "title": "Vitamin B12",
-            "text": "Delivers oxygen and nutrients to your follicles so they can thrive.",
+            "title": "Saw Palmetto",
+            "text": "Supports the scalp environment where healthy hair growth begins.*",
             "source_line": ""
           }
         },
@@ -521,10 +521,10 @@
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin B5",
+            "photo_label": "Horsetail",
             "icon": "root",
-            "title": "Vitamin B5",
-            "text": "Nourishes each strand from root to tip, reducing moisture loss and breakage.",
+            "title": "Horsetail",
+            "text": "One of the richest plant sources of silica, the mineral behind each strand's strength and structure.",
             "source_line": ""
           }
         },
@@ -538,10 +538,10 @@
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin E",
+            "photo_label": "Fo-Ti",
             "icon": "zinc",
-            "title": "Vitamin E",
-            "text": "Shields your scalp from oxidative stress, a key driver of hair thinning.",
+            "title": "Fo-Ti",
+            "text": "A root used in traditional Chinese medicine for centuries to support healthy hair.*",
             "source_line": ""
           }
         },
@@ -555,10 +555,10 @@
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Zinc",
+            "photo_label": "Magnesium",
             "icon": "leaf",
-            "title": "Zinc",
-            "text": "Keeps the scalp environment stable and follicle function consistent.",
+            "title": "Magnesium",
+            "text": "Powers the cellular processes that keep your hair growth cycle running.",
             "source_line": ""
           }
         }

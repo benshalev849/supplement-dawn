@@ -224,24 +224,24 @@
         "bullet_zDDhyE": {
           "type": "bullet",
           "settings": {
-            "bullet_title": "No fairy dust.",
-            "text": "No under-dosed filler blends or trendy label dust.",
+            "bullet_title": "No fillers.",
+            "text": "Eight active botanicals chosen for what they do, not what they look like on an ingredient list.",
             "note": ""
           }
         },
         "bullet_f68cpc": {
           "type": "bullet",
           "settings": {
-            "bullet_title": "Beyond biotin alone.",
-            "text": "A complete blend of vitamins and minerals, each chosen for a specific role in supporting your hair.",
+            "bullet_title": "Beyond rosemary.",
+            "text": "Rosemary is where most scalp serums stop. We added ginger root, Densidyl, licorice root, and four more active botanicals.",
             "note": ""
           }
         },
         "bullet_9GzmFm": {
           "type": "bullet",
           "settings": {
-            "bullet_title": "Light by design.",
-            "text": "Only 15 calories per serving, just 2g sugar per gummy.",
+            "bullet_title": "Weightless by design.",
+            "text": "No silicone, no alcohol, no heavy residue, a lightweight formula your scalp can actually absorb.",
             "note": ""
           }
         },
@@ -249,7 +249,7 @@
           "type": "bullet",
           "settings": {
             "bullet_title": "Nothing unwanted.",
-            "text": "Gluten-free, gelatin-free, and pectin-based. No artificial dyes or flavors.",
+            "text": "Fragrance-free, alcohol-free, silicone-free, paraben-free, and sulfate-free.",
             "note": ""
           }
         },
@@ -257,7 +257,7 @@
           "type": "bullet",
           "settings": {
             "bullet_title": "Tested for trust.",
-            "text": "Third-party tested for heavy metals, microbial contaminants, and label accuracy.",
+            "text": "Third-party tested for microbial safety on the finished product.",
             "note": ""
           }
         }

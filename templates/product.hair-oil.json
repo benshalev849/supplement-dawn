@@ -437,6 +437,7 @@
         "result_review_current",
         "result_bPaP87"
       ],
+      "disabled": true,
       "name": "Bloomli - Result Gallery",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",

@@ -282,7 +282,7 @@
         "icon_accent_color": "#b23a6f",
         "show_image": true,
         "no_image_content_position": "left",
-        "image": "shopify://shop_images/Floating_Hair_Oil_Dropper_Transparent.png",
+        "image": "shopify://shop_images/Floating_Hair_Oil_Dropper_Transparent_9956e281-faf9-4ae2-a6b0-a497743f3cc8.png",
         "image_side": "right",
         "mobile_image_position": "before_items",
         "media_background": "background",
@@ -466,15 +466,15 @@
           "type": "item",
           "settings": {
             "is_proof": false,
-            "image": "shopify://shop_images/Biotin_-_Cut_off.png",
+            "image": "shopify://shop_images/Rosemary_-_Cut_Out.png",
             "image_scale": 90,
             "use_custom_circle_color": false,
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Raw biotin - powder",
+            "photo_label": "Rosemary",
             "icon": "leaf",
-            "title": "Biotin",
+            "title": "Rosemary",
             "text": "The building block behind keratin, the protein your hair is actually made of.",
             "source_line": ""
           }

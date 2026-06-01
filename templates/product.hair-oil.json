@@ -568,14 +568,15 @@
           "type": "item",
           "settings": {
             "is_proof": false,
-            "image_scale": 100,
+            "image": "shopify://shop_images/Vitamin_E_-_Cut_Off_36c3e276-9c53-4a9e-bf73-b303eb58c4ee.png",
+            "image_scale": 85,
             "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Tocopherol",
+            "photo_label": "Tocopherol (Vitamin E)",
             "icon": "leaf",
-            "title": "Tocopherol",
+            "title": "Tocopherol (Vitamin E)",
             "text": "Vitamin E in its purest form, supporting scalp health and strand resilience.",
             "source_line": ""
           }

@@ -1,0 +1,1020 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {}
+        },
+        "volume_tier_LC9DxN": {
+          "type": "volume_tier",
+          "settings": {
+            "heading": "Select Your Size:",
+            "add_to_cart_label": "Start your journey",
+            "sold_out_label": "Sold out",
+            "save_badge_background": "#b23a6f",
+            "save_badge_text_color": "#fdfaf7",
+            "tier_tag_background": "#8a6678",
+            "tier_tag_text_color": "#fdfaf7",
+            "desktop_tier_title_size": 14,
+            "desktop_tier_count_size": 11,
+            "desktop_tier_daily_size": 9,
+            "tier_1_show": true,
+            "tier_1_qty": 1,
+            "tier_1_label": "1 Month",
+            "tier_1_count_text": "60 Count",
+            "tier_1_daily_text": "",
+            "tier_1_badge": "",
+            "tier_1_tag": "",
+            "tier_1_discount_pct": 0,
+            "tier_1_subscription_discount_pct": "15",
+            "tier_1_plan_filter": "1-pack",
+            "tier_1_default": false,
+            "tier_2_show": true,
+            "tier_2_qty": 2,
+            "tier_2_label": "2 Months",
+            "tier_2_count_text": "120 Count",
+            "tier_2_daily_text": "",
+            "tier_2_badge": "",
+            "tier_2_tag": "",
+            "tier_2_discount_pct": 10,
+            "tier_2_subscription_discount_pct": "23.5",
+            "tier_2_plan_filter": "2-pack",
+            "tier_2_default": true,
+            "tier_3_show": true,
+            "tier_3_qty": 3,
+            "tier_3_label": "3 Months",
+            "tier_3_count_text": "180 Count",
+            "tier_3_daily_text": "",
+            "tier_3_badge": "",
+            "tier_3_tag": "",
+            "tier_3_discount_pct": 15,
+            "tier_3_subscription_discount_pct": "27.75",
+            "tier_3_plan_filter": "3-pack",
+            "tier_3_default": false,
+            "subscribe_enabled": true,
+            "subscription_discount_pct": "15",
+            "discount_badge_template": "SAVE [percent]%",
+            "default_mode": "subscribe",
+            "offer_section_label": "Select Your Offer:",
+            "label_one_time": "One-Time Purchase",
+            "label_subscribe": "Subscribe & Save",
+            "subscribe_popular_pill": "Most Popular · Get [percent]% off",
+            "subscribe_show_perks": true,
+            "subscribe_perk_1": "Free shipping on every delivery",
+            "subscribe_perk_2": "30-day money-back guarantee",
+            "subscribe_perk_3": "Pause or cancel anytime, no fees",
+            "savings_label_prefix": "You're saving",
+            "savings_label_suffix": "$",
+            "onetime_caveat_1": "One Time Discount",
+            "onetime_caveat_2": "Free shipping unlocks at 3 packs",
+            "total_label": "Total price:"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "bloomli_collapsible_row_QhcdMD": {
+          "type": "bloomli_collapsible_row",
+          "settings": {
+            "title": "How to Take",
+            "content": "<p></p>{{ product.metafields.custom.how_to_take | metafield_tag }}"
+          }
+        },
+        "bloomli_collapsible_row_BBNpQF": {
+          "type": "bloomli_collapsible_row",
+          "settings": {
+            "title": "Ingredients & Allergens",
+            "content": "<p></p>{{ product.metafields.custom.ingredients_allergens | metafield_tag }}"
+          }
+        },
+        "bloomli_collapsible_row_RTP9fp": {
+          "type": "bloomli_collapsible_row",
+          "settings": {
+            "title": "Quality & Certifications",
+            "content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.</p>"
+          }
+        },
+        "bloomli_collapsible_row_GgpaUi": {
+          "type": "bloomli_collapsible_row",
+          "settings": {
+            "title": "Shipping & Returns",
+            "content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "description",
+        "price",
+        "volume_tier_LC9DxN",
+        "variant_picker",
+        "bloomli_collapsible_row_QhcdMD",
+        "bloomli_collapsible_row_BBNpQF",
+        "bloomli_collapsible_row_RTP9fp",
+        "bloomli_collapsible_row_GgpaUi"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "enable_floating_cta": true,
+        "floating_cta_label": "Start Your Journey",
+        "floating_cta_threshold": 45,
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "bloomli_timeline_qUAhUY": {
+      "type": "bloomli-timeline",
+      "blocks": {
+        "step_q7Pbng": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_1-3_V2_efed8977-ba01-4b9c-b597-5d1847d3237e.png",
+            "image_scale": 100,
+            "icon": "seed",
+            "range": "Month 1–3",
+            "title": "Build the Foundation",
+            "description": "Less shedding, stronger strands, a quieter scalp. The change starts internally, and you will feel it before you see it.*"
+          }
+        },
+        "step_ihr9qU": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_4-6_V2_cbfc93bc-d5fe-4322-abb0-08d77a84d4ae.png",
+            "image_scale": 100,
+            "icon": "seed",
+            "range": "Month 4-6",
+            "title": "The Growth Phase",
+            "description": "New growth is visible now. Your part line looks tighter, your crown looks denser, and the formula is showing its work.*"
+          }
+        },
+        "step_UQiCKB": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_7_V2_V2.png",
+            "image_scale": 100,
+            "icon": "seed",
+            "range": "Month 7+",
+            "title": "Your Hair, Flourishing",
+            "description": "The results are compounding now. More density, more shine, more length. Hair that holds a style, survives a wash, and keeps getting better daily.*"
+          }
+        }
+      },
+      "block_order": [
+        "step_q7Pbng",
+        "step_ihr9qU",
+        "step_UQiCKB"
+      ],
+      "name": "Bloomli — Timeline",
+      "settings": {
+        "color_scheme": "",
+        "timeline_icon_color": "#6f7a5a",
+        "heading": "Your ritual, over time.",
+        "subheadline": "<p><strong>Two capsules a day,</strong> taken with food. A deeper daily routine built for women who want more than the basics. <strong>Fuller, healthier, stronger hair over time.</strong>*</p>",
+        "circle_background": "surface",
+        "circle_size": 100,
+        "icon_size": 160,
+        "show_connector": true,
+        "connector_style": "dashed",
+        "connector_width": 1,
+        "padding_top": 120,
+        "padding_bottom": 80,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
+      }
+    },
+    "bloomli_proof_split_bhYAhW": {
+      "type": "bloomli-proof-split",
+      "blocks": {
+        "bullet_zDDhyE": {
+          "type": "bullet",
+          "settings": {
+            "bullet_title": "No fairy dust.",
+            "text": "No under-dosed filler blends or trendy label dust.",
+            "note": ""
+          }
+        },
+        "bullet_f68cpc": {
+          "type": "bullet",
+          "settings": {
+            "bullet_title": "Beyond biotin alone.",
+            "text": "A complete blend of vitamins and minerals, each chosen for a specific role in supporting your hair.",
+            "note": ""
+          }
+        },
+        "bullet_9GzmFm": {
+          "type": "bullet",
+          "settings": {
+            "bullet_title": "Light by design.",
+            "text": "Only 15 calories per serving, just 2g sugar per gummy.",
+            "note": ""
+          }
+        },
+        "bullet_NjdcCt": {
+          "type": "bullet",
+          "settings": {
+            "bullet_title": "Nothing unwanted.",
+            "text": "Gluten-free, gelatin-free, and pectin-based. No artificial dyes or flavors.",
+            "note": ""
+          }
+        },
+        "bullet_F7gTNi": {
+          "type": "bullet",
+          "settings": {
+            "bullet_title": "Tested for trust.",
+            "text": "Third-party tested for heavy metals, microbial contaminants, and label accuracy.",
+            "note": ""
+          }
+        }
+      },
+      "block_order": [
+        "bullet_zDDhyE",
+        "bullet_f68cpc",
+        "bullet_9GzmFm",
+        "bullet_NjdcCt",
+        "bullet_F7gTNi"
+      ],
+      "name": "Bloomli - Proof Split",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "section_id": "",
+        "layout_style": "split",
+        "header_alignment": "left",
+        "header_position": "above_grid",
+        "content_density": "standard",
+        "use_custom_background": false,
+        "background_color": "#fdfaf7",
+        "icon_accent_color": "#b23a6f",
+        "show_image": true,
+        "no_image_content_position": "left",
+        "image": "shopify://shop_images/Floating_Single_Gummy_Transparent_No_Shadow.png",
+        "image_side": "right",
+        "mobile_image_position": "before_items",
+        "media_background": "background",
+        "image_label": "Editorial - morning ritual - natural light",
+        "image_caption": "",
+        "image_scale": 100,
+        "image_fit": "cover",
+        "enable_image_animation": true,
+        "image_position": "center center",
+        "image_width": 760,
+        "desktop_image_size": 80,
+        "image_size": 100,
+        "image_radius": 10,
+        "card_grid_image_position": "before_cards",
+        "card_grid_image_height": 240,
+        "show_card_borders": false,
+        "number_style": "leading_zero",
+        "card_columns_desktop": 4,
+        "card_columns_tablet": 2,
+        "heading_line1": "Every milligram, intentional.",
+        "copy": "<p>Most supplements are built around a trend. Ours is built around your hair.</p>",
+        "items_note": "",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
+      }
+    },
+    "bloomli_inline_cta_XNzPMh": {
+      "type": "bloomli-inline-cta",
+      "name": "Bloomli Inline CTA",
+      "settings": {
+        "color_scheme": "",
+        "button_label": "Start Your Journey",
+        "button_behavior": "selector",
+        "button_link": "#bloomli-product-form",
+        "scroll_selector": ".bloomli-vt",
+        "button_style": "primary",
+        "alignment": "center",
+        "mobile_full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "bloomli_before_after_U7dPaV": {
+      "type": "bloomli-before-after",
+      "blocks": {
+        "result_9hNhFP": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_4.png",
+            "after_image": "shopify://shop_images/After_4_9307f98a-e89a-4368-9a36-aeab015093c4.png",
+            "before_label": "Month 0",
+            "after_label": "Month 4",
+            "reviewer_name": "Maya R.",
+            "review_text": "\"Less hair in the shower by week six, that's when I knew it was working. By month four, my part line looked visibly tighter. My hair just feels different now.\"",
+            "result_tag_1": "Fuller part line",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Less fragile",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_zrawxk": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_3.png",
+            "after_image": "shopify://shop_images/After_3.png",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
+            "reviewer_name": "Danielle K.",
+            "review_text": "\"Dramatically less hair on my brush, then more body, more shine. My hair finally looks the way I always wanted it to.\"",
+            "result_tag_1": "More body",
+            "result_tag_2": "Less fallout",
+            "result_tag_3": "Better shine",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_jUa8a4": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
+            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
+            "before_label": "Month 0",
+            "after_label": "Month 17",
+            "reviewer_name": "Emily K.",
+            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
+            "result_tag_1": "Hairline restored",
+            "result_tag_2": "Temple fill-in",
+            "result_tag_3": "17 months strong",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_PXeWzj": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_10.png",
+            "after_image": "shopify://shop_images/After_10.png",
+            "before_label": "Month 0",
+            "after_label": "Month 7",
+            "reviewer_name": "Susan B.",
+            "review_text": "\"I was skeptical. Nothing had worked for me before. My hairdresser noticed my crown without me saying a word. I wish I'd found this sooner.\"",
+            "result_tag_1": "Fuller crown",
+            "result_tag_2": "Visible density",
+            "result_tag_3": "Skeptic converted",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_review_current": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_2.png",
+            "after_image": "shopify://shop_images/After_2.png",
+            "before_label": "Month 0",
+            "after_label": "Month 3",
+            "reviewer_name": "Rachel S.",
+            "review_text": "\"Less hair in the shower, and my part line visibly filling in. That's when I knew the routine was actually working.\"",
+            "result_tag_1": "Narrower part",
+            "result_tag_2": "Less shower fallout",
+            "result_tag_3": "Month 3 results",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_bPaP87": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_13_ca272a6a-2dfa-42a5-81a4-d437be408d25.png",
+            "after_image": "shopify://shop_images/After_13_df6c6af4-7567-4698-af18-fc01dad0d336.png",
+            "before_label": "Month 0",
+            "after_label": "Month 10",
+            "reviewer_name": "Linda M.",
+            "review_text": "\"My crown was fuller, my lengths were thicker, and for the first time in a long time, styling my hair felt enjoyable. I finally felt confident about my hair. I am still taking them daily.\"",
+            "result_tag_1": "Crown density",
+            "result_tag_2": "Easier to style",
+            "result_tag_3": "Long-term results",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        }
+      },
+      "block_order": [
+        "result_9hNhFP",
+        "result_zrawxk",
+        "result_jUa8a4",
+        "result_PXeWzj",
+        "result_review_current",
+        "result_bPaP87"
+      ],
+      "name": "Bloomli - Result Gallery",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Real Progress, Visible Difference",
+        "copy": "<p>No studios. No filters. Just verified customers, photographed at home over months of consistent use.</p>",
+        "corner_radius": 6,
+        "image_corner_radius": 6,
+        "cards_visible_desktop": 3,
+        "card_gap": 20,
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "body_size": 15,
+        "body_size_mobile": 15,
+        "verified_label": "Verified review",
+        "caption": "Results vary. Before and after photos submitted by verified customers.",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "bloomli_formula_gallery_ypjbMe": {
+      "type": "bloomli-formula-gallery",
+      "blocks": {
+        "item_tNiWnW": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Biotin_-_Cut_off.png",
+            "image_scale": 90,
+            "use_custom_circle_color": false,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Raw biotin - powder",
+            "icon": "leaf",
+            "title": "Biotin",
+            "text": "The building block behind keratin, the protein your hair is actually made of.",
+            "source_line": ""
+          }
+        },
+        "item_gKbYG8": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Folate_-_Cut_Out.png",
+            "image_scale": 100,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Folate",
+            "icon": "palm",
+            "title": "Folate",
+            "text": "Drives the cell division hair follicles depend on to grow.",
+            "source_line": ""
+          }
+        },
+        "item_6MgTDk": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_B12_splash_24948dc1-5d29-4e55-95fa-df10b5d6274e.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin B12",
+            "icon": "drop",
+            "title": "Vitamin B12",
+            "text": "Delivers oxygen and nutrients to your follicles so they can thrive.",
+            "source_line": ""
+          }
+        },
+        "item_Yr6eKf": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_B5_38fce56d-fdf2-412c-b9bf-87e46ce29d2e.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin B5",
+            "icon": "root",
+            "title": "Vitamin B5",
+            "text": "Nourishes each strand from root to tip, reducing moisture loss and breakage.",
+            "source_line": ""
+          }
+        },
+        "item_6G4EJH": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_E_-_Cut_Off_36c3e276-9c53-4a9e-bf73-b303eb58c4ee.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin E",
+            "icon": "zinc",
+            "title": "Vitamin E",
+            "text": "Shields your scalp from oxidative stress, a key driver of hair thinning.",
+            "source_line": ""
+          }
+        },
+        "item_CcpMP8": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Zinc_-_Cut_Out.png",
+            "image_scale": 150,
+            "use_custom_circle_color": false,
+            "circle_color": "#fdfaf7",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Zinc",
+            "icon": "leaf",
+            "title": "Zinc",
+            "text": "Keeps the scalp environment stable and follicle function consistent.",
+            "source_line": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_tNiWnW",
+        "item_gKbYG8",
+        "item_6MgTDk",
+        "item_Yr6eKf",
+        "item_6G4EJH",
+        "item_CcpMP8"
+      ],
+      "name": "Bloomli - Formula Gallery",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "use_custom_background": false,
+        "background_color": "#fdfaf7",
+        "small_label_color": "#8a6678",
+        "card_background_color": "#ede5dc",
+        "card_border_color": "#e7dcd5",
+        "heading_line2": "No fillers, no fairy dust. Just ingredients that earn their place.",
+        "copy": "<p>The ingredients that do the heavy lifting. Chosen carefully, dosed for results.</p>",
+        "header_alignment": "left",
+        "desktop_columns": "2",
+        "media_background": "surface",
+        "proof_background": "surface",
+        "header_width": 600,
+        "heading_size": 52,
+        "heading_size_mobile": 36,
+        "title_size": 26,
+        "title_size_mobile": 22,
+        "image_size": 168,
+        "image_size_mobile": 112,
+        "proof_icon_size": 64,
+        "proof_icon_size_mobile": 56,
+        "column_gap": 56,
+        "row_gap": 48,
+        "padding_top": 72,
+        "padding_bottom": 48,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
+      }
+    },
+    "bloomli_inline_cta_aew3it": {
+      "type": "bloomli-inline-cta",
+      "name": "Bloomli Inline CTA",
+      "settings": {
+        "color_scheme": "",
+        "button_label": "Start Your Journey",
+        "button_behavior": "selector",
+        "button_link": "#bloomli-product-form",
+        "scroll_selector": ".bloomli-vt",
+        "button_style": "primary",
+        "alignment": "center",
+        "mobile_full_width": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "bloomli_faq_N48arU": {
+      "type": "bloomli-faq",
+      "blocks": {
+        "question_yXD6xy": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take to work?",
+            "answer": "<p>Hair grows gradually, so results build over time rather than overnight. Most customers notice less shedding and improved texture within the first 4-8 weeks. Visible density and growth changes typically appear between months 3-6 with consistent daily use.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_UfFpyj": {
+          "type": "question",
+          "settings": {
+            "question": "How do I take it?",
+            "answer": "<p>Two gummies a day, with or without food. Consistency matters more than timing. Pick a moment that fits your routine and stick to it.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_h3AWWX": {
+          "type": "question",
+          "settings": {
+            "question": "What makes Bloomli different from other hair gummies?",
+            "answer": "<p>Most hair gummies are built around biotin alone. Bloomli combines 14 targeted nutrients at doses that actually do something, not the sprinkle amounts added just to earn a spot on the label.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_mUphCn": {
+          "type": "question",
+          "settings": {
+            "question": "Is Bloomli third-party tested?",
+            "answer": "<p>Yes. Our formula has been independently tested by a third-party lab for heavy metals, microbial contaminants, and label accuracy using USP-standard methods. It's also manufactured in an NSF-certified facility, one of the most rigorous quality standards in the supplement industry.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_DbFafF": {
+          "type": "question",
+          "settings": {
+            "question": "Does Bloomli contain any allergens?",
+            "answer": "<p>Yes. Bloomli Hair Gummies contain Fish (Tilapia) and Tree nuts (Coconut). They are gluten-free. If you have a known allergy to either, please consult your doctor before use.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_kxfkwW": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe during pregnancy or breastfeeding?",
+            "answer": "<p>We recommend consulting your physician before taking any supplement while pregnant or nursing.</p>",
+            "open_by_default": false
+          }
+        },
+        "question_i8yLic": {
+          "type": "question",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "<p>We offer a 30-day satisfaction guarantee. If you're not happy, contact us, and we'll make it right.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "question_yXD6xy",
+        "question_UfFpyj",
+        "question_h3AWWX",
+        "question_mUphCn",
+        "question_DbFafF",
+        "question_kxfkwW",
+        "question_i8yLic"
+      ],
+      "name": "Bloomli - FAQ",
+      "settings": {
+        "heading": "Questions, answered.",
+        "intro": "<p>Everything you need to know before your first gummy.</p>",
+        "image": "shopify://shop_images/Model_Eating_Gummy_1_776f04a1-a795-418c-b1ba-47563a85fff9.png",
+        "image_alt": "",
+        "show_placeholder": false,
+        "image_position": "right",
+        "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "border_color": "#e8ded8",
+        "image_width": 360,
+        "corner_radius": 14,
+        "heading_size": 48,
+        "question_size": 16,
+        "body_size": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "bloomli_photo_mosaic_dYCUhp": {
+      "type": "bloomli-photo-mosaic",
+      "blocks": {
+        "photo_itwQBT": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Model_Holding_Gummy_2_5dc2294b-1314-41eb-b66d-3fb3fb684a85.png",
+            "image_scale": 100,
+            "label": "Photo 1",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_rFx7fP": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_11.png",
+            "image_scale": 100,
+            "label": "Photo 2",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f3e1e5"
+          }
+        },
+        "photo_UQecfB": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Model_Eating_Gummy_1.png",
+            "image_scale": 100,
+            "label": "Photo 3",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#d9cce8"
+          }
+        },
+        "photo_gDhx3U": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_1.png",
+            "image_scale": 100,
+            "label": "Photo 5",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_HkWBVE": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_7_c82604d5-2d46-489c-a617-207ba8e2bd20.png",
+            "image_scale": 100,
+            "label": "Photo 6",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f3e1e5"
+          }
+        },
+        "photo_HnKE8c": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_6.png",
+            "image_scale": 100,
+            "label": "Photo 4",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_Xj6LgH": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_7.png",
+            "image_scale": 100,
+            "label": "Photo 10",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f3e1e5"
+          }
+        },
+        "photo_Artdhg": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_6.png",
+            "image_scale": 100,
+            "label": "Photo 9",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_zbFfXz": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Selfie_1_af7f5ff3-629c-4859-965b-b0a6575c80f3.png",
+            "image_scale": 100,
+            "label": "Photo 12",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_fGEqGb": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_3.png",
+            "image_scale": 100,
+            "label": "Photo 11",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#d9cce8"
+          }
+        },
+        "photo_jhY4cR": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_13.png",
+            "image_scale": 100,
+            "label": "Photo 7",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#d9cce8"
+          }
+        },
+        "photo_iXjxWB": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_5.png",
+            "image_scale": 100,
+            "label": "Photo 8",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        }
+      },
+      "block_order": [
+        "photo_itwQBT",
+        "photo_rFx7fP",
+        "photo_UQecfB",
+        "photo_gDhx3U",
+        "photo_HkWBVE",
+        "photo_HnKE8c",
+        "photo_Xj6LgH",
+        "photo_Artdhg",
+        "photo_zbFfXz",
+        "photo_fGEqGb",
+        "photo_jhY4cR",
+        "photo_iXjxWB"
+      ],
+      "name": "Bloomli - Photo Mosaic",
+      "settings": {
+        "color_scheme": "",
+        "use_custom_background": false,
+        "background_color": "#fdfaf7",
+        "heading": "Photos from the ritual.",
+        "subtext": "<p>Real customers, real routines. A few of our favorites from the Bloomli community.</p>",
+        "placeholder_background": "surface",
+        "columns_desktop": 6,
+        "columns_mobile": "2",
+        "gap": 10,
+        "radius": 6,
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "bloomli_product_picks_73mXTr": {
+      "type": "bloomli-product-picks",
+      "blocks": {
+        "product_6zDaJg": {
+          "type": "product",
+          "settings": {
+            "product": "test-supplement",
+            "image_scale": 70,
+            "title": "Root Ritual Capsules",
+            "link": "",
+            "price": "$48",
+            "badge": "",
+            "show_stars": true,
+            "rating_source": "custom",
+            "custom_star_rating": "5",
+            "rating_text": ""
+          }
+        },
+        "product_d76pfU": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "image_scale": 70,
+            "title": "Root Ritual Strips",
+            "link": "",
+            "price": "$36",
+            "badge": "",
+            "show_stars": true,
+            "rating_source": "custom",
+            "custom_star_rating": "5",
+            "rating_text": ""
+          }
+        },
+        "product_NgeLpW": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "image_scale": 70,
+            "title": "Scalp Serum",
+            "link": "",
+            "price": "$58",
+            "badge": "Coming soon",
+            "show_stars": true,
+            "rating_source": "custom",
+            "custom_star_rating": "5",
+            "rating_text": ""
+          }
+        },
+        "product_C6yJwD": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "image_scale": 70,
+            "title": "Starter Duo",
+            "link": "",
+            "price": "$68",
+            "badge": "",
+            "show_stars": true,
+            "rating_source": "custom",
+            "custom_star_rating": "5",
+            "rating_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_6zDaJg",
+        "product_d76pfU",
+        "product_NgeLpW",
+        "product_C6yJwD"
+      ],
+      "disabled": true,
+      "name": "Bloomli - Product Picks",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "stars_color_source": "scheme_button",
+        "stars_custom_color": "#b23a6f",
+        "use_custom_background": false,
+        "background_color": "#f5ede4",
+        "heading": "You may also like",
+        "subtext": "<p>Complete your routine with a few Bloomli favorites.</p>",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_box_height": 240,
+        "padding_top": 48,
+        "padding_bottom": 80,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "bloomli_bundle_promo_9ehXPc": {
+      "type": "bloomli-bundle-promo",
+      "name": "Bloomli — Bundle Promo",
+      "settings": {
+        "color_scheme": "",
+        "product_card_background": "#ffffff",
+        "heading": "Pair & Save",
+        "body_text": "Most people choose one. The ones who see results fastest use both.",
+        "badge_text": "15% off oil",
+        "product_1_step": "Step 01",
+        "product_1_title": "Hair Gummies",
+        "product_1_description": "Daily beauty nutrients",
+        "product_2_step": "Step 02",
+        "product_2_title": "Hair Oil",
+        "product_2_description": "Scalp & strand nourishment",
+        "add_both_label": "",
+        "add_missing_label": "",
+        "view_routine_label": "",
+        "saving_callout_text": "You're saving $X.XX with Pair & Save",
+        "one_time_label_text": "One Time Purchase",
+        "subscription_note_text": "Matched to your subscription, cancel anytime.",
+        "padding_top": 72,
+        "padding_bottom": 96,
+        "padding_top_mobile": 96,
+        "padding_bottom_mobile": 96
+      }
+    }
+  },
+  "order": [
+    "main",
+    "bloomli_timeline_qUAhUY",
+    "bloomli_proof_split_bhYAhW",
+    "bloomli_inline_cta_XNzPMh",
+    "bloomli_before_after_U7dPaV",
+    "bloomli_formula_gallery_ypjbMe",
+    "bloomli_inline_cta_aew3it",
+    "bloomli_faq_N48arU",
+    "bloomli_photo_mosaic_dYCUhp",
+    "bloomli_product_picks_73mXTr",
+    "related-products",
+    "bloomli_bundle_promo_9ehXPc"
+  ]
+}

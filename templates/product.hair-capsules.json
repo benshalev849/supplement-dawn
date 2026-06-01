@@ -550,7 +550,7 @@
           "settings": {
             "is_proof": false,
             "image": "shopify://shop_images/Magnesium_-_Cut_Off.png",
-            "image_scale": 95,
+            "image_scale": 90,
             "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,

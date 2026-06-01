@@ -101,7 +101,7 @@
         "bloomli_collapsible_row_QhcdMD": {
           "type": "bloomli_collapsible_row",
           "settings": {
-            "title": "How to Take",
+            "title": "How to Use",
             "content": "<p></p>{{ product.metafields.custom.how_to_take | metafield_tag }}"
           }
         },

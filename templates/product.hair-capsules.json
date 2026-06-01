@@ -635,15 +635,15 @@
           "type": "question",
           "settings": {
             "question": "How do I take it?",
-            "answer": "<p>Two gummies a day, with or without food. Consistency matters more than timing. Pick a moment that fits your routine and stick to it.</p>",
+            "answer": "<p>Take two capsules a day, with food. Taking them with food is not just a suggestion; it helps with iron absorption and reduces any stomach sensitivity. Consistency matters more than timing, so find a moment in your day that is easy to repeat.</p>",
             "open_by_default": false
           }
         },
         "question_h3AWWX": {
           "type": "question",
           "settings": {
-            "question": "What makes Bloomli different from other hair gummies?",
-            "answer": "<p>Most hair gummies are built around biotin alone. Bloomli combines 14 targeted nutrients at doses that actually do something, not the sprinkle amounts added just to earn a spot on the label.</p>",
+            "question": "What makes Bloomli different from other hair supplements?",
+            "answer": "<p>Most hair supplements are formulated around a single ingredient, primarily biotin. Bloomli capsules combine a full vitamin and mineral complex, including iron and magnesium, with a 10-botanical proprietary blend. Every ingredient has a specific role. Nothing is in the formula to fill space on a label.</p>",
             "open_by_default": false
           }
         },
@@ -659,7 +659,7 @@
           "type": "question",
           "settings": {
             "question": "Does Bloomli contain any allergens?",
-            "answer": "<p>Yes. Bloomli Hair Gummies contain Fish (Tilapia) and Tree nuts (Coconut). They are gluten-free. If you have a known allergy to either, please consult your doctor before use.</p>",
+            "answer": "<p>Yes, the capsules contain soy. They do not contain fish, shellfish, tree nuts, gluten, eggs, or dairy. If you have a soy sensitivity, please consult your doctor before use.</p>",
             "open_by_default": false
           }
         },

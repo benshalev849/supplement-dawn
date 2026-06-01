@@ -1,3 +1,18 @@
+## Brand context
+
+When asked to write, generate, clean, audit, or evaluate any review content — or when asked about Bloomli products, brand voice, ingredients, review compliance, or copy — read `BLOOMLI_BRAND_CONTEXT.md` in the project root before doing anything else.
+
+That file is the single source of truth for:
+- Brand voice and tone
+- Product specs for all three products (gummies, capsules, serum)
+- Compliance rules (what you can and cannot claim)
+- Review style, length, rating distribution, and uniqueness thresholds
+- Safe negative review topics and title guidance
+
+Do not generate Bloomli review content without reading it first.
+
+---
+
 ## Discount display logic
 
 ### Principle

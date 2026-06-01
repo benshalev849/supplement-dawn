@@ -549,8 +549,8 @@
           "type": "item",
           "settings": {
             "is_proof": false,
-            "image": "shopify://shop_images/Zinc_-_Cut_Out.png",
-            "image_scale": 150,
+            "image": "shopify://shop_images/Magnesium_-_Cut_Off.png",
+            "image_scale": 95,
             "use_custom_circle_color": false,
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,

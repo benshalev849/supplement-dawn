@@ -290,7 +290,7 @@
         "image_caption": "",
         "image_scale": 100,
         "image_fit": "cover",
-        "enable_image_animation": true,
+        "enable_image_animation": false,
         "image_position": "center center",
         "image_width": 760,
         "desktop_image_size": 80,

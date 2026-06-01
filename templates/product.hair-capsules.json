@@ -1001,6 +1001,26 @@
         "padding_top_mobile": 96,
         "padding_bottom_mobile": 96
       }
+    },
+    "1780316787747e5240": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_jDkzyP": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "hide_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_jDkzyP"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -1015,6 +1035,7 @@
     "bloomli_photo_mosaic_dYCUhp",
     "bloomli_product_picks_73mXTr",
     "related-products",
-    "bloomli_bundle_promo_9ehXPc"
+    "bloomli_bundle_promo_9ehXPc",
+    "1780316787747e5240"
   ]
 }

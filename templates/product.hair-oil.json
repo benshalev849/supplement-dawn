@@ -475,7 +475,7 @@
             "photo_label": "Rosemary",
             "icon": "leaf",
             "title": "Rosemary",
-            "text": "The building block behind keratin, the protein your hair is actually made of.",
+            "text": "The most studied botanical for scalp health and hair growth support.",
             "source_line": ""
           }
         },
@@ -489,10 +489,10 @@
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Folate",
+            "photo_label": "Ginger Root",
             "icon": "palm",
-            "title": "Folate",
-            "text": "Drives the cell division hair follicles depend on to grow.",
+            "title": "Ginger Root",
+            "text": "Supports scalp circulation so nutrients can reach your follicles.",
             "source_line": ""
           }
         },
@@ -506,10 +506,10 @@
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin B12",
+            "photo_label": "Densidyl",
             "icon": "drop",
-            "title": "Vitamin B12",
-            "text": "Delivers oxygen and nutrients to your follicles so they can thrive.",
+            "title": "Densidyl",
+            "text": "A patented Chlorella and Spirulina complex that supports follicle anchoring and scalp density.",
             "source_line": ""
           }
         },
@@ -523,10 +523,10 @@
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin B5",
+            "photo_label": "Licorice Root",
             "icon": "root",
-            "title": "Vitamin B5",
-            "text": "Nourishes each strand from root to tip, reducing moisture loss and breakage.",
+            "title": "Licorice Root",
+            "text": "Soothes and balances the scalp environment where hair growth begins.",
             "source_line": ""
           }
         },
@@ -540,10 +540,10 @@
             "circle_color": "#f3e1e5",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin E",
+            "photo_label": "Tremella Mushroom",
             "icon": "zinc",
-            "title": "Vitamin E",
-            "text": "Shields your scalp from oxidative stress, a key driver of hair thinning.",
+            "title": "Tremella Mushroom",
+            "text": "Deep scalp hydration without the heaviness.",
             "source_line": ""
           }
         },
@@ -557,10 +557,26 @@
             "circle_color": "#fdfaf7",
             "use_custom_icon_color": false,
             "icon_color": "#6f7a5a",
-            "photo_label": "Zinc",
+            "photo_label": "Vitamin C",
             "icon": "leaf",
-            "title": "Zinc",
-            "text": "Keeps the scalp environment stable and follicle function consistent.",
+            "title": "Vitamin C",
+            "text": "Supports collagen synthesis and protects the scalp from oxidative stress.",
+            "source_line": ""
+          }
+        },
+        "item_EMWTxy": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image_scale": 100,
+            "use_custom_circle_color": false,
+            "circle_color": "#fdfaf7",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Tocopherol",
+            "icon": "leaf",
+            "title": "Tocopherol",
+            "text": "Vitamin E in its purest form, supporting scalp health and strand resilience.",
             "source_line": ""
           }
         }
@@ -571,7 +587,8 @@
         "item_6MgTDk",
         "item_Yr6eKf",
         "item_6G4EJH",
-        "item_CcpMP8"
+        "item_CcpMP8",
+        "item_EMWTxy"
       ],
       "name": "Bloomli - Formula Gallery",
       "settings": {

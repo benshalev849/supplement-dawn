@@ -2,7 +2,7 @@
 {%- if section.settings.desktop_image != blank -%}{%- assign has_bg_image = true -%}{%- endif -%}
 
 <section
-  class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient{% if request.page_type == 'index' and section.index == 1 %} bloomli-hero--homepage-primary{% endif %}{% unless has_bg_image %}{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}{% endunless %}{% if has_bg_image %} bloomli-hero--has-bg-image bloomli-hero--banner-fixed-height{% endif %}"
+  class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient{% unless has_bg_image %}{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}{% endunless %}{% if has_bg_image %} bloomli-hero--has-bg-image bloomli-hero--banner-fixed-height{% endif %}"
   style="
     --hero-min-height: {{ section.settings.min_height }}px;
     --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};

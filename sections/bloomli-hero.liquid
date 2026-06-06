@@ -12,6 +12,7 @@
     --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
     --hero-desktop-image-fit: {{ section.settings.desktop_image_fit | default: 'cover' }};
     --hero-desktop-image-position: {{ section.settings.desktop_image_position | default: 'center bottom' }};
+    --hero-ultrawide-image-position: {{ section.settings.ultrawide_image_position | default: 'center bottom' }};
     --hero-mobile-image-fit: {{ section.settings.mobile_image_fit | default: 'contain' }};
     --hero-mobile-image-position: {{ section.settings.mobile_image_position | default: 'center bottom' }};
     {%- if section.settings.use_custom_text_color -%}
@@ -24,18 +25,32 @@
 >
   {%- if has_bg_image -%}
     <div class="bloomli-hero__bg{% if section.settings.mobile_image != blank %} bloomli-hero__bg--has-mobile{% endif %}" aria-hidden="true">
-      {{
-        section.settings.desktop_image
-        | image_url: width: 1920
-        | image_tag:
-          class: 'bloomli-hero__bg-img bloomli-hero__bg-img--desktop',
-          alt: '',
-          widths: '960, 1440, 1920',
-          sizes: '100vw',
-          loading: 'eager',
-          fetchpriority: 'high',
-          decoding: 'async'
-      }}
+      <picture>
+        {%- if section.settings.ultrawide_image != blank -%}
+          <source
+            media="(min-width: 2000px)"
+            srcset="
+              {{ section.settings.ultrawide_image | image_url: width: 2000 }} 2000w,
+              {{ section.settings.ultrawide_image | image_url: width: 2560 }} 2560w,
+              {{ section.settings.ultrawide_image | image_url: width: 3200 }} 3200w,
+              {{ section.settings.ultrawide_image | image_url: width: 3840 }} 3840w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          section.settings.desktop_image
+          | image_url: width: 1920
+          | image_tag:
+            class: 'bloomli-hero__bg-img bloomli-hero__bg-img--desktop',
+            alt: '',
+            widths: '960, 1440, 1920',
+            sizes: '100vw',
+            loading: 'eager',
+            fetchpriority: 'high',
+            decoding: 'async'
+        }}
+      </picture>
       {%- if section.settings.mobile_image != blank -%}
         {{
           section.settings.mobile_image
@@ -144,6 +159,21 @@
     { "type": "text", "id": "trust_badge_3", "label": "Badge 3 text", "default": "Made in the USA" },
     { "type": "header", "content": "Background image" },
     { "type": "image_picker", "id": "desktop_image", "label": "Desktop background (16:9 landscape)" },
+    { "type": "image_picker", "id": "ultrawide_image", "label": "Ultrawide background (2000px+ screens, recommended 3200 × 950)" },
+    {
+      "type": "select",
+      "id": "ultrawide_image_position",
+      "label": "Ultrawide image position",
+      "default": "center bottom",
+      "visible_if": "{{ section.settings.ultrawide_image != blank }}",
+      "options": [
+        { "value": "center",        "label": "Center" },
+        { "value": "center top",    "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" },
+        { "value": "left center",   "label": "Left" },
+        { "value": "right center",  "label": "Right" }
+      ]
+    },
     {
       "type": "select",
       "id": "desktop_image_layout",

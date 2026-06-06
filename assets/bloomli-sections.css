@@ -277,6 +277,12 @@
 
 }
 
+@media (min-width: 2000px) {
+  .bloomli-hero--has-bg-image.bloomli-hero--banner-fixed-height .bloomli-hero__bg-img--desktop {
+    object-position: var(--hero-ultrawide-image-position, center bottom);
+  }
+}
+
 .bloomli-hero__overlay {
   position: absolute;
   inset: 0;

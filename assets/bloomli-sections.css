@@ -279,7 +279,9 @@
 
 @media screen and (min-width: 990px) {
   .bloomli-hero--homepage-primary.bloomli-hero--has-bg-image.bloomli-hero--banner-fixed-height {
-    height: clamp(620px, 56.25vw, 820px);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
     min-height: 0;
   }
 
@@ -291,7 +293,7 @@
 
   .bloomli-hero--homepage-primary .bloomli-hero__bg-img--desktop {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center center;
   }
 }

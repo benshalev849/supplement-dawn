@@ -16,3 +16,4 @@ graphify-out/cost.json
 .claude/skills/
 .codex/skills/
 bloomli-gummy-1000reviews.csv
+reviews/

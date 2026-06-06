@@ -277,6 +277,25 @@
 
 }
 
+@media screen and (min-width: 990px) {
+  .bloomli-hero--homepage-primary.bloomli-hero--has-bg-image.bloomli-hero--banner-fixed-height {
+    height: clamp(620px, 56.25vw, 820px);
+    min-height: 0;
+  }
+
+  .bloomli-hero--homepage-primary .bloomli-hero__inner,
+  .bloomli-hero--homepage-primary .bloomli-hero__bg,
+  .bloomli-hero--homepage-primary .bloomli-hero__bg-img--desktop {
+    height: 100%;
+  }
+
+  .bloomli-hero--homepage-primary .bloomli-hero__bg-img--desktop {
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
 .bloomli-hero__overlay {
   position: absolute;
   inset: 0;

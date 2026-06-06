@@ -1,0 +1,16 @@
+reviews/
+graphify-out/
+node_modules/
+.git/
+.shopify/
+.cache/
+tmp/
+logs/
+coverage/
+dist/
+build/
+.agents/
+.github/
+.playwright-mcp/
+.codex/
+.claude/

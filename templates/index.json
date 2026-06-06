@@ -38,7 +38,7 @@
         "desktop_image_layout": "image_ratio_16_9",
         "desktop_image_fit": "contain",
         "desktop_image_position": "center",
-        "mobile_image": "shopify://shop_images/Hero_Placeholder_Mobile_5d9fc0b7-966e-42b3-af17-bc8f790501b1.png",
+        "mobile_image": "shopify://shop_images/Hero_Image_Mobile.png",
         "mobile_image_fit": "contain",
         "mobile_image_position": "center bottom",
         "overlay_opacity": 45,

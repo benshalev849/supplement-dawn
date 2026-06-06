@@ -34,7 +34,7 @@
         "trust_badge_1": "Third-Party Tested",
         "trust_badge_2": "NSF-Certified Facility",
         "trust_badge_3": "Made in the USA",
-        "desktop_image": "shopify://shop_images/Hero_Placeholder_Desktop.png",
+        "desktop_image": "shopify://shop_images/Hero_Image.png",
         "desktop_image_layout": "image_ratio_16_9",
         "desktop_image_fit": "contain",
         "desktop_image_position": "center",
@@ -558,6 +558,7 @@
       "blocks": {
         "judge_me_reviews_reviews_grid_widget_QKA9jh": {
           "type": "shopify://apps/judge-me-reviews/blocks/reviews_grid_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
           "settings": {
             "show_sample_reviews": true,
             "review_selection": "all",
@@ -576,10 +577,10 @@
             "corner_styling": "soft",
             "card_spacing": "small",
             "header_text_color": "#000000",
-            "star_and_reviewer_name_color": "#F9F9F9",
+            "star_and_reviewer_name_color": "#f9f9f9",
             "drop_shadow_color": "#000000",
             "overlay_and_background_color": "#000000",
-            "content_color": "#F9F9F9",
+            "content_color": "#f9f9f9",
             "header_text": "From our customers",
             "show_average_rating": false
           }
@@ -588,6 +589,7 @@
       "block_order": [
         "judge_me_reviews_reviews_grid_widget_QKA9jh"
       ],
+      "disabled": true,
       "settings": {
         "include_margins": true
       }

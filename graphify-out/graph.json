@@ -703,7 +703,7 @@
       "label": "setFrequencyDisplay()",
       "file_type": "code",
       "source_file": "bloomli-cart-drawer.js",
-      "source_location": "L53",
+      "source_location": "L52",
       "id": "assets_bloomli_cart_drawer_setfrequencydisplay",
       "community": 6,
       "norm_label": "setfrequencydisplay()"
@@ -712,7 +712,7 @@
       "label": "setMenuOpen()",
       "file_type": "code",
       "source_file": "bloomli-cart-drawer.js",
-      "source_location": "L79",
+      "source_location": "L78",
       "id": "assets_bloomli_cart_drawer_setmenuopen",
       "community": 6,
       "norm_label": "setmenuopen()"
@@ -721,7 +721,7 @@
       "label": "closeFrequencyMenus()",
       "file_type": "code",
       "source_file": "bloomli-cart-drawer.js",
-      "source_location": "L90",
+      "source_location": "L89",
       "id": "assets_bloomli_cart_drawer_closefrequencymenus",
       "community": 6,
       "norm_label": "closefrequencymenus()"
@@ -730,7 +730,7 @@
       "label": "updateFrequency()",
       "file_type": "code",
       "source_file": "bloomli-cart-drawer.js",
-      "source_location": "L96",
+      "source_location": "L95",
       "id": "assets_bloomli_cart_drawer_updatefrequency",
       "community": 6,
       "norm_label": "updatefrequency()"
@@ -739,7 +739,7 @@
       "label": "updateLineQuantity()",
       "file_type": "code",
       "source_file": "bloomli-cart-drawer.js",
-      "source_location": "L162",
+      "source_location": "L161",
       "id": "assets_bloomli_cart_drawer_updatelinequantity",
       "community": 6,
       "norm_label": "updatelinequantity()"
@@ -784,7 +784,7 @@
       "label": "showError()",
       "file_type": "code",
       "source_file": "bloomli-cart-routine-upsell.js",
-      "source_location": "L50",
+      "source_location": "L49",
       "id": "assets_bloomli_cart_routine_upsell_showerror",
       "community": 6,
       "norm_label": "showerror()"
@@ -793,7 +793,7 @@
       "label": "setLoading()",
       "file_type": "code",
       "source_file": "bloomli-cart-routine-upsell.js",
-      "source_location": "L55",
+      "source_location": "L54",
       "id": "assets_bloomli_cart_routine_upsell_setloading",
       "community": 6,
       "norm_label": "setloading()"
@@ -802,7 +802,7 @@
       "label": "addToCart()",
       "file_type": "code",
       "source_file": "bloomli-cart-routine-upsell.js",
-      "source_location": "L62",
+      "source_location": "L61",
       "id": "assets_bloomli_cart_routine_upsell_addtocart",
       "community": 6,
       "norm_label": "addtocart()"
@@ -847,7 +847,7 @@
       "label": "replaceMainCartSections()",
       "file_type": "code",
       "source_file": "bloomli-cart-subscription-upsell.js",
-      "source_location": "L55",
+      "source_location": "L54",
       "id": "assets_bloomli_cart_subscription_upsell_replacemaincartsections",
       "community": 23,
       "norm_label": "replacemaincartsections()"
@@ -856,7 +856,7 @@
       "label": "replaceCartIcon()",
       "file_type": "code",
       "source_file": "bloomli-cart-subscription-upsell.js",
-      "source_location": "L79",
+      "source_location": "L78",
       "id": "assets_bloomli_cart_subscription_upsell_replacecarticon",
       "community": 23,
       "norm_label": "replacecarticon()"
@@ -865,7 +865,7 @@
       "label": "showCartError()",
       "file_type": "code",
       "source_file": "bloomli-cart-subscription-upsell.js",
-      "source_location": "L86",
+      "source_location": "L85",
       "id": "assets_bloomli_cart_subscription_upsell_showcarterror",
       "community": 23,
       "norm_label": "showcarterror()"
@@ -874,7 +874,7 @@
       "label": "setLoading()",
       "file_type": "code",
       "source_file": "bloomli-cart-subscription-upsell.js",
-      "source_location": "L91",
+      "source_location": "L90",
       "id": "assets_bloomli_cart_subscription_upsell_setloading",
       "community": 23,
       "norm_label": "setloading()"
@@ -883,7 +883,7 @@
       "label": "upgradeLine()",
       "file_type": "code",
       "source_file": "bloomli-cart-subscription-upsell.js",
-      "source_location": "L104",
+      "source_location": "L103",
       "id": "assets_bloomli_cart_subscription_upsell_upgradeline",
       "community": 23,
       "norm_label": "upgradeline()"

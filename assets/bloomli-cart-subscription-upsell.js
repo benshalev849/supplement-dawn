@@ -31,7 +31,6 @@
       ['.drawer__header', '.drawer__header'],
       ['[data-bloomli-cart-shipping]', '[data-bloomli-cart-shipping]'],
       ['cart-drawer-items', 'cart-drawer-items'],
-      ['[data-bloomli-routine-upsell-outer]', '[data-bloomli-routine-upsell-outer]'],
       ['.drawer__footer', '.drawer__footer'],
     ].forEach(function (pair) {
       const target = document.querySelector(pair[0]);
@@ -42,7 +41,7 @@
       } else if (
         target &&
         !source &&
-        (pair[0] === '[data-bloomli-cart-shipping]' || pair[0] === '[data-bloomli-routine-upsell-outer]')
+        pair[0] === '[data-bloomli-cart-shipping]'
       ) {
         target.remove();
       }

@@ -883,7 +883,7 @@
       "label": "upgradeLine()",
       "file_type": "code",
       "source_file": "bloomli-cart-subscription-upsell.js",
-      "source_location": "L103",
+      "source_location": "L100",
       "id": "assets_bloomli_cart_subscription_upsell_upgradeline",
       "community": 23,
       "norm_label": "upgradeline()"

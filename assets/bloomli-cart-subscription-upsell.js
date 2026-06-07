@@ -89,15 +89,12 @@
 
   function setLoading(button, loading) {
     const card = button.closest('[data-bloomli-cart-subscription-upsell]');
-    const lineItem = card
-      ? card.closest('.bloomli-cart-line-upsell-row')?.previousElementSibling
-      : button.closest('.cart-item');
-    const spinner = button.querySelector('.loading__spinner');
+    const upsellRow = card?.closest('.bloomli-cart-line-upsell-row');
+    const lineItem = upsellRow ? upsellRow.previousElementSibling : button.closest('.cart-item');
 
     button.disabled = loading;
-    button.classList.toggle('is-loading', loading);
-    if (spinner) spinner.classList.toggle('hidden', !loading);
     if (lineItem) lineItem.classList.toggle('is-updating', loading);
+    if (upsellRow) upsellRow.classList.toggle('is-updating', loading);
   }
 
   function upgradeLine(button) {

@@ -168,19 +168,19 @@
   opacity: 0.72;
 }
 
-.bloomli-cart-subscription-upsell__cta .loading__spinner {
-  position: absolute;
-  width: 1.8rem;
-  height: 1.8rem;
-}
-
-.bloomli-cart-subscription-upsell__cta.is-loading [data-bloomli-cart-subscription-upsell-cta-text] {
-  opacity: 0;
-}
-
 .cart-drawer .bloomli-cart-line-upsell-row {
+  position: relative;
   display: block;
   margin: -0.1rem 0 1.2rem;
+}
+
+.cart-drawer .bloomli-cart-line-upsell-row.is-updating::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(0.1rem);
 }
 
 .cart-drawer .bloomli-cart-line-upsell-row > td {

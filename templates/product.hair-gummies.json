@@ -29,6 +29,7 @@
           "type": "volume_tier",
           "settings": {
             "heading": "Select Your Size:",
+            "override_product_image": "shopify://shop_images/Gummy_Bottle_Transperant.png",
             "add_to_cart_label": "Start your journey",
             "sold_out_label": "Sold out",
             "save_badge_background": "#b23a6f",
@@ -363,6 +364,22 @@
             "verified_label": "Verified review"
           }
         },
+        "result_bPaP87": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_13_ca272a6a-2dfa-42a5-81a4-d437be408d25.png",
+            "after_image": "shopify://shop_images/After_13_df6c6af4-7567-4698-af18-fc01dad0d336.png",
+            "before_label": "Month 0",
+            "after_label": "Month 10",
+            "reviewer_name": "Linda M.",
+            "review_text": "\"My crown was fuller, my lengths were thicker, and for the first time in a long time, styling my hair felt enjoyable. I finally felt confident about my hair. I am still taking them daily.\"",
+            "result_tag_1": "Crown density",
+            "result_tag_2": "Easier to style",
+            "result_tag_3": "Long-term results",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
         "result_jUa8a4": {
           "type": "result",
           "settings": {
@@ -410,31 +427,15 @@
             "verified_review": true,
             "verified_label": "Verified review"
           }
-        },
-        "result_bPaP87": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_13_ca272a6a-2dfa-42a5-81a4-d437be408d25.png",
-            "after_image": "shopify://shop_images/After_13_df6c6af4-7567-4698-af18-fc01dad0d336.png",
-            "before_label": "Month 0",
-            "after_label": "Month 10",
-            "reviewer_name": "Linda M.",
-            "review_text": "\"My crown was fuller, my lengths were thicker, and for the first time in a long time, styling my hair felt enjoyable. I finally felt confident about my hair. I am still taking them daily.\"",
-            "result_tag_1": "Crown density",
-            "result_tag_2": "Easier to style",
-            "result_tag_3": "Long-term results",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
         }
       },
       "block_order": [
         "result_9hNhFP",
         "result_zrawxk",
+        "result_bPaP87",
         "result_jUa8a4",
         "result_PXeWzj",
-        "result_review_current",
-        "result_bPaP87"
+        "result_review_current"
       ],
       "name": "Bloomli - Result Gallery",
       "settings": {
@@ -764,6 +765,16 @@
             "placeholder_color": "#f3e1e5"
           }
         },
+        "photo_zbFfXz": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Selfie_1_af7f5ff3-629c-4859-965b-b0a6575c80f3.png",
+            "image_scale": 100,
+            "label": "Photo 12",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
         "photo_HnKE8c": {
           "type": "photo",
           "settings": {
@@ -790,16 +801,6 @@
             "image": "shopify://shop_images/Gummy_Selfie_6.png",
             "image_scale": 100,
             "label": "Photo 9",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#f5ede4"
-          }
-        },
-        "photo_zbFfXz": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/Selfie_1_af7f5ff3-629c-4859-965b-b0a6575c80f3.png",
-            "image_scale": 100,
-            "label": "Photo 12",
             "use_custom_placeholder_color": false,
             "placeholder_color": "#f5ede4"
           }
@@ -841,10 +842,10 @@
         "photo_UQecfB",
         "photo_gDhx3U",
         "photo_HkWBVE",
+        "photo_zbFfXz",
         "photo_HnKE8c",
         "photo_Xj6LgH",
         "photo_Artdhg",
-        "photo_zbFfXz",
         "photo_fGEqGb",
         "photo_jhY4cR",
         "photo_iXjxWB"
@@ -984,9 +985,11 @@
         "heading": "Pair & Save",
         "body_text": "Most people choose one. The ones who see results fastest use both.",
         "badge_text": "15% off oil",
+        "product_1_image": "shopify://shop_images/Gummy_Bottle_Transperant.png",
         "product_1_step": "Step 01",
         "product_1_title": "Hair Gummies",
         "product_1_description": "Daily beauty nutrients",
+        "product_2_image": "shopify://shop_images/Hair_Serum_Transperant.png",
         "product_2_step": "Step 02",
         "product_2_title": "Hair Oil",
         "product_2_description": "Scalp & strand nourishment",

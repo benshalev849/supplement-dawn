@@ -245,9 +245,6 @@
           aria-label="{{ upsell_sub_btn | escape }}: {{ upsell_product.title | escape }}"
         >
           <span class="bloomli-routine-upsell__btn-text">{{ upsell_sub_btn | escape }}</span>
-          <span class="bloomli-routine-upsell__spinner loading__spinner hidden">
-            {{- 'loading-spinner.svg' | inline_asset_content -}}
-          </span>
         </button>
         <div class="bloomli-routine-upsell__otp">
           <button
@@ -259,9 +256,6 @@
             aria-label="{{ upsell_otp_label | escape }}: {{ upsell_product.title | escape }}"
           >
             <span>{{- upsell_otp_label | escape -}} · {{ upsell_sale_price | money }}</span>
-            <span class="bloomli-routine-upsell__spinner loading__spinner hidden">
-              {{- 'loading-spinner.svg' | inline_asset_content -}}
-            </span>
           </button>
         </div>
       {%- else -%}
@@ -274,9 +268,6 @@
           aria-label="{{ upsell_button | escape }}: {{ upsell_product.title | escape }}"
         >
           <span class="bloomli-routine-upsell__btn-text">{{ upsell_button | escape }}</span>
-          <span class="bloomli-routine-upsell__spinner loading__spinner hidden">
-            {{- 'loading-spinner.svg' | inline_asset_content -}}
-          </span>
         </button>
       {%- endif -%}
     </div>

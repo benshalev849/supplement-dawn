@@ -802,7 +802,7 @@
       "label": "addToCart()",
       "file_type": "code",
       "source_file": "bloomli-cart-routine-upsell.js",
-      "source_location": "L61",
+      "source_location": "L70",
       "id": "assets_bloomli_cart_routine_upsell_addtocart",
       "community": 4,
       "norm_label": "addtocart()"
@@ -8723,9 +8723,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_cart_subscription_upsell_js",
-      "target": "assets_bloomli_cart_subscription_upsell_createcombinedloadingoverlay",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_createcombinedloadingoverlay"
     },
     {
       "relation": "contains",
@@ -8891,9 +8891,9 @@
       "source_file": "bloomli-cart-subscription-upsell.js",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_cart_subscription_upsell_setloading",
-      "target": "assets_bloomli_cart_subscription_upsell_createcombinedloadingoverlay",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_cart_subscription_upsell_createcombinedloadingoverlay"
     },
     {
       "relation": "calls",

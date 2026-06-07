@@ -52,10 +52,19 @@
   }
 
   function setLoading(btn, loading) {
-    var spinner = btn.querySelector('.bloomli-routine-upsell__spinner');
-    btn.disabled = loading;
-    btn.classList.toggle('is-loading', loading);
-    if (spinner) spinner.classList.toggle('hidden', !loading);
+    var card = btn.closest('[data-bloomli-routine-upsell]');
+    var buttons = card
+      ? card.querySelectorAll('[data-bloomli-routine-upsell-btn], [data-bloomli-routine-upsell-otp-btn]')
+      : [btn];
+
+    buttons.forEach(function (button) {
+      button.disabled = loading;
+    });
+
+    if (card) {
+      card.classList.toggle('is-loading', loading);
+      card.setAttribute('aria-busy', loading ? 'true' : 'false');
+    }
   }
 
   function addToCart(btn, sellingPlanId) {

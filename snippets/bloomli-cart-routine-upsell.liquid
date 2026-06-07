@@ -190,7 +190,7 @@
       endif
     -%}
     <div
-      class="bloomli-routine-upsell"
+      class="bloomli-routine-upsell{% if upsell_state == 1 %} bloomli-routine-upsell--compact{% endif %}"
       data-bloomli-routine-upsell
       data-state="{{ upsell_state }}"
       data-discount-pct="{{ upsell_display_discount_pct }}"
@@ -199,6 +199,90 @@
       data-volume-discount-pct="{{ upsell_volume_discount_pct }}"
       data-bundle-discount-pct="{% if upsell_has_bundle_discount %}{{ upsell_bundle_discount_pct }}{% else %}0{% endif %}"
     >
+      {%- if upsell_state == 1 -%}
+        <div class="bloomli-routine-upsell__inner">
+          {%- if upsell_image != blank -%}
+            <div class="bloomli-routine-upsell__image-wrap">
+              {{
+                upsell_image
+                | image_url: width: 96
+                | image_tag:
+                  class: 'bloomli-routine-upsell__image',
+                  loading: 'lazy',
+                  alt: upsell_image.alt | default: upsell_product.title,
+                  width: 48,
+                  height: 48,
+                  widths: '48, 96'
+              }}
+            </div>
+          {%- endif -%}
+          <div class="bloomli-routine-upsell__content">
+            <div class="bloomli-routine-upsell__top-row">
+              <p class="bloomli-routine-upsell__heading">Pair &amp; Save</p>
+              <div class="bloomli-routine-upsell__prices">
+                {%- if show_subscription -%}
+                  <span class="bloomli-routine-upsell__price">{{ upsell_sub_price | money }}</span>
+                  {%- if upsell_display_compare_price > upsell_sub_price -%}
+                    <s class="bloomli-routine-upsell__compare-price">{{ upsell_display_compare_price | money }}</s>
+                  {%- endif -%}
+                {%- else -%}
+                  <span class="bloomli-routine-upsell__price">{{ upsell_sale_price | money }}</span>
+                  {%- if upsell_display_compare_price > upsell_sale_price -%}
+                    <s class="bloomli-routine-upsell__compare-price">{{ upsell_display_compare_price | money }}</s>
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            </div>
+            <p class="bloomli-routine-upsell__title">{{ upsell_product.title | escape }}</p>
+            <div class="bloomli-routine-upsell__actions{% unless show_subscription %} bloomli-routine-upsell__actions--single{% endunless %}">
+              {%- if show_subscription -%}
+                <button
+                  type="button"
+                  class="bloomli-routine-upsell__btn"
+                  data-bloomli-routine-upsell-btn
+                  data-variant-id="{{ upsell_variant.id }}"
+                  data-selling-plan-id="{{ upsell_selling_plan_id }}"
+                  data-quantity="{{ upsell_quantity }}"
+                  aria-label="Add to subscription: {{ upsell_product.title | escape }}"
+                >
+                  <span class="bloomli-routine-upsell__btn-text">Add to subscription</span>
+                  <span class="bloomli-routine-upsell__spinner loading__spinner hidden">
+                    {{- 'loading-spinner.svg' | inline_asset_content -}}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  class="bloomli-routine-upsell__otp-btn"
+                  data-bloomli-routine-upsell-otp-btn
+                  data-variant-id="{{ upsell_variant.id }}"
+                  data-quantity="{{ upsell_quantity }}"
+                  aria-label="One-time: {{ upsell_product.title | escape }}"
+                >
+                  <span class="bloomli-routine-upsell__otp-label">One-time</span>
+                  <span class="bloomli-routine-upsell__otp-price">{{ upsell_sale_price | money }}</span>
+                  <span class="bloomli-routine-upsell__spinner loading__spinner hidden">
+                    {{- 'loading-spinner.svg' | inline_asset_content -}}
+                  </span>
+                </button>
+              {%- else -%}
+                <button
+                  type="button"
+                  class="bloomli-routine-upsell__btn"
+                  data-bloomli-routine-upsell-btn
+                  data-variant-id="{{ upsell_variant.id }}"
+                  data-quantity="{{ upsell_quantity }}"
+                  aria-label="{{ upsell_button | escape }}: {{ upsell_product.title | escape }}"
+                >
+                  <span class="bloomli-routine-upsell__btn-text">{{ upsell_button | escape }}</span>
+                  <span class="bloomli-routine-upsell__spinner loading__spinner hidden">
+                    {{- 'loading-spinner.svg' | inline_asset_content -}}
+                  </span>
+                </button>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- else -%}
       <div class="bloomli-routine-upsell__inner">
         {%- if upsell_image != blank -%}
           <div class="bloomli-routine-upsell__image-wrap">
@@ -278,6 +362,7 @@
             {{- 'loading-spinner.svg' | inline_asset_content -}}
           </span>
         </button>
+      {%- endif -%}
       {%- endif -%}
     </div>
   {%- endif -%}

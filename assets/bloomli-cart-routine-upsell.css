@@ -87,6 +87,7 @@
 }
 
 .cart-drawer .bloomli-routine-upsell__btn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,9 +127,23 @@
 }
 
 .cart-drawer .bloomli-routine-upsell__spinner {
+  position: static;
+  inset: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 1.6rem;
   height: 1.6rem;
+  padding: 0;
+  margin: 0;
   flex-shrink: 0;
+  transform: none;
+}
+
+.cart-drawer .bloomli-routine-upsell__spinner svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .cart-drawer .bloomli-routine-upsell__spinner.hidden {
@@ -142,7 +157,11 @@
 }
 
 .cart-drawer .bloomli-routine-upsell__otp-btn {
-  display: inline-block;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   background: none;
   border: none;
   border-bottom: 0.1rem solid var(--bloomli-cart-compare, #9A8F89);

@@ -159,6 +159,10 @@
             assign is_default = block.settings.tier_3_default
         endcase
 
+        if image == blank
+          assign image = block.settings.override_product_image
+        endif
+
         if qty >= 5
           assign discount_pct = volume_discount_5_pct
         elsif qty == 4

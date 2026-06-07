@@ -169,18 +169,36 @@
 }
 
 .cart-drawer .bloomli-cart-line-upsell-row {
-  position: relative;
   display: block;
   margin: -0.1rem 0 1.2rem;
 }
 
-.cart-drawer .bloomli-cart-line-upsell-row.is-updating::before {
-  content: "";
+.cart-drawer .drawer__cart-items-wrapper {
+  position: relative;
+}
+
+.cart-drawer .bloomli-cart-subscription-loading-overlay {
   position: absolute;
-  inset: 0;
-  z-index: 8;
-  background: rgba(255, 255, 255, 0.68);
-  backdrop-filter: blur(0.1rem);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--bloomli-cart-card-radius, 0.8rem);
+  background: rgba(253, 250, 247, 0.76);
+  backdrop-filter: blur(0.2rem);
+  -webkit-backdrop-filter: blur(0.2rem);
+  cursor: progress;
+}
+
+.cart-drawer .bloomli-cart-subscription-loading-overlay__spinner {
+  width: 3.8rem;
+  height: 3.8rem;
+  border: 0.45rem solid var(--bloomli-cart-border, #E8DED8);
+  border-top-color: var(--bloomli-cart-accent, #B23A6F);
+  border-radius: 50%;
+  animation: bloomli-cart-spin 0.8s linear infinite;
 }
 
 .cart-drawer .bloomli-cart-line-upsell-row > td {

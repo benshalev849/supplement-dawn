@@ -87,14 +87,51 @@
     if (errors && window.cartStrings) errors.textContent = window.cartStrings.error;
   }
 
+  function createCombinedLoadingOverlay(lineItem, upsellRow) {
+    const wrapper = lineItem?.closest('.drawer__cart-items-wrapper');
+    if (!wrapper || !upsellRow || !wrapper.contains(upsellRow)) return null;
+
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const lineRect = lineItem.getBoundingClientRect();
+    const upsellRect = upsellRow.getBoundingClientRect();
+    const top = lineRect.top - wrapperRect.top + wrapper.scrollTop;
+    const bottom = upsellRect.bottom - wrapperRect.top + wrapper.scrollTop;
+
+    const overlay = document.createElement('div');
+    const spinner = document.createElement('span');
+
+    overlay.className = 'bloomli-cart-subscription-loading-overlay';
+    overlay.dataset.bloomliCartSubscriptionLoadingOverlay = '';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.style.top = Math.max(0, top) + 'px';
+    overlay.style.height = Math.max(0, bottom - top) + 'px';
+
+    spinner.className = 'bloomli-cart-subscription-loading-overlay__spinner';
+    overlay.appendChild(spinner);
+    wrapper.appendChild(overlay);
+
+    return overlay;
+  }
+
   function setLoading(button, loading) {
     const card = button.closest('[data-bloomli-cart-subscription-upsell]');
     const upsellRow = card?.closest('.bloomli-cart-line-upsell-row');
     const lineItem = upsellRow ? upsellRow.previousElementSibling : button.closest('.cart-item');
 
     button.disabled = loading;
+
+    if (loading) {
+      const overlay = createCombinedLoadingOverlay(lineItem, upsellRow);
+      if (overlay) {
+        button.bloomliSubscriptionLoadingOverlay = overlay;
+        return;
+      }
+    } else if (button.bloomliSubscriptionLoadingOverlay) {
+      button.bloomliSubscriptionLoadingOverlay.remove();
+      button.bloomliSubscriptionLoadingOverlay = null;
+    }
+
     if (lineItem) lineItem.classList.toggle('is-updating', loading);
-    if (upsellRow) upsellRow.classList.toggle('is-updating', loading);
   }
 
   function upgradeLine(button) {

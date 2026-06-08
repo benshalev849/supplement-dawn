@@ -24,7 +24,7 @@
         "padding_bottom_mobile": 56,
         "button_color_scheme": "scheme-1",
         "cta_primary_label": "Shop the Ritual",
-        "cta_primary_url": "https://bloomliwellness.com/#bloomli-product-finder",
+        "cta_primary_url": "/#bloomli-product-finder",
         "cta_secondary_label": "",
         "cta_secondary_url": "#hair-biology",
         "show_reviews": false,

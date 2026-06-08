@@ -1,107 +1,27 @@
 {%- liquid
-  assign gummies_product = settings.bloomli_routine_upsell_supplement_product
-  assign hair_oil_product = settings.bloomli_routine_upsell_addon_product
-  assign current_product = product
-  assign current_is_supplement = false
-  assign current_is_add_on = false
-
-  if current_product != blank
-    for product_tag in current_product.tags
-      assign normalized_product_tag = product_tag | downcase | strip
-      if normalized_product_tag == 'supplement'
-        assign current_is_supplement = true
-      elsif normalized_product_tag == 'add-on'
-        assign current_is_add_on = true
-      endif
-    endfor
-  endif
-
-  assign first_product = gummies_product
-  assign second_product = hair_oil_product
+  assign first_product = section.settings.product_1
+  assign second_product = section.settings.product_2
   assign first_image = section.settings.product_1_image
   assign second_image = section.settings.product_2_image
-
-  if current_product != blank
-    if current_is_add_on
-      assign first_product = gummies_product
-      assign second_product = current_product
-      assign first_image = section.settings.product_1_image
-      if hair_oil_product != blank and current_product.id == hair_oil_product.id
-        assign second_image = section.settings.product_2_image
-      else
-        assign second_image = current_product.featured_image
-      endif
-    elsif current_is_supplement
-      assign first_product = current_product
-      assign second_product = hair_oil_product
-      if gummies_product != blank and current_product.id == gummies_product.id
-        assign first_image = section.settings.product_1_image
-      else
-        assign first_image = current_product.featured_image
-      endif
-      assign second_image = section.settings.product_2_image
-    else
-      assign first_product = current_product
-      assign second_product = hair_oil_product
-      assign first_image = current_product.featured_image
-      assign second_image = section.settings.product_2_image
-    endif
-  endif
 
   assign first_variant = first_product.selected_or_first_available_variant
   assign second_variant = second_product.selected_or_first_available_variant
   assign first_is_add_on = false
-  assign second_is_add_on = false
-
-  if first_product != blank
-    for product_tag in first_product.tags
-      assign normalized_product_tag = product_tag | downcase | strip
-      if normalized_product_tag == 'add-on'
-        assign first_is_add_on = true
-      endif
-    endfor
-  endif
-
-  if second_product != blank
-    for product_tag in second_product.tags
-      assign normalized_product_tag = product_tag | downcase | strip
-      if normalized_product_tag == 'add-on'
-        assign second_is_add_on = true
-      endif
-    endfor
-  endif
+  assign second_is_add_on = true
 
   assign first_step = section.settings.product_1_step
-  assign first_title = section.settings.product_1_title
+  assign first_title = section.settings.product_1_title | default: first_product.title
   assign first_description = section.settings.product_1_description
   assign second_step = section.settings.product_2_step
-  assign second_title = section.settings.product_2_title
+  assign second_title = section.settings.product_2_title | default: second_product.title
   assign second_description = section.settings.product_2_description
 
-  if first_product != blank and hair_oil_product != blank and first_product.id == hair_oil_product.id
-    assign first_step = section.settings.product_2_step
-    assign first_title = section.settings.product_2_title | default: first_product.title
-    assign first_description = section.settings.product_2_description
-  elsif first_product != blank and gummies_product != blank and first_product.id == gummies_product.id
-    assign first_title = section.settings.product_1_title | default: first_product.title
-  elsif first_product != blank
-    assign first_title = first_product.title
-    if first_product.description != blank
-      assign first_description = first_product.description | strip_html | truncate: 72
-    endif
+  if first_description == blank and first_product.description != blank
+    assign first_description = first_product.description | strip_html | truncate: 72
   endif
 
-  if second_product != blank and gummies_product != blank and second_product.id == gummies_product.id
-    assign second_step = section.settings.product_1_step
-    assign second_title = section.settings.product_1_title | default: second_product.title
-    assign second_description = section.settings.product_1_description
-  elsif second_product != blank and hair_oil_product != blank and second_product.id == hair_oil_product.id
-    assign second_title = section.settings.product_2_title | default: second_product.title
-  elsif second_product != blank
-    assign second_title = second_product.title
-    if second_product.description != blank
-      assign second_description = second_product.description | strip_html | truncate: 72
-    endif
+  if second_description == blank and second_product.description != blank
+    assign second_description = second_product.description | strip_html | truncate: 72
   endif
 
   assign first_in_cart = false
@@ -810,9 +730,15 @@
       "content": "Product card 1"
     },
     {
+      "type": "product",
+      "id": "product_1",
+      "label": "Product"
+    },
+    {
       "type": "image_picker",
       "id": "product_1_image",
-      "label": "Image"
+      "label": "Image override",
+      "info": "Leave blank to use the selected product image."
     },
     {
       "type": "text",
@@ -823,23 +749,29 @@
     {
       "type": "text",
       "id": "product_1_title",
-      "label": "Title",
-      "default": "Hair Gummies"
+      "label": "Title override",
+      "info": "Leave blank to use the selected product title."
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "product_1_description",
-      "label": "Description",
-      "default": "Daily beauty nutrients"
+      "label": "Description override",
+      "info": "Leave blank to use a shortened version of the selected product description."
     },
     {
       "type": "header",
       "content": "Product card 2"
     },
     {
+      "type": "product",
+      "id": "product_2",
+      "label": "Product"
+    },
+    {
       "type": "image_picker",
       "id": "product_2_image",
-      "label": "Image"
+      "label": "Image override",
+      "info": "Leave blank to use the selected product image."
     },
     {
       "type": "text",
@@ -850,14 +782,14 @@
     {
       "type": "text",
       "id": "product_2_title",
-      "label": "Title",
-      "default": "Hair Oil"
+      "label": "Title override",
+      "info": "Leave blank to use the selected product title."
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "product_2_description",
-      "label": "Description",
-      "default": "Scalp & strand nourishment"
+      "label": "Description override",
+      "info": "Leave blank to use a shortened version of the selected product description."
     },
     {
       "type": "text",

@@ -211,6 +211,7 @@
         "concern_lifestyle": {
           "type": "concern",
           "settings": {
+            "image": "shopify://shop_images/Lifestyle.png",
             "icon": "heartbeat",
             "title": "Lifestyle stress",
             "subtitle": "When life shows up in your hair",

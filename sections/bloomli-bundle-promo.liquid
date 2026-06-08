@@ -54,7 +54,6 @@
   assign subscription_note_text = section.settings.subscription_note_text | default: 'Matched to your subscription, cancel anytime.'
   assign saving_callout_template = section.settings.saving_callout_text | default: "You're saving $X.XX with Pair & Save"
 
-  assign subscription_discount_pct = settings.bloomli_subscription_discount_pct | default: 15 | plus: 0
   assign add_on_product = nil
   if first_is_add_on
     assign add_on_product = first_product
@@ -70,8 +69,9 @@
   else
     assign bundle_discount_pct = 15
   endif
-  assign subscription_factor = 100.0 | minus: subscription_discount_pct
   assign bundle_factor = 100.0 | minus: bundle_discount_pct
+  assign first_subscription_base_price = first_variant.price | default: 0
+  assign second_subscription_base_price = second_variant.price | default: 0
 
   assign button_label = add_both_label
   assign first_missing = false
@@ -92,23 +92,141 @@
   else
     assign button_label = view_routine_label
   endif
+-%}
 
-  assign first_subscription_price = first_variant.price | times: subscription_factor | divided_by: 100.0 | floor
+{%- capture first_selling_plan_attrs -%}
+  {%- for target_qty in (1..5) -%}
+    {%- liquid
+      assign target_plan_id = ''
+      assign fallback_plan_id = ''
+      assign plan_filter = target_qty | append: '-pack'
+      assign frequency_filter = target_qty | append: 'mo'
+      assign frequency_filter_spaced = target_qty | append: ' mo'
+      assign frequency_filter_dash = target_qty | append: '-mo'
+      assign frequency_filter_month = target_qty | append: ' month'
+      assign frequency_filter_every = 'every ' | append: target_qty
+      assign frequency_filter_appstle = target_qty | append: 'month'
+
+      for selling_plan_group in first_product.selling_plan_groups
+        assign group_name_lower = selling_plan_group.name | downcase
+        if group_name_lower contains plan_filter
+          assign first_plan = selling_plan_group.selling_plans | first
+          if first_plan and fallback_plan_id == blank
+            assign fallback_plan_id = first_plan.id
+          endif
+
+          for selling_plan in selling_plan_group.selling_plans
+            assign frequency_source = selling_plan_group.name | append: ' ' | append: selling_plan.name | downcase
+            for option in selling_plan.options
+              assign frequency_source = frequency_source | append: ' ' | append: option.value | downcase
+            endfor
+
+            if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every or frequency_source contains frequency_filter_appstle
+              assign target_plan_id = selling_plan.id
+              break
+            endif
+          endfor
+
+          if target_plan_id != blank
+            break
+          endif
+        endif
+      endfor
+
+      if target_plan_id == blank
+        assign target_plan_id = fallback_plan_id
+      endif
+
+      if target_qty == 1 and target_plan_id != blank
+        for selling_plan_allocation in first_variant.selling_plan_allocations
+          if selling_plan_allocation.selling_plan.id == target_plan_id
+            assign first_subscription_base_price = selling_plan_allocation.price
+            break
+          endif
+        endfor
+      endif
+    -%}
+    {%- if target_plan_id != blank -%}
+      data-first-selling-plan-qty{{ target_qty }}="{{ target_plan_id }}"
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- capture second_selling_plan_attrs -%}
+  {%- for target_qty in (1..5) -%}
+    {%- liquid
+      assign target_plan_id = ''
+      assign fallback_plan_id = ''
+      assign plan_filter = target_qty | append: '-pack'
+      assign frequency_filter = target_qty | append: 'mo'
+      assign frequency_filter_spaced = target_qty | append: ' mo'
+      assign frequency_filter_dash = target_qty | append: '-mo'
+      assign frequency_filter_month = target_qty | append: ' month'
+      assign frequency_filter_every = 'every ' | append: target_qty
+      assign frequency_filter_appstle = target_qty | append: 'month'
+
+      for selling_plan_group in second_product.selling_plan_groups
+        assign group_name_lower = selling_plan_group.name | downcase
+        if group_name_lower contains plan_filter
+          assign first_plan = selling_plan_group.selling_plans | first
+          if first_plan and fallback_plan_id == blank
+            assign fallback_plan_id = first_plan.id
+          endif
+
+          for selling_plan in selling_plan_group.selling_plans
+            assign frequency_source = selling_plan_group.name | append: ' ' | append: selling_plan.name | downcase
+            for option in selling_plan.options
+              assign frequency_source = frequency_source | append: ' ' | append: option.value | downcase
+            endfor
+
+            if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every or frequency_source contains frequency_filter_appstle
+              assign target_plan_id = selling_plan.id
+              break
+            endif
+          endfor
+
+          if target_plan_id != blank
+            break
+          endif
+        endif
+      endfor
+
+      if target_plan_id == blank
+        assign target_plan_id = fallback_plan_id
+      endif
+
+      if target_qty == 1 and target_plan_id != blank
+        for selling_plan_allocation in second_variant.selling_plan_allocations
+          if selling_plan_allocation.selling_plan.id == target_plan_id
+            assign second_subscription_base_price = selling_plan_allocation.price
+            break
+          endif
+        endfor
+      endif
+    -%}
+    {%- if target_plan_id != blank -%}
+      data-second-selling-plan-qty{{ target_qty }}="{{ target_plan_id }}"
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- liquid
+  assign first_subscription_price = first_subscription_base_price
   if first_is_add_on
-    assign first_subscription_price = first_variant.price | times: subscription_factor | times: bundle_factor | divided_by: 10000.0 | floor
+    assign first_subscription_price = first_subscription_base_price | times: bundle_factor | divided_by: 100.0 | round
   endif
-  assign second_subscription_price = second_variant.price | times: subscription_factor | divided_by: 100.0 | floor
+  assign second_subscription_price = second_subscription_base_price
   if second_is_add_on
-    assign second_subscription_price = second_variant.price | times: subscription_factor | times: bundle_factor | divided_by: 10000.0 | floor
+    assign second_subscription_price = second_subscription_base_price | times: bundle_factor | divided_by: 100.0 | round
   endif
 
-  assign first_bundle_price = first_variant.price
+  assign first_bundle_price = first_variant.price | default: 0
   if first_is_add_on
-    assign first_bundle_price = first_variant.price | times: bundle_factor | divided_by: 100.0 | floor
+    assign first_bundle_price = first_variant.price | times: bundle_factor | divided_by: 100.0 | round
   endif
-  assign second_bundle_price = second_variant.price
+  assign second_bundle_price = second_variant.price | default: 0
   if second_is_add_on
-    assign second_bundle_price = second_variant.price | times: bundle_factor | divided_by: 100.0 | floor
+    assign second_bundle_price = second_variant.price | times: bundle_factor | divided_by: 100.0 | round
   endif
 
   assign primary_price_cents = 0
@@ -160,104 +278,6 @@
     endif
   endif
 -%}
-
-{%- capture first_selling_plan_attrs -%}
-  {%- for target_qty in (1..5) -%}
-    {%- liquid
-      assign target_plan_id = ''
-      assign fallback_plan_id = ''
-      assign plan_filter = target_qty | append: '-pack'
-      assign frequency_filter = target_qty | append: 'mo'
-      assign frequency_filter_spaced = target_qty | append: ' mo'
-      assign frequency_filter_dash = target_qty | append: '-mo'
-      assign frequency_filter_month = target_qty | append: ' month'
-      assign frequency_filter_every = 'every ' | append: target_qty
-      assign frequency_filter_appstle = target_qty | append: 'month'
-
-      for selling_plan_group in first_product.selling_plan_groups
-        assign group_name_lower = selling_plan_group.name | downcase
-        if group_name_lower contains plan_filter
-          assign first_plan = selling_plan_group.selling_plans | first
-          if first_plan and fallback_plan_id == blank
-            assign fallback_plan_id = first_plan.id
-          endif
-
-          for selling_plan in selling_plan_group.selling_plans
-            assign frequency_source = selling_plan_group.name | append: ' ' | append: selling_plan.name | downcase
-            for option in selling_plan.options
-              assign frequency_source = frequency_source | append: ' ' | append: option.value | downcase
-            endfor
-
-            if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every or frequency_source contains frequency_filter_appstle
-              assign target_plan_id = selling_plan.id
-              break
-            endif
-          endfor
-
-          if target_plan_id != blank
-            break
-          endif
-        endif
-      endfor
-
-      if target_plan_id == blank
-        assign target_plan_id = fallback_plan_id
-      endif
-    -%}
-    {%- if target_plan_id != blank -%}
-      data-first-selling-plan-qty{{ target_qty }}="{{ target_plan_id }}"
-    {%- endif -%}
-  {%- endfor -%}
-{%- endcapture -%}
-
-{%- capture second_selling_plan_attrs -%}
-  {%- for target_qty in (1..5) -%}
-    {%- liquid
-      assign target_plan_id = ''
-      assign fallback_plan_id = ''
-      assign plan_filter = target_qty | append: '-pack'
-      assign frequency_filter = target_qty | append: 'mo'
-      assign frequency_filter_spaced = target_qty | append: ' mo'
-      assign frequency_filter_dash = target_qty | append: '-mo'
-      assign frequency_filter_month = target_qty | append: ' month'
-      assign frequency_filter_every = 'every ' | append: target_qty
-      assign frequency_filter_appstle = target_qty | append: 'month'
-
-      for selling_plan_group in second_product.selling_plan_groups
-        assign group_name_lower = selling_plan_group.name | downcase
-        if group_name_lower contains plan_filter
-          assign first_plan = selling_plan_group.selling_plans | first
-          if first_plan and fallback_plan_id == blank
-            assign fallback_plan_id = first_plan.id
-          endif
-
-          for selling_plan in selling_plan_group.selling_plans
-            assign frequency_source = selling_plan_group.name | append: ' ' | append: selling_plan.name | downcase
-            for option in selling_plan.options
-              assign frequency_source = frequency_source | append: ' ' | append: option.value | downcase
-            endfor
-
-            if frequency_source contains frequency_filter or frequency_source contains frequency_filter_spaced or frequency_source contains frequency_filter_dash or frequency_source contains frequency_filter_month or frequency_source contains frequency_filter_every or frequency_source contains frequency_filter_appstle
-              assign target_plan_id = selling_plan.id
-              break
-            endif
-          endfor
-
-          if target_plan_id != blank
-            break
-          endif
-        endif
-      endfor
-
-      if target_plan_id == blank
-        assign target_plan_id = fallback_plan_id
-      endif
-    -%}
-    {%- if target_plan_id != blank -%}
-      data-second-selling-plan-qty{{ target_qty }}="{{ target_plan_id }}"
-    {%- endif -%}
-  {%- endfor -%}
-{%- endcapture -%}
 
 {{ 'bloomli-bundle-promo.css' | asset_url | stylesheet_tag }}
 

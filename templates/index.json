@@ -167,6 +167,7 @@
         "concern_nutrient_gaps": {
           "type": "concern",
           "settings": {
+            "icon": "pill",
             "title": "Nutrient gaps",
             "subtitle": "When key nutrients are missing",
             "what_text": "Hair follicles struggle to complete their natural growth cycle, leading to thinning, shedding, and strands that feel fragile.",
@@ -176,6 +177,7 @@
         "concern_shedding": {
           "type": "concern",
           "settings": {
+            "icon": "droplets",
             "title": "Shedding",
             "subtitle": "When the drain tells a different story",
             "what_text": "Noticing more hair in the shower or on your brush is one of the first signs something is off. Shedding increases when the growth cycle is disrupted, long before visible thinning appears.",
@@ -185,6 +187,7 @@
         "concern_breakage": {
           "type": "concern",
           "settings": {
+            "icon": "scissors",
             "title": "Breakage",
             "subtitle": "When your hair breaks before it grows",
             "what_text": "Fragile strands break before they reach their full length. The result looks like slow growth — but the real issue is retention, not growth itself.",
@@ -194,6 +197,7 @@
         "concern_scalp": {
           "type": "concern",
           "settings": {
+            "icon": "plant-2",
             "title": "Scalp environment",
             "subtitle": "Where healthy hair actually begins",
             "what_text": "When your scalp is out of balance, nothing else in your routine works as well as it should. Dryness, irritation and buildup are often the hidden reason hair looks and feels off.",
@@ -203,6 +207,7 @@
         "concern_lifestyle": {
           "type": "concern",
           "settings": {
+            "icon": "heartbeat",
             "title": "Lifestyle stress",
             "subtitle": "When life shows up in your hair",
             "what_text": "During periods of stress, the body redirects nutrients away from hair follicles toward more essential functions. The result shows up weeks or even months later as increased shedding, dullness, or slower growth.",
@@ -222,8 +227,9 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "Most hair concerns start somewhere you can't see.",
         "subtext": "<p>Every hair concern has a <strong>root cause.</strong> Here's what may be behind yours.</p>",
-        "row_background_color": "#ffffff",
-        "content_card_background_color": "#fdfaf7",
+        "show_icons": true,
+        "desktop_layout": "feature_first",
+        "show_supporting_image": false,
         "padding_top": 80,
         "padding_bottom": 80,
         "padding_top_mobile": 56,

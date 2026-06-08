@@ -38,7 +38,76 @@
 }
 
 .bloomli-bundle__visual {
+  position: relative;
   text-align: center;
+}
+
+.bloomli-bundle__loading-overlay {
+  position: absolute;
+  z-index: 5;
+  inset: -1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2.8rem;
+  background: rgba(var(--color-background), 0.72);
+  backdrop-filter: blur(0.3rem);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease, visibility 150ms ease;
+  visibility: hidden;
+}
+
+.bloomli-bundle__visual.is-loading .bloomli-bundle__loading-overlay {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.bloomli-bundle__loading-spinner {
+  display: flex;
+  width: 4.8rem;
+  height: 4.8rem;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--color-button));
+}
+
+.bloomli-bundle__loading-spinner .spinner {
+  width: 100%;
+  height: 100%;
+  animation: bloomli-bundle-spinner-rotate 1.4s linear infinite;
+}
+
+.bloomli-bundle__loading-spinner .path {
+  stroke: currentColor;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: bloomli-bundle-spinner-dash 1.4s ease-in-out infinite;
+}
+
+@keyframes bloomli-bundle-spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bloomli-bundle-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -3.5rem;
+  }
+
+  100% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -12.4rem;
+  }
 }
 
 .bloomli-bundle__badge {

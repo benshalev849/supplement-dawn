@@ -306,7 +306,13 @@
       {%- endif -%}
     </div>
 
-    <div class="bloomli-bundle__visual">
+    <div class="bloomli-bundle__visual" data-bloomli-bundle-visual aria-busy="false">
+      <div class="bloomli-bundle__loading-overlay" data-bloomli-bundle-loading-overlay aria-hidden="true">
+        <span class="bloomli-bundle__loading-spinner">
+          {{- 'loading-spinner.svg' | inline_asset_content -}}
+        </span>
+      </div>
+
       {%- if section.settings.badge_text != blank -%}
         <p class="bloomli-bundle__badge">{{ section.settings.badge_text | escape }}</p>
       {%- endif -%}
@@ -426,9 +432,6 @@
           {% if first_variant == blank and second_variant == blank %}disabled{% endif %}
         >
           <span data-bundle-btn-label>{{ button_text | escape }}</span>
-          <span class="loading__spinner hidden" aria-hidden="true">
-            {{- 'loading-spinner.svg' | inline_asset_content -}}
-          </span>
         </button>
         <p
           class="bloomli-bundle__dynamic-saving"
@@ -467,6 +470,8 @@
     const oneTimeButton = section.querySelector('[data-bloomli-bundle-one-time-button]');
     const savingCallout = section.querySelector('[data-bloomli-bundle-saving-callout]');
     const subscriptionNote = section.querySelector('[data-bloomli-bundle-subscription-note]');
+    const visual = section.querySelector('[data-bloomli-bundle-visual]');
+    const loadingOverlay = section.querySelector('[data-bloomli-bundle-loading-overlay]');
     button.dataset.initialized = 'true';
     let syncTimer;
 
@@ -632,11 +637,13 @@
     });
 
     const setLoading = (loading) => {
-      const spinner = button.querySelector('.loading__spinner');
       button.disabled = loading;
-      button.classList.toggle('is-loading', loading);
-      if (spinner) spinner.classList.toggle('hidden', !loading);
       if (oneTimeButton) oneTimeButton.disabled = loading;
+      if (visual) {
+        visual.classList.toggle('is-loading', loading);
+        visual.setAttribute('aria-busy', loading ? 'true' : 'false');
+      }
+      if (loadingOverlay) loadingOverlay.setAttribute('aria-hidden', loading ? 'false' : 'true');
     };
 
     const addMissingItems = (forceOneTime) => {

@@ -167,6 +167,7 @@
         "concern_nutrient_gaps": {
           "type": "concern",
           "settings": {
+            "image": "shopify://shop_images/Nutrient_Gaps_Image_2.png",
             "icon": "pill",
             "title": "Nutrient gaps",
             "subtitle": "When key nutrients are missing",
@@ -177,6 +178,7 @@
         "concern_shedding": {
           "type": "concern",
           "settings": {
+            "image": "shopify://shop_images/Shedding.png",
             "icon": "droplets",
             "title": "Shedding",
             "subtitle": "When the drain tells a different story",
@@ -187,6 +189,7 @@
         "concern_breakage": {
           "type": "concern",
           "settings": {
+            "image": "shopify://shop_images/Breakage.png",
             "icon": "scissors",
             "title": "Breakage",
             "subtitle": "When your hair breaks before it grows",
@@ -197,6 +200,7 @@
         "concern_scalp": {
           "type": "concern",
           "settings": {
+            "image": "shopify://shop_images/Scalp.png",
             "icon": "plant-2",
             "title": "Scalp environment",
             "subtitle": "Where healthy hair actually begins",

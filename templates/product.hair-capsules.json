@@ -29,6 +29,7 @@
           "type": "volume_tier",
           "settings": {
             "heading": "Select Your Size:",
+            "override_product_image": "shopify://shop_images/Capsule_Bottle_Transperant.png",
             "add_to_cart_label": "Start your journey",
             "sold_out_label": "Sold out",
             "save_badge_background": "#b23a6f",

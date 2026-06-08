@@ -271,8 +271,8 @@
   }
 
   .bloomli-hero--has-bg-image.bloomli-hero--banner-fixed-height .bloomli-hero__bg-img--desktop {
-    object-fit: cover;
-    object-position: center bottom;
+    object-fit: var(--hero-desktop-image-fit, cover);
+    object-position: var(--hero-desktop-image-position, center bottom);
   }
 
 }

@@ -55,13 +55,13 @@
     if upsell_state == 1
       assign upsell_product      = addon_product
       assign upsell_heading      = settings.bloomli_routine_upsell_state1_heading | default: 'Complete your routine'
-      assign upsell_text_template = settings.bloomli_routine_upsell_state1_text    | default: 'Add Hair Oil and unlock Pair & Save.'
-      assign upsell_button       = settings.bloomli_routine_upsell_state1_button  | default: 'Add Hair Oil'
+      assign upsell_text_template = settings.bloomli_routine_upsell_state1_text    | default: 'Add Hair Serum and unlock Pair & Save.'
+      assign upsell_button       = settings.bloomli_routine_upsell_state1_button  | default: 'Add Hair Serum'
       assign upsell_has_bundle_discount = true
     else
       assign upsell_product      = supplement_product
       assign upsell_heading      = settings.bloomli_routine_upsell_state2_heading | default: 'Unlock your pairing offer'
-      assign upsell_text_template = settings.bloomli_routine_upsell_state2_text    | default: 'Add Gummies to activate Pair & Save on your Hair Oil.'
+      assign upsell_text_template = settings.bloomli_routine_upsell_state2_text    | default: 'Add Gummies to activate Pair & Save on your Hair Serum.'
       assign upsell_button       = settings.bloomli_routine_upsell_state2_button  | default: 'Add Gummies'
       assign upsell_has_bundle_discount = false
     endif

@@ -1686,7 +1686,7 @@
         "id": "cart_drawer_addon_bundle_discount_pct",
         "label": "Add-on bundle discount percent",
         "default": "15",
-        "info": "Extra discount stacked on top of volume and subscription savings for add-on (Hair Oil) cart lines."
+        "info": "Extra discount stacked on top of volume and subscription savings for add-on (Hair Serum) cart lines."
       },
       {
         "type": "text",
@@ -2126,7 +2126,7 @@
         "type": "product",
         "id": "bloomli_routine_upsell_addon_product",
         "label": "Add-on product",
-        "info": "e.g. Hair Oil — shown as upsell when supplement is in cart but add-on is not."
+        "info": "e.g. Hair Serum — shown as upsell when supplement is in cart but add-on is not."
       },
       {
         "type": "text",
@@ -2163,13 +2163,13 @@
         "type": "text",
         "id": "bloomli_routine_upsell_state1_text",
         "label": "Body text",
-        "default": "Add Hair Oil and unlock Pair & Save."
+        "default": "Add Hair Serum and unlock Pair & Save."
       },
       {
         "type": "text",
         "id": "bloomli_routine_upsell_state1_button",
         "label": "Button label",
-        "default": "Add Hair Oil"
+        "default": "Add Hair Serum"
       },
       {
         "type": "header",
@@ -2185,7 +2185,7 @@
         "type": "text",
         "id": "bloomli_routine_upsell_state2_text",
         "label": "Body text",
-        "default": "Add Gummies to activate Pair & Save on your Hair Oil."
+        "default": "Add Gummies to activate Pair & Save on your Hair Serum."
       },
       {
         "type": "text",

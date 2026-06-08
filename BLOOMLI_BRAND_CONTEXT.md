@@ -96,7 +96,7 @@ Bloomli Hair, Skin & Nails Gummies are a women's beauty-from-within gummy supple
 - Do not describe it as vegan
 - Do not call the flavor berry
 - Do not say one gummy daily
-- Do not mention oil, serum, drops, scalp massage, or capsules in gummy-only reviews
+- Do not mention serum, drops, scalp massage, or capsules in gummy-only reviews
 
 **Good review topics:**
 - Taste is good
@@ -144,7 +144,7 @@ Bloomli Hair, Skin & Nails Essentials Capsules are a more comprehensive inside-o
 - Contains iron
 - Do not say it is a gummy
 - Do not mention passion fruit flavor
-- Do not mention scalp massage, oil, serum, drops, or topical use
+- Do not mention scalp massage, serum, drops, or topical use
 - Do not make pregnancy-safe claims
 
 **Good review topics:**
@@ -169,9 +169,9 @@ Bloomli Hair, Skin & Nails Essentials Capsules are a more comprehensive inside-o
 
 ---
 
-## Product 3: Bloomli Botanical Hair Growth Serum / Hair Oil
+## Product 3: Bloomli Botanical Hair Growth Serum
 
-Use this when the user asks for hair oil, scalp serum, topical serum, or rosemary serum reviews.
+Use this when the user asks for hair serum, scalp serum, topical serum, or rosemary serum reviews.
 
 **Product summary:**
 Bloomli Botanical Hair Growth Serum is a lightweight topical scalp-support serum used directly on the scalp as part of a hair wellness routine. Bottle is 2 fl oz / 59 ml.

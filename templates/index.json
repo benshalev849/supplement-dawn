@@ -227,7 +227,7 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "Most hair concerns start somewhere you can't see.",
         "subtext": "<p>Every hair concern has a <strong>root cause.</strong> Here's what may be behind yours.</p>",
-        "show_icons": true,
+        "visual_style": "custom_images",
         "desktop_layout": "feature_first",
         "show_supporting_image": false,
         "padding_top": 80,

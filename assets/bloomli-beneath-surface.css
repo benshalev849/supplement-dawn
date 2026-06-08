@@ -73,6 +73,10 @@
   gap: 1.4rem;
 }
 
+.bloomli-beneath-surface__mobile {
+  display: none;
+}
+
 .bloomli-beneath-surface__card {
   position: relative;
   display: flex;
@@ -155,6 +159,18 @@
 .bloomli-beneath-surface__icon .ti {
   font-size: 2.3rem;
   line-height: 1;
+}
+
+.bloomli-beneath-surface__icon--image {
+  overflow: hidden;
+  background: transparent;
+}
+
+.bloomli-beneath-surface__icon-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .bloomli-beneath-surface__number {
@@ -303,16 +319,138 @@
     line-height: 1.6;
   }
 
-  .bloomli-beneath-surface__card {
-    padding: 2.4rem;
+  .bloomli-beneath-surface__grid {
+    display: none;
   }
 
-  .bloomli-beneath-surface__card-title {
-    font-size: 2.5rem;
+  .bloomli-beneath-surface__mobile.bloomli-faq__items {
+    display: block;
+    margin-top: 0;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
   }
 
-  .bloomli-beneath-surface__details {
-    margin-top: 2.4rem;
+  .bloomli-beneath-surface__mobile-item {
+    border-bottom-color: rgba(var(--color-foreground), 0.12);
+  }
+
+  .bloomli-beneath-surface__mobile-question.bloomli-faq__question {
+    gap: 1.6rem;
+    min-height: 8.6rem;
+    padding: 1.6rem 0;
+    font: inherit;
+  }
+
+  .bloomli-beneath-surface__mobile-lead {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: 1.4rem;
+  }
+
+  .bloomli-beneath-surface__mobile-icon {
+    display: inline-flex;
+    flex: 0 0 4rem;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border: 0.1rem solid rgba(var(--color-button), 0.2);
+    border-radius: 50%;
+    background: color-mix(
+      in srgb,
+      rgb(var(--color-background)) 86%,
+      rgb(var(--color-button)) 14%
+    );
+    color: rgb(var(--color-button));
+  }
+
+  .bloomli-beneath-surface__mobile-icon .ti {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .bloomli-beneath-surface__mobile-icon--image {
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .bloomli-beneath-surface__mobile-icon-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .bloomli-beneath-surface__mobile-copy {
+    display: grid;
+    min-width: 0;
+    gap: 0.35rem;
+  }
+
+  .bloomli-beneath-surface__mobile-title {
+    color: rgb(var(--color-foreground));
+    font-family: var(--font-heading-family);
+    font-size: 2rem;
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  .bloomli-beneath-surface__mobile-subtitle {
+    overflow: hidden;
+    color: rgba(var(--color-foreground), 0.62);
+    font-family: var(--font-body-family);
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .bloomli-beneath-surface__mobile-plus {
+    flex-basis: 2.2rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    color: rgb(var(--color-button));
+    font-size: 2.4rem;
+  }
+
+  .bloomli-beneath-surface__mobile-question[aria-expanded="true"] .bloomli-beneath-surface__mobile-subtitle {
+    color: rgb(var(--color-button));
+  }
+
+  .bloomli-beneath-surface__mobile-panel-inner.bloomli-faq__panel-inner {
+    display: grid;
+    gap: 2rem;
+    padding: 0 3.8rem 2.4rem 5.4rem;
+    color: rgba(var(--color-foreground), 0.76);
+  }
+
+  .bloomli-beneath-surface__mobile-detail--support {
+    padding-top: 2rem;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  }
+
+  .bloomli-beneath-surface__mobile-label {
+    margin: 0 0 0.7rem;
+    color: rgb(var(--color-foreground));
+    font-family: var(--font-heading-family);
+    font-size: 1.6rem;
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    line-height: 1.3;
+  }
+
+  .bloomli-beneath-surface__mobile-detail p {
+    margin: 0;
+    color: rgba(var(--color-foreground), 0.76);
+    font-family: var(--font-body-family);
+    font-size: 1.4rem;
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    line-height: 1.6;
   }
 }
 

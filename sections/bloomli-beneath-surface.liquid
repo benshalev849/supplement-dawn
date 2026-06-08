@@ -1,4 +1,6 @@
+{{ 'bloomli-faq.css' | asset_url | stylesheet_tag }}
 {{ 'bloomli-beneath-surface.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-faq.js' | asset_url }}" defer="defer"></script>
 
 <section
   id="BloomliBeneathSurface-{{ section.id }}"
@@ -46,6 +48,14 @@
         {%- for block in section.blocks -%}
           {%- liquid
             assign concern_icon = block.settings.icon | default: 'sparkles'
+            assign show_concern_visual = false
+            assign show_concern_image = false
+            if section.settings.visual_style != 'none'
+              assign show_concern_visual = true
+            endif
+            if section.settings.visual_style == 'custom_images' and block.settings.image != blank
+              assign show_concern_image = true
+            endif
             assign is_featured = false
             if section.settings.desktop_layout == 'feature_first' and forloop.first
               assign is_featured = true
@@ -57,9 +67,25 @@
             {{ block.shopify_attributes }}
           >
             <div class="bloomli-beneath-surface__card-top">
-              {%- if section.settings.show_icons -%}
-                <span class="bloomli-beneath-surface__icon" aria-hidden="true">
-                  <i class="ti ti-{{ concern_icon }}"></i>
+              {%- if show_concern_visual -%}
+                <span
+                  class="bloomli-beneath-surface__icon{% if show_concern_image %} bloomli-beneath-surface__icon--image{% endif %}"
+                  aria-hidden="true"
+                >
+                  {%- if show_concern_image -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 160
+                      | image_tag:
+                        widths: '80, 120, 160',
+                        sizes: '46px',
+                        loading: 'lazy',
+                        alt: '',
+                        class: 'bloomli-beneath-surface__icon-image'
+                    }}
+                  {%- else -%}
+                    <i class="ti ti-{{ concern_icon }}" aria-hidden="true"></i>
+                  {%- endif -%}
                 </span>
               {%- endif -%}
               <span class="bloomli-beneath-surface__number" aria-hidden="true">
@@ -87,6 +113,97 @@
               <div class="bloomli-beneath-surface__detail bloomli-beneath-surface__detail--support">
                 <h4 class="bloomli-beneath-surface__detail-label">How Bloomli supports it</h4>
                 <p>{{ block.settings.how_text | escape }}</p>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      <div
+        class="bloomli-beneath-surface__mobile bloomli-faq__items"
+        data-bloomli-faq
+      >
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign concern_icon = block.settings.icon | default: 'sparkles'
+            assign show_concern_visual = false
+            assign show_concern_image = false
+            if section.settings.visual_style != 'none'
+              assign show_concern_visual = true
+            endif
+            if section.settings.visual_style == 'custom_images' and block.settings.image != blank
+              assign show_concern_image = true
+            endif
+            assign mobile_button_id = 'BloomliBeneathSurface-' | append: section.id | append: '-mobile-button-' | append: forloop.index
+            assign mobile_panel_id = 'BloomliBeneathSurface-' | append: section.id | append: '-mobile-panel-' | append: forloop.index
+          -%}
+          <article
+            class="bloomli-faq__item bloomli-beneath-surface__mobile-item"
+            {{ block.shopify_attributes }}
+          >
+            <button
+              id="{{ mobile_button_id }}"
+              class="bloomli-faq__question bloomli-beneath-surface__mobile-question"
+              type="button"
+              aria-expanded="false"
+              aria-controls="{{ mobile_panel_id }}"
+              data-bloomli-faq-button
+            >
+              <span class="bloomli-beneath-surface__mobile-lead">
+                {%- if show_concern_visual -%}
+                  <span
+                    class="bloomli-beneath-surface__mobile-icon{% if show_concern_image %} bloomli-beneath-surface__mobile-icon--image{% endif %}"
+                    aria-hidden="true"
+                  >
+                    {%- if show_concern_image -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: 120
+                        | image_tag:
+                          widths: '64, 96, 120',
+                          sizes: '40px',
+                          loading: 'lazy',
+                          alt: '',
+                          class: 'bloomli-beneath-surface__mobile-icon-image'
+                      }}
+                    {%- else -%}
+                      <i class="ti ti-{{ concern_icon }}" aria-hidden="true"></i>
+                    {%- endif -%}
+                  </span>
+                {%- endif -%}
+
+                <span class="bloomli-beneath-surface__mobile-copy">
+                  <span class="bloomli-beneath-surface__mobile-title">
+                    {{ block.settings.title | escape }}
+                  </span>
+                  {%- if block.settings.subtitle != blank -%}
+                    <span class="bloomli-beneath-surface__mobile-subtitle">
+                      {{ block.settings.subtitle | escape }}
+                    </span>
+                  {%- endif -%}
+                </span>
+              </span>
+
+              <span class="bloomli-faq__plus bloomli-beneath-surface__mobile-plus" aria-hidden="true"></span>
+            </button>
+
+            <div
+              id="{{ mobile_panel_id }}"
+              class="bloomli-faq__panel bloomli-beneath-surface__mobile-panel"
+              role="region"
+              aria-labelledby="{{ mobile_button_id }}"
+              hidden
+            >
+              <div class="bloomli-faq__panel-inner bloomli-beneath-surface__mobile-panel-inner">
+                <div class="bloomli-beneath-surface__mobile-detail">
+                  <h4 class="bloomli-beneath-surface__mobile-label">What may be happening</h4>
+                  <p>{{ block.settings.what_text | escape }}</p>
+                </div>
+
+                <div class="bloomli-beneath-surface__mobile-detail bloomli-beneath-surface__mobile-detail--support">
+                  <h4 class="bloomli-beneath-surface__mobile-label">How Bloomli supports it</h4>
+                  <p>{{ block.settings.how_text | escape }}</p>
+                </div>
               </div>
             </div>
           </article>
@@ -124,10 +241,24 @@
       "default": "<p>Five common concerns, explained simply — and how Bloomli supports a consistent hair wellness routine.</p>"
     },
     {
-      "type": "checkbox",
-      "id": "show_icons",
-      "label": "Show concern icons",
-      "default": true
+      "type": "select",
+      "id": "visual_style",
+      "label": "Concern visuals",
+      "options": [
+        {
+          "value": "custom_images",
+          "label": "Custom images"
+        },
+        {
+          "value": "tabler_icons",
+          "label": "Tabler icons"
+        },
+        {
+          "value": "none",
+          "label": "No visuals"
+        }
+      ],
+      "default": "custom_images"
     },
     {
       "type": "select",
@@ -199,6 +330,12 @@
       "type": "concern",
       "name": "Concern",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom image",
+          "info": "Used when Concern visuals is set to Custom images. The selected Tabler icon is used as a fallback."
+        },
         {
           "type": "select",
           "id": "icon",

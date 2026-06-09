@@ -423,6 +423,16 @@
   .bloomli-signup-popup__decline {
     font-size: 13px;
   }
+
+  .bloomli-signup-popup__launcher-open {
+    padding: 1.5rem 2.25rem 1.5rem 0.525rem;
+    font-size: 1.95rem;
+  }
+
+  .bloomli-signup-popup__launcher-close {
+    width: 5.1rem;
+    padding: 1.575rem 0.825rem 1.575rem 1.575rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

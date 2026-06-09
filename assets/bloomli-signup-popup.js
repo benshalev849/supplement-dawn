@@ -20,7 +20,6 @@
       this.tags = root.querySelector('[data-bloomli-popup-tags]');
       this.form = root.querySelector('.bloomli-signup-popup__form');
       this.footerForms = Array.from(document.querySelectorAll('form.newsletter-form')).filter((form) => !root.contains(form));
-      this.submissionFrame = root.querySelector('[data-bloomli-popup-submission-frame]');
       this.formState = root.querySelector('[data-bloomli-popup-form-state]')?.dataset.bloomliPopupFormState || 'idle';
       this.launcher = root.querySelector('[data-bloomli-popup-launcher]');
       this.success = root.querySelector('[data-bloomli-popup-success]');
@@ -31,12 +30,7 @@
       this.isOpen = false;
       this.openTimer = null;
       this.hideTimer = null;
-      this.submissionTimer = null;
       this.previouslyFocused = null;
-      this.pendingForm = null;
-      this.pendingScrollY = null;
-      this.awaitingFrameResponse = false;
-      this.formAttributes = new WeakMap();
       this.selectedConcern = null;
       this.isDesignMode = Boolean(window.Shopify && window.Shopify.designMode);
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -45,21 +39,27 @@
       this.showLauncherAfterClose = root.dataset.showLauncher === 'true';
       this.customerAcceptsMarketing = root.dataset.customerMarketing === 'true';
       this.handleKeydown = this.handleKeydown.bind(this);
-      this.handleSubmissionFrameLoad = this.handleSubmissionFrameLoad.bind(this);
     }
 
     init() {
       this.applySettings();
-      this.bindSubmissionFrame();
       this.bindFooterForms();
 
       const pendingSubmission = this.getPendingSubmission();
-      if (pendingSubmission && this.isSuccessfulSubmissionReturn()) {
+      if (pendingSubmission && this.isSuccessfulSubmissionReturn(pendingSubmission)) {
         this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-        this.hideThemeNewsletterSuccess();
         this.restoreSubmissionLocation(pendingSubmission);
         this.recordSubmission();
-        this.showSuccess();
+        if (pendingSubmission.source === 'popup') {
+          this.hideThemeNewsletterSuccess();
+          this.showSuccess();
+        }
+        return;
+      }
+
+      if (pendingSubmission?.source === 'footer' && this.hasNewsletterError()) {
+        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
+        this.restoreSubmissionLocation(pendingSubmission);
         return;
       }
 
@@ -75,7 +75,7 @@
 
       if (this.customerAcceptsMarketing || this.hasSubmitted()) return;
 
-      if (this.formState === 'error' && pendingSubmission) {
+      if (this.formState === 'error' && pendingSubmission?.source === 'popup') {
         this.removeSessionStorage(PENDING_SUBMISSION_KEY);
         this.restoreSubmissionLocation(pendingSubmission);
         this.goToStepTwo(false);
@@ -238,180 +238,18 @@
       if (!form || form.dataset.bloomliSignupBound === 'true') return;
 
       form.dataset.bloomliSignupBound = 'true';
-      form.addEventListener('submit', (event) => this.submitForm(event, form));
-    }
-
-    submitForm(event, form) {
-      if (!form.checkValidity()) return;
-
-      if (form.dataset.bloomliSubmitting === 'true') {
-        event.preventDefault();
-        return;
-      }
-
-      if (!this.submissionFrame?.name) {
-        this.rememberSubmissionAttempt(form);
-        return;
-      }
-
-      this.rememberSubmissionAttempt(form);
-      this.clearFormError(form);
-      this.setFormPending(form, true);
-      this.prepareFormForFrame(form);
-
-      this.pendingForm = form;
-      this.pendingScrollY = Math.round(window.scrollY);
-      this.awaitingFrameResponse = true;
-      window.clearTimeout(this.submissionTimer);
-      this.submissionTimer = window.setTimeout(() => {
-        if (!this.awaitingFrameResponse) return;
-        this.finishFrameSubmission(
-          false,
-          'The signup is taking longer than expected. Please try again.'
-        );
-      }, 30000);
-    }
-
-    bindSubmissionFrame() {
-      this.submissionFrame?.addEventListener('load', this.handleSubmissionFrameLoad);
-    }
-
-    prepareFormForFrame(form) {
-      this.formAttributes.set(form, {
-        action: form.getAttribute('action'),
-        target: form.getAttribute('target'),
-      });
-
-      const actionUrl = new URL(form.action, window.location.href);
-      actionUrl.hash = '';
-      form.action = actionUrl.toString();
-      form.target = this.submissionFrame.name;
-    }
-
-    restoreFormAttributes(form) {
-      const attributes = this.formAttributes.get(form);
-      if (!attributes) return;
-
-      if (attributes.action === null) {
-        form.removeAttribute('action');
-      } else {
-        form.setAttribute('action', attributes.action);
-      }
-
-      if (attributes.target === null) {
-        form.removeAttribute('target');
-      } else {
-        form.setAttribute('target', attributes.target);
-      }
-
-      this.formAttributes.delete(form);
-    }
-
-    handleSubmissionFrameLoad() {
-      if (!this.awaitingFrameResponse || !this.pendingForm) return;
-
-      let responseUrl;
-      let responseDocument;
-
-      try {
-        responseUrl = new URL(this.submissionFrame.contentWindow.location.href);
-        responseDocument = this.submissionFrame.contentDocument;
-      } catch (_error) {
-        this.finishFrameSubmission(false, 'We could not confirm your signup. Please try again.');
-        return;
-      }
-
-      if (responseUrl.href === 'about:blank') return;
-
-      const challenge = responseDocument?.querySelector('.shopify-challenge__container');
-      if (responseUrl.pathname.includes('/challenge') || challenge) {
-        window.location.assign(responseUrl.href);
-        return;
-      }
-
-      const successful =
-        responseUrl.searchParams.get('customer_posted') === 'true' ||
-        Boolean(
-          responseDocument?.querySelector(
-            '[data-bloomli-popup-form-state="success"], .newsletter-form__message--success'
-          )
-        );
-
-      if (successful) {
-        this.finishFrameSubmission(true);
-        return;
-      }
-
-      const error = responseDocument?.querySelector(
-        '.bloomli-signup-popup__message--error, .newsletter-form__message:not(.newsletter-form__message--success), .form__message'
-      );
-      this.finishFrameSubmission(
-        false,
-        error?.textContent.trim() || 'We could not sign you up. Please try again.'
-      );
-    }
-
-    finishFrameSubmission(successful, errorMessage) {
-      const form = this.pendingForm;
-      const scrollY = this.pendingScrollY;
-
-      window.clearTimeout(this.submissionTimer);
-      this.submissionTimer = null;
-      this.awaitingFrameResponse = false;
-      this.pendingForm = null;
-      this.pendingScrollY = null;
-
-      if (!form) return;
-
-      this.restoreFormAttributes(form);
-      this.setFormPending(form, false);
-
-      if (!successful) {
-        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-        this.showFormError(form, errorMessage);
-        this.restoreScrollPosition(scrollY);
-        return;
-      }
-
-      this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-      form.reset();
-      this.hideThemeNewsletterSuccess();
-      this.recordSubmission();
-      this.showSuccess();
-      this.restoreScrollPosition(scrollY);
+      form.addEventListener('submit', () => this.rememberSubmissionAttempt(form), true);
     }
 
     restoreScrollPosition(scrollY) {
       if (!Number.isFinite(scrollY)) return;
 
       const restoreScroll = () => window.scrollTo(0, scrollY);
-      restoreScroll();
-      window.requestAnimationFrame(restoreScroll);
-      window.setTimeout(restoreScroll, 100);
-    }
-
-    setFormPending(form, isPending) {
-      form.dataset.bloomliSubmitting = String(isPending);
-      form.setAttribute('aria-busy', String(isPending));
-      form.querySelectorAll('button[type="submit"], input[type="submit"]').forEach((button) => {
-        button.disabled = isPending;
+      [0, 100, 300, 700].forEach((delay) => {
+        window.setTimeout(restoreScroll, delay);
       });
-    }
-
-    clearFormError(form) {
-      form.querySelector('[data-bloomli-async-error]')?.remove();
-    }
-
-    showFormError(form, message) {
-      const error = document.createElement('small');
-      error.dataset.bloomliAsyncError = '';
-      error.className =
-        form === this.form
-          ? 'bloomli-signup-popup__message bloomli-signup-popup__message--error'
-          : 'newsletter-form__message form__message';
-      error.setAttribute('role', 'alert');
-      error.textContent = message;
-      form.append(error);
+      window.addEventListener('load', restoreScroll, { once: true });
+      window.addEventListener('pageshow', restoreScroll, { once: true });
     }
 
     rememberSubmissionAttempt(form) {
@@ -431,9 +269,24 @@
       });
     }
 
-    isSuccessfulSubmissionReturn() {
+    isSuccessfulSubmissionReturn(pendingSubmission) {
       const postedSuccessfully = new URLSearchParams(window.location.search).get('customer_posted') === 'true';
-      return this.formState === 'success' || postedSuccessfully;
+      if (postedSuccessfully) return true;
+      if (pendingSubmission.source === 'popup') return this.formState === 'success';
+
+      return Boolean(
+        Array.from(document.querySelectorAll('.newsletter-form__message--success')).find(
+          (message) => !this.root.contains(message)
+        )
+      );
+    }
+
+    hasNewsletterError() {
+      return Boolean(
+        document.querySelector(
+          '.newsletter-form__message:not(.newsletter-form__message--success), .newsletter-form [aria-invalid="true"]'
+        )
+      );
     }
 
     getPendingSubmission() {

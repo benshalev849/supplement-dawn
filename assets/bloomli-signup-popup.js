@@ -89,9 +89,71 @@
     writeSessionStorage(PENDING_SUBMISSION_KEY, JSON.stringify(submission));
   };
 
+  // Shopify's spam protection requires an hCaptcha token on customer form
+  // posts (missing tokens get a 400 "missing CAPTCHA token" error since 2024).
+  // window.Shopify.captcha.protect is Shopify's supported API for wiring the
+  // token to programmatic submissions; it is only defined while the merchant
+  // has CAPTCHA enabled in Online Store > Preferences.
+  const CAPTCHA_READY_TIMEOUT = 4000;
+
+  const getCaptchaTokenInput = (form) => form.querySelector('input[name="h-captcha-response"]');
+
+  const whenCaptchaReady = (form) =>
+    new Promise((resolve) => {
+      const protect = window.Shopify?.captcha?.protect;
+      if (typeof protect !== 'function') {
+        resolve();
+        return;
+      }
+
+      let settled = false;
+      const settle = () => {
+        if (settled) return;
+        settled = true;
+        resolve();
+      };
+
+      window.setTimeout(settle, CAPTCHA_READY_TIMEOUT);
+      try {
+        protect(form, settle);
+      } catch (_error) {
+        settle();
+      }
+    });
+
+  // Resolves true when the form can be posted via fetch: either CAPTCHA is
+  // disabled, or Shopify's script has placed a token input inside the form.
+  const prepareCustomerForm = async (form) => {
+    if (typeof window.Shopify?.captcha?.protect !== 'function') return true;
+
+    await whenCaptchaReady(form);
+    return Boolean(getCaptchaTokenInput(form)?.value);
+  };
+
   const nativeFormSubmit = (form, source) => {
     rememberSubmissionAttempt(source);
-    HTMLFormElement.prototype.submit.call(form);
+
+    let submitted = false;
+    const submit = () => {
+      if (submitted) return;
+      submitted = true;
+      HTMLFormElement.prototype.submit.call(form);
+    };
+
+    const protect = window.Shopify?.captcha?.protect;
+    if (typeof protect !== 'function') {
+      submit();
+      return;
+    }
+
+    // Submit through the protect callback so the POST carries a CAPTCHA token;
+    // the timeout keeps the form from hanging if the callback never fires.
+    window.setTimeout(submit, CAPTCHA_READY_TIMEOUT);
+    try {
+      protect(form, submit);
+    } catch (_error) {
+      submit();
+    }
   };
 
   const restoreScrollPosition = (scrollY) => {
@@ -120,9 +182,10 @@
   };
 
   // Posts a native `form_type=customer` form to /contact without reloading.
-  // Shopify redirects to `return_to` with `customer_posted=true` on success and
-  // to /challenge when it requires an interactive CAPTCHA; errors re-render the
-  // origin page with the form errors in the section markup.
+  // Shopify redirects to `return_to` with `customer_posted=true` on success;
+  // a missing/invalid CAPTCHA token returns a 400 (handled as 'fallback') or a
+  // /challenge redirect; validation errors re-render the origin page with the
+  // form errors in the section markup.
   const submitCustomerForm = async (form) => {
     const response = await fetch(form.action, {
       method: 'POST',
@@ -206,6 +269,11 @@
 
     clearNewsletterMessages(form);
     setNewsletterPending(form, true);
+
+    if (!(await prepareCustomerForm(form))) {
+      nativeFormSubmit(form, 'footer');
+      return;
+    }
 
     let result;
     try {
@@ -482,6 +550,11 @@
 
       this.clearFormError();
       this.setFormPending(true);
+
+      if (!(await prepareCustomerForm(this.form))) {
+        this.submitNativeFallback();
+        return;
+      }
 
       let result;
       try {

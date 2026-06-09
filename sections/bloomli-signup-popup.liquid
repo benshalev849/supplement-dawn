@@ -33,7 +33,12 @@
   assign popup_body_step_2 = section.settings.body_step_2 | default: 'Sign up for email to receive your discount!'
   assign popup_email_placeholder = section.settings.email_placeholder | default: 'Enter your email'
   assign popup_submit_button_label = section.settings.submit_button_label | default: 'Get My 47% Off'
+  assign popup_submit_loading_label = section.settings.submit_loading_label | default: 'Signing you up...'
   assign popup_success_message = section.settings.success_message | default: 'Check your email for your Bloomli offer.'
+  assign popup_use_shopify_forms = section.settings.use_shopify_forms_async | default: true, allow_false: true
+  assign popup_shopify_forms_id = section.settings.shopify_forms_id | default: '1024029'
+  assign popup_shopify_forms_concern_field = section.settings.shopify_forms_concern_field | default: 'primary_hair_concern'
+  assign popup_captcha_disclosure = section.settings.captcha_disclosure
   assign popup_content_padding_mobile = section.settings.content_padding_mobile | default: 28
   assign popup_content_padding_desktop = section.settings.content_padding_desktop | default: 64
 
@@ -71,6 +76,11 @@
     data-pill-radius="{{ popup_pill_radius }}"
     data-padding-mobile="{{ popup_content_padding_mobile }}"
     data-padding-desktop="{{ popup_content_padding_desktop }}"
+    data-shopify-forms-enabled="{{ popup_use_shopify_forms }}"
+    data-shopify-forms-id="{{ popup_shopify_forms_id | escape }}"
+    data-shopify-forms-concern-field="{{ popup_shopify_forms_concern_field | escape }}"
+    data-shopify-domain="{{ shop.permanent_domain | escape }}"
+    data-submit-loading-label="{{ popup_submit_loading_label | escape }}"
   >
     <div class="bloomli-signup-popup__modal" data-bloomli-popup-modal hidden>
       <div
@@ -131,16 +141,16 @@
               <p class="bloomli-signup-popup__text">{{ popup_subheading_step_1 | escape }}</p>
 
               <div class="bloomli-signup-popup__options" aria-label="{{ popup_options_group_label | escape }}">
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_1_tag | escape }}">
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_1_tag | escape }}" data-concern-value="{{ popup_problem_option_1_label | escape }}">
                   {{ popup_problem_option_1_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_2_tag | escape }}">
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_2_tag | escape }}" data-concern-value="{{ popup_problem_option_2_label | escape }}">
                   {{ popup_problem_option_2_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_3_tag | escape }}">
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_3_tag | escape }}" data-concern-value="{{ popup_problem_option_3_label | escape }}">
                   {{ popup_problem_option_3_label | escape }}
                 </button>
-                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_4_tag | escape }}">
+                <button type="button" class="bloomli-signup-popup__option" data-bloomli-popup-option data-concern-tag="{{ popup_problem_option_4_tag | escape }}" data-concern-value="{{ popup_problem_option_4_label | escape }}">
                   {{ popup_problem_option_4_label | escape }}
                 </button>
               </div>
@@ -181,14 +191,30 @@
                     required
                     data-bloomli-popup-email
                   >
-                  <button class="bloomli-signup-popup__submit" type="submit" name="commit">
+                  <button class="bloomli-signup-popup__submit" type="submit" name="commit" data-bloomli-popup-submit>
                     {{ popup_submit_button_label | escape }}
                   </button>
 
-                  {%- if form.errors -%}
-                    <small class="bloomli-signup-popup__message bloomli-signup-popup__message--error" id="{{ error_id }}">
+                  <small
+                    class="bloomli-signup-popup__message bloomli-signup-popup__message--error"
+                    id="{{ error_id }}"
+                    role="alert"
+                    data-bloomli-popup-error
+                    {% unless form.errors %}
+                      hidden
+                    {% endunless %}
+                  >
+                    {%- if form.errors -%}
                       {{- form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email -}}
-                    </small>
+                    {%- endif -%}
+                  </small>
+
+                  <div class="bloomli-signup-popup__captcha" data-bloomli-popup-captcha></div>
+
+                  {%- if popup_captcha_disclosure != blank -%}
+                    <div class="bloomli-signup-popup__disclosure rte">
+                      {{ popup_captcha_disclosure }}
+                    </div>
                   {%- endif -%}
                 </div>
               {%- endform -%}
@@ -489,9 +515,47 @@
     },
     {
       "type": "text",
+      "id": "submit_loading_label",
+      "label": "Submit loading label",
+      "default": "Signing you up..."
+    },
+    {
+      "type": "text",
       "id": "success_message",
       "label": "Success message",
       "default": "Check your email for your Bloomli offer."
+    },
+    {
+      "type": "header",
+      "content": "Shopify Forms submission"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_shopify_forms_async",
+      "label": "Submit without reloading through Shopify Forms",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "shopify_forms_id",
+      "label": "Shopify Forms form ID",
+      "default": "1024029",
+      "visible_if": "{{ section.settings.use_shopify_forms_async }}"
+    },
+    {
+      "type": "text",
+      "id": "shopify_forms_concern_field",
+      "label": "Concern metafield key",
+      "default": "primary_hair_concern",
+      "info": "Must match the Shopify Forms custom field key.",
+      "visible_if": "{{ section.settings.use_shopify_forms_async }}"
+    },
+    {
+      "type": "richtext",
+      "id": "captcha_disclosure",
+      "label": "CAPTCHA and consent disclosure",
+      "default": "<p>By signing up, you agree to receive marketing emails. This site is protected by hCaptcha and its <a href=\"https://www.hcaptcha.com/privacy\">Privacy Policy</a> and <a href=\"https://www.hcaptcha.com/terms\">Terms of Service</a> apply.</p>",
+      "visible_if": "{{ section.settings.use_shopify_forms_async }}"
     },
     {
       "type": "header",

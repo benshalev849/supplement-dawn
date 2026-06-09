@@ -9666,9 +9666,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L284",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_signup_popup_bloomlisignuppopup",
-      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_hasnewslettererror",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_hasnewslettererror"
     },
     {
       "relation": "method",
@@ -10087,9 +10087,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_signup_popup_bloomlisignuppopup_init",
-      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_hasnewslettererror",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_hasnewslettererror"
     },
     {
       "relation": "calls",

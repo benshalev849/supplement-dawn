@@ -7,6 +7,56 @@
   const LAUNCHER_HIDDEN_UNTIL_KEY = `${STORAGE_PREFIX}:launcherHiddenUntil`;
   const PENDING_SUBMISSION_KEY = `${STORAGE_PREFIX}:pendingSubmission`;
   const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
+  const SHOPIFY_FORMS_ENDPOINT = 'https://forms.shopifyapps.com/api/v2/form_submission';
+  const SHOPIFY_FORMS_HCAPTCHA_SITEKEY = '2e7f6342-57df-422a-8431-ddd86df296bc';
+  const HCAPTCHA_SCRIPT_ID = 'bloomli-shopify-forms-hcaptcha';
+  const HCAPTCHA_ONLOAD_CALLBACK = 'bloomliShopifyFormsCaptchaReady';
+  let hCaptchaScriptPromise;
+
+  const loadHCaptcha = () => {
+    if (window.hcaptcha) return Promise.resolve(window.hcaptcha);
+    if (hCaptchaScriptPromise) return hCaptchaScriptPromise;
+
+    hCaptchaScriptPromise = new Promise((resolve, reject) => {
+      const existingScript = document.getElementById(HCAPTCHA_SCRIPT_ID);
+      const timeout = window.setTimeout(() => reject(new Error('CAPTCHA timed out.')), 15000);
+
+      window[HCAPTCHA_ONLOAD_CALLBACK] = () => {
+        window.clearTimeout(timeout);
+        if (window.hcaptcha) {
+          resolve(window.hcaptcha);
+        } else {
+          reject(new Error('CAPTCHA could not be initialized.'));
+        }
+      };
+
+      if (existingScript) {
+        existingScript.addEventListener('error', () => {
+          window.clearTimeout(timeout);
+          reject(new Error('CAPTCHA could not be loaded.'));
+        }, { once: true });
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.id = HCAPTCHA_SCRIPT_ID;
+      script.src = `https://js.hcaptcha.com/1/api.js?onload=${HCAPTCHA_ONLOAD_CALLBACK}&render=explicit&recaptchacompat=off`;
+      script.async = true;
+      script.defer = true;
+      script.addEventListener('error', () => {
+        window.clearTimeout(timeout);
+        reject(new Error('CAPTCHA could not be loaded.'));
+      }, { once: true });
+      document.head.append(script);
+    });
+
+    hCaptchaScriptPromise = hCaptchaScriptPromise.catch((error) => {
+      hCaptchaScriptPromise = null;
+      throw error;
+    });
+
+    return hCaptchaScriptPromise;
+  };
 
   class BloomliSignupPopup {
     constructor(root) {
@@ -19,6 +69,9 @@
       this.email = root.querySelector('[data-bloomli-popup-email]');
       this.tags = root.querySelector('[data-bloomli-popup-tags]');
       this.form = root.querySelector('.bloomli-signup-popup__form');
+      this.submitButton = root.querySelector('[data-bloomli-popup-submit]');
+      this.formError = root.querySelector('[data-bloomli-popup-error]');
+      this.captchaContainer = root.querySelector('[data-bloomli-popup-captcha]');
       this.footerForms = Array.from(document.querySelectorAll('form.newsletter-form')).filter((form) => !root.contains(form));
       this.formState = root.querySelector('[data-bloomli-popup-form-state]')?.dataset.bloomliPopupFormState || 'idle';
       this.launcher = root.querySelector('[data-bloomli-popup-launcher]');
@@ -32,12 +85,25 @@
       this.hideTimer = null;
       this.previouslyFocused = null;
       this.selectedConcern = null;
+      this.selectedConcernValue = null;
+      this.captchaWidgetId = null;
+      this.captchaChallengeOpen = false;
+      this.isSubmitting = false;
       this.isDesignMode = Boolean(window.Shopify && window.Shopify.designMode);
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       this.delay = this.numberSetting('delaySeconds', 7) * 1000;
       this.closeDays = this.numberSetting('closeCooldownDays', 7);
       this.showLauncherAfterClose = root.dataset.showLauncher === 'true';
       this.customerAcceptsMarketing = root.dataset.customerMarketing === 'true';
+      this.shopifyFormsId = Number(root.dataset.shopifyFormsId);
+      this.shopifyFormsEnabled =
+        root.dataset.shopifyFormsEnabled === 'true' &&
+        Number.isInteger(this.shopifyFormsId) &&
+        this.shopifyFormsId > 0 &&
+        Boolean(root.dataset.shopifyDomain);
+      this.shopifyFormsConcernField = root.dataset.shopifyFormsConcernField || 'primary_hair_concern';
+      this.shopifyDomain = root.dataset.shopifyDomain;
+      this.submitLoadingLabel = root.dataset.submitLoadingLabel || 'Signing you up...';
       this.handleKeydown = this.handleKeydown.bind(this);
     }
 
@@ -120,7 +186,7 @@
     bindEvents() {
       this.options.forEach((option) => {
         option.addEventListener('click', () => {
-          this.selectConcern(option.dataset.concernTag);
+          this.selectConcern(option.dataset.concernTag, option.dataset.concernValue);
           this.goToStepTwo(true);
         });
       });
@@ -215,10 +281,11 @@
       }
     }
 
-    selectConcern(tag) {
+    selectConcern(tag, value) {
       if (!tag) return;
 
       this.selectedConcern = tag;
+      this.selectedConcernValue = value || tag;
       this.options.forEach((option) => {
         option.setAttribute('aria-pressed', String(option.dataset.concernTag === tag));
       });
@@ -231,14 +298,184 @@
       if (!tag) return;
 
       const matchingOption = this.options.find((option) => option.dataset.concernTag === tag);
-      if (matchingOption) this.selectConcern(tag);
+      if (matchingOption) this.selectConcern(tag, matchingOption.dataset.concernValue);
     }
 
     bindSignupForm(form) {
       if (!form || form.dataset.bloomliSignupBound === 'true') return;
 
       form.dataset.bloomliSignupBound = 'true';
+      if (form === this.form && this.shopifyFormsEnabled) {
+        form.addEventListener('submit', (event) => this.submitWithShopifyForms(event));
+        return;
+      }
+
       form.addEventListener('submit', () => this.rememberSubmissionAttempt(form), true);
+    }
+
+    async submitWithShopifyForms(event) {
+      event.preventDefault();
+      if (this.isSubmitting || !this.form?.checkValidity()) return;
+
+      this.clearFormError();
+      this.setFormPending(true);
+
+      try {
+        const hCaptchaResponse = await this.getHCaptchaResponse();
+        const payload = {
+          shopify_domain: this.shopifyDomain,
+          h_captcha_response: hCaptchaResponse,
+          form_instance_id: this.shopifyFormsId,
+          email: this.email.value.trim(),
+          customer_consented_to_email_marketing: true,
+          customer_consented_to_sms_marketing: false,
+        };
+
+        if (this.selectedConcernValue && this.shopifyFormsConcernField) {
+          payload[`custom#${this.shopifyFormsConcernField}`] = this.selectedConcernValue;
+        }
+
+        let response;
+        try {
+          response = await fetch(SHOPIFY_FORMS_ENDPOINT, {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          });
+        } catch (error) {
+          if (error && typeof error === 'object') {
+            error.useNativeFallback = true;
+          } else {
+            const fallbackError = new Error(errorCode);
+            fallbackError.useNativeFallback = true;
+            error = fallbackError;
+          }
+          throw error;
+        }
+
+        const responseData = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          const error = new Error(this.getShopifyFormsError(responseData));
+          error.useNativeFallback = response.status === 404 || response.status >= 500;
+          throw error;
+        }
+
+        this.setFormPending(false);
+        this.form.reset();
+        this.recordSubmission();
+        this.showSuccess();
+      } catch (error) {
+        const errorCode = typeof error === 'string' ? error : error?.message;
+        if (
+          errorCode === 'network-error' ||
+          errorCode === 'script-error' ||
+          errorCode === 'invalid-data' ||
+          errorCode === 'invalid-captcha-id' ||
+          errorCode === 'missing-captcha' ||
+          /CAPTCHA (?:could not|timed out)/.test(errorCode || '')
+        ) {
+          error.useNativeFallback = true;
+        }
+
+        if (error?.useNativeFallback) {
+          this.submitNativeFallback();
+          return;
+        }
+
+        this.setFormPending(false);
+        this.resetCaptcha();
+        this.showFormError(this.getCaptchaError(error));
+      }
+    }
+
+    async getHCaptchaResponse() {
+      const hCaptcha = await loadHCaptcha();
+
+      if (this.captchaWidgetId === null) {
+        this.captchaWidgetId = hCaptcha.render(this.captchaContainer, {
+          sitekey: SHOPIFY_FORMS_HCAPTCHA_SITEKEY,
+          size: 'invisible',
+          'open-callback': () => {
+            this.captchaChallengeOpen = true;
+          },
+          'close-callback': () => {
+            this.captchaChallengeOpen = false;
+          },
+          'expired-callback': () => this.resetCaptcha(),
+        });
+      }
+
+      const result = await hCaptcha.execute(this.captchaWidgetId, { async: true });
+      this.captchaChallengeOpen = false;
+      if (!result?.response) throw new Error('CAPTCHA verification failed.');
+      return result.response;
+    }
+
+    resetCaptcha() {
+      this.captchaChallengeOpen = false;
+      if (this.captchaWidgetId === null || !window.hcaptcha) return;
+
+      window.hcaptcha.reset(this.captchaWidgetId);
+    }
+
+    getCaptchaError(error) {
+      const code = typeof error === 'string' ? error : error?.message;
+      if (code === 'challenge-closed') return 'Please complete the verification to sign up.';
+      if (code === 'challenge-expired') return 'The verification expired. Please try again.';
+      if (code === 'rate-limited') return 'Too many signup attempts. Please wait and try again.';
+      return code || 'We could not sign you up. Please try again.';
+    }
+
+    getShopifyFormsError(responseData) {
+      const errors = responseData?.errors;
+      if (typeof errors === 'string') return errors;
+      if (errors?.message) return errors.message;
+      if (errors && typeof errors === 'object') {
+        const firstError = Object.values(errors).flat().find(Boolean);
+        if (firstError) return String(firstError);
+      }
+      return responseData?.message || 'We could not sign you up. Please try again.';
+    }
+
+    setFormPending(isPending) {
+      this.isSubmitting = isPending;
+      this.form?.setAttribute('aria-busy', String(isPending));
+      if (!this.submitButton) return;
+
+      if (!this.submitButton.dataset.defaultLabel) {
+        this.submitButton.dataset.defaultLabel = this.submitButton.textContent.trim();
+      }
+      this.submitButton.disabled = isPending;
+      this.submitButton.textContent = isPending
+        ? this.submitLoadingLabel
+        : this.submitButton.dataset.defaultLabel;
+    }
+
+    clearFormError() {
+      if (!this.formError) return;
+
+      this.formError.hidden = true;
+      this.formError.textContent = '';
+      this.email?.removeAttribute('aria-invalid');
+      this.email?.removeAttribute('aria-describedby');
+    }
+
+    showFormError(message) {
+      if (!this.formError) return;
+
+      this.formError.textContent = message;
+      this.formError.hidden = false;
+      this.email?.setAttribute('aria-invalid', 'true');
+      this.email?.setAttribute('aria-describedby', this.formError.id);
+    }
+
+    submitNativeFallback() {
+      this.setFormPending(false);
+      this.rememberSubmissionAttempt(this.form);
+      HTMLFormElement.prototype.submit.call(this.form);
     }
 
     restoreScrollPosition(scrollY) {
@@ -360,7 +597,7 @@
     }
 
     handleKeydown(event) {
-      if (event.key === 'Escape') this.dismiss();
+      if (event.key === 'Escape' && !this.captchaChallengeOpen) this.dismiss();
     }
 
     hasSubmitted() {

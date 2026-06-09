@@ -12,8 +12,7 @@
   const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
   const GENERIC_ERROR_MESSAGE = 'We could not sign you up. Please try again.';
   const GENERIC_SUCCESS_MESSAGE = 'Thanks for subscribing!';
-  const SUBMISSION_FRAME_NAME = 'bloomli-signup-submission-frame';
-  const SUBMISSION_TIMEOUT = 30000;
+  const SUBMISSION_TIMEOUT = 60000;
   const SUBMISSION_TIMEOUT_MESSAGE = 'The signup is taking longer than expected. Please try again.';
 
   const readStorage = (key) => {
@@ -185,166 +184,136 @@
     },
   });
 
-  // --- hidden-iframe submission -------------------------------------------
-  // Shopify's spam protection requires an hCaptcha token on customer form
-  // posts (a missing token gets a 400 "Missing CAPTCHA token" error). The
-  // token is attached by Shopify's own script intercepting a *real* form
-  // submission — fetch() and HTMLFormElement.prototype.submit() bypass it.
-  // So the form is submitted natively (no preventDefault) but retargeted into
-  // a hidden same-origin iframe: the tokened POST and its redirects happen in
-  // the iframe, the page never reloads, and the result is read from the
-  // iframe's URL/document.
+  // --- AJAX submission cooperating with Shopify's CAPTCHA -------------------
+  // Shopify's hCaptcha script (storefront-forms-hcaptcha) binds to customer
+  // forms by capturing the form's CURRENT `submit` function, then adding a
+  // submit listener that calls preventDefault, fetches a fresh token into a
+  // hidden h-captcha-response input, and finally invokes the captured submit.
+  // It marks bound forms with `data-hcaptcha-bound`. This script runs before
+  // Shopify's (theirs loads lazily after first interaction), so patching
+  // form.submit here first makes the captured "original submit" our AJAX
+  // submitter: tokened submissions flow through fetch() with no page reload.
+  // Posting without a token gets a 400 "Missing CAPTCHA token" page, and the
+  // storefront sends frame-ancestors 'none', so neither a bare fetch nor a
+  // hidden-iframe submission can work here.
+  const HCAPTCHA_BOUND_ATTRIBUTE = 'data-hcaptcha-bound';
 
-  const frameSubmission = {
-    form: null,
-    ui: null,
-    restore: null,
-    timer: null,
+  const activeSubmission = { form: null, ui: null, timer: null };
+
+  const clearActiveSubmission = () => {
+    window.clearTimeout(activeSubmission.timer);
+    activeSubmission.form = null;
+    activeSubmission.ui = null;
+    activeSubmission.timer = null;
   };
 
-  let submissionFrame = null;
+  const submitCustomerFormRequest = async (form) => {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'text/html,application/xhtml+xml' },
+    });
 
-  const restoreFormAttributes = (form, attributes) => {
-    if (!attributes) return;
-
-    if (attributes.action === null) {
-      form.removeAttribute('action');
-    } else {
-      form.setAttribute('action', attributes.action);
+    const responseUrl = new URL(response.url, window.location.origin);
+    if (responseUrl.pathname.endsWith('/challenge')) {
+      return { state: 'challenge', url: responseUrl.href };
     }
 
-    if (attributes.target === null) {
-      form.removeAttribute('target');
-    } else {
-      form.setAttribute('target', attributes.target);
+    if (!response.ok) return { state: 'error', doc: null };
+
+    const html = await response.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+
+    if (responseUrl.searchParams.get('customer_posted') === 'true' || response.redirected) {
+      return { state: 'success', doc };
     }
+
+    return { state: 'error', doc };
   };
 
-  const finishFrameSubmission = (successful, responseDocument, fallbackMessage) => {
-    const { form, ui, restore, timer } = frameSubmission;
+  const performAjaxSubmit = async (form, ui) => {
+    if (activeSubmission.form === form) window.clearTimeout(activeSubmission.timer);
 
-    window.clearTimeout(timer);
-    frameSubmission.form = null;
-    frameSubmission.ui = null;
-    frameSubmission.restore = null;
-    frameSubmission.timer = null;
-
-    if (!form) return;
-
-    restoreFormAttributes(form, restore);
-    ui.setPending(false);
-    removeSessionStorage(PENDING_SUBMISSION_KEY);
-
-    if (successful) {
-      form.reset();
-      ui.onSuccess(responseDocument);
-      return;
-    }
-
-    ui.onError(responseDocument, fallbackMessage);
-  };
-
-  const handleSubmissionFrameLoad = () => {
-    if (!frameSubmission.form) return;
-
-    let responseUrl;
-    let responseDocument;
-    try {
-      responseUrl = new URL(submissionFrame.contentWindow.location.href);
-      responseDocument = submissionFrame.contentDocument;
-    } catch (_error) {
-      finishFrameSubmission(false, null, GENERIC_ERROR_MESSAGE);
-      return;
-    }
-
-    if (responseUrl.href === 'about:blank') return;
-
-    if (responseUrl.pathname.endsWith('/challenge') || responseDocument?.querySelector('.shopify-challenge__container')) {
-      // An interactive CAPTCHA is mandatory and can only be solved in the top
-      // window. The pending submission stays in sessionStorage so the return
-      // trip restores the URL/scroll and shows the success state.
-      window.clearTimeout(frameSubmission.timer);
-      window.location.assign(responseUrl.href);
-      return;
-    }
-
-    const successful =
-      responseUrl.searchParams.get('customer_posted') === 'true' ||
-      Boolean(
-        responseDocument?.querySelector(
-          '[data-bloomli-popup-form-state="success"], .newsletter-form__message--success'
-        )
-      );
-
-    if (successful) {
-      finishFrameSubmission(true, responseDocument);
-      return;
-    }
-
-    finishFrameSubmission(false, responseDocument);
-  };
-
-  const getSubmissionFrame = () => {
-    if (submissionFrame?.isConnected) return submissionFrame;
-
-    submissionFrame = document.createElement('iframe');
-    submissionFrame.name = SUBMISSION_FRAME_NAME;
-    submissionFrame.setAttribute('aria-hidden', 'true');
-    submissionFrame.tabIndex = -1;
-    submissionFrame.style.display = 'none';
-    submissionFrame.addEventListener('load', handleSubmissionFrameLoad);
-    document.body.append(submissionFrame);
-    return submissionFrame;
-  };
-
-  const beginFrameSubmission = (form, ui) => {
-    const frame = getSubmissionFrame();
-
-    frameSubmission.form = form;
-    frameSubmission.ui = ui;
-    frameSubmission.restore = {
-      action: form.getAttribute('action'),
-      target: form.getAttribute('target'),
-    };
-
-    const actionUrl = new URL(form.action, window.location.href);
-    actionUrl.hash = '';
-    form.action = actionUrl.toString();
-    form.target = frame.name;
-
-    // If the submission escapes the frame for any reason (e.g. a top-level
-    // redirect), the return trip restores state from this record.
-    rememberSubmissionAttempt(ui.source);
     ui.setPending(true);
 
-    window.clearTimeout(frameSubmission.timer);
-    frameSubmission.timer = window.setTimeout(() => {
-      finishFrameSubmission(false, null, SUBMISSION_TIMEOUT_MESSAGE);
-    }, SUBMISSION_TIMEOUT);
+    let result;
+    try {
+      result = await submitCustomerFormRequest(form);
+    } catch (_error) {
+      result = { state: 'error', doc: null };
+    }
+
+    if (result.state === 'challenge') {
+      // The interactive CAPTCHA page can only be solved top-level; the return
+      // trip restores this page's state from the pending submission record.
+      rememberSubmissionAttempt(ui.source);
+      window.location.assign(result.url);
+      return;
+    }
+
+    clearActiveSubmission();
+    removeSessionStorage(PENDING_SUBMISSION_KEY);
+    ui.setPending(false);
+
+    if (result.state === 'success') {
+      form.reset();
+      ui.onSuccess(result.doc);
+      return;
+    }
+
+    ui.onError(result.doc);
   };
 
   const handleSignupSubmit = (event, form, ui) => {
-    // Shopify's CAPTCHA script can re-dispatch the submission after attaching
-    // its token; let the form's own in-flight resubmission pass through.
-    if (frameSubmission.form === form) return;
-
-    if (frameSubmission.form) {
+    if (activeSubmission.form) {
       event.preventDefault();
       return;
     }
 
     if (!form.checkValidity()) return;
 
-    // Deliberately no preventDefault: the native submission must proceed so
-    // Shopify's CAPTCHA script can attach its token before the POST.
     ui.onSubmitStart();
-    beginFrameSubmission(form, ui);
+
+    if (form.getAttribute(HCAPTCHA_BOUND_ATTRIBUTE)) {
+      // Shopify's captcha listener (registered after this one) will call
+      // preventDefault, attach a fresh token, then invoke our form.submit
+      // patch. Record the wait and let the event proceed untouched.
+      activeSubmission.form = form;
+      activeSubmission.ui = ui;
+      rememberSubmissionAttempt(ui.source);
+      ui.setPending(true);
+      activeSubmission.timer = window.setTimeout(() => {
+        const pendingUi = activeSubmission.ui;
+        clearActiveSubmission();
+        pendingUi.setPending(false);
+        pendingUi.onError(null, SUBMISSION_TIMEOUT_MESSAGE);
+      }, SUBMISSION_TIMEOUT);
+      return;
+    }
+
+    // CAPTCHA is not wired to this form (disabled, or its script has not
+    // loaded yet) — post directly. If a token turns out to be required the
+    // inline error invites a retry, by which point the captcha script is up.
+    event.preventDefault();
+    performAjaxSubmit(form, ui);
   };
 
   const bindSignupForm = (form, ui) => {
     if (!form || form.dataset.bloomliSignupBound === 'true') return;
 
     form.dataset.bloomliSignupBound = 'true';
+
+    // Must run before Shopify's captcha script binds this form, so the submit
+    // function it captures (and calls after attaching the token) is our AJAX
+    // submitter rather than a page navigation.
+    if (!form.getAttribute(HCAPTCHA_BOUND_ATTRIBUTE)) {
+      try {
+        form.submit = () => performAjaxSubmit(form, ui);
+      } catch (_error) {
+        // Native submit stays in place; submissions fall back to a reload.
+      }
+    }
+
     form.addEventListener('submit', (event) => handleSignupSubmit(event, form, ui));
   };
 

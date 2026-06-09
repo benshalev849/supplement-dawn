@@ -395,7 +395,21 @@
     }
   }
 
-  document.querySelectorAll('[data-bloomli-signup-popup]').forEach((root) => {
+  const initPopup = (root) => {
+    if (!root || root.dataset.bloomliPopupInitialized === 'true') return;
+
+    root.dataset.bloomliPopupInitialized = 'true';
     new BloomliSignupPopup(root).init();
+  };
+
+  const initPopups = (container = document) => {
+    if (container.matches?.('[data-bloomli-signup-popup]')) initPopup(container);
+    container.querySelectorAll?.('[data-bloomli-signup-popup]').forEach(initPopup);
+  };
+
+  initPopups();
+
+  document.addEventListener('shopify:section:load', (event) => {
+    initPopups(event.target);
   });
 })();

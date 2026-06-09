@@ -1,41 +1,41 @@
 {%- liquid
-  assign popup_enabled = settings.bloomli_email_popup_enabled | default: true, allow_false: true
-  assign popup_color_scheme = settings.bloomli_email_popup_color_scheme | default: 'scheme-1'
-  assign popup_background_color = settings.bloomli_email_popup_background_color | default: '#f6eee8'
-  assign popup_text_color = settings.bloomli_email_popup_text_color | default: '#322922'
-  assign popup_option_background_color = settings.bloomli_email_popup_option_background_color | default: '#d56d78'
-  assign popup_option_text_color = settings.bloomli_email_popup_option_text_color | default: '#fff9f4'
-  assign popup_pill_radius = settings.bloomli_email_popup_pill_radius | default: 50
-  assign popup_delay_seconds = settings.bloomli_email_popup_delay_seconds | default: 7
-  assign popup_close_cooldown_days = settings.bloomli_email_popup_close_cooldown_days | default: 7
-  assign popup_show_launcher = settings.bloomli_email_popup_show_launcher_after_close | default: true, allow_false: true
-  assign popup_launcher_label = settings.bloomli_email_popup_launcher_label | default: 'Get 47% Off'
-  assign popup_close_button_label = settings.bloomli_email_popup_close_button_label | default: 'Close signup offer'
-  assign popup_launcher_close_button_label = settings.bloomli_email_popup_launcher_close_button_label | default: 'Dismiss signup offer'
-  assign popup_logo_text = settings.bloomli_email_popup_logo_text | default: 'Bloomli'
-  assign popup_show_image = settings.bloomli_email_popup_show_image | default: true, allow_false: true
-  assign popup_image_position_desktop = settings.bloomli_email_popup_image_position_desktop | default: 'right'
-  assign popup_headline_step_1 = settings.bloomli_email_popup_headline_step_1 | default: 'Unlock Your'
-  assign popup_discount_line_step_1 = settings.bloomli_email_popup_discount_line_step_1 | default: '47% off'
-  assign popup_subheading_step_1 = settings.bloomli_email_popup_subheading_step_1 | default: 'To claim, share what problem you are trying to solve:'
-  assign popup_problem_option_1_label = settings.bloomli_email_popup_problem_option_1_label | default: 'Shedding'
-  assign popup_problem_option_1_tag = settings.bloomli_email_popup_problem_option_1_handle | default: 'shedding'
-  assign popup_problem_option_2_label = settings.bloomli_email_popup_problem_option_2_label | default: 'Breakage'
-  assign popup_problem_option_2_tag = settings.bloomli_email_popup_problem_option_2_handle | default: 'breakage'
-  assign popup_problem_option_3_label = settings.bloomli_email_popup_problem_option_3_label | default: 'Slow growth'
-  assign popup_problem_option_3_tag = settings.bloomli_email_popup_problem_option_3_handle | default: 'slow-growth'
-  assign popup_problem_option_4_label = settings.bloomli_email_popup_problem_option_4_label | default: 'Dry scalp'
-  assign popup_problem_option_4_tag = settings.bloomli_email_popup_problem_option_4_handle | default: 'dry-scalp'
-  assign popup_no_thanks_text = settings.bloomli_email_popup_no_thanks_text | default: "No thanks, I don't like savings"
-  assign popup_options_group_label = settings.bloomli_email_popup_options_group_label | default: 'Select your hair concern'
-  assign popup_headline_step_2 = settings.bloomli_email_popup_headline_step_2 | default: 'Unlock Your'
-  assign popup_discount_line_step_2 = settings.bloomli_email_popup_discount_line_step_2 | default: '47% off'
-  assign popup_body_step_2 = settings.bloomli_email_popup_body_step_2 | default: 'Sign up for email to receive your discount!'
-  assign popup_email_placeholder = settings.bloomli_email_popup_email_placeholder | default: 'Enter your email'
-  assign popup_submit_button_label = settings.bloomli_email_popup_submit_button_label | default: 'Get My 47% Off'
-  assign popup_success_message = settings.bloomli_email_popup_success_message | default: 'Check your email for your Bloomli offer.'
-  assign popup_content_padding_mobile = settings.bloomli_email_popup_content_padding_mobile | default: 28
-  assign popup_content_padding_desktop = settings.bloomli_email_popup_content_padding_desktop | default: 64
+  assign popup_enabled = section.settings.enabled | default: true, allow_false: true
+  assign popup_color_scheme = section.settings.color_scheme | default: 'scheme-1'
+  assign popup_background_color = section.settings.popup_background_color | default: '#f6eee8'
+  assign popup_text_color = section.settings.popup_text_color | default: '#322922'
+  assign popup_option_background_color = section.settings.option_button_background_color | default: '#d56d78'
+  assign popup_option_text_color = section.settings.option_button_text_color | default: '#fff9f4'
+  assign popup_pill_radius = section.settings.pill_radius | default: 50
+  assign popup_delay_seconds = section.settings.delay_seconds | default: 7
+  assign popup_close_cooldown_days = section.settings.close_cooldown_days | default: 7
+  assign popup_show_launcher = section.settings.show_launcher_after_close | default: true, allow_false: true
+  assign popup_launcher_label = section.settings.launcher_label | default: 'Get 47% Off'
+  assign popup_close_button_label = section.settings.close_button_label | default: 'Close signup offer'
+  assign popup_launcher_close_button_label = section.settings.launcher_close_button_label | default: 'Dismiss signup offer'
+  assign popup_logo_text = section.settings.logo_text | default: 'Bloomli'
+  assign popup_show_image = section.settings.show_image | default: true, allow_false: true
+  assign popup_image_position_desktop = section.settings.image_position_desktop | default: 'right'
+  assign popup_headline_step_1 = section.settings.headline_step_1 | default: 'Unlock Your'
+  assign popup_discount_line_step_1 = section.settings.discount_line_step_1 | default: '47% off'
+  assign popup_subheading_step_1 = section.settings.subheading_step_1 | default: 'To claim, share what problem you are trying to solve:'
+  assign popup_problem_option_1_label = section.settings.problem_option_1_label | default: 'Shedding'
+  assign popup_problem_option_1_tag = section.settings.problem_option_1_handle | default: 'shedding'
+  assign popup_problem_option_2_label = section.settings.problem_option_2_label | default: 'Breakage'
+  assign popup_problem_option_2_tag = section.settings.problem_option_2_handle | default: 'breakage'
+  assign popup_problem_option_3_label = section.settings.problem_option_3_label | default: 'Slow growth'
+  assign popup_problem_option_3_tag = section.settings.problem_option_3_handle | default: 'slow-growth'
+  assign popup_problem_option_4_label = section.settings.problem_option_4_label | default: 'Dry scalp'
+  assign popup_problem_option_4_tag = section.settings.problem_option_4_handle | default: 'dry-scalp'
+  assign popup_no_thanks_text = section.settings.no_thanks_text | default: "No thanks, I don't like savings"
+  assign popup_options_group_label = section.settings.options_group_label | default: 'Select your hair concern'
+  assign popup_headline_step_2 = section.settings.headline_step_2 | default: 'Unlock Your'
+  assign popup_discount_line_step_2 = section.settings.discount_line_step_2 | default: '47% off'
+  assign popup_body_step_2 = section.settings.body_step_2 | default: 'Sign up for email to receive your discount!'
+  assign popup_email_placeholder = section.settings.email_placeholder | default: 'Enter your email'
+  assign popup_submit_button_label = section.settings.submit_button_label | default: 'Get My 47% Off'
+  assign popup_success_message = section.settings.success_message | default: 'Check your email for your Bloomli offer.'
+  assign popup_content_padding_mobile = section.settings.content_padding_mobile | default: 28
+  assign popup_content_padding_desktop = section.settings.content_padding_desktop | default: 64
 
   assign popup_visible = false
   if request.page_type != 'checkout'
@@ -47,8 +47,8 @@
   assign title_id = 'BloomliSignupPopupTitle-' | append: section.id
   assign error_id = 'BloomliSignupPopupError-' | append: section.id
   assign success_id = 'BloomliSignupPopupSuccess-' | append: section.id
-  assign popup_logo = settings.bloomli_email_popup_logo_image | default: settings.logo
-  assign primary_image = settings.bloomli_email_popup_image_desktop | default: settings.bloomli_email_popup_image_mobile
+  assign popup_logo = section.settings.logo_image | default: settings.logo
+  assign primary_image = section.settings.image_desktop | default: section.settings.image_mobile
 -%}
 
 {%- if popup_visible -%}
@@ -63,7 +63,7 @@
     data-close-cooldown-days="{{ popup_close_cooldown_days }}"
     data-show-launcher="{{ popup_show_launcher }}"
     data-customer-marketing="{% if customer and customer.accepts_marketing %}true{% else %}false{% endif %}"
-    data-custom-colors="true"
+    data-custom-colors="{{ section.settings.enable_custom_colors }}"
     data-popup-background="{{ popup_background_color }}"
     data-popup-text="{{ popup_text_color }}"
     data-option-background="{{ popup_option_background_color }}"
@@ -200,13 +200,13 @@
           <div class="bloomli-signup-popup__media">
             {%- if primary_image != blank -%}
               <picture>
-                {%- if settings.bloomli_email_popup_image_mobile != blank -%}
+                {%- if section.settings.image_mobile != blank -%}
                   <source
                     media="(max-width: 749px)"
                     srcset="
-                      {{ settings.bloomli_email_popup_image_mobile | image_url: width: 480 }} 480w,
-                      {{ settings.bloomli_email_popup_image_mobile | image_url: width: 750 }} 750w,
-                      {{ settings.bloomli_email_popup_image_mobile | image_url: width: 1100 }} 1100w
+                      {{ section.settings.image_mobile | image_url: width: 480 }} 480w,
+                      {{ section.settings.image_mobile | image_url: width: 750 }} 750w,
+                      {{ section.settings.image_mobile | image_url: width: 1100 }} 1100w
                     "
                     sizes="100vw"
                   >

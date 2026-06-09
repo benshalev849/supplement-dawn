@@ -11,6 +11,34 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "178104030997cc3e84": {
+      "type": "apps",
+      "blocks": {
+        "forms_inline_HiM379": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "1024029",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#FFFFFF",
+            "links_color": "#1878B9",
+            "errors_color": "#E02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_HiM379"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "newsletter_4PUBTw": {
       "type": "newsletter",
       "blocks": {
@@ -93,7 +121,7 @@
     "bloomli_signup_popup": {
       "type": "bloomli-signup-popup",
       "settings": {
-        "enabled": true,
+        "enabled": false,
         "logo_image": "shopify://shop_images/Final_Logo_Cropped.png",
         "logo_text": "Bloomli",
         "color_scheme": "",
@@ -138,6 +166,7 @@
     }
   },
   "order": [
+    "178104030997cc3e84",
     "newsletter_4PUBTw",
     "footer",
     "bloomli_signup_popup"

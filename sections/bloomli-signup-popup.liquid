@@ -160,7 +160,7 @@
             >
               <p class="bloomli-signup-popup__text">{{ popup_body_step_2 | escape }}</p>
 
-              {%- form 'customer', id: form_id, class: 'bloomli-signup-popup__form', return_to: 'back' -%}
+              {%- form 'customer', id: form_id, class: 'bloomli-signup-popup__form', return_to: 'back', data-shopify-captcha: 'true' -%}
                 <div
                   data-bloomli-popup-form-state="{% if form.posted_successfully? %}success{% elsif form.errors %}error{% else %}idle{% endif %}"
                 >

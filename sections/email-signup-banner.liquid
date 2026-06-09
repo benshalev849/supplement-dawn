@@ -74,7 +74,7 @@
           {%- when 'email_form' -%}
             <div {{ block.shopify_attributes }}>
               {%- assign newsletter_success_message = 'newsletter.success' | t -%}
-              {% form 'customer', class: 'newsletter-form', return_to: 'back', data-success-message: newsletter_success_message %}
+              {% form 'customer', class: 'newsletter-form', return_to: 'back', data-success-message: newsletter_success_message, data-shopify-captcha: 'true' %}
                 <input type="hidden" name="contact[tags]" value="newsletter">
                 <div class="newsletter-form__field-wrapper">
                   <div class="field">

@@ -12,6 +12,9 @@
   const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
   const GENERIC_ERROR_MESSAGE = 'We could not sign you up. Please try again.';
   const GENERIC_SUCCESS_MESSAGE = 'Thanks for subscribing!';
+  const SUBMISSION_FRAME_NAME = 'bloomli-signup-submission-frame';
+  const SUBMISSION_TIMEOUT = 30000;
+  const SUBMISSION_TIMEOUT_MESSAGE = 'The signup is taking longer than expected. Please try again.';
 
   const readStorage = (key) => {
     try {
@@ -89,73 +92,6 @@
     writeSessionStorage(PENDING_SUBMISSION_KEY, JSON.stringify(submission));
   };
 
-  // Shopify's spam protection requires an hCaptcha token on customer form
-  // posts (missing tokens get a 400 "missing CAPTCHA token" error since 2024).
-  // window.Shopify.captcha.protect is Shopify's supported API for wiring the
-  // token to programmatic submissions; it is only defined while the merchant
-  // has CAPTCHA enabled in Online Store > Preferences.
-  const CAPTCHA_READY_TIMEOUT = 4000;
-
-  const getCaptchaTokenInput = (form) => form.querySelector('input[name="h-captcha-response"]');
-
-  const whenCaptchaReady = (form) =>
-    new Promise((resolve) => {
-      const protect = window.Shopify?.captcha?.protect;
-      if (typeof protect !== 'function') {
-        resolve();
-        return;
-      }
-
-      let settled = false;
-      const settle = () => {
-        if (settled) return;
-        settled = true;
-        resolve();
-      };
-
-      window.setTimeout(settle, CAPTCHA_READY_TIMEOUT);
-      try {
-        protect(form, settle);
-      } catch (_error) {
-        settle();
-      }
-    });
-
-  // Resolves true when the form can be posted via fetch: either CAPTCHA is
-  // disabled, or Shopify's script has placed a token input inside the form.
-  const prepareCustomerForm = async (form) => {
-    if (typeof window.Shopify?.captcha?.protect !== 'function') return true;
-
-    await whenCaptchaReady(form);
-    return Boolean(getCaptchaTokenInput(form)?.value);
-  };
-
-  const nativeFormSubmit = (form, source) => {
-    rememberSubmissionAttempt(source);
-
-    let submitted = false;
-    const submit = () => {
-      if (submitted) return;
-      submitted = true;
-      HTMLFormElement.prototype.submit.call(form);
-    };
-
-    const protect = window.Shopify?.captcha?.protect;
-    if (typeof protect !== 'function') {
-      submit();
-      return;
-    }
-
-    // Submit through the protect callback so the POST carries a CAPTCHA token;
-    // the timeout keeps the form from hanging if the callback never fires.
-    window.setTimeout(submit, CAPTCHA_READY_TIMEOUT);
-    try {
-      protect(form, submit);
-    } catch (_error) {
-      submit();
-    }
-  };
-
   const restoreScrollPosition = (scrollY) => {
     if (!Number.isFinite(scrollY)) return;
 
@@ -181,32 +117,6 @@
     restoreScrollPosition(pendingSubmission.scrollY);
   };
 
-  // Posts a native `form_type=customer` form to /contact without reloading.
-  // Shopify redirects to `return_to` with `customer_posted=true` on success;
-  // a missing/invalid CAPTCHA token returns a 400 (handled as 'fallback') or a
-  // /challenge redirect; validation errors re-render the origin page with the
-  // form errors in the section markup.
-  const submitCustomerForm = async (form) => {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'text/html,application/xhtml+xml' },
-    });
-
-    const responseUrl = new URL(response.url, window.location.origin);
-    if (responseUrl.pathname.endsWith('/challenge')) return { state: 'challenge' };
-    if (!response.ok) return { state: 'fallback' };
-
-    const html = await response.text();
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-
-    if (responseUrl.searchParams.get('customer_posted') === 'true' || response.redirected) {
-      return { state: 'success', doc };
-    }
-
-    return { state: 'error', doc };
-  };
-
   const findSectionScopedElement = (form, doc, selector) => {
     const sectionId = form.closest('.shopify-section')?.id;
     const scope = (sectionId && doc.getElementById(sectionId)) || doc;
@@ -229,7 +139,7 @@
     form.querySelector('input[type="email"]')?.removeAttribute('aria-invalid');
   };
 
-  const showNewsletterMessage = (form, success, doc) => {
+  const showNewsletterMessage = (form, success, doc, fallbackText) => {
     clearNewsletterMessages(form);
 
     const selector = success
@@ -246,7 +156,7 @@
       message.className = `newsletter-form__message form__message${success ? ' newsletter-form__message--success' : ''}`;
       message.textContent = success
         ? form.dataset.successMessage || GENERIC_SUCCESS_MESSAGE
-        : GENERIC_ERROR_MESSAGE;
+        : fallbackText || GENERIC_ERROR_MESSAGE;
     }
 
     message.setAttribute('role', success ? 'status' : 'alert');
@@ -257,54 +167,185 @@
   };
 
   const setNewsletterPending = (form, isPending) => {
-    form.dataset.bloomliPending = String(isPending);
     form.setAttribute('aria-busy', String(isPending));
     const button = form.querySelector('[type="submit"]');
     if (button) button.disabled = isPending;
   };
 
-  const handleNewsletterSubmit = async (event, form, onSuccess) => {
-    event.preventDefault();
-    if (form.dataset.bloomliPending === 'true' || !form.checkValidity()) return;
+  const newsletterSubmissionUi = (form, onSubscribed) => ({
+    source: 'footer',
+    onSubmitStart: () => clearNewsletterMessages(form),
+    setPending: (isPending) => setNewsletterPending(form, isPending),
+    onSuccess: (responseDocument) => {
+      showNewsletterMessage(form, true, responseDocument);
+      onSubscribed?.();
+    },
+    onError: (responseDocument, fallbackMessage) => {
+      showNewsletterMessage(form, false, responseDocument, fallbackMessage);
+    },
+  });
 
-    clearNewsletterMessages(form);
-    setNewsletterPending(form, true);
+  // --- hidden-iframe submission -------------------------------------------
+  // Shopify's spam protection requires an hCaptcha token on customer form
+  // posts (a missing token gets a 400 "Missing CAPTCHA token" error). The
+  // token is attached by Shopify's own script intercepting a *real* form
+  // submission — fetch() and HTMLFormElement.prototype.submit() bypass it.
+  // So the form is submitted natively (no preventDefault) but retargeted into
+  // a hidden same-origin iframe: the tokened POST and its redirects happen in
+  // the iframe, the page never reloads, and the result is read from the
+  // iframe's URL/document.
 
-    if (!(await prepareCustomerForm(form))) {
-      nativeFormSubmit(form, 'footer');
-      return;
-    }
-
-    let result;
-    try {
-      result = await submitCustomerForm(form);
-    } catch (_error) {
-      nativeFormSubmit(form, 'footer');
-      return;
-    }
-
-    if (result.state === 'challenge' || result.state === 'fallback') {
-      nativeFormSubmit(form, 'footer');
-      return;
-    }
-
-    setNewsletterPending(form, false);
-
-    if (result.state === 'success') {
-      form.reset();
-      showNewsletterMessage(form, true, result.doc);
-      onSuccess?.();
-      return;
-    }
-
-    showNewsletterMessage(form, false, result.doc);
+  const frameSubmission = {
+    form: null,
+    ui: null,
+    restore: null,
+    timer: null,
   };
 
-  const bindNewsletterForm = (form, onSuccess) => {
+  let submissionFrame = null;
+
+  const restoreFormAttributes = (form, attributes) => {
+    if (!attributes) return;
+
+    if (attributes.action === null) {
+      form.removeAttribute('action');
+    } else {
+      form.setAttribute('action', attributes.action);
+    }
+
+    if (attributes.target === null) {
+      form.removeAttribute('target');
+    } else {
+      form.setAttribute('target', attributes.target);
+    }
+  };
+
+  const finishFrameSubmission = (successful, responseDocument, fallbackMessage) => {
+    const { form, ui, restore, timer } = frameSubmission;
+
+    window.clearTimeout(timer);
+    frameSubmission.form = null;
+    frameSubmission.ui = null;
+    frameSubmission.restore = null;
+    frameSubmission.timer = null;
+
+    if (!form) return;
+
+    restoreFormAttributes(form, restore);
+    ui.setPending(false);
+    removeSessionStorage(PENDING_SUBMISSION_KEY);
+
+    if (successful) {
+      form.reset();
+      ui.onSuccess(responseDocument);
+      return;
+    }
+
+    ui.onError(responseDocument, fallbackMessage);
+  };
+
+  const handleSubmissionFrameLoad = () => {
+    if (!frameSubmission.form) return;
+
+    let responseUrl;
+    let responseDocument;
+    try {
+      responseUrl = new URL(submissionFrame.contentWindow.location.href);
+      responseDocument = submissionFrame.contentDocument;
+    } catch (_error) {
+      finishFrameSubmission(false, null, GENERIC_ERROR_MESSAGE);
+      return;
+    }
+
+    if (responseUrl.href === 'about:blank') return;
+
+    if (responseUrl.pathname.endsWith('/challenge') || responseDocument?.querySelector('.shopify-challenge__container')) {
+      // An interactive CAPTCHA is mandatory and can only be solved in the top
+      // window. The pending submission stays in sessionStorage so the return
+      // trip restores the URL/scroll and shows the success state.
+      window.clearTimeout(frameSubmission.timer);
+      window.location.assign(responseUrl.href);
+      return;
+    }
+
+    const successful =
+      responseUrl.searchParams.get('customer_posted') === 'true' ||
+      Boolean(
+        responseDocument?.querySelector(
+          '[data-bloomli-popup-form-state="success"], .newsletter-form__message--success'
+        )
+      );
+
+    if (successful) {
+      finishFrameSubmission(true, responseDocument);
+      return;
+    }
+
+    finishFrameSubmission(false, responseDocument);
+  };
+
+  const getSubmissionFrame = () => {
+    if (submissionFrame?.isConnected) return submissionFrame;
+
+    submissionFrame = document.createElement('iframe');
+    submissionFrame.name = SUBMISSION_FRAME_NAME;
+    submissionFrame.setAttribute('aria-hidden', 'true');
+    submissionFrame.tabIndex = -1;
+    submissionFrame.style.display = 'none';
+    submissionFrame.addEventListener('load', handleSubmissionFrameLoad);
+    document.body.append(submissionFrame);
+    return submissionFrame;
+  };
+
+  const beginFrameSubmission = (form, ui) => {
+    const frame = getSubmissionFrame();
+
+    frameSubmission.form = form;
+    frameSubmission.ui = ui;
+    frameSubmission.restore = {
+      action: form.getAttribute('action'),
+      target: form.getAttribute('target'),
+    };
+
+    const actionUrl = new URL(form.action, window.location.href);
+    actionUrl.hash = '';
+    form.action = actionUrl.toString();
+    form.target = frame.name;
+
+    // If the submission escapes the frame for any reason (e.g. a top-level
+    // redirect), the return trip restores state from this record.
+    rememberSubmissionAttempt(ui.source);
+    ui.setPending(true);
+
+    window.clearTimeout(frameSubmission.timer);
+    frameSubmission.timer = window.setTimeout(() => {
+      finishFrameSubmission(false, null, SUBMISSION_TIMEOUT_MESSAGE);
+    }, SUBMISSION_TIMEOUT);
+  };
+
+  const handleSignupSubmit = (event, form, ui) => {
+    // Shopify's CAPTCHA script can re-dispatch the submission after attaching
+    // its token; let the form's own in-flight resubmission pass through.
+    if (frameSubmission.form === form) return;
+
+    if (frameSubmission.form) {
+      event.preventDefault();
+      return;
+    }
+
+    if (!form.checkValidity()) return;
+
+    // Deliberately no preventDefault: the native submission must proceed so
+    // Shopify's CAPTCHA script can attach its token before the POST.
+    ui.onSubmitStart();
+    beginFrameSubmission(form, ui);
+  };
+
+  const bindSignupForm = (form, ui) => {
     if (!form || form.dataset.bloomliSignupBound === 'true') return;
 
     form.dataset.bloomliSignupBound = 'true';
-    form.addEventListener('submit', (event) => handleNewsletterSubmit(event, form, onSuccess));
+    form.addEventListener('submit', (event) => handleSignupSubmit(event, form, ui));
   };
 
   class BloomliSignupPopup {
@@ -333,7 +374,6 @@
       this.hideTimer = null;
       this.previouslyFocused = null;
       this.selectedConcern = null;
-      this.isSubmitting = false;
       this.isDesignMode = Boolean(window.Shopify && window.Shopify.designMode);
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       this.delay = this.numberSetting('delaySeconds', 7) * 1000;
@@ -446,7 +486,19 @@
         this.hideLauncher();
       });
 
-      this.bindSignupForm(this.form);
+      bindSignupForm(this.form, {
+        source: 'popup',
+        onSubmitStart: () => this.clearFormError(),
+        setPending: (isPending) => this.setFormPending(isPending),
+        onSuccess: () => {
+          this.recordSubmission();
+          this.showSuccess();
+        },
+        onError: (responseDocument, fallbackMessage) => {
+          this.showFormError(fallbackMessage || extractErrorMessage(this.form, responseDocument));
+        },
+      });
+
       if (this.isDesignMode) {
         document.addEventListener('shopify:section:select', (event) => {
           if (event.detail.sectionId === this.root.closest('.shopify-section')?.id.replace('shopify-section-', '')) {
@@ -537,52 +589,7 @@
       if (matchingOption) this.selectConcern(tag, matchingOption.dataset.concernValue);
     }
 
-    bindSignupForm(form) {
-      if (!form || form.dataset.bloomliSignupBound === 'true') return;
-
-      form.dataset.bloomliSignupBound = 'true';
-      form.addEventListener('submit', (event) => this.submitForm(event));
-    }
-
-    async submitForm(event) {
-      event.preventDefault();
-      if (this.isSubmitting || !this.form?.checkValidity()) return;
-
-      this.clearFormError();
-      this.setFormPending(true);
-
-      if (!(await prepareCustomerForm(this.form))) {
-        this.submitNativeFallback();
-        return;
-      }
-
-      let result;
-      try {
-        result = await submitCustomerForm(this.form);
-      } catch (_error) {
-        this.submitNativeFallback();
-        return;
-      }
-
-      if (result.state === 'challenge' || result.state === 'fallback') {
-        this.submitNativeFallback();
-        return;
-      }
-
-      this.setFormPending(false);
-
-      if (result.state === 'success') {
-        this.form.reset();
-        this.recordSubmission();
-        this.showSuccess();
-        return;
-      }
-
-      this.showFormError(extractErrorMessage(this.form, result.doc));
-    }
-
     setFormPending(isPending) {
-      this.isSubmitting = isPending;
       this.form?.setAttribute('aria-busy', String(isPending));
       if (!this.submitButton) return;
 
@@ -613,14 +620,9 @@
       this.email?.setAttribute('aria-describedby', this.formError.id);
     }
 
-    submitNativeFallback() {
-      this.setFormPending(false);
-      nativeFormSubmit(this.form, 'popup');
-    }
-
     bindFooterForms() {
       this.footerForms.forEach((form) => {
-        bindNewsletterForm(form, () => this.recordSubmission());
+        bindSignupForm(form, newsletterSubmissionUi(form, () => this.recordSubmission()));
       });
     }
 
@@ -722,7 +724,7 @@
   };
 
   // Pages without the popup section (e.g. the password page banner) still get
-  // no-reload signups and a clean return from the /challenge fallback.
+  // no-reload signups and a clean return from the challenge fallback.
   const initStandaloneForms = () => {
     if (document.querySelector('[data-bloomli-signup-popup]')) return;
 
@@ -736,7 +738,7 @@
     }
 
     document.querySelectorAll('form.newsletter-form').forEach((form) => {
-      bindNewsletterForm(form, markSubscribed);
+      bindSignupForm(form, newsletterSubmissionUi(form, markSubscribed));
     });
   };
 
@@ -746,7 +748,7 @@
   document.addEventListener('shopify:section:load', (event) => {
     initPopups(event.target);
     event.target.querySelectorAll?.('form.newsletter-form').forEach((form) => {
-      bindNewsletterForm(form, markSubscribed);
+      bindSignupForm(form, newsletterSubmissionUi(form, markSubscribed));
     });
   });
 })();

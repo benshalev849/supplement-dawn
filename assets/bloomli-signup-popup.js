@@ -1,4 +1,7 @@
 (() => {
+  if (window.bloomliSignupFormsLoaded) return;
+  window.bloomliSignupFormsLoaded = true;
+
   const STORAGE_PREFIX = 'bloomliSignupPopup';
   const SELECTED_CONCERN_KEY = `${STORAGE_PREFIX}:selectedConcern`;
   const CLOSED_UNTIL_KEY = `${STORAGE_PREFIX}:closedUntil`;
@@ -7,55 +10,233 @@
   const LAUNCHER_HIDDEN_UNTIL_KEY = `${STORAGE_PREFIX}:launcherHiddenUntil`;
   const PENDING_SUBMISSION_KEY = `${STORAGE_PREFIX}:pendingSubmission`;
   const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
-  const SHOPIFY_FORMS_ENDPOINT = 'https://forms.shopifyapps.com/api/v2/form_submission';
-  const SHOPIFY_FORMS_HCAPTCHA_SITEKEY = '2e7f6342-57df-422a-8431-ddd86df296bc';
-  const HCAPTCHA_SCRIPT_ID = 'bloomli-shopify-forms-hcaptcha';
-  const HCAPTCHA_ONLOAD_CALLBACK = 'bloomliShopifyFormsCaptchaReady';
-  let hCaptchaScriptPromise;
+  const GENERIC_ERROR_MESSAGE = 'We could not sign you up. Please try again.';
+  const GENERIC_SUCCESS_MESSAGE = 'Thanks for subscribing!';
 
-  const loadHCaptcha = () => {
-    if (window.hcaptcha) return Promise.resolve(window.hcaptcha);
-    if (hCaptchaScriptPromise) return hCaptchaScriptPromise;
+  const readStorage = (key) => {
+    try {
+      return window.localStorage.getItem(key);
+    } catch (_error) {
+      return null;
+    }
+  };
 
-    hCaptchaScriptPromise = new Promise((resolve, reject) => {
-      const existingScript = document.getElementById(HCAPTCHA_SCRIPT_ID);
-      const timeout = window.setTimeout(() => reject(new Error('CAPTCHA timed out.')), 15000);
+  const writeStorage = (key, value) => {
+    try {
+      window.localStorage.setItem(key, value);
+    } catch (_error) {
+      // Storage can be unavailable in privacy-restricted browser contexts.
+    }
+  };
 
-      window[HCAPTCHA_ONLOAD_CALLBACK] = () => {
-        window.clearTimeout(timeout);
-        if (window.hcaptcha) {
-          resolve(window.hcaptcha);
-        } else {
-          reject(new Error('CAPTCHA could not be initialized.'));
-        }
-      };
+  const removeStorage = (key) => {
+    try {
+      window.localStorage.removeItem(key);
+    } catch (_error) {
+      // Storage can be unavailable in privacy-restricted browser contexts.
+    }
+  };
 
-      if (existingScript) {
-        existingScript.addEventListener('error', () => {
-          window.clearTimeout(timeout);
-          reject(new Error('CAPTCHA could not be loaded.'));
-        }, { once: true });
-        return;
-      }
+  const readSessionStorage = (key) => {
+    try {
+      return window.sessionStorage.getItem(key);
+    } catch (_error) {
+      return null;
+    }
+  };
 
-      const script = document.createElement('script');
-      script.id = HCAPTCHA_SCRIPT_ID;
-      script.src = `https://js.hcaptcha.com/1/api.js?onload=${HCAPTCHA_ONLOAD_CALLBACK}&render=explicit&recaptchacompat=off`;
-      script.async = true;
-      script.defer = true;
-      script.addEventListener('error', () => {
-        window.clearTimeout(timeout);
-        reject(new Error('CAPTCHA could not be loaded.'));
-      }, { once: true });
-      document.head.append(script);
+  const writeSessionStorage = (key, value) => {
+    try {
+      window.sessionStorage.setItem(key, value);
+    } catch (_error) {
+      // Storage can be unavailable in privacy-restricted browser contexts.
+    }
+  };
+
+  const removeSessionStorage = (key) => {
+    try {
+      window.sessionStorage.removeItem(key);
+    } catch (_error) {
+      // Storage can be unavailable in privacy-restricted browser contexts.
+    }
+  };
+
+  const markSubscribed = () => {
+    writeStorage(SUBMITTED_KEY, 'true');
+    removeStorage(CLOSED_UNTIL_KEY);
+    removeStorage(LAUNCHER_HIDDEN_UNTIL_KEY);
+  };
+
+  const getPendingSubmission = () => {
+    const pendingSubmission = readSessionStorage(PENDING_SUBMISSION_KEY);
+    if (!pendingSubmission) return null;
+    if (pendingSubmission === 'true') return {};
+
+    try {
+      return JSON.parse(pendingSubmission);
+    } catch (_error) {
+      return {};
+    }
+  };
+
+  const rememberSubmissionAttempt = (source) => {
+    const submission = {
+      source,
+      returnUrl: `${window.location.pathname}${window.location.search}${window.location.hash}`,
+      scrollY: Math.round(window.scrollY),
+    };
+
+    writeSessionStorage(PENDING_SUBMISSION_KEY, JSON.stringify(submission));
+  };
+
+  const nativeFormSubmit = (form, source) => {
+    rememberSubmissionAttempt(source);
+    HTMLFormElement.prototype.submit.call(form);
+  };
+
+  const restoreScrollPosition = (scrollY) => {
+    if (!Number.isFinite(scrollY)) return;
+
+    const restoreScroll = () => window.scrollTo(0, scrollY);
+    [0, 100, 300, 700].forEach((delay) => {
+      window.setTimeout(restoreScroll, delay);
+    });
+    window.addEventListener('load', restoreScroll, { once: true });
+    window.addEventListener('pageshow', restoreScroll, { once: true });
+  };
+
+  const restoreSubmissionLocation = (pendingSubmission) => {
+    const locationUrl = new URL(window.location.href);
+    locationUrl.searchParams.delete('customer_posted');
+
+    if (/^#(?:contact_form|BloomliSignupPopupForm-|ContactFooter|NewsletterForm--)/.test(locationUrl.hash)) {
+      locationUrl.hash = '';
+    }
+
+    const returnUrl = pendingSubmission.returnUrl || `${locationUrl.pathname}${locationUrl.search}${locationUrl.hash}`;
+    window.history.replaceState({}, '', returnUrl);
+
+    restoreScrollPosition(pendingSubmission.scrollY);
+  };
+
+  // Posts a native `form_type=customer` form to /contact without reloading.
+  // Shopify redirects to `return_to` with `customer_posted=true` on success and
+  // to /challenge when it requires an interactive CAPTCHA; errors re-render the
+  // origin page with the form errors in the section markup.
+  const submitCustomerForm = async (form) => {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'text/html,application/xhtml+xml' },
     });
 
-    hCaptchaScriptPromise = hCaptchaScriptPromise.catch((error) => {
-      hCaptchaScriptPromise = null;
-      throw error;
-    });
+    const responseUrl = new URL(response.url, window.location.origin);
+    if (responseUrl.pathname.endsWith('/challenge')) return { state: 'challenge' };
+    if (!response.ok) return { state: 'fallback' };
 
-    return hCaptchaScriptPromise;
+    const html = await response.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+
+    if (responseUrl.searchParams.get('customer_posted') === 'true' || response.redirected) {
+      return { state: 'success', doc };
+    }
+
+    return { state: 'error', doc };
+  };
+
+  const findSectionScopedElement = (form, doc, selector) => {
+    const sectionId = form.closest('.shopify-section')?.id;
+    const scope = (sectionId && doc.getElementById(sectionId)) || doc;
+    return scope.querySelector(selector);
+  };
+
+  const extractErrorMessage = (form, doc) => {
+    if (!doc) return GENERIC_ERROR_MESSAGE;
+
+    const message = findSectionScopedElement(
+      form,
+      doc,
+      '.newsletter-form__message:not(.newsletter-form__message--success), [data-bloomli-popup-error]:not([hidden])'
+    );
+    return message?.textContent.replace(/\s+/g, ' ').trim() || GENERIC_ERROR_MESSAGE;
+  };
+
+  const clearNewsletterMessages = (form) => {
+    form.querySelectorAll('.newsletter-form__message').forEach((message) => message.remove());
+    form.querySelector('input[type="email"]')?.removeAttribute('aria-invalid');
+  };
+
+  const showNewsletterMessage = (form, success, doc) => {
+    clearNewsletterMessages(form);
+
+    const selector = success
+      ? '.newsletter-form__message--success'
+      : '.newsletter-form__message:not(.newsletter-form__message--success)';
+    const responseMessage = doc && findSectionScopedElement(form, doc, selector);
+
+    let message;
+    if (responseMessage) {
+      message = document.importNode(responseMessage, true);
+      message.removeAttribute('autofocus');
+    } else {
+      message = document.createElement(success ? 'h3' : 'small');
+      message.className = `newsletter-form__message form__message${success ? ' newsletter-form__message--success' : ''}`;
+      message.textContent = success
+        ? form.dataset.successMessage || GENERIC_SUCCESS_MESSAGE
+        : GENERIC_ERROR_MESSAGE;
+    }
+
+    message.setAttribute('role', success ? 'status' : 'alert');
+    const wrapper = form.querySelector('.newsletter-form__field-wrapper') || form;
+    wrapper.append(message);
+
+    if (!success) form.querySelector('input[type="email"]')?.setAttribute('aria-invalid', 'true');
+  };
+
+  const setNewsletterPending = (form, isPending) => {
+    form.dataset.bloomliPending = String(isPending);
+    form.setAttribute('aria-busy', String(isPending));
+    const button = form.querySelector('[type="submit"]');
+    if (button) button.disabled = isPending;
+  };
+
+  const handleNewsletterSubmit = async (event, form, onSuccess) => {
+    event.preventDefault();
+    if (form.dataset.bloomliPending === 'true' || !form.checkValidity()) return;
+
+    clearNewsletterMessages(form);
+    setNewsletterPending(form, true);
+
+    let result;
+    try {
+      result = await submitCustomerForm(form);
+    } catch (_error) {
+      nativeFormSubmit(form, 'footer');
+      return;
+    }
+
+    if (result.state === 'challenge' || result.state === 'fallback') {
+      nativeFormSubmit(form, 'footer');
+      return;
+    }
+
+    setNewsletterPending(form, false);
+
+    if (result.state === 'success') {
+      form.reset();
+      showNewsletterMessage(form, true, result.doc);
+      onSuccess?.();
+      return;
+    }
+
+    showNewsletterMessage(form, false, result.doc);
+  };
+
+  const bindNewsletterForm = (form, onSuccess) => {
+    if (!form || form.dataset.bloomliSignupBound === 'true') return;
+
+    form.dataset.bloomliSignupBound = 'true';
+    form.addEventListener('submit', (event) => handleNewsletterSubmit(event, form, onSuccess));
   };
 
   class BloomliSignupPopup {
@@ -71,7 +252,6 @@
       this.form = root.querySelector('.bloomli-signup-popup__form');
       this.submitButton = root.querySelector('[data-bloomli-popup-submit]');
       this.formError = root.querySelector('[data-bloomli-popup-error]');
-      this.captchaContainer = root.querySelector('[data-bloomli-popup-captcha]');
       this.footerForms = Array.from(document.querySelectorAll('form.newsletter-form')).filter((form) => !root.contains(form));
       this.formState = root.querySelector('[data-bloomli-popup-form-state]')?.dataset.bloomliPopupFormState || 'idle';
       this.launcher = root.querySelector('[data-bloomli-popup-launcher]');
@@ -85,9 +265,6 @@
       this.hideTimer = null;
       this.previouslyFocused = null;
       this.selectedConcern = null;
-      this.selectedConcernValue = null;
-      this.captchaWidgetId = null;
-      this.captchaChallengeOpen = false;
       this.isSubmitting = false;
       this.isDesignMode = Boolean(window.Shopify && window.Shopify.designMode);
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -95,14 +272,6 @@
       this.closeDays = this.numberSetting('closeCooldownDays', 7);
       this.showLauncherAfterClose = root.dataset.showLauncher === 'true';
       this.customerAcceptsMarketing = root.dataset.customerMarketing === 'true';
-      this.shopifyFormsId = Number(root.dataset.shopifyFormsId);
-      this.shopifyFormsEnabled =
-        root.dataset.shopifyFormsEnabled === 'true' &&
-        Number.isInteger(this.shopifyFormsId) &&
-        this.shopifyFormsId > 0 &&
-        Boolean(root.dataset.shopifyDomain);
-      this.shopifyFormsConcernField = root.dataset.shopifyFormsConcernField || 'primary_hair_concern';
-      this.shopifyDomain = root.dataset.shopifyDomain;
       this.submitLoadingLabel = root.dataset.submitLoadingLabel || 'Signing you up...';
       this.handleKeydown = this.handleKeydown.bind(this);
     }
@@ -111,10 +280,10 @@
       this.applySettings();
       this.bindFooterForms();
 
-      const pendingSubmission = this.getPendingSubmission();
+      const pendingSubmission = getPendingSubmission();
       if (pendingSubmission && this.isSuccessfulSubmissionReturn(pendingSubmission)) {
-        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-        this.restoreSubmissionLocation(pendingSubmission);
+        removeSessionStorage(PENDING_SUBMISSION_KEY);
+        restoreSubmissionLocation(pendingSubmission);
         this.recordSubmission();
         if (pendingSubmission.source === 'popup') {
           this.hideThemeNewsletterSuccess();
@@ -124,8 +293,8 @@
       }
 
       if (pendingSubmission?.source === 'footer' && this.hasNewsletterError()) {
-        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-        this.restoreSubmissionLocation(pendingSubmission);
+        removeSessionStorage(PENDING_SUBMISSION_KEY);
+        restoreSubmissionLocation(pendingSubmission);
         return;
       }
 
@@ -142,14 +311,14 @@
       if (this.customerAcceptsMarketing || this.hasSubmitted()) return;
 
       if (this.formState === 'error' && pendingSubmission?.source === 'popup') {
-        this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-        this.restoreSubmissionLocation(pendingSubmission);
+        removeSessionStorage(PENDING_SUBMISSION_KEY);
+        restoreSubmissionLocation(pendingSubmission);
         this.goToStepTwo(false);
         this.open();
         return;
       }
 
-      this.removeSessionStorage(PENDING_SUBMISSION_KEY);
+      removeSessionStorage(PENDING_SUBMISSION_KEY);
 
       if (this.hasActiveCooldown(CLOSED_UNTIL_KEY)) {
         this.showLauncher();
@@ -201,8 +370,8 @@
       });
 
       this.launcherCloseButton?.addEventListener('click', () => {
-        const closedUntil = this.readStorage(CLOSED_UNTIL_KEY);
-        this.writeStorage(
+        const closedUntil = readStorage(CLOSED_UNTIL_KEY);
+        writeStorage(
           LAUNCHER_HIDDEN_UNTIL_KEY,
           closedUntil || String(Date.now() + this.closeDays * DAY_IN_MILLISECONDS)
         );
@@ -285,16 +454,15 @@
       if (!tag) return;
 
       this.selectedConcern = tag;
-      this.selectedConcernValue = value || tag;
       this.options.forEach((option) => {
         option.setAttribute('aria-pressed', String(option.dataset.concernTag === tag));
       });
       this.tags.value = `newsletter,bloomli-email-popup,${tag}`;
-      this.writeStorage(SELECTED_CONCERN_KEY, tag);
+      writeStorage(SELECTED_CONCERN_KEY, tag);
     }
 
     restoreSelectedConcern() {
-      const tag = this.readStorage(SELECTED_CONCERN_KEY);
+      const tag = readStorage(SELECTED_CONCERN_KEY);
       if (!tag) return;
 
       const matchingOption = this.options.find((option) => option.dataset.concernTag === tag);
@@ -305,139 +473,39 @@
       if (!form || form.dataset.bloomliSignupBound === 'true') return;
 
       form.dataset.bloomliSignupBound = 'true';
-      if (form === this.form && this.shopifyFormsEnabled) {
-        form.addEventListener('submit', (event) => this.submitWithShopifyForms(event));
-        return;
-      }
-
-      form.addEventListener('submit', () => this.rememberSubmissionAttempt(form), true);
+      form.addEventListener('submit', (event) => this.submitForm(event));
     }
 
-    async submitWithShopifyForms(event) {
+    async submitForm(event) {
       event.preventDefault();
       if (this.isSubmitting || !this.form?.checkValidity()) return;
 
       this.clearFormError();
       this.setFormPending(true);
 
+      let result;
       try {
-        const hCaptchaResponse = await this.getHCaptchaResponse();
-        const payload = {
-          shopify_domain: this.shopifyDomain,
-          h_captcha_response: hCaptchaResponse,
-          form_instance_id: this.shopifyFormsId,
-          email: this.email.value.trim(),
-          customer_consented_to_email_marketing: true,
-          customer_consented_to_sms_marketing: false,
-        };
+        result = await submitCustomerForm(this.form);
+      } catch (_error) {
+        this.submitNativeFallback();
+        return;
+      }
 
-        if (this.selectedConcernValue && this.shopifyFormsConcernField) {
-          payload[`custom#${this.shopifyFormsConcernField}`] = this.selectedConcernValue;
-        }
+      if (result.state === 'challenge' || result.state === 'fallback') {
+        this.submitNativeFallback();
+        return;
+      }
 
-        let response;
-        try {
-          response = await fetch(SHOPIFY_FORMS_ENDPOINT, {
-            method: 'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload),
-          });
-        } catch (error) {
-          if (error && typeof error === 'object') {
-            error.useNativeFallback = true;
-          } else {
-            const fallbackError = new Error(errorCode);
-            fallbackError.useNativeFallback = true;
-            error = fallbackError;
-          }
-          throw error;
-        }
+      this.setFormPending(false);
 
-        const responseData = await response.json().catch(() => ({}));
-        if (!response.ok) {
-          const error = new Error(this.getShopifyFormsError(responseData));
-          error.useNativeFallback = response.status === 404 || response.status >= 500;
-          throw error;
-        }
-
-        this.setFormPending(false);
+      if (result.state === 'success') {
         this.form.reset();
         this.recordSubmission();
         this.showSuccess();
-      } catch (error) {
-        const errorCode = typeof error === 'string' ? error : error?.message;
-        if (
-          errorCode === 'network-error' ||
-          errorCode === 'script-error' ||
-          errorCode === 'invalid-data' ||
-          errorCode === 'invalid-captcha-id' ||
-          errorCode === 'missing-captcha' ||
-          /CAPTCHA (?:could not|timed out)/.test(errorCode || '')
-        ) {
-          error.useNativeFallback = true;
-        }
-
-        if (error?.useNativeFallback) {
-          this.submitNativeFallback();
-          return;
-        }
-
-        this.setFormPending(false);
-        this.resetCaptcha();
-        this.showFormError(this.getCaptchaError(error));
-      }
-    }
-
-    async getHCaptchaResponse() {
-      const hCaptcha = await loadHCaptcha();
-
-      if (this.captchaWidgetId === null) {
-        this.captchaWidgetId = hCaptcha.render(this.captchaContainer, {
-          sitekey: SHOPIFY_FORMS_HCAPTCHA_SITEKEY,
-          size: 'invisible',
-          'open-callback': () => {
-            this.captchaChallengeOpen = true;
-          },
-          'close-callback': () => {
-            this.captchaChallengeOpen = false;
-          },
-          'expired-callback': () => this.resetCaptcha(),
-        });
+        return;
       }
 
-      const result = await hCaptcha.execute(this.captchaWidgetId, { async: true });
-      this.captchaChallengeOpen = false;
-      if (!result?.response) throw new Error('CAPTCHA verification failed.');
-      return result.response;
-    }
-
-    resetCaptcha() {
-      this.captchaChallengeOpen = false;
-      if (this.captchaWidgetId === null || !window.hcaptcha) return;
-
-      window.hcaptcha.reset(this.captchaWidgetId);
-    }
-
-    getCaptchaError(error) {
-      const code = typeof error === 'string' ? error : error?.message;
-      if (code === 'challenge-closed') return 'Please complete the verification to sign up.';
-      if (code === 'challenge-expired') return 'The verification expired. Please try again.';
-      if (code === 'rate-limited') return 'Too many signup attempts. Please wait and try again.';
-      return code || 'We could not sign you up. Please try again.';
-    }
-
-    getShopifyFormsError(responseData) {
-      const errors = responseData?.errors;
-      if (typeof errors === 'string') return errors;
-      if (errors?.message) return errors.message;
-      if (errors && typeof errors === 'object') {
-        const firstError = Object.values(errors).flat().find(Boolean);
-        if (firstError) return String(firstError);
-      }
-      return responseData?.message || 'We could not sign you up. Please try again.';
+      this.showFormError(extractErrorMessage(this.form, result.doc));
     }
 
     setFormPending(isPending) {
@@ -474,35 +542,12 @@
 
     submitNativeFallback() {
       this.setFormPending(false);
-      this.rememberSubmissionAttempt(this.form);
-      HTMLFormElement.prototype.submit.call(this.form);
-    }
-
-    restoreScrollPosition(scrollY) {
-      if (!Number.isFinite(scrollY)) return;
-
-      const restoreScroll = () => window.scrollTo(0, scrollY);
-      [0, 100, 300, 700].forEach((delay) => {
-        window.setTimeout(restoreScroll, delay);
-      });
-      window.addEventListener('load', restoreScroll, { once: true });
-      window.addEventListener('pageshow', restoreScroll, { once: true });
-    }
-
-    rememberSubmissionAttempt(form) {
-      const isPopupForm = form === this.form;
-      const submission = {
-        source: isPopupForm ? 'popup' : 'footer',
-        returnUrl: `${window.location.pathname}${window.location.search}${window.location.hash}`,
-        scrollY: Math.round(window.scrollY),
-      };
-
-      this.writeSessionStorage(PENDING_SUBMISSION_KEY, JSON.stringify(submission));
+      nativeFormSubmit(this.form, 'popup');
     }
 
     bindFooterForms() {
       this.footerForms.forEach((form) => {
-        this.bindSignupForm(form);
+        bindNewsletterForm(form, () => this.recordSubmission());
       });
     }
 
@@ -526,37 +571,9 @@
       );
     }
 
-    getPendingSubmission() {
-      const pendingSubmission = this.readSessionStorage(PENDING_SUBMISSION_KEY);
-      if (!pendingSubmission) return null;
-      if (pendingSubmission === 'true') return {};
-
-      try {
-        return JSON.parse(pendingSubmission);
-      } catch (_error) {
-        return {};
-      }
-    }
-
-    restoreSubmissionLocation(pendingSubmission) {
-      const locationUrl = new URL(window.location.href);
-      locationUrl.searchParams.delete('customer_posted');
-
-      if (/^#(?:contact_form|BloomliSignupPopupForm-|ContactFooter|NewsletterForm--)/.test(locationUrl.hash)) {
-        locationUrl.hash = '';
-      }
-
-      const returnUrl = pendingSubmission.returnUrl || `${locationUrl.pathname}${locationUrl.search}${locationUrl.hash}`;
-      window.history.replaceState({}, '', returnUrl);
-
-      this.restoreScrollPosition(pendingSubmission.scrollY);
-    }
-
     recordSubmission() {
       window.clearTimeout(this.openTimer);
-      this.writeStorage(SUBMITTED_KEY, 'true');
-      this.removeStorage(CLOSED_UNTIL_KEY);
-      this.removeStorage(LAUNCHER_HIDDEN_UNTIL_KEY);
+      markSubscribed();
       this.close();
       this.hideLauncher();
     }
@@ -597,73 +614,25 @@
     }
 
     handleKeydown(event) {
-      if (event.key === 'Escape' && !this.captchaChallengeOpen) this.dismiss();
+      if (event.key === 'Escape') this.dismiss();
     }
 
     hasSubmitted() {
-      return this.readStorage(SUBMITTED_KEY) === 'true' || this.hasActiveCooldown(LEGACY_SUBMITTED_UNTIL_KEY);
+      return readStorage(SUBMITTED_KEY) === 'true' || this.hasActiveCooldown(LEGACY_SUBMITTED_UNTIL_KEY);
     }
 
     hasActiveCooldown(key) {
-      const until = Number(this.readStorage(key));
+      const until = Number(readStorage(key));
       if (!until) return false;
       if (until <= Date.now()) {
-        this.removeStorage(key);
+        removeStorage(key);
         return false;
       }
       return true;
     }
 
     setCooldown(key, days) {
-      this.writeStorage(key, String(Date.now() + days * DAY_IN_MILLISECONDS));
-    }
-
-    readStorage(key) {
-      try {
-        return window.localStorage.getItem(key);
-      } catch (_error) {
-        return null;
-      }
-    }
-
-    writeStorage(key, value) {
-      try {
-        window.localStorage.setItem(key, value);
-      } catch (_error) {
-        // Storage can be unavailable in privacy-restricted browser contexts.
-      }
-    }
-
-    removeStorage(key) {
-      try {
-        window.localStorage.removeItem(key);
-      } catch (_error) {
-        // Storage can be unavailable in privacy-restricted browser contexts.
-      }
-    }
-
-    readSessionStorage(key) {
-      try {
-        return window.sessionStorage.getItem(key);
-      } catch (_error) {
-        return null;
-      }
-    }
-
-    writeSessionStorage(key, value) {
-      try {
-        window.sessionStorage.setItem(key, value);
-      } catch (_error) {
-        // Storage can be unavailable in privacy-restricted browser contexts.
-      }
-    }
-
-    removeSessionStorage(key) {
-      try {
-        window.sessionStorage.removeItem(key);
-      } catch (_error) {
-        // Storage can be unavailable in privacy-restricted browser contexts.
-      }
+      writeStorage(key, String(Date.now() + days * DAY_IN_MILLISECONDS));
     }
   }
 
@@ -679,9 +648,32 @@
     container.querySelectorAll?.('[data-bloomli-signup-popup]').forEach(initPopup);
   };
 
+  // Pages without the popup section (e.g. the password page banner) still get
+  // no-reload signups and a clean return from the /challenge fallback.
+  const initStandaloneForms = () => {
+    if (document.querySelector('[data-bloomli-signup-popup]')) return;
+
+    const pendingSubmission = getPendingSubmission();
+    if (pendingSubmission) {
+      removeSessionStorage(PENDING_SUBMISSION_KEY);
+      if (new URLSearchParams(window.location.search).get('customer_posted') === 'true') {
+        markSubscribed();
+      }
+      restoreSubmissionLocation(pendingSubmission);
+    }
+
+    document.querySelectorAll('form.newsletter-form').forEach((form) => {
+      bindNewsletterForm(form, markSubscribed);
+    });
+  };
+
   initPopups();
+  initStandaloneForms();
 
   document.addEventListener('shopify:section:load', (event) => {
     initPopups(event.target);
+    event.target.querySelectorAll?.('form.newsletter-form').forEach((form) => {
+      bindNewsletterForm(form, markSubscribed);
+    });
   });
 })();

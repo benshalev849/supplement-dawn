@@ -35,9 +35,6 @@
   assign popup_submit_button_label = section.settings.submit_button_label | default: 'Get My 47% Off'
   assign popup_submit_loading_label = section.settings.submit_loading_label | default: 'Signing you up...'
   assign popup_success_message = section.settings.success_message | default: 'Check your email for your Bloomli offer.'
-  assign popup_use_shopify_forms = section.settings.use_shopify_forms_async | default: true, allow_false: true
-  assign popup_shopify_forms_id = section.settings.shopify_forms_id | default: '1024029'
-  assign popup_shopify_forms_concern_field = section.settings.shopify_forms_concern_field | default: 'primary_hair_concern'
   assign popup_captcha_disclosure = section.settings.captcha_disclosure
   assign popup_content_padding_mobile = section.settings.content_padding_mobile | default: 28
   assign popup_content_padding_desktop = section.settings.content_padding_desktop | default: 64
@@ -76,10 +73,6 @@
     data-pill-radius="{{ popup_pill_radius }}"
     data-padding-mobile="{{ popup_content_padding_mobile }}"
     data-padding-desktop="{{ popup_content_padding_desktop }}"
-    data-shopify-forms-enabled="{{ popup_use_shopify_forms }}"
-    data-shopify-forms-id="{{ popup_shopify_forms_id | escape }}"
-    data-shopify-forms-concern-field="{{ popup_shopify_forms_concern_field | escape }}"
-    data-shopify-domain="{{ shop.permanent_domain | escape }}"
     data-submit-loading-label="{{ popup_submit_loading_label | escape }}"
   >
     <div class="bloomli-signup-popup__modal" data-bloomli-popup-modal hidden>
@@ -208,8 +201,6 @@
                       {{- form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email -}}
                     {%- endif -%}
                   </small>
-
-                  <div class="bloomli-signup-popup__captcha" data-bloomli-popup-captcha></div>
 
                   {%- if popup_captcha_disclosure != blank -%}
                     <div class="bloomli-signup-popup__disclosure rte">
@@ -526,36 +517,11 @@
       "default": "Check your email for your Bloomli offer."
     },
     {
-      "type": "header",
-      "content": "Shopify Forms submission"
-    },
-    {
-      "type": "checkbox",
-      "id": "use_shopify_forms_async",
-      "label": "Submit without reloading through Shopify Forms",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "shopify_forms_id",
-      "label": "Shopify Forms form ID",
-      "default": "1024029",
-      "visible_if": "{{ section.settings.use_shopify_forms_async }}"
-    },
-    {
-      "type": "text",
-      "id": "shopify_forms_concern_field",
-      "label": "Concern metafield key",
-      "default": "primary_hair_concern",
-      "info": "Must match the Shopify Forms custom field key.",
-      "visible_if": "{{ section.settings.use_shopify_forms_async }}"
-    },
-    {
       "type": "richtext",
       "id": "captcha_disclosure",
-      "label": "CAPTCHA and consent disclosure",
-      "default": "<p>By signing up, you agree to receive marketing emails. This site is protected by hCaptcha and its <a href=\"https://www.hcaptcha.com/privacy\">Privacy Policy</a> and <a href=\"https://www.hcaptcha.com/terms\">Terms of Service</a> apply.</p>",
-      "visible_if": "{{ section.settings.use_shopify_forms_async }}"
+      "label": "Consent disclosure",
+      "info": "Shown under the email field. Signups post to Shopify's native customer form, which is protected by Shopify's spam protection.",
+      "default": "<p>By signing up, you agree to receive marketing emails. This site is protected by hCaptcha and its <a href=\"https://www.hcaptcha.com/privacy\">Privacy Policy</a> and <a href=\"https://www.hcaptcha.com/terms\">Terms of Service</a> apply.</p>"
     },
     {
       "type": "header",

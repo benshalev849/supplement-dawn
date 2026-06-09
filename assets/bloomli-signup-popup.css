@@ -284,10 +284,6 @@
   color: var(--bsp-text);
 }
 
-.bloomli-signup-popup__captcha {
-  min-height: 0;
-}
-
 .bloomli-signup-popup__disclosure {
   margin-top: 1.1rem;
   color: var(--bsp-text);

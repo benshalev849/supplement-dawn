@@ -254,7 +254,8 @@
               {%- if section.settings.newsletter_heading != blank -%}
                 <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
               {%- endif -%}
-              {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form', return_to: 'back' -%}
+              {%- assign newsletter_success_message = 'newsletter.success' | t -%}
+              {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form', return_to: 'back', data-success-message: newsletter_success_message -%}
                 <input type="hidden" name="contact[tags]" value="newsletter,bloomli-footer-signup">
                 <div class="newsletter-form__field-wrapper">
                   <div class="field">

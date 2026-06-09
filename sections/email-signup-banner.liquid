@@ -2,6 +2,7 @@
 {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
 {{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
 {{ 'section-email-signup-banner.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-signup-popup.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   #Banner-{{ section.id }}::after {
@@ -72,7 +73,8 @@
             </div>
           {%- when 'email_form' -%}
             <div {{ block.shopify_attributes }}>
-              {% form 'customer', class: 'newsletter-form' %}
+              {%- assign newsletter_success_message = 'newsletter.success' | t -%}
+              {% form 'customer', class: 'newsletter-form', return_to: 'back', data-success-message: newsletter_success_message %}
                 <input type="hidden" name="contact[tags]" value="newsletter">
                 <div class="newsletter-form__field-wrapper">
                   <div class="field">

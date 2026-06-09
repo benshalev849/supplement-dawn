@@ -1,5 +1,6 @@
 {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
 {{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-signup-popup.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -45,7 +46,8 @@
           </div>
         {%- when 'email_form' -%}
           <div class="newsletter__form-block" {{ block.shopify_attributes }}>
-            {% form 'customer', class: 'newsletter-form', return_to: 'back' %}
+            {%- assign newsletter_success_message = 'newsletter.success' | t -%}
+            {% form 'customer', class: 'newsletter-form', return_to: 'back', data-success-message: newsletter_success_message %}
               <input type="hidden" name="contact[tags]" value="newsletter,bloomli-footer-signup">
               <div
                 class="newsletter-form__field-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"

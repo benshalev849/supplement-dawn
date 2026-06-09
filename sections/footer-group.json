@@ -94,6 +94,7 @@
       "type": "bloomli-signup-popup",
       "settings": {
         "enabled": true,
+        "logo_image": "shopify://shop_images/Final_Logo_Cropped.png",
         "logo_text": "Bloomli",
         "color_scheme": "",
         "enable_custom_colors": false,
@@ -103,6 +104,7 @@
         "option_button_text_color": "#fff9f4",
         "pill_radius": 50,
         "show_image": true,
+        "image_mobile": "shopify://shop_images/Email_Popup_Mobile_ca0e39f6-eb96-4c59-9fa0-3fe8acca7f80.png",
         "image_position_desktop": "right",
         "headline_step_1": "Unlock Your",
         "discount_line_step_1": "47% off",

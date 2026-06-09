@@ -121,7 +121,7 @@
     "bloomli_signup_popup": {
       "type": "bloomli-signup-popup",
       "settings": {
-        "enabled": false,
+        "enabled": true,
         "logo_image": "shopify://shop_images/Final_Logo_Cropped.png",
         "logo_text": "Bloomli",
         "color_scheme": "",

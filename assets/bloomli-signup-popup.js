@@ -48,8 +48,8 @@
       const pendingSubmission = this.getPendingSubmission();
       if (pendingSubmission && this.isSuccessfulSubmissionReturn()) {
         this.removeSessionStorage(PENDING_SUBMISSION_KEY);
-        this.restoreSubmissionLocation(pendingSubmission);
         this.hideThemeNewsletterSuccess();
+        this.restoreSubmissionLocation(pendingSubmission);
         this.recordSubmission();
         this.showSuccess();
         return;
@@ -69,6 +69,7 @@
 
       if (this.formState === 'error' && pendingSubmission) {
         this.removeSessionStorage(PENDING_SUBMISSION_KEY);
+        this.restoreSubmissionLocation(pendingSubmission);
         this.goToStepTwo(false);
         this.open();
         return;
@@ -228,17 +229,126 @@
     bindSignupForm(form) {
       if (!form) return;
 
-      form.addEventListener('submit', () => this.rememberSubmissionAttempt(form), true);
+      form.addEventListener('submit', (event) => this.submitForm(event, form));
+    }
+
+    async submitForm(event, form) {
+      if (!form.checkValidity()) return;
+
+      event.preventDefault();
+      if (form.dataset.bloomliSubmitting === 'true') return;
+
+      this.rememberSubmissionAttempt(form);
+      this.clearFormError(form);
+      this.setFormPending(form, true);
+
+      const actionUrl = new URL(form.action, window.location.href);
+      actionUrl.hash = '';
+
+      try {
+        const formData = new FormData(form);
+        if (event.submitter?.name && !formData.has(event.submitter.name)) {
+          formData.append(event.submitter.name, event.submitter.value);
+        }
+
+        const response = await fetch(actionUrl.toString(), {
+          method: form.method || 'post',
+          body: formData,
+          credentials: 'same-origin',
+          headers: {
+            Accept: 'text/html',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+        });
+        const responseHtml = await response.text();
+
+        if (this.isCaptchaChallengeResponse(response, responseHtml)) {
+          window.location.assign(response.url);
+          return;
+        }
+
+        if (this.isSuccessfulFormResponse(response, responseHtml)) {
+          this.removeSessionStorage(PENDING_SUBMISSION_KEY);
+          form.reset();
+          this.hideThemeNewsletterSuccess();
+          this.recordSubmission();
+          this.showSuccess();
+          return;
+        }
+
+        this.showFormError(form, this.getFormError(responseHtml));
+      } catch (_error) {
+        HTMLFormElement.prototype.submit.call(form);
+      } finally {
+        this.setFormPending(form, false);
+      }
+    }
+
+    isCaptchaChallengeResponse(response, responseHtml) {
+      const responseUrl = new URL(response.url, window.location.href);
+      return (
+        responseUrl.pathname.includes('/challenge') ||
+        responseHtml.includes('shopify-challenge__container')
+      );
+    }
+
+    isSuccessfulFormResponse(response, responseHtml) {
+      const responseUrl = new URL(response.url, window.location.href);
+      if (responseUrl.searchParams.get('customer_posted') === 'true') return true;
+
+      const responseDocument = new DOMParser().parseFromString(responseHtml, 'text/html');
+      return Boolean(
+        responseDocument.querySelector('[data-bloomli-popup-form-state="success"]') ||
+          responseDocument.querySelector('.newsletter-form__message--success')
+      );
+    }
+
+    getFormError(responseHtml) {
+      const responseDocument = new DOMParser().parseFromString(responseHtml, 'text/html');
+      const error = responseDocument.querySelector(
+        '.bloomli-signup-popup__message--error, .newsletter-form__message--error, .form__message'
+      );
+
+      return error?.textContent.trim() || 'We could not sign you up. Please try again.';
+    }
+
+    setFormPending(form, isPending) {
+      form.dataset.bloomliSubmitting = String(isPending);
+      form.setAttribute('aria-busy', String(isPending));
+      form.querySelectorAll('button[type="submit"], input[type="submit"]').forEach((button) => {
+        button.disabled = isPending;
+      });
+    }
+
+    clearFormError(form) {
+      form.querySelector('[data-bloomli-async-error]')?.remove();
+    }
+
+    showFormError(form, message) {
+      const error = document.createElement('small');
+      error.dataset.bloomliAsyncError = '';
+      error.className =
+        form === this.form
+          ? 'bloomli-signup-popup__message bloomli-signup-popup__message--error'
+          : 'newsletter-form__message form__message';
+      error.setAttribute('role', 'alert');
+      error.textContent = message;
+      form.append(error);
     }
 
     rememberSubmissionAttempt(form) {
+      const isPopupForm = form === this.form;
       const submission = {
-        source: form === this.form ? 'popup' : 'footer',
+        source: isPopupForm ? 'popup' : 'footer',
         returnUrl: `${window.location.pathname}${window.location.search}${window.location.hash}`,
         scrollY: Math.round(window.scrollY),
       };
 
       this.writeSessionStorage(PENDING_SUBMISSION_KEY, JSON.stringify(submission));
+
+      const actionUrl = new URL(form.action, window.location.href);
+      actionUrl.hash = '';
+      form.action = actionUrl.toString();
     }
 
     bindFooterForms() {
@@ -268,7 +378,7 @@
       const locationUrl = new URL(window.location.href);
       locationUrl.searchParams.delete('customer_posted');
 
-      if (/^#(?:BloomliSignupPopupForm-|ContactFooter|NewsletterForm--)/.test(locationUrl.hash)) {
+      if (/^#(?:contact_form|BloomliSignupPopupForm-|ContactFooter|NewsletterForm--)/.test(locationUrl.hash)) {
         locationUrl.hash = '';
       }
 
@@ -276,7 +386,10 @@
       window.history.replaceState({}, '', returnUrl);
 
       if (Number.isFinite(pendingSubmission.scrollY)) {
-        window.requestAnimationFrame(() => window.scrollTo(0, pendingSubmission.scrollY));
+        const restoreScroll = () => window.scrollTo(0, pendingSubmission.scrollY);
+        restoreScroll();
+        window.requestAnimationFrame(restoreScroll);
+        window.setTimeout(restoreScroll, 100);
       }
     }
 

@@ -219,15 +219,16 @@
       return { state: 'challenge', url: responseUrl.href };
     }
 
+    // Success is known from the redirect URL alone — skip downloading and
+    // parsing the redirected page; success copy comes from data-success-message.
+    if (responseUrl.searchParams.get('customer_posted') === 'true' || (response.ok && response.redirected)) {
+      return { state: 'success', doc: null };
+    }
+
     if (!response.ok) return { state: 'error', doc: null };
 
     const html = await response.text();
     const doc = new DOMParser().parseFromString(html, 'text/html');
-
-    if (responseUrl.searchParams.get('customer_posted') === 'true' || response.redirected) {
-      return { state: 'success', doc };
-    }
-
     return { state: 'error', doc };
   };
 

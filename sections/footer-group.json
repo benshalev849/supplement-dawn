@@ -93,7 +93,7 @@
     "bloomli_signup_popup": {
       "type": "bloomli-signup-popup",
       "settings": {
-        "enabled": false,
+        "enabled": true,
         "logo_image": "shopify://shop_images/Final_Logo_Cropped.png",
         "logo_text": "Bloomli",
         "color_scheme": "",
@@ -116,7 +116,7 @@
         "problem_option_2_handle": "breakage",
         "problem_option_3_label": "Slow growth",
         "problem_option_3_handle": "slow-growth",
-        "problem_option_4_label": "Dry scalp",
+        "problem_option_4_label": "Dry Scalp",
         "problem_option_4_handle": "dry-scalp",
         "no_thanks_text": "No thanks, I don't like savings",
         "options_group_label": "Select your hair concern",

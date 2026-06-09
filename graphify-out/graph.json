@@ -9414,9 +9414,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L398",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_signup_popup_js",
-      "target": "assets_bloomli_signup_popup_initpopup",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_initpopup"
     },
     {
       "relation": "contains",
@@ -9424,9 +9424,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L405",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_signup_popup_js",
-      "target": "assets_bloomli_signup_popup_initpopups",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_initpopups"
     },
     {
       "relation": "method",
@@ -10012,9 +10012,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L402",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_signup_popup_initpopup",
-      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_init",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_bloomlisignuppopup_init"
     },
     {
       "relation": "calls",
@@ -10375,9 +10375,9 @@
       "source_file": "bloomli-signup-popup.js",
       "source_location": "L406",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_signup_popup_initpopups",
-      "target": "assets_bloomli_signup_popup_initpopup",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_signup_popup_initpopup"
     },
     {
       "relation": "contains",

@@ -85,7 +85,7 @@
       ],
       "settings": {
         "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
-        "newsletter_enable": true,
+        "newsletter_enable": false,
         "newsletter_heading": "",
         "enable_follow_on_shop": false,
         "show_social": true,

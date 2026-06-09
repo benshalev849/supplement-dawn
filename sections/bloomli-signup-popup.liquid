@@ -252,6 +252,13 @@
     >
       {{ popup_success_message | escape }}
     </p>
+
+    <iframe
+      name="BloomliNewsletterSubmission-{{ section.id }}"
+      title="Newsletter submission"
+      data-bloomli-popup-submission-frame
+      hidden
+    ></iframe>
   </div>
 {%- endif -%}
 

@@ -15,7 +15,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "{{ 'bloomli-omnisend-embed.css' | asset_url | stylesheet_tag }}\n\n<style>\n  #shopify-section-{{ section.id }} .color-background-1.gradient {\n    width: 100vw !important;\n    max-width: none !important;\n    margin-left: calc(50% - 50vw) !important;\n    margin-right: calc(50% - 50vw) !important;\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n  }\n</style>\n\n<div class=\"bloomli-omnisend-full\">\n  <div class=\"bloomli-omnisend-inner\">\n    <div id=\"omnisend-embedded-v2-6a293507b28485476ae679ec\"></div>\n  </div>\n</div>",
+        "custom_liquid": "{{ 'bloomli-omnisend-embed.css' | asset_url | stylesheet_tag }}\n\n<style>\n  #shopify-section-{{ section.id }} .color-background-1.gradient {\n    width: 100vw !important;\n    max-width: none !important;\n    margin-left: calc(50% - 50vw) !important;\n    margin-right: calc(50% - 50vw) !important;\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n  }\n</style>\n\n<div class=\"bloomli-omnisend-full\">\n  <div class=\"bloomli-omnisend-inner page-width\">\n    <div id=\"omnisend-embedded-v2-6a293507b28485476ae679ec\"></div>\n  </div>\n</div>",
         "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
         "padding_top": 16,
         "padding_bottom": 16

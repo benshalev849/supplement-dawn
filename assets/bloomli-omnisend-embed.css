@@ -1,37 +1,56 @@
 .bloomli-omnisend-full {
   width: 100vw;
   max-width: none;
-  margin-inline: calc(50% - 50vw);
+  margin: 0;
   padding: 0;
+  background: transparent;
+  box-sizing: border-box;
   overflow: hidden;
 }
 
 .bloomli-omnisend-inner {
-  padding-inline: 0;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
 }
 
-#omnisend-embedded-v2-6a293507b28485476ae679ec,
+#omnisend-embedded-v2-6a293507b28485476ae679ec {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#omnisend-embedded-v2-6a293507b28485476ae679ec *,
+#omnisend-embedded-v2-6a293507b28485476ae679ec > div,
+#omnisend-embedded-v2-6a293507b28485476ae679ec form,
+#omnisend-embedded-v2-6a293507b28485476ae679ec iframe,
+#omnisend-embedded-v2-6a293507b28485476ae679ec [style*='max-width'],
+#omnisend-embedded-v2-6a293507b28485476ae679ec [style*='1000px'] {
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
 #omnisend-embedded-v2-6a293507b28485476ae679ec > div,
 #omnisend-embedded-v2-6a293507b28485476ae679ec form,
 #omnisend-embedded-v2-6a293507b28485476ae679ec iframe {
   width: 100% !important;
   min-width: 0 !important;
-  max-width: none !important;
-  margin-inline: 0 !important;
-}
-
-#omnisend-embedded-v2-6a293507b28485476ae679ec {
-  padding: 0 !important;
-}
-
-#omnisend-embedded-v2-6a293507b28485476ae679ec iframe {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   border: 0 !important;
   box-shadow: none !important;
 }
 
+#omnisend-embedded-v2-6a293507b28485476ae679ec p {
+  color: rgba(var(--color-foreground), 0.75) !important;
+}
+
 @media screen and (min-width: 750px) {
   .bloomli-omnisend-inner {
-    padding-inline: 9rem;
+    padding-left: 9rem;
+    padding-right: 9rem;
   }
 
   #omnisend-embedded-v2-6a293507b28485476ae679ec h1,
@@ -43,7 +62,8 @@
   }
 
   #omnisend-embedded-v2-6a293507b28485476ae679ec p {
-    color: rgba(var(--color-foreground), 0.75) !important;
+    width: 100% !important;
+    max-width: 42rem !important;
     font-size: 16px !important;
     line-height: 1.5 !important;
   }

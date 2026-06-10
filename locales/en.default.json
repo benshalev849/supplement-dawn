@@ -540,7 +540,8 @@
     "checkout": {
       "marketing": {
         "accept_sms_checkbox_label": "Early access, restocks, and offers worth opening.",
-        "accept_marketing_checkbox_label": "Join the list. Honest hair tips and offers worth reading."
+        "accept_marketing_checkbox_label": "Join the list. Honest hair tips and offers worth reading.",
+        "accept_shop_pay_marketing_checkbox_label": "Join the list. Honest hair tips and offers worth reading."
       }
     }
   },

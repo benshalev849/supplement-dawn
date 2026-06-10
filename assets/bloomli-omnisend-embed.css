@@ -54,6 +54,11 @@
     padding-right: 9rem;
   }
 
+  #omnisend-embedded-v2-6a293507b28485476ae679ec form {
+    width: calc(100% + 12rem) !important;
+    margin-left: -12rem !important;
+  }
+
   #omnisend-embedded-v2-6a293507b28485476ae679ec h1,
   #omnisend-embedded-v2-6a293507b28485476ae679ec h2,
   #omnisend-embedded-v2-6a293507b28485476ae679ec h3,

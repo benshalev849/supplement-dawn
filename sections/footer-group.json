@@ -15,7 +15,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<div style=\"background:#b63a75; padding:60px 20px; color:white;\">\n  <p>Omnisend test below:</p>\n  <div id=\"omnisend-embedded-v2-6a293507b28485476ae679ec\"></div>\n</div>",
+        "custom_liquid": "<div class=\"bloomli-omnisend-full\">\n  <div id=\"omnisend-embedded-v2-6a293507b28485476ae679ec\"></div>\n</div>\n\n<style>\n  .bloomli-omnisend-full {\n    position: relative;\n    left: 50%;\n    right: 50%;\n    width: 100vw;\n    margin-left: -50vw;\n    margin-right: -50vw;\n    background: #b63a75;\n    padding: 80px 6.5vw;\n    box-sizing: border-box;\n    overflow: hidden;\n  }\n\n  .bloomli-omnisend-full [id^=\"omnisend-embedded-v2\"] {\n    width: 100% !important;\n    max-width: none !important;\n    margin: 0 !important;\n  }\n\n  .bloomli-omnisend-full iframe {\n    width: 100% !important;\n    max-width: none !important;\n    border: 0 !important;\n  }\n\n  @media screen and (max-width: 749px) {\n    .bloomli-omnisend-full {\n      padding: 48px 20px;\n    }\n  }\n</style>",
         "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
         "padding_top": 40,
         "padding_bottom": 52

@@ -21,24 +21,6 @@
         "padding_bottom": 16
       }
     },
-    "178108486175043d52": {
-      "type": "apps",
-      "blocks": {
-        "omnisend_email_marketing_sms_embedded_form_h4MDRf": {
-          "type": "shopify://apps/omnisend-email-marketing-sms/blocks/embedded-form/44704aa2-794f-4c5d-8c8e-039c841158e9",
-          "settings": {
-            "form_id": "6a293507b28485476ae679ec"
-          }
-        }
-      },
-      "block_order": [
-        "omnisend_email_marketing_sms_embedded_form_h4MDRf"
-      ],
-      "disabled": true,
-      "settings": {
-        "include_margins": true
-      }
-    },
     "newsletter_4PUBTw": {
       "type": "newsletter",
       "blocks": {
@@ -65,6 +47,7 @@
         "paragraph_NgaH87",
         "email_form_xWxFqC"
       ],
+      "disabled": true,
       "name": "t:sections.newsletter.presets.name",
       "settings": {
         "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
@@ -169,7 +152,6 @@
   },
   "order": [
     "custom_liquid_ppkAyj",
-    "178108486175043d52",
     "newsletter_4PUBTw",
     "footer",
     "bloomli_signup_popup"

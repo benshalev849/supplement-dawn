@@ -11,23 +11,6 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "1781086690d90591ff": {
-      "type": "apps",
-      "blocks": {
-        "omnisend_email_marketing_sms_embedded_form_MqxGyd": {
-          "type": "shopify://apps/omnisend-email-marketing-sms/blocks/embedded-form/44704aa2-794f-4c5d-8c8e-039c841158e9",
-          "settings": {
-            "form_id": "6a293507b28485476ae679ec"
-          }
-        }
-      },
-      "block_order": [
-        "omnisend_email_marketing_sms_embedded_form_MqxGyd"
-      ],
-      "settings": {
-        "include_margins": false
-      }
-    },
     "178108486175043d52": {
       "type": "apps",
       "blocks": {
@@ -41,7 +24,6 @@
       "block_order": [
         "omnisend_email_marketing_sms_embedded_form_h4MDRf"
       ],
-      "disabled": true,
       "settings": {
         "include_margins": true
       }
@@ -175,7 +157,6 @@
     }
   },
   "order": [
-    "1781086690d90591ff",
     "178108486175043d52",
     "newsletter_4PUBTw",
     "footer",

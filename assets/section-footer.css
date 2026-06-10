@@ -191,6 +191,12 @@
   font-size: calc(var(--font-heading-scale) * 1.6rem);
 }
 
+.footer-block--menu .footer-block__heading,
+.footer-block--menu .list-menu__item--link {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+}
+
 @media screen and (min-width: 990px) {
   .footer-block__heading {
     font-size: calc(var(--font-heading-scale) * 1.8rem);

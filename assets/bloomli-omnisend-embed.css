@@ -43,7 +43,8 @@
   box-shadow: none !important;
 }
 
-#omnisend-embedded-v2-6a293507b28485476ae679ec p {
+#omnisend-embedded-v2-6a293507b28485476ae679ec p,
+#omnisend-embedded-v2-6a293507b28485476ae679ec p * {
   color: rgba(var(--color-foreground), 0.75) !important;
 }
 
@@ -63,7 +64,7 @@
 
   #omnisend-embedded-v2-6a293507b28485476ae679ec p {
     width: 100% !important;
-    max-width: 42rem !important;
+    max-width: 48rem !important;
     font-size: 16px !important;
     line-height: 1.5 !important;
   }

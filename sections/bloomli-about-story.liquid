@@ -1,0 +1,130 @@
+{{ 'bloomli-about.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign primary_alt = section.settings.primary_image.alt | default: section.settings.heading
+  assign secondary_alt = section.settings.secondary_image.alt | default: section.settings.eyebrow
+-%}
+
+<section
+  {% if section.settings.section_id != blank %}
+    id="{{ section.settings.section_id | handleize }}"
+  {% endif %}
+  class="bloomli-about-section bloomli-about-story color-{{ section.settings.color_scheme }} gradient{% if section.settings.image_side == 'right' %} bloomli-about-story--media-right{% endif %}"
+  style="
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    {% if section.settings.use_custom_background %}--bloomli-about-bg: {{ section.settings.background_color }};{% endif %}
+  "
+>
+  <div class="bloomli-about-section__inner">
+    <div class="bloomli-about-story__grid">
+      <div class="bloomli-about-story__media{% if section.settings.show_secondary_image %} bloomli-about-story__media--has-secondary{% endif %}">
+        <div class="bloomli-about-story__photo bloomli-about-story__photo--primary">
+          {%- if section.settings.primary_image != blank -%}
+            {{
+              section.settings.primary_image
+              | image_url: width: 1100
+              | image_tag:
+                widths: '440, 660, 880, 1100',
+                sizes: '(min-width: 990px) 42vw, 100vw',
+                loading: 'lazy',
+                decoding: 'async',
+                alt: primary_alt,
+                class: 'bloomli-about-story__img'
+            }}
+          {%- else -%}
+            <div class="bloomli-about-placeholder">{{ section.settings.primary_placeholder | escape }}</div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.show_secondary_image -%}
+          <div class="bloomli-about-story__photo bloomli-about-story__photo--secondary">
+            {%- if section.settings.secondary_image != blank -%}
+              {{
+                section.settings.secondary_image
+                | image_url: width: 520
+                | image_tag:
+                  widths: '260, 390, 520',
+                  sizes: '(min-width: 990px) 20vw, 44vw',
+                  loading: 'lazy',
+                  decoding: 'async',
+                  alt: secondary_alt,
+                  class: 'bloomli-about-story__img'
+              }}
+            {%- else -%}
+              <div class="bloomli-about-placeholder">{{ section.settings.secondary_placeholder | escape }}</div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="bloomli-about-story__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="bloomli-about-kicker">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="bloomli-about-heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <div class="bloomli-about-story__body rte">{{ section.settings.body }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.quote != blank -%}
+          <blockquote class="bloomli-about-story__quote">{{ section.settings.quote }}</blockquote>
+        {%- endif -%}
+
+        {%- if section.settings.signature_name != blank -%}
+          <div class="bloomli-about-story__signature">
+            <span class="bloomli-about-story__signature-name">{{ section.settings.signature_name | escape }}</span>
+            {%- if section.settings.signature_role != blank -%}
+              <span class="bloomli-about-story__signature-role">{{ section.settings.signature_role | escape }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli - About Story",
+  "tag": "div",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "section_id", "label": "Optional section anchor ID", "default": "our-story" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
+    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FDFAF7", "visible_if": "{{ section.settings.use_custom_background }}" },
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "It started on a bathroom shelf crowded with almost-finished bottles." },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Like a lot of women, we kept buying hope in a bottle: a pill for shine here, an oil for growth there. Each one promised everything, and most were forgotten within weeks.</p><p>The research told a quieter story. Hair responds to steady nutrition, a cared-for scalp, and time. Nothing dramatic, nothing overnight. That honesty felt rare enough to build a brand around.</p>" },
+    { "type": "richtext", "id": "quote", "label": "Pull quote (optional)" },
+    { "type": "text", "id": "signature_name", "label": "Signature name", "default": "The Bloomli Team" },
+    { "type": "text", "id": "signature_role", "label": "Signature role" },
+    { "type": "header", "content": "Imagery" },
+    { "type": "select", "id": "image_side", "label": "Image side (desktop)", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "right", "label": "Right" }
+    ], "default": "left" },
+    { "type": "image_picker", "id": "primary_image", "label": "Primary photo" },
+    { "type": "text", "id": "primary_placeholder", "label": "Primary photo placeholder label", "default": "[ PHOTO: Founder portrait, warm natural light ]" },
+    { "type": "checkbox", "id": "show_secondary_image", "label": "Show secondary photo", "default": true },
+    { "type": "image_picker", "id": "secondary_image", "label": "Secondary photo", "visible_if": "{{ section.settings.show_secondary_image }}" },
+    { "type": "text", "id": "secondary_placeholder", "label": "Secondary photo placeholder label", "default": "[ PHOTO: Behind-the-scenes detail ]", "visible_if": "{{ section.settings.show_secondary_image }}" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px" }
+  ],
+  "presets": [{ "name": "Bloomli - About Story" }]
+}
+{% endschema %}

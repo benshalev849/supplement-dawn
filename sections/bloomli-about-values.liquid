@@ -1,0 +1,125 @@
+{{ 'bloomli-about.css' | asset_url | stylesheet_tag }}
+
+<section
+  {% if section.settings.section_id != blank %}
+    id="{{ section.settings.section_id | handleize }}"
+  {% endif %}
+  class="bloomli-about-section bloomli-about-values color-{{ section.settings.color_scheme }} gradient{% if section.settings.stagger %} bloomli-about-values--stagger{% endif %}"
+  style="
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    {% if section.settings.use_custom_background %}--bloomli-about-bg: {{ section.settings.background_color }};{% endif %}
+  "
+>
+  <div class="bloomli-about-section__inner">
+    <header class="bloomli-about-values__header">
+      {%- if section.settings.kicker != blank -%}
+        <p class="bloomli-about-kicker">{{ section.settings.kicker | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="bloomli-about-heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.copy != blank -%}
+        <div class="bloomli-about-copy rte">{{ section.settings.copy }}</div>
+      {%- endif -%}
+    </header>
+
+    <div class="bloomli-about-values__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign value_alt = block.settings.image.alt | default: block.settings.title
+        -%}
+        <article class="bloomli-about-values__item" {{ block.shopify_attributes }}>
+          <div class="bloomli-about-values__media bloomli-about-values__media--{{ block.settings.aspect }}">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 1000
+                | image_tag:
+                  widths: '400, 600, 800, 1000',
+                  sizes: '(min-width: 750px) 46vw, 100vw',
+                  loading: 'lazy',
+                  decoding: 'async',
+                  alt: value_alt,
+                  class: 'bloomli-about-values__img'
+              }}
+            {%- else -%}
+              <div class="bloomli-about-placeholder">{{ block.settings.image_placeholder | escape }}</div>
+            {%- endif -%}
+          </div>
+
+          <div class="bloomli-about-values__number" aria-hidden="true">
+            {%- if forloop.index < 10 -%}0{%- endif -%}{{ forloop.index }}
+          </div>
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="bloomli-about-values__title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+            <div class="bloomli-about-values__text rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli - About Values",
+  "tag": "div",
+  "max_blocks": 6,
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "section_id", "label": "Optional section anchor ID" },
+    { "type": "checkbox", "id": "use_custom_background", "label": "Use custom background color", "default": false },
+    { "type": "color", "id": "background_color", "label": "Custom background color", "default": "#FDFAF7", "visible_if": "{{ section.settings.use_custom_background }}" },
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "kicker", "label": "Eyebrow", "default": "What we believe" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Four convictions we won't trade away." },
+    { "type": "richtext", "id": "copy", "label": "Intro copy", "default": "<p>Every formula, label, and email gets checked against these.</p>" },
+    { "type": "checkbox", "id": "stagger", "label": "Stagger columns on desktop", "default": true },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 176, "step": 8, "default": 104, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 0, "max": 120, "step": 8, "default": 64, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "image_placeholder", "label": "Photo placeholder label", "default": "[ PHOTO: Value imagery ]" },
+        { "type": "select", "id": "aspect", "label": "Photo shape", "options": [
+          { "value": "landscape", "label": "Landscape (4:3)" },
+          { "value": "portrait", "label": "Portrait (3:4)" },
+          { "value": "square", "label": "Square" }
+        ], "default": "landscape" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Consistency beats intensity" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Hair responds to what you do daily, not what you do once. Everything we make is designed to be easy to keep up with.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli - About Values",
+      "blocks": [
+        { "type": "value" },
+        { "type": "value", "settings": { "aspect": "portrait", "title": "Biology sets the timeline", "text": "<p>We say 8 to 12 weeks because that is how hair actually works. We would rather lose a sale than pretend otherwise.</p>" } },
+        { "type": "value", "settings": { "aspect": "portrait", "title": "Show the paperwork", "text": "<p>Third-party testing and a certificate of analysis for each product. If a claim cannot survive a document request, it does not go on our packaging.</p>" } },
+        { "type": "value", "settings": { "title": "No fear, no shame", "text": "<p>Shedding is normal. Slow seasons are normal. We will never market to your panic, only to your patience.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,290 @@
+{
+  "sections": {
+    "about_hero": {
+      "type": "bloomli-hero",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "use_brand_gradient": true,
+        "headline_line1": "Made for the long game.",
+        "headline_line2": "",
+        "subtext": "Bloomli started with a simple frustration: hair care was either hype or homework. So we built one honest ritual instead. Three products that work together, explained in plain language.",
+        "min_height": 640,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56,
+        "button_color_scheme": "scheme-1",
+        "cta_primary_label": "Shop the Ritual",
+        "cta_primary_url": "/#bloomli-product-finder",
+        "cta_secondary_label": "Read our story",
+        "cta_secondary_url": "#our-story",
+        "show_reviews": false,
+        "star_rating_text": "",
+        "trust_badge_1": "Three products, one ritual",
+        "trust_badge_2": "Third-party tested",
+        "trust_badge_3": "No miracle promises",
+        "overlay_opacity": 20,
+        "use_custom_text_color": false,
+        "use_custom_accent_color": false,
+        "content_position_mobile": "top"
+      }
+    },
+    "about_story": {
+      "type": "bloomli-about-story",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "section_id": "our-story",
+        "use_custom_background": false,
+        "eyebrow": "Our story",
+        "heading": "It started on a bathroom shelf crowded with almost-finished bottles.",
+        "body": "<p>Like a lot of women, we kept buying hope in a bottle: a pill for shine here, an oil for growth there. Each one promised everything, and most were forgotten within weeks.</p><p>The research told a quieter story. Hair responds to steady nutrition, a cared-for scalp, and time. Nothing dramatic, nothing overnight. That honesty felt rare enough to build a brand around.</p><p>So Bloomli makes exactly three things, designed to work as one ritual: a gummy, a capsule, and a botanical serum. A line small enough to obsess over, simple enough to actually keep up with.</p>",
+        "signature_name": "The Bloomli Team",
+        "signature_role": "",
+        "image_side": "left",
+        "primary_placeholder": "[ PHOTO: Founder portrait, warm natural light ]",
+        "show_secondary_image": true,
+        "secondary_placeholder": "[ PHOTO: Early notes and product samples ]",
+        "padding_top": 104,
+        "padding_bottom": 112,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 72
+      }
+    },
+    "about_timeline": {
+      "type": "bloomli-timeline",
+      "blocks": {
+        "chapter_gap": {
+          "type": "step",
+          "settings": {
+            "icon": "seed",
+            "range": "Chapter one",
+            "title": "The gap",
+            "description": "Shelves of single-ingredient pills and big promises, but no simple way to stay consistent. We kept asking why hair wellness had to feel like homework."
+          }
+        },
+        "chapter_ritual": {
+          "type": "step",
+          "settings": {
+            "icon": "sprout",
+            "range": "Chapter two",
+            "title": "The ritual",
+            "description": "Three products designed as one routine: nourishment from within, botanical care for the scalp. Tested by independent labs before anything ships."
+          }
+        },
+        "chapter_bloom": {
+          "type": "step",
+          "settings": {
+            "icon": "bloom",
+            "range": "Chapter three",
+            "title": "The bloom",
+            "description": "A growing community of women who chose patience over panic. We answer every email, read every review, and keep refining."
+          }
+        }
+      },
+      "block_order": ["chapter_gap", "chapter_ritual", "chapter_bloom"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Three chapters in, still growing.",
+        "subheadline": "<p>The short version of how a frustration became a ritual, and where it goes next.</p>",
+        "circle_background": "surface",
+        "circle_size": 280,
+        "icon_size": 120,
+        "show_connector": true,
+        "connector_style": "dashed",
+        "connector_width": 1,
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
+      }
+    },
+    "about_values": {
+      "type": "bloomli-about-values",
+      "blocks": {
+        "value_consistency": {
+          "type": "value",
+          "settings": {
+            "aspect": "landscape",
+            "image_placeholder": "[ PHOTO: Morning ritual, gummies beside coffee ]",
+            "title": "Consistency beats intensity",
+            "text": "<p>Hair responds to what you do daily, not what you do once. Everything we make is designed to be easy to keep up with: pleasant to take, quick to apply, simple to reorder.</p>"
+          }
+        },
+        "value_timeline": {
+          "type": "value",
+          "settings": {
+            "aspect": "portrait",
+            "image_placeholder": "[ PHOTO: Journal with routine check marks ]",
+            "title": "Biology sets the timeline",
+            "text": "<p>We say 8 to 12 weeks because that is how hair actually works. No brand can rush a growth cycle, and we would rather lose a sale than pretend otherwise.</p>"
+          }
+        },
+        "value_paperwork": {
+          "type": "value",
+          "settings": {
+            "aspect": "portrait",
+            "image_placeholder": "[ PHOTO: COA documents on a desk ]",
+            "title": "Show the paperwork",
+            "text": "<p>Third-party testing, a certificate of analysis for each product, and plain-language labels. If a claim cannot survive a document request, it does not go on our packaging.</p>"
+          }
+        },
+        "value_no_fear": {
+          "type": "value",
+          "settings": {
+            "aspect": "landscape",
+            "image_placeholder": "[ PHOTO: Women laughing together, candid ]",
+            "title": "No fear, no shame",
+            "text": "<p>Shedding is normal. Slow seasons are normal. We will never market to your panic, only to your patience.</p>"
+          }
+        }
+      },
+      "block_order": ["value_consistency", "value_timeline", "value_paperwork", "value_no_fear"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "section_id": "what-we-believe",
+        "use_custom_background": false,
+        "kicker": "What we believe",
+        "heading": "Four convictions we won't trade away.",
+        "copy": "<p>Every formula, label, and email gets checked against these.</p>",
+        "stagger": true,
+        "padding_top": 112,
+        "padding_bottom": 112,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64
+      }
+    },
+    "about_trust": {
+      "type": "bloomli-trust-row",
+      "blocks": {
+        "trust_tested": {
+          "type": "proof",
+          "settings": {
+            "icon": "shield-check",
+            "label": "Third-Party Tested",
+            "body": "Tested for purity, label accuracy, and quality."
+          }
+        },
+        "trust_facility": {
+          "type": "proof",
+          "settings": {
+            "icon": "certificate",
+            "label": "NSF-Certified Facility",
+            "body": "Manufactured to the highest quality standards."
+          }
+        },
+        "trust_usa": {
+          "type": "proof",
+          "settings": {
+            "icon": "map-pin",
+            "label": "Made in the USA",
+            "body": "Produced with quality standards you can trust."
+          }
+        }
+      },
+      "block_order": ["trust_tested", "trust_facility", "trust_usa"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24
+      }
+    },
+    "about_ritual": {
+      "type": "bloomli-science-inside-out",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "section_id": "what-we-make",
+        "use_custom_background": false,
+        "heading": "We only make three things. On purpose.",
+        "copy": "<p>A gummy, a capsule, and a serum: one ritual that covers hair wellness from both sides. Making less means we can sweat every detail of each.</p>",
+        "supplement_image": "shopify://shop_images/Capsule_and_Gummy_Product_Image_5f7ea63a-ad22-42c0-8b96-df1320459c11.png",
+        "supplement_placeholder": "[ PHOTO: Gummies and capsules on a warm cream surface. Aspect 4:3. ]",
+        "left_heading": "The supplements.",
+        "left_body": "<p><strong>Daily nutrition, two ways.</strong><br/>The same care in two formats: a passion fruit gummy you will actually remember to take, and a comprehensive capsule for women who want the deeper routine.</p>",
+        "serum_image": "shopify://shop_images/Hair_Serum_4-3_Ratio.png",
+        "serum_placeholder": "[ PHOTO: Serum bottle with dropper, botanical styling. Aspect 4:3. ]",
+        "right_heading": "The serum.",
+        "right_body": "<p><strong>Botanical care for the scalp.</strong><br/>Rosemary, ginger root, and Densidyl in a lightweight, fragrance-free formula. A two-minute scalp massage that turns maintenance into a moment.</p>",
+        "padding_top": 104,
+        "padding_bottom": 104,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64
+      }
+    },
+    "about_mosaic": {
+      "type": "bloomli-photo-mosaic",
+      "blocks": {
+        "mosaic_1": { "type": "photo", "settings": { "label": "Customer selfie" } },
+        "mosaic_2": { "type": "photo", "settings": { "label": "Routine flat-lay" } },
+        "mosaic_3": { "type": "photo", "settings": { "label": "Ingredient macro" } },
+        "mosaic_4": { "type": "photo", "settings": { "label": "Founder at work" } },
+        "mosaic_5": { "type": "photo", "settings": { "label": "Packing an order" } },
+        "mosaic_6": { "type": "photo", "settings": { "label": "Serum drop" } },
+        "mosaic_7": { "type": "photo", "settings": { "label": "Vanity shelf" } },
+        "mosaic_8": { "type": "photo", "settings": { "label": "Gummies in hand" } },
+        "mosaic_9": { "type": "photo", "settings": { "label": "Morning light" } },
+        "mosaic_10": { "type": "photo", "settings": { "label": "Community repost" } },
+        "mosaic_11": { "type": "photo", "settings": { "label": "Hair texture close-up" } },
+        "mosaic_12": { "type": "photo", "settings": { "label": "Handwritten note" } }
+      },
+      "block_order": [
+        "mosaic_1",
+        "mosaic_2",
+        "mosaic_3",
+        "mosaic_4",
+        "mosaic_5",
+        "mosaic_6",
+        "mosaic_7",
+        "mosaic_8",
+        "mosaic_9",
+        "mosaic_10",
+        "mosaic_11",
+        "mosaic_12"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "use_custom_background": false,
+        "heading": "Little moments from the ritual.",
+        "subtext": "<p>From our community, our desks, and our morning counters.</p>",
+        "placeholder_background": "surface",
+        "columns_desktop": 6,
+        "columns_mobile": "2",
+        "gap": 10,
+        "radius": 8,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "about_cta": {
+      "type": "bloomli-science-cta",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Grow with us.",
+        "body": "<p>One ritual, three honest products, and a brand that tells you the truth about timelines.</p>",
+        "primary_label": "Shop the Ritual",
+        "primary_link": "/#bloomli-product-finder",
+        "secondary_label": "Why Bloomli works",
+        "secondary_link": "/pages/science",
+        "cta_image": "shopify://shop_images/All_Three_Products.png",
+        "placeholder_label": "Final CTA image - Bloomli product trio",
+        "padding_top": 88,
+        "padding_bottom": 88,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
+      }
+    }
+  },
+  "order": [
+    "about_hero",
+    "about_story",
+    "about_timeline",
+    "about_values",
+    "about_trust",
+    "about_ritual",
+    "about_mosaic",
+    "about_cta"
+  ]
+}

@@ -134,7 +134,7 @@
         "subheading": "<p>Gummies or capsules — same science, different format.</p>",
         "image_fit": "cover",
         "most_popular_badge": "Most popular",
-        "card_2_product": "test-supplement",
+        "card_2_product": "bloomli-hair-vitamin-gummies",
         "gummies_title": "",
         "gummies_short_description": "Everything your hair needs, in one daily gummy.",
         "gummies_price_text": "",
@@ -355,7 +355,7 @@
         "product_dhpTYA": {
           "type": "product",
           "settings": {
-            "product": "test-supplement",
+            "product": "bloomli-hair-vitamin-gummies",
             "image_scale": 110,
             "title": "",
             "link": "",

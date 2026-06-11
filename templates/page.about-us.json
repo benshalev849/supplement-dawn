@@ -41,7 +41,7 @@
         "signature_name": "The Bloomli Team",
         "signature_role": "",
         "image_side": "left",
-        "primary_placeholder": "[ PHOTO: Founder portrait, warm natural light ]",
+        "primary_placeholder": "[ PHOTO: The ritual on a bathroom counter, warm light ]",
         "show_secondary_image": true,
         "secondary_placeholder": "[ PHOTO: Early notes and product samples ]",
         "padding_top": 104,
@@ -153,43 +153,6 @@
         "padding_bottom_mobile": 64
       }
     },
-    "about_trust": {
-      "type": "bloomli-trust-row",
-      "blocks": {
-        "trust_tested": {
-          "type": "proof",
-          "settings": {
-            "icon": "shield-check",
-            "label": "Third-Party Tested",
-            "body": "Tested for purity, label accuracy, and quality."
-          }
-        },
-        "trust_facility": {
-          "type": "proof",
-          "settings": {
-            "icon": "certificate",
-            "label": "NSF-Certified Facility",
-            "body": "Manufactured to the highest quality standards."
-          }
-        },
-        "trust_usa": {
-          "type": "proof",
-          "settings": {
-            "icon": "map-pin",
-            "label": "Made in the USA",
-            "body": "Produced with quality standards you can trust."
-          }
-        }
-      },
-      "block_order": ["trust_tested", "trust_facility", "trust_usa"],
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 24,
-        "padding_bottom_mobile": 24
-      }
-    },
     "about_ritual": {
       "type": "bloomli-science-inside-out",
       "settings": {
@@ -282,7 +245,6 @@
     "about_story",
     "about_timeline",
     "about_values",
-    "about_trust",
     "about_ritual",
     "about_mosaic",
     "about_cta"

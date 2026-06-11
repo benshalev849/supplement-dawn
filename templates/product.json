@@ -123,7 +123,7 @@
           "type": "bloomli_collapsible_row",
           "settings": {
             "title": "Shipping & Returns",
-            "content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.</p>"
+            "content": "<p>We offer free shipping on all subscriptions and on one-time orders over $75.<br/><br/>Orders are processed within 1 to 2 business days and typically arrive within 5 to 7 business days.<br/><br/>Not happy with your results? We offer a 30-day money-back guarantee, no questions asked. <br/><br/>View our full <a href=\"/policies/shipping-policy\" title=\"Shipping Policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\" title=\"Refund Policy\">Refund Policy</a> for complete details.</p>"
           }
         }
       },
@@ -984,9 +984,11 @@
         "heading": "Pair & Save",
         "body_text": "Most people choose one. The ones who see results fastest use both.",
         "badge_text": "15% off serum",
+        "product_1": "",
         "product_1_step": "Step 01",
         "product_1_title": "Hair Gummies",
         "product_1_description": "Daily beauty nutrients",
+        "product_2": "",
         "product_2_step": "Step 02",
         "product_2_title": "Hair Serum",
         "product_2_description": "Scalp & strand nourishment",

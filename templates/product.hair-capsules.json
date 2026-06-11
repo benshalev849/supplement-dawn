@@ -117,7 +117,7 @@
           "type": "bloomli_collapsible_row",
           "settings": {
             "title": "Quality & Certifications",
-            "content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.</p>"
+            "content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.<br/><br/>Read more in our <a href=\"/pages/science-1\" title=\"Science\">Science Page</a></p>"
           }
         },
         "bloomli_collapsible_row_GgpaUi": {

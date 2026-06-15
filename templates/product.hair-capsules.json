@@ -723,7 +723,7 @@
         "photo_itwQBT": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Model_Holding_Gummy_2_5dc2294b-1314-41eb-b66d-3fb3fb684a85.png",
+            "image": "shopify://shop_images/Capsule_In_palm_1.png",
             "image_scale": 100,
             "label": "Photo 1",
             "use_custom_placeholder_color": false,
@@ -743,7 +743,7 @@
         "photo_UQecfB": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Model_Eating_Gummy_1.png",
+            "image": "shopify://shop_images/UGC_Eating_capsule.png",
             "image_scale": 100,
             "label": "Photo 3",
             "use_custom_placeholder_color": false,
@@ -763,11 +763,21 @@
         "photo_HkWBVE": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Gummy_Selfie_7_c82604d5-2d46-489c-a617-207ba8e2bd20.png",
+            "image": "shopify://shop_images/UGC_Showcase_capsule_2.png",
             "image_scale": 100,
             "label": "Photo 6",
             "use_custom_placeholder_color": false,
             "placeholder_color": "#f3e1e5"
+          }
+        },
+        "photo_fGEqGb": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Part_Line_1.png",
+            "image_scale": 100,
+            "label": "Photo 11",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#d9cce8"
           }
         },
         "photo_zbFfXz": {
@@ -790,6 +800,16 @@
             "placeholder_color": "#f5ede4"
           }
         },
+        "photo_Artdhg": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Mirrot_Selfie_2.png",
+            "image_scale": 100,
+            "label": "Photo 9",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
         "photo_Xj6LgH": {
           "type": "photo",
           "settings": {
@@ -800,30 +820,10 @@
             "placeholder_color": "#f3e1e5"
           }
         },
-        "photo_Artdhg": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/Gummy_Selfie_6.png",
-            "image_scale": 100,
-            "label": "Photo 9",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#f5ede4"
-          }
-        },
-        "photo_fGEqGb": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/Gummy_Selfie_3.png",
-            "image_scale": 100,
-            "label": "Photo 11",
-            "use_custom_placeholder_color": false,
-            "placeholder_color": "#d9cce8"
-          }
-        },
         "photo_jhY4cR": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Client_Result_Selfie_13.png",
+            "image": "shopify://shop_images/Looking_At_Capsules_1.png",
             "image_scale": 100,
             "label": "Photo 7",
             "use_custom_placeholder_color": false,
@@ -833,7 +833,7 @@
         "photo_iXjxWB": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Gummy_Selfie_5.png",
+            "image": "shopify://shop_images/Mirror_Selfie_1.png",
             "image_scale": 100,
             "label": "Photo 8",
             "use_custom_placeholder_color": false,
@@ -847,11 +847,11 @@
         "photo_UQecfB",
         "photo_gDhx3U",
         "photo_HkWBVE",
+        "photo_fGEqGb",
         "photo_zbFfXz",
         "photo_HnKE8c",
-        "photo_Xj6LgH",
         "photo_Artdhg",
-        "photo_fGEqGb",
+        "photo_Xj6LgH",
         "photo_jhY4cR",
         "photo_iXjxWB"
       ],

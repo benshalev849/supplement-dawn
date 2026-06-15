@@ -30,7 +30,7 @@
         "cta_secondary_label": "Take the 2-min Quiz",
         "cta_secondary_url": "",
         "show_reviews": true,
-        "star_rating_text": "4.8 Stars from 1500+ Reviews",
+        "star_rating_text": "4.85 Stars from 1500+ Reviews",
         "trust_badge_1": "Third-Party Tested",
         "trust_badge_2": "NSF-Certified Facility",
         "trust_badge_3": "Made in the USA",
@@ -698,7 +698,7 @@
       "settings": {
         "title": "Real women. Real results.",
         "use_judgeme": false,
-        "manual_aggregate": "4.8 Stars · 1500+ reviews",
+        "manual_aggregate": "4.85 Stars · 1500+ reviews",
         "background_color": "#fdfaf7",
         "card_background": "#ffffff",
         "placeholder_color": "#f7f0e9",

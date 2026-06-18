@@ -120,12 +120,11 @@
         },
         "what_youll_feel_JxrGEV": {
           "type": "what_youll_feel",
-          "disabled": true,
           "settings": {
             "heading": "What You'll Feel",
             "survey_source": "",
             "disclaimer": "<p><em>* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary.</em></p>",
-            "heading_size": 14,
+            "heading_size": 23,
             "title_size": 13,
             "descriptor_size": 11,
             "percentage_size": 16,

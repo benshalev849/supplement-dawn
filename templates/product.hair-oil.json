@@ -95,6 +95,29 @@
             "total_label": "Total price:"
           }
         },
+        "bloomli_trust_icons_G78wky": {
+          "type": "bloomli_trust_icons",
+          "settings": {
+            "layout": "horizontal",
+            "gap": 20,
+            "frame_size": 48,
+            "icon_size": 25,
+            "border_radius": 14,
+            "text_size": 15,
+            "icon_color": "#7a2048",
+            "border_color": "#e7c7d3",
+            "text_color": "#7a2048",
+            "show_item_1": true,
+            "icon_1": "shield",
+            "label_1": "90-Day Money Back",
+            "show_item_2": true,
+            "icon_2": "truck",
+            "label_2": "Free Shipping",
+            "show_item_3": true,
+            "icon_3": "cancel",
+            "label_3": "Cancel Anytime"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "disabled": true,
@@ -138,6 +161,7 @@
         "description",
         "price",
         "volume_tier_LC9DxN",
+        "bloomli_trust_icons_G78wky",
         "variant_picker",
         "bloomli_collapsible_row_QhcdMD",
         "bloomli_collapsible_row_BBNpQF",

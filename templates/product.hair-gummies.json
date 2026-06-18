@@ -120,6 +120,7 @@
         },
         "what_youll_feel_JxrGEV": {
           "type": "what_youll_feel",
+          "disabled": true,
           "settings": {
             "heading": "What You'll Feel",
             "survey_source": "",

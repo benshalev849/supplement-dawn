@@ -120,9 +120,8 @@
         },
         "what_youll_feel_JxrGEV": {
           "type": "what_youll_feel",
-          "disabled": true,
           "settings": {
-            "heading": "What You'll Feel",
+            "heading": "What To Expect",
             "survey_source": "",
             "disclaimer": "<p><em>* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary.</em></p>",
             "heading_size": 23,
@@ -147,7 +146,7 @@
             "percentage_1": "95%",
             "show_benefit_2": true,
             "icon_class_2": "ti-wind",
-            "image_2": "shopify://shop_images/leaf_icon_e171fb67-2c9b-45e3-ac6d-284b6c8d4a60.png",
+            "image_2": "shopify://shop_images/Scrunchy_Icon_46df0055-fbb3-420b-af45-4a6f703f765e.png",
             "icon_tint_2": "",
             "icon_color_2": "",
             "title_2": "Less Shedding",
@@ -163,6 +162,7 @@
             "percentage_3": "82%",
             "show_benefit_4": true,
             "icon_class_4": "ti-plant-2",
+            "image_4": "shopify://shop_images/Seed_Icon_cf25c260-2799-4e27-b8c2-7fb1785340d2.png",
             "icon_tint_4": "",
             "icon_color_4": "",
             "title_4": "Visible Growth",

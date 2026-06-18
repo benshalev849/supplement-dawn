@@ -3,6 +3,24 @@
    Keep colors here as custom properties for use in custom sections only.
    Section bg/text/button colors are controlled by Shopify color schemes.
    ============================================================ */
+
+/* Hide reCAPTCHA badge — disclosure text is shown in footer instead (Google ToS requirement) */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
+.recaptcha-disclosure {
+  text-align: center;
+  font-size: 1.1rem;
+  color: rgba(var(--color-foreground), 0.5);
+  padding: 1rem;
+  margin: 0;
+}
+
+.recaptcha-disclosure a {
+  color: inherit;
+  text-decoration: underline;
+}
 :root {
   --cream: #FDFAF7;
   --pearl: #F5EDE4;

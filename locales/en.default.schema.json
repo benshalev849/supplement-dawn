@@ -2366,6 +2366,45 @@
               "label": "Disclaimer",
               "default": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>"
             },
+            "typography": {
+              "content": "Typography"
+            },
+            "heading_size": {
+              "label": "Heading size"
+            },
+            "title_size": {
+              "label": "Title size"
+            },
+            "descriptor_size": {
+              "label": "Descriptor size"
+            },
+            "percentage_size": {
+              "label": "Percentage size"
+            },
+            "fine_print_size": {
+              "label": "Fine print size"
+            },
+            "icon_size": {
+              "label": "SVG icon size"
+            },
+            "colors": {
+              "content": "Colors"
+            },
+            "heading_color": {
+              "label": "Heading color"
+            },
+            "title_color": {
+              "label": "Title color"
+            },
+            "descriptor_color": {
+              "label": "Descriptor color"
+            },
+            "percentage_color": {
+              "label": "Percentage color"
+            },
+            "fine_print_color": {
+              "label": "Fine print color"
+            },
             "show_benefit": {
               "label": "Show benefit"
             },
@@ -2376,8 +2415,16 @@
               "label": "Image override"
             },
             "icon_tint": {
-              "label": "Icon tile tint",
-              "info": "Leave blank to use the default Bloomli tint for this row."
+              "label": "SVG background color",
+              "info": "Applies when no image override is selected. Leave blank to use the default Bloomli tint for this row."
+            },
+            "icon_color": {
+              "label": "Default SVG color",
+              "info": "Applies when no image override is selected."
+            },
+            "row_icon_color": {
+              "label": "SVG color",
+              "info": "Optional row override. Applies when no image override is selected."
             },
             "title": {
               "label": "Title"

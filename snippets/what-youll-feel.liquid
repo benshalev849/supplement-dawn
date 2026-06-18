@@ -7,7 +7,36 @@ Renders the What You'll Feel product information block.
 {% render 'what-youll-feel', block: block %}
 {% enddoc %}
 
-<div class="what-youll-feel" {{ block.shopify_attributes }}>
+<div
+  class="what-youll-feel"
+  style="
+    --wyf-heading-size: {{ block.settings.heading_size }}px;
+    --wyf-title-size: {{ block.settings.title_size }}px;
+    --wyf-descriptor-size: {{ block.settings.descriptor_size }}px;
+    --wyf-percentage-size: {{ block.settings.percentage_size }}px;
+    --wyf-fine-print-size: {{ block.settings.fine_print_size }}px;
+    --wyf-icon-size: {{ block.settings.icon_size }}px;
+    {%- if block.settings.heading_color != blank -%}
+      --wyf-heading-color: {{ block.settings.heading_color }};
+    {%- endif -%}
+    {%- if block.settings.title_color != blank -%}
+      --wyf-title-color: {{ block.settings.title_color }};
+    {%- endif -%}
+    {%- if block.settings.descriptor_color != blank -%}
+      --wyf-descriptor-color: {{ block.settings.descriptor_color }};
+    {%- endif -%}
+    {%- if block.settings.percentage_color != blank -%}
+      --wyf-percentage-color: {{ block.settings.percentage_color }};
+    {%- endif -%}
+    {%- if block.settings.fine_print_color != blank -%}
+      --wyf-fine-print-color: {{ block.settings.fine_print_color }};
+    {%- endif -%}
+    {%- if block.settings.icon_color != blank -%}
+      --wyf-icon-color-default: {{ block.settings.icon_color }};
+    {%- endif -%}
+  "
+  {{ block.shopify_attributes }}
+>
   <div class="what-youll-feel__card">
     {%- if block.settings.heading != blank -%}
       <h2 class="what-youll-feel__heading">{{ block.settings.heading | escape }}</h2>
@@ -17,8 +46,15 @@ Renders the What You'll Feel product information block.
       {%- if block.settings.show_benefit_1 -%}
         <div
           class="what-youll-feel__row what-youll-feel__row--1"
-          {%- if block.settings.icon_tint_1 != blank -%}
-            style="--wyf-icon-tint: {{ block.settings.icon_tint_1 }};"
+          {%- if block.settings.icon_tint_1 != blank or block.settings.icon_color_1 != blank -%}
+            style="
+              {%- if block.settings.icon_tint_1 != blank -%}
+                --wyf-icon-tint: {{ block.settings.icon_tint_1 }};
+              {%- endif -%}
+              {%- if block.settings.icon_color_1 != blank -%}
+                --wyf-icon-color: {{ block.settings.icon_color_1 }};
+              {%- endif -%}
+            "
           {%- endif -%}
         >
           <div class="what-youll-feel__icon-tile" aria-hidden="true">
@@ -50,8 +86,15 @@ Renders the What You'll Feel product information block.
       {%- if block.settings.show_benefit_2 -%}
         <div
           class="what-youll-feel__row what-youll-feel__row--2"
-          {%- if block.settings.icon_tint_2 != blank -%}
-            style="--wyf-icon-tint: {{ block.settings.icon_tint_2 }};"
+          {%- if block.settings.icon_tint_2 != blank or block.settings.icon_color_2 != blank -%}
+            style="
+              {%- if block.settings.icon_tint_2 != blank -%}
+                --wyf-icon-tint: {{ block.settings.icon_tint_2 }};
+              {%- endif -%}
+              {%- if block.settings.icon_color_2 != blank -%}
+                --wyf-icon-color: {{ block.settings.icon_color_2 }};
+              {%- endif -%}
+            "
           {%- endif -%}
         >
           <div class="what-youll-feel__icon-tile" aria-hidden="true">
@@ -83,8 +126,15 @@ Renders the What You'll Feel product information block.
       {%- if block.settings.show_benefit_3 -%}
         <div
           class="what-youll-feel__row what-youll-feel__row--3"
-          {%- if block.settings.icon_tint_3 != blank -%}
-            style="--wyf-icon-tint: {{ block.settings.icon_tint_3 }};"
+          {%- if block.settings.icon_tint_3 != blank or block.settings.icon_color_3 != blank -%}
+            style="
+              {%- if block.settings.icon_tint_3 != blank -%}
+                --wyf-icon-tint: {{ block.settings.icon_tint_3 }};
+              {%- endif -%}
+              {%- if block.settings.icon_color_3 != blank -%}
+                --wyf-icon-color: {{ block.settings.icon_color_3 }};
+              {%- endif -%}
+            "
           {%- endif -%}
         >
           <div class="what-youll-feel__icon-tile" aria-hidden="true">
@@ -116,8 +166,15 @@ Renders the What You'll Feel product information block.
       {%- if block.settings.show_benefit_4 -%}
         <div
           class="what-youll-feel__row what-youll-feel__row--4"
-          {%- if block.settings.icon_tint_4 != blank -%}
-            style="--wyf-icon-tint: {{ block.settings.icon_tint_4 }};"
+          {%- if block.settings.icon_tint_4 != blank or block.settings.icon_color_4 != blank -%}
+            style="
+              {%- if block.settings.icon_tint_4 != blank -%}
+                --wyf-icon-tint: {{ block.settings.icon_tint_4 }};
+              {%- endif -%}
+              {%- if block.settings.icon_color_4 != blank -%}
+                --wyf-icon-color: {{ block.settings.icon_color_4 }};
+              {%- endif -%}
+            "
           {%- endif -%}
         >
           <div class="what-youll-feel__icon-tile" aria-hidden="true">
@@ -149,8 +206,15 @@ Renders the What You'll Feel product information block.
       {%- if block.settings.show_benefit_5 -%}
         <div
           class="what-youll-feel__row what-youll-feel__row--5"
-          {%- if block.settings.icon_tint_5 != blank -%}
-            style="--wyf-icon-tint: {{ block.settings.icon_tint_5 }};"
+          {%- if block.settings.icon_tint_5 != blank or block.settings.icon_color_5 != blank -%}
+            style="
+              {%- if block.settings.icon_tint_5 != blank -%}
+                --wyf-icon-tint: {{ block.settings.icon_tint_5 }};
+              {%- endif -%}
+              {%- if block.settings.icon_color_5 != blank -%}
+                --wyf-icon-color: {{ block.settings.icon_color_5 }};
+              {%- endif -%}
+            "
           {%- endif -%}
         >
           <div class="what-youll-feel__icon-tile" aria-hidden="true">

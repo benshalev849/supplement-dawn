@@ -15,9 +15,9 @@
 
 .what-youll-feel__heading {
   margin: 0 0 1.4rem;
-  color: var(--bloomli-text, rgb(var(--color-foreground)));
+  color: var(--wyf-heading-color, var(--bloomli-text, rgb(var(--color-foreground))));
   font-family: var(--font-heading-family);
-  font-size: 2rem;
+  font-size: var(--wyf-heading-size, 20px);
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: 0;
@@ -64,11 +64,11 @@
   justify-content: center;
   border-radius: var(--text-boxes-radius, var(--media-radius, 1rem));
   background: var(--wyf-icon-tint);
-  color: var(--bloomli-primary-action, rgb(var(--color-foreground)));
+  color: var(--wyf-icon-color, var(--wyf-icon-color-default, var(--bloomli-primary-action, rgb(var(--color-foreground)))));
 }
 
 .what-youll-feel__icon-tile i {
-  font-size: 2rem;
+  font-size: var(--wyf-icon-size, 20px);
   line-height: 1;
 }
 
@@ -92,24 +92,24 @@
 }
 
 .what-youll-feel__title {
-  color: var(--bloomli-text, rgb(var(--color-foreground)));
+  color: var(--wyf-title-color, var(--bloomli-text, rgb(var(--color-foreground))));
   font-family: var(--font-body-family);
-  font-size: 1.3rem;
+  font-size: var(--wyf-title-size, 13px);
   font-weight: 700;
   line-height: 1.25;
 }
 
 .what-youll-feel__descriptor {
   margin-top: 0.3rem;
-  color: var(--bloomli-text-muted, rgba(var(--color-foreground), 0.68));
+  color: var(--wyf-descriptor-color, var(--bloomli-text-muted, rgba(var(--color-foreground), 0.68)));
   font-family: var(--font-body-family);
-  font-size: 1.15rem;
+  font-size: var(--wyf-descriptor-size, 12px);
   line-height: 1.3;
 }
 
 .what-youll-feel__stat {
   min-width: 0;
-  color: var(--bloomli-primary-action, rgb(var(--color-foreground)));
+  color: var(--wyf-percentage-color, var(--bloomli-primary-action, rgb(var(--color-foreground))));
   text-align: right;
   white-space: nowrap;
 }
@@ -120,7 +120,7 @@
 
 .what-youll-feel__percent {
   font-family: var(--font-heading-family);
-  font-size: 2.35rem;
+  font-size: var(--wyf-percentage-size, 24px);
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: 0;
@@ -128,8 +128,8 @@
 
 .what-youll-feel__fine-print {
   margin-top: 1.3rem;
-  color: var(--bloomli-text-muted, rgba(var(--color-foreground), 0.68));
-  font-size: 1rem;
+  color: var(--wyf-fine-print-color, var(--bloomli-text-muted, rgba(var(--color-foreground), 0.68)));
+  font-size: var(--wyf-fine-print-size, 10px);
   line-height: 1.45;
   text-align: center;
 }
@@ -153,7 +153,6 @@
 
   .what-youll-feel__heading {
     margin-bottom: 1rem;
-    font-size: 2rem;
   }
 
   .what-youll-feel__row {
@@ -162,15 +161,4 @@
     padding: 1.1rem 0;
   }
 
-  .what-youll-feel__title {
-    font-size: 1.2rem;
-  }
-
-  .what-youll-feel__descriptor {
-    font-size: 1.1rem;
-  }
-
-  .what-youll-feel__percent {
-    font-size: 2.1rem;
-  }
 }

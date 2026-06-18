@@ -120,6 +120,7 @@
         },
         "what_youll_feel_JxrGEV": {
           "type": "what_youll_feel",
+          "disabled": true,
           "settings": {
             "heading": "What You'll Feel",
             "survey_source": "",
@@ -154,6 +155,7 @@
             "percentage_2": "88%",
             "show_benefit_3": true,
             "icon_class_3": "ti-shield-check",
+            "image_3": "shopify://shop_images/Bicep_Icon_c8f760b1-21cf-4312-9eeb-fd2a5776b120.png",
             "icon_tint_3": "",
             "icon_color_3": "",
             "title_3": "Stronger Strands",

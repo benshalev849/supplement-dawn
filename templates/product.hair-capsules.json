@@ -12,12 +12,12 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "judge_me_reviews_preview_badge_68bKnT": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        },
         "title": {
           "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_68bKnT": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
         "description": {
@@ -133,8 +133,8 @@
         }
       },
       "block_order": [
-        "judge_me_reviews_preview_badge_68bKnT",
         "title",
+        "judge_me_reviews_preview_badge_68bKnT",
         "description",
         "price",
         "volume_tier_LC9DxN",

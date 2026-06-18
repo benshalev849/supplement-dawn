@@ -1,0 +1,92 @@
+{% doc %}
+Renders a customizable Bloomli trust icon row for product information.
+
+@param {block} block - The trust icons block.
+
+@example
+{% render 'bloomli-trust-icons', block: block %}
+{% enddoc %}
+
+<div
+  class="bloomli-trust-icons bloomli-trust-icons--{{ block.settings.layout }}"
+  style="
+    --bloomli-trust-gap: {{ block.settings.gap }}px;
+    --bloomli-trust-frame-size: {{ block.settings.frame_size }}px;
+    --bloomli-trust-icon-size: {{ block.settings.icon_size }}px;
+    --bloomli-trust-border-radius: {{ block.settings.border_radius }}px;
+    --bloomli-trust-text-size: {{ block.settings.text_size }}px;
+    --bloomli-trust-icon-color: {{ block.settings.icon_color }};
+    --bloomli-trust-border-color: {{ block.settings.border_color }};
+    --bloomli-trust-text-color: {{ block.settings.text_color }};
+  "
+  {{ block.shopify_attributes }}
+>
+  {%- if block.settings.show_item_1 and block.settings.label_1 != blank -%}
+    <div class="bloomli-trust-icons__item">
+      <span class="bloomli-trust-icons__media" aria-hidden="true">
+        {%- if block.settings.image_1 != blank -%}
+          {%- assign image_1_alt = block.settings.label_1 | strip_html | escape -%}
+          {{
+            block.settings.image_1
+            | image_url: width: 128
+            | image_tag:
+              class: 'bloomli-trust-icons__image',
+              loading: 'lazy',
+              width: 64,
+              height: 64,
+              alt: image_1_alt
+          }}
+        {%- else -%}
+          {% render 'icon-bloomli-trust', icon: block.settings.icon_1 %}
+        {%- endif -%}
+      </span>
+      <div class="bloomli-trust-icons__text inline-richtext">{{ block.settings.label_1 }}</div>
+    </div>
+  {%- endif -%}
+
+  {%- if block.settings.show_item_2 and block.settings.label_2 != blank -%}
+    <div class="bloomli-trust-icons__item">
+      <span class="bloomli-trust-icons__media" aria-hidden="true">
+        {%- if block.settings.image_2 != blank -%}
+          {%- assign image_2_alt = block.settings.label_2 | strip_html | escape -%}
+          {{
+            block.settings.image_2
+            | image_url: width: 128
+            | image_tag:
+              class: 'bloomli-trust-icons__image',
+              loading: 'lazy',
+              width: 64,
+              height: 64,
+              alt: image_2_alt
+          }}
+        {%- else -%}
+          {% render 'icon-bloomli-trust', icon: block.settings.icon_2 %}
+        {%- endif -%}
+      </span>
+      <div class="bloomli-trust-icons__text inline-richtext">{{ block.settings.label_2 }}</div>
+    </div>
+  {%- endif -%}
+
+  {%- if block.settings.show_item_3 and block.settings.label_3 != blank -%}
+    <div class="bloomli-trust-icons__item">
+      <span class="bloomli-trust-icons__media" aria-hidden="true">
+        {%- if block.settings.image_3 != blank -%}
+          {%- assign image_3_alt = block.settings.label_3 | strip_html | escape -%}
+          {{
+            block.settings.image_3
+            | image_url: width: 128
+            | image_tag:
+              class: 'bloomli-trust-icons__image',
+              loading: 'lazy',
+              width: 64,
+              height: 64,
+              alt: image_3_alt
+          }}
+        {%- else -%}
+          {% render 'icon-bloomli-trust', icon: block.settings.icon_3 %}
+        {%- endif -%}
+      </span>
+      <div class="bloomli-trust-icons__text inline-richtext">{{ block.settings.label_3 }}</div>
+    </div>
+  {%- endif -%}
+</div>

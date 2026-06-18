@@ -2273,6 +2273,183 @@
             }
           }
         },
+        "bloomli_trust_icons": {
+          "name": "Bloomli trust icons",
+          "settings": {
+            "layout": {
+              "content": "Layout",
+              "label": "Layout",
+              "options__1": {
+                "label": "Horizontal"
+              },
+              "options__2": {
+                "label": "Vertical"
+              }
+            },
+            "gap": {
+              "label": "Gap"
+            },
+            "frame_size": {
+              "label": "Icon frame size"
+            },
+            "icon_size": {
+              "label": "SVG or image size"
+            },
+            "border_radius": {
+              "label": "Frame corner radius"
+            },
+            "text_size": {
+              "label": "Text size"
+            },
+            "icon_color": {
+              "label": "SVG color"
+            },
+            "border_color": {
+              "label": "Frame border color"
+            },
+            "text_color": {
+              "label": "Text color"
+            },
+            "item_1": {
+              "content": "Item 1"
+            },
+            "item_2": {
+              "content": "Item 2"
+            },
+            "item_3": {
+              "content": "Item 3"
+            },
+            "show_item": {
+              "label": "Show item"
+            },
+            "icon": {
+              "label": "Default SVG",
+              "options__1": {
+                "label": "Shield"
+              },
+              "options__2": {
+                "label": "Truck"
+              },
+              "options__3": {
+                "label": "Cancel anytime"
+              }
+            },
+            "image": {
+              "label": "Custom image"
+            },
+            "label": {
+              "label": "Text"
+            },
+            "label_1": {
+              "default": "90-Day Money Back"
+            },
+            "label_2": {
+              "default": "Free Shipping"
+            },
+            "label_3": {
+              "default": "Cancel Anytime"
+            }
+          }
+        },
+        "what_youll_feel": {
+          "name": "What You'll Feel",
+          "settings": {
+            "heading": {
+              "label": "Heading",
+              "default": "What You'll Feel"
+            },
+            "survey_source": {
+              "label": "Survey source",
+              "default": "Based on a survey of [N] Bloomli customers"
+            },
+            "disclaimer": {
+              "label": "Disclaimer",
+              "default": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>"
+            },
+            "show_benefit": {
+              "label": "Show benefit"
+            },
+            "icon_class": {
+              "label": "Tabler icon class"
+            },
+            "icon_tint": {
+              "label": "Icon tile tint",
+              "info": "Leave blank to use the default Bloomli tint for this row."
+            },
+            "title": {
+              "label": "Title"
+            },
+            "descriptor": {
+              "label": "Descriptor"
+            },
+            "percentage": {
+              "label": "Percentage"
+            },
+            "caption": {
+              "label": "Caption"
+            },
+            "benefit_1": {
+              "content": "Benefit 1"
+            },
+            "benefit_2": {
+              "content": "Benefit 2"
+            },
+            "benefit_3": {
+              "content": "Benefit 3"
+            },
+            "benefit_4": {
+              "content": "Benefit 4"
+            },
+            "benefit_5": {
+              "content": "Benefit 5"
+            },
+            "title_1": {
+              "default": "Fuller, thicker-looking hair*"
+            },
+            "descriptor_1": {
+              "default": "noticed fuller-looking hair"
+            },
+            "caption_1": {
+              "default": "fuller hair"
+            },
+            "title_2": {
+              "default": "Less visible shedding*"
+            },
+            "descriptor_2": {
+              "default": "saw less shedding over time"
+            },
+            "caption_2": {
+              "default": "less shedding"
+            },
+            "title_3": {
+              "default": "Stronger strands*"
+            },
+            "descriptor_3": {
+              "default": "felt stronger, more resilient hair"
+            },
+            "caption_3": {
+              "default": "stronger"
+            },
+            "title_4": {
+              "default": "Nourished scalp and roots*"
+            },
+            "descriptor_4": {
+              "default": "reported a healthier scalp"
+            },
+            "caption_4": {
+              "default": "healthier scalp"
+            },
+            "title_5": {
+              "default": "Add another benefit*"
+            },
+            "descriptor_5": {
+              "default": "replace with a survey-supported descriptor"
+            },
+            "caption_5": {
+              "default": "benefit"
+            }
+          }
+        },
         "icon_with_text": {
           "name": "Icon with text",
           "settings": {

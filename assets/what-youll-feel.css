@@ -1,0 +1,187 @@
+.what-youll-feel {
+  width: 100%;
+  margin: 2rem 0;
+  color: var(--bloomli-text, rgb(var(--color-foreground)));
+}
+
+.what-youll-feel__card {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0.1rem solid var(--bloomli-line-soft, rgba(var(--color-foreground), 0.12));
+  border-radius: var(--text-boxes-radius, var(--media-radius, 1.2rem));
+  background: var(--bloomli-surface, rgb(var(--color-background)));
+  padding: 2.4rem;
+}
+
+.what-youll-feel__heading {
+  margin: 0 0 1.8rem;
+  color: var(--bloomli-text, rgb(var(--color-foreground)));
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.8rem, 4vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.what-youll-feel__rows {
+  display: grid;
+}
+
+.what-youll-feel__row {
+  --wyf-icon-tint-fallback: color-mix(in srgb, var(--bloomli-editorial-accent, rgb(var(--color-foreground))) 9%, rgb(var(--color-background)));
+  --wyf-icon-tint: var(--wyf-icon-tint-fallback);
+  display: grid;
+  grid-template-columns: 4.4rem minmax(0, 1fr) minmax(7.2rem, auto);
+  gap: 1.4rem;
+  align-items: center;
+  min-width: 0;
+  padding: 1.6rem 0;
+}
+
+.what-youll-feel__row--2 {
+  --wyf-icon-tint-fallback: color-mix(in srgb, var(--bloomli-primary-action, rgb(var(--color-foreground))) 8%, rgb(var(--color-background)));
+}
+
+.what-youll-feel__row--3 {
+  --wyf-icon-tint-fallback: color-mix(in srgb, var(--bloomli-accent, rgb(var(--color-foreground))) 8%, rgb(var(--color-background)));
+}
+
+.what-youll-feel__row--4,
+.what-youll-feel__row--5 {
+  --wyf-icon-tint-fallback: color-mix(in srgb, var(--bloomli-wellness-accent, var(--bloomli-editorial-accent, rgb(var(--color-foreground)))) 8%, rgb(var(--color-background)));
+}
+
+.what-youll-feel__row + .what-youll-feel__row {
+  border-top: 0.1rem solid var(--bloomli-line-soft, rgba(var(--color-foreground), 0.12));
+}
+
+.what-youll-feel__icon-tile {
+  display: flex;
+  width: 4.4rem;
+  height: 4.4rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--text-boxes-radius, var(--media-radius, 1rem));
+  background: var(--wyf-icon-tint);
+  color: var(--bloomli-primary-action, rgb(var(--color-foreground)));
+}
+
+.what-youll-feel__icon-tile i {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.what-youll-feel__copy {
+  min-width: 0;
+}
+
+.what-youll-feel__title,
+.what-youll-feel__descriptor {
+  overflow: hidden;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.what-youll-feel__title {
+  color: var(--bloomli-text, rgb(var(--color-foreground)));
+  font-family: var(--font-body-family);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.what-youll-feel__descriptor {
+  margin-top: 0.3rem;
+  color: var(--bloomli-text-muted, rgba(var(--color-foreground), 0.68));
+  font-family: var(--font-body-family);
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.what-youll-feel__stat {
+  min-width: 0;
+  color: var(--bloomli-primary-action, rgb(var(--color-foreground)));
+  text-align: right;
+  white-space: nowrap;
+}
+
+.what-youll-feel__percent,
+.what-youll-feel__caption {
+  display: block;
+}
+
+.what-youll-feel__percent {
+  font-family: var(--font-heading-family);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.what-youll-feel__caption {
+  overflow: hidden;
+  margin-top: 0.3rem;
+  color: var(--bloomli-text-muted, rgba(var(--color-foreground), 0.68));
+  font-family: var(--font-body-family);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+.what-youll-feel__fine-print {
+  margin-top: 1.6rem;
+  color: var(--bloomli-text-muted, rgba(var(--color-foreground), 0.68));
+  font-size: 1.1rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.what-youll-feel__fine-print p {
+  margin: 0;
+}
+
+.what-youll-feel__disclaimer {
+  margin-top: 0.6rem;
+}
+
+.what-youll-feel__disclaimer p {
+  margin: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .what-youll-feel__card {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .what-youll-feel__heading {
+    margin-bottom: 1.2rem;
+    font-size: 2.8rem;
+  }
+
+  .what-youll-feel__row {
+    grid-template-columns: 4.4rem minmax(0, 1fr) minmax(5.8rem, auto);
+    gap: 0.9rem;
+    padding: 1.3rem 0;
+  }
+
+  .what-youll-feel__title {
+    font-size: 1.35rem;
+  }
+
+  .what-youll-feel__descriptor {
+    font-size: 1.2rem;
+  }
+
+  .what-youll-feel__percent {
+    font-size: 2.5rem;
+  }
+
+  .what-youll-feel__caption {
+    max-width: 6rem;
+    font-size: 0.9rem;
+  }
+}

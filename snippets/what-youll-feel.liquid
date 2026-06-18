@@ -1,0 +1,132 @@
+{% doc %}
+Renders the What You'll Feel product information block.
+
+@param {block} block - The What You'll Feel block.
+
+@example
+{% render 'what-youll-feel', block: block %}
+{% enddoc %}
+
+<div class="what-youll-feel" {{ block.shopify_attributes }}>
+  <div class="what-youll-feel__card">
+    {%- if block.settings.heading != blank -%}
+      <h2 class="what-youll-feel__heading">{{ block.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="what-youll-feel__rows">
+      {%- if block.settings.show_benefit_1 -%}
+        <div
+          class="what-youll-feel__row what-youll-feel__row--1"
+          {%- if block.settings.icon_tint_1 != blank -%}
+            style="--wyf-icon-tint: {{ block.settings.icon_tint_1 }};"
+          {%- endif -%}
+        >
+          <div class="what-youll-feel__icon-tile" aria-hidden="true">
+            <i class="ti {{ block.settings.icon_class_1 | escape }}"></i>
+          </div>
+          <div class="what-youll-feel__copy">
+            <p class="what-youll-feel__title">{{ block.settings.title_1 | escape }}</p>
+            <p class="what-youll-feel__descriptor">{{ block.settings.descriptor_1 | escape }}</p>
+          </div>
+          <div class="what-youll-feel__stat">
+            <span class="what-youll-feel__percent">{{ block.settings.percentage_1 | escape }}</span>
+            <span class="what-youll-feel__caption">{{ block.settings.caption_1 | escape }}</span>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if block.settings.show_benefit_2 -%}
+        <div
+          class="what-youll-feel__row what-youll-feel__row--2"
+          {%- if block.settings.icon_tint_2 != blank -%}
+            style="--wyf-icon-tint: {{ block.settings.icon_tint_2 }};"
+          {%- endif -%}
+        >
+          <div class="what-youll-feel__icon-tile" aria-hidden="true">
+            <i class="ti {{ block.settings.icon_class_2 | escape }}"></i>
+          </div>
+          <div class="what-youll-feel__copy">
+            <p class="what-youll-feel__title">{{ block.settings.title_2 | escape }}</p>
+            <p class="what-youll-feel__descriptor">{{ block.settings.descriptor_2 | escape }}</p>
+          </div>
+          <div class="what-youll-feel__stat">
+            <span class="what-youll-feel__percent">{{ block.settings.percentage_2 | escape }}</span>
+            <span class="what-youll-feel__caption">{{ block.settings.caption_2 | escape }}</span>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if block.settings.show_benefit_3 -%}
+        <div
+          class="what-youll-feel__row what-youll-feel__row--3"
+          {%- if block.settings.icon_tint_3 != blank -%}
+            style="--wyf-icon-tint: {{ block.settings.icon_tint_3 }};"
+          {%- endif -%}
+        >
+          <div class="what-youll-feel__icon-tile" aria-hidden="true">
+            <i class="ti {{ block.settings.icon_class_3 | escape }}"></i>
+          </div>
+          <div class="what-youll-feel__copy">
+            <p class="what-youll-feel__title">{{ block.settings.title_3 | escape }}</p>
+            <p class="what-youll-feel__descriptor">{{ block.settings.descriptor_3 | escape }}</p>
+          </div>
+          <div class="what-youll-feel__stat">
+            <span class="what-youll-feel__percent">{{ block.settings.percentage_3 | escape }}</span>
+            <span class="what-youll-feel__caption">{{ block.settings.caption_3 | escape }}</span>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if block.settings.show_benefit_4 -%}
+        <div
+          class="what-youll-feel__row what-youll-feel__row--4"
+          {%- if block.settings.icon_tint_4 != blank -%}
+            style="--wyf-icon-tint: {{ block.settings.icon_tint_4 }};"
+          {%- endif -%}
+        >
+          <div class="what-youll-feel__icon-tile" aria-hidden="true">
+            <i class="ti {{ block.settings.icon_class_4 | escape }}"></i>
+          </div>
+          <div class="what-youll-feel__copy">
+            <p class="what-youll-feel__title">{{ block.settings.title_4 | escape }}</p>
+            <p class="what-youll-feel__descriptor">{{ block.settings.descriptor_4 | escape }}</p>
+          </div>
+          <div class="what-youll-feel__stat">
+            <span class="what-youll-feel__percent">{{ block.settings.percentage_4 | escape }}</span>
+            <span class="what-youll-feel__caption">{{ block.settings.caption_4 | escape }}</span>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if block.settings.show_benefit_5 -%}
+        <div
+          class="what-youll-feel__row what-youll-feel__row--5"
+          {%- if block.settings.icon_tint_5 != blank -%}
+            style="--wyf-icon-tint: {{ block.settings.icon_tint_5 }};"
+          {%- endif -%}
+        >
+          <div class="what-youll-feel__icon-tile" aria-hidden="true">
+            <i class="ti {{ block.settings.icon_class_5 | escape }}"></i>
+          </div>
+          <div class="what-youll-feel__copy">
+            <p class="what-youll-feel__title">{{ block.settings.title_5 | escape }}</p>
+            <p class="what-youll-feel__descriptor">{{ block.settings.descriptor_5 | escape }}</p>
+          </div>
+          <div class="what-youll-feel__stat">
+            <span class="what-youll-feel__percent">{{ block.settings.percentage_5 | escape }}</span>
+            <span class="what-youll-feel__caption">{{ block.settings.caption_5 | escape }}</span>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="what-youll-feel__fine-print">
+      {%- if block.settings.survey_source != blank -%}
+        <p>{{ block.settings.survey_source | escape }}</p>
+      {%- endif -%}
+      {%- if block.settings.disclaimer != blank -%}
+        <div class="what-youll-feel__disclaimer rte">{{ block.settings.disclaimer }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>

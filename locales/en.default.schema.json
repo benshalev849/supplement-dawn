@@ -2372,6 +2372,9 @@
             "icon_class": {
               "label": "Tabler icon class"
             },
+            "image": {
+              "label": "Image override"
+            },
             "icon_tint": {
               "label": "Icon tile tint",
               "info": "Leave blank to use the default Bloomli tint for this row."
@@ -2384,9 +2387,6 @@
             },
             "percentage": {
               "label": "Percentage"
-            },
-            "caption": {
-              "label": "Caption"
             },
             "benefit_1": {
               "content": "Benefit 1"
@@ -2409,17 +2409,11 @@
             "descriptor_1": {
               "default": "noticed fuller-looking hair"
             },
-            "caption_1": {
-              "default": "fuller hair"
-            },
             "title_2": {
               "default": "Less visible shedding*"
             },
             "descriptor_2": {
               "default": "saw less shedding over time"
-            },
-            "caption_2": {
-              "default": "less shedding"
             },
             "title_3": {
               "default": "Stronger strands*"
@@ -2427,26 +2421,17 @@
             "descriptor_3": {
               "default": "felt stronger, more resilient hair"
             },
-            "caption_3": {
-              "default": "stronger"
-            },
             "title_4": {
               "default": "Nourished scalp and roots*"
             },
             "descriptor_4": {
               "default": "reported a healthier scalp"
             },
-            "caption_4": {
-              "default": "healthier scalp"
-            },
             "title_5": {
               "default": "Add another benefit*"
             },
             "descriptor_5": {
               "default": "replace with a survey-supported descriptor"
-            },
-            "caption_5": {
-              "default": "benefit"
             }
           }
         },

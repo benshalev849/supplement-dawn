@@ -22,7 +22,20 @@ Renders the What You'll Feel product information block.
           {%- endif -%}
         >
           <div class="what-youll-feel__icon-tile" aria-hidden="true">
-            <i class="ti {{ block.settings.icon_class_1 | escape }}"></i>
+            {%- if block.settings.image_1 != blank -%}
+              {{
+                block.settings.image_1
+                | image_url: width: 88
+                | image_tag:
+                  class: 'what-youll-feel__image',
+                  loading: 'lazy',
+                  width: 44,
+                  height: 44,
+                  alt: ''
+              }}
+            {%- else -%}
+              <i class="ti {{ block.settings.icon_class_1 | escape }}"></i>
+            {%- endif -%}
           </div>
           <div class="what-youll-feel__copy">
             <p class="what-youll-feel__title">{{ block.settings.title_1 | escape }}</p>
@@ -30,7 +43,6 @@ Renders the What You'll Feel product information block.
           </div>
           <div class="what-youll-feel__stat">
             <span class="what-youll-feel__percent">{{ block.settings.percentage_1 | escape }}</span>
-            <span class="what-youll-feel__caption">{{ block.settings.caption_1 | escape }}</span>
           </div>
         </div>
       {%- endif -%}
@@ -43,7 +55,20 @@ Renders the What You'll Feel product information block.
           {%- endif -%}
         >
           <div class="what-youll-feel__icon-tile" aria-hidden="true">
-            <i class="ti {{ block.settings.icon_class_2 | escape }}"></i>
+            {%- if block.settings.image_2 != blank -%}
+              {{
+                block.settings.image_2
+                | image_url: width: 88
+                | image_tag:
+                  class: 'what-youll-feel__image',
+                  loading: 'lazy',
+                  width: 44,
+                  height: 44,
+                  alt: ''
+              }}
+            {%- else -%}
+              <i class="ti {{ block.settings.icon_class_2 | escape }}"></i>
+            {%- endif -%}
           </div>
           <div class="what-youll-feel__copy">
             <p class="what-youll-feel__title">{{ block.settings.title_2 | escape }}</p>
@@ -51,7 +76,6 @@ Renders the What You'll Feel product information block.
           </div>
           <div class="what-youll-feel__stat">
             <span class="what-youll-feel__percent">{{ block.settings.percentage_2 | escape }}</span>
-            <span class="what-youll-feel__caption">{{ block.settings.caption_2 | escape }}</span>
           </div>
         </div>
       {%- endif -%}
@@ -64,7 +88,20 @@ Renders the What You'll Feel product information block.
           {%- endif -%}
         >
           <div class="what-youll-feel__icon-tile" aria-hidden="true">
-            <i class="ti {{ block.settings.icon_class_3 | escape }}"></i>
+            {%- if block.settings.image_3 != blank -%}
+              {{
+                block.settings.image_3
+                | image_url: width: 88
+                | image_tag:
+                  class: 'what-youll-feel__image',
+                  loading: 'lazy',
+                  width: 44,
+                  height: 44,
+                  alt: ''
+              }}
+            {%- else -%}
+              <i class="ti {{ block.settings.icon_class_3 | escape }}"></i>
+            {%- endif -%}
           </div>
           <div class="what-youll-feel__copy">
             <p class="what-youll-feel__title">{{ block.settings.title_3 | escape }}</p>
@@ -72,7 +109,6 @@ Renders the What You'll Feel product information block.
           </div>
           <div class="what-youll-feel__stat">
             <span class="what-youll-feel__percent">{{ block.settings.percentage_3 | escape }}</span>
-            <span class="what-youll-feel__caption">{{ block.settings.caption_3 | escape }}</span>
           </div>
         </div>
       {%- endif -%}
@@ -85,7 +121,20 @@ Renders the What You'll Feel product information block.
           {%- endif -%}
         >
           <div class="what-youll-feel__icon-tile" aria-hidden="true">
-            <i class="ti {{ block.settings.icon_class_4 | escape }}"></i>
+            {%- if block.settings.image_4 != blank -%}
+              {{
+                block.settings.image_4
+                | image_url: width: 88
+                | image_tag:
+                  class: 'what-youll-feel__image',
+                  loading: 'lazy',
+                  width: 44,
+                  height: 44,
+                  alt: ''
+              }}
+            {%- else -%}
+              <i class="ti {{ block.settings.icon_class_4 | escape }}"></i>
+            {%- endif -%}
           </div>
           <div class="what-youll-feel__copy">
             <p class="what-youll-feel__title">{{ block.settings.title_4 | escape }}</p>
@@ -93,7 +142,6 @@ Renders the What You'll Feel product information block.
           </div>
           <div class="what-youll-feel__stat">
             <span class="what-youll-feel__percent">{{ block.settings.percentage_4 | escape }}</span>
-            <span class="what-youll-feel__caption">{{ block.settings.caption_4 | escape }}</span>
           </div>
         </div>
       {%- endif -%}
@@ -106,7 +154,20 @@ Renders the What You'll Feel product information block.
           {%- endif -%}
         >
           <div class="what-youll-feel__icon-tile" aria-hidden="true">
-            <i class="ti {{ block.settings.icon_class_5 | escape }}"></i>
+            {%- if block.settings.image_5 != blank -%}
+              {{
+                block.settings.image_5
+                | image_url: width: 88
+                | image_tag:
+                  class: 'what-youll-feel__image',
+                  loading: 'lazy',
+                  width: 44,
+                  height: 44,
+                  alt: ''
+              }}
+            {%- else -%}
+              <i class="ti {{ block.settings.icon_class_5 | escape }}"></i>
+            {%- endif -%}
           </div>
           <div class="what-youll-feel__copy">
             <p class="what-youll-feel__title">{{ block.settings.title_5 | escape }}</p>
@@ -114,7 +175,6 @@ Renders the What You'll Feel product information block.
           </div>
           <div class="what-youll-feel__stat">
             <span class="what-youll-feel__percent">{{ block.settings.percentage_5 | escape }}</span>
-            <span class="what-youll-feel__caption">{{ block.settings.caption_5 | escape }}</span>
           </div>
         </div>
       {%- endif -%}

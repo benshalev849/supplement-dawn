@@ -2352,7 +2352,7 @@
           }
         },
         "what_youll_feel": {
-          "name": "What You'll Feel",
+          "name": "Benefit stats card",
           "settings": {
             "heading": {
               "label": "Heading",
@@ -2389,6 +2389,10 @@
             },
             "colors": {
               "content": "Colors"
+            },
+            "card_background_color": {
+              "label": "Card background color",
+              "info": "Leave blank for transparent."
             },
             "heading_color": {
               "label": "Heading color"

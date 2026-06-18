@@ -9,7 +9,7 @@
   box-sizing: border-box;
   border: 0.1rem solid var(--bloomli-line-soft, rgba(var(--color-foreground), 0.12));
   border-radius: var(--text-boxes-radius, var(--media-radius, 1.2rem));
-  background: var(--bloomli-surface, rgb(var(--color-background)));
+  background: var(--wyf-card-background, transparent);
   padding: 2rem;
 }
 
@@ -122,7 +122,7 @@
 .what-youll-feel__percent {
   font-family: var(--font-heading-family);
   font-size: var(--wyf-percentage-size, 24px);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 0.95;
   letter-spacing: 0;
 }

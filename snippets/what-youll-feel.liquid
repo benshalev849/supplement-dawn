@@ -1,5 +1,5 @@
 {% doc %}
-Renders the What You'll Feel product information block.
+Renders the Benefit stats card product information block.
 
 @param {block} block - The What You'll Feel block.
 
@@ -20,6 +20,9 @@ Renders the What You'll Feel product information block.
     --wyf-percentage-size: {{ block.settings.percentage_size | default: 24 }}px;
     --wyf-fine-print-size: {{ block.settings.fine_print_size | default: 10 }}px;
     --wyf-icon-size: {{ block.settings.icon_size | default: 20 }}px;
+    {%- if block.settings.card_background_color != blank -%}
+      --wyf-card-background: {{ block.settings.card_background_color }};
+    {%- endif -%}
     {%- if block.settings.heading_color != blank -%}
       --wyf-heading-color: {{ block.settings.heading_color }};
     {%- endif -%}

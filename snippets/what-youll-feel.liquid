@@ -39,7 +39,12 @@ Renders the What You'll Feel product information block.
 >
   <div class="what-youll-feel__card">
     {%- if block.settings.heading != blank -%}
-      <h2 class="what-youll-feel__heading">{{ block.settings.heading | escape }}</h2>
+      <h2
+        class="what-youll-feel__heading"
+        style="font-size: {{ block.settings.heading_size | default: 20 }}px;"
+      >
+        {{ block.settings.heading | escape }}
+      </h2>
     {%- endif -%}
 
     <div class="what-youll-feel__rows">

@@ -355,6 +355,14 @@
         endif
         assign subscribe_daily_text = '(' | append: auto_subscribe_daily | append: ' / Day)'
 
+        comment
+          IM8-style per-card pricing: monthly = subscribe total / months,
+          delivery frequency in weeks (4 weeks per month), per-day = monthly / 30.
+        endcomment
+        assign monthly_cents = subscribe_total_cents | times: 1.0 | divided_by: qty | round
+        assign monthly_compare_cents = line_compare | times: 1.0 | divided_by: qty | round
+        assign delivery_weeks = qty | times: 4
+
         assign auto_count = qty | times: 60 | append: ' Count'
         if count_text == blank
           assign count_text = auto_count
@@ -394,34 +402,37 @@
 
           <div class="bloomli-vt__delivery-row">
             <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+            <span class="bloomli-vt__delivery-label">{{ display_label }}</span>
+            {%- if discount_pct > 0 or badge != blank -%}
+              <span
+                class="bloomli-vt__size-badge bloomli-vt__size-badge--inline"
+                data-vt-discount-badge
+                data-manual-badge="{{ badge | escape }}"
+              >
+                {%- if discount_pct > 0 -%}
+                  {{ dynamic_badge }}
+                {%- else -%}
+                  {{ badge }}
+                {%- endif -%}
+              </span>
+            {%- endif -%}
+          </div>
 
-            <div class="bloomli-vt__delivery-body">
-              <span class="bloomli-vt__delivery-label">{{ display_label }}</span>
-              {%- if count_text != blank -%}
-                <span class="bloomli-vt__delivery-subtitle">{{ count_text }}</span>
+          <div class="bloomli-vt__delivery-pricing">
+            <div class="bloomli-vt__delivery-monthly">
+              <span class="bloomli-vt__delivery-monthly-price">{{ monthly_cents | money }}</span>
+              <span class="bloomli-vt__delivery-monthly-suffix">/mo</span>
+              {%- if monthly_compare_cents > monthly_cents -%}
+                <span class="bloomli-vt__delivery-monthly-compare">{{ monthly_compare_cents | money }}</span>
               {%- endif -%}
             </div>
 
-            <div class="bloomli-vt__delivery-right">
-              {%- if discount_pct > 0 or badge != blank -%}
-                <span
-                  class="bloomli-vt__size-badge bloomli-vt__size-badge--inline"
-                  data-vt-discount-badge
-                  data-manual-badge="{{ badge | escape }}"
-                >
-                  {%- if discount_pct > 0 -%}
-                    {{ dynamic_badge }}
-                  {%- else -%}
-                    {{ badge }}
-                  {%- endif -%}
-                </span>
-              {%- endif -%}
-              <div class="bloomli-vt__delivery-prices">
-                <span class="bloomli-vt__delivery-price">{{ subscribe_total_cents | money }}</span>
-                {%- if line_compare > subscribe_total_cents -%}
-                  <span class="bloomli-vt__delivery-compare">{{ line_compare | money }}</span>
-                {%- endif -%}
-              </div>
+            <div class="bloomli-vt__delivery-totalrow">
+              <span class="bloomli-vt__delivery-total">
+                <span class="bloomli-vt__delivery-total-amount">{{ subscribe_total_cents | money }}</span>
+                <span class="bloomli-vt__delivery-total-freq">every {{ delivery_weeks }} weeks</span>
+              </span>
+              <span class="bloomli-vt__delivery-perday">{{ subscribe_daily_cents | money }} / day</span>
             </div>
           </div>
 

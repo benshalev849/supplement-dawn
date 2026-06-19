@@ -537,11 +537,13 @@
   transition: border-color 0.15s ease;
 }
 
-.bloomli-vt__mode.is-selected .bloomli-vt__radio-visual {
+.bloomli-vt__mode.is-selected .bloomli-vt__radio-visual,
+.bloomli-vt__size--delivery.is-selected .bloomli-vt__radio-visual {
   border-color: var(--aubergine, #B23A6F);
 }
 
-.bloomli-vt__mode.is-selected .bloomli-vt__radio-visual::after {
+.bloomli-vt__mode.is-selected .bloomli-vt__radio-visual::after,
+.bloomli-vt__size--delivery.is-selected .bloomli-vt__radio-visual::after {
   content: "";
   position: absolute;
   inset: 3px;
@@ -714,47 +716,25 @@
   padding: 0;
 }
 
-/* Top row inside delivery card */
+/* Top row inside delivery card — radio + heading + save badge */
 .bloomli-vt__delivery-row {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
+  gap: 10px;
+  padding: 14px 16px 4px;
 }
 
 .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-row {
-  padding: 13px 15px;   /* compensate for 2px border vs 1.5px */
-}
-
-.bloomli-vt__delivery-body {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+  padding: 13px 15px 3px;   /* compensate for 2px border vs 1.5px */
 }
 
 .bloomli-vt__delivery-label {
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--charcoal, #2A2622);
   line-height: 1.2;
-}
-
-.bloomli-vt__delivery-subtitle {
-  font-size: 12px;
-  color: rgba(42, 38, 34, 0.65);
-  line-height: 1.35;
-}
-
-.bloomli-vt__delivery-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
-  flex-shrink: 0;
 }
 
 /* Inline save badge — no absolute positioning */
@@ -766,25 +746,75 @@
   padding: 3px 8px;
 }
 
-.bloomli-vt__delivery-prices {
+/* IM8-style stacked pricing block (aligned to card left edge, under the radio) */
+.bloomli-vt__delivery-pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 16px 12px;
+}
+
+.bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-pricing {
+  padding: 0 15px 12px;
+}
+
+.bloomli-vt__delivery-monthly {
   display: flex;
   align-items: baseline;
-  gap: 5px;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
-.bloomli-vt__delivery-price {
+.bloomli-vt__delivery-monthly-price {
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.05;
   color: var(--charcoal, #2A2622);
-  white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
-.bloomli-vt__delivery-compare {
+.bloomli-vt__delivery-monthly-suffix {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(42, 38, 34, 0.5);
+}
+
+.bloomli-vt__delivery-monthly-compare {
+  font-size: 13px;
+  color: rgba(42, 38, 34, 0.4);
+  text-decoration: line-through;
+  margin-left: auto;   /* anchor the "was" price to the right edge */
+}
+
+/* Total + frequency on the left, per-day emphasised on the right */
+.bloomli-vt__delivery-totalrow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 3px;
+}
+
+.bloomli-vt__delivery-total {
+  font-size: 12.5px;
+  color: rgba(42, 38, 34, 0.6);
+  line-height: 1.3;
+}
+
+.bloomli-vt__delivery-total-amount {
+  font-weight: 600;
+  color: rgba(42, 38, 34, 0.78);
+}
+
+.bloomli-vt__delivery-perday {
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 12px;
-  color: rgba(42, 38, 34, 0.42);
-  text-decoration: line-through;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--aubergine, #B23A6F);
   white-space: nowrap;
 }
 
@@ -792,6 +822,7 @@
 .bloomli-vt__delivery-accordion {
   display: grid;
   grid-template-rows: 0fr;
+  min-height: 0; /* allow collapse to 0 as a flex item in the column card */
   transition: grid-template-rows 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -804,23 +835,27 @@
   min-height: 0;
 }
 
-/* Perks list — indented to align with delivery label */
+/* Perks list — aligned to card left edge, divider above (IM8 style) */
 .bloomli-vt__delivery-perks {
   list-style: none;
-  margin: 0;
-  padding: 4px 16px 14px 46px; /* 46 = row-padding-left(16) + radio(18) + gap(12) */
+  margin: 0 16px;
+  padding: 12px 0 14px;
+  border-top: 1px solid rgba(178, 58, 111, 0.14);
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* Tag badge for delivery cards (e.g. "BEST VALUE") */
+/* Tag badge for delivery cards (e.g. "BEST VALUE") — flush corner ribbon,
+   not clipped by the card's overflow:hidden */
 .bloomli-vt__size-tag--delivery {
   position: absolute;
-  top: -10px;
-  right: 12px;
+  top: 0;
+  right: 0;
   bottom: unset;
   left: unset;
+  padding: 5px 12px;
+  border-radius: 0 var(--bloomli-vt-card-radius) 0 10px;
 }
 
 /* Hidden subscribe mode — keeps JS in subscribe mode, never shown */
@@ -847,21 +882,14 @@
   color: rgba(42, 38, 34, 0.6);
   text-align: center;
   line-height: 1.4;
-  transition: color 0.15s ease;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(42, 38, 34, 0.3);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 .bloomli-vt__onetime-direct:hover {
   color: var(--charcoal, #2A2622);
-}
-
-.bloomli-vt__onetime-direct-label {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-color: rgba(42, 38, 34, 0.3);
-  transition: text-decoration-color 0.15s ease;
-}
-
-.bloomli-vt__onetime-direct:hover .bloomli-vt__onetime-direct-label {
   text-decoration-color: rgba(42, 38, 34, 0.6);
 }
 
@@ -900,24 +928,33 @@
   }
 
   .bloomli-vt__delivery-row {
-    padding: 12px 14px;
+    padding: 12px 14px 4px;
     gap: 10px;
   }
 
   .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-row {
-    padding: 11px 13px;
+    padding: 11px 13px 3px;
   }
 
   .bloomli-vt__delivery-label {
-    font-size: 14px;
-  }
-
-  .bloomli-vt__delivery-price {
     font-size: 15px;
   }
 
+  .bloomli-vt__delivery-pricing {
+    padding: 0 14px 12px;
+  }
+
+  .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-pricing {
+    padding: 0 13px 12px;
+  }
+
+  .bloomli-vt__delivery-monthly-price {
+    font-size: 27px;
+  }
+
   .bloomli-vt__delivery-perks {
-    padding: 4px 14px 12px 44px; /* 44 = row-padding-left(14) + radio(18) + gap(10) + 2px */
+    margin: 0 14px;
+    padding: 11px 0 12px;
   }
 }
 

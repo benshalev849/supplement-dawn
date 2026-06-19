@@ -403,19 +403,6 @@
           <div class="bloomli-vt__delivery-row">
             <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
             <span class="bloomli-vt__delivery-label">{{ display_label }}</span>
-            {%- if discount_pct > 0 or badge != blank -%}
-              <span
-                class="bloomli-vt__size-badge bloomli-vt__size-badge--inline"
-                data-vt-discount-badge
-                data-manual-badge="{{ badge | escape }}"
-              >
-                {%- if discount_pct > 0 -%}
-                  {{ dynamic_badge }}
-                {%- else -%}
-                  {{ badge }}
-                {%- endif -%}
-              </span>
-            {%- endif -%}
           </div>
 
           <div class="bloomli-vt__delivery-pricing">
@@ -424,6 +411,19 @@
               <span class="bloomli-vt__delivery-monthly-suffix">/mo</span>
               {%- if monthly_compare_cents > monthly_cents -%}
                 <span class="bloomli-vt__delivery-monthly-compare">{{ monthly_compare_cents | money }}</span>
+              {%- endif -%}
+              {%- if discount_pct > 0 or badge != blank -%}
+                <span
+                  class="bloomli-vt__size-badge bloomli-vt__size-badge--inline"
+                  data-vt-discount-badge
+                  data-manual-badge="{{ badge | escape }}"
+                >
+                  {%- if discount_pct > 0 -%}
+                    {{ dynamic_badge }}
+                  {%- else -%}
+                    {{ badge }}
+                  {%- endif -%}
+                </span>
               {%- endif -%}
             </div>
 

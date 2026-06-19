@@ -541,23 +541,23 @@
   mask-position: center;
 }
 
-/* Unselected: transparent circle with a noticeable 1px plum ring */
+/* Unselected: transparent circle with a noticeable 1px berry ring */
 .bloomli-vt__radio-visual {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 1px solid var(--bloomli-vt-plum, #6E1E3F);
+  border: 1px solid var(--bloomli-vt-berry, #B23A6F);
   background: transparent;
   flex-shrink: 0;
   position: relative;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 
-/* Selected: solid plum button with a centered white dot inside */
+/* Selected: solid berry button with a centered white dot inside */
 .bloomli-vt__mode.is-selected .bloomli-vt__radio-visual,
 .bloomli-vt__size--delivery.is-selected .bloomli-vt__radio-visual {
-  border-color: var(--bloomli-vt-plum, #6E1E3F);
-  background: var(--bloomli-vt-plum, #6E1E3F);
+  border-color: var(--bloomli-vt-berry, #B23A6F);
+  background: var(--bloomli-vt-berry, #B23A6F);
 }
 
 .bloomli-vt__mode.is-selected .bloomli-vt__radio-visual::after,
@@ -759,11 +759,14 @@
   line-height: 1.2;
 }
 
-/* Inline save badge — gradient fill + aggressive pill radius (only here) */
+/* Inline save badge — gradient fill + aggressive pill radius (only here).
+   Sits at the right edge of the price row, vertically centered. */
 .bloomli-vt__size-badge--inline {
   position: static;
   top: unset;
   left: unset;
+  margin-left: auto;
+  align-self: center;
   font-size: 10px;
   padding: 4px 10px;
   border-radius: 100px;
@@ -793,7 +796,9 @@
 .bloomli-vt__delivery-monthly-price {
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
+  /* Nudge between semibold(600) and bold(700) — font-agnostic, no variable axis needed */
+  -webkit-text-stroke: 0.4px currentColor;
   line-height: 1.05;
   color: var(--bloomli-vt-plum, #6E1E3F);
   letter-spacing: -0.005em;
@@ -830,7 +835,7 @@
 }
 
 .bloomli-vt__delivery-total-amount {
-  font-weight: 600;
+  font-weight: 400;
   color: rgba(42, 38, 34, 0.78);
 }
 

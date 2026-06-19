@@ -112,17 +112,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  margin-bottom: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 1rem;
   color: rgb(var(--color-button));
-  font-size: 2.2rem;
+  font-size: 2rem;
   line-height: 1;
+  opacity: 0.92;
 }
 
 .bloomli-trust__quote {
   margin: 0.8rem 0 0;
-  color: rgb(var(--color-foreground));
+  color: rgba(var(--color-foreground), 0.72);
   font-family: var(--font-body-family);
   font-size: 1.5rem;
   font-style: normal;
@@ -136,8 +137,8 @@
   color: rgb(var(--color-button));
   font-family: var(--font-body-family);
   font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   line-height: 1.25;
   text-transform: uppercase;
 }

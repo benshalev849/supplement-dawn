@@ -9,7 +9,7 @@
   --bloomli-vt-berry: #B23A6F;
   --bloomli-vt-plum: #6E1E3F;
   --bloomli-vt-gold: #B8852F;
-  --bloomli-vt-save-badge-grad: linear-gradient(135deg, #C24C80 0%, #A52E61 100%);
+  --bloomli-vt-save-badge-grad: linear-gradient(135deg, #B65A7E 0%, #9A4067 100%);
   --bloomli-vt-popular-grad: linear-gradient(135deg, #D0A455 0%, #A9762C 100%);
   --bloomli-vt-value-grad: linear-gradient(135deg, #7E2249 0%, #561631 100%);
   --bloomli-vt-selected-grad: linear-gradient(165deg, #FCF7F0 0%, #F4EADC 100%);
@@ -72,9 +72,13 @@
   box-shadow: 0 6px 16px rgba(110, 30, 63, 0.13);
 }
 
-/* Selected delivery cards get a subtle warm gradient for depth (not flat) */
+/* Selected delivery cards get a subtle warm gradient for depth (not flat).
+   Selection is carried by the gradient fill + soft shadow + filled radio,
+   so the border stays a thin, elegant plum (not a loud 2px berry outline). */
 .bloomli-vt__size--delivery.is-selected {
   background: var(--bloomli-vt-selected-grad);
+  border-width: 1.5px;
+  border-color: var(--bloomli-vt-plum, #6E1E3F);
 }
 
 .bloomli-vt__radio-native {
@@ -659,7 +663,7 @@
   width: 100%;
   min-height: 4rem !important;
   height: auto;
-  margin: 14px 0 0;
+  margin: 18px 0 0;
   padding: 7px 20px 10px !important;
   border: 1.5px solid var(--aubergine, #B23A6F);
   border-radius: var(--bloomli-vt-button-radius) !important;
@@ -669,6 +673,7 @@
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 15px;
   font-weight: 500;
+  letter-spacing: 0.03em;
   line-height: 1;
   text-align: center;
   transition: background 0.18s ease, color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
@@ -717,7 +722,7 @@
 .bloomli-vt__delivery-tiers {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   margin: 0 0 4px;
 }
 
@@ -749,7 +754,7 @@
 }
 
 .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-row {
-  padding: 11px 11px 7px;   /* compensate for 2px border vs 1.5px */
+  padding: 12px 12px 8px;   /* uniform 1.5px border — no compensation needed */
 }
 
 /* Tagged cards reserve right space so the heading + save badge never slide
@@ -775,10 +780,12 @@
   top: unset;
   left: unset;
   font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   padding: 4px 10px;
   border-radius: 100px;
   background: var(--bloomli-vt-save-badge-grad);
-  box-shadow: 0 2px 5px rgba(165, 46, 97, 0.25);
+  box-shadow: 0 1px 4px rgba(154, 64, 103, 0.22);
 }
 
 /* IM8-style stacked pricing block (aligned to card left edge, under the radio) */
@@ -790,7 +797,7 @@
 }
 
 .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-pricing {
-  padding: 0 11px 10px;
+  padding: 0 12px 10px;
 }
 
 .bloomli-vt__delivery-monthly {
@@ -801,14 +808,16 @@
 }
 
 .bloomli-vt__delivery-monthly-price {
-  font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 20px;
-  font-weight: 600;
-  /* Nudge between semibold(600) and bold(700) — font-agnostic, no variable axis needed */
-  -webkit-text-stroke: 0.35px currentColor;
-  line-height: 1.05;
+  /* Editorial serif — echoes the section title (Fraunces) for a premium read.
+     Using the serif at its natural weight sidesteps the harsh-bold problem
+     the sans-serif had, so no -webkit-text-stroke hack is needed. */
+  font-family: 'Fraunces', var(--font-commerce-ui, var(--font-body-family));
+  font-variation-settings: "SOFT" 100, "opsz" 40;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1;
   color: var(--bloomli-vt-plum, #6E1E3F);
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
 }
 
 .bloomli-vt__delivery-monthly-suffix {
@@ -924,7 +933,7 @@
   flex-wrap: wrap;
   gap: 3px;
   width: 100%;
-  margin: 10px 0 0;
+  margin: 16px 0 0;
   padding: 6px 0;
   background: none;
   border: none;
@@ -993,7 +1002,7 @@
   }
 
   .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-row {
-    padding: 10px 11px 7px;
+    padding: 11px 12px 8px;
   }
 
   .bloomli-vt__size--tagged .bloomli-vt__delivery-row,
@@ -1010,11 +1019,11 @@
   }
 
   .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-pricing {
-    padding: 0 11px 10px;
+    padding: 0 12px 10px;
   }
 
   .bloomli-vt__delivery-monthly-price {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .bloomli-vt__delivery-perks {

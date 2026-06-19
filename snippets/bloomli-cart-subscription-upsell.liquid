@@ -80,7 +80,7 @@
     elsif settings.cart_drawer_subscription_discount_pct != blank
       assign subscription_discount_pct = settings.cart_drawer_subscription_discount_pct | plus: 0
     else
-      assign subscription_discount_pct = 15
+      assign subscription_discount_pct = 20
     endif
 
     assign badge_text = settings.cart_line_subscription_upsell_badge_text | default: 'MOST POPULAR'

@@ -125,7 +125,7 @@
     elsif settings.bloomli_routine_upsell_subscription_discount_pct != blank
       assign upsell_subscription_discount_pct = settings.bloomli_routine_upsell_subscription_discount_pct | plus: 0
     else
-      assign upsell_subscription_discount_pct = 15
+      assign upsell_subscription_discount_pct = 20
     endif
 
     if upsell_product.metafields.bloomli.bundle_add_on_discount_pct != blank

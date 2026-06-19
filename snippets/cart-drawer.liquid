@@ -202,23 +202,23 @@
 
                   <tbody role="rowgroup">
                     {%- liquid
-                      assign _bundle_supplement_tag = settings.bloomli_routine_upsell_supplement_tag | default: 'supplement' | downcase | strip
-                      assign _bundle_addon_tag      = settings.bloomli_routine_upsell_addon_tag      | default: 'add-on'     | downcase | strip
-                      assign _cart_has_supplement   = false
-                      assign _cart_has_addon        = false
+                      assign bundle_supplement_tag = settings.bloomli_routine_upsell_supplement_tag | default: 'supplement' | downcase | strip
+                      assign bundle_addon_tag      = settings.bloomli_routine_upsell_addon_tag      | default: 'add-on'     | downcase | strip
+                      assign cart_has_supplement   = false
+                      assign cart_has_addon        = false
                       for _pre_item in cart.items
                         for _pre_tag in _pre_item.product.tags
-                          assign _pre_tag_norm = _pre_tag | downcase | strip
-                          if _pre_tag_norm == _bundle_supplement_tag
-                            assign _cart_has_supplement = true
+                          assign pre_tag_norm = _pre_tag | downcase | strip
+                          if pre_tag_norm == bundle_supplement_tag
+                            assign cart_has_supplement = true
                           endif
-                          if _pre_tag_norm == _bundle_addon_tag
-                            assign _cart_has_addon = true
+                          if pre_tag_norm == bundle_addon_tag
+                            assign cart_has_addon = true
                           endif
                         endfor
                       endfor
                       assign cart_bundle_active = false
-                      if _cart_has_supplement and _cart_has_addon
+                      if cart_has_supplement and cart_has_addon
                         assign cart_bundle_active = true
                       endif
                     -%}
@@ -229,9 +229,9 @@
                         assign show_bloomli_pack_promo_cell = false
                         for product_tag in item.product.tags
                           assign normalized_product_tag = product_tag | downcase | strip
-                          if normalized_product_tag == _bundle_supplement_tag
+                          if normalized_product_tag == bundle_supplement_tag
                             assign is_bloomli_supplement = true
-                          elsif normalized_product_tag == _bundle_addon_tag
+                          elsif normalized_product_tag == bundle_addon_tag
                             assign is_bloomli_add_on = true
                           endif
                         endfor
@@ -258,7 +258,7 @@
                         elsif settings.cart_drawer_subscription_discount_pct != blank
                           assign cart_subscription_discount = settings.cart_drawer_subscription_discount_pct | plus: 0
                         else
-                          assign cart_subscription_discount = 15
+                          assign cart_subscription_discount = 20
                         endif
 
                         assign cart_mf_bundle_pct = item.product.metafields.bloomli.bundle_add_on_discount_pct

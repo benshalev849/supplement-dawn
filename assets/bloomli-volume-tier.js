@@ -72,6 +72,12 @@
     const savingsPrefix = root.dataset.savingsPrefix || "You're saving ";
     const savingsSuffix = root.dataset.savingsSuffix || '';
     const productFormId = root.dataset.formId;
+    const productForm = productFormId ? document.getElementById(productFormId) : null;
+    const variantInput = productForm ? productForm.querySelector('input[name="id"]') : root.querySelector('input[name="id"]');
+    const submitButton = root.querySelector('[data-vt-submit-button]');
+    const submitText = root.querySelector('[data-vt-submit-text]');
+    const addToCartLabel = root.dataset.addToCartLabel || 'Add to cart';
+    const soldOutLabel = root.dataset.soldOutLabel || 'Sold out';
     const quantitySelector = productFormId
       ? Array.from(document.querySelectorAll('input[name="quantity"]')).find(function (input) {
           return input !== qtyInput && input.getAttribute('form') === productFormId;
@@ -128,11 +134,31 @@
       }
     }
 
+    function setSubmitState(canSubmit) {
+      if (!submitButton) return;
+
+      if (canSubmit) {
+        submitButton.removeAttribute('disabled');
+        submitButton.removeAttribute('aria-disabled');
+      } else {
+        submitButton.setAttribute('disabled', 'disabled');
+        submitButton.setAttribute('aria-disabled', 'true');
+      }
+
+      if (submitText) {
+        submitText.textContent = canSubmit ? addToCartLabel : soldOutLabel;
+      }
+    }
+
     function updateState() {
       const size = getSelectedSize();
       if (!size) return;
 
       const qty = parseInt(size.dataset.quantity, 10) || 1;
+      const cartQuantity = parseInt(size.dataset.cartQuantity, 10) || 1;
+      const variantId = size.dataset.variantId || '';
+      const isAvailable = size.dataset.available === 'true';
+      const canSubmit = Boolean(variantId) && isAvailable;
       const planId = size.dataset.planId || '';
       const mode = getSelectedMode();
       const oneTimeCents = parseCents(size.dataset.oneTimeCents) || 0;
@@ -228,11 +254,19 @@
       const effectiveMode = getSelectedMode();
       const displayCents = effectiveMode === 'subscribe' && planId ? subscribeCents : oneTimeCents;
 
+      if (variantInput && variantId) {
+        variantInput.value = String(variantId);
+        variantInput.disabled = !canSubmit;
+        variantInput.dispatchEvent(new Event('change', { bubbles: true }));
+      } else if (variantInput) {
+        variantInput.disabled = true;
+      }
+
       if (quantitySelector) {
-        quantitySelector.value = String(qty);
+        quantitySelector.value = String(cartQuantity);
         if (qtyInput) qtyInput.disabled = true;
       } else if (qtyInput) {
-        qtyInput.value = String(qty);
+        qtyInput.value = String(cartQuantity);
         qtyInput.disabled = false;
       }
 
@@ -307,6 +341,7 @@
         }
       });
 
+      setSubmitState(canSubmit);
       placeAddToCart();
       if (window.requestAnimationFrame) {
         window.requestAnimationFrame(placeAddToCart);

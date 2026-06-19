@@ -1678,7 +1678,7 @@
         "type": "text",
         "id": "cart_drawer_subscription_discount_pct",
         "label": "Subscription discount percent",
-        "default": "10",
+        "default": "20",
         "info": "Compounded with volume savings for subscription cart lines."
       },
       {
@@ -2028,7 +2028,7 @@
         "min": 0,
         "max": 50,
         "step": 1,
-        "default": 15,
+        "default": 20,
         "info": "Override per product via metafield bloomli.subscription_discount_pct."
       },
       {
@@ -2201,7 +2201,7 @@
         "type": "text",
         "id": "bloomli_routine_upsell_subscription_discount_pct",
         "label": "Subscription discount percent",
-        "default": "15",
+        "default": "20",
         "info": "Discount applied first when a subscription is active. For the add-on, the Pair & Save discount is also stacked on top."
       },
       {

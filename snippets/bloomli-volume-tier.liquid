@@ -2,12 +2,13 @@
   Bloomli Volume Tier - block snippet rendered inside main-product.liquid.
 
   Renders 1-3 horizontal size cards (Create-Wellness style) plus an optional
-  One-Time / Subscribe toggle. Sets the buy-buttons form's `quantity` and
-  optional `selling_plan` through normal form-associated inputs.
+  One-Time / Subscribe toggle. Sets the buy-buttons form's variant, quantity,
+  and optional `selling_plan` through normal form inputs.
 
-  Tier-to-plan mapping: by default quantity N chooses a plan whose group/name
-  contains "{N}-pack" and "{N}mo". Per-tier plan filters can override the
-  pack text.
+  Tier-to-plan mapping: each tier can optionally submit a separate bundle
+  product. If present, the tier uses that product's selected/default variant
+  and first matching selling plan allocation. If no bundle product is selected,
+  it falls back to the current product and the legacy quantity behavior.
 
   @param {block} block - Block object with all settings.
   @param {product} product - Current product.
@@ -32,14 +33,14 @@
   assign default_qty = 1
   assign subscribe_enabled = block.settings.subscribe_enabled
   assign default_mode = block.settings.default_mode | default: 'onetime'
-  assign _mf_sub_pct = product.metafields.bloomli.subscription_discount_pct
-  assign _g_sub_pct  = settings.bloomli_subscription_discount_pct
-  if _mf_sub_pct != blank
-    assign subscription_discount_pct = _mf_sub_pct | plus: 0
-  elsif _g_sub_pct != blank
-    assign subscription_discount_pct = _g_sub_pct | plus: 0
+  assign mf_sub_pct = product.metafields.bloomli.subscription_discount_pct
+  assign g_sub_pct  = settings.bloomli_subscription_discount_pct
+  if mf_sub_pct != blank
+    assign subscription_discount_pct = mf_sub_pct | plus: 0
+  elsif g_sub_pct != blank
+    assign subscription_discount_pct = g_sub_pct | plus: 0
   else
-    assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 15 | plus: 0
+    assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 20 | plus: 0
   endif
   assign tier_1_qty_for_discount = block.settings.tier_1_qty | default: 1 | plus: 0
   assign tier_2_qty_for_discount = block.settings.tier_2_qty | default: 2 | plus: 0
@@ -124,6 +125,7 @@
           when 1
             assign show = block.settings.tier_1_show
             assign qty = block.settings.tier_1_qty | default: 1
+            assign bundle_product = block.settings.tier_1_bundle_product
             assign label = block.settings.tier_1_label
             assign count_text = block.settings.tier_1_count_text
             assign daily_text = block.settings.tier_1_daily_text
@@ -135,7 +137,8 @@
             assign is_default = block.settings.tier_1_default
           when 2
             assign show = block.settings.tier_2_show
-            assign qty = block.settings.tier_2_qty | default: 2
+            assign qty = block.settings.tier_2_qty | default: 3
+            assign bundle_product = block.settings.tier_2_bundle_product
             assign label = block.settings.tier_2_label
             assign count_text = block.settings.tier_2_count_text
             assign daily_text = block.settings.tier_2_daily_text
@@ -147,7 +150,8 @@
             assign is_default = block.settings.tier_2_default
           when 3
             assign show = block.settings.tier_3_show
-            assign qty = block.settings.tier_3_qty | default: 3
+            assign qty = block.settings.tier_3_qty | default: 6
+            assign bundle_product = block.settings.tier_3_bundle_product
             assign label = block.settings.tier_3_label
             assign count_text = block.settings.tier_3_count_text
             assign daily_text = block.settings.tier_3_daily_text
@@ -175,9 +179,27 @@
           assign discount_pct = volume_discount_1_pct
         endif
 
+        assign tier_product = product
+        assign tier_cart_quantity = qty
+        assign tier_has_bundle_product = false
+        if bundle_product != blank
+          assign tier_product = bundle_product
+          assign tier_cart_quantity = 1
+          assign tier_has_bundle_product = true
+        endif
+
+        assign tier_variant = tier_product.selected_or_first_available_variant
+        if tier_variant == blank
+          assign tier_variant = product.selected_or_first_available_variant
+        endif
+        assign tier_variant_id = tier_variant.id
+        assign tier_available = tier_variant.available
+        assign tier_price = tier_variant.price | default: unit_price
+        assign tier_compare = tier_variant.compare_at_price | default: tier_price
+
         if show and is_default and default_idx == -1
           assign default_idx = forloop.index0
-          assign default_qty = qty
+          assign default_qty = tier_cart_quantity
         endif
 
         if plan_filter == blank
@@ -187,11 +209,45 @@
         assign frequency_qty = qty
         assign frequency_filter = frequency_qty | append: 'mo'
         assign tier_plan_id = ''
+        assign tier_plan_price = 0
+        assign tier_plan_compare = 0
+        assign first_allocation_id = ''
+        assign first_allocation_price = 0
+        assign first_allocation_compare = 0
+        assign plan_filter_lower = plan_filter | downcase
+        for allocation in tier_variant.selling_plan_allocations
+          if first_allocation_id == blank
+            assign first_allocation_id = allocation.selling_plan.id
+            assign first_allocation_price = allocation.price
+            assign first_allocation_compare = allocation.compare_at_price | default: allocation.price
+          endif
+
+          assign allocation_source = allocation.selling_plan.name | downcase
+          for option in allocation.selling_plan.options
+            assign allocation_source = allocation_source | append: ' ' | append: option.value | downcase
+          endfor
+          assign frequency_filter_spaced = frequency_qty | append: ' mo'
+          assign frequency_filter_dash = frequency_qty | append: '-mo'
+          assign frequency_filter_month = frequency_qty | append: ' month'
+          assign frequency_filter_every = 'every ' | append: frequency_qty
+          assign frequency_filter_appstle = frequency_qty | append: 'month'
+          if allocation_source contains plan_filter_lower or allocation_source contains frequency_filter or allocation_source contains frequency_filter_spaced or allocation_source contains frequency_filter_dash or allocation_source contains frequency_filter_month or allocation_source contains frequency_filter_every or allocation_source contains frequency_filter_appstle
+            assign tier_plan_id = allocation.selling_plan.id
+            assign tier_plan_price = allocation.price
+            assign tier_plan_compare = allocation.compare_at_price | default: allocation.price
+            break
+          endif
+        endfor
+        if tier_plan_id == blank and first_allocation_id != blank
+          assign tier_plan_id = first_allocation_id
+          assign tier_plan_price = first_allocation_price
+          assign tier_plan_compare = first_allocation_compare
+        endif
+
         assign fallback_plan_id = ''
-        for grp in product.selling_plan_groups
+        for grp in tier_product.selling_plan_groups
           assign grp_name_lower = grp.name | downcase
-          assign filter_lower = plan_filter | downcase
-          if grp_name_lower contains filter_lower
+          if tier_plan_id == blank and grp_name_lower contains plan_filter_lower
             assign first_plan = grp.selling_plans | first
             if first_plan
               if fallback_plan_id == blank
@@ -223,18 +279,36 @@
           assign tier_plan_id = fallback_plan_id
         endif
 
-        assign line_compare = unit_price | times: qty
-        if unit_compare > unit_price
-          assign line_compare = unit_compare | times: qty
+        if tier_has_bundle_product
+          assign line_compare = tier_price
+          if tier_compare > tier_price
+            assign line_compare = tier_compare
+          endif
+          if tier_plan_compare > line_compare
+            assign line_compare = tier_plan_compare
+          endif
+          assign one_time_total_cents = tier_price
+        else
+          assign line_compare = unit_price | times: qty
+          if unit_compare > unit_price
+            assign line_compare = unit_compare | times: qty
+          endif
+          assign one_time_pct_factor = 100.0 | minus: discount_pct
+          assign one_time_unit_cents = unit_price | times: one_time_pct_factor | divided_by: 100.0 | round
+          assign one_time_total_cents = one_time_unit_cents | times: qty
         endif
         assign one_time_pct_factor = 100.0 | minus: discount_pct
-        assign one_time_unit_cents = unit_price | times: one_time_pct_factor | divided_by: 100.0 | round
-        assign one_time_total_cents = one_time_unit_cents | times: qty
 
         assign subscription_pct_factor = 100.0 | minus: sub_discount_pct
         assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
-        assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round
-        assign subscribe_total_cents = subscribe_unit_cents | times: qty
+        if tier_plan_price > 0
+          assign subscribe_total_cents = tier_plan_price
+        elsif tier_has_bundle_product
+          assign subscribe_total_cents = one_time_total_cents
+        else
+          assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round
+          assign subscribe_total_cents = subscribe_unit_cents | times: qty
+        endif
         assign rounded_discount_pct = discount_pct | floor
         assign dynamic_badge = discount_badge_template | replace: '[percent]', rounded_discount_pct | replace: '[qty]', qty
 
@@ -263,6 +337,10 @@
                data-vt-size
                data-tier-index="{{ forloop.index0 }}"
                data-quantity="{{ qty }}"
+               data-display-supply-count="{{ qty }}"
+               data-cart-quantity="{{ tier_cart_quantity }}"
+               data-variant-id="{{ tier_variant_id }}"
+               data-available="{{ tier_available }}"
                data-discount-pct="{{ discount_pct }}"
                data-sub-discount-pct="{{ sub_discount_pct }}"
                data-plan-id="{{ tier_plan_id }}"
@@ -270,7 +348,8 @@
                data-subscribe-cents="{{ subscribe_total_cents }}"
                data-line-compare-cents="{{ line_compare }}"
                data-size-label="{{ display_label | escape }}"
-               data-size-count="{{ count_text | escape }}">
+               data-size-count="{{ count_text | escape }}"
+               data-product-title="{{ tier_product.title | escape }}">
 
           {%- if discount_pct > 0 or badge != blank -%}
             <span

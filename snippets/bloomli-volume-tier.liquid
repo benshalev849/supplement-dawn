@@ -126,6 +126,9 @@
             assign show = block.settings.tier_1_show
             assign qty = block.settings.tier_1_qty | default: 1
             assign bundle_product = block.settings.tier_1_bundle_product
+            assign bundle_product_handle = block.settings.tier_1_bundle_product_handle
+            assign inferred_bundle_handle = ''
+            assign alternate_inferred_bundle_handle = ''
             assign label = block.settings.tier_1_label
             assign count_text = block.settings.tier_1_count_text
             assign daily_text = block.settings.tier_1_daily_text
@@ -139,6 +142,9 @@
             assign show = block.settings.tier_2_show
             assign qty = block.settings.tier_2_qty | default: 3
             assign bundle_product = block.settings.tier_2_bundle_product
+            assign bundle_product_handle = block.settings.tier_2_bundle_product_handle
+            assign inferred_bundle_handle = product.handle | append: '-3-months-supply'
+            assign alternate_inferred_bundle_handle = product.title | append: ' 3 Months Supply' | handleize
             assign label = block.settings.tier_2_label
             assign count_text = block.settings.tier_2_count_text
             assign daily_text = block.settings.tier_2_daily_text
@@ -152,6 +158,9 @@
             assign show = block.settings.tier_3_show
             assign qty = block.settings.tier_3_qty | default: 6
             assign bundle_product = block.settings.tier_3_bundle_product
+            assign bundle_product_handle = block.settings.tier_3_bundle_product_handle
+            assign inferred_bundle_handle = product.handle | append: '-6-month-supply'
+            assign alternate_inferred_bundle_handle = product.title | append: ' 6 Month Supply' | handleize
             assign label = block.settings.tier_3_label
             assign count_text = block.settings.tier_3_count_text
             assign daily_text = block.settings.tier_3_daily_text
@@ -177,6 +186,16 @@
           assign discount_pct = volume_discount_2_pct
         else
           assign discount_pct = volume_discount_1_pct
+        endif
+
+        if bundle_product == blank and bundle_product_handle != blank
+          assign bundle_product = all_products[bundle_product_handle]
+        endif
+        if bundle_product == blank and inferred_bundle_handle != blank
+          assign bundle_product = all_products[inferred_bundle_handle]
+        endif
+        if bundle_product == blank and alternate_inferred_bundle_handle != blank
+          assign bundle_product = all_products[alternate_inferred_bundle_handle]
         endif
 
         assign tier_product = product

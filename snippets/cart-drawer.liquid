@@ -497,12 +497,16 @@
                           {%- render 'loading-spinner' -%}
                           <div class="cart-item__price-wrapper">
                             {%- liquid
+                              assign line_final_price = item.final_line_price
                               assign line_compare_price = item.original_line_price
                               if item.variant.compare_at_price and item.variant.compare_at_price > item.variant.price
                                 assign line_compare_price = item.variant.compare_at_price | times: item.quantity
                               endif
+                              if line_compare_price < line_final_price
+                                assign line_compare_price = line_final_price
+                              endif
                             -%}
-                            {%- if line_compare_price > item.final_line_price -%}
+                            {%- if line_compare_price > line_final_price -%}
                               <div class="cart-item__discounted-prices">
                                 <span class="visually-hidden">
                                   {{ 'products.product.price.regular_price' | t }}
@@ -514,12 +518,12 @@
                                   {{ 'products.product.price.sale_price' | t }}
                                 </span>
                                 <span class="price price--end">
-                                  {{ item.final_line_price | money }}
+                                  {{ line_final_price | money }}
                                 </span>
                               </div>
                             {%- else -%}
                               <span class="price price--end">
-                                {{ item.original_line_price | money }}
+                                {{ line_final_price | money }}
                               </span>
                             {%- endif -%}
 

@@ -312,14 +312,12 @@
           if tier_plan_compare > line_compare
             assign line_compare = tier_plan_compare
           endif
-          assign bundle_discount_divisor = 100.0 | minus: discount_pct
-          if discount_pct > 0 and bundle_discount_divisor > 0
-            assign bundle_static_compare = tier_price | times: 100.0 | divided_by: bundle_discount_divisor | round
-            if bundle_static_compare > line_compare
-              assign line_compare = bundle_static_compare
-            endif
+          assign one_time_pct_factor = 100.0 | minus: discount_pct
+          if one_time_pct_factor > 0
+            assign one_time_total_cents = tier_price | times: one_time_pct_factor | divided_by: 100.0 | round
+          else
+            assign one_time_total_cents = tier_price
           endif
-          assign one_time_total_cents = tier_price
         else
           assign line_compare = unit_price | times: qty
           if unit_compare > unit_price
@@ -334,9 +332,13 @@
         assign subscription_pct_factor = 100.0 | minus: sub_discount_pct
         assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
         if tier_plan_price > 0
-          assign subscribe_total_cents = tier_plan_price
+          if tier_has_bundle_product
+            assign subscribe_total_cents = tier_plan_price | times: one_time_pct_factor | divided_by: 100.0 | round
+          else
+            assign subscribe_total_cents = tier_plan_price
+          endif
         elsif tier_has_bundle_product
-          assign subscribe_total_cents = one_time_total_cents
+          assign subscribe_total_cents = tier_price | times: compounded_pct_factor | divided_by: 100.0 | round
         else
           assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round
           assign subscribe_total_cents = subscribe_unit_cents | times: qty

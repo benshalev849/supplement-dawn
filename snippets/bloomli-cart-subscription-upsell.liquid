@@ -68,6 +68,21 @@
     if target_plan_id == blank
       assign target_plan_id = fallback_plan_id
     endif
+    if target_plan_id == blank
+      for allocation in item.variant.selling_plan_allocations
+        assign target_plan_id = allocation.selling_plan.id
+        break
+      endfor
+    endif
+    if target_plan_id == blank
+      for selling_plan_group in item.product.selling_plan_groups
+        assign first_plan = selling_plan_group.selling_plans | first
+        if first_plan
+          assign target_plan_id = first_plan.id
+          break
+        endif
+      endfor
+    endif
 
     if resolved_subscription_discount_pct != blank
       assign subscription_discount_pct = resolved_subscription_discount_pct | plus: 0

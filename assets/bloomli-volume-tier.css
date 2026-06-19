@@ -990,12 +990,18 @@
     padding: 0;
   }
 
-  /* Corner ribbon: compact, legible (base mobile would shrink tags to 8px).
-     Kept small + tight so the wider "MOST POPULAR" label still fits within the
-     reserved row space and sits just above-and-right of the SAVE pill. */
+  /* Corner ribbon: restored to the readable size (base mobile would shrink
+     generic tags to 8px, hence the compound override). */
   .bloomli-vt__size-tag.bloomli-vt__size-tag--delivery {
-    font-size: 8px;
-    letter-spacing: 0.02em;
+    font-size: 9px;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+  }
+
+  /* Inline SAVE pill: a touch smaller on mobile for better proportion next to
+     the heading. */
+  .bloomli-vt__size-badge--inline {
+    font-size: 9px;
     padding: 3px 8px;
   }
 
@@ -1008,9 +1014,14 @@
     padding: 11px 12px 8px;
   }
 
+  /* Tagged cards stagger the ribbon ABOVE the heading (IM8 layout): the ribbon
+     keeps the top-right corner, the label + SAVE pill drop onto a full-width
+     line just below it. Full width = SAVE never wraps under the label (until it
+     genuinely can't fit, ~<300px) and never collides with the wider ribbon. */
   .bloomli-vt__size--tagged .bloomli-vt__delivery-row,
   .bloomli-vt__size--tagged.is-selected .bloomli-vt__delivery-row {
-    padding-right: 88px;
+    padding-top: 20px;
+    padding-right: 12px;
   }
 
   .bloomli-vt__delivery-label {
@@ -1032,6 +1043,21 @@
   .bloomli-vt__delivery-perks {
     margin: 0 12px;
     padding: 10px 0 12px;
+  }
+}
+
+/* Ultra-narrow (<300px): keep the SAVE pill on the heading line beside the label
+   by dropping the radio onto its own line above it. The label + SAVE then share
+   the next full-width line together (IM8 layout) instead of SAVE wrapping under
+   the label. Reset the tag stagger so the radio sits up with the corner ribbon. */
+@media (max-width: 299px) {
+  .bloomli-vt__size--tagged .bloomli-vt__delivery-row,
+  .bloomli-vt__size--tagged.is-selected .bloomli-vt__delivery-row {
+    padding-top: 11px;
+  }
+
+  .bloomli-vt__size--tagged .bloomli-vt__delivery-row .bloomli-vt__radio-visual {
+    flex: 0 0 100%;
   }
 }
 

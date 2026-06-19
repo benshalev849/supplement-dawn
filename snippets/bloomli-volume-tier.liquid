@@ -481,7 +481,16 @@
           {%- endif -%}
 
           {%- if tag != blank -%}
-            <span class="bloomli-vt__size-tag bloomli-vt__size-tag--delivery">{{ tag }}</span>
+            {%- liquid
+              assign tag_lower = tag | downcase
+              assign tag_modifier = ''
+              if tag_lower contains 'popular'
+                assign tag_modifier = ' bloomli-vt__size-tag--popular'
+              elsif tag_lower contains 'value' or tag_lower contains 'best'
+                assign tag_modifier = ' bloomli-vt__size-tag--value'
+              endif
+            -%}
+            <span class="bloomli-vt__size-tag bloomli-vt__size-tag--delivery{{ tag_modifier }}">{{ tag }}</span>
           {%- endif -%}
 
         </label>

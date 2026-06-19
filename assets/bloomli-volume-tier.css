@@ -5,6 +5,15 @@
   --bloomli-vt-card-radius: var(--text-boxes-radius);
   --bloomli-vt-size-card-min: 17rem;
 
+  /* Layered accent palette — berry primary, gold for "popular", plum for "value" */
+  --bloomli-vt-berry: #B23A6F;
+  --bloomli-vt-plum: #6E1E3F;
+  --bloomli-vt-gold: #B8852F;
+  --bloomli-vt-save-badge-grad: linear-gradient(135deg, #C24C80 0%, #A52E61 100%);
+  --bloomli-vt-popular-grad: linear-gradient(135deg, #D0A455 0%, #A9762C 100%);
+  --bloomli-vt-value-grad: linear-gradient(135deg, #7E2249 0%, #561631 100%);
+  --bloomli-vt-selected-grad: linear-gradient(165deg, #FCF7F0 0%, #F4EADC 100%);
+
   color: var(--charcoal, #2A2622);
   font-family: var(--font-commerce-ui, var(--font-body-family));
   margin: 16px 0;
@@ -17,7 +26,7 @@
   font-size: 22px;
   font-weight: 400;
   color: var(--charcoal, #2A2622);
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   letter-spacing: -0.01em;
   line-height: 1.15;
 }
@@ -60,7 +69,12 @@
   border-width: 2px;
   padding: 11px 13px;
   background: var(--cream, #F8F1E7);
-  box-shadow: 0 4px 12px rgba(178, 58, 111, 0.1);
+  box-shadow: 0 6px 16px rgba(110, 30, 63, 0.13);
+}
+
+/* Selected delivery cards get a subtle warm gradient for depth (not flat) */
+.bloomli-vt__size--delivery.is-selected {
+  background: var(--bloomli-vt-selected-grad);
 }
 
 .bloomli-vt__radio-native {
@@ -722,11 +736,11 @@
   flex-direction: row;
   align-items: center;
   gap: 10px;
-  padding: 14px 16px 4px;
+  padding: 12px 12px 4px;
 }
 
 .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-row {
-  padding: 13px 15px 3px;   /* compensate for 2px border vs 1.5px */
+  padding: 11px 11px 3px;   /* compensate for 2px border vs 1.5px */
 }
 
 .bloomli-vt__delivery-label {
@@ -737,13 +751,16 @@
   line-height: 1.2;
 }
 
-/* Inline save badge — no absolute positioning */
+/* Inline save badge — gradient fill + aggressive pill radius (only here) */
 .bloomli-vt__size-badge--inline {
   position: static;
   top: unset;
   left: unset;
   font-size: 10px;
-  padding: 3px 8px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: var(--bloomli-vt-save-badge-grad);
+  box-shadow: 0 2px 5px rgba(165, 46, 97, 0.25);
 }
 
 /* IM8-style stacked pricing block (aligned to card left edge, under the radio) */
@@ -751,11 +768,11 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 0 16px 12px;
+  padding: 0 12px 12px;
 }
 
 .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-pricing {
-  padding: 0 15px 12px;
+  padding: 0 11px 12px;
 }
 
 .bloomli-vt__delivery-monthly {
@@ -768,10 +785,10 @@
 .bloomli-vt__delivery-monthly-price {
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.05;
   color: var(--charcoal, #2A2622);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
 }
 
 .bloomli-vt__delivery-monthly-suffix {
@@ -794,7 +811,7 @@
   justify-content: space-between;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: 9px;
+  margin-top: 7px;
 }
 
 .bloomli-vt__delivery-total {
@@ -840,16 +857,16 @@
 /* Perks list — aligned to card left edge, divider above (IM8 style) */
 .bloomli-vt__delivery-perks {
   list-style: none;
-  margin: 0 16px;
-  padding: 12px 0 14px;
+  margin: 0 12px;
+  padding: 10px 0 12px;
   border-top: 1px solid rgba(178, 58, 111, 0.14);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
-/* Tag badge for delivery cards (e.g. "BEST VALUE") — flush corner ribbon,
-   not clipped by the card's overflow:hidden */
+/* Tag badge for delivery cards — flush corner ribbon, not clipped by the
+   card's overflow:hidden. Plum by default; gold for "Most Popular". */
 .bloomli-vt__size-tag--delivery {
   position: absolute;
   top: 0;
@@ -858,6 +875,18 @@
   left: unset;
   padding: 5px 12px;
   border-radius: 0 var(--bloomli-vt-card-radius) 0 10px;
+  background: var(--bloomli-vt-value-grad);
+  box-shadow: 0 3px 8px rgba(86, 22, 49, 0.28);
+}
+
+.bloomli-vt__size-tag--popular {
+  background: var(--bloomli-vt-popular-grad);
+  box-shadow: 0 3px 8px rgba(169, 118, 44, 0.3);
+}
+
+.bloomli-vt__size-tag--value {
+  background: var(--bloomli-vt-value-grad);
+  box-shadow: 0 3px 8px rgba(86, 22, 49, 0.28);
 }
 
 /* Hidden subscribe mode — keeps JS in subscribe mode, never shown */
@@ -930,12 +959,12 @@
   }
 
   .bloomli-vt__delivery-row {
-    padding: 12px 14px 4px;
+    padding: 11px 12px 4px;
     gap: 10px;
   }
 
   .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-row {
-    padding: 11px 13px 3px;
+    padding: 10px 11px 3px;
   }
 
   .bloomli-vt__delivery-label {
@@ -943,11 +972,11 @@
   }
 
   .bloomli-vt__delivery-pricing {
-    padding: 0 14px 12px;
+    padding: 0 12px 11px;
   }
 
   .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-pricing {
-    padding: 0 13px 12px;
+    padding: 0 11px 11px;
   }
 
   .bloomli-vt__delivery-monthly-price {
@@ -955,7 +984,7 @@
   }
 
   .bloomli-vt__delivery-perks {
-    margin: 0 14px;
+    margin: 0 12px;
     padding: 11px 0 12px;
   }
 }

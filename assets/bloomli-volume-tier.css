@@ -843,7 +843,7 @@
 }
 
 .bloomli-vt__delivery-total {
-  font-size: 12.5px;
+  font-size: 11px;
   color: rgba(42, 38, 34, 0.6);
   line-height: 1.3;
   min-width: 0;   /* allow this side to shrink/wrap instead of clipping per-day */
@@ -891,6 +891,15 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+/* Perk rows — bold plum text to match the price, smaller for a refined read.
+   Scoped to delivery perks so the hidden subscribe-mode perks are untouched.
+   Compound specificity (0,0,2,0) also beats the base mobile perk override. */
+.bloomli-vt__delivery-perks .bloomli-vt__mode-perk {
+  font-size: 12px;
+  font-weight: 700;
+  color: #6E1E3F;
 }
 
 /* Tag badge for delivery cards — flush corner ribbon, not clipped by the

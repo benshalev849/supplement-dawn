@@ -136,6 +136,7 @@
             assign badge = block.settings.tier_1_badge
             assign tag = block.settings.tier_1_tag
             assign sub_discount_pct = subscription_discount_pct
+            assign configured_discount_pct = block.settings.tier_1_discount_pct
             assign plan_filter = block.settings.tier_1_plan_filter
             assign is_default = block.settings.tier_1_default
           when 2
@@ -152,6 +153,7 @@
             assign badge = block.settings.tier_2_badge
             assign tag = block.settings.tier_2_tag
             assign sub_discount_pct = subscription_discount_pct
+            assign configured_discount_pct = block.settings.tier_2_discount_pct
             assign plan_filter = block.settings.tier_2_plan_filter
             assign is_default = block.settings.tier_2_default
           when 3
@@ -168,6 +170,7 @@
             assign badge = block.settings.tier_3_badge
             assign tag = block.settings.tier_3_tag
             assign sub_discount_pct = subscription_discount_pct
+            assign configured_discount_pct = block.settings.tier_3_discount_pct
             assign plan_filter = block.settings.tier_3_plan_filter
             assign is_default = block.settings.tier_3_default
         endcase
@@ -186,6 +189,9 @@
           assign discount_pct = volume_discount_2_pct
         else
           assign discount_pct = volume_discount_1_pct
+        endif
+        if configured_discount_pct != blank
+          assign discount_pct = configured_discount_pct | plus: 0
         endif
 
         if bundle_product == blank and bundle_product_handle != blank
@@ -305,6 +311,13 @@
           endif
           if tier_plan_compare > line_compare
             assign line_compare = tier_plan_compare
+          endif
+          assign bundle_discount_divisor = 100.0 | minus: discount_pct
+          if discount_pct > 0 and bundle_discount_divisor > 0
+            assign bundle_static_compare = tier_price | times: 100.0 | divided_by: bundle_discount_divisor | round
+            if bundle_static_compare > line_compare
+              assign line_compare = bundle_static_compare
+            endif
           endif
           assign one_time_total_cents = tier_price
         else

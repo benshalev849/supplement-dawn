@@ -24,6 +24,11 @@
   }
 </style>
 
+{%- liquid
+  assign bloomli_cart_quantity_offers_enabled = false
+  assign bloomli_cart_frequency_selector_enabled = false
+-%}
+
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
   <div
     id="CartDrawer"
@@ -240,9 +245,21 @@
                         elsif is_bloomli_add_on and cart_bundle_active
                           assign show_bloomli_pack_promo_cell = true
                         endif
+                        assign show_bloomli_quantity_offers = false
+                        if bloomli_cart_quantity_offers_enabled
+                          if is_bloomli_supplement or is_bloomli_add_on
+                            assign show_bloomli_quantity_offers = true
+                          endif
+                        endif
                         assign cart_line_has_subscription = false
                         if item.selling_plan_allocation != null
                           assign cart_line_has_subscription = true
+                        endif
+                        assign show_bloomli_frequency_selector = false
+                        if bloomli_cart_frequency_selector_enabled
+                          if cart_line_has_subscription
+                            assign show_bloomli_frequency_selector = true
+                          endif
                         endif
                         assign cart_line_has_bundle = false
                         if is_bloomli_add_on and cart_bundle_active
@@ -743,11 +760,11 @@
                         </td>
 
                         <td
-                          class="bloomli-cart-offers-cell{% unless is_bloomli_supplement or is_bloomli_add_on %} hidden{% endunless %}"
+                          class="bloomli-cart-offers-cell{% unless show_bloomli_quantity_offers %} hidden{% endunless %}"
                           role="cell"
                           headers="CartDrawer-ColumnQuantity"
                         >
-                          {%- if is_bloomli_supplement or is_bloomli_add_on -%}
+                          {%- if show_bloomli_quantity_offers -%}
                           {%- liquid
                             assign offer_label_template = settings.cart_drawer_quantity_offer_label_template | default: 'BUY [qty] SAVE [percent]%'
                             assign cart_offer_sub_factor = 100.0
@@ -854,7 +871,7 @@
                           {%- endif -%}
                         </td>
 
-                          {%- if item.selling_plan_allocation != null -%}
+                          {%- if show_bloomli_frequency_selector -%}
                             <td
                               class="bloomli-cart-frequency-cell"
                               role="cell"

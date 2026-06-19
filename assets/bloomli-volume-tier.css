@@ -936,11 +936,9 @@
 /* ─── One-time purchase direct-add button ──────────────────────────────── */
 
 .bloomli-vt__onetime-direct {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3px;
+  /* Inline flow (not flex) so the underline runs continuously across the whole
+     line — flex gaps aren't text, so they break the underline. */
+  display: block;
   width: 100%;
   margin: 16px 0 0;
   padding: 6px 0;

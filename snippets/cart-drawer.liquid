@@ -262,8 +262,10 @@
                           endif
                         endif
                         assign cart_line_has_bundle = false
-                        if is_bloomli_add_on and cart_bundle_active
-                          assign cart_line_has_bundle = true
+                        if cart_bundle_active
+                          if is_bloomli_add_on or is_bloomli_supplement
+                            assign cart_line_has_bundle = true
+                          endif
                         endif
 
                         assign cart_mf_sub_pct = item.product.metafields.bloomli.subscription_discount_pct
@@ -723,6 +725,20 @@
                           headers="CartDrawer-ColumnQuantity"
                         >
                           {%- if is_bloomli_supplement -%}
+                            {%- comment -%}
+                              When the pair is active, the supplement also earns Pair & Save,
+                              so show the same tag here as on the add-on line.
+                            {%- endcomment -%}
+                            {%- if cart_bundle_active -%}
+                              <div class="bloomli-cart-pack-promo">
+                                <span class="bloomli-cart-pack-promo__icon" aria-hidden="true">
+                                  {{- 'icon-discount.svg' | inline_asset_content -}}
+                                </span>
+                                <span class="bloomli-cart-pack-promo__copy">
+                                  <span class="bloomli-cart-pack-promo__label">{{ settings.bloomli_bundle_discount_title | default: 'Pair & Save' | escape }}</span>
+                                </span>
+                              </div>
+                            {%- endif -%}
                             {%- liquid
                               assign pack_promo_enabled = settings.cart_drawer_pack_promo_enabled
                               if pack_promo_enabled == nil

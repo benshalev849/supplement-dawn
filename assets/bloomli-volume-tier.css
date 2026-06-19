@@ -813,8 +813,8 @@
      the sans-serif had, so no -webkit-text-stroke hack is needed. */
   font-family: 'Fraunces', var(--font-commerce-ui, var(--font-body-family));
   font-variation-settings: "SOFT" 100, "opsz" 40;
-  font-size: 23px;
-  font-weight: 500;
+  font-size: 27px;
+  font-weight: 600;
   line-height: 1;
   color: var(--bloomli-vt-plum, #6E1E3F);
   letter-spacing: -0.01em;
@@ -1037,7 +1037,7 @@
   }
 
   .bloomli-vt__delivery-monthly-price {
-    font-size: 22px;
+    font-size: 25px;
   }
 
   .bloomli-vt__delivery-perks {

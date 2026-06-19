@@ -261,11 +261,11 @@
                             assign show_bloomli_frequency_selector = true
                           endif
                         endif
+                        # Pair & Save is order-wide: once both the supplement and the
+                        # add-on are in the cart, the 15% applies to every line.
                         assign cart_line_has_bundle = false
                         if cart_bundle_active
-                          if is_bloomli_add_on or is_bloomli_supplement
-                            assign cart_line_has_bundle = true
-                          endif
+                          assign cart_line_has_bundle = true
                         endif
 
                         assign cart_mf_sub_pct = item.product.metafields.bloomli.subscription_discount_pct

@@ -543,8 +543,8 @@
 
 /* Unselected: transparent circle with a noticeable 1px berry ring */
 .bloomli-vt__radio-visual {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 1px solid var(--bloomli-vt-berry, #B23A6F);
   background: transparent;
@@ -567,8 +567,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #fff;
 }
@@ -743,12 +743,21 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
-  padding: 12px 12px 4px;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 12px 8px;
 }
 
 .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-row {
-  padding: 11px 11px 3px;   /* compensate for 2px border vs 1.5px */
+  padding: 11px 11px 7px;   /* compensate for 2px border vs 1.5px */
+}
+
+/* Tagged cards reserve right space so the heading + save badge never slide
+   under the compact corner ribbon (IM8 layout). Placed after the selected
+   rule so the padding-right wins in both states. */
+.bloomli-vt__size--tagged .bloomli-vt__delivery-row,
+.bloomli-vt__size--tagged.is-selected .bloomli-vt__delivery-row {
+  padding-right: 84px;
 }
 
 .bloomli-vt__delivery-label {
@@ -760,13 +769,11 @@
 }
 
 /* Inline save badge — gradient fill + aggressive pill radius (only here).
-   Sits at the right edge of the price row, vertically centered. */
+   Sits right next to the supply label. */
 .bloomli-vt__size-badge--inline {
   position: static;
   top: unset;
   left: unset;
-  margin-left: auto;
-  align-self: center;
   font-size: 10px;
   padding: 4px 10px;
   border-radius: 100px;
@@ -778,12 +785,12 @@
 .bloomli-vt__delivery-pricing {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 0 12px 12px;
+  gap: 8px;            /* price → total spacing, matches checkmark spacing */
+  padding: 0 12px 10px; /* bottom 10px = total → separator, matches divider gap */
 }
 
 .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-pricing {
-  padding: 0 11px 12px;
+  padding: 0 11px 10px;
 }
 
 .bloomli-vt__delivery-monthly {
@@ -795,10 +802,10 @@
 
 .bloomli-vt__delivery-monthly-price {
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   /* Nudge between semibold(600) and bold(700) — font-agnostic, no variable axis needed */
-  -webkit-text-stroke: 0.4px currentColor;
+  -webkit-text-stroke: 0.35px currentColor;
   line-height: 1.05;
   color: var(--bloomli-vt-plum, #6E1E3F);
   letter-spacing: -0.005em;
@@ -824,7 +831,6 @@
   justify-content: space-between;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: 7px;
 }
 
 .bloomli-vt__delivery-total {
@@ -886,7 +892,9 @@
   right: 0;
   bottom: unset;
   left: unset;
-  padding: 5px 12px;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
   border-radius: 0 var(--bloomli-vt-card-radius) 0 10px;
   background: var(--bloomli-vt-value-grad);
   box-shadow: 0 3px 8px rgba(86, 22, 49, 0.28);
@@ -973,19 +981,24 @@
     padding: 0;
   }
 
-  /* Corner ribbon: keep it legible on mobile (base mobile shrinks tags to 8px) */
+  /* Corner ribbon: compact, legible (base mobile would shrink tags to 8px) */
   .bloomli-vt__size-tag.bloomli-vt__size-tag--delivery {
-    font-size: 10px;
-    padding: 5px 11px;
+    font-size: 9px;
+    padding: 4px 10px;
   }
 
   .bloomli-vt__delivery-row {
-    padding: 11px 12px 4px;
-    gap: 10px;
+    padding: 11px 12px 8px;
+    gap: 8px;
   }
 
   .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-row {
-    padding: 10px 11px 3px;
+    padding: 10px 11px 7px;
+  }
+
+  .bloomli-vt__size--tagged .bloomli-vt__delivery-row,
+  .bloomli-vt__size--tagged.is-selected .bloomli-vt__delivery-row {
+    padding-right: 80px;
   }
 
   .bloomli-vt__delivery-label {
@@ -993,20 +1006,20 @@
   }
 
   .bloomli-vt__delivery-pricing {
-    padding: 0 12px 11px;
+    padding: 0 12px 10px;
   }
 
   .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-pricing {
-    padding: 0 11px 11px;
+    padding: 0 11px 10px;
   }
 
   .bloomli-vt__delivery-monthly-price {
-    font-size: 23px;
+    font-size: 20px;
   }
 
   .bloomli-vt__delivery-perks {
     margin: 0 12px;
-    padding: 11px 0 12px;
+    padding: 10px 0 12px;
   }
 }
 

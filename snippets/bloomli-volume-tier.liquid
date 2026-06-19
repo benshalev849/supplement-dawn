@@ -375,7 +375,7 @@
       -%}
 
       {%- if show -%}
-        <label class="bloomli-vt__size bloomli-vt__size--delivery{% if forloop.index0 == default_idx %} is-selected{% endif %}"
+        <label class="bloomli-vt__size bloomli-vt__size--delivery{% if forloop.index0 == default_idx %} is-selected{% endif %}{% if tag != blank %} bloomli-vt__size--tagged{% endif %}"
                data-vt-size
                data-tier-index="{{ forloop.index0 }}"
                data-quantity="{{ qty }}"
@@ -403,6 +403,19 @@
           <div class="bloomli-vt__delivery-row">
             <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
             <span class="bloomli-vt__delivery-label">{{ display_label }}</span>
+            {%- if discount_pct > 0 or badge != blank -%}
+              <span
+                class="bloomli-vt__size-badge bloomli-vt__size-badge--inline"
+                data-vt-discount-badge
+                data-manual-badge="{{ badge | escape }}"
+              >
+                {%- if discount_pct > 0 -%}
+                  {{ dynamic_badge }}
+                {%- else -%}
+                  {{ badge }}
+                {%- endif -%}
+              </span>
+            {%- endif -%}
           </div>
 
           <div class="bloomli-vt__delivery-pricing">
@@ -411,19 +424,6 @@
               <span class="bloomli-vt__delivery-monthly-suffix">/mo</span>
               {%- if monthly_compare_cents > monthly_cents -%}
                 <span class="bloomli-vt__delivery-monthly-compare">{{ monthly_compare_cents | money }}</span>
-              {%- endif -%}
-              {%- if discount_pct > 0 or badge != blank -%}
-                <span
-                  class="bloomli-vt__size-badge bloomli-vt__size-badge--inline"
-                  data-vt-discount-badge
-                  data-manual-badge="{{ badge | escape }}"
-                >
-                  {%- if discount_pct > 0 -%}
-                    {{ dynamic_badge }}
-                  {%- else -%}
-                    {{ badge }}
-                  {%- endif -%}
-                </span>
               {%- endif -%}
             </div>
 

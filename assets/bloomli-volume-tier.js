@@ -66,6 +66,8 @@
     const atcHome = root.querySelector('[data-vt-atc-home]');
     const mobileAtcSlots = root.querySelectorAll('[data-vt-mobile-atc-slot]');
     const mobileMedia = window.matchMedia ? window.matchMedia('(max-width: 749px)') : null;
+    const onetimeDirectBtn = root.querySelector('[data-vt-onetime-direct]');
+    const onetimeDailyEl = root.querySelector('[data-vt-onetime-daily]');
 
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const discountBadgeTemplate = root.dataset.discountBadgeTemplate || 'SAVE [percent]%';
@@ -166,6 +168,13 @@
       const lineCompareCents = parseCents(size.dataset.lineCompareCents) || oneTimeCents;
       if (oneTimePriceEl) oneTimePriceEl.textContent = formatMoney(oneTimeCents, moneyFormat);
       if (subscribePriceEl) subscribePriceEl.textContent = formatMoney(subscribeCents, moneyFormat);
+
+      if (onetimeDailyEl) {
+        const dailyCents = qty > 0 ? Math.round(oneTimeCents / qty / 30) : 0;
+        onetimeDailyEl.textContent = dailyCents > 0
+          ? '(' + formatMoney(dailyCents, moneyFormat) + ' / Day)'
+          : '';
+      }
 
       const sizeDaily = size.querySelector('[data-vt-daily]');
       const sizeLabel = size.dataset.sizeLabel || '';
@@ -378,6 +387,35 @@
         updateState();
       });
     });
+
+    if (onetimeDirectBtn) {
+      onetimeDirectBtn.addEventListener('click', function () {
+        const size = getSelectedSize();
+        if (!size) return;
+
+        const variantId = size.dataset.variantId || '';
+        const cartQuantity = parseInt(size.dataset.cartQuantity, 10) || 1;
+        const isAvailable = size.dataset.available === 'true';
+
+        if (!variantId || !isAvailable) return;
+
+        if (variantInput) {
+          variantInput.value = variantId;
+          variantInput.disabled = false;
+          variantInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        if (qtyInput) qtyInput.value = String(cartQuantity);
+        if (spInput) {
+          spInput.value = '';
+          spInput.disabled = true;
+        }
+
+        const form = productFormId ? document.getElementById(productFormId) : null;
+        if (form) {
+          form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+        }
+      });
+    }
 
     if (mobileMedia) {
       if (mobileMedia.addEventListener) {

@@ -697,19 +697,34 @@
   margin: 0 0 4px;
 }
 
-/* Override the old grid-based card layout for delivery cards */
+/* Override grid-based layout — card is now a column container */
 .bloomli-vt__size--delivery {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  grid-template-columns: unset;
+  min-height: unset;
+  padding: 0;           /* padding lives on .bloomli-vt__delivery-row */
+  overflow: hidden;
+}
+
+/* Override base .is-selected padding — row handles it */
+.bloomli-vt__size--delivery.is-selected {
+  padding: 0;
+}
+
+/* Top row inside delivery card */
+.bloomli-vt__delivery-row {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 12px;
-  grid-template-columns: unset;
-  min-height: unset;
   padding: 14px 16px;
 }
 
-.bloomli-vt__size--delivery.is-selected {
-  padding: 13px 15px;
+.bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-row {
+  padding: 13px 15px;   /* compensate for 2px border vs 1.5px */
 }
 
 .bloomli-vt__delivery-body {
@@ -773,6 +788,32 @@
   white-space: nowrap;
 }
 
+/* Perks accordion — collapses/expands via grid-template-rows */
+.bloomli-vt__delivery-accordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-accordion {
+  grid-template-rows: 1fr;
+}
+
+.bloomli-vt__delivery-accordion-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Perks list — indented to align with delivery label */
+.bloomli-vt__delivery-perks {
+  list-style: none;
+  margin: 0;
+  padding: 4px 16px 14px 46px; /* 46 = row-padding-left(16) + radio(18) + gap(12) */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 /* Tag badge for delivery cards (e.g. "BEST VALUE") */
 .bloomli-vt__size-tag--delivery {
   position: absolute;
@@ -787,72 +828,83 @@
   display: none !important;
 }
 
-/* ─── One-time purchase text link ──────────────────────────────────────── */
+/* ─── One-time purchase direct-add button ──────────────────────────────── */
 
-.bloomli-vt__onetime-link-row {
+.bloomli-vt__onetime-direct {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  margin: 8px 0 0;
-  cursor: pointer;
+  flex-wrap: wrap;
+  gap: 3px;
+  width: 100%;
+  margin: 10px 0 0;
+  padding: 6px 0;
   background: none;
   border: none;
-  padding: 4px 0;
-}
-
-.bloomli-vt__onetime-link-text,
-.bloomli-vt__onetime-link-price {
+  cursor: pointer;
   font-family: var(--font-commerce-ui, var(--font-body-family));
   font-size: 13px;
   color: rgba(42, 38, 34, 0.6);
-  line-height: 1;
+  text-align: center;
+  line-height: 1.4;
+  transition: color 0.15s ease;
 }
 
-.bloomli-vt__onetime-link-text {
+.bloomli-vt__onetime-direct:hover {
+  color: var(--charcoal, #2A2622);
+}
+
+.bloomli-vt__onetime-direct-label {
   text-decoration: underline;
   text-underline-offset: 2px;
-  text-decoration-color: rgba(42, 38, 34, 0.35);
+  text-decoration-color: rgba(42, 38, 34, 0.3);
+  transition: text-decoration-color 0.15s ease;
 }
 
-.bloomli-vt__onetime-link-row:hover .bloomli-vt__onetime-link-text,
-.bloomli-vt__onetime-link-row:hover .bloomli-vt__onetime-link-price {
-  color: var(--charcoal, #2A2622);
+.bloomli-vt__onetime-direct:hover .bloomli-vt__onetime-direct-label {
+  text-decoration-color: rgba(42, 38, 34, 0.6);
 }
 
-.bloomli-vt__onetime-link-row.is-selected .bloomli-vt__onetime-link-text,
-.bloomli-vt__onetime-link-row.is-selected .bloomli-vt__onetime-link-price {
-  color: var(--charcoal, #2A2622);
-  font-weight: 600;
+.bloomli-vt__onetime-direct-sep,
+.bloomli-vt__onetime-direct-price,
+.bloomli-vt__onetime-direct-daily {
+  white-space: nowrap;
 }
 
-.bloomli-vt__onetime-link-row.is-selected .bloomli-vt__onetime-link-text {
-  text-decoration: none;
-}
-
+/* Desktop: reset any media-query overrides from base .bloomli-vt__size */
 @media (min-width: 750px) {
   .bloomli-vt__size--delivery {
     grid-template-columns: unset;
     min-height: auto;
-    padding: 14px 16px;
+    padding: 0;
   }
 
   .bloomli-vt__size--delivery.is-selected {
-    padding: 13px 15px;
+    padding: 0;
   }
 }
 
+/* Mobile: reset base overrides; delivery-row handles its own padding */
 @media (max-width: 749px) {
   .bloomli-vt__size--delivery {
     grid-template-columns: 1fr;
     grid-template-rows: unset;
     min-height: auto;
-    align-items: center;
+    align-items: stretch;
+    padding: 0;
+    gap: 0;
+  }
+
+  .bloomli-vt__size--delivery.is-selected {
+    padding: 0;
+  }
+
+  .bloomli-vt__delivery-row {
     padding: 12px 14px;
     gap: 10px;
   }
 
-  .bloomli-vt__size--delivery.is-selected {
+  .bloomli-vt__size--delivery.is-selected .bloomli-vt__delivery-row {
     padding: 11px 13px;
   }
 
@@ -862,6 +914,10 @@
 
   .bloomli-vt__delivery-price {
     font-size: 15px;
+  }
+
+  .bloomli-vt__delivery-perks {
+    padding: 4px 14px 12px 44px; /* 44 = row-padding-left(14) + radio(18) + gap(10) + 2px */
   }
 }
 

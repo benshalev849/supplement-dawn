@@ -392,36 +392,82 @@
                  class="bloomli-vt__radio-native"
                  {% if forloop.index0 == default_idx %}checked{% endif %}>
 
-          <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+          <div class="bloomli-vt__delivery-row">
+            <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
 
-          <div class="bloomli-vt__delivery-body">
-            <span class="bloomli-vt__delivery-label">{{ display_label }}</span>
-            {%- if count_text != blank -%}
-              <span class="bloomli-vt__delivery-subtitle">{{ count_text }}</span>
-            {%- endif -%}
-          </div>
-
-          <div class="bloomli-vt__delivery-right">
-            {%- if discount_pct > 0 or badge != blank -%}
-              <span
-                class="bloomli-vt__size-badge bloomli-vt__size-badge--inline"
-                data-vt-discount-badge
-                data-manual-badge="{{ badge | escape }}"
-              >
-                {%- if discount_pct > 0 -%}
-                  {{ dynamic_badge }}
-                {%- else -%}
-                  {{ badge }}
-                {%- endif -%}
-              </span>
-            {%- endif -%}
-            <div class="bloomli-vt__delivery-prices">
-              <span class="bloomli-vt__delivery-price">{{ subscribe_total_cents | money }}</span>
-              {%- if line_compare > subscribe_total_cents -%}
-                <span class="bloomli-vt__delivery-compare">{{ line_compare | money }}</span>
+            <div class="bloomli-vt__delivery-body">
+              <span class="bloomli-vt__delivery-label">{{ display_label }}</span>
+              {%- if count_text != blank -%}
+                <span class="bloomli-vt__delivery-subtitle">{{ count_text }}</span>
               {%- endif -%}
             </div>
+
+            <div class="bloomli-vt__delivery-right">
+              {%- if discount_pct > 0 or badge != blank -%}
+                <span
+                  class="bloomli-vt__size-badge bloomli-vt__size-badge--inline"
+                  data-vt-discount-badge
+                  data-manual-badge="{{ badge | escape }}"
+                >
+                  {%- if discount_pct > 0 -%}
+                    {{ dynamic_badge }}
+                  {%- else -%}
+                    {{ badge }}
+                  {%- endif -%}
+                </span>
+              {%- endif -%}
+              <div class="bloomli-vt__delivery-prices">
+                <span class="bloomli-vt__delivery-price">{{ subscribe_total_cents | money }}</span>
+                {%- if line_compare > subscribe_total_cents -%}
+                  <span class="bloomli-vt__delivery-compare">{{ line_compare | money }}</span>
+                {%- endif -%}
+              </div>
+            </div>
           </div>
+
+          {%- if block.settings.subscribe_show_perks != false -%}
+            {%- liquid
+              assign perk_1 = block.settings.subscribe_perk_1 | default: '30-day money-back guarantee'
+              assign perk_2 = block.settings.subscribe_perk_2 | default: 'Free shipping on every delivery'
+              assign perk_3 = block.settings.subscribe_perk_3 | default: 'Pause or cancel anytime, no fees'
+            -%}
+            <div class="bloomli-vt__delivery-accordion">
+              <div class="bloomli-vt__delivery-accordion-inner">
+                <ul class="bloomli-vt__delivery-perks">
+                  {%- if perk_1 != blank -%}
+                    <li class="bloomli-vt__mode-perk">
+                      <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
+                        <svg viewBox="0 0 20 20" focusable="false">
+                          <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      <span>{{ perk_1 }}</span>
+                    </li>
+                  {%- endif -%}
+                  {%- if perk_2 != blank -%}
+                    <li class="bloomli-vt__mode-perk">
+                      <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
+                        <svg viewBox="0 0 20 20" focusable="false">
+                          <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      <span>{{ perk_2 }}</span>
+                    </li>
+                  {%- endif -%}
+                  {%- if perk_3 != blank -%}
+                    <li class="bloomli-vt__mode-perk">
+                      <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
+                        <svg viewBox="0 0 20 20" focusable="false">
+                          <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      <span>{{ perk_3 }}</span>
+                    </li>
+                  {%- endif -%}
+                </ul>
+              </div>
+            </div>
+          {%- endif -%}
 
           {%- if tag != blank -%}
             <span class="bloomli-vt__size-tag bloomli-vt__size-tag--delivery">{{ tag }}</span>
@@ -454,21 +500,6 @@
       <span data-vt-mode-sub-info></span>
     </span>
 
-    {%- comment -%}One-time purchase minimal text link{%- endcomment -%}
-    <div class="bloomli-vt__onetime-link-row{% if default_mode == 'onetime' %} is-selected{% endif %}"
-         data-vt-mode
-         data-mode="onetime">
-      <input type="radio"
-             name="bloomli-vt-mode-{{ uid }}"
-             value="onetime"
-             class="bloomli-vt__radio-native"
-             {% if default_mode == 'onetime' %}checked{% endif %}>
-      <span class="bloomli-vt__onetime-link-text">{{ block.settings.label_one_time | default: 'One-Time Purchase' }}</span>
-      <span class="bloomli-vt__onetime-link-price" data-vt-onetime-price></span>
-      <span data-vt-mode-onetime-compare aria-hidden="true" style="display:none"></span>
-      <span data-vt-mode-onetime-savings aria-hidden="true" style="display:none"></span>
-      <span data-vt-mode-onetime-info aria-hidden="true" style="display:none"></span>
-    </div>
   {%- endif -%}
 
   <div class="bloomli-vt__footer">
@@ -547,4 +578,17 @@
       </button>
     {%- endform -%}
   </product-form>
+
+  {%- if subscribe_enabled -%}
+    <button
+      type="button"
+      class="bloomli-vt__onetime-direct"
+      data-vt-onetime-direct
+    >
+      <span class="bloomli-vt__onetime-direct-label">{{ block.settings.label_one_time | default: 'One-Time Purchase' }}</span>
+      <span class="bloomli-vt__onetime-direct-sep"> — </span>
+      <span class="bloomli-vt__onetime-direct-price" data-vt-onetime-price></span>
+      <span class="bloomli-vt__onetime-direct-daily" data-vt-onetime-daily></span>
+    </button>
+  {%- endif -%}
 </div>

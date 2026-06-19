@@ -118,8 +118,8 @@
     <p class="bloomli-vt__section-label bloomli-vt__section-label--size">{{ block.settings.heading }}</p>
   {%- endif -%}
 
-  <div class="bloomli-vt__sizes" role="radiogroup" aria-label="{{ block.settings.heading | default: 'Pack size' | escape }}">
-    {%- for i in (1..3) reversed -%}
+  <div class="bloomli-vt__delivery-tiers" role="radiogroup" aria-label="{{ block.settings.heading | default: 'Delivery plan' | escape }}">
+    {%- for i in (1..3) -%}
       {%- liquid
         case i
           when 1
@@ -367,7 +367,7 @@
       -%}
 
       {%- if show -%}
-        <label class="bloomli-vt__size{% if forloop.index0 == default_idx %} is-selected{% endif %}"
+        <label class="bloomli-vt__size bloomli-vt__size--delivery{% if forloop.index0 == default_idx %} is-selected{% endif %}"
                data-vt-size
                data-tier-index="{{ forloop.index0 }}"
                data-quantity="{{ qty }}"
@@ -383,21 +383,8 @@
                data-line-compare-cents="{{ line_compare }}"
                data-size-label="{{ display_label | escape }}"
                data-size-count="{{ count_text | escape }}"
-               data-product-title="{{ tier_product.title | escape }}">
-
-          {%- if discount_pct > 0 or badge != blank -%}
-            <span
-              class="bloomli-vt__size-badge"
-              data-vt-discount-badge
-              data-manual-badge="{{ badge | escape }}"
-            >
-              {%- if discount_pct > 0 -%}
-                {{ dynamic_badge }}
-              {%- else -%}
-                {{ badge }}
-              {%- endif -%}
-            </span>
-          {%- endif -%}
+               data-product-title="{{ tier_product.title | escape }}"
+               data-vt-default-mode="subscribe">
 
           <input type="radio"
                  name="bloomli-vt-size-{{ uid }}"
@@ -405,166 +392,82 @@
                  class="bloomli-vt__radio-native"
                  {% if forloop.index0 == default_idx %}checked{% endif %}>
 
-          <div class="bloomli-vt__size-media">
-            {%- render 'bloomli-product-image-stack',
-              image: image,
-              product: product,
-              count: qty,
-              alt: display_label,
-              class: 'bloomli-vt__size-stack',
-              width: 460
-            -%}
+          <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
+
+          <div class="bloomli-vt__delivery-body">
+            <span class="bloomli-vt__delivery-label">{{ display_label }}</span>
+            {%- if count_text != blank -%}
+              <span class="bloomli-vt__delivery-subtitle">{{ count_text }}</span>
+            {%- endif -%}
           </div>
 
-          <div class="bloomli-vt__size-body">
-            <div class="bloomli-vt__size-label">{{ display_label }}</div>
-            {%- if count_text != blank -%}
-              <div class="bloomli-vt__size-count">{{ count_text }}</div>
-            {%- endif -%}
-            {%- if daily_text != blank -%}
-              <div
-                class="bloomli-vt__size-daily"
-                data-vt-daily
-                data-onetime-daily="{{ daily_text | escape }}"
-                data-subscribe-daily="{{ subscribe_daily_text | escape }}"
+          <div class="bloomli-vt__delivery-right">
+            {%- if discount_pct > 0 or badge != blank -%}
+              <span
+                class="bloomli-vt__size-badge bloomli-vt__size-badge--inline"
+                data-vt-discount-badge
+                data-manual-badge="{{ badge | escape }}"
               >
-                {{ daily_text }}
-              </div>
+                {%- if discount_pct > 0 -%}
+                  {{ dynamic_badge }}
+                {%- else -%}
+                  {{ badge }}
+                {%- endif -%}
+              </span>
             {%- endif -%}
+            <div class="bloomli-vt__delivery-prices">
+              <span class="bloomli-vt__delivery-price">{{ subscribe_total_cents | money }}</span>
+              {%- if line_compare > subscribe_total_cents -%}
+                <span class="bloomli-vt__delivery-compare">{{ line_compare | money }}</span>
+              {%- endif -%}
+            </div>
           </div>
 
           {%- if tag != blank -%}
-            <span class="bloomli-vt__size-tag">{{ tag }}</span>
+            <span class="bloomli-vt__size-tag bloomli-vt__size-tag--delivery">{{ tag }}</span>
           {%- endif -%}
 
         </label>
       {%- endif -%}
     {%- endfor -%}
-  </div>
+  </div><!-- /.bloomli-vt__delivery-tiers -->
 
   {%- if subscribe_enabled -%}
     {%- liquid
       assign subscribe_popular_bar = block.settings.subscribe_popular_pill | default: 'Subscribe & Save'
-      assign subscribe_perk_1 = block.settings.subscribe_perk_1 | default: '30-day money-back guarantee'
-      assign subscribe_perk_2 = block.settings.subscribe_perk_2 | default: 'Free shipping on every delivery'
-      assign subscribe_perk_3 = block.settings.subscribe_perk_3 | default: 'Pause or cancel anytime, no fees'
     -%}
 
-    {%- if block.settings.offer_section_label != blank -%}
-      <p class="bloomli-vt__section-label">{{ block.settings.offer_section_label }}</p>
-    {%- endif -%}
+    {%- comment -%}Hidden subscribe mode — keeps JS in subscribe mode without visible UI{%- endcomment -%}
+    <span class="bloomli-vt__mode bloomli-vt__mode--subscribe bloomli-vt__mode--hidden{% if default_mode == 'subscribe' %} is-selected{% endif %}"
+          data-vt-mode
+          data-mode="subscribe"
+          aria-hidden="true">
+      <input type="radio"
+             name="bloomli-vt-mode-{{ uid }}"
+             value="subscribe"
+             class="bloomli-vt__radio-native"
+             {% if default_mode == 'subscribe' %}checked{% endif %}>
+      <span data-vt-mode-bar data-bar-template="{{ subscribe_popular_bar | escape }}"></span>
+      <span data-vt-subscribe-price></span>
+      <span data-vt-mode-subscribe-compare></span>
+      <span data-vt-mode-subscribe-savings></span>
+      <span data-vt-mode-sub-info></span>
+    </span>
 
-    <div class="bloomli-vt__modes" role="radiogroup" aria-label="Purchase mode">
-
-      <label class="bloomli-vt__mode bloomli-vt__mode--subscribe{% if default_mode == 'subscribe' %} is-selected{% endif %}"
-             data-vt-mode
-             data-mode="subscribe">
-        {%- if subscribe_popular_bar != blank -%}
-          <span class="bloomli-vt__mode-bar" aria-hidden="true" data-vt-mode-bar data-bar-template="{{ subscribe_popular_bar | escape }}">{{ subscribe_popular_bar }}</span>
-        {%- endif -%}
-        <div class="bloomli-vt__mode-inner">
-          <div class="bloomli-vt__mode-row">
-            <input type="radio"
-                   name="bloomli-vt-mode-{{ uid }}"
-                   value="subscribe"
-                   class="bloomli-vt__radio-native"
-                   {% if default_mode == 'subscribe' %}checked{% endif %}>
-            <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
-            <span class="bloomli-vt__mode-title">{{ block.settings.label_subscribe | default: 'Subscribe & Save' }}</span>
-            <div class="bloomli-vt__mode-prices">
-              <div class="bloomli-vt__mode-price-row">
-                <span class="bloomli-vt__mode-compare" data-vt-mode-subscribe-compare></span>
-                <span class="bloomli-vt__mode-price" data-vt-subscribe-price>{{ unit_price_money }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="bloomli-vt__mode-meta-row">
-            <span class="bloomli-vt__mode-info-line" data-vt-mode-sub-info></span>
-            <span class="bloomli-vt__mode-savings-text" data-vt-mode-subscribe-savings></span>
-          </div>
-          {%- if block.settings.subscribe_show_perks != false -%}
-            <ul class="bloomli-vt__mode-perks">
-              {%- if subscribe_perk_1 != blank -%}
-                <li class="bloomli-vt__mode-perk">
-                  <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
-                    <svg viewBox="0 0 20 20" focusable="false">
-                      <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                  <span>{{ subscribe_perk_1 }}</span>
-                </li>
-              {%- endif -%}
-              {%- if subscribe_perk_2 != blank -%}
-                <li class="bloomli-vt__mode-perk">
-                  <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
-                    <svg viewBox="0 0 20 20" focusable="false">
-                      <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                  <span>{{ subscribe_perk_2 }}</span>
-                </li>
-              {%- endif -%}
-              {%- if subscribe_perk_3 != blank -%}
-                <li class="bloomli-vt__mode-perk">
-                  <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
-                    <svg viewBox="0 0 20 20" focusable="false">
-                      <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                  <span>{{ subscribe_perk_3 }}</span>
-                </li>
-              {%- endif -%}
-            </ul>
-          {%- endif -%}
-          <div class="bloomli-vt__subscribe-accordion" aria-hidden="true">
-            <div class="bloomli-vt__subscribe-accordion-inner">
-              <div class="bloomli-vt__mobile-atc-slot" data-vt-mobile-atc-slot="subscribe"></div>
-            </div>
-          </div>
-        </div>
-      </label>
-
-      <label class="bloomli-vt__mode bloomli-vt__mode--onetime{% if default_mode == 'onetime' %} is-selected{% endif %}"
-             data-vt-mode
-             data-mode="onetime">
-        <div class="bloomli-vt__mode-inner">
-          <div class="bloomli-vt__mode-row">
-            <input type="radio"
-                   name="bloomli-vt-mode-{{ uid }}"
-                   value="onetime"
-                   class="bloomli-vt__radio-native"
-                   {% if default_mode == 'onetime' %}checked{% endif %}>
-            <span class="bloomli-vt__radio-visual" aria-hidden="true"></span>
-            <span class="bloomli-vt__mode-title">{{ block.settings.label_one_time | default: 'One-Time Purchase' }}</span>
-            <div class="bloomli-vt__mode-prices">
-              <div class="bloomli-vt__mode-price-row">
-                <span class="bloomli-vt__mode-compare" data-vt-mode-onetime-compare></span>
-                <span class="bloomli-vt__mode-price" data-vt-onetime-price>{{ unit_price_money }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="bloomli-vt__mode-meta-row">
-            <span class="bloomli-vt__mode-info-line" data-vt-mode-onetime-info></span>
-            <span class="bloomli-vt__mode-savings-text" data-vt-mode-onetime-savings></span>
-          </div>
-          <div class="bloomli-vt__onetime-accordion" aria-hidden="true">
-            <div class="bloomli-vt__onetime-accordion-inner">
-              <div class="bloomli-vt__onetime-caveats">
-                {%- assign caveat_1 = block.settings.onetime_caveat_1 | default: 'One Time Discount' -%}
-                {%- assign caveat_2 = block.settings.onetime_caveat_2 | default: 'Free shipping unlocks at 3 packs' -%}
-                {%- if caveat_1 != blank -%}
-                  <span class="bloomli-vt__onetime-caveat">{{ caveat_1 }}</span>
-                {%- endif -%}
-                {%- if caveat_2 != blank -%}
-                  <span class="bloomli-vt__onetime-caveat">{{ caveat_2 }}</span>
-                {%- endif -%}
-              </div>
-            </div>
-          </div>
-          <div class="bloomli-vt__mobile-atc-slot" data-vt-mobile-atc-slot="onetime"></div>
-        </div>
-      </label>
-
+    {%- comment -%}One-time purchase minimal text link{%- endcomment -%}
+    <div class="bloomli-vt__onetime-link-row{% if default_mode == 'onetime' %} is-selected{% endif %}"
+         data-vt-mode
+         data-mode="onetime">
+      <input type="radio"
+             name="bloomli-vt-mode-{{ uid }}"
+             value="onetime"
+             class="bloomli-vt__radio-native"
+             {% if default_mode == 'onetime' %}checked{% endif %}>
+      <span class="bloomli-vt__onetime-link-text">{{ block.settings.label_one_time | default: 'One-Time Purchase' }}</span>
+      <span class="bloomli-vt__onetime-link-price" data-vt-onetime-price></span>
+      <span data-vt-mode-onetime-compare aria-hidden="true" style="display:none"></span>
+      <span data-vt-mode-onetime-savings aria-hidden="true" style="display:none"></span>
+      <span data-vt-mode-onetime-info aria-hidden="true" style="display:none"></span>
     </div>
   {%- endif -%}
 

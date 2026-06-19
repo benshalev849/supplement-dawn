@@ -362,6 +362,9 @@
         const radio = size.querySelector('.bloomli-vt__radio-native');
         if (radio) radio.checked = true;
 
+        const defaultMode = size.dataset.vtDefaultMode;
+        if (defaultMode) setMode(defaultMode);
+
         updateState();
       });
     });

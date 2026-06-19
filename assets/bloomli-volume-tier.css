@@ -688,6 +688,183 @@
   display: none;
 }
 
+/* ─── Delivery-tier card layout ──────────────────────────────────────────── */
+
+.bloomli-vt__delivery-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 4px;
+}
+
+/* Override the old grid-based card layout for delivery cards */
+.bloomli-vt__size--delivery {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  grid-template-columns: unset;
+  min-height: unset;
+  padding: 14px 16px;
+}
+
+.bloomli-vt__size--delivery.is-selected {
+  padding: 13px 15px;
+}
+
+.bloomli-vt__delivery-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.bloomli-vt__delivery-label {
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--charcoal, #2A2622);
+  line-height: 1.2;
+}
+
+.bloomli-vt__delivery-subtitle {
+  font-size: 12px;
+  color: rgba(42, 38, 34, 0.65);
+  line-height: 1.35;
+}
+
+.bloomli-vt__delivery-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+/* Inline save badge — no absolute positioning */
+.bloomli-vt__size-badge--inline {
+  position: static;
+  top: unset;
+  left: unset;
+  font-size: 10px;
+  padding: 3px 8px;
+}
+
+.bloomli-vt__delivery-prices {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.bloomli-vt__delivery-price {
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--charcoal, #2A2622);
+  white-space: nowrap;
+}
+
+.bloomli-vt__delivery-compare {
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 12px;
+  color: rgba(42, 38, 34, 0.42);
+  text-decoration: line-through;
+  white-space: nowrap;
+}
+
+/* Tag badge for delivery cards (e.g. "BEST VALUE") */
+.bloomli-vt__size-tag--delivery {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  bottom: unset;
+  left: unset;
+}
+
+/* Hidden subscribe mode — keeps JS in subscribe mode, never shown */
+.bloomli-vt__mode--hidden {
+  display: none !important;
+}
+
+/* ─── One-time purchase text link ──────────────────────────────────────── */
+
+.bloomli-vt__onetime-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 8px 0 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px 0;
+}
+
+.bloomli-vt__onetime-link-text,
+.bloomli-vt__onetime-link-price {
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 13px;
+  color: rgba(42, 38, 34, 0.6);
+  line-height: 1;
+}
+
+.bloomli-vt__onetime-link-text {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(42, 38, 34, 0.35);
+}
+
+.bloomli-vt__onetime-link-row:hover .bloomli-vt__onetime-link-text,
+.bloomli-vt__onetime-link-row:hover .bloomli-vt__onetime-link-price {
+  color: var(--charcoal, #2A2622);
+}
+
+.bloomli-vt__onetime-link-row.is-selected .bloomli-vt__onetime-link-text,
+.bloomli-vt__onetime-link-row.is-selected .bloomli-vt__onetime-link-price {
+  color: var(--charcoal, #2A2622);
+  font-weight: 600;
+}
+
+.bloomli-vt__onetime-link-row.is-selected .bloomli-vt__onetime-link-text {
+  text-decoration: none;
+}
+
+@media (min-width: 750px) {
+  .bloomli-vt__size--delivery {
+    grid-template-columns: unset;
+    min-height: auto;
+    padding: 14px 16px;
+  }
+
+  .bloomli-vt__size--delivery.is-selected {
+    padding: 13px 15px;
+  }
+}
+
+@media (max-width: 749px) {
+  .bloomli-vt__size--delivery {
+    grid-template-columns: 1fr;
+    grid-template-rows: unset;
+    min-height: auto;
+    align-items: center;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .bloomli-vt__size--delivery.is-selected {
+    padding: 11px 13px;
+  }
+
+  .bloomli-vt__delivery-label {
+    font-size: 14px;
+  }
+
+  .bloomli-vt__delivery-price {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 749px) {
   .bloomli-vt__title {
     font-size: 18px;

@@ -767,7 +767,7 @@
 
 .bloomli-vt__delivery-monthly-price {
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 800;
   line-height: 1.05;
   color: var(--charcoal, #2A2622);
@@ -775,16 +775,16 @@
 }
 
 .bloomli-vt__delivery-monthly-suffix {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: rgba(42, 38, 34, 0.5);
 }
 
 .bloomli-vt__delivery-monthly-compare {
-  font-size: 13px;
-  color: rgba(42, 38, 34, 0.4);
+  font-size: 14px;
+  color: rgba(42, 38, 34, 0.38);
   text-decoration: line-through;
-  margin-left: auto;   /* anchor the "was" price to the right edge */
+  text-decoration-thickness: 1px;
 }
 
 /* Total + frequency on the left, per-day emphasised on the right */
@@ -794,13 +794,14 @@
   justify-content: space-between;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: 3px;
+  margin-top: 9px;
 }
 
 .bloomli-vt__delivery-total {
   font-size: 12.5px;
   color: rgba(42, 38, 34, 0.6);
   line-height: 1.3;
+  min-width: 0;   /* allow this side to shrink/wrap instead of clipping per-day */
 }
 
 .bloomli-vt__delivery-total-amount {
@@ -810,12 +811,13 @@
 
 .bloomli-vt__delivery-perday {
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--aubergine, #B23A6F);
   white-space: nowrap;
+  flex-shrink: 0;   /* never compress — keeps "/ DAY" intact at the card edge */
 }
 
 /* Perks accordion — collapses/expands via grid-template-rows */
@@ -949,7 +951,7 @@
   }
 
   .bloomli-vt__delivery-monthly-price {
-    font-size: 27px;
+    font-size: 23px;
   }
 
   .bloomli-vt__delivery-perks {

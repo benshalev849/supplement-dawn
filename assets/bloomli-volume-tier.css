@@ -541,28 +541,36 @@
   mask-position: center;
 }
 
+/* Unselected: transparent circle with a noticeable 1px plum ring */
 .bloomli-vt__radio-visual {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 1.5px solid rgba(178, 58, 111, 0.35);
+  border: 1px solid var(--bloomli-vt-plum, #6E1E3F);
+  background: transparent;
   flex-shrink: 0;
   position: relative;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, background 0.15s ease;
 }
 
+/* Selected: solid plum button with a centered white dot inside */
 .bloomli-vt__mode.is-selected .bloomli-vt__radio-visual,
 .bloomli-vt__size--delivery.is-selected .bloomli-vt__radio-visual {
-  border-color: var(--aubergine, #B23A6F);
+  border-color: var(--bloomli-vt-plum, #6E1E3F);
+  background: var(--bloomli-vt-plum, #6E1E3F);
 }
 
 .bloomli-vt__mode.is-selected .bloomli-vt__radio-visual::after,
 .bloomli-vt__size--delivery.is-selected .bloomli-vt__radio-visual::after {
   content: "";
   position: absolute;
-  inset: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--aubergine, #B23A6F);
+  background: #fff;
 }
 
 .bloomli-vt__mode-title {
@@ -787,7 +795,7 @@
   font-size: 24px;
   font-weight: 700;
   line-height: 1.05;
-  color: var(--charcoal, #2A2622);
+  color: var(--bloomli-vt-plum, #6E1E3F);
   letter-spacing: -0.005em;
 }
 
@@ -943,9 +951,11 @@
   }
 }
 
-/* Mobile: reset base overrides; delivery-row handles its own padding */
+/* Mobile: reset base overrides; delivery-row handles its own padding.
+   Compound selectors (.size.size--delivery = 2 classes) are required so these
+   win over the later, equal-specificity .bloomli-vt__size mobile rules. */
 @media (max-width: 749px) {
-  .bloomli-vt__size--delivery {
+  .bloomli-vt__size.bloomli-vt__size--delivery {
     grid-template-columns: 1fr;
     grid-template-rows: unset;
     min-height: auto;
@@ -954,8 +964,14 @@
     gap: 0;
   }
 
-  .bloomli-vt__size--delivery.is-selected {
+  .bloomli-vt__size.bloomli-vt__size--delivery.is-selected {
     padding: 0;
+  }
+
+  /* Corner ribbon: keep it legible on mobile (base mobile shrinks tags to 8px) */
+  .bloomli-vt__size-tag.bloomli-vt__size-tag--delivery {
+    font-size: 10px;
+    padding: 5px 11px;
   }
 
   .bloomli-vt__delivery-row {

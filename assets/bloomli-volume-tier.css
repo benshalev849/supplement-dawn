@@ -12,7 +12,7 @@
   --bloomli-vt-save-badge-grad: linear-gradient(135deg, #B65A7E 0%, #9A4067 100%);
   --bloomli-vt-popular-grad: linear-gradient(135deg, #D0A455 0%, #A9762C 100%);
   --bloomli-vt-value-grad: linear-gradient(135deg, #7E2249 0%, #561631 100%);
-  --bloomli-vt-selected-grad: linear-gradient(165deg, #FCF7F0 0%, #F4EADC 100%);
+  --bloomli-vt-selected-grad: linear-gradient(165deg, #FCF6F4 0%, #F4E7E5 100%);
 
   color: var(--charcoal, #2A2622);
   font-family: var(--font-commerce-ui, var(--font-body-family));

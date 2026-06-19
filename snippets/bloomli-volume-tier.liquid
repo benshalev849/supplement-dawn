@@ -304,45 +304,33 @@
           assign tier_plan_id = fallback_plan_id
         endif
 
-        if tier_has_bundle_product
-          assign line_compare = tier_price
-          if tier_compare > tier_price
-            assign line_compare = tier_compare
-          endif
-          if tier_plan_compare > line_compare
-            assign line_compare = tier_plan_compare
-          endif
-          assign one_time_pct_factor = 100.0 | minus: discount_pct
-          if one_time_pct_factor > 0
-            assign one_time_total_cents = tier_price | times: one_time_pct_factor | divided_by: 100.0 | round
-          else
-            assign one_time_total_cents = tier_price
-          endif
-        else
-          assign line_compare = unit_price | times: qty
-          if unit_compare > unit_price
-            assign line_compare = unit_compare | times: qty
-          endif
-          assign one_time_pct_factor = 100.0 | minus: discount_pct
-          assign one_time_unit_cents = unit_price | times: one_time_pct_factor | divided_by: 100.0 | round
-          assign one_time_total_cents = one_time_unit_cents | times: qty
+        comment
+          ALL displayed prices are estimates derived from THIS product's own single
+          unit price (× the display month count) — never from the mapped bundle
+          product. So each product always shows its own regular price (the compare-at
+          is one month's price, identical across every tier) and a tier can never
+          inherit another product's pricing. The bundle product is used only for the
+          cart submission (variant id + selling plan), set earlier.
+
+          Discounts (per brand rules): the volume discount (discount_pct) applies to
+          the one-time price; the subscription discount (sub_discount_pct) compounds
+          with the volume discount for the subscribe price. Round the single-month
+          unit first, then multiply by the month count. Real discounts are applied by
+          the apps at checkout — these are display estimates only.
+        endcomment
+        assign line_compare = unit_price | times: qty
+        if unit_compare > unit_price
+          assign line_compare = unit_compare | times: qty
         endif
+
         assign one_time_pct_factor = 100.0 | minus: discount_pct
+        assign one_time_unit_cents = unit_price | times: one_time_pct_factor | divided_by: 100.0 | round
+        assign one_time_total_cents = one_time_unit_cents | times: qty
 
         assign subscription_pct_factor = 100.0 | minus: sub_discount_pct
         assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
-        if tier_plan_price > 0
-          if tier_has_bundle_product
-            assign subscribe_total_cents = tier_plan_price | times: one_time_pct_factor | divided_by: 100.0 | round
-          else
-            assign subscribe_total_cents = tier_plan_price
-          endif
-        elsif tier_has_bundle_product
-          assign subscribe_total_cents = tier_price | times: compounded_pct_factor | divided_by: 100.0 | round
-        else
-          assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round
-          assign subscribe_total_cents = subscribe_unit_cents | times: qty
-        endif
+        assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round
+        assign subscribe_total_cents = subscribe_unit_cents | times: qty
         assign rounded_discount_pct = discount_pct | floor
         assign dynamic_badge = discount_badge_template | replace: '[percent]', rounded_discount_pct | replace: '[qty]', qty
 

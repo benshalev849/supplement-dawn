@@ -1,0 +1,298 @@
+{% comment %}
+  Bloomli — GLP-1 Hair Support hero.
+  Promo ribbon + editorial hero with eyebrow, headline, supporting copy,
+  dual CTAs, a rating / trust pill and a hero image. Fully theme-editable.
+{% endcomment %}
+
+{%- liquid
+  assign accent = section.settings.accent_color
+  assign emphasis = section.settings.emphasis_color
+-%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} { margin: 0; }
+
+  .glp1-hero-wrap--{{ section.id }} {
+    background: linear-gradient(
+      180deg,
+      {{ section.settings.gradient_top }} 0%,
+      {{ section.settings.gradient_mid }} 55%,
+      {{ section.settings.gradient_bottom }} 100%
+    );
+  }
+
+  .glp1-promo--{{ section.id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    text-decoration: none;
+    background: {{ accent }};
+    color: {{ section.settings.promo_text_color }};
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 11px 18px;
+    text-align: center;
+  }
+  .glp1-promo--{{ section.id }} .glp1-promo__dot { opacity: 0.55; }
+
+  .glp1-hero--{{ section.id }} {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 8px 2.2rem 0;
+    text-align: center;
+  }
+  .glp1-hero__eyebrow--{{ section.id }} {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: {{ section.settings.eyebrow_color }};
+    margin: 0 0 18px;
+  }
+  .glp1-hero__title--{{ section.id }} {
+    font-family: var(--font-heading-family);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .glp1-hero__title--{{ section.id }} em {
+    font-style: italic;
+    color: {{ emphasis }};
+  }
+  .glp1-hero__text--{{ section.id }} {
+    line-height: 1.6;
+    max-width: 34rem;
+    margin: 0 auto 26px;
+    opacity: 0.85;
+  }
+  .glp1-hero__actions--{{ section.id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+  .glp1-hero__btn--{{ section.id }} {
+    text-decoration: none;
+    background: {{ accent }};
+    color: {{ section.settings.promo_text_color }};
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 16px 38px;
+    border-radius: var(--buttons-radius, 999px);
+    box-shadow: 0 6px 18px rgba(42, 38, 34, 0.08);
+    transition: transform 0.15s ease;
+  }
+  .glp1-hero__btn--{{ section.id }}:hover { transform: translateY(-1px); }
+  .glp1-hero__link--{{ section.id }} {
+    color: {{ emphasis }};
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid {{ emphasis }}4d;
+    padding-bottom: 2px;
+  }
+  .glp1-hero__pill--{{ section.id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: {{ section.settings.pill_background }};
+    border: 1px solid {{ section.settings.pill_border }};
+    border-radius: 999px;
+    padding: 9px 18px;
+    box-shadow: 0 2px 8px rgba(42, 38, 34, 0.06);
+  }
+  .glp1-hero__stars--{{ section.id }} { color: {{ accent }}; font-size: 1.4rem; letter-spacing: 1px; }
+  .glp1-hero__pill-meta--{{ section.id }} { font-size: 1.3rem; opacity: 0.75; }
+  .glp1-hero__pill-sep--{{ section.id }} { opacity: 0.4; }
+  .glp1-hero__badge--{{ section.id }} {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: {{ section.settings.badge_color }};
+  }
+  .glp1-hero__media--{{ section.id }} {
+    margin-top: 32px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .glp1-hero__media--{{ section.id }} img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+  .glp1-hero__placeholder--{{ section.id }} {
+    background: {{ section.settings.gradient_mid }};
+    border: 1px dashed {{ section.settings.pill_border }};
+    border-radius: 16px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 28px;
+  }
+  .glp1-hero__placeholder--{{ section.id }} span { opacity: 0.6; max-width: 24rem; line-height: 1.6; }
+
+  .glp1-hero__title--{{ section.id }} { font-size: {{ section.settings.heading_size_mobile }}px; }
+  @media screen and (min-width: 750px) {
+    .glp1-hero__title--{{ section.id }} { font-size: {{ section.settings.heading_size }}px; }
+    .glp1-hero__actions--{{ section.id }} { margin-bottom: 36px; }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} glp1-hero-wrap--{{ section.id }}">
+  {%- if section.settings.show_promo_bar -%}
+    <a href="{{ section.settings.promo_link }}" class="glp1-promo--{{ section.id }}">
+      {%- if section.settings.promo_text_1 != blank -%}<span>{{ section.settings.promo_text_1 }}</span>{%- endif -%}
+      {%- if section.settings.promo_text_1 != blank and section.settings.promo_text_2 != blank -%}
+        <span class="glp1-promo__dot">·</span>
+      {%- endif -%}
+      {%- if section.settings.promo_text_2 != blank -%}<span>{{ section.settings.promo_text_2 }}</span>{%- endif -%}
+    </a>
+  {%- endif -%}
+
+  <section
+    class="glp1-hero--{{ section.id }}"
+    style="padding-bottom: {{ section.settings.padding_bottom | times: 0.7 | round: 0 }}px;"
+  >
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="glp1-hero__eyebrow--{{ section.id }}">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h1 class="glp1-hero__title--{{ section.id }}">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+
+    {%- if section.settings.subtext != blank -%}
+      <div class="glp1-hero__text--{{ section.id }} rte">{{ section.settings.subtext }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.primary_cta_label != blank or section.settings.secondary_cta_label != blank -%}
+      <div class="glp1-hero__actions--{{ section.id }}">
+        {%- if section.settings.primary_cta_label != blank -%}
+          <a href="{{ section.settings.primary_cta_link }}" class="glp1-hero__btn--{{ section.id }}">
+            {{ section.settings.primary_cta_label }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.secondary_cta_label != blank -%}
+          <a href="{{ section.settings.secondary_cta_link }}" class="glp1-hero__link--{{ section.id }}">
+            {{ section.settings.secondary_cta_label }}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_rating -%}
+      <div class="glp1-hero__pill--{{ section.id }}">
+        <span class="glp1-hero__stars--{{ section.id }}" aria-hidden="true">★★★★★</span>
+        {%- if section.settings.rating_text != blank -%}
+          <span class="glp1-hero__pill-meta--{{ section.id }}">{{ section.settings.rating_text }}</span>
+        {%- endif -%}
+        {%- if section.settings.badge_text != blank -%}
+          <span class="glp1-hero__pill-sep--{{ section.id }}">·</span>
+          <span class="glp1-hero__badge--{{ section.id }}">{{ section.settings.badge_text }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.image != blank -%}
+      <div class="glp1-hero__media--{{ section.id }}">
+        {{
+          section.settings.image
+          | image_url: width: 1100
+          | image_tag:
+            widths: '440, 660, 880, 1100',
+            sizes: '(min-width: 750px) 720px, 100vw',
+            fetchpriority: 'high',
+            alt: section.settings.image_alt
+        }}
+      </div>
+    {%- elsif section.settings.show_image_placeholder -%}
+      <div class="glp1-hero__placeholder--{{ section.id }}">
+        <span>{{ section.settings.placeholder_label }}</span>
+      </div>
+    {%- endif -%}
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Bloomli — GLP-1 Hero",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["page"] },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
+    { "type": "header", "content": "Promo ribbon" },
+    { "type": "checkbox", "id": "show_promo_bar", "label": "Show promo ribbon", "default": true },
+    { "type": "text", "id": "promo_text_1", "label": "Ribbon text 1", "default": "Up to 47% off your first order" },
+    { "type": "text", "id": "promo_text_2", "label": "Ribbon text 2", "default": "Free shipping on subscriptions" },
+    { "type": "url", "id": "promo_link", "label": "Ribbon link", "default": "#glp1-offers" },
+    { "type": "header", "content": "Hero content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "For women on a GLP-1" },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Wrap words in <em> for the italic accent colour.",
+      "default": "Losing weight fast can be hard on your hair. <em>You can support it.</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Supporting text",
+      "default": "<p>More shedding during rapid weight loss is common, and usually temporary. Here is why it happens, and the simple daily ritual that helps give your hair what it needs.*</p>"
+    },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "primary_cta_label", "label": "Primary button label", "default": "See the offer" },
+    { "type": "url", "id": "primary_cta_link", "label": "Primary button link", "default": "#glp1-offers" },
+    { "type": "text", "id": "secondary_cta_label", "label": "Secondary link label", "default": "Read why it happens" },
+    { "type": "url", "id": "secondary_cta_link", "label": "Secondary link", "default": "#glp1-why" },
+    { "type": "header", "content": "Trust pill" },
+    { "type": "checkbox", "id": "show_rating", "label": "Show rating pill", "default": true },
+    { "type": "text", "id": "rating_text", "label": "Rating / review text", "default": "Loved by thousands of women" },
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Made in the USA" },
+    { "type": "header", "content": "Hero image" },
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Woman with healthy, natural hair holding Bloomli gummies" },
+    { "type": "checkbox", "id": "show_image_placeholder", "label": "Show placeholder when no image", "default": true },
+    {
+      "type": "textarea",
+      "id": "placeholder_label",
+      "label": "Placeholder note",
+      "default": "Image placeholder — warm lifestyle portrait of a woman 35–45 with healthy, natural hair, holding the Bloomli bottle."
+    },
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "accent_color", "label": "Accent (buttons / stars)", "default": "#B23A6F" },
+    { "type": "color", "id": "emphasis_color", "label": "Emphasis (italic / link)", "default": "#7B2151" },
+    { "type": "color", "id": "promo_text_color", "label": "Button / ribbon text", "default": "#FDFAF7" },
+    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow", "default": "#8A6678" },
+    { "type": "color", "id": "badge_color", "label": "Badge text", "default": "#6F7A5A" },
+    { "type": "color", "id": "pill_background", "label": "Pill background", "default": "#FFFDFC" },
+    { "type": "color", "id": "pill_border", "label": "Pill border", "default": "#E8DED8" },
+    { "type": "header", "content": "Background gradient" },
+    { "type": "color", "id": "gradient_top", "label": "Gradient top", "default": "#FDFAF7" },
+    { "type": "color", "id": "gradient_mid", "label": "Gradient middle", "default": "#F7ECE8" },
+    { "type": "color", "id": "gradient_bottom", "label": "Gradient bottom", "default": "#F3E1E5" },
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 32, "max": 64, "step": 2, "default": 42, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 26, "max": 48, "step": 2, "default": 34, "unit": "px" },
+    { "type": "header", "content": "t:sections.all.padding.section_padding_heading" },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 56 }
+  ],
+  "presets": [{ "name": "Bloomli — GLP-1 Hero" }]
+}
+{% endschema %}

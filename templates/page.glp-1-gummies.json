@@ -1,0 +1,427 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "glp1_hero": {
+      "type": "bloomli-glp1-hero",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "show_promo_bar": true,
+        "promo_text_1": "Up to 47% off your first order",
+        "promo_text_2": "Free shipping on subscriptions",
+        "promo_link": "#glp1-offers",
+        "eyebrow": "For women on a GLP-1",
+        "heading": "Losing weight fast can be hard on your hair. <em>You can support it.</em>",
+        "subtext": "<p>More shedding during rapid weight loss is common, and usually temporary. Here is why it happens, and the simple daily ritual that helps give your hair what it needs.*</p>",
+        "primary_cta_label": "See the offer",
+        "primary_cta_link": "#glp1-offers",
+        "secondary_cta_label": "Read why it happens",
+        "secondary_cta_link": "#glp1-why",
+        "show_rating": true,
+        "rating_text": "Loved by thousands of women",
+        "badge_text": "Made in the USA",
+        "image_alt": "Woman with healthy, natural hair holding Bloomli gummies",
+        "show_image_placeholder": true,
+        "placeholder_label": "Image placeholder — warm lifestyle portrait of a woman 35–45 with healthy, natural hair, holding the Bloomli bottle. No body or weight-loss framing.",
+        "padding_bottom": 56
+      }
+    },
+    "glp1_mechanism": {
+      "type": "rich-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "First, a calm explanation",
+            "text_style": "caption-with-letter-spacing"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When the body goes through rapid weight loss, more hairs than usual can temporarily shift into their natural resting-and-shedding phase, and eating less can mean fewer of the nutrients hair depends on. It is common, it is usually temporary, and nutrition is one thing you can actively support.*</p>"
+          }
+        },
+        "pullquote": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>This is not about doing more. It is about giving your hair the building blocks it may be missing right now.</em></p>"
+          }
+        }
+      },
+      "block_order": ["caption", "text", "pullquote"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 40
+      }
+    },
+    "glp1_listicle": {
+      "type": "bloomli-glp1-listicle",
+      "blocks": {
+        "r1": {
+          "type": "reason",
+          "settings": {
+            "title": "Why hair sheds during rapid weight loss",
+            "caption": "Close-up of a hairbrush by a sunlit bathroom sink — calm, not clinical",
+            "body": "<p>Rapid weight loss can nudge more of your hair into its natural resting-and-shedding phase, and eating less often means fewer of the nutrients hair relies on are coming in. It is common, and for most women it is temporary.*</p>"
+          }
+        },
+        "r2": {
+          "type": "reason",
+          "settings": {
+            "title": "It fills the nutrient gaps that matter for hair",
+            "caption": "Flat-lay of the gummy bottle with passion fruit and B-vitamin-rich foods",
+            "body": "<p>Smaller meals can mean less biotin, zinc, B-vitamins and protein reaching your hair. Bloomli delivers 6,000mcg biotin, marine collagen, zinc and a full B-complex to help fill the gaps that matter most.*</p>"
+          }
+        },
+        "r3": {
+          "type": "reason",
+          "settings": {
+            "title": "Biotin, done right",
+            "caption": "Two passion-fruit gummies resting in an open palm on a cream surface",
+            "body": "<p>Biotin on its own is only part of the story. Bloomli pairs 6,000mcg biotin with PABA and a full B-complex, so it works as part of a fuller routine rather than a single nutrient doing all the lifting.*</p>"
+          }
+        },
+        "r4": {
+          "type": "reason",
+          "settings": {
+            "title": "Two gummies, nothing to choke down",
+            "caption": "Woman 35–45 smiling, taking her morning gummies in a bright kitchen",
+            "body": "<p>Appetite and nausea can already be a lot on a GLP-1. Bloomli is two passion-fruit gummies a day, not another large capsule to get down.</p>"
+          }
+        },
+        "r5": {
+          "type": "reason",
+          "settings": {
+            "title": "A simple daily ritual that fits your new routine",
+            "caption": "Bottle on a bathroom shelf beside a glass of water — a daily ritual",
+            "body": "<p>Hair responds to consistency more than intensity. Two gummies a day is the kind of small habit that is easy to keep while so much else about your routine is changing.</p>"
+          }
+        },
+        "r6": {
+          "type": "reason",
+          "settings": {
+            "title": "Built for the long game",
+            "caption": "Woman running fingers through healthy, down hair in soft natural light",
+            "body": "<p>Hair grows in cycles, so this is a slow build. Roughly 4 to 12 weeks to support the look of less shedding, and 3 to 6 months for fuller-looking hair.* No overnight promises. The women who notice the most are the ones who stay consistent.</p>"
+          }
+        },
+        "r7": {
+          "type": "reason",
+          "settings": {
+            "title": "Tested, transparent, made in the USA",
+            "caption": "The bottle on a clean cream surface with a folded COA document beside it",
+            "body": "<p>COA and lot-testing documents on file. Made in the USA in an NSF/GMP-registered facility. Simple, traceable, and made to a standard you can ask us about.</p>"
+          }
+        },
+        "provider": {
+          "type": "callout",
+          "settings": {
+            "show_icon": true,
+            "heading": "Keep your provider in the loop.",
+            "body": "<p>Shedding during rapid weight loss is common and usually temporary. If you are concerned about any side effect you are experiencing on your medication, talk to your healthcare provider. Bloomli is a daily nutritional supplement, not a substitute for medical advice.</p>"
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6", "r7", "provider"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Why women on a GLP-1 add Bloomli <em>to their routine.</em>",
+        "intro": "Seven honest reasons, written for where you are right now.",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "glp1_compare": {
+      "type": "bloomli-glp1-compare",
+      "blocks": {
+        "bloomli": {
+          "type": "column",
+          "settings": {
+            "featured": true,
+            "badge": "Recommended",
+            "title": "Bloomli Hair Gummies",
+            "positive": true,
+            "rows": "Full blend: biotin + marine collagen + zinc + B-complex*\nTwo passion-fruit gummies a day\nHonest 4–12 week timeline*\nMade in the USA, COA on file"
+          }
+        },
+        "biotin": {
+          "type": "column",
+          "settings": {
+            "featured": false,
+            "title": "Plain biotin",
+            "positive": false,
+            "rows": "Biotin only, no fuller blend\nTablet or capsule to swallow\nNo clear timeline\nQuality varies by brand"
+          }
+        },
+        "nothing": {
+          "type": "column",
+          "settings": {
+            "featured": false,
+            "title": "Doing nothing",
+            "positive": false,
+            "rows": "No added nutrients for hair\nNothing to take\nNutrient gaps may persist*\nNothing tested or tracked"
+          }
+        }
+      },
+      "block_order": ["bloomli", "biotin", "nothing"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "A fuller routine, <em>not just biotin.</em>",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "glp1_reviews": {
+      "type": "bloomli-reviews",
+      "blocks": {
+        "rev1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "[Replace with a verified customer review from a woman on a GLP-1]",
+            "name": "[Customer name]",
+            "meta": "Hair Gummies",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "[Replace with a verified customer review from a woman on a GLP-1]",
+            "name": "[Customer name]",
+            "meta": "Hair Gummies",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "[Replace with a verified customer review from a woman on a GLP-1]",
+            "name": "[Customer name]",
+            "meta": "Hair Gummies",
+            "verified_label": "Verified Customer"
+          }
+        }
+      },
+      "block_order": ["rev1", "rev2", "rev3"],
+      "settings": {
+        "title": "From women on a GLP-1.",
+        "use_judgeme": false,
+        "manual_aggregate": "Replace with your verified review aggregate before publishing",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "glp1_offer": {
+      "type": "bloomli-glp1-offer",
+      "blocks": {
+        "volume_tier": {
+          "type": "volume_tier",
+          "settings": {
+            "heading": "Select Your Size:",
+            "override_product_image": "shopify://shop_images/Gummy_Bottle_Transperant.png",
+            "add_to_cart_label": "Start your journey",
+            "sold_out_label": "Sold out",
+            "save_badge_background": "#b23a6f",
+            "save_badge_text_color": "#fdfaf7",
+            "tier_tag_background": "#8a6678",
+            "tier_tag_text_color": "#fdfaf7",
+            "desktop_tier_title_size": 14,
+            "desktop_tier_count_size": 11,
+            "desktop_tier_daily_size": 9,
+            "tier_1_show": true,
+            "tier_1_qty": 1,
+            "tier_1_bundle_product": "",
+            "tier_1_bundle_product_handle": "",
+            "tier_1_label": "Monthly Delivery",
+            "tier_1_count_text": "A 1-month supply delivered each month.",
+            "tier_1_daily_text": "",
+            "tier_1_badge": "",
+            "tier_1_tag": "",
+            "tier_1_discount_pct": 0,
+            "tier_1_subscription_discount_pct": "20",
+            "tier_1_plan_filter": "1-pack",
+            "tier_1_default": true,
+            "tier_2_show": true,
+            "tier_2_qty": 3,
+            "tier_2_bundle_product": "bloomli-hair-vitamin-gummies-3-month-delievery",
+            "tier_2_bundle_product_handle": "",
+            "tier_2_label": "3-Month Delivery",
+            "tier_2_count_text": "A 3-month supply delivered every 3 months.",
+            "tier_2_daily_text": "",
+            "tier_2_badge": "",
+            "tier_2_tag": "Most Popular",
+            "tier_2_discount_pct": 10,
+            "tier_2_subscription_discount_pct": "28",
+            "tier_2_plan_filter": "3-pack",
+            "tier_2_default": false,
+            "tier_3_show": true,
+            "tier_3_qty": 6,
+            "tier_3_bundle_product": "bloomli-hair-vitamin-gummies-1",
+            "tier_3_bundle_product_handle": "",
+            "tier_3_label": "6-Month Delivery",
+            "tier_3_count_text": "A 6-month supply delivered every 6 months.",
+            "tier_3_daily_text": "",
+            "tier_3_badge": "",
+            "tier_3_tag": "Best Value",
+            "tier_3_discount_pct": 15,
+            "tier_3_subscription_discount_pct": "32",
+            "tier_3_plan_filter": "6-pack",
+            "tier_3_default": false,
+            "subscribe_enabled": true,
+            "subscription_discount_pct": "20",
+            "discount_badge_template": "SAVE [percent]%",
+            "default_mode": "subscribe",
+            "offer_section_label": "Select Your Offer:",
+            "label_one_time": "One-Time Purchase",
+            "label_subscribe": "Subscribe & Save",
+            "subscribe_popular_pill": "Most Popular · Get [percent]% off",
+            "subscribe_show_perks": true,
+            "subscribe_perk_1": "Free shipping on every delivery",
+            "subscribe_perk_2": "30-day money-back guarantee",
+            "subscribe_perk_3": "Pause or cancel anytime, no fees",
+            "savings_label_prefix": "You're saving",
+            "savings_label_suffix": "$",
+            "onetime_caveat_1": "One Time Discount",
+            "onetime_caveat_2": "Free shipping unlocks at 3 packs",
+            "total_label": "Total price:"
+          }
+        }
+      },
+      "block_order": ["volume_tier"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "product": "bloomli-hair-vitamin-gummies",
+        "eyebrow": "The offer",
+        "heading": "Start your <em>hair-support ritual.</em>",
+        "subtext": "<p>Pick your supply. Subscribe and save, with free shipping.</p>",
+        "reassurance": "<p>That is a daily hair ritual built around <strong>two passion-fruit gummies a day.</strong></p>",
+        "guarantee_note": "30-day money-back guarantee",
+        "padding_top": 60,
+        "padding_bottom": 40
+      }
+    },
+    "glp1_faq": {
+      "type": "bloomli-faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Why is my hair shedding more since I started losing weight?",
+            "answer": "<p>Rapid weight loss can temporarily shift more hairs into their natural resting-and-shedding phase, and eating less can leave gaps in the nutrients hair depends on. For most women it is common and temporary, and nutrition is one part you can actively support.*</p>",
+            "open_by_default": false
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Will this stop my shedding?",
+            "answer": "<p>No. Bloomli cannot stop shedding. What it can do is support your hair with nutrients it may be missing right now, and help it look fuller over time.* If shedding worries you, talk to your healthcare provider.</p>",
+            "open_by_default": false
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I take this with my medication?",
+            "answer": "<p>Bloomli is a general daily nutritional supplement, not a drug. Because everyone's situation is different, talk to your healthcare provider about adding any supplement alongside your medication.</p>",
+            "open_by_default": false
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "How long until I see a difference?",
+            "answer": "<p>Hair grows in cycles, so give it time. Roughly 4 to 12 weeks to support the look of less shedding, and 3 to 6 months for fuller-looking hair.* Consistency matters more than anything.</p>",
+            "open_by_default": false
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe, and what's in it?",
+            "answer": "<p>Key actives per two gummies include 6,000mcg biotin, marine collagen, PABA, silicon, zinc, iodine and vitamins A, C, D, E, B6, B12, folate and B5. Gluten-free. Contains fish (tilapia) and tree nuts (coconut); the facility processes common allergens. Made in the USA.</p>",
+            "open_by_default": false
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "Can I cancel?",
+            "answer": "<p>Yes. Subscriptions are flexible, so you can pause or cancel anytime, and shipping is free while you subscribe.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": {
+        "heading": "Questions, answered honestly.",
+        "intro": "<p>Everything you need to know before your first gummy.</p>",
+        "show_placeholder": false,
+        "image_position": "right",
+        "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "padding_top": 60,
+        "padding_bottom": 40
+      }
+    },
+    "glp1_final_cta": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Give your hair the building blocks it may be missing.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Two passion-fruit gummies a day. A simple ritual that fits your new routine.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "See the offer",
+            "button_link": "#glp1-offers"
+          }
+        }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 64
+      }
+    }
+  },
+  "order": [
+    "main",
+    "glp1_hero",
+    "glp1_mechanism",
+    "glp1_listicle",
+    "glp1_compare",
+    "glp1_reviews",
+    "glp1_offer",
+    "glp1_faq",
+    "glp1_final_cta"
+  ]
+}

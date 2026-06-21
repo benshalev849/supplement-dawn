@@ -1,0 +1,262 @@
+{% comment %}
+  Bloomli — GLP-1 listicle.
+  An editorial, numbered list of reasons (image + title + body) with an
+  optional reassurance callout block (e.g. "keep your provider in the loop").
+{% endcomment %}
+
+{%- liquid
+  assign accent = section.settings.accent_color
+  assign emphasis = section.settings.emphasis_color
+-%}
+
+{%- style -%}
+  .glp1-list--{{ section.id }} {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 2.2rem;
+  }
+  .glp1-list__head--{{ section.id }} { text-align: center; max-width: 46rem; margin: 0 auto 40px; }
+  .glp1-list__title--{{ section.id }} {
+    font-family: var(--font-heading-family);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0 0 8px;
+    text-wrap: balance;
+    font-size: {{ section.settings.heading_size_mobile }}px;
+  }
+  .glp1-list__title--{{ section.id }} em { font-style: italic; color: {{ emphasis }}; }
+  .glp1-list__intro--{{ section.id }} { opacity: 0.75; margin: 0; line-height: 1.6; }
+
+  .glp1-list__items--{{ section.id }} { display: flex; flex-direction: column; gap: 22px; }
+
+  .glp1-card--{{ section.id }} {
+    background: {{ section.settings.card_background }};
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(42, 38, 34, 0.08);
+    overflow: hidden;
+  }
+  .glp1-card__media--{{ section.id }} {
+    position: relative;
+    background: {{ section.settings.media_background }};
+    border-bottom: 1px solid {{ section.settings.line_color }};
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 22px;
+  }
+  .glp1-card__media--{{ section.id }} img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .glp1-card__media-inner--{{ section.id }} { position: absolute; inset: 0; }
+  .glp1-card__media-inner--{{ section.id }} img { position: absolute; inset: 0; }
+  .glp1-card__num--{{ section.id }} {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    z-index: 2;
+    font-family: var(--font-heading-family);
+    font-weight: 400;
+    font-size: 3.4rem;
+    line-height: 1;
+    color: {{ accent }};
+  }
+  .glp1-card__caption--{{ section.id }} { font-size: 1.2rem; opacity: 0.55; line-height: 1.6; max-width: 20rem; }
+  .glp1-card__body--{{ section.id }} { padding: 24px 26px 28px; }
+  .glp1-card__heading--{{ section.id }} {
+    font-family: var(--font-heading-family);
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+  }
+  .glp1-card__text--{{ section.id }} { line-height: 1.6; opacity: 0.8; margin: 0; }
+
+  .glp1-callout--{{ section.id }} {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: {{ section.settings.callout_background }};
+    border-radius: 16px;
+    padding: 30px 28px;
+    margin-top: 22px;
+  }
+  .glp1-callout__icon--{{ section.id }} {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: {{ section.settings.card_background }};
+    color: {{ accent }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .glp1-callout__heading--{{ section.id }} {
+    font-family: var(--font-heading-family);
+    font-weight: 400;
+    font-size: 2.1rem;
+    line-height: 1.2;
+    color: {{ emphasis }};
+    margin: 0 0 8px;
+  }
+  .glp1-callout__text--{{ section.id }} { margin: 0; line-height: 1.6; }
+
+  @media screen and (min-width: 750px) {
+    .glp1-list__title--{{ section.id }} { font-size: {{ section.settings.heading_size }}px; }
+    .glp1-card__media--{{ section.id }} { min-height: 220px; }
+  }
+{%- endstyle -%}
+
+<div id="glp1-why" class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="glp1-list--{{ section.id }}">
+    {%- if section.settings.heading != blank or section.settings.intro != blank -%}
+      <div class="glp1-list__head--{{ section.id }}">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="glp1-list__title--{{ section.id }}">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.intro != blank -%}
+          <p class="glp1-list__intro--{{ section.id }}">{{ section.settings.intro }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="glp1-list__items--{{ section.id }}">
+      {%- assign counter = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'reason' -%}
+            {%- assign counter = counter | plus: 1 -%}
+            {%- liquid
+              assign num = block.settings.number
+              if num == blank
+                assign num = counter | prepend: '0' | slice: -2, 2
+              endif
+            -%}
+            <article class="glp1-card--{{ section.id }}" {{ block.shopify_attributes }}>
+              <div class="glp1-card__media--{{ section.id }}">
+                <span class="glp1-card__num--{{ section.id }}">{{ num }}</span>
+                {%- if block.settings.image != blank -%}
+                  <span class="glp1-card__media-inner--{{ section.id }}">
+                    {{
+                      block.settings.image
+                      | image_url: width: 1100
+                      | image_tag:
+                        widths: '440, 660, 880, 1100',
+                        sizes: '(min-width: 750px) 660px, 100vw',
+                        loading: 'lazy',
+                        alt: block.settings.title
+                    }}
+                  </span>
+                {%- elsif block.settings.caption != blank -%}
+                  <span class="glp1-card__caption--{{ section.id }}">{{ block.settings.caption }}</span>
+                {%- endif -%}
+              </div>
+              <div class="glp1-card__body--{{ section.id }}">
+                {%- if block.settings.title != blank -%}
+                  <h3 class="glp1-card__heading--{{ section.id }}">{{ block.settings.title }}</h3>
+                {%- endif -%}
+                {%- if block.settings.body != blank -%}
+                  <div class="glp1-card__text--{{ section.id }} rte">{{ block.settings.body }}</div>
+                {%- endif -%}
+              </div>
+            </article>
+
+          {%- when 'callout' -%}
+            <div class="glp1-callout--{{ section.id }}" {{ block.shopify_attributes }}>
+              {%- if block.settings.show_icon -%}
+                <span class="glp1-callout__icon--{{ section.id }}">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 3l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                </span>
+              {%- endif -%}
+              <div>
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="glp1-callout__heading--{{ section.id }}">{{ block.settings.heading }}</h3>
+                {%- endif -%}
+                {%- if block.settings.body != blank -%}
+                  <div class="glp1-callout__text--{{ section.id }} rte">{{ block.settings.body }}</div>
+                {%- endif -%}
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Bloomli — GLP-1 Listicle",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["page"] },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Why women on a GLP-1 add Bloomli <em>to their routine.</em>" },
+    { "type": "text", "id": "intro", "label": "Intro", "default": "Seven honest reasons, written for where you are right now." },
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "accent_color", "label": "Accent (numbers / icon)", "default": "#B23A6F" },
+    { "type": "color", "id": "emphasis_color", "label": "Emphasis (italic / callout heading)", "default": "#7B2151" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFDFC" },
+    { "type": "color", "id": "media_background", "label": "Image / placeholder background", "default": "#F5EDE4" },
+    { "type": "color", "id": "callout_background", "label": "Callout background", "default": "#F3E1E5" },
+    { "type": "color", "id": "line_color", "label": "Divider line", "default": "#E8DED8" },
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 24, "max": 48, "step": 2, "default": 32, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 22, "max": 38, "step": 2, "default": 28, "unit": "px" },
+    { "type": "header", "content": "t:sections.all.padding.section_padding_heading" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 60 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 60 }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Reason",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number override", "info": "Leave blank to auto-number (01, 02, …)." },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "caption", "label": "Placeholder caption", "info": "Shown only when no image is set." },
+        { "type": "text", "id": "title", "label": "Title", "default": "Reason title" },
+        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Describe the reason here.</p>" }
+      ]
+    },
+    {
+      "type": "callout",
+      "name": "Reassurance callout",
+      "limit": 2,
+      "settings": [
+        { "type": "checkbox", "id": "show_icon", "label": "Show shield icon", "default": true },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Keep your provider in the loop." },
+        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Shedding during rapid weight loss is common and usually temporary. If you are concerned about any side effect on your medication, talk to your healthcare provider. Bloomli is a daily nutritional supplement, not a substitute for medical advice.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli — GLP-1 Listicle",
+      "blocks": [
+        { "type": "reason" },
+        { "type": "reason" },
+        { "type": "callout" }
+      ]
+    }
+  ]
+}
+{% endschema %}

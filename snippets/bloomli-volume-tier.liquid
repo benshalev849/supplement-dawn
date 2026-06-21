@@ -31,6 +31,9 @@
 
   assign default_idx = -1
   assign default_qty = 1
+  assign default_variant_id = product.selected_or_first_available_variant.id
+  assign default_variant_available = product.selected_or_first_available_variant.available
+  assign default_plan_id = ''
   assign subscribe_enabled = block.settings.subscribe_enabled
   assign default_mode = block.settings.default_mode | default: 'onetime'
   assign mf_sub_pct = product.metafields.bloomli.subscription_discount_pct
@@ -206,11 +209,9 @@
 
         assign tier_product = product
         assign tier_cart_quantity = qty
-        assign tier_has_bundle_product = false
         if bundle_product != blank
           assign tier_product = bundle_product
           assign tier_cart_quantity = 1
-          assign tier_has_bundle_product = true
         endif
 
         assign tier_variant = tier_product.selected_or_first_available_variant
@@ -219,8 +220,6 @@
         endif
         assign tier_variant_id = tier_variant.id
         assign tier_available = tier_variant.available
-        assign tier_price = tier_variant.price | default: unit_price
-        assign tier_compare = tier_variant.compare_at_price | default: tier_price
 
         if show and is_default and default_idx == -1
           assign default_idx = forloop.index0
@@ -234,17 +233,11 @@
         assign frequency_qty = qty
         assign frequency_filter = frequency_qty | append: 'mo'
         assign tier_plan_id = ''
-        assign tier_plan_price = 0
-        assign tier_plan_compare = 0
         assign first_allocation_id = ''
-        assign first_allocation_price = 0
-        assign first_allocation_compare = 0
         assign plan_filter_lower = plan_filter | downcase
         for allocation in tier_variant.selling_plan_allocations
           if first_allocation_id == blank
             assign first_allocation_id = allocation.selling_plan.id
-            assign first_allocation_price = allocation.price
-            assign first_allocation_compare = allocation.compare_at_price | default: allocation.price
           endif
 
           assign allocation_source = allocation.selling_plan.name | downcase
@@ -258,15 +251,11 @@
           assign frequency_filter_appstle = frequency_qty | append: 'month'
           if allocation_source contains plan_filter_lower or allocation_source contains frequency_filter or allocation_source contains frequency_filter_spaced or allocation_source contains frequency_filter_dash or allocation_source contains frequency_filter_month or allocation_source contains frequency_filter_every or allocation_source contains frequency_filter_appstle
             assign tier_plan_id = allocation.selling_plan.id
-            assign tier_plan_price = allocation.price
-            assign tier_plan_compare = allocation.compare_at_price | default: allocation.price
             break
           endif
         endfor
         if tier_plan_id == blank and first_allocation_id != blank
           assign tier_plan_id = first_allocation_id
-          assign tier_plan_price = first_allocation_price
-          assign tier_plan_compare = first_allocation_compare
         endif
 
         assign fallback_plan_id = ''
@@ -304,6 +293,12 @@
           assign tier_plan_id = fallback_plan_id
         endif
 
+        if show and forloop.index0 == default_idx
+          assign default_variant_id = tier_variant_id
+          assign default_variant_available = tier_available
+          assign default_plan_id = tier_plan_id
+        endif
+
         comment
           ALL displayed prices are estimates derived from THIS product's own single
           unit price (× the display month count) — never from the mapped bundle
@@ -337,11 +332,9 @@
         assign daily_cents = one_time_total_cents | divided_by: qty | divided_by: 30
         assign subscribe_daily_cents = subscribe_total_cents | divided_by: qty | divided_by: 30
         assign auto_daily = daily_cents | money_without_currency | prepend: '$'
-        assign auto_subscribe_daily = subscribe_daily_cents | money_without_currency | prepend: '$'
         if daily_text == blank
           assign daily_text = '(' | append: auto_daily | append: ' / Day)'
         endif
-        assign subscribe_daily_text = '(' | append: auto_subscribe_daily | append: ' / Day)'
 
         comment
           IM8-style per-card pricing: monthly = subscribe total / months,
@@ -544,10 +537,8 @@
       <input
         type="hidden"
         name="id"
-        value="{{ product.selected_or_first_available_variant.id }}"
-        {% if product.selected_or_first_available_variant.available == false
-          or product.selected_or_first_available_variant == null
-        %}
+        value="{{ default_variant_id }}"
+        {% if default_variant_available == false or default_variant_id == blank %}
           disabled
         {% endif %}
         class="product-variant-id"
@@ -561,9 +552,9 @@
       <input
         type="hidden"
         name="selling_plan"
-        value=""
+        value="{% if subscribe_enabled and default_mode == 'subscribe' %}{{ default_plan_id }}{% endif %}"
         data-vt-sp-input
-        disabled
+        {% unless subscribe_enabled and default_mode == 'subscribe' and default_plan_id != blank %}disabled{% endunless %}
       >
       <button
         id="ProductSubmitButton-{{ section_id }}"
@@ -571,12 +562,12 @@
         name="add"
         class="bloomli-vt__custom-submit product-form__submit"
         data-vt-submit-button
-        {% unless product.selected_or_first_available_variant.available %}
+        {% unless default_variant_available %}
           disabled
         {% endunless %}
       >
         <span data-vt-submit-text>
-          {%- if product.selected_or_first_available_variant.available -%}
+          {%- if default_variant_available -%}
             {{ add_to_cart_label }}
           {%- else -%}
             {{ sold_out_label }}

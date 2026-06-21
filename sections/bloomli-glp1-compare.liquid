@@ -1,0 +1,180 @@
+{% comment %}
+  Bloomli — GLP-1 comparison.
+  Side-by-side columns (e.g. Bloomli vs plain biotin vs doing nothing). Each
+  column lists rows; positive columns show a check, others a dash.
+{% endcomment %}
+
+{%- liquid
+  assign accent = section.settings.accent_color
+  assign emphasis = section.settings.emphasis_color
+-%}
+
+{%- style -%}
+  .glp1-cmp--{{ section.id }} { max-width: 64rem; margin: 0 auto; padding: 0 2.2rem; }
+  .glp1-cmp__title--{{ section.id }} {
+    font-family: var(--font-heading-family);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    text-align: center;
+    margin: 0 0 36px;
+    text-wrap: balance;
+    font-size: {{ section.settings.heading_size_mobile }}px;
+  }
+  .glp1-cmp__title--{{ section.id }} em { font-style: italic; color: {{ emphasis }}; }
+  .glp1-cmp__grid--{{ section.id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .glp1-cmp__col--{{ section.id }} {
+    border-radius: 16px;
+    padding: 24px 22px;
+    height: 100%;
+    background: {{ section.settings.col_background }};
+    border: 1px solid {{ section.settings.line_color }};
+    box-shadow: 0 2px 8px rgba(42, 38, 34, 0.06);
+  }
+  .glp1-cmp__col--{{ section.id }}.is-featured {
+    background: {{ section.settings.featured_background }};
+    border: 2px solid {{ accent }};
+    box-shadow: 0 16px 32px rgba(178, 58, 111, 0.12);
+  }
+  .glp1-cmp__badge--{{ section.id }} {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: {{ section.settings.promo_text_color }};
+    background: {{ accent }};
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .glp1-cmp__col-title--{{ section.id }} {
+    font-family: var(--font-heading-family);
+    font-weight: 400;
+    font-size: 2.1rem;
+    line-height: 1.15;
+    margin: 0 0 18px;
+  }
+  .glp1-cmp__col--{{ section.id }}.is-featured .glp1-cmp__col-title--{{ section.id }} { color: {{ emphasis }}; }
+  .glp1-cmp__rows--{{ section.id }} { display: flex; flex-direction: column; gap: 13px; }
+  .glp1-cmp__row--{{ section.id }} { display: flex; gap: 10px; align-items: flex-start; }
+  .glp1-cmp__row--{{ section.id }} svg { flex: none; margin-top: 1px; }
+  .glp1-cmp__row--{{ section.id }}.is-good svg { color: {{ accent }}; }
+  .glp1-cmp__row--{{ section.id }}.is-bad svg { color: {{ section.settings.muted_color }}; }
+  .glp1-cmp__row-text--{{ section.id }} { font-size: 1.4rem; line-height: 1.5; }
+  .glp1-cmp__col--{{ section.id }}:not(.is-featured) .glp1-cmp__row-text--{{ section.id }} { opacity: 0.7; }
+
+  @media screen and (min-width: 750px) {
+    .glp1-cmp__title--{{ section.id }} { font-size: {{ section.settings.heading_size }}px; }
+    .glp1-cmp__grid--{{ section.id }} { grid-template-columns: repeat({{ section.blocks.size }}, 1fr); }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="glp1-cmp--{{ section.id }}">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="glp1-cmp__title--{{ section.id }}">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="glp1-cmp__grid--{{ section.id }}">
+      {%- for block in section.blocks -%}
+        <div
+          class="glp1-cmp__col--{{ section.id }}{% if block.settings.featured %} is-featured{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.featured and block.settings.badge != blank -%}
+            <span class="glp1-cmp__badge--{{ section.id }}">{{ block.settings.badge }}</span>
+          {%- endif -%}
+          {%- if block.settings.title != blank -%}
+            <h3 class="glp1-cmp__col-title--{{ section.id }}">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          <div class="glp1-cmp__rows--{{ section.id }}">
+            {%- assign rows = block.settings.rows | newline_to_br | split: '<br />' -%}
+            {%- for row in rows -%}
+              {%- assign row_text = row | strip_newlines | strip -%}
+              {%- if row_text != blank -%}
+                <div class="glp1-cmp__row--{{ section.id }} {% if block.settings.positive %}is-good{% else %}is-bad{% endif %}">
+                  {%- if block.settings.positive -%}
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+                  {%- else -%}
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>
+                  {%- endif -%}
+                  <span class="glp1-cmp__row-text--{{ section.id }}">{{ row_text }}</span>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Bloomli — GLP-1 Compare",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["page"] },
+  "max_blocks": 4,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "A fuller routine, <em>not just biotin.</em>" },
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "accent_color", "label": "Accent (checks / badge)", "default": "#B23A6F" },
+    { "type": "color", "id": "emphasis_color", "label": "Emphasis (italic / featured title)", "default": "#7B2151" },
+    { "type": "color", "id": "col_background", "label": "Column background", "default": "#FFFDFC" },
+    { "type": "color", "id": "featured_background", "label": "Featured column background", "default": "#F3E1E5" },
+    { "type": "color", "id": "line_color", "label": "Column border", "default": "#E8DED8" },
+    { "type": "color", "id": "muted_color", "label": "Dash / muted colour", "default": "#9A8F89" },
+    { "type": "color", "id": "promo_text_color", "label": "Badge text", "default": "#FDFAF7" },
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 24, "max": 48, "step": 2, "default": 32, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 22, "max": 38, "step": 2, "default": 28, "unit": "px" },
+    { "type": "header", "content": "t:sections.all.padding.section_padding_heading" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 56 }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        { "type": "checkbox", "id": "featured", "label": "Featured (recommended) column", "default": false },
+        { "type": "text", "id": "badge", "label": "Featured badge", "default": "Recommended" },
+        { "type": "text", "id": "title", "label": "Column title", "default": "Column title" },
+        { "type": "checkbox", "id": "positive", "label": "Show checks (otherwise dashes)", "default": false },
+        { "type": "textarea", "id": "rows", "label": "Rows", "info": "One row per line.", "default": "First point\nSecond point\nThird point\nFourth point" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli — GLP-1 Comparison",
+      "blocks": [
+        { "type": "column", "settings": { "featured": true, "positive": true, "title": "Bloomli Hair Gummies" } },
+        { "type": "column", "settings": { "title": "Plain biotin" } },
+        { "type": "column", "settings": { "title": "Doing nothing" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

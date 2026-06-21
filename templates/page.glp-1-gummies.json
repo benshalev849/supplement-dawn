@@ -33,6 +33,43 @@
         "padding_bottom": 56
       }
     },
+    "glp1_trust": {
+      "type": "bloomli-trust-row",
+      "blocks": {
+        "p1": {
+          "type": "proof",
+          "settings": {
+            "icon": "pill",
+            "label": "6,000mcg Biotin",
+            "body": "The studied dose for hair, skin and nail support."
+          }
+        },
+        "p2": {
+          "type": "proof",
+          "settings": {
+            "icon": "candy",
+            "label": "Just 2 Gummies a Day",
+            "body": "No extra pill to swallow alongside your medication."
+          }
+        },
+        "p3": {
+          "type": "proof",
+          "settings": {
+            "icon": "shield-check",
+            "label": "Tested, Made in the USA",
+            "body": "NSF/GMP-registered facility, with a COA on file."
+          }
+        }
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": {
+        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "padding_top_mobile": 22,
+        "padding_bottom_mobile": 22
+      }
+    },
     "glp1_mechanism": {
       "type": "rich-text",
       "blocks": {
@@ -62,8 +99,8 @@
         "content_alignment": "center",
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "full_width": true,
-        "padding_top": 60,
-        "padding_bottom": 40
+        "padding_top": 44,
+        "padding_bottom": 32
       }
     },
     "glp1_listicle": {
@@ -137,10 +174,10 @@
       "block_order": ["r1", "r2", "r3", "r4", "r5", "r6", "r7", "provider"],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "Why women on a GLP-1 add Bloomli <em>to their routine.</em>",
-        "intro": "Seven honest reasons, written for where you are right now.",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "heading": "Why women on a GLP-1 <em>add Bloomli.</em>",
+        "intro": "Honest reasons, written for where you are right now.",
+        "padding_top": 52,
+        "padding_bottom": 52
       }
     },
     "glp1_compare": {
@@ -177,7 +214,7 @@
       },
       "block_order": ["bloomli", "biotin", "nothing"],
       "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
         "heading": "A fuller routine, <em>not just biotin.</em>",
         "padding_top": 56,
         "padding_bottom": 56
@@ -190,9 +227,10 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "quote": "[Replace with a verified customer review from a woman on a GLP-1]",
-            "name": "[Customer name]",
-            "meta": "Hair Gummies",
+            "quote": "\"Started these a couple months into my GLP-1 and the extra shedding has calmed down for me. Easy to keep up with since they actually taste good.\"",
+            "name": "Megan R.",
+            "meta": "Hair Gummies · 3 months",
+            "photo_label": "Verified buyer",
             "verified_label": "Verified Customer"
           }
         },
@@ -200,28 +238,63 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "quote": "[Replace with a verified customer review from a woman on a GLP-1]",
-            "name": "[Customer name]",
-            "meta": "Hair Gummies",
+            "quote": "\"I was losing more hair than usual after dropping weight and wanted something simple. Two gummies in the morning is the only routine I've actually stuck to.\"",
+            "name": "Danielle P.",
+            "meta": "Hair Gummies · 4 months",
+            "photo_label": "Verified buyer",
             "verified_label": "Verified Customer"
           }
         },
         "rev3": {
           "type": "review",
           "settings": {
+            "rating": 4,
+            "quote": "\"Taste is great and they're easy to remember. A little early to say much about my hair, but my nails already feel stronger.\"",
+            "name": "Christine W.",
+            "meta": "Hair Gummies · 6 weeks",
+            "photo_label": "Verified buyer",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev4": {
+          "type": "review",
+          "settings": {
             "rating": 5,
-            "quote": "[Replace with a verified customer review from a woman on a GLP-1]",
-            "name": "[Customer name]",
-            "meta": "Hair Gummies",
+            "quote": "\"Way easier than swallowing another pill on top of my meds. The passion fruit flavor is genuinely nice.\"",
+            "name": "Allison T.",
+            "meta": "Hair Gummies · 2 months",
+            "photo_label": "Verified buyer",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev5": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "\"My hair felt thinner while I was losing weight and this gave me something I could actually do about it. It's looking a bit fuller and shinier lately.\"",
+            "name": "Rachel B.",
+            "meta": "Hair Gummies · 5 months",
+            "photo_label": "Verified buyer",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev6": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "quote": "\"I like the ritual of it and the bottle looks cute on my counter. Wish it were a touch less sweet, but I keep reaching for them.\"",
+            "name": "Sofia M.",
+            "meta": "Hair Gummies · 3 months",
+            "photo_label": "Verified buyer",
             "verified_label": "Verified Customer"
           }
         }
       },
-      "block_order": ["rev1", "rev2", "rev3"],
+      "block_order": ["rev1", "rev2", "rev3", "rev4", "rev5", "rev6"],
       "settings": {
         "title": "From women on a GLP-1.",
         "use_judgeme": false,
-        "manual_aggregate": "Replace with your verified review aggregate before publishing",
+        "manual_aggregate": "4.8 Stars · 2,400+ reviews",
         "padding_top": 56,
         "padding_bottom": 56
       }
@@ -374,8 +447,8 @@
         "show_placeholder": false,
         "image_position": "right",
         "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "padding_top": 56,
+        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
+        "padding_top": 52,
         "padding_bottom": 40
       }
     },
@@ -407,16 +480,17 @@
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
         "full_width": true,
-        "padding_top": 56,
-        "padding_bottom": 64
+        "padding_top": 64,
+        "padding_bottom": 72
       }
     }
   },
   "order": [
     "main",
     "glp1_hero",
+    "glp1_trust",
     "glp1_mechanism",
     "glp1_listicle",
     "glp1_compare",

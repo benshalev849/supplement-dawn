@@ -13,6 +13,11 @@
     --glp1-max-width: {{ section.settings.max_width }}rem;
     --glp1-heading: {{ section.settings.heading_size }}px;
     --glp1-heading-mobile: {{ section.settings.heading_size_mobile }}px;
+    --glp1-reason-number-size: {{ section.settings.reason_number_size }}px;
+    --glp1-reason-number-size-mobile: {{ section.settings.reason_number_size | times: 0.6222 | round }}px;
+    --glp1-reason-title-size: {{ section.settings.reason_title_size }}px;
+    --glp1-reason-title-size-mobile: {{ section.settings.reason_title_size | times: 0.6522 | round }}px;
+    --glp1-reason-text-size: {{ section.settings.reason_text_size }}px;
     --glp1-padding-top: {{ section.settings.padding_top }}px;
     --glp1-padding-bottom: {{ section.settings.padding_bottom }}px;
     --glp1-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
@@ -133,6 +138,9 @@
     { "type": "header", "content": "Typography" },
     { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 36, "max": 72, "step": 2, "default": 56, "unit": "px" },
     { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 30, "max": 46, "step": 2, "default": 38, "unit": "px" },
+    { "type": "range", "id": "reason_number_size", "label": "Reason number size", "min": 48, "max": 120, "step": 2, "default": 90, "unit": "px" },
+    { "type": "range", "id": "reason_title_size", "label": "Reason title size", "min": 24, "max": 60, "step": 2, "default": 46, "unit": "px" },
+    { "type": "range", "id": "reason_text_size", "label": "Reason subtext size", "min": 12, "max": 22, "step": 1, "default": 16, "unit": "px" },
     { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding top", "default": 96 },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding bottom", "default": 112 },

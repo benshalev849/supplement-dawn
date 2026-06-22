@@ -69,7 +69,7 @@
     </div>
   {%- endif -%}
 
-  <div class="bloomli-hero__inner bloomli-hero__inner--mobile-{{ section.settings.content_position_mobile }}">
+  <div class="bloomli-hero__inner bloomli-hero__inner--mobile-{{ section.settings.content_position_mobile }} bloomli-hero__inner--align-{{ section.settings.content_alignment | default: 'left' }}">
     <div class="bloomli-hero__copy">
       {%- if section.settings.show_reviews -%}
         <div class="bloomli-hero__reviews">
@@ -235,6 +235,17 @@
     { "type": "color",  "id": "text_color", "label": "Text color override", "default": "#2a2622" },
     { "type": "checkbox", "id": "use_custom_accent_color", "label": "Override hero accent color", "default": false },
     { "type": "color",  "id": "accent_color", "label": "Accent color override", "default": "#b23a6f" },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment — desktop",
+      "default": "left",
+      "options": [
+        { "value": "left",   "label": "Left (default)" },
+        { "value": "center", "label": "Center" },
+        { "value": "right",  "label": "Right" }
+      ]
+    },
     {
       "type": "select",
       "id": "content_position_mobile",

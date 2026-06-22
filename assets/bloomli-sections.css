@@ -161,6 +161,36 @@
   line-height: 1;
 }
 
+/* Hero — desktop content alignment (mobile stays centered) */
+@media (min-width: 750px) {
+  .bloomli-hero__inner--align-left {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .bloomli-hero__inner--align-center {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .bloomli-hero__inner--align-right {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .bloomli-hero__inner--align-center .bloomli-hero__ctas,
+  .bloomli-hero__inner--align-center .bloomli-hero__reviews,
+  .bloomli-hero__inner--align-center .bloomli-hero__trust-badges {
+    justify-content: center;
+  }
+
+  .bloomli-hero__inner--align-right .bloomli-hero__ctas,
+  .bloomli-hero__inner--align-right .bloomli-hero__reviews,
+  .bloomli-hero__inner--align-right .bloomli-hero__trust-badges {
+    justify-content: flex-end;
+  }
+}
+
 @media (max-width: 749px) {
   .bloomli-hero {
     min-height: auto;

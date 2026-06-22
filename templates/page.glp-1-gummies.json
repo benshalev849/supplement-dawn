@@ -13,7 +13,7 @@
       "type": "bloomli-hero",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "use_brand_gradient": true,
+        "use_brand_gradient": false,
         "headline_line1": "Losing weight fast can be hard on your hair.",
         "headline_line2": "You can support it.",
         "subtext": "More shedding during rapid weight loss is common, and usually temporary. As the body drops weight quickly, more hairs shift into their natural resting-and-shedding phase, and smaller meals can leave gaps in the nutrients hair depends on. Nutrition is the one part you can actively support, with a simple two-gummy daily ritual.*",
@@ -25,7 +25,7 @@
         "button_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "cta_primary_label": "See the offer",
         "cta_primary_url": "#glp1-offers",
-        "cta_secondary_label": "Read why it happens",
+        "cta_secondary_label": "",
         "cta_secondary_url": "#glp1-why",
         "show_reviews": true,
         "star_rating_text": "4.8 Stars · 2,400+ Reviews",
@@ -43,6 +43,7 @@
         "text_color": "#2a2622",
         "use_custom_accent_color": false,
         "accent_color": "#b23a6f",
+        "content_alignment": "left",
         "content_position_mobile": "top"
       }
     },
@@ -125,131 +126,6 @@
         "padding_bottom": 112,
         "padding_top_mobile": 64,
         "padding_bottom_mobile": 72
-      }
-    },
-    "glp1_compare": {
-      "type": "bloomli-glp1-compare",
-      "blocks": {
-        "bloomli": {
-          "type": "column",
-          "settings": {
-            "featured": true,
-            "badge": "The fuller routine",
-            "title": "Bloomli Hair Gummies",
-            "positive": true,
-            "rows": "Biotin, marine collagen, zinc and B vitamins*\nTwo passion-fruit gummies a day\nDesigned for a consistent daily routine\nMade in the USA, COA on file"
-          }
-        },
-        "biotin": {
-          "type": "column",
-          "settings": {
-            "featured": false,
-            "title": "Plain biotin",
-            "positive": false,
-            "rows": "A single nutrient\nOften a tablet or capsule\nNo supporting blend\nQuality depends on the brand"
-          }
-        },
-        "nothing": {
-          "type": "column",
-          "settings": {
-            "featured": false,
-            "title": "Doing nothing",
-            "positive": false,
-            "rows": "No added nutritional support\nNo daily supplement step\nDietary gaps may remain*\nNo product quality standard"
-          }
-        }
-      },
-      "block_order": ["bloomli", "biotin", "nothing"],
-      "settings": {
-        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
-        "heading": "A fuller routine, <em>not just biotin.</em>",
-        "intro": "The difference is not a louder promise. It is a more complete daily formula and a routine you can keep.",
-        "column_radius": 28,
-        "heading_size": 48,
-        "heading_size_mobile": 38,
-        "padding_top": 112,
-        "padding_bottom": 112,
-        "padding_top_mobile": 72,
-        "padding_bottom_mobile": 72
-      }
-    },
-    "glp1_reviews": {
-      "type": "bloomli-reviews",
-      "blocks": {
-        "rev1": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "\"Started these a couple months into my GLP-1 and the extra shedding has calmed down for me. Easy to keep up with since they actually taste good.\"",
-            "name": "Megan R.",
-            "meta": "Hair Gummies · 3 months",
-            "photo_label": "Verified buyer",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev2": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "\"I was losing more hair than usual after dropping weight and wanted something simple. Two gummies in the morning is the only routine I've actually stuck to.\"",
-            "name": "Danielle P.",
-            "meta": "Hair Gummies · 4 months",
-            "photo_label": "Verified buyer",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev3": {
-          "type": "review",
-          "settings": {
-            "rating": 4,
-            "quote": "\"Taste is great and they're easy to remember. A little early to say much about my hair, but my nails already feel stronger.\"",
-            "name": "Christine W.",
-            "meta": "Hair Gummies · 6 weeks",
-            "photo_label": "Verified buyer",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev4": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "\"Way easier than swallowing another pill on top of my meds. The passion fruit flavor is genuinely nice.\"",
-            "name": "Allison T.",
-            "meta": "Hair Gummies · 2 months",
-            "photo_label": "Verified buyer",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev5": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "\"My hair felt thinner while I was losing weight and this gave me something I could actually do about it. It's looking a bit fuller and shinier lately.\"",
-            "name": "Rachel B.",
-            "meta": "Hair Gummies · 5 months",
-            "photo_label": "Verified buyer",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev6": {
-          "type": "review",
-          "settings": {
-            "rating": 4,
-            "quote": "\"I like the ritual of it and the bottle looks cute on my counter. Wish it were a touch less sweet, but I keep reaching for them.\"",
-            "name": "Sofia M.",
-            "meta": "Hair Gummies · 3 months",
-            "photo_label": "Verified buyer",
-            "verified_label": "Verified Customer"
-          }
-        }
-      },
-      "block_order": ["rev1", "rev2", "rev3", "rev4", "rev5", "rev6"],
-      "settings": {
-        "title": "From women on a GLP-1.",
-        "use_judgeme": false,
-        "manual_aggregate": "4.8 Stars · 2,400+ reviews",
-        "padding_top": 56,
-        "padding_bottom": 56
       }
     },
     "glp1_offer": {
@@ -356,7 +232,6 @@
             "prefer_product_metafield": false,
             "metafield_key": "benefits",
             "heading": "What To Expect",
-            "survey_source": "",
             "disclaimer": "<p><em>* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary.</em></p>",
             "heading_size": 23,
             "title_size": 13,
@@ -364,49 +239,36 @@
             "percentage_size": 16,
             "fine_print_size": 9,
             "icon_size": 20,
-            "card_background_color": "",
             "heading_color": "#2a2622",
             "title_color": "#2a2622",
             "descriptor_color": "#7a2048",
             "percentage_color": "#7a2048",
-            "fine_print_color": "",
             "icon_color": "#7a2048",
             "show_benefit_1": true,
-            "icon_class_1": "ti-sparkles",
             "image_1": "shopify://shop_images/flower_icon_c82214ba-23ab-48e1-a043-4e53426a79ac.png",
-            "icon_tint_1": "",
-            "icon_color_1": "",
+            "icon_class_1": "ti-sparkles",
             "title_1": "Fuller Hair",
             "descriptor_1": "95% said their hair looked thicker*",
             "percentage_1": "95%",
             "show_benefit_2": true,
-            "icon_class_2": "ti-wind",
             "image_2": "shopify://shop_images/Sparkles_Icon_e63509b6-c226-49de-9685-31c09eebf32c.png",
-            "icon_tint_2": "",
-            "icon_color_2": "",
+            "icon_class_2": "ti-wind",
             "title_2": "Less Shedding",
             "descriptor_2": "88% experienced reduced shedding*",
             "percentage_2": "88%",
             "show_benefit_3": true,
-            "icon_class_3": "ti-shield-check",
             "image_3": "shopify://shop_images/Bicep_Icon_7252fa21-eb1d-40cc-b103-f3b181e2f76e.png",
-            "icon_tint_3": "",
-            "icon_color_3": "",
+            "icon_class_3": "ti-shield-check",
             "title_3": "Stronger Strands",
             "descriptor_3": "82% reported less breakage*",
             "percentage_3": "82%",
             "show_benefit_4": true,
-            "icon_class_4": "ti-plant-2",
             "image_4": "shopify://shop_images/Seed_Icon_ebfa19c6-ece3-4eb6-b080-0a903867666f.png",
-            "icon_tint_4": "",
-            "icon_color_4": "",
+            "icon_class_4": "ti-plant-2",
             "title_4": "Visible Growth",
             "descriptor_4": "75% noticed new hair growth*",
             "percentage_4": "75%",
             "show_benefit_5": false,
-            "icon_class_5": "ti-leaf",
-            "icon_tint_5": "",
-            "icon_color_5": "",
             "title_5": "Add another benefit*",
             "descriptor_5": "replace with a survey-supported descriptor",
             "percentage_5": "00%"
@@ -533,7 +395,6 @@
       ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "eyebrow": "A clearer comparison",
         "heading": "A fuller routine, <em>not just biotin.</em>",
         "intro": "The difference is not a louder promise. It is a more complete daily formula and a routine you can keep.",
         "accent_color": "#b23a6f",
@@ -639,11 +500,11 @@
         "title": "From women on a GLP-1.",
         "use_judgeme": false,
         "manual_aggregate": "4.8 Stars · 2,400+ reviews",
-        "background_color": "#FDFAF7",
-        "card_background": "#FFFFFF",
+        "background_color": "#fdfaf7",
+        "card_background": "#ffffff",
         "placeholder_color": "#f7f0e9",
         "text_color": "#2a2622",
-        "muted_color": "#2A2622",
+        "muted_color": "#2a2622",
         "accent_color": "#b23a6f",
         "heading_size": 46,
         "heading_size_mobile": 36,

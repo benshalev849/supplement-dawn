@@ -99,7 +99,7 @@
           "type": "reason",
           "settings": {
             "number": "",
-            "image": "shopify://shop_images/Listicle_Image_3.png",
+            "image": "shopify://shop_images/Listicle_Image_3_e673ffa2-6ceb-414d-918c-2d7a98e184cd.png",
             "title": "Biotin Is Only One Piece of the Hair Puzzle",
             "body": "<p>Biotin gets most of the attention, but healthy-looking hair relies on a broader nutritional foundation. Bloomli pairs biotin with zinc, vitamin C, B vitamins, silicon, PABA, and marine collagen, so your daily routine isn’t built around a single ingredient.*</p>"
           }
@@ -665,12 +665,13 @@
         "show_stars": true,
         "scroll_target": "#glp1-offers",
         "proximity_margin": 250,
-        "bg_color": "#1b3a2d",
-        "text_color": "#ffffff",
-        "badge_bg": "#f0b429",
-        "badge_text_color": "#1b3a2d",
-        "star_color": "#f0b429",
-        "scrim_color": "#fdfaf7"
+        "bar_bg": "#2a2622",
+        "btn_fill": "#b23a6f",
+        "btn_label": "#fdfaf7",
+        "badge_fill": "#fdfaf7",
+        "badge_label": "#b23a6f",
+        "social_color": "#fdfaf7",
+        "star_fill": "#f0b429"
       }
     }
   },

@@ -393,10 +393,10 @@
           "type": "column",
           "settings": {
             "featured": true,
-            "badge": "The fuller routine",
+            "badge": "",
             "title": "Bloomli Hair Gummies",
             "positive": true,
-            "rows": "Biotin, marine collagen, zinc and B vitamins*\nTwo passion-fruit gummies a day\nDesigned for a consistent daily routine\nMade in the USA, COA on file"
+            "rows": "Biotin, marine collagen, zinc, and B vitamins\nFormulated to support hair, skin, and nails\nTwo passion-fruit gummies daily\nThird-party tested and made in an NSF-certified facility"
           }
         },
         "biotin": {
@@ -406,7 +406,7 @@
             "badge": "The fuller routine",
             "title": "Plain biotin",
             "positive": false,
-            "rows": "A single nutrient\nOften a tablet or capsule\nNo supporting blend\nQuality depends on the brand"
+            "rows": "A single primary nutrient\nOften a tablet or capsule\nServing format varies by brand\nTesting and manufacturing standards vary"
           }
         },
         "nothing": {
@@ -416,7 +416,7 @@
             "badge": "The fuller routine",
             "title": "Doing nothing",
             "positive": false,
-            "rows": "No added nutritional support\nNo daily supplement step\nDietary gaps may remain*\nNo product quality standard"
+            "rows": "No supplemental hair nutrients\nNo dedicated hair-support formula\nDietary gaps may remain*\nNo product quality standard"
           }
         }
       },
@@ -428,7 +428,7 @@
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "A fuller routine, <em>not just biotin.</em>",
-        "intro": "The difference is not a louder promise. It is a more complete daily formula and a routine you can keep.",
+        "intro": "Bloomli combines biotin with marine collagen, zinc, B vitamins, and other key nutrients in two daily gummies, offering broader nutritional support than biotin alone.*",
         "accent_color": "#b23a6f",
         "emphasis_color": "#7b2151",
         "column_background": "#fffdfc",
@@ -664,10 +664,11 @@
         "text",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "scheme-1afb05ae-0853-4a94-bf34-086c591158ef",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "full_width": true,
         "padding_top": 64,
         "padding_bottom": 72

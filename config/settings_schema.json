@@ -1862,7 +1862,7 @@
         "type": "text",
         "id": "cart_line_subscription_upsell_heading",
         "label": "Heading text",
-        "default": "Subscribe & Save an Extra 15%"
+        "default": "Subscribe & Save an Extra 20%"
       },
       {
         "type": "text",
@@ -1919,13 +1919,13 @@
         "type": "text",
         "id": "cart_line_subscription_upsell_discount_text",
         "label": "CTA discount text",
-        "default": "15"
+        "default": "20"
       },
       {
         "type": "text",
         "id": "cart_line_subscription_upsell_discount_pct",
         "label": "Subscription discount percent",
-        "default": "15",
+        "default": "20",
         "info": "Used for the CTA label fallback and matching the displayed subscription discount."
       },
       {
@@ -2201,7 +2201,7 @@
         "type": "text",
         "id": "bloomli_routine_upsell_subscription_discount_pct",
         "label": "Subscription discount percent",
-        "default": "15",
+        "default": "20",
         "info": "Discount applied first when a subscription is active. For the add-on, the Pair & Save discount is also stacked on top."
       },
       {

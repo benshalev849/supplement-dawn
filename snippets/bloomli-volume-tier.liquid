@@ -83,7 +83,7 @@
   elsif block.settings.tier_3_discount_pct != blank and tier_3_qty_for_discount == 3
     assign volume_discount_3_pct = block.settings.tier_3_discount_pct | plus: 0
   else
-    assign volume_discount_3_pct = 15
+    assign volume_discount_3_pct = 10
   endif
   if product.metafields.bloomli.volume_discount_4_pct != blank
     assign volume_discount_4_pct = product.metafields.bloomli.volume_discount_4_pct | plus: 0
@@ -97,7 +97,7 @@
   elsif settings.bloomli_volume_discount_5_pct != blank
     assign volume_discount_5_pct = settings.bloomli_volume_discount_5_pct | plus: 0
   else
-    assign volume_discount_5_pct = 20
+    assign volume_discount_5_pct = 15
   endif
   assign discount_badge_template = block.settings.discount_badge_template | default: 'SAVE [percent]%'
   assign add_to_cart_label = block.settings.add_to_cart_label | default: 'Add to cart'

@@ -28,12 +28,10 @@ Pull from Bloomli global theme settings first; product metafields are optional o
 
 | Type | Rate |
 |---|---|
-| Subscription | 15% |
-| Volume — 1 pack | 0% |
-| Volume — 2 pack | 10% |
-| Volume — 3 pack | 15% |
-| Volume — 4 pack | 18% |
-| Volume — 5+ pack | 20% |
+| Subscription | 20% |
+| Volume — 1 month (1 pack) | 0% |
+| Volume — 3 month (3 pack) | 10% |
+| Volume — 6 month (6 pack) | 15% |
 | Pair & Save / add-on bundle | 15% |
 
 ### Compounding formula
@@ -46,9 +44,9 @@ final_discount = 100 - ((100 - volume%) * (100 - subscription%) * (100 - bundle%
 Use 0 for any discount that does not apply.
 
 Examples:
-- 15% volume + 15% subscription → **27.75%**, not 30%
-- 15% subscription + 20% Pair & Save → **32%**, not 35%
-- 15% volume + 15% subscription + 20% Pair & Save → **42.2%**, not 50%
+- 15% volume + 20% subscription → **32%**, not 35%
+- 20% subscription + 20% Pair & Save → **36%**, not 40%
+- 15% volume + 20% subscription + 20% Pair & Save → **45.6%**, not 55%
 
 ### Display rules by context
 
@@ -58,11 +56,11 @@ Examples:
 - Add-on with supplement in cart → include Pair & Save if applicable
 
 **Subscription upsell card**
-- Show the extra subscription benefit only, e.g. "Subscribe & Save 15%"
+- Show the extra subscription benefit only, e.g. "Subscribe & Save 20%"
 - Do not show total compounded savings unless copy explicitly says "total savings"
 
 **Delivery/frequency row**
-- Show subscription-only savings, e.g. "SAVE 15%"
+- Show subscription-only savings, e.g. "SAVE 20%"
 
 **Routine / add-on upsell**
 - Price and copy must match exactly

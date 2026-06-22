@@ -150,40 +150,49 @@
   margin-bottom: 0;
 }
 
+/* Compact disclaimer — intentionally quieter and smaller than the listicle reasons. */
 .bloomli-glp1-listicle__callout {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1.8rem;
-  max-width: 82rem;
+  align-items: center;
+  gap: 1.1rem;
+  max-width: 60rem;
   margin-inline: auto;
-  padding: clamp(2.4rem, 4vw, 4rem);
-  border-radius: calc(var(--glp1-radius) - 0.4rem);
-  background: var(--glp1-callout);
+  padding: 1.3rem 1.7rem;
+  border-radius: calc(var(--glp1-radius) - 1.4rem);
+  background: rgba(var(--color-foreground), 0.04);
 }
 
 .bloomli-glp1-listicle__callout-icon {
   display: grid;
-  width: 4.6rem;
-  height: 4.6rem;
+  width: 2.8rem;
+  height: 2.8rem;
   border-radius: 50%;
   place-items: center;
   color: var(--glp1-accent);
   background: rgb(var(--color-background));
 }
 
+.bloomli-glp1-listicle__callout-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
 .bloomli-glp1-listicle__callout-title {
-  margin: 0 0 0.8rem;
+  margin: 0 0 0.25rem;
   font-family: var(--font-heading-family);
-  font-size: 2.4rem;
-  font-weight: 400;
-  line-height: 1.15;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
   color: var(--glp1-emphasis);
 }
 
 .bloomli-glp1-listicle__callout-body {
-  max-width: 60ch;
-  line-height: 1.65;
-  opacity: 0.76;
+  max-width: 72ch;
+  font-size: 1.2rem;
+  line-height: 1.55;
+  opacity: 0.6;
 }
 
 @media (prefers-reduced-motion: no-preference) {

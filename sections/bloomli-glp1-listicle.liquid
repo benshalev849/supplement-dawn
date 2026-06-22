@@ -11,82 +11,84 @@
 
 {%- style -%}
   .glp1-list--{{ section.id }} {
-    max-width: 72rem;
+    max-width: 102rem;
     margin: 0 auto;
-    padding: 0 2.2rem;
+    padding: 0 2.4rem;
   }
-  .glp1-list__head--{{ section.id }} { text-align: center; max-width: 46rem; margin: 0 auto 40px; }
+  .glp1-list__head--{{ section.id }} { text-align: center; max-width: 54rem; margin: 0 auto clamp(40px, 6vw, 72px); }
   .glp1-list__title--{{ section.id }} {
     font-family: var(--font-heading-family);
     font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.015em;
-    margin: 0 0 8px;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
     text-wrap: balance;
     font-size: {{ section.settings.heading_size_mobile }}px;
   }
   .glp1-list__title--{{ section.id }} em { font-style: italic; color: {{ emphasis }}; }
-  .glp1-list__intro--{{ section.id }} { opacity: 0.75; margin: 0; line-height: 1.6; }
+  .glp1-list__intro--{{ section.id }} { opacity: 0.68; margin: 0; line-height: 1.6; font-size: 1.6rem; }
 
-  .glp1-list__items--{{ section.id }} { display: flex; flex-direction: column; gap: 22px; }
+  .glp1-list__items--{{ section.id }} { display: flex; flex-direction: column; gap: clamp(44px, 6vw, 76px); }
 
-  .glp1-card--{{ section.id }} {
-    background: {{ section.settings.card_background }};
-    border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(42, 38, 34, 0.07);
-    overflow: hidden;
-  }
+  /* No boxed card — the image carries the weight, text floats in open space */
+  .glp1-card--{{ section.id }} { position: relative; }
+
   .glp1-card__media--{{ section.id }} {
     position: relative;
     background: {{ section.settings.media_background }};
-    border-bottom: 1px solid {{ section.settings.line_color }};
-    min-height: 220px;
+    border-radius: 28px;
+    min-height: 240px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 22px;
+    padding: 26px;
+    box-shadow: 0 34px 64px -36px rgba(42, 38, 34, 0.5);
   }
   .glp1-card__media--{{ section.id }} img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .glp1-card__media-inner--{{ section.id }} { position: absolute; inset: 0; }
   .glp1-card__media-inner--{{ section.id }} img { position: absolute; inset: 0; }
-  .glp1-card__num--{{ section.id }} {
-    position: absolute;
-    top: 16px;
-    left: 20px;
-    z-index: 2;
+  .glp1-card__caption--{{ section.id }} { font-size: 1.3rem; font-style: italic; opacity: 0.5; line-height: 1.6; max-width: 24rem; }
+
+  .glp1-card__body--{{ section.id }} { padding: 24px 2px 0; }
+  .glp1-card__index--{{ section.id }} {
+    display: block;
     font-family: var(--font-heading-family);
     font-weight: 400;
-    font-size: 4.2rem;
+    font-size: 3.6rem;
     line-height: 1;
+    letter-spacing: -0.02em;
     color: {{ accent }};
-    opacity: 0.9;
+    opacity: 0.85;
+    margin: 0 0 10px;
   }
-  .glp1-card__caption--{{ section.id }} { font-size: 1.25rem; font-style: italic; opacity: 0.5; line-height: 1.6; max-width: 22rem; }
-  .glp1-card__body--{{ section.id }} { padding: 28px 30px; }
   .glp1-card__heading--{{ section.id }} {
     font-family: var(--font-heading-family);
     font-weight: 400;
-    font-size: 2.4rem;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
+    font-size: 2.6rem;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
     margin: 0 0 12px;
+    text-wrap: balance;
   }
-  .glp1-card__text--{{ section.id }} { line-height: 1.65; opacity: 0.82; margin: 0; }
+  .glp1-card__text--{{ section.id }} { line-height: 1.7; opacity: 0.82; margin: 0; max-width: 54ch; }
 
   .glp1-callout--{{ section.id }} {
     display: flex;
-    gap: 18px;
+    gap: 20px;
     align-items: flex-start;
     background: {{ section.settings.callout_background }};
-    border-radius: 16px;
-    padding: 30px 28px;
-    margin-top: 22px;
+    border-radius: 26px;
+    padding: clamp(28px, 4vw, 44px);
+    margin-top: clamp(20px, 3vw, 36px);
+    max-width: 86rem;
+    margin-inline: auto;
   }
   .glp1-callout__icon--{{ section.id }} {
     flex: none;
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
     border-radius: 999px;
     background: {{ section.settings.card_background }};
     color: {{ accent }};
@@ -97,45 +99,43 @@
   .glp1-callout__heading--{{ section.id }} {
     font-family: var(--font-heading-family);
     font-weight: 400;
-    font-size: 2.1rem;
+    font-size: 2.2rem;
     line-height: 1.2;
     color: {{ emphasis }};
     margin: 0 0 8px;
   }
-  .glp1-callout__text--{{ section.id }} { margin: 0; line-height: 1.6; }
+  .glp1-callout__text--{{ section.id }} { margin: 0; line-height: 1.65; opacity: 0.85; }
+
+  /* Scroll entrance — transform/opacity only, gated on JS so no-JS stays visible */
+  @media (prefers-reduced-motion: no-preference) {
+    .glp1-js-reveal--{{ section.id }} .glp1-reveal--{{ section.id }} {
+      opacity: 0;
+      transform: translateY(30px);
+      will-change: opacity, transform;
+    }
+    .glp1-js-reveal--{{ section.id }} .glp1-reveal--{{ section.id }}.is-in {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  }
 
   @media screen and (min-width: 750px) {
     .glp1-list__title--{{ section.id }} { font-size: {{ section.settings.heading_size }}px; }
-    .glp1-list__items--{{ section.id }} { gap: 26px; }
 
     .glp1-card--{{ section.id }} {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: stretch;
+      grid-template-columns: 1.02fr 0.98fr;
+      align-items: center;
+      gap: clamp(44px, 5vw, 80px);
     }
-    .glp1-card__media--{{ section.id }} {
-      min-height: 300px;
-      border-bottom: 0;
-    }
+    .glp1-card__media--{{ section.id }} { min-height: 380px; }
     /* Alternate the image side row to row */
-    .glp1-card--{{ section.id }}:nth-of-type(even) .glp1-card__media--{{ section.id }} {
-      order: 2;
-    }
-    .glp1-card--{{ section.id }}:nth-of-type(even) .glp1-card__body--{{ section.id }} {
-      border-right: 1px solid {{ section.settings.line_color }};
-    }
-    .glp1-card--{{ section.id }}:nth-of-type(odd) .glp1-card__body--{{ section.id }} {
-      border-left: 1px solid {{ section.settings.line_color }};
-    }
-    .glp1-card__num--{{ section.id }} { font-size: 5rem; top: 22px; left: 26px; }
-    .glp1-card__body--{{ section.id }} {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 40px 44px;
-    }
-    .glp1-card__heading--{{ section.id }} { font-size: 2.8rem; margin-bottom: 14px; }
-    .glp1-card__text--{{ section.id }} { font-size: 1.6rem; }
+    .glp1-card--{{ section.id }}:nth-of-type(even) .glp1-card__media--{{ section.id }} { order: 2; }
+    .glp1-card__body--{{ section.id }} { padding: 0; }
+    .glp1-card__index--{{ section.id }} { font-size: 5.4rem; margin-bottom: 16px; }
+    .glp1-card__heading--{{ section.id }} { font-size: 3.2rem; margin-bottom: 16px; }
+    .glp1-card__text--{{ section.id }} { font-size: 1.65rem; }
   }
 {%- endstyle -%}
 
@@ -164,9 +164,8 @@
                 assign num = counter | prepend: '0' | slice: -2, 2
               endif
             -%}
-            <article class="glp1-card--{{ section.id }}" {{ block.shopify_attributes }}>
+            <article class="glp1-card--{{ section.id }} glp1-reveal--{{ section.id }}" {{ block.shopify_attributes }}>
               <div class="glp1-card__media--{{ section.id }}">
-                <span class="glp1-card__num--{{ section.id }}">{{ num }}</span>
                 {%- if block.settings.image != blank -%}
                   <span class="glp1-card__media-inner--{{ section.id }}">
                     {{
@@ -174,7 +173,7 @@
                       | image_url: width: 1100
                       | image_tag:
                         widths: '440, 660, 880, 1100',
-                        sizes: '(min-width: 750px) 660px, 100vw',
+                        sizes: '(min-width: 750px) 520px, 100vw',
                         loading: 'lazy',
                         alt: block.settings.title
                     }}
@@ -184,6 +183,7 @@
                 {%- endif -%}
               </div>
               <div class="glp1-card__body--{{ section.id }}">
+                <span class="glp1-card__index--{{ section.id }}">{{ num }}</span>
                 {%- if block.settings.title != blank -%}
                   <h3 class="glp1-card__heading--{{ section.id }}">{{ block.settings.title }}</h3>
                 {%- endif -%}
@@ -194,7 +194,7 @@
             </article>
 
           {%- when 'callout' -%}
-            <div class="glp1-callout--{{ section.id }}" {{ block.shopify_attributes }}>
+            <div class="glp1-callout--{{ section.id }} glp1-reveal--{{ section.id }}" {{ block.shopify_attributes }}>
               {%- if block.settings.show_icon -%}
                 <span class="glp1-callout__icon--{{ section.id }}">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -218,6 +218,25 @@
   </div>
 </div>
 
+<script>
+  (function () {
+    var root = document.getElementById('glp1-why');
+    if (!root) return;
+    var items = root.querySelectorAll('.glp1-reveal--{{ section.id }}');
+    if (!items.length || !('IntersectionObserver' in window)) return;
+    root.classList.add('glp1-js-reveal--{{ section.id }}');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -236,7 +255,7 @@
   "name": "Bloomli — GLP-1 Listicle",
   "tag": "section",
   "class": "section",
-  "enabled_on": { "templates": ["page"] },
+  "enabled_on": { "templates": ["page", "product"] },
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Why women on a GLP-1 add Bloomli <em>to their routine.</em>" },

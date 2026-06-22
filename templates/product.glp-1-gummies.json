@@ -1,14 +1,6 @@
-/* Bloomli — GLP-1 Hair Support page template. Re-registering theme sync. */
+/* Bloomli — GLP-1 Hair Support advertorial PDP. Assign to the GLP-1 gummies product. */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
     "glp1_hero": {
       "type": "bloomli-hero",
       "settings": {
@@ -301,13 +293,39 @@
         "padding_bottom": 56
       }
     },
-    "glp1_offer": {
-      "type": "bloomli-glp1-offer",
+    "glp1_offer_anchor": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"glp1-offers\" style=\"scroll-margin-top:90px\"></div>",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-product",
       "blocks": {
-        "volume_tier": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_HknLNr": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {}
+        },
+        "volume_tier_LC9DxN": {
           "type": "volume_tier",
           "settings": {
-            "heading": "Select Your Size:",
+            "heading": "Subscribe & Save:",
             "override_product_image": "shopify://shop_images/Gummy_Bottle_Transperant.png",
             "add_to_cart_label": "Start your journey",
             "sold_out_label": "Sold out",
@@ -375,19 +393,158 @@
             "onetime_caveat_2": "Free shipping unlocks at 3 packs",
             "total_label": "Total price:"
           }
+        },
+        "bloomli_trust_icons_Rr9XJj": {
+          "type": "bloomli_trust_icons",
+          "settings": {
+            "layout": "horizontal",
+            "gap": 20,
+            "frame_size": 48,
+            "icon_size": 25,
+            "border_radius": 14,
+            "text_size": 15,
+            "icon_color": "#7a2048",
+            "border_color": "#e7c7d3",
+            "text_color": "#2a2622",
+            "show_item_1": true,
+            "icon_1": "shield",
+            "label_1": "30-Day Money Back",
+            "show_item_2": true,
+            "icon_2": "truck",
+            "label_2": "Free Shipping",
+            "show_item_3": true,
+            "icon_3": "cancel",
+            "label_3": "Cancel Anytime"
+          }
+        },
+        "what_youll_feel_JxrGEV": {
+          "type": "what_youll_feel",
+          "settings": {
+            "heading": "What To Expect",
+            "survey_source": "",
+            "disclaimer": "<p><em>* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary.</em></p>",
+            "heading_size": 23,
+            "title_size": 13,
+            "descriptor_size": 11,
+            "percentage_size": 16,
+            "fine_print_size": 9,
+            "icon_size": 20,
+            "card_background_color": "",
+            "heading_color": "#2a2622",
+            "title_color": "#2a2622",
+            "descriptor_color": "#7a2048",
+            "percentage_color": "#7a2048",
+            "fine_print_color": "",
+            "icon_color": "#7a2048",
+            "show_benefit_1": true,
+            "icon_class_1": "ti-sparkles",
+            "image_1": "shopify://shop_images/flower_icon_c82214ba-23ab-48e1-a043-4e53426a79ac.png",
+            "icon_tint_1": "",
+            "icon_color_1": "",
+            "title_1": "Fuller Hair",
+            "descriptor_1": "95% said their hair looked thicker*",
+            "percentage_1": "95%",
+            "show_benefit_2": true,
+            "icon_class_2": "ti-wind",
+            "image_2": "shopify://shop_images/Sparkles_Icon_e63509b6-c226-49de-9685-31c09eebf32c.png",
+            "icon_tint_2": "",
+            "icon_color_2": "",
+            "title_2": "Less Shedding",
+            "descriptor_2": "88% experienced reduced shedding*",
+            "percentage_2": "88%",
+            "show_benefit_3": true,
+            "icon_class_3": "ti-shield-check",
+            "image_3": "shopify://shop_images/Bicep_Icon_7252fa21-eb1d-40cc-b103-f3b181e2f76e.png",
+            "icon_tint_3": "",
+            "icon_color_3": "",
+            "title_3": "Stronger Strands",
+            "descriptor_3": "82% reported less breakage*",
+            "percentage_3": "82%",
+            "show_benefit_4": true,
+            "icon_class_4": "ti-plant-2",
+            "image_4": "shopify://shop_images/Seed_Icon_ebfa19c6-ece3-4eb6-b080-0a903867666f.png",
+            "icon_tint_4": "",
+            "icon_color_4": "",
+            "title_4": "Visible Growth",
+            "descriptor_4": "75% noticed new hair growth*",
+            "percentage_4": "75%",
+            "show_benefit_5": false,
+            "icon_class_5": "ti-leaf",
+            "icon_tint_5": "",
+            "icon_color_5": "",
+            "title_5": "Add another benefit*",
+            "descriptor_5": "replace with a survey-supported descriptor",
+            "percentage_5": "00%"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "bloomli_collapsible_row_QhcdMD": {
+          "type": "bloomli_collapsible_row",
+          "settings": {
+            "title": "How to Take",
+            "content": "<p></p>{{ product.metafields.custom.how_to_take | metafield_tag }}"
+          }
+        },
+        "bloomli_collapsible_row_BBNpQF": {
+          "type": "bloomli_collapsible_row",
+          "settings": {
+            "title": "Ingredients & Allergens",
+            "content": "<p></p>{{ product.metafields.custom.ingredients_allergens | metafield_tag }}"
+          }
+        },
+        "bloomli_collapsible_row_RTP9fp": {
+          "type": "bloomli_collapsible_row",
+          "settings": {
+            "title": "Quality & Certifications",
+            "content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.<br/><br/>Read more in our <a href=\"/pages/science-1\" title=\"Science\">Science Page</a></p>"
+          }
+        },
+        "bloomli_collapsible_row_GgpaUi": {
+          "type": "bloomli_collapsible_row",
+          "settings": {
+            "title": "Shipping & Returns",
+            "content": "<p>We offer free shipping on all subscriptions and on one-time orders over $75.<br/><br/>Orders are processed within 1 to 2 business days and typically arrive within 5 to 7 business days.<br/><br/>Not happy with your results? We offer a 30-day money-back guarantee, no questions asked. <br/><br/>View our full <a href=\"/policies/shipping-policy\" title=\"Shipping Policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\" title=\"Refund Policy\">Refund Policy</a> for complete details.</p>"
+          }
         }
       },
-      "block_order": ["volume_tier"],
+      "block_order": [
+        "title",
+        "judge_me_reviews_preview_badge_HknLNr",
+        "description",
+        "price",
+        "volume_tier_LC9DxN",
+        "bloomli_trust_icons_Rr9XJj",
+        "what_youll_feel_JxrGEV",
+        "variant_picker",
+        "bloomli_collapsible_row_QhcdMD",
+        "bloomli_collapsible_row_BBNpQF",
+        "bloomli_collapsible_row_RTP9fp",
+        "bloomli_collapsible_row_GgpaUi"
+      ],
       "settings": {
+        "enable_sticky_info": true,
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "product": "bloomli-hair-vitamin-gummies",
-        "eyebrow": "The offer",
-        "heading": "Start your <em>hair-support ritual.</em>",
-        "subtext": "<p>Pick your supply. Subscribe and save, with free shipping.</p>",
-        "reassurance": "<p>That is a daily hair ritual built around <strong>two passion-fruit gummies a day.</strong></p>",
-        "guarantee_note": "30-day money-back guarantee",
-        "padding_top": 60,
-        "padding_bottom": 40
+        "enable_floating_cta": true,
+        "floating_cta_label": "Start Your Journey",
+        "floating_cta_threshold": 45,
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
       }
     },
     "glp1_faq": {
@@ -490,14 +647,14 @@
     }
   },
   "order": [
-    "main",
     "glp1_hero",
     "glp1_trust",
     "glp1_mechanism",
     "glp1_listicle",
     "glp1_compare",
     "glp1_reviews",
-    "glp1_offer",
+    "glp1_offer_anchor",
+    "main",
     "glp1_faq",
     "glp1_final_cta"
   ]

@@ -10,7 +10,7 @@
 -%}
 
 {%- style -%}
-  .glp1-cmp--{{ section.id }} { max-width: 84rem; margin: 0 auto; padding: 0 2.2rem; }
+  .glp1-cmp--{{ section.id }} { max-width: 98rem; margin: 0 auto; padding: 0 2.4rem; }
   .glp1-cmp__title--{{ section.id }} {
     font-family: var(--font-heading-family);
     font-weight: 400;
@@ -29,17 +29,17 @@
     align-items: stretch;
   }
   .glp1-cmp__col--{{ section.id }} {
-    border-radius: 18px;
-    padding: 28px 26px;
+    border-radius: 24px;
+    padding: 30px 28px;
     height: 100%;
     background: {{ section.settings.col_background }};
     border: 1px solid {{ section.settings.line_color }};
-    box-shadow: 0 2px 8px rgba(42, 38, 34, 0.06);
+    box-shadow: 0 26px 50px -34px rgba(42, 38, 34, 0.4);
   }
   .glp1-cmp__col--{{ section.id }}.is-featured {
     background: {{ section.settings.featured_background }};
-    border: 2px solid {{ accent }};
-    box-shadow: 0 20px 40px rgba(178, 58, 111, 0.16);
+    border: 1.5px solid {{ accent }};
+    box-shadow: 0 34px 64px -30px rgba(178, 58, 111, 0.42);
   }
   @media screen and (min-width: 750px) {
     .glp1-cmp__col--{{ section.id }}.is-featured { transform: translateY(-10px); }
@@ -141,7 +141,7 @@
   "name": "Bloomli — GLP-1 Compare",
   "tag": "section",
   "class": "section",
-  "enabled_on": { "templates": ["page"] },
+  "enabled_on": { "templates": ["page", "product"] },
   "max_blocks": 4,
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },

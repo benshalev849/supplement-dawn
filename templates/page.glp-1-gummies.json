@@ -556,40 +556,40 @@
         "q1": {
           "type": "question",
           "settings": {
-            "question": "Why is my hair shedding more since I started losing weight?",
-            "answer": "<p>Rapid weight loss can temporarily shift more hairs into their natural resting-and-shedding phase, and eating less can leave gaps in the nutrients hair depends on. For most women it is common and temporary, and nutrition is one part you can actively support.*</p>",
+            "question": "Why can hair shedding increase during rapid weight loss?",
+            "answer": "<p>Rapid weight loss can temporarily shift more hairs into their natural resting-and-shedding phase. Eating less may also make it harder to consistently get the nutrients your hair relies on. This type of shedding is often temporary, but speak with your healthcare provider if it concerns you.*</p>",
             "open_by_default": false
           }
         },
         "q2": {
           "type": "question",
           "settings": {
-            "question": "Will this stop my shedding?",
-            "answer": "<p>No. Bloomli cannot stop shedding. What it can do is support your hair with nutrients it may be missing right now, and help it look fuller over time.* If shedding worries you, talk to your healthcare provider.</p>",
+            "question": "How do Bloomli gummies support my hair?",
+            "answer": "<p>Bloomli provides biotin, marine collagen, zinc, silicon, PABA, iodine, and essential vitamins in one daily formula. These nutrients support stronger, healthier-looking hair from within, but the gummies do not treat or stop hair loss.*</p>",
             "open_by_default": false
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "question": "Can I take this with my medication?",
-            "answer": "<p>Bloomli is a general daily nutritional supplement, not a drug. Because everyone's situation is different, talk to your healthcare provider about adding any supplement alongside your medication.</p>",
+            "question": "Can I take Bloomli with my GLP-1 medication?",
+            "answer": "<p>Bloomli is a nutritional supplement, not a medication. Because everyone’s health and treatment plan are different, ask your healthcare provider before adding it to your routine.</p>",
             "open_by_default": false
           }
         },
         "q4": {
           "type": "question",
           "settings": {
-            "question": "How long until I see a difference?",
-            "answer": "<p>Hair grows in cycles, so meaningful changes take time. Give a consistent routine at least a few months before judging how your hair looks and feels.* Individual experiences vary.</p>",
+            "question": "How do I take the gummies, and when might I notice a difference?",
+            "answer": "<p>Take two passion-fruit gummies daily. Hair grows in cycles, so meaningful changes usually require consistent use for several months. Individual experiences will vary.*</p>",
             "open_by_default": false
           }
         },
         "q5": {
           "type": "question",
           "settings": {
-            "question": "Is it safe, and what's in it?",
-            "answer": "<p>Key actives per two gummies include 6,000mcg biotin, marine collagen, PABA, silicon, zinc, iodine and vitamins A, C, D, E, B6, B12, folate and B5. Gluten-free. Contains fish (tilapia) and tree nuts (coconut); the facility processes common allergens. Made in the USA.</p>",
+            "question": "What is in Bloomli, and does it contain any allergens?",
+            "answer": "<p>Bloomli contains biotin, marine collagen, zinc, iodine, silicon, PABA, and vitamins A, C, D, E, B6, B12, folate, and B5. It is gluten-free but contains fish from tilapia and tree nuts from coconut. It is third-party tested and made in the USA.</p>",
             "open_by_default": false
           }
         },
@@ -597,7 +597,7 @@
           "type": "question",
           "settings": {
             "question": "Can I cancel?",
-            "answer": "<p>Yes. Subscriptions are flexible, so you can pause or cancel anytime, and shipping is free while you subscribe.</p>",
+            "answer": "<p>Yes. Subscriptions are flexible, so you can pause or cancel anytime, no questions asked.<br/>In addition, shipping is always free while you subscribe.</p>",
             "open_by_default": false
           }
         }

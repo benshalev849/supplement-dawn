@@ -1,0 +1,404 @@
+{%- liquid
+  assign source_product = product
+  if source_product == blank
+    assign source_product = section.settings.product
+  endif
+
+  assign variant_images = source_product.images | where: 'attached_to_variant?', true | map: 'src'
+  assign first_3d_model = source_product.media | where: 'media_type', 'model' | first
+-%}
+
+{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+{{ 'bloomli-trust-icons.css' | asset_url | stylesheet_tag }}
+{{ 'what-youll-feel.css' | asset_url | stylesheet_tag }}
+{{ 'bloomli-product-information.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="glp1-offers"
+  class="bloomli-product-information color-{{ section.settings.color_scheme }} gradient"
+  style="
+    --bpi-accent: {{ section.settings.accent_color }};
+    --bpi-emphasis: {{ section.settings.emphasis_color }};
+    --bpi-heading: {{ section.settings.heading_size }}px;
+    --bpi-heading-mobile: {{ section.settings.heading_size_mobile }}px;
+    --bpi-padding-top: {{ section.settings.padding_top }}px;
+    --bpi-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --bpi-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --bpi-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+  data-section="{{ section.id }}"
+  {% if source_product != blank %}data-product-id="{{ source_product.id }}"{% endif %}
+>
+  {%- if section.settings.show_intro -%}
+    <header class="bloomli-product-information__intro">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="bloomli-product-information__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="bloomli-product-information__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <div class="bloomli-product-information__subtext rte">{{ section.settings.subtext }}</div>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+
+  {%- if source_product != blank -%}
+    <div id="bloomli-product-form" class="page-width">
+      <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col{% if source_product.media.size > 0 %} grid--2-col-tablet{% else %} product--no-media{% endif %}">
+        <div class="grid__item product__media-wrapper">
+          {%- render 'product-media-gallery',
+            product: source_product,
+            variant_images: variant_images,
+            first_3d_model: first_3d_model
+          -%}
+        </div>
+
+        <div class="product__info-wrapper grid__item">
+          <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}">
+            {%- if section.settings.show_title -%}
+              <div class="product__title">
+                <h2 class="h1">{{ source_product.title | escape }}</h2>
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_review_badge -%}
+              <div class="bloomli-product-information__rating">
+                <div class="jdgm-widget jdgm-preview-badge" data-id="{{ source_product.id }}">
+                  {{ source_product.metafields.judgeme.badge }}
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_description and source_product.description != blank -%}
+              <div class="bloomli-product-information__description rte">
+                {{ source_product.description }}
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_price -%}
+              <div role="status">
+                {%- render 'price', product: source_product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+              </div>
+            {%- endif -%}
+
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'volume_tier' -%}
+                  {%- render 'bloomli-volume-tier', block: block, product: source_product, section_id: section.id -%}
+
+                {%- when 'trust_icons' -%}
+                  {%- render 'bloomli-trust-icons', block: block -%}
+
+                {%- when 'what_youll_feel' -%}
+                  {%- assign benefits_metafield = source_product.metafields.custom[block.settings.metafield_key] -%}
+                  {%- if block.settings.prefer_product_metafield and benefits_metafield != blank -%}
+                    <div class="what-youll-feel" {{ block.shopify_attributes }}>
+                      <div class="what-youll-feel__card">
+                        {%- if block.settings.heading != blank -%}
+                          <h3 class="what-youll-feel__heading">{{ block.settings.heading }}</h3>
+                        {%- endif -%}
+                        <div class="rte">{{ benefits_metafield | metafield_tag }}</div>
+                      </div>
+                    </div>
+                  {%- else -%}
+                    {%- render 'what-youll-feel', block: block -%}
+                  {%- endif -%}
+
+                {%- when 'product_detail' -%}
+                  {%- liquid
+                    assign detail_namespace = block.settings.metafield_namespace | default: 'custom'
+                    assign detail_key = block.settings.metafield_key
+                    assign detail_metafield = source_product.metafields[detail_namespace][detail_key]
+                  -%}
+                  {%- if detail_metafield != blank or block.settings.fallback_content != blank -%}
+                    <details class="bloomli-product-information__detail" {% if block.settings.open_by_default %}open{% endif %} {{ block.shopify_attributes }}>
+                      <summary>{{ block.settings.title | escape }}</summary>
+                      <div class="bloomli-product-information__detail-content rte">
+                        {%- if detail_metafield != blank -%}
+                          {{ detail_metafield | metafield_tag }}
+                        {%- else -%}
+                          {{ block.settings.fallback_content }}
+                        {%- endif -%}
+                      </div>
+                    </details>
+                  {%- endif -%}
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {%- render 'product-media-modal', product: source_product, variant_images: variant_images -%}
+
+    <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- else -%}
+    <div class="bloomli-product-information__missing">
+      Select a product in this section to display its live product information and purchase options.
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli product info",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["page", "product"] },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "product", "id": "product", "label": "Product for landing pages", "info": "Product templates use the current product automatically. Page templates use this selection." },
+    { "type": "header", "content": "Section introduction" },
+    { "type": "checkbox", "id": "show_intro", "label": "Show section introduction", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Your daily hair-support ritual" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Meet the routine behind <em>healthier-looking hair.</em>" },
+    { "type": "richtext", "id": "subtext", "label": "Subtext", "default": "<p>The original Bloomli gummies product, with live product media, pricing, subscription options and details.</p>" },
+    { "type": "header", "content": "Product information" },
+    { "type": "checkbox", "id": "show_title", "label": "Show product title", "default": true },
+    { "type": "checkbox", "id": "show_review_badge", "label": "Show Judge.me review badge", "default": true },
+    { "type": "checkbox", "id": "show_description", "label": "Show product description", "default": true },
+    { "type": "checkbox", "id": "show_price", "label": "Show standard price above purchase options", "default": false },
+    { "type": "checkbox", "id": "enable_sticky_info", "label": "Sticky product information on desktop", "default": true },
+    { "type": "header", "content": "Gallery" },
+    { "type": "select", "id": "media_size", "label": "Media size", "options": [
+      { "value": "small", "label": "Small" },
+      { "value": "medium", "label": "Medium" },
+      { "value": "large", "label": "Large" }
+    ], "default": "large" },
+    { "type": "checkbox", "id": "constrain_to_viewport", "label": "Constrain media to viewport", "default": true },
+    { "type": "select", "id": "media_fit", "label": "Media fit", "options": [
+      { "value": "contain", "label": "Contain" },
+      { "value": "cover", "label": "Cover" }
+    ], "default": "contain" },
+    { "type": "select", "id": "gallery_layout", "label": "Desktop gallery", "options": [
+      { "value": "stacked", "label": "Stacked" },
+      { "value": "columns", "label": "Columns" },
+      { "value": "thumbnail", "label": "Thumbnails" },
+      { "value": "thumbnail_slider", "label": "Thumbnail slider" }
+    ], "default": "stacked" },
+    { "type": "select", "id": "mobile_thumbnails", "label": "Mobile thumbnails", "options": [
+      { "value": "columns", "label": "Columns" },
+      { "value": "show", "label": "Show" },
+      { "value": "hide", "label": "Hide" }
+    ], "default": "hide" },
+    { "type": "select", "id": "media_position", "label": "Media position", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "right", "label": "Right" }
+    ], "default": "left" },
+    { "type": "select", "id": "image_zoom", "label": "Image zoom", "options": [
+      { "value": "lightbox", "label": "Lightbox" },
+      { "value": "none", "label": "None" }
+    ], "default": "lightbox" },
+    { "type": "checkbox", "id": "hide_variants", "label": "Hide variant media", "default": true },
+    { "type": "checkbox", "id": "enable_video_looping", "label": "Loop videos", "default": false },
+    { "type": "header", "content": "Style" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#B23A6F" },
+    { "type": "color", "id": "emphasis_color", "label": "Emphasis", "default": "#7B2151" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 36, "max": 72, "step": 2, "default": 58, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 30, "max": 46, "step": 2, "default": 38, "unit": "px" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding top", "default": 112 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding bottom", "default": 112 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding top mobile", "default": 72 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding bottom mobile", "default": 72 }
+  ],
+  "blocks": [
+    {
+      "type": "volume_tier",
+      "name": "Purchase options",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Size heading", "default": "Select your delivery:" },
+        { "type": "image_picker", "id": "override_product_image", "label": "Product image override" },
+        { "type": "text", "id": "add_to_cart_label", "label": "Add to cart label", "default": "Start your journey" },
+        { "type": "text", "id": "sold_out_label", "label": "Sold out label", "default": "Sold out" },
+        { "type": "color", "id": "save_badge_background", "label": "Save badge background", "default": "#B23A6F" },
+        { "type": "color", "id": "save_badge_text_color", "label": "Save badge text", "default": "#FDFAF7" },
+        { "type": "color", "id": "tier_tag_background", "label": "Tier tag background", "default": "#8A6678" },
+        { "type": "color", "id": "tier_tag_text_color", "label": "Tier tag text", "default": "#FDFAF7" },
+        { "type": "range", "id": "desktop_tier_title_size", "label": "Tier title size", "min": 8, "max": 18, "step": 1, "default": 14, "unit": "px" },
+        { "type": "range", "id": "desktop_tier_count_size", "label": "Tier description size", "min": 8, "max": 14, "step": 1, "default": 11, "unit": "px" },
+        { "type": "range", "id": "desktop_tier_daily_size", "label": "Daily price size", "min": 8, "max": 14, "step": 1, "default": 9, "unit": "px" },
+        { "type": "header", "content": "Tier 1" },
+        { "type": "checkbox", "id": "tier_1_show", "label": "Show tier 1", "default": true },
+        { "type": "number", "id": "tier_1_qty", "label": "Tier 1 supply count", "default": 1 },
+        { "type": "product", "id": "tier_1_bundle_product", "label": "Tier 1 product" },
+        { "type": "text", "id": "tier_1_bundle_product_handle", "label": "Tier 1 handle fallback" },
+        { "type": "text", "id": "tier_1_label", "label": "Tier 1 label", "default": "Monthly delivery" },
+        { "type": "text", "id": "tier_1_count_text", "label": "Tier 1 description", "default": "A 1-month supply delivered monthly." },
+        { "type": "text", "id": "tier_1_daily_text", "label": "Tier 1 daily text" },
+        { "type": "image_picker", "id": "tier_1_image", "label": "Tier 1 image" },
+        { "type": "text", "id": "tier_1_badge", "label": "Tier 1 badge" },
+        { "type": "text", "id": "tier_1_tag", "label": "Tier 1 tag" },
+        { "type": "number", "id": "tier_1_discount_pct", "label": "Tier 1 volume discount", "default": 0 },
+        { "type": "text", "id": "tier_1_subscription_discount_pct", "label": "Tier 1 subscription total", "default": "15" },
+        { "type": "text", "id": "tier_1_plan_filter", "label": "Tier 1 Appstle filter", "default": "1-pack" },
+        { "type": "checkbox", "id": "tier_1_default", "label": "Select tier 1 by default", "default": true },
+        { "type": "header", "content": "Tier 2" },
+        { "type": "checkbox", "id": "tier_2_show", "label": "Show tier 2", "default": true },
+        { "type": "number", "id": "tier_2_qty", "label": "Tier 2 supply count", "default": 3 },
+        { "type": "product", "id": "tier_2_bundle_product", "label": "Tier 2 product" },
+        { "type": "text", "id": "tier_2_bundle_product_handle", "label": "Tier 2 handle fallback" },
+        { "type": "text", "id": "tier_2_label", "label": "Tier 2 label", "default": "3-month delivery" },
+        { "type": "text", "id": "tier_2_count_text", "label": "Tier 2 description", "default": "A 3-month supply delivered every 3 months." },
+        { "type": "text", "id": "tier_2_daily_text", "label": "Tier 2 daily text" },
+        { "type": "image_picker", "id": "tier_2_image", "label": "Tier 2 image" },
+        { "type": "text", "id": "tier_2_badge", "label": "Tier 2 badge" },
+        { "type": "text", "id": "tier_2_tag", "label": "Tier 2 tag", "default": "Most popular" },
+        { "type": "number", "id": "tier_2_discount_pct", "label": "Tier 2 volume discount", "default": 15 },
+        { "type": "text", "id": "tier_2_subscription_discount_pct", "label": "Tier 2 subscription total", "default": "27.75" },
+        { "type": "text", "id": "tier_2_plan_filter", "label": "Tier 2 Appstle filter", "default": "3-pack" },
+        { "type": "checkbox", "id": "tier_2_default", "label": "Select tier 2 by default", "default": false },
+        { "type": "header", "content": "Tier 3" },
+        { "type": "checkbox", "id": "tier_3_show", "label": "Show tier 3", "default": true },
+        { "type": "number", "id": "tier_3_qty", "label": "Tier 3 supply count", "default": 6 },
+        { "type": "product", "id": "tier_3_bundle_product", "label": "Tier 3 product" },
+        { "type": "text", "id": "tier_3_bundle_product_handle", "label": "Tier 3 handle fallback" },
+        { "type": "text", "id": "tier_3_label", "label": "Tier 3 label", "default": "6-month delivery" },
+        { "type": "text", "id": "tier_3_count_text", "label": "Tier 3 description", "default": "A 6-month supply delivered every 6 months." },
+        { "type": "text", "id": "tier_3_daily_text", "label": "Tier 3 daily text" },
+        { "type": "image_picker", "id": "tier_3_image", "label": "Tier 3 image" },
+        { "type": "text", "id": "tier_3_badge", "label": "Tier 3 badge" },
+        { "type": "text", "id": "tier_3_tag", "label": "Tier 3 tag", "default": "Best value" },
+        { "type": "number", "id": "tier_3_discount_pct", "label": "Tier 3 volume discount", "default": 20 },
+        { "type": "text", "id": "tier_3_subscription_discount_pct", "label": "Tier 3 subscription total", "default": "32" },
+        { "type": "text", "id": "tier_3_plan_filter", "label": "Tier 3 Appstle filter", "default": "6-pack" },
+        { "type": "checkbox", "id": "tier_3_default", "label": "Select tier 3 by default", "default": false },
+        { "type": "header", "content": "Purchase mode" },
+        { "type": "checkbox", "id": "subscribe_enabled", "label": "Show subscription", "default": true },
+        { "type": "text", "id": "subscription_discount_pct", "label": "Subscription discount fallback", "default": "15" },
+        { "type": "text", "id": "discount_badge_template", "label": "Discount badge template", "default": "SAVE [percent]%" },
+        { "type": "select", "id": "default_mode", "label": "Default purchase mode", "options": [
+          { "value": "onetime", "label": "One-time" },
+          { "value": "subscribe", "label": "Subscribe" }
+        ], "default": "subscribe" },
+        { "type": "text", "id": "offer_section_label", "label": "Offer heading", "default": "Select your offer:" },
+        { "type": "text", "id": "label_one_time", "label": "One-time label", "default": "One-time purchase" },
+        { "type": "text", "id": "label_subscribe", "label": "Subscribe label", "default": "Subscribe and save" },
+        { "type": "text", "id": "subscribe_popular_pill", "label": "Subscription bar", "default": "Most popular · Get [percent]% off" },
+        { "type": "checkbox", "id": "subscribe_show_perks", "label": "Show subscription perks", "default": true },
+        { "type": "text", "id": "subscribe_perk_1", "label": "Subscription perk 1", "default": "Free shipping on every delivery" },
+        { "type": "text", "id": "subscribe_perk_2", "label": "Subscription perk 2", "default": "30-day money-back guarantee" },
+        { "type": "text", "id": "subscribe_perk_3", "label": "Subscription perk 3", "default": "Pause or cancel anytime" },
+        { "type": "text", "id": "savings_label_prefix", "label": "Savings prefix", "default": "You're saving" },
+        { "type": "text", "id": "savings_label_suffix", "label": "Savings suffix" },
+        { "type": "text", "id": "onetime_caveat_1", "label": "One-time note 1", "default": "One-time discount" },
+        { "type": "text", "id": "onetime_caveat_2", "label": "One-time note 2", "default": "Free shipping unlocks at 3 packs" },
+        { "type": "text", "id": "total_label", "label": "Total label", "default": "Total price:" }
+      ]
+    },
+    {
+      "type": "trust_icons",
+      "name": "Trust icons",
+      "limit": 1,
+      "settings": [
+        { "type": "select", "id": "layout", "label": "Layout", "options": [
+          { "value": "horizontal", "label": "Horizontal" },
+          { "value": "vertical", "label": "Vertical" }
+        ], "default": "horizontal" },
+        { "type": "range", "id": "gap", "label": "Gap", "min": 8, "max": 32, "step": 2, "default": 20, "unit": "px" },
+        { "type": "range", "id": "frame_size", "label": "Frame size", "min": 32, "max": 64, "step": 2, "default": 48, "unit": "px" },
+        { "type": "range", "id": "icon_size", "label": "Icon size", "min": 16, "max": 36, "step": 1, "default": 25, "unit": "px" },
+        { "type": "range", "id": "border_radius", "label": "Corner radius", "min": 6, "max": 24, "step": 2, "default": 14, "unit": "px" },
+        { "type": "range", "id": "text_size", "label": "Text size", "min": 11, "max": 18, "step": 1, "default": 15, "unit": "px" },
+        { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#7A2048" },
+        { "type": "color", "id": "border_color", "label": "Border color", "default": "#E7C7D3" },
+        { "type": "color", "id": "text_color", "label": "Text color", "default": "#2A2622" },
+        { "type": "checkbox", "id": "show_item_1", "label": "Show item 1", "default": true },
+        { "type": "text", "id": "icon_1", "label": "Item 1 icon", "default": "shield" },
+        { "type": "image_picker", "id": "image_1", "label": "Item 1 image" },
+        { "type": "inline_richtext", "id": "label_1", "label": "Item 1 label", "default": "30-day money back" },
+        { "type": "checkbox", "id": "show_item_2", "label": "Show item 2", "default": true },
+        { "type": "text", "id": "icon_2", "label": "Item 2 icon", "default": "truck" },
+        { "type": "image_picker", "id": "image_2", "label": "Item 2 image" },
+        { "type": "inline_richtext", "id": "label_2", "label": "Item 2 label", "default": "Free subscription shipping" },
+        { "type": "checkbox", "id": "show_item_3", "label": "Show item 3", "default": true },
+        { "type": "text", "id": "icon_3", "label": "Item 3 icon", "default": "cancel" },
+        { "type": "image_picker", "id": "image_3", "label": "Item 3 image" },
+        { "type": "inline_richtext", "id": "label_3", "label": "Item 3 label", "default": "Pause or cancel anytime" }
+      ]
+    },
+    {
+      "type": "what_youll_feel",
+      "name": "Benefits and expectations",
+      "limit": 1,
+      "settings": [
+        { "type": "checkbox", "id": "prefer_product_metafield", "label": "Use product benefits metafield when available", "default": true },
+        { "type": "text", "id": "metafield_key", "label": "Benefits metafield key", "default": "benefits" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "What to expect" },
+        { "type": "richtext", "id": "disclaimer", "label": "Disclaimer", "default": "<p><em>* Individual experiences vary. Review insights are not clinical results.</em></p>" },
+        { "type": "range", "id": "heading_size", "label": "Heading size", "min": 16, "max": 32, "step": 1, "default": 23, "unit": "px" },
+        { "type": "range", "id": "title_size", "label": "Title size", "min": 10, "max": 18, "step": 1, "default": 13, "unit": "px" },
+        { "type": "range", "id": "descriptor_size", "label": "Description size", "min": 9, "max": 16, "step": 1, "default": 11, "unit": "px" },
+        { "type": "range", "id": "percentage_size", "label": "Stat size", "min": 12, "max": 28, "step": 1, "default": 16, "unit": "px" },
+        { "type": "range", "id": "fine_print_size", "label": "Fine print size", "min": 8, "max": 14, "step": 1, "default": 9, "unit": "px" },
+        { "type": "range", "id": "icon_size", "label": "Icon size", "min": 14, "max": 32, "step": 1, "default": 20, "unit": "px" },
+        { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#2A2622" },
+        { "type": "color", "id": "title_color", "label": "Title color", "default": "#2A2622" },
+        { "type": "color", "id": "descriptor_color", "label": "Description color", "default": "#7A2048" },
+        { "type": "color", "id": "percentage_color", "label": "Stat color", "default": "#7A2048" },
+        { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#7A2048" },
+        { "type": "checkbox", "id": "show_benefit_1", "label": "Show benefit 1", "default": true },
+        { "type": "image_picker", "id": "image_1", "label": "Benefit 1 image" },
+        { "type": "text", "id": "icon_class_1", "label": "Benefit 1 icon class", "default": "ti-sparkles" },
+        { "type": "text", "id": "title_1", "label": "Benefit 1 title", "default": "Healthier-looking hair" },
+        { "type": "text", "id": "descriptor_1", "label": "Benefit 1 description", "default": "Supports a fuller-looking routine over time*" },
+        { "type": "text", "id": "percentage_1", "label": "Benefit 1 stat" },
+        { "type": "checkbox", "id": "show_benefit_2", "label": "Show benefit 2", "default": true },
+        { "type": "image_picker", "id": "image_2", "label": "Benefit 2 image" },
+        { "type": "text", "id": "icon_class_2", "label": "Benefit 2 icon class", "default": "ti-wind" },
+        { "type": "text", "id": "title_2", "label": "Benefit 2 title", "default": "A consistent ritual" },
+        { "type": "text", "id": "descriptor_2", "label": "Benefit 2 description", "default": "Two gummies fit easily into the day" },
+        { "type": "text", "id": "percentage_2", "label": "Benefit 2 stat" },
+        { "type": "checkbox", "id": "show_benefit_3", "label": "Show benefit 3", "default": true },
+        { "type": "image_picker", "id": "image_3", "label": "Benefit 3 image" },
+        { "type": "text", "id": "icon_class_3", "label": "Benefit 3 icon class", "default": "ti-shield-check" },
+        { "type": "text", "id": "title_3", "label": "Benefit 3 title", "default": "Nutritional support" },
+        { "type": "text", "id": "descriptor_3", "label": "Benefit 3 description", "default": "A fuller blend than biotin alone*" },
+        { "type": "text", "id": "percentage_3", "label": "Benefit 3 stat" },
+        { "type": "checkbox", "id": "show_benefit_4", "label": "Show benefit 4", "default": true },
+        { "type": "image_picker", "id": "image_4", "label": "Benefit 4 image" },
+        { "type": "text", "id": "icon_class_4", "label": "Benefit 4 icon class", "default": "ti-plant-2" },
+        { "type": "text", "id": "title_4", "label": "Benefit 4 title", "default": "Made with care" },
+        { "type": "text", "id": "descriptor_4", "label": "Benefit 4 description", "default": "Made in the USA in an NSF facility" },
+        { "type": "text", "id": "percentage_4", "label": "Benefit 4 stat" },
+        { "type": "checkbox", "id": "show_benefit_5", "label": "Show benefit 5", "default": false },
+        { "type": "text", "id": "title_5", "label": "Benefit 5 title" },
+        { "type": "text", "id": "descriptor_5", "label": "Benefit 5 description" },
+        { "type": "text", "id": "percentage_5", "label": "Benefit 5 stat" }
+      ]
+    },
+    {
+      "type": "product_detail",
+      "name": "Product detail row",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Product details" },
+        { "type": "text", "id": "metafield_namespace", "label": "Metafield namespace", "default": "custom" },
+        { "type": "text", "id": "metafield_key", "label": "Metafield key", "default": "ingredients_allergens" },
+        { "type": "richtext", "id": "fallback_content", "label": "Fallback content", "info": "Shown only when the product metafield is empty." },
+        { "type": "checkbox", "id": "open_by_default", "label": "Open by default", "default": false }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Bloomli product info",
+    "blocks": [
+      { "type": "volume_tier" },
+      { "type": "trust_icons" },
+      { "type": "what_youll_feel" },
+      { "type": "product_detail", "settings": { "title": "How to take", "metafield_key": "how_to_take" } },
+      { "type": "product_detail", "settings": { "title": "Ingredients and allergens", "metafield_key": "ingredients_allergens" } },
+      { "type": "product_detail", "settings": { "title": "Nutrition information", "metafield_key": "nutrition_information" } },
+      { "type": "product_detail", "settings": { "title": "Quality and certifications", "metafield_key": "quality_certifications" } }
+    ]
+  }]
+}
+{% endschema %}

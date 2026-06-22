@@ -1,0 +1,148 @@
+.bloomli-product-information {
+  padding-block: var(--bpi-padding-top-mobile) var(--bpi-padding-bottom-mobile);
+  scroll-margin-top: 9rem;
+}
+
+.bloomli-product-information__intro {
+  display: grid;
+  gap: 1.4rem;
+  width: min(100% - 3.2rem, 76rem);
+  margin: 0 auto clamp(4rem, 7vw, 7.2rem);
+  text-align: center;
+}
+
+.bloomli-product-information__eyebrow {
+  margin: 0;
+  color: var(--bpi-accent);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bloomli-product-information__heading {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: var(--bpi-heading-mobile);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.bloomli-product-information__heading em {
+  color: var(--bpi-emphasis);
+  font-weight: 400;
+}
+
+.bloomli-product-information__subtext {
+  max-width: 58ch;
+  margin-inline: auto;
+  line-height: 1.7;
+  opacity: 0.74;
+}
+
+.bloomli-product-information .product {
+  align-items: start;
+}
+
+.bloomli-product-information .product__media-wrapper {
+  border-radius: 2.8rem;
+}
+
+.bloomli-product-information .product__media-list {
+  border-radius: 2.8rem;
+  overflow: hidden;
+}
+
+.bloomli-product-information .product__info-container {
+  max-width: 54rem;
+}
+
+.bloomli-product-information .product__title h2 {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: clamp(3.4rem, 4vw, 5.2rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.bloomli-product-information__rating {
+  min-height: 2.4rem;
+  margin-block: 1rem 1.8rem;
+}
+
+.bloomli-product-information__description {
+  max-width: 58ch;
+  margin-bottom: 2.4rem;
+  line-height: 1.7;
+  opacity: 0.78;
+}
+
+.bloomli-product-information__detail {
+  border-top: 1px solid rgba(var(--color-foreground), 0.14);
+}
+
+.bloomli-product-information__detail:last-child {
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.14);
+}
+
+.bloomli-product-information__detail summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.6rem;
+  align-items: center;
+  min-height: 6.2rem;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+
+.bloomli-product-information__detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.bloomli-product-information__detail summary::after {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  content: "";
+  transform: rotate(45deg) translate(-0.2rem, -0.2rem);
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bloomli-product-information__detail[open] summary::after {
+  transform: rotate(225deg) translate(-0.1rem, -0.1rem);
+}
+
+.bloomli-product-information__detail-content {
+  max-width: 62ch;
+  padding: 0 0 2.4rem;
+  line-height: 1.7;
+  opacity: 0.78;
+}
+
+.bloomli-product-information__missing {
+  width: min(100% - 3.2rem, 72rem);
+  margin-inline: auto;
+  padding: 3.2rem;
+  border-radius: 2.4rem;
+  background: rgba(var(--color-foreground), 0.055);
+  text-align: center;
+}
+
+@media screen and (min-width: 750px) {
+  .bloomli-product-information {
+    padding-block: var(--bpi-padding-top) var(--bpi-padding-bottom);
+  }
+
+  .bloomli-product-information__heading {
+    font-size: var(--bpi-heading);
+  }
+
+  .bloomli-product-information .product__info-wrapper {
+    padding-left: clamp(4rem, 6vw, 8rem);
+  }
+}

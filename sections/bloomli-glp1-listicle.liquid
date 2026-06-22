@@ -1,203 +1,87 @@
-{% comment %}
-  Bloomli — GLP-1 listicle.
-  An editorial, numbered list of reasons (image + title + body) with an
-  optional reassurance callout block (e.g. "keep your provider in the loop").
-{% endcomment %}
+{{ 'bloomli-glp1-editorial.css' | asset_url | stylesheet_tag }}
 
-{%- liquid
-  assign accent = section.settings.accent_color
-  assign emphasis = section.settings.emphasis_color
--%}
-
-{%- style -%}
-  .glp1-list--{{ section.id }} {
-    max-width: 102rem;
-    margin: 0 auto;
-    padding: 0 2.4rem;
-  }
-  .glp1-list__head--{{ section.id }} { text-align: center; max-width: 54rem; margin: 0 auto clamp(40px, 6vw, 72px); }
-  .glp1-list__title--{{ section.id }} {
-    font-family: var(--font-heading-family);
-    font-weight: 400;
-    line-height: 1.04;
-    letter-spacing: -0.02em;
-    margin: 0 0 14px;
-    text-wrap: balance;
-    font-size: {{ section.settings.heading_size_mobile }}px;
-  }
-  .glp1-list__title--{{ section.id }} em { font-style: italic; color: {{ emphasis }}; }
-  .glp1-list__intro--{{ section.id }} { opacity: 0.68; margin: 0; line-height: 1.6; font-size: 1.6rem; }
-
-  .glp1-list__items--{{ section.id }} { display: flex; flex-direction: column; gap: clamp(44px, 6vw, 76px); }
-
-  /* No boxed card — the image carries the weight, text floats in open space */
-  .glp1-card--{{ section.id }} { position: relative; }
-
-  .glp1-card__media--{{ section.id }} {
-    position: relative;
-    background: {{ section.settings.media_background }};
-    border-radius: 28px;
-    min-height: 240px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 26px;
-    box-shadow: 0 34px 64px -36px rgba(42, 38, 34, 0.5);
-  }
-  .glp1-card__media--{{ section.id }} img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .glp1-card__media-inner--{{ section.id }} { position: absolute; inset: 0; }
-  .glp1-card__media-inner--{{ section.id }} img { position: absolute; inset: 0; }
-  .glp1-card__caption--{{ section.id }} { font-size: 1.3rem; font-style: italic; opacity: 0.5; line-height: 1.6; max-width: 24rem; }
-
-  .glp1-card__body--{{ section.id }} { padding: 24px 2px 0; }
-  .glp1-card__index--{{ section.id }} {
-    display: block;
-    font-family: var(--font-heading-family);
-    font-weight: 400;
-    font-size: 3.6rem;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    color: {{ accent }};
-    opacity: 0.85;
-    margin: 0 0 10px;
-  }
-  .glp1-card__heading--{{ section.id }} {
-    font-family: var(--font-heading-family);
-    font-weight: 400;
-    font-size: 2.6rem;
-    line-height: 1.12;
-    letter-spacing: -0.015em;
-    margin: 0 0 12px;
-    text-wrap: balance;
-  }
-  .glp1-card__text--{{ section.id }} { line-height: 1.7; opacity: 0.82; margin: 0; max-width: 54ch; }
-
-  .glp1-callout--{{ section.id }} {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    background: {{ section.settings.callout_background }};
-    border-radius: 26px;
-    padding: clamp(28px, 4vw, 44px);
-    margin-top: clamp(20px, 3vw, 36px);
-    max-width: 86rem;
-    margin-inline: auto;
-  }
-  .glp1-callout__icon--{{ section.id }} {
-    flex: none;
-    width: 46px;
-    height: 46px;
-    border-radius: 999px;
-    background: {{ section.settings.card_background }};
-    color: {{ accent }};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .glp1-callout__heading--{{ section.id }} {
-    font-family: var(--font-heading-family);
-    font-weight: 400;
-    font-size: 2.2rem;
-    line-height: 1.2;
-    color: {{ emphasis }};
-    margin: 0 0 8px;
-  }
-  .glp1-callout__text--{{ section.id }} { margin: 0; line-height: 1.65; opacity: 0.85; }
-
-  /* Scroll entrance — transform/opacity only, gated on JS so no-JS stays visible */
-  @media (prefers-reduced-motion: no-preference) {
-    .glp1-js-reveal--{{ section.id }} .glp1-reveal--{{ section.id }} {
-      opacity: 0;
-      transform: translateY(30px);
-      will-change: opacity, transform;
-    }
-    .glp1-js-reveal--{{ section.id }} .glp1-reveal--{{ section.id }}.is-in {
-      opacity: 1;
-      transform: none;
-      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-  }
-
-  @media screen and (min-width: 750px) {
-    .glp1-list__title--{{ section.id }} { font-size: {{ section.settings.heading_size }}px; }
-
-    .glp1-card--{{ section.id }} {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      align-items: center;
-      gap: clamp(44px, 5vw, 80px);
-    }
-    .glp1-card__media--{{ section.id }} { min-height: 380px; }
-    /* Alternate the image side row to row */
-    .glp1-card--{{ section.id }}:nth-of-type(even) .glp1-card__media--{{ section.id }} { order: 2; }
-    .glp1-card__body--{{ section.id }} { padding: 0; }
-    .glp1-card__index--{{ section.id }} { font-size: 5.4rem; margin-bottom: 16px; }
-    .glp1-card__heading--{{ section.id }} { font-size: 3.2rem; margin-bottom: 16px; }
-    .glp1-card__text--{{ section.id }} { font-size: 1.65rem; }
-  }
-{%- endstyle -%}
-
-<div id="glp1-why" class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  <div class="glp1-list--{{ section.id }}">
-    {%- if section.settings.heading != blank or section.settings.intro != blank -%}
-      <div class="glp1-list__head--{{ section.id }}">
+<section
+  id="glp1-why"
+  class="bloomli-glp1-listicle bloomli-glp1-listicle--{{ section.settings.first_media_side }} color-{{ section.settings.color_scheme }} gradient"
+  data-bloomli-glp1-listicle
+  style="
+    --glp1-accent: {{ section.settings.accent_color }};
+    --glp1-emphasis: {{ section.settings.emphasis_color }};
+    --glp1-media: {{ section.settings.media_background }};
+    --glp1-callout: {{ section.settings.callout_background }};
+    --glp1-radius: {{ section.settings.media_radius }}px;
+    --glp1-max-width: {{ section.settings.max_width }}rem;
+    --glp1-heading: {{ section.settings.heading_size }}px;
+    --glp1-heading-mobile: {{ section.settings.heading_size_mobile }}px;
+    --glp1-padding-top: {{ section.settings.padding_top }}px;
+    --glp1-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --glp1-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --glp1-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="bloomli-glp1-listicle__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.intro != blank -%}
+      <header class="bloomli-glp1-listicle__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="bloomli-glp1-listicle__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
         {%- if section.settings.heading != blank -%}
-          <h2 class="glp1-list__title--{{ section.id }}">{{ section.settings.heading }}</h2>
+          <h2 class="bloomli-glp1-listicle__title">{{ section.settings.heading }}</h2>
         {%- endif -%}
         {%- if section.settings.intro != blank -%}
-          <p class="glp1-list__intro--{{ section.id }}">{{ section.settings.intro }}</p>
+          <p class="bloomli-glp1-listicle__intro">{{ section.settings.intro }}</p>
         {%- endif -%}
-      </div>
+      </header>
     {%- endif -%}
 
-    <div class="glp1-list__items--{{ section.id }}">
-      {%- assign counter = 0 -%}
+    <div class="bloomli-glp1-listicle__items">
+      {%- assign reason_index = 0 -%}
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'reason' -%}
-            {%- assign counter = counter | plus: 1 -%}
-            {%- liquid
-              assign num = block.settings.number
-              if num == blank
-                assign num = counter | prepend: '0' | slice: -2, 2
-              endif
-            -%}
-            <article class="glp1-card--{{ section.id }} glp1-reveal--{{ section.id }}" {{ block.shopify_attributes }}>
-              <div class="glp1-card__media--{{ section.id }}">
+            {%- assign reason_index = reason_index | plus: 1 -%}
+            {%- assign reason_number = block.settings.number -%}
+            {%- if reason_number == blank -%}
+              {%- if reason_index < 10 -%}
+                {%- assign reason_number = reason_index | prepend: '0' -%}
+              {%- else -%}
+                {%- assign reason_number = reason_index -%}
+              {%- endif -%}
+            {%- endif -%}
+            <article class="bloomli-glp1-listicle__reason" data-bloomli-reveal {{ block.shopify_attributes }}>
+              <div class="bloomli-glp1-listicle__media bloomli-glp1-listicle__media--{{ section.settings.media_ratio }}">
                 {%- if block.settings.image != blank -%}
-                  <span class="glp1-card__media-inner--{{ section.id }}">
-                    {{
-                      block.settings.image
-                      | image_url: width: 1100
-                      | image_tag:
-                        widths: '440, 660, 880, 1100',
-                        sizes: '(min-width: 750px) 520px, 100vw',
-                        loading: 'lazy',
-                        alt: block.settings.title
-                    }}
-                  </span>
-                {%- elsif block.settings.caption != blank -%}
-                  <span class="glp1-card__caption--{{ section.id }}">{{ block.settings.caption }}</span>
+                  {{
+                    block.settings.image
+                    | image_url: width: 1400
+                    | image_tag:
+                      widths: '420, 640, 840, 1100, 1400',
+                      sizes: '(min-width: 990px) 48vw, (min-width: 750px) 50vw, 100vw',
+                      loading: 'lazy',
+                      alt: block.settings.image.alt | default: block.settings.title
+                  }}
+                {%- else -%}
+                  <div class="bloomli-glp1-listicle__placeholder" aria-hidden="true">
+                    <span class="bloomli-glp1-listicle__placeholder-number">{{ reason_number }}</span>
+                  </div>
                 {%- endif -%}
               </div>
-              <div class="glp1-card__body--{{ section.id }}">
-                <span class="glp1-card__index--{{ section.id }}">{{ num }}</span>
+              <div class="bloomli-glp1-listicle__copy">
+                <span class="bloomli-glp1-listicle__index" aria-hidden="true">{{ reason_number }}</span>
                 {%- if block.settings.title != blank -%}
-                  <h3 class="glp1-card__heading--{{ section.id }}">{{ block.settings.title }}</h3>
+                  <h3 class="bloomli-glp1-listicle__reason-title">{{ block.settings.title }}</h3>
                 {%- endif -%}
                 {%- if block.settings.body != blank -%}
-                  <div class="glp1-card__text--{{ section.id }} rte">{{ block.settings.body }}</div>
+                  <div class="bloomli-glp1-listicle__body rte">{{ block.settings.body }}</div>
                 {%- endif -%}
               </div>
             </article>
 
           {%- when 'callout' -%}
-            <div class="glp1-callout--{{ section.id }} glp1-reveal--{{ section.id }}" {{ block.shopify_attributes }}>
+            <aside class="bloomli-glp1-listicle__callout" data-bloomli-reveal {{ block.shopify_attributes }}>
               {%- if block.settings.show_icon -%}
-                <span class="glp1-callout__icon--{{ section.id }}">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <span class="bloomli-glp1-listicle__callout-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 3l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z"/>
                     <path d="M9 12l2 2 4-4"/>
                   </svg>
@@ -205,107 +89,93 @@
               {%- endif -%}
               <div>
                 {%- if block.settings.heading != blank -%}
-                  <h3 class="glp1-callout__heading--{{ section.id }}">{{ block.settings.heading }}</h3>
+                  <h3 class="bloomli-glp1-listicle__callout-title">{{ block.settings.heading }}</h3>
                 {%- endif -%}
                 {%- if block.settings.body != blank -%}
-                  <div class="glp1-callout__text--{{ section.id }} rte">{{ block.settings.body }}</div>
+                  <div class="bloomli-glp1-listicle__callout-body rte">{{ block.settings.body }}</div>
                 {%- endif -%}
               </div>
-            </div>
+            </aside>
         {%- endcase -%}
       {%- endfor -%}
     </div>
   </div>
-</div>
+</section>
 
-<script>
-  (function () {
-    var root = document.getElementById('glp1-why');
-    if (!root) return;
-    var items = root.querySelectorAll('.glp1-reveal--{{ section.id }}');
-    if (!items.length || !('IntersectionObserver' in window)) return;
-    root.classList.add('glp1-js-reveal--{{ section.id }}');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
-    items.forEach(function (el) { io.observe(el); });
-  })();
-</script>
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
+{%- if section.settings.enable_reveal -%}
+  <script src="{{ 'bloomli-glp1-reveal.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 {% schema %}
 {
-  "name": "Bloomli — GLP-1 Listicle",
+  "name": "Bloomli GLP-1 listicle",
   "tag": "section",
   "class": "section",
   "enabled_on": { "templates": ["page", "product"] },
+  "max_blocks": 6,
   "settings": [
-    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A calmer way to understand it" },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Why women on a GLP-1 add Bloomli <em>to their routine.</em>" },
-    { "type": "text", "id": "intro", "label": "Intro", "default": "Seven honest reasons, written for where you are right now." },
-    { "type": "header", "content": "Colours" },
-    { "type": "color", "id": "accent_color", "label": "Accent (numbers / icon)", "default": "#B23A6F" },
-    { "type": "color", "id": "emphasis_color", "label": "Emphasis (italic / callout heading)", "default": "#7B2151" },
-    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFDFC" },
-    { "type": "color", "id": "media_background", "label": "Image / placeholder background", "default": "#F5EDE4" },
+    { "type": "textarea", "id": "intro", "label": "Introduction", "default": "Five clear reasons, without fear tactics or overnight promises." },
+    { "type": "select", "id": "first_media_side", "label": "First image side", "options": [
+      { "value": "media-first", "label": "Left" },
+      { "value": "reverse", "label": "Right" }
+    ], "default": "media-first" },
+    { "type": "select", "id": "media_ratio", "label": "Image ratio", "options": [
+      { "value": "portrait", "label": "Portrait" },
+      { "value": "landscape", "label": "Landscape" }
+    ], "default": "landscape" },
+    { "type": "range", "id": "media_radius", "label": "Image corner radius", "min": 12, "max": 36, "step": 2, "default": 28, "unit": "px" },
+    { "type": "range", "id": "max_width", "label": "Content width", "min": 88, "max": 120, "step": 4, "default": 112, "unit": "rem" },
+    { "type": "checkbox", "id": "enable_reveal", "label": "Enable subtle scroll reveal", "default": true },
+    { "type": "header", "content": "Optional custom colors" },
+    { "type": "color", "id": "accent_color", "label": "Numbers and accent", "default": "#B23A6F" },
+    { "type": "color", "id": "emphasis_color", "label": "Emphasis", "default": "#7B2151" },
+    { "type": "color", "id": "media_background", "label": "Empty image background", "default": "#F5EDE4" },
     { "type": "color", "id": "callout_background", "label": "Callout background", "default": "#F3E1E5" },
-    { "type": "color", "id": "line_color", "label": "Divider line", "default": "#E8DED8" },
     { "type": "header", "content": "Typography" },
-    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 24, "max": 48, "step": 2, "default": 32, "unit": "px" },
-    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 22, "max": 38, "step": 2, "default": 28, "unit": "px" },
-    { "type": "header", "content": "t:sections.all.padding.section_padding_heading" },
-    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 60 },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 60 }
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 36, "max": 72, "step": 2, "default": 56, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 30, "max": 46, "step": 2, "default": 38, "unit": "px" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding top", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding bottom", "default": 112 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding top mobile", "default": 64 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding bottom mobile", "default": 72 }
   ],
   "blocks": [
     {
       "type": "reason",
       "name": "Reason",
+      "limit": 5,
       "settings": [
-        { "type": "text", "id": "number", "label": "Number override", "info": "Leave blank to auto-number (01, 02, …)." },
+        { "type": "text", "id": "number", "label": "Number override" },
         { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "caption", "label": "Placeholder caption", "info": "Shown only when no image is set." },
         { "type": "text", "id": "title", "label": "Title", "default": "Reason title" },
-        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Describe the reason here.</p>" }
+        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Describe this reason in clear, measured language.</p>" }
       ]
     },
     {
       "type": "callout",
-      "name": "Reassurance callout",
-      "limit": 2,
+      "name": "Provider reassurance",
+      "limit": 1,
       "settings": [
-        { "type": "checkbox", "id": "show_icon", "label": "Show shield icon", "default": true },
+        { "type": "checkbox", "id": "show_icon", "label": "Show icon", "default": true },
         { "type": "text", "id": "heading", "label": "Heading", "default": "Keep your provider in the loop." },
-        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Shedding during rapid weight loss is common and usually temporary. If you are concerned about any side effect on your medication, talk to your healthcare provider. Bloomli is a daily nutritional supplement, not a substitute for medical advice.</p>" }
+        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>If shedding concerns you, talk to your healthcare provider. Bloomli is a nutritional supplement, not medical advice.</p>" }
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "Bloomli — GLP-1 Listicle",
-      "blocks": [
-        { "type": "reason" },
-        { "type": "reason" },
-        { "type": "callout" }
-      ]
-    }
-  ]
+  "presets": [{
+    "name": "Bloomli GLP-1 listicle",
+    "blocks": [
+      { "type": "reason" },
+      { "type": "reason" },
+      { "type": "reason" },
+      { "type": "reason" },
+      { "type": "reason" },
+      { "type": "callout" }
+    ]
+  }]
 }
 {% endschema %}

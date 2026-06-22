@@ -1,11 +1,11 @@
-# Graph Report - supplement-dawn  (2026-06-21)
+# Graph Report - supplement-dawn  (2026-06-22)
 
 ## Corpus Check
-- 45 files · ~1,171,554 words
+- 46 files · ~1,380,927 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 865 nodes · 1598 edges · 66 communities detected
+- 869 nodes · 1602 edges · 67 communities detected
 - Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 118 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
@@ -76,6 +76,7 @@
 - [[_COMMUNITY_Community 64|Community 64]]
 - [[_COMMUNITY_Community 65|Community 65]]
 - [[_COMMUNITY_Community 66|Community 66]]
+- [[_COMMUNITY_Community 67|Community 67]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `BloomliSignupPopup` - 54 edges
@@ -90,15 +91,15 @@
 10. `BulkAdd` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `upgradeLine()` --calls--> `fetchConfig()`  [INFERRED]
-  bloomli-cart-subscription-upsell.js → global.js
-- `upgradeLine()` --calls--> `publish()`  [INFERRED]
-  bloomli-cart-subscription-upsell.js → pubsub.js
+- `constructor()` --calls--> `debounce()`  [INFERRED]
+  cart.js → global.js
+- `show()` --calls--> `trapFocus()`  [INFERRED]
+  pickup-availability.js → global.js
+- `hide()` --calls--> `removeTrapFocus()`  [INFERRED]
+  pickup-availability.js → global.js
 - `constructor()` --calls--> `debounce()`  [INFERRED]
   media-gallery.js → global.js
 - `constructor()` --calls--> `debounce()`  [INFERRED]
-  quick-add-bulk.js → global.js
-- `updateMultipleQty()` --calls--> `fetchConfig()`  [INFERRED]
   quick-add-bulk.js → global.js
 
 ## Hyperedges (group relationships)
@@ -139,23 +140,23 @@
 - **UI Shapes / Structural Elements: Mask Arch, Square, Sparkle GIF, Loading Spinner, Zoom** — mask_arch, square, sparkle_gif, loading_spinner, icon_zoom, category_ui_shapes [INFERRED 0.85]
 - **Platform Branding: Shopify Logo** — icon_shopify, category_platform_branding [EXTRACTED 1.00]
 
-## Communities (70 total, 21 thin omitted)
+## Communities (71 total, 22 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.04
-Nodes (29): AccountIcon, BulkModal, CartPerformance, DeferredMedia, focusVisiblePolyfill(), getFocusableElements(), HeaderDrawer, HTMLUpdateUtility (+21 more)
+Nodes (22): DetailsModal, AccountIcon, BulkModal, CartPerformance, debounce(), DeferredMedia, focusVisiblePolyfill(), getFocusableElements() (+14 more)
 
 ### Community 2 - "Community 2"
+Cohesion: 0.11
+Nodes (32): closeFrequencyMenus(), getSectionInnerHTML(), getSections(), replaceCartSections(), setFrequencyDisplay(), setMenuOpen(), updateFrequency(), updateLineQuantity() (+24 more)
+
+### Community 3 - "Community 3"
 Cohesion: 0.13
 Nodes (36): beginFrameSubmission(), bindSignupForm(), clearActiveSubmission(), clearNewsletterMessages(), extractErrorMessage(), findSectionScopedElement(), finishFrameSubmission(), getCaptchaTokenInput() (+28 more)
 
-### Community 3 - "Community 3"
+### Community 4 - "Community 4"
 Cohesion: 0.09
 Nodes (7): initializeScrollAnimationTrigger(), initializeScrollZoomAnimationTrigger(), onIntersection(), percentageSeen(), FacetFiltersForm, FacetRemove, PriceRange
-
-### Community 4 - "Community 4"
-Cohesion: 0.14
-Nodes (22): closeFrequencyMenus(), getSectionInnerHTML(), getSections(), replaceCartSections(), setFrequencyDisplay(), setMenuOpen(), updateFrequency(), updateLineQuantity() (+14 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.15
@@ -166,16 +167,16 @@ Cohesion: 0.15
 Nodes (28): addPreProcessCallback(), buildRequestUrlWithParams(), connectedCallback(), constructor(), disconnectedCallback(), fetchQuantityRules(), getSelectedVariant(), handleOptionValueChange() (+20 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.1
-Nodes (5): CartItems, CartRemoveButton, constructor(), debounce(), SearchForm
-
-### Community 8 - "Community 8"
 Cohesion: 0.17
 Nodes (27): build_parser(), cmd_generate(), cmd_seed_memory(), cmd_validate(), ensure_dirs(), entry_from_csv_row(), first_present(), generate_batch() (+19 more)
 
-### Community 11 - "Community 11"
+### Community 10 - "Community 10"
 Cohesion: 0.26
 Nodes (16): clamp(), getActiveIndex(), getActiveSnapIndex(), getAdjacentSnapIndex(), getCards(), getCardScrollLeft(), getMaxScroll(), getSnapPoints() (+8 more)
+
+### Community 11 - "Community 11"
+Cohesion: 0.15
+Nodes (3): CartItems, CartRemoveButton, constructor()
 
 ### Community 12 - "Community 12"
 Cohesion: 0.14
@@ -185,17 +186,17 @@ Nodes (19): Shopify Dawn License, Contributing Guide, Dawn Theme, GitHub Actions
 Cohesion: 0.14
 Nodes (18): E-Commerce / Shopping Icons Group, Platform Branding Icons Group, UI Feedback Icons Group, UI Shapes / Structural Elements Group, Shoe Icon, Shopify Logo Icon, Person Silhouette / User Account Icon, Star / Rating Icon (+10 more)
 
-### Community 14 - "Community 14"
-Cohesion: 0.3
-Nodes (14): cleanErrorMessageOnType(), connectedCallback(), constructor(), disconnectedCallback(), getSectionsToRender(), getSectionsUrl(), input(), listenForActiveInput() (+6 more)
+### Community 15 - "Community 15"
+Cohesion: 0.32
+Nodes (13): cleanErrorMessageOnType(), constructor(), disconnectedCallback(), getSectionsToRender(), getSectionsUrl(), input(), listenForActiveInput(), listenForKeydown() (+5 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.3
-Nodes (13): closeSelector(), constructor(), filterCountries(), hidePanel(), normalizeString(), onContainerKeyDown(), onContainerKeyUp(), onItemClick() (+5 more)
-
-### Community 17 - "Community 17"
 Cohesion: 0.36
 Nodes (13): clearErrorMessage(), clearInputFields(), connectedCallback(), constructor(), createErrorListItem(), disableableFields(), disableInputFields(), disconnectedCallback() (+5 more)
+
+### Community 17 - "Community 17"
+Cohesion: 0.3
+Nodes (13): closeSelector(), constructor(), filterCountries(), hidePanel(), normalizeString(), onContainerKeyDown(), onContainerKeyUp(), onItemClick() (+5 more)
 
 ### Community 18 - "Community 18"
 Cohesion: 0.27
@@ -218,12 +219,12 @@ Cohesion: 0.32
 Nodes (11): captureSequence(), findBrowser(), inspectDocument(), isolateEmail(), main(), parseArgs(), planSegments(), printHelp() (+3 more)
 
 ### Community 23 - "Community 23"
-Cohesion: 0.49
-Nodes (9): createCombinedLoadingOverlay(), getRequestedSections(), getSectionInnerHTML(), replaceCartDrawerSections(), replaceCartIcon(), replaceMainCartSections(), setLoading(), showCartError() (+1 more)
-
-### Community 24 - "Community 24"
 Cohesion: 0.47
 Nodes (9): getCards(), getMaxScroll(), getStep(), getViewport(), initAll(), initCarousel(), prefersReducedMotion(), scrollCarousel() (+1 more)
+
+### Community 25 - "Community 25"
+Cohesion: 0.4
+Nodes (9): constructor(), fetchAvailability(), handleBodyClick(), hide(), onClickRefreshList(), renderError(), renderPreview(), show() (+1 more)
 
 ### Community 26 - "Community 26"
 Cohesion: 0.42
@@ -245,15 +246,15 @@ Nodes (7): clamp(), getDesktopProgress(), getMobileProgress(), requestUpdate(), 
 Cohesion: 0.42
 Nodes (7): ensureDollarPrefix(), formatDiscount(), formatMoney(), formatTemplate(), init(), initRoot(), parseCents()
 
-### Community 35 - "Community 35"
+### Community 34 - "Community 34"
 Cohesion: 0.47
 Nodes (7): connectedCallback(), constructor(), disconnectedCallback(), getCartQuantity(), getVolumePricingArray(), onInputChange(), updatePricePerItem()
 
-### Community 36 - "Community 36"
+### Community 35 - "Community 35"
 Cohesion: 0.25
 Nodes (9): Social Media Share Icons, Facebook Social Media Icon, Instagram Social Media Icon, Snapchat Social Media Icon, TikTok Social Media Icon, Tumblr Social Media Icon, Twitter / X Social Media Icon, Vimeo Social Media Icon (+1 more)
 
-### Community 38 - "Community 38"
+### Community 37 - "Community 37"
 Cohesion: 0.54
 Nodes (6): createOverlay(), enableZoomOnHover(), magnify(), moveWithHover(), prepareOverlay(), toggleLoadingSpinner()
 
@@ -293,31 +294,31 @@ Nodes (3): closePopover(), constructor(), togglePopover()
 Cohesion: 0.7
 Nodes (4): count_exact_dups(), count_pairs(), normalize(), sim()
 
-### Community 50 - "Community 50"
+### Community 51 - "Community 51"
 Cohesion: 0.5
 Nodes (4): Icon: Account (User Profile), Icon: Cart Empty, Icon: Cart (Shopping Bag), Icon: Chat Bubble (Message/Support)
 
-### Community 51 - "Community 51"
+### Community 52 - "Community 52"
 Cohesion: 0.83
 Nodes (4): UI Status / Feedback Icons, Error / Alert Status Icon, Info / Tooltip Icon, Inventory / Stock Status Indicator Icon
 
-### Community 52 - "Community 52"
+### Community 53 - "Community 53"
 Cohesion: 0.5
 Nodes (4): UI Navigation Icons, Filter / Sort Controls Icon, Hamburger / Navigation Menu Icon, Map Pin / Location Icon
 
-### Community 53 - "Community 53"
+### Community 54 - "Community 54"
 Cohesion: 0.67
 Nodes (4): Laundry / Material Care Icons, Dryer / Laundry Care Icon, Iron / Laundry Care Icon, Leather / Material Care Icon
-
-### Community 56 - "Community 56"
-Cohesion: 1.0
-Nodes (3): Plus / Add Icon, Remove / Trash Icon, Reset / Close Icon
 
 ### Community 57 - "Community 57"
 Cohesion: 1.0
 Nodes (3): Pants Icon, Ruler / Measurement Icon, Shirt / T-Shirt Icon
 
 ### Community 58 - "Community 58"
+Cohesion: 1.0
+Nodes (3): Plus / Add Icon, Remove / Trash Icon, Reset / Close Icon
+
+### Community 59 - "Community 59"
 Cohesion: 1.0
 Nodes (3): Product / Care Instructions Icons Group, Snowflake / Cold Storage Icon, Washing / Care Instructions Icon
 
@@ -328,19 +329,19 @@ Nodes (3): Product / Care Instructions Icons Group, Snowflake / Cold Storage Ico
 ## Knowledge Gaps
 - **47 isolated node(s):** `Shopify Dawn License`, `Online Store 2.0`, `Progressive Enhancement`, `Shopify CLI`, `Shopify Theme Store` (+42 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **21 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **22 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Shoe Icon` and `Arch Shape Clip Path Mask`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `fetchConfig()` connect `Community 4` to `Community 0`, `Community 5`, `Community 7`, `Community 14`, `Community 23`?**
-  _High betweenness centrality (0.093) - this node is a cross-community bridge._
-- **Why does `removeTrapFocus()` connect `Community 0` to `Community 1`, `Community 33`, `Community 25`, `Community 15`?**
-  _High betweenness centrality (0.082) - this node is a cross-community bridge._
-- **Why does `BloomliSignupPopup` connect `Community 1` to `Community 2`?**
-  _High betweenness centrality (0.077) - this node is a cross-community bridge._
+- **Why does `fetchConfig()` connect `Community 2` to `Community 0`, `Community 11`, `Community 5`, `Community 15`?**
+  _High betweenness centrality (0.092) - this node is a cross-community bridge._
+- **Why does `removeTrapFocus()` connect `Community 0` to `Community 24`, `Community 1`, `Community 14`, `Community 25`?**
+  _High betweenness centrality (0.081) - this node is a cross-community bridge._
+- **Why does `BloomliSignupPopup` connect `Community 1` to `Community 3`?**
+  _High betweenness centrality (0.076) - this node is a cross-community bridge._
 - **What connects `Shopify Dawn License`, `Online Store 2.0`, `Progressive Enhancement` to the rest of the system?**
   _47 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**

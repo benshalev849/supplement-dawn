@@ -1862,7 +1862,7 @@
         "type": "text",
         "id": "cart_line_subscription_upsell_heading",
         "label": "Heading text",
-        "default": "Subscribe & Save an Extra 23%"
+        "default": "Subscribe & Save an Extra 15%"
       },
       {
         "type": "text",
@@ -1919,13 +1919,13 @@
         "type": "text",
         "id": "cart_line_subscription_upsell_discount_text",
         "label": "CTA discount text",
-        "default": "23"
+        "default": "15"
       },
       {
         "type": "text",
         "id": "cart_line_subscription_upsell_discount_pct",
         "label": "Subscription discount percent",
-        "default": "23",
+        "default": "15",
         "info": "Used for the CTA label fallback and matching the displayed subscription discount."
       },
       {
@@ -2028,7 +2028,7 @@
         "min": 0,
         "max": 50,
         "step": 1,
-        "default": 20,
+        "default": 15,
         "info": "Override per product via metafield bloomli.subscription_discount_pct."
       },
       {
@@ -2091,7 +2091,7 @@
         "min": 0,
         "max": 50,
         "step": 1,
-        "default": 20,
+        "default": 15,
         "info": "Display-only. Applied to add-on price when supplement is also in cart. Override per product via metafield bloomli.bundle_add_on_discount_pct."
       },
       {
@@ -2150,7 +2150,7 @@
         "type": "text",
         "id": "bloomli_routine_upsell_addon_discount_pct",
         "label": "Add-on Pair & Save discount percent",
-        "default": "20",
+        "default": "15",
         "info": "Discount applied to the add-on price in the upsell card. Set to 0 to show regular price."
       },
       {
@@ -2201,7 +2201,7 @@
         "type": "text",
         "id": "bloomli_routine_upsell_subscription_discount_pct",
         "label": "Subscription discount percent",
-        "default": "20",
+        "default": "15",
         "info": "Discount applied first when a subscription is active. For the add-on, the Pair & Save discount is also stacked on top."
       },
       {

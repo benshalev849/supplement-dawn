@@ -1,4 +1,4 @@
-/* Bloomli — GLP-1 Hair Support page template. Re-registering theme sync. */
+/* Bloomli GLP-1 Hair Support page template. Re-registering theme sync. */
 {
   "sections": {
     "main": {
@@ -43,7 +43,7 @@
           "settings": {
             "icon": "pill",
             "label": "6,000mcg Biotin",
-            "body": "The studied dose for hair, skin and nail support."
+            "body": "A daily amount for hair, skin and nail support.*"
           }
         },
         "p2": {
@@ -59,7 +59,7 @@
           "settings": {
             "icon": "shield-check",
             "label": "Tested, Made in the USA",
-            "body": "NSF/GMP-registered facility, with a COA on file."
+            "body": "Made in an NSF/GMP facility, with a COA on file."
           }
         }
       },
@@ -112,7 +112,6 @@
           "type": "reason",
           "settings": {
             "title": "Why hair sheds during rapid weight loss",
-            "caption": "Close-up of a hairbrush by a sunlit bathroom sink — calm, not clinical",
             "body": "<p>Rapid weight loss can nudge more of your hair into its natural resting-and-shedding phase, and eating less often means fewer of the nutrients hair relies on are coming in. It is common, and for most women it is temporary.*</p>"
           }
         },
@@ -120,7 +119,6 @@
           "type": "reason",
           "settings": {
             "title": "It fills the nutrient gaps that matter for hair",
-            "caption": "Flat-lay of the gummy bottle with passion fruit and B-vitamin-rich foods",
             "body": "<p>Smaller meals can mean less biotin, zinc, B-vitamins and protein reaching your hair. Bloomli delivers 6,000mcg biotin, marine collagen, zinc and a full B-complex to help fill the gaps that matter most.*</p>"
           }
         },
@@ -128,7 +126,6 @@
           "type": "reason",
           "settings": {
             "title": "Biotin, done right",
-            "caption": "Two passion-fruit gummies resting in an open palm on a cream surface",
             "body": "<p>Biotin on its own is only part of the story. Bloomli pairs 6,000mcg biotin with PABA and a full B-complex, so it works as part of a fuller routine rather than a single nutrient doing all the lifting.*</p>"
           }
         },
@@ -136,32 +133,14 @@
           "type": "reason",
           "settings": {
             "title": "Two gummies, nothing to choke down",
-            "caption": "Woman 35–45 smiling, taking her morning gummies in a bright kitchen",
-            "body": "<p>Appetite and nausea can already be a lot on a GLP-1. Bloomli is two passion-fruit gummies a day, not another large capsule to get down.</p>"
+            "body": "<p>Adding another complicated step can feel like a lot. Bloomli is two passion-fruit gummies a day, not another large capsule to swallow.</p>"
           }
         },
         "r5": {
           "type": "reason",
           "settings": {
             "title": "A simple daily ritual that fits your new routine",
-            "caption": "Bottle on a bathroom shelf beside a glass of water — a daily ritual",
             "body": "<p>Hair responds to consistency more than intensity. Two gummies a day is the kind of small habit that is easy to keep while so much else about your routine is changing.</p>"
-          }
-        },
-        "r6": {
-          "type": "reason",
-          "settings": {
-            "title": "Built for the long game",
-            "caption": "Woman running fingers through healthy, down hair in soft natural light",
-            "body": "<p>Hair grows in cycles, so this is a slow build. Roughly 4 to 12 weeks to support the look of less shedding, and 3 to 6 months for fuller-looking hair.* No overnight promises. The women who notice the most are the ones who stay consistent.</p>"
-          }
-        },
-        "r7": {
-          "type": "reason",
-          "settings": {
-            "title": "Tested, transparent, made in the USA",
-            "caption": "The bottle on a clean cream surface with a folded COA document beside it",
-            "body": "<p>COA and lot-testing documents on file. Made in the USA in an NSF/GMP-registered facility. Simple, traceable, and made to a standard you can ask us about.</p>"
           }
         },
         "provider": {
@@ -173,13 +152,23 @@
           }
         }
       },
-      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6", "r7", "provider"],
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "provider"],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "eyebrow": "A calmer way to understand it",
         "heading": "Why women on a GLP-1 <em>add Bloomli.</em>",
-        "intro": "Honest reasons, written for where you are right now.",
-        "padding_top": 52,
-        "padding_bottom": 52
+        "intro": "Five clear reasons, without fear tactics or overnight promises.",
+        "first_media_side": "media-first",
+        "media_ratio": "landscape",
+        "media_radius": 28,
+        "max_width": 112,
+        "enable_reveal": true,
+        "heading_size": 56,
+        "heading_size_mobile": 38,
+        "padding_top": 96,
+        "padding_bottom": 112,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 72
       }
     },
     "glp1_compare": {
@@ -189,10 +178,10 @@
           "type": "column",
           "settings": {
             "featured": true,
-            "badge": "Recommended",
+            "badge": "The fuller routine",
             "title": "Bloomli Hair Gummies",
             "positive": true,
-            "rows": "Full blend: biotin + marine collagen + zinc + B-complex*\nTwo passion-fruit gummies a day\nHonest 4–12 week timeline*\nMade in the USA, COA on file"
+            "rows": "Biotin, marine collagen, zinc and B vitamins*\nTwo passion-fruit gummies a day\nDesigned for a consistent daily routine\nMade in the USA, COA on file"
           }
         },
         "biotin": {
@@ -201,7 +190,7 @@
             "featured": false,
             "title": "Plain biotin",
             "positive": false,
-            "rows": "Biotin only, no fuller blend\nTablet or capsule to swallow\nNo clear timeline\nQuality varies by brand"
+            "rows": "A single nutrient\nOften a tablet or capsule\nNo supporting blend\nQuality depends on the brand"
           }
         },
         "nothing": {
@@ -210,16 +199,23 @@
             "featured": false,
             "title": "Doing nothing",
             "positive": false,
-            "rows": "No added nutrients for hair\nNothing to take\nNutrient gaps may persist*\nNothing tested or tracked"
+            "rows": "No added nutritional support\nNo daily supplement step\nDietary gaps may remain*\nNo product quality standard"
           }
         }
       },
       "block_order": ["bloomli", "biotin", "nothing"],
       "settings": {
         "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
+        "eyebrow": "A clearer comparison",
         "heading": "A fuller routine, <em>not just biotin.</em>",
-        "padding_top": 56,
-        "padding_bottom": 56
+        "intro": "The difference is not a louder promise. It is a more complete daily formula and a routine you can keep.",
+        "column_radius": 28,
+        "heading_size": 54,
+        "heading_size_mobile": 38,
+        "padding_top": 112,
+        "padding_bottom": 112,
+        "padding_top_mobile": 72,
+        "padding_bottom_mobile": 72
       }
     },
     "glp1_reviews": {
@@ -302,7 +298,7 @@
       }
     },
     "glp1_offer": {
-      "type": "bloomli-glp1-offer",
+      "type": "bloomli-product-information",
       "blocks": {
         "volume_tier": {
           "type": "volume_tier",
@@ -328,7 +324,7 @@
             "tier_1_badge": "",
             "tier_1_tag": "",
             "tier_1_discount_pct": 0,
-            "tier_1_subscription_discount_pct": "20",
+            "tier_1_subscription_discount_pct": "15",
             "tier_1_plan_filter": "1-pack",
             "tier_1_default": true,
             "tier_2_show": true,
@@ -340,8 +336,8 @@
             "tier_2_daily_text": "",
             "tier_2_badge": "",
             "tier_2_tag": "Most Popular",
-            "tier_2_discount_pct": 10,
-            "tier_2_subscription_discount_pct": "28",
+            "tier_2_discount_pct": 15,
+            "tier_2_subscription_discount_pct": "27.75",
             "tier_2_plan_filter": "3-pack",
             "tier_2_default": false,
             "tier_3_show": true,
@@ -353,12 +349,12 @@
             "tier_3_daily_text": "",
             "tier_3_badge": "",
             "tier_3_tag": "Best Value",
-            "tier_3_discount_pct": 15,
+            "tier_3_discount_pct": 20,
             "tier_3_subscription_discount_pct": "32",
             "tier_3_plan_filter": "6-pack",
             "tier_3_default": false,
             "subscribe_enabled": true,
-            "subscription_discount_pct": "20",
+            "subscription_discount_pct": "15",
             "discount_badge_template": "SAVE [percent]%",
             "default_mode": "subscribe",
             "offer_section_label": "Select Your Offer:",
@@ -375,19 +371,152 @@
             "onetime_caveat_2": "Free shipping unlocks at 3 packs",
             "total_label": "Total price:"
           }
+        },
+        "trust_icons": {
+          "type": "trust_icons",
+          "settings": {
+            "layout": "horizontal",
+            "gap": 20,
+            "frame_size": 48,
+            "icon_size": 25,
+            "border_radius": 14,
+            "text_size": 15,
+            "icon_color": "#7a2048",
+            "border_color": "#e7c7d3",
+            "text_color": "#2a2622",
+            "show_item_1": true,
+            "icon_1": "shield",
+            "label_1": "30-day money back",
+            "show_item_2": true,
+            "icon_2": "truck",
+            "label_2": "Free subscription shipping",
+            "show_item_3": true,
+            "icon_3": "cancel",
+            "label_3": "Pause or cancel anytime"
+          }
+        },
+        "benefits": {
+          "type": "what_youll_feel",
+          "settings": {
+            "prefer_product_metafield": true,
+            "metafield_key": "benefits",
+            "heading": "What to expect",
+            "disclaimer": "<p><em>* Individual experiences vary. This is nutritional support, not medical advice.</em></p>",
+            "heading_size": 23,
+            "title_size": 13,
+            "descriptor_size": 11,
+            "percentage_size": 16,
+            "fine_print_size": 9,
+            "icon_size": 20,
+            "heading_color": "#2a2622",
+            "title_color": "#2a2622",
+            "descriptor_color": "#7a2048",
+            "percentage_color": "#7a2048",
+            "icon_color": "#7a2048",
+            "show_benefit_1": true,
+            "icon_class_1": "ti-sparkles",
+            "title_1": "Healthier-looking hair",
+            "descriptor_1": "Supports a fuller-looking routine over time*",
+            "percentage_1": "",
+            "show_benefit_2": true,
+            "icon_class_2": "ti-wind",
+            "title_2": "A consistent ritual",
+            "descriptor_2": "Two gummies fit easily into the day",
+            "percentage_2": "",
+            "show_benefit_3": true,
+            "icon_class_3": "ti-shield-check",
+            "title_3": "Nutritional support",
+            "descriptor_3": "A fuller blend than biotin alone*",
+            "percentage_3": "",
+            "show_benefit_4": true,
+            "icon_class_4": "ti-plant-2",
+            "title_4": "Made with care",
+            "descriptor_4": "Made in the USA in an NSF facility",
+            "percentage_4": "",
+            "show_benefit_5": false
+          }
+        },
+        "how_to_take": {
+          "type": "product_detail",
+          "settings": {
+            "title": "How to take",
+            "metafield_namespace": "custom",
+            "metafield_key": "how_to_take",
+            "fallback_content": "<p>Take two gummies daily. Keep your healthcare provider informed about every supplement in your routine.</p>",
+            "open_by_default": false
+          }
+        },
+        "ingredients": {
+          "type": "product_detail",
+          "settings": {
+            "title": "Ingredients and allergens",
+            "metafield_namespace": "custom",
+            "metafield_key": "ingredients_allergens",
+            "fallback_content": "<p>Key ingredients include 6,000mcg biotin, marine collagen, PABA, silicon, zinc, iodine and vitamins A, C, D, E, B6, B12, folate and B5. Gluten-free. Contains fish (tilapia) and tree nut (coconut).</p>",
+            "open_by_default": false
+          }
+        },
+        "nutrition": {
+          "type": "product_detail",
+          "settings": {
+            "title": "Nutrition information",
+            "metafield_namespace": "custom",
+            "metafield_key": "nutrition_information",
+            "fallback_content": "<p>Serving size: two gummies. See the product label in the gallery for the complete Supplement Facts panel.</p>",
+            "open_by_default": false
+          }
+        },
+        "quality": {
+          "type": "product_detail",
+          "settings": {
+            "title": "Quality and certifications",
+            "metafield_namespace": "custom",
+            "metafield_key": "quality_certifications",
+            "fallback_content": "<p>Made in the USA in an NSF and GMP facility. A certificate of analysis is kept on file.</p>",
+            "open_by_default": false
+          }
+        },
+        "shipping": {
+          "type": "product_detail",
+          "settings": {
+            "title": "Shipping and returns",
+            "metafield_namespace": "custom",
+            "metafield_key": "shipping_returns",
+            "fallback_content": "<p>Subscription deliveries include free shipping and can be paused or canceled. Eligible purchases are covered by Bloomli's 30-day money-back guarantee.</p>",
+            "open_by_default": false
+          }
         }
       },
-      "block_order": ["volume_tier"],
+      "block_order": ["volume_tier", "trust_icons", "benefits", "how_to_take", "ingredients", "nutrition", "quality", "shipping"],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "product": "bloomli-hair-vitamin-gummies",
-        "eyebrow": "The offer",
-        "heading": "Start your <em>hair-support ritual.</em>",
-        "subtext": "<p>Pick your supply. Subscribe and save, with free shipping.</p>",
-        "reassurance": "<p>That is a daily hair ritual built around <strong>two passion-fruit gummies a day.</strong></p>",
-        "guarantee_note": "30-day money-back guarantee",
-        "padding_top": 60,
-        "padding_bottom": 40
+        "show_intro": true,
+        "eyebrow": "Your daily hair-support ritual",
+        "heading": "Meet the routine behind <em>healthier-looking hair.</em>",
+        "subtext": "<p>Two passion-fruit gummies a day, with live product media, pricing, subscription options and details.</p>",
+        "show_title": true,
+        "show_review_badge": true,
+        "show_description": true,
+        "show_price": false,
+        "enable_sticky_info": true,
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "accent_color": "#b23a6f",
+        "emphasis_color": "#7b2151",
+        "heading_size": 58,
+        "heading_size_mobile": 38,
+        "padding_top": 112,
+        "padding_bottom": 112,
+        "padding_top_mobile": 72,
+        "padding_bottom_mobile": 72
       }
     },
     "glp1_faq": {
@@ -421,7 +550,7 @@
           "type": "question",
           "settings": {
             "question": "How long until I see a difference?",
-            "answer": "<p>Hair grows in cycles, so give it time. Roughly 4 to 12 weeks to support the look of less shedding, and 3 to 6 months for fuller-looking hair.* Consistency matters more than anything.</p>",
+            "answer": "<p>Hair grows in cycles, so meaningful changes take time. Give a consistent routine at least a few months before judging how your hair looks and feels.* Individual experiences vary.</p>",
             "open_by_default": false
           }
         },
@@ -490,7 +619,6 @@
     }
   },
   "order": [
-    "main",
     "glp1_hero",
     "glp1_trust",
     "glp1_mechanism",
@@ -499,6 +627,7 @@
     "glp1_reviews",
     "glp1_offer",
     "glp1_faq",
-    "glp1_final_cta"
+    "glp1_final_cta",
+    "main"
   ]
 }

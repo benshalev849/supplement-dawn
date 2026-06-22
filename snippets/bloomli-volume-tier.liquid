@@ -36,14 +36,24 @@
   assign default_plan_id = ''
   assign subscribe_enabled = block.settings.subscribe_enabled
   assign default_mode = block.settings.default_mode | default: 'onetime'
+  comment
+    Subscription discount precedence: the per-template block setting the merchant
+    configured in the theme editor is authoritative (mirrors how the per-tier
+    volume discount overrides metafield/global below). Metafield and global remain
+    as fallbacks only when the block does not specify a value, so a stale product
+    metafield can never silently override the configured rate.
+  endcomment
+  assign b_sub_pct  = block.settings.subscription_discount_pct
   assign mf_sub_pct = product.metafields.bloomli.subscription_discount_pct
   assign g_sub_pct  = settings.bloomli_subscription_discount_pct
-  if mf_sub_pct != blank
+  if b_sub_pct != blank
+    assign subscription_discount_pct = b_sub_pct | plus: 0
+  elsif mf_sub_pct != blank
     assign subscription_discount_pct = mf_sub_pct | plus: 0
   elsif g_sub_pct != blank
     assign subscription_discount_pct = g_sub_pct | plus: 0
   else
-    assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 20 | plus: 0
+    assign subscription_discount_pct = 20
   endif
   assign tier_1_qty_for_discount = block.settings.tier_1_qty | default: 1 | plus: 0
   assign tier_2_qty_for_discount = block.settings.tier_2_qty | default: 2 | plus: 0

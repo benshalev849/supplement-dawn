@@ -46,90 +46,6 @@
         "content_position_mobile": "top"
       }
     },
-<<<<<<< HEAD
-=======
-    "glp1_trust": {
-      "type": "bloomli-trust-row",
-      "blocks": {
-        "p1": {
-          "type": "proof",
-          "settings": {
-            "icon": "pill",
-            "label": "6,000mcg Biotin",
-            "body": "A daily amount for hair, skin and nail support.*"
-          }
-        },
-        "p2": {
-          "type": "proof",
-          "settings": {
-            "icon": "candy",
-            "label": "Just 2 Gummies a Day",
-            "body": "No extra pill to swallow alongside your medication."
-          }
-        },
-        "p3": {
-          "type": "proof",
-          "settings": {
-            "icon": "shield-check",
-            "label": "Tested, Made in the USA",
-            "body": "Made in an NSF/GMP facility, with a COA on file."
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3"
-      ],
-      "disabled": true,
-      "settings": {
-        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
-        "padding_top": 28,
-        "padding_bottom": 28,
-        "padding_top_mobile": 22,
-        "padding_bottom_mobile": 22
-      }
-    },
-    "glp1_mechanism": {
-      "type": "rich-text",
-      "blocks": {
-        "caption": {
-          "type": "caption",
-          "settings": {
-            "caption": "First, a calm explanation",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>When the body goes through rapid weight loss, more hairs than usual can temporarily shift into their natural resting-and-shedding phase, and eating less can mean fewer of the nutrients hair depends on. It is common, it is usually temporary, and nutrition is one thing you can actively support.*</p>"
-          }
-        },
-        "pullquote": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>This is not about doing more. It is about giving your hair the building blocks it may be missing right now.</em></p>"
-          }
-        }
-      },
-      "block_order": [
-        "caption",
-        "text",
-        "pullquote"
-      ],
-      "disabled": true,
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "full_width": true,
-        "padding_top": 44,
-        "padding_bottom": 32
-      }
-    },
->>>>>>> cf054d415d354c54d62d6e06b86e50283b762e95
     "glp1_listicle": {
       "type": "bloomli-glp1-listicle",
       "blocks": {
@@ -211,7 +127,6 @@
         "padding_bottom_mobile": 72
       }
     },
-<<<<<<< HEAD
     "glp1_compare": {
       "type": "bloomli-glp1-compare",
       "blocks": {
@@ -337,8 +252,6 @@
         "padding_bottom": 56
       }
     },
-=======
->>>>>>> cf054d415d354c54d62d6e06b86e50283b762e95
     "glp1_offer": {
       "type": "bloomli-product-information",
       "blocks": {
@@ -800,31 +713,19 @@
       "settings": {
         "heading": "Questions, answered honestly.",
         "intro": "<p>Everything you need to know before your first gummy.</p>",
-<<<<<<< HEAD
         "image": "shopify://shop_images/Model_Holding_Gummy_3.png",
-=======
->>>>>>> cf054d415d354c54d62d6e06b86e50283b762e95
         "image_alt": "",
         "show_placeholder": false,
         "image_position": "right",
         "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "border_color": "#e8ded8",
-<<<<<<< HEAD
         "image_width": 360,
         "corner_radius": 14,
         "heading_size": 48,
         "question_size": 16,
         "body_size": 15,
         "padding_top": 40,
-=======
-        "image_width": 460,
-        "corner_radius": 16,
-        "heading_size": 48,
-        "question_size": 17,
-        "body_size": 15,
-        "padding_top": 56,
->>>>>>> cf054d415d354c54d62d6e06b86e50283b762e95
         "padding_bottom": 40,
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48

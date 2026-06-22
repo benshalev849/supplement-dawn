@@ -433,6 +433,16 @@
   .bloomli-hero--has-bg-image .bloomli-hero__inner--mobile-bottom {
     justify-content: flex-end;
   }
+
+  .bloomli-hero--has-bg-image.bloomli-hero--no-mobile-bg {
+    min-height: auto;
+  }
+
+  .bloomli-hero--has-bg-image.bloomli-hero--no-mobile-bg .bloomli-hero__inner {
+    min-height: auto;
+    padding-top: var(--section-padding-top-mobile, 56px);
+    padding-bottom: var(--section-padding-bottom-mobile, 56px);
+  }
 }
 
 /* Simple CTA sections */

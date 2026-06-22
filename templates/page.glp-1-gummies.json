@@ -425,6 +425,7 @@
         },
         "nothing": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "featured": false,
             "badge": "The fuller routine",

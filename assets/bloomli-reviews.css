@@ -13,6 +13,12 @@
     padding-top: var(--section-padding-top);
     padding-bottom: var(--section-padding-bottom);
   }
+
+  .bloomli-reviews__inner {
+    width: 100%;
+    max-width: var(--bloomli-page-width, var(--page-width));
+    margin-inline: auto;
+  }
 }
 
 .bloomli-reviews .bloomli-reviews__stars {

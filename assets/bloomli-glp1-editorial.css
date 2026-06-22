@@ -211,6 +211,12 @@
 @media screen and (min-width: 750px) {
   .bloomli-glp1-listicle {
     padding-block: var(--glp1-padding-top) var(--glp1-padding-bottom);
+    padding-inline: var(--bloomli-page-gutter-desktop);
+  }
+
+  .bloomli-glp1-listicle__inner {
+    width: 100%;
+    max-width: min(var(--glp1-max-width), var(--bloomli-page-width, var(--page-width)));
   }
 
   .bloomli-glp1-listicle__title {

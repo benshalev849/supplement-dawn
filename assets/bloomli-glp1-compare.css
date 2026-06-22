@@ -164,20 +164,26 @@
 @media screen and (min-width: 750px) {
   .bloomli-glp1-compare {
     padding-block: var(--glp1-compare-padding-top) var(--glp1-compare-padding-bottom);
+    padding-inline: var(--bloomli-page-gutter-desktop);
+  }
+
+  .bloomli-glp1-compare__inner {
+    width: 100%;
+    max-width: var(--bloomli-page-width, var(--page-width));
   }
 
   .bloomli-glp1-compare__header {
-    grid-template-columns: minmax(0, 1.25fr) minmax(28rem, 0.75fr);
-    column-gap: clamp(4rem, 9vw, 12rem);
-    align-items: end;
-  }
-
-  .bloomli-glp1-compare__eyebrow {
-    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
   }
 
   .bloomli-glp1-compare__title {
     font-size: var(--glp1-compare-heading);
+  }
+
+  .bloomli-glp1-compare__intro {
+    margin-inline: auto;
   }
 
   .bloomli-glp1-compare__grid {

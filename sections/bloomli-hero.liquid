@@ -108,6 +108,17 @@
         {%- endif -%}
       </div>
 
+      {%- if section.settings.show_cta_reassurance and section.settings.cta_reassurance_text != blank -%}
+        <div class="bloomli-hero__reassurance">
+          <span class="bloomli-hero__reassurance-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m5.5 10.2 3 3 6-6.4"/>
+            </svg>
+          </span>
+          <span class="bloomli-hero__reassurance-text">{{ section.settings.cta_reassurance_text }}</span>
+        </div>
+      {%- endif -%}
+
       {%- if section.settings.trust_badge_1 != blank or section.settings.trust_badge_2 != blank or section.settings.trust_badge_3 != blank -%}
         <div class="bloomli-hero__trust-badges" aria-label="Trust badges">
           {%- if section.settings.trust_badge_1 != blank -%}
@@ -159,6 +170,8 @@
     { "type": "url",  "id": "cta_primary_url",     "label": "CTA button URL" },
     { "type": "text", "id": "cta_secondary_label", "label": "Secondary button label",  "default": "Take the 2-min Quiz" },
     { "type": "url",  "id": "cta_secondary_url",   "label": "Secondary button URL" },
+    { "type": "checkbox", "id": "show_cta_reassurance", "label": "Show reassurance below CTA", "default": false },
+    { "type": "inline_richtext", "id": "cta_reassurance_text", "label": "Reassurance text", "default": "Try It <strong>Risk-Free For 30 Days</strong>", "visible_if": "{{ section.settings.show_cta_reassurance }}" },
     { "type": "header", "content": "Reviews badge" },
     { "type": "checkbox", "id": "show_reviews",    "label": "Show reviews badge", "default": true },
     { "type": "text",     "id": "star_rating_text", "label": "Star rating text",  "default": "4.8 Stars · 2,400+ Reviews" },
@@ -215,7 +228,7 @@
         { "value": "right center",  "label": "Right" }
       ]
     },
-    { "type": "image_picker", "id": "mobile_image",  "label": "Mobile background (3:4 portrait, optional — falls back to desktop)" },
+    { "type": "image_picker", "id": "mobile_image",  "label": "Mobile background (3:4 portrait, optional — blank shows no image)" },
     {
       "type": "select",
       "id": "mobile_image_fit",

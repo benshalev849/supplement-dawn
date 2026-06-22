@@ -652,6 +652,24 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "bloomli_sticky_cta_7j3YwE": {
+      "type": "bloomli-sticky-cta",
+      "name": "Sticky CTA bar",
+      "settings": {
+        "enabled": true,
+        "badge_text": "25k+ Gummies Sold",
+        "main_text": "Save 61% + Free Gifts",
+        "social_proof": "4.86 stars | 1630+ reviews",
+        "show_stars": true,
+        "scroll_target": "#glp1-offers",
+        "scroll_threshold": 400,
+        "bg_color": "#1b3a2d",
+        "text_color": "#ffffff",
+        "badge_bg": "#f0b429",
+        "badge_text_color": "#1b3a2d",
+        "star_color": "#f0b429"
+      }
     }
   },
   "order": [
@@ -662,6 +680,7 @@
     "glp1_compare",
     "glp1_reviews",
     "glp1_faq",
-    "main"
+    "main",
+    "bloomli_sticky_cta_7j3YwE"
   ]
 }

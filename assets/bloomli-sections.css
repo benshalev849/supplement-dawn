@@ -245,31 +245,19 @@
 
 /* Hero — mobile alignment overrides (placed after mobile block to win cascade) */
 @media (max-width: 749px) {
-  .bloomli-hero__inner--align-left {
-    align-items: flex-start;
+  .bloomli-hero__inner--mobile-align-left .bloomli-hero__headline,
+  .bloomli-hero__inner--mobile-align-left .bloomli-hero__subtext {
     text-align: left;
   }
 
-  .bloomli-hero__inner--align-center {
-    align-items: center;
+  .bloomli-hero__inner--mobile-align-center .bloomli-hero__headline,
+  .bloomli-hero__inner--mobile-align-center .bloomli-hero__subtext {
     text-align: center;
   }
 
-  .bloomli-hero__inner--align-right {
-    align-items: flex-end;
+  .bloomli-hero__inner--mobile-align-right .bloomli-hero__headline,
+  .bloomli-hero__inner--mobile-align-right .bloomli-hero__subtext {
     text-align: right;
-  }
-
-  .bloomli-hero__inner--align-left .bloomli-hero__ctas,
-  .bloomli-hero__inner--align-left .bloomli-hero__reviews,
-  .bloomli-hero__inner--align-left .bloomli-hero__trust-badges {
-    justify-content: flex-start;
-  }
-
-  .bloomli-hero__inner--align-right .bloomli-hero__ctas,
-  .bloomli-hero__inner--align-right .bloomli-hero__reviews,
-  .bloomli-hero__inner--align-right .bloomli-hero__trust-badges {
-    justify-content: flex-end;
   }
 }
 

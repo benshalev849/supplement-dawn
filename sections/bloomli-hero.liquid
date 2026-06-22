@@ -1,5 +1,10 @@
 {%- assign has_bg_image = false -%}
 {%- if section.settings.desktop_image != blank -%}{%- assign has_bg_image = true -%}{%- endif -%}
+{%- assign desktop_content_alignment = section.settings.content_alignment | default: 'left' -%}
+{%- assign mobile_content_alignment = section.settings.content_alignment_mobile | default: 'inherit' -%}
+{%- if mobile_content_alignment == 'inherit' -%}
+  {%- assign mobile_content_alignment = desktop_content_alignment -%}
+{%- endif -%}
 
 <section
   class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient{% unless has_bg_image %}{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}{% endunless %}{% if has_bg_image %} bloomli-hero--has-bg-image bloomli-hero--banner-fixed-height{% endif %}"
@@ -71,7 +76,7 @@
     </div>
   {%- endif -%}
 
-  <div class="bloomli-hero__inner bloomli-hero__inner--mobile-{{ section.settings.content_position_mobile }} bloomli-hero__inner--align-{{ section.settings.content_alignment | default: 'left' }}">
+  <div class="bloomli-hero__inner bloomli-hero__inner--mobile-{{ section.settings.content_position_mobile }} bloomli-hero__inner--align-{{ desktop_content_alignment }} bloomli-hero__inner--mobile-align-{{ mobile_content_alignment }}">
     <div class="bloomli-hero__copy">
       {%- if section.settings.show_reviews -%}
         <div class="bloomli-hero__reviews">
@@ -248,6 +253,18 @@
         { "value": "left",   "label": "Left (default)" },
         { "value": "center", "label": "Center" },
         { "value": "right",  "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "content_alignment_mobile",
+      "label": "Content alignment — mobile",
+      "default": "inherit",
+      "options": [
+        { "value": "inherit", "label": "Follow desktop" },
+        { "value": "left",    "label": "Left" },
+        { "value": "center",  "label": "Center" },
+        { "value": "right",   "label": "Right" }
       ]
     },
     {

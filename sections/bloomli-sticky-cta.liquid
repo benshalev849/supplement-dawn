@@ -6,35 +6,35 @@
   data-proximity-margin="{{ section.settings.proximity_margin }}"
   aria-hidden="true"
   style="
-    --bscta-bg: {{ section.settings.bg_color }};
-    --bscta-text: {{ section.settings.text_color }};
-    --bscta-badge-bg: {{ section.settings.badge_bg }};
-    --bscta-badge-text: {{ section.settings.badge_text_color }};
-    --bscta-star: {{ section.settings.star_color }};
-    --bscta-scrim: {{ section.settings.scrim_color }};
+    --bscta-bar-bg: {{ section.settings.bar_bg }};
+    --bscta-btn-bg: {{ section.settings.btn_fill }};
+    --bscta-btn-text: {{ section.settings.btn_label }};
+    --bscta-badge-bg: {{ section.settings.badge_fill }};
+    --bscta-badge-text: {{ section.settings.badge_label }};
+    --bscta-social-text: {{ section.settings.social_color }};
+    --bscta-star: {{ section.settings.star_fill }};
   "
 >
-  <div class="bloomli-sticky-cta__scrim" aria-hidden="true"></div>
-  <button
-    class="bloomli-sticky-cta__btn"
-    type="button"
-    aria-label="{{ section.settings.main_text | escape }}"
-  >
-    {%- if section.settings.badge_text != blank -%}
-      <span class="bloomli-sticky-cta__badge">{{ section.settings.badge_text }}</span>
-    {%- endif -%}
-    <span class="bloomli-sticky-cta__main">{{ section.settings.main_text }}</span>
+  <div class="bloomli-sticky-cta__inner">
     {%- if section.settings.social_proof != blank -%}
-      <span class="bloomli-sticky-cta__social">
+      <p class="bloomli-sticky-cta__social">
         {%- if section.settings.show_stars -%}
-          <span class="bloomli-sticky-cta__stars" aria-hidden="true">
-            {%- for i in (1..5) -%}★{%- endfor -%}
-          </span>
+          <span class="bloomli-sticky-cta__stars" aria-hidden="true">{%- for i in (1..5) -%}★{%- endfor -%}</span>
         {%- endif -%}
-        {{ section.settings.social_proof }}
-      </span>
+        <span class="bloomli-sticky-cta__social-text">{{ section.settings.social_proof }}</span>
+      </p>
     {%- endif -%}
-  </button>
+    <button
+      class="bloomli-sticky-cta__btn"
+      type="button"
+      aria-label="{{ section.settings.main_text | escape }}"
+    >
+      {%- if section.settings.badge_text != blank -%}
+        <span class="bloomli-sticky-cta__badge">{{ section.settings.badge_text }}</span>
+      {%- endif -%}
+      <span class="bloomli-sticky-cta__main">{{ section.settings.main_text }}</span>
+    </button>
+  </div>
 </div>
 
 <script>
@@ -123,12 +123,12 @@
       "id": "badge_text",
       "label": "Badge text",
       "default": "100M+ Gummies Sold",
-      "info": "Small pill badge above the main text. Leave blank to hide."
+      "info": "Small pill badge above the button. Leave blank to hide."
     },
     {
       "type": "text",
       "id": "main_text",
-      "label": "Main CTA text",
+      "label": "Button text",
       "default": "Save 61% + Free Gifts"
     },
     {
@@ -136,7 +136,7 @@
       "id": "social_proof",
       "label": "Social proof text",
       "default": "4.8 stars | 100K+ reviews | 1M+ members",
-      "info": "Leave blank to hide the social proof row."
+      "info": "Shown to the left on desktop, below the button on mobile. Leave blank to hide."
     },
     {
       "type": "checkbox",
@@ -167,44 +167,50 @@
     },
     {
       "type": "header",
-      "content": "Colors"
+      "content": "Colors",
+      "info": "Bloomli brand defaults: charcoal bar, pink button, cream text."
     },
     {
       "type": "color",
-      "id": "bg_color",
+      "id": "bar_bg",
+      "label": "Bar background (full-width)",
+      "default": "#2a2622"
+    },
+    {
+      "type": "color",
+      "id": "btn_fill",
       "label": "Button background",
       "default": "#b23a6f"
     },
     {
       "type": "color",
-      "id": "text_color",
+      "id": "btn_label",
       "label": "Button text",
       "default": "#fdfaf7"
     },
     {
       "type": "color",
-      "id": "badge_bg",
+      "id": "badge_fill",
       "label": "Badge background",
       "default": "#fdfaf7"
     },
     {
       "type": "color",
-      "id": "badge_text_color",
-      "label": "Badge text color",
+      "id": "badge_label",
+      "label": "Badge text",
       "default": "#b23a6f"
     },
     {
       "type": "color",
-      "id": "star_color",
-      "label": "Star color",
+      "id": "social_color",
+      "label": "Social proof text",
       "default": "#fdfaf7"
     },
     {
       "type": "color",
-      "id": "scrim_color",
-      "label": "Fade background color",
-      "default": "#fdfaf7",
-      "info": "The page content fades into this color behind the bar. Set it to match the page background where the bar appears."
+      "id": "star_fill",
+      "label": "Star color",
+      "default": "#f0b429"
     }
   ],
   "presets": [

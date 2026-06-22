@@ -46,6 +46,15 @@
   align-items: start;
 }
 
+/* This section doesn't load media-gallery.js, so <media-gallery> is an
+   undefined custom element that defaults to `display: inline`. Dawn only
+   promotes it to block via `.product__column-sticky`, which is desktop-only —
+   so on mobile the gallery collapsed inline and the slider couldn't scroll.
+   Force block display at every viewport. */
+.bloomli-product-information media-gallery {
+  display: block;
+}
+
 .bloomli-product-information .product__media-wrapper {
   border-radius: 2.8rem;
 }

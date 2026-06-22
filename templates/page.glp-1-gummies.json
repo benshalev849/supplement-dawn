@@ -1,14 +1,14 @@
-/* Bloomli GLP-1 Hair Support page template. Re-registering theme sync. */
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
     "glp1_hero": {
       "type": "bloomli-hero",
       "settings": {
@@ -32,6 +32,17 @@
         "trust_badge_1": "Third-Party Tested",
         "trust_badge_2": "NSF-Certified Facility",
         "trust_badge_3": "Made in the USA",
+        "ultrawide_image_position": "center bottom",
+        "desktop_image_layout": "banner_fixed_height",
+        "desktop_image_fit": "cover",
+        "desktop_image_position": "center bottom",
+        "mobile_image_fit": "contain",
+        "mobile_image_position": "center bottom",
+        "overlay_opacity": 45,
+        "use_custom_text_color": false,
+        "text_color": "#2a2622",
+        "use_custom_accent_color": false,
+        "accent_color": "#b23a6f",
         "content_position_mobile": "top"
       }
     },
@@ -63,7 +74,11 @@
           }
         }
       },
-      "block_order": ["p1", "p2", "p3"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
       "settings": {
         "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
         "padding_top": 28,
@@ -79,7 +94,8 @@
           "type": "caption",
           "settings": {
             "caption": "First, a calm explanation",
-            "text_style": "caption-with-letter-spacing"
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
           }
         },
         "text": {
@@ -95,7 +111,11 @@
           }
         }
       },
-      "block_order": ["caption", "text", "pullquote"],
+      "block_order": [
+        "caption",
+        "text",
+        "pullquote"
+      ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -111,6 +131,7 @@
         "r1": {
           "type": "reason",
           "settings": {
+            "number": "",
             "title": "Why hair sheds during rapid weight loss",
             "body": "<p>Rapid weight loss can nudge more of your hair into its natural resting-and-shedding phase, and eating less often means fewer of the nutrients hair relies on are coming in. It is common, and for most women it is temporary.*</p>"
           }
@@ -118,6 +139,7 @@
         "r2": {
           "type": "reason",
           "settings": {
+            "number": "",
             "title": "It fills the nutrient gaps that matter for hair",
             "body": "<p>Smaller meals can mean less biotin, zinc, B-vitamins and protein reaching your hair. Bloomli delivers 6,000mcg biotin, marine collagen, zinc and a full B-complex to help fill the gaps that matter most.*</p>"
           }
@@ -125,6 +147,7 @@
         "r3": {
           "type": "reason",
           "settings": {
+            "number": "",
             "title": "Biotin, done right",
             "body": "<p>Biotin on its own is only part of the story. Bloomli pairs 6,000mcg biotin with PABA and a full B-complex, so it works as part of a fuller routine rather than a single nutrient doing all the lifting.*</p>"
           }
@@ -132,6 +155,7 @@
         "r4": {
           "type": "reason",
           "settings": {
+            "number": "",
             "title": "Two gummies, nothing to choke down",
             "body": "<p>Adding another complicated step can feel like a lot. Bloomli is two passion-fruit gummies a day, not another large capsule to swallow.</p>"
           }
@@ -139,6 +163,7 @@
         "r5": {
           "type": "reason",
           "settings": {
+            "number": "",
             "title": "A simple daily ritual that fits your new routine",
             "body": "<p>Hair responds to consistency more than intensity. Two gummies a day is the kind of small habit that is easy to keep while so much else about your routine is changing.</p>"
           }
@@ -152,7 +177,14 @@
           }
         }
       },
-      "block_order": ["r1", "r2", "r3", "r4", "r5", "provider"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "provider"
+      ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "eyebrow": "A calmer way to understand it",
@@ -163,6 +195,10 @@
         "media_radius": 28,
         "max_width": 112,
         "enable_reveal": true,
+        "accent_color": "#b23a6f",
+        "emphasis_color": "#7b2151",
+        "media_background": "#f5ede4",
+        "callout_background": "#f3e1e5",
         "heading_size": 48,
         "heading_size_mobile": 38,
         "padding_top": 96,
@@ -188,6 +224,7 @@
           "type": "column",
           "settings": {
             "featured": false,
+            "badge": "The fuller routine",
             "title": "Plain biotin",
             "positive": false,
             "rows": "A single nutrient\nOften a tablet or capsule\nNo supporting blend\nQuality depends on the brand"
@@ -197,18 +234,29 @@
           "type": "column",
           "settings": {
             "featured": false,
+            "badge": "The fuller routine",
             "title": "Doing nothing",
             "positive": false,
             "rows": "No added nutritional support\nNo daily supplement step\nDietary gaps may remain*\nNo product quality standard"
           }
         }
       },
-      "block_order": ["bloomli", "biotin", "nothing"],
+      "block_order": [
+        "bloomli",
+        "biotin",
+        "nothing"
+      ],
       "settings": {
         "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
         "eyebrow": "A clearer comparison",
         "heading": "A fuller routine, <em>not just biotin.</em>",
         "intro": "The difference is not a louder promise. It is a more complete daily formula and a routine you can keep.",
+        "accent_color": "#b23a6f",
+        "emphasis_color": "#7b2151",
+        "column_background": "#fffdfc",
+        "featured_background": "#f3e1e5",
+        "muted_color": "#9a8f89",
+        "badge_text_color": "#fdfaf7",
         "column_radius": 28,
         "heading_size": 48,
         "heading_size_mobile": 38,
@@ -224,77 +272,104 @@
         "rev1": {
           "type": "review",
           "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
             "rating": 5,
             "quote": "\"Started these a couple months into my GLP-1 and the extra shedding has calmed down for me. Easy to keep up with since they actually taste good.\"",
             "name": "Megan R.",
             "meta": "Hair Gummies · 3 months",
-            "photo_label": "Verified buyer",
             "verified_label": "Verified Customer"
           }
         },
         "rev2": {
           "type": "review",
           "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
             "rating": 5,
             "quote": "\"I was losing more hair than usual after dropping weight and wanted something simple. Two gummies in the morning is the only routine I've actually stuck to.\"",
             "name": "Danielle P.",
             "meta": "Hair Gummies · 4 months",
-            "photo_label": "Verified buyer",
             "verified_label": "Verified Customer"
           }
         },
         "rev3": {
           "type": "review",
           "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
             "rating": 4,
             "quote": "\"Taste is great and they're easy to remember. A little early to say much about my hair, but my nails already feel stronger.\"",
             "name": "Christine W.",
             "meta": "Hair Gummies · 6 weeks",
-            "photo_label": "Verified buyer",
             "verified_label": "Verified Customer"
           }
         },
         "rev4": {
           "type": "review",
           "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
             "rating": 5,
             "quote": "\"Way easier than swallowing another pill on top of my meds. The passion fruit flavor is genuinely nice.\"",
             "name": "Allison T.",
             "meta": "Hair Gummies · 2 months",
-            "photo_label": "Verified buyer",
             "verified_label": "Verified Customer"
           }
         },
         "rev5": {
           "type": "review",
           "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
             "rating": 5,
             "quote": "\"My hair felt thinner while I was losing weight and this gave me something I could actually do about it. It's looking a bit fuller and shinier lately.\"",
             "name": "Rachel B.",
             "meta": "Hair Gummies · 5 months",
-            "photo_label": "Verified buyer",
             "verified_label": "Verified Customer"
           }
         },
         "rev6": {
           "type": "review",
           "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
             "rating": 4,
             "quote": "\"I like the ritual of it and the bottle looks cute on my counter. Wish it were a touch less sweet, but I keep reaching for them.\"",
             "name": "Sofia M.",
             "meta": "Hair Gummies · 3 months",
-            "photo_label": "Verified buyer",
             "verified_label": "Verified Customer"
           }
         }
       },
-      "block_order": ["rev1", "rev2", "rev3", "rev4", "rev5", "rev6"],
+      "block_order": [
+        "rev1",
+        "rev2",
+        "rev3",
+        "rev4",
+        "rev5",
+        "rev6"
+      ],
       "settings": {
         "title": "From women on a GLP-1.",
         "use_judgeme": false,
         "manual_aggregate": "4.8 Stars · 2,400+ reviews",
+        "background_color": "#f2e7e4",
+        "card_background": "#fdfaf7",
+        "placeholder_color": "#f7f0e9",
+        "text_color": "#2a2622",
+        "muted_color": "#7c7169",
+        "accent_color": "#b23a6f",
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "card_gap": 20,
+        "scroll_duration": 70,
+        "mobile_card_width": 82,
+        "card_radius": 10,
         "padding_top": 56,
-        "padding_bottom": 56
+        "padding_bottom": 56,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "glp1_offer": {
@@ -433,7 +508,10 @@
             "title_4": "Made with care",
             "descriptor_4": "Made in the USA in an NSF facility",
             "percentage_4": "",
-            "show_benefit_5": false
+            "show_benefit_5": false,
+            "title_5": "",
+            "descriptor_5": "",
+            "percentage_5": ""
           }
         },
         "how_to_take": {
@@ -487,7 +565,16 @@
           }
         }
       },
-      "block_order": ["volume_tier", "trust_icons", "benefits", "how_to_take", "ingredients", "nutrition", "quality", "shipping"],
+      "block_order": [
+        "volume_tier",
+        "trust_icons",
+        "benefits",
+        "how_to_take",
+        "ingredients",
+        "nutrition",
+        "quality",
+        "shipping"
+      ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "product": "bloomli-hair-vitamin-gummies",
@@ -571,16 +658,32 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
       "settings": {
         "heading": "Questions, answered honestly.",
         "intro": "<p>Everything you need to know before your first gummy.</p>",
+        "image_alt": "",
         "show_placeholder": false,
         "image_position": "right",
         "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "border_color": "#e8ded8",
+        "image_width": 460,
+        "corner_radius": 16,
+        "heading_size": 48,
+        "question_size": 17,
+        "body_size": 15,
         "padding_top": 56,
-        "padding_bottom": 40
+        "padding_bottom": 40,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "glp1_final_cta": {
@@ -603,11 +706,19 @@
           "type": "button",
           "settings": {
             "button_label": "See the offer",
-            "button_link": "#glp1-offers"
+            "button_link": "#glp1-offers",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
-      "block_order": ["heading", "text", "button"],
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -615,6 +726,14 @@
         "full_width": true,
         "padding_top": 64,
         "padding_bottom": 72
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     }
   },

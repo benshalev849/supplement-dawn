@@ -341,107 +341,103 @@
             "text_color": "#2a2622",
             "show_item_1": true,
             "icon_1": "shield",
-            "label_1": "30-day money back",
+            "label_1": "30-Day Money Back",
             "show_item_2": true,
             "icon_2": "truck",
-            "label_2": "Free subscription shipping",
+            "label_2": "Free Shipping",
             "show_item_3": true,
             "icon_3": "cancel",
-            "label_3": "Pause or cancel anytime"
+            "label_3": "Cancel Anytime"
           }
         },
         "benefits": {
           "type": "what_youll_feel",
           "settings": {
-            "prefer_product_metafield": true,
+            "prefer_product_metafield": false,
             "metafield_key": "benefits",
-            "heading": "What to expect",
-            "disclaimer": "<p><em>* Individual experiences vary. This is nutritional support, not medical advice.</em></p>",
+            "heading": "What To Expect",
+            "survey_source": "",
+            "disclaimer": "<p><em>* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary.</em></p>",
             "heading_size": 23,
             "title_size": 13,
             "descriptor_size": 11,
             "percentage_size": 16,
             "fine_print_size": 9,
             "icon_size": 20,
+            "card_background_color": "",
             "heading_color": "#2a2622",
             "title_color": "#2a2622",
             "descriptor_color": "#7a2048",
             "percentage_color": "#7a2048",
+            "fine_print_color": "",
             "icon_color": "#7a2048",
             "show_benefit_1": true,
             "icon_class_1": "ti-sparkles",
-            "title_1": "Healthier-looking hair",
-            "descriptor_1": "Supports a fuller-looking routine over time*",
-            "percentage_1": "",
+            "image_1": "shopify://shop_images/flower_icon_c82214ba-23ab-48e1-a043-4e53426a79ac.png",
+            "icon_tint_1": "",
+            "icon_color_1": "",
+            "title_1": "Fuller Hair",
+            "descriptor_1": "95% said their hair looked thicker*",
+            "percentage_1": "95%",
             "show_benefit_2": true,
             "icon_class_2": "ti-wind",
-            "title_2": "A consistent ritual",
-            "descriptor_2": "Two gummies fit easily into the day",
-            "percentage_2": "",
+            "image_2": "shopify://shop_images/Sparkles_Icon_e63509b6-c226-49de-9685-31c09eebf32c.png",
+            "icon_tint_2": "",
+            "icon_color_2": "",
+            "title_2": "Less Shedding",
+            "descriptor_2": "88% experienced reduced shedding*",
+            "percentage_2": "88%",
             "show_benefit_3": true,
             "icon_class_3": "ti-shield-check",
-            "title_3": "Nutritional support",
-            "descriptor_3": "A fuller blend than biotin alone*",
-            "percentage_3": "",
+            "image_3": "shopify://shop_images/Bicep_Icon_7252fa21-eb1d-40cc-b103-f3b181e2f76e.png",
+            "icon_tint_3": "",
+            "icon_color_3": "",
+            "title_3": "Stronger Strands",
+            "descriptor_3": "82% reported less breakage*",
+            "percentage_3": "82%",
             "show_benefit_4": true,
             "icon_class_4": "ti-plant-2",
-            "title_4": "Made with care",
-            "descriptor_4": "Made in the USA in an NSF facility",
-            "percentage_4": "",
+            "image_4": "shopify://shop_images/Seed_Icon_ebfa19c6-ece3-4eb6-b080-0a903867666f.png",
+            "icon_tint_4": "",
+            "icon_color_4": "",
+            "title_4": "Visible Growth",
+            "descriptor_4": "75% noticed new hair growth*",
+            "percentage_4": "75%",
             "show_benefit_5": false,
-            "title_5": "",
-            "descriptor_5": "",
-            "percentage_5": ""
+            "icon_class_5": "ti-leaf",
+            "icon_tint_5": "",
+            "icon_color_5": "",
+            "title_5": "Add another benefit*",
+            "descriptor_5": "replace with a survey-supported descriptor",
+            "percentage_5": "00%"
           }
         },
         "how_to_take": {
-          "type": "product_detail",
+          "type": "collapsible_row",
           "settings": {
-            "title": "How to take",
-            "metafield_namespace": "custom",
-            "metafield_key": "how_to_take",
-            "fallback_content": "<p>Take two gummies daily. Keep your healthcare provider informed about every supplement in your routine.</p>",
-            "open_by_default": false
+            "title": "How to Take",
+            "content": "<p></p>{{ product.metafields.custom.how_to_take | metafield_tag }}"
           }
         },
         "ingredients": {
-          "type": "product_detail",
+          "type": "collapsible_row",
           "settings": {
-            "title": "Ingredients and allergens",
-            "metafield_namespace": "custom",
-            "metafield_key": "ingredients_allergens",
-            "fallback_content": "<p>Key ingredients include 6,000mcg biotin, marine collagen, PABA, silicon, zinc, iodine and vitamins A, C, D, E, B6, B12, folate and B5. Gluten-free. Contains fish (tilapia) and tree nut (coconut).</p>",
-            "open_by_default": false
-          }
-        },
-        "nutrition": {
-          "type": "product_detail",
-          "settings": {
-            "title": "Nutrition information",
-            "metafield_namespace": "custom",
-            "metafield_key": "nutrition_information",
-            "fallback_content": "<p>Serving size: two gummies. See the product label in the gallery for the complete Supplement Facts panel.</p>",
-            "open_by_default": false
+            "title": "Ingredients & Allergens",
+            "content": "<p></p>{{ product.metafields.custom.ingredients_allergens | metafield_tag }}"
           }
         },
         "quality": {
-          "type": "product_detail",
+          "type": "collapsible_row",
           "settings": {
-            "title": "Quality and certifications",
-            "metafield_namespace": "custom",
-            "metafield_key": "quality_certifications",
-            "fallback_content": "<p>Made in the USA in an NSF and GMP facility. A certificate of analysis is kept on file.</p>",
-            "open_by_default": false
+            "title": "Quality & Certifications",
+            "content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.<br/><br/>Read more in our <a href=\"/pages/science-1\" title=\"Science\">Science Page</a></p>"
           }
         },
         "shipping": {
-          "type": "product_detail",
+          "type": "collapsible_row",
           "settings": {
-            "title": "Shipping and returns",
-            "metafield_namespace": "custom",
-            "metafield_key": "shipping_returns",
-            "fallback_content": "<p>Subscription deliveries include free shipping and can be paused or canceled. Eligible purchases are covered by Bloomli's 30-day money-back guarantee.</p>",
-            "open_by_default": false
+            "title": "Shipping & Returns",
+            "content": "<p>We offer free shipping on all subscriptions and on one-time orders over $75.<br/><br/>Orders are processed within 1 to 2 business days and typically arrive within 5 to 7 business days.<br/><br/>Not happy with your results? We offer a 30-day money-back guarantee, no questions asked. <br/><br/>View our full <a href=\"/policies/shipping-policy\" title=\"Shipping Policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\" title=\"Refund Policy\">Refund Policy</a> for complete details.</p>"
           }
         }
       },
@@ -451,7 +447,6 @@
         "benefits",
         "how_to_take",
         "ingredients",
-        "nutrition",
         "quality",
         "shipping"
       ],

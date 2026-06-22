@@ -256,6 +256,11 @@
 }
 
 @media screen and (max-width: 749px) {
+  .bloomli-glp1-listicle .bloomli-glp1-listicle__title,
+  .bloomli-glp1-listicle .bloomli-glp1-listicle__title em {
+    font-size: var(--glp1-heading-mobile, 38px);
+  }
+
   .bloomli-glp1-listicle__reason {
     row-gap: 0;
   }
@@ -272,6 +277,7 @@
   .bloomli-glp1-listicle__reason-title {
     order: 2;
     margin-bottom: 2.4rem;
+    font-size: var(--glp1-reason-title-size-mobile, 30px);
   }
 
   .bloomli-glp1-listicle__media {

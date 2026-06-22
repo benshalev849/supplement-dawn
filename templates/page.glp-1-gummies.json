@@ -665,7 +665,7 @@
         "show_stars": true,
         "scroll_target": "#glp1-offers",
         "proximity_margin": 250,
-        "bar_bg": "#2a2622",
+        "bar_bg": "#5E2440",
         "btn_fill": "#b23a6f",
         "btn_label": "#fdfaf7",
         "badge_fill": "#fdfaf7",

@@ -268,9 +268,10 @@
 }
 
 @media screen and (max-width: 749px) {
+  /* !important required to override base.css blanket `h2/h3 { font-size: …!important }` mobile rule */
   .bloomli-glp1-listicle .bloomli-glp1-listicle__title,
   .bloomli-glp1-listicle .bloomli-glp1-listicle__title em {
-    font-size: var(--glp1-heading-mobile, 38px);
+    font-size: var(--glp1-heading-mobile, 38px) !important;
   }
 
   .bloomli-glp1-listicle__reason {
@@ -289,7 +290,13 @@
   .bloomli-glp1-listicle__reason-title {
     order: 2;
     margin-bottom: 2.4rem;
-    font-size: var(--glp1-reason-title-size-mobile, 30px);
+    /* !important overrides base.css `h3 { …!important }` mobile rule */
+    font-size: var(--glp1-reason-title-size-mobile, 30px) !important;
+  }
+
+  .bloomli-glp1-listicle__callout-title {
+    /* !important overrides base.css `h3 { …!important }` mobile rule */
+    font-size: var(--glp1-callout-title-size-mobile, 14px) !important;
   }
 
   .bloomli-glp1-listicle__media {

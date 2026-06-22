@@ -631,49 +631,6 @@
         "padding_bottom_mobile": 48
       }
     },
-    "glp1_final_cta": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Give your hair the building blocks it may be missing.",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Two passion-fruit gummies a day. A simple ritual that fits your new routine.</p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "See the offer",
-            "button_link": "#glp1-offers",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "disabled": true,
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "full_width": true,
-        "padding_top": 64,
-        "padding_bottom": 72
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -691,7 +648,6 @@
     "glp1_compare",
     "glp1_reviews",
     "glp1_faq",
-    "glp1_final_cta",
     "main"
   ]
 }

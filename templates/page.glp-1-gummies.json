@@ -658,7 +658,7 @@
       "name": "Sticky CTA bar",
       "settings": {
         "enabled": true,
-        "badge_text": "25k+ Gummies Sold",
+        "badge_text": "15k+ Gummies Sold",
         "main_text": "Save 61% + Free Gifts",
         "social_proof": "4.86 stars | 1630+ reviews",
         "show_stars": true,

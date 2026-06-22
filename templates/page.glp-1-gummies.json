@@ -11,9 +11,12 @@
   "sections": {
     "image_banner_h4jqEM": {
       "type": "image-banner",
-      "disabled": true,
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.banner {display: none; }}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
+        "image": "shopify://shop_images/GLP-1_Hero_Image_Mobile.png",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
@@ -46,6 +49,8 @@
         "cta_primary_url": "#glp1-offers",
         "cta_secondary_label": "",
         "cta_secondary_url": "#glp1-why",
+        "show_cta_reassurance": false,
+        "cta_reassurance_text": "Try It <strong>Risk-Free For 30 Days</strong>",
         "show_reviews": true,
         "star_rating_text": "4.86 Stars from 1630+ Reviews",
         "trust_badge_1": "Third-Party Tested",

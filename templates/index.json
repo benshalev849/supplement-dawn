@@ -19,6 +19,8 @@
         "headline_line1": "Quiet science, visible results",
         "headline_line2": "",
         "subtext": "We started where most supplements stop.",
+        "heading_text_size": 44,
+        "subtext_text_size": 15,
         "min_height": 720,
         "padding_top": 80,
         "padding_bottom": 80,
@@ -48,6 +50,8 @@
         "text_color": "#2a2622",
         "use_custom_accent_color": false,
         "accent_color": "#b23a6f",
+        "content_alignment": "left",
+        "content_alignment_mobile": "center",
         "content_position_mobile": "top"
       }
     },
@@ -592,7 +596,8 @@
             "overlay_and_background_color": "#000000",
             "content_color": "#f9f9f9",
             "header_text": "From our customers",
-            "show_average_rating": false
+            "show_average_rating": false,
+            "rating_display": "default"
           }
         }
       },

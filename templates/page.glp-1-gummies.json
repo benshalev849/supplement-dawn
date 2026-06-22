@@ -531,7 +531,7 @@
       "settings": {
         "title": "From women on a GLP-1.",
         "use_judgeme": false,
-        "manual_aggregate": "4.8 Stars · 2,400+ reviews",
+        "manual_aggregate": "4.8 Stars · 1630+ reviews",
         "background_color": "#fdfaf7",
         "card_background": "#ffffff",
         "placeholder_color": "#f7f0e9",
@@ -557,7 +557,7 @@
           "type": "question",
           "settings": {
             "question": "Why can hair shedding increase during rapid weight loss?",
-            "answer": "<p>Rapid weight loss can temporarily shift more hairs into their natural resting-and-shedding phase. Eating less may also make it harder to consistently get the nutrients your hair relies on. This type of shedding is often temporary, but speak with your healthcare provider if it concerns you.*</p>",
+            "answer": "<p>Rapid weight loss can temporarily shift more hairs into their natural resting-and-shedding phase. Eating less may also make it harder to consistently get the nutrients your hair relies on. </p>",
             "open_by_default": false
           }
         },
@@ -589,7 +589,7 @@
           "type": "question",
           "settings": {
             "question": "What is in Bloomli, and does it contain any allergens?",
-            "answer": "<p>Bloomli contains biotin, marine collagen, zinc, iodine, silicon, PABA, and vitamins A, C, D, E, B6, B12, folate, and B5. It is gluten-free but contains fish from tilapia and tree nuts from coconut. It is third-party tested and made in the USA.</p>",
+            "answer": "<p>Bloomli contains biotin, marine collagen, zinc, iodine, silicon, PABA, and vitamins A, C, D, E, B6, B12, folate, and B5. <br/><br/>It is gluten-free but contains fish from tilapia and tree nuts from coconut. It is third-party tested and made in the USA.</p>",
             "open_by_default": false
           }
         },

@@ -33,7 +33,9 @@
         "use_brand_gradient": false,
         "headline_line1": "7 Reasons GLP-1 Users Are Adding Bloomli to Their Hair Routine",
         "headline_line2": "",
-        "subtext": "More shedding during rapid weight loss is common, and usually temporary. As the body drops weight quickly, more hairs shift into their natural resting-and-shedding phase, and smaller meals can leave gaps in the nutrients hair depends on. Nutrition is the one part you can actively support, with a simple two-gummy daily ritual.*",
+        "subtext": "Rapid weight loss can change what reaches your plate and your hair. Discover why two passion-fruit gummies packed with biotin, marine collagen, zinc, and B vitamins are becoming a simple daily ritual for healthier-looking hair.*",
+        "heading_text_size": 30,
+        "subtext_text_size": 14,
         "min_height": 640,
         "padding_top": 72,
         "padding_bottom": 72,
@@ -61,6 +63,7 @@
         "use_custom_accent_color": false,
         "accent_color": "#b23a6f",
         "content_alignment": "left",
+        "content_alignment_mobile": "inherit",
         "content_position_mobile": "top"
       }
     },

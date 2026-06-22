@@ -110,6 +110,22 @@
             "body": "<p>Hair responds to consistency more than intensity. Two gummies a day is the kind of small habit that is easy to keep while so much else about your routine is changing.</p>"
           }
         },
+        "r6": {
+          "type": "reason",
+          "settings": {
+            "number": "",
+            "title": "Quality standards you can check",
+            "body": "<p>Bloomli is third-party tested for heavy metals, microbial contaminants and label accuracy. It is made in the USA in an NSF-certified facility, with a certificate of analysis on file.</p>"
+          }
+        },
+        "r7": {
+          "type": "reason",
+          "settings": {
+            "number": "",
+            "title": "Support without overnight promises",
+            "body": "<p>Hair changes take time. Bloomli is designed to support a consistent nutritional routine, without claiming to stop shedding or deliver a quick fix.*</p>"
+          }
+        },
         "provider": {
           "type": "callout",
           "settings": {
@@ -125,6 +141,8 @@
         "r3",
         "r4",
         "r5",
+        "r6",
+        "r7",
         "provider"
       ],
       "settings": {

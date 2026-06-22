@@ -74,64 +74,56 @@
           "type": "reason",
           "settings": {
             "number": "",
-            "title": "Support Your Hair While the Weight Comes Off",
-            "body": "<p>Rapid weight loss can temporarily shift more hairs into their natural resting-and-shedding phase. Smaller meals may also make consistent nutrition harder. Bloomli adds biotin, marine collagen, zinc, and B vitamins to your daily routine to support healthier-looking hair through the change.*</p>"
+            "title": "Hair Shedding Can Lag Behind Weight Loss",
+            "body": "<p>Hair grows in cycles, so shedding may not appear when the trigger first occurs. Rapid weight loss can shift more follicles into their natural resting phase, with increased shedding becoming noticeable weeks or months later. It can feel alarming, but this type of shedding is often temporary.*</p>"
           }
         },
         "reason_bUpehB": {
           "type": "reason",
           "settings": {
             "number": "",
-            "title": "Help Fill the Nutrient Gaps Smaller Meals Can Leave",
-            "body": "<p>Reduced appetite can make it harder to consistently get key nutrients from food alone. Bloomli brings together biotin, zinc, B vitamins, and marine collagen in one simple daily formula designed to support strong, healthy-looking hair.*</p>"
+            "title": "A Smaller Appetite Can Mean a Smaller Nutrient Safety Net",
+            "body": "<p>Eating less can also mean eating less variety, making it harder to consistently get nutrients associated with normal hair health, including biotin, zinc, and B vitamins. Bloomli helps supplement a balanced diet with those nutrients, plus marine collagen, in two daily gummies.*</p>"
           }
         },
         "r1": {
           "type": "reason",
           "settings": {
             "number": "",
-            "title": "Why hair sheds during rapid weight loss",
-            "body": "<p>Rapid weight loss can nudge more of your hair into its natural resting-and-shedding phase, and eating less often means fewer of the nutrients hair relies on are coming in. It is common, and for most women it is temporary.*</p>"
+            "title": "Biotin Is Only One Piece of the Hair Puzzle",
+            "body": "<p>Biotin gets most of the attention, but healthy-looking hair relies on a broader nutritional foundation. Bloomli pairs biotin with zinc, vitamin C, B vitamins, silicon, PABA, and marine collagen, so your daily routine isn’t built around a single ingredient.*</p>"
           }
         },
         "r2": {
           "type": "reason",
           "settings": {
             "number": "",
-            "title": "It fills the nutrient gaps that matter for hair",
-            "body": "<p>Smaller meals can mean less biotin, zinc, B-vitamins and protein reaching your hair. Bloomli delivers 6,000mcg biotin, marine collagen, zinc and a full B-complex to help fill the gaps that matter most.*</p>"
+            "title": "Hair Changes Take Patience, Not Bigger Promises",
+            "body": "<p>Hair grows in cycles, so meaningful changes are measured in months, not days. Consistent nutritional support gives your hair time to move through its natural cycle without relying on unrealistic overnight promises.*</p>"
           }
         },
         "r3": {
           "type": "reason",
           "settings": {
             "number": "",
-            "title": "Biotin, done right",
-            "body": "<p>Biotin on its own is only part of the story. Bloomli pairs 6,000mcg biotin with PABA and a full B-complex, so it works as part of a fuller routine rather than a single nutrient doing all the lifting.*</p>"
+            "title": "A Routine Only Works If You Can Stick With It",
+            "body": "<p>New medications and eating habits can make wellness feel complicated. Bloomli keeps hair support simple with two passion-fruit gummies a day. There are no large capsules, powders, mixing, or measuring.</p>"
           }
         },
         "r4": {
           "type": "reason",
           "settings": {
             "number": "",
-            "title": "Two gummies, nothing to choke down",
-            "body": "<p>Adding another complicated step can feel like a lot. Bloomli is two passion-fruit gummies a day, not another large capsule to swallow.</p>"
+            "title": "One Beauty Routine Can Offer More Than One Benefit",
+            "body": "<p>Bloomli was created to support hair, skin, and nails from within. Its blend of biotin, zinc, vitamins C and E, and marine collagen makes it a simple addition to your broader beauty routine.*</p>"
           }
         },
         "r5": {
           "type": "reason",
           "settings": {
             "number": "",
-            "title": "A simple daily ritual that fits your new routine",
-            "body": "<p>Hair responds to consistency more than intensity. Two gummies a day is the kind of small habit that is easy to keep while so much else about your routine is changing.</p>"
-          }
-        },
-        "provider": {
-          "type": "callout",
-          "settings": {
-            "show_icon": true,
-            "heading": "Keep your provider in the loop.",
-            "body": "<p>Shedding during rapid weight loss is common and usually temporary. If you are concerned about any side effect you are experiencing on your medication, talk to your healthcare provider. Bloomli is a daily nutritional supplement, not a substitute for medical advice.</p>"
+            "title": "Quality Matters When You Take Something Every Day",
+            "body": "<p>Bloomli is third-party tested for heavy metals, microbial contaminants, and label accuracy. It is made in the USA in an NSF-certified facility, because a daily supplement should earn your trust.*</p>"
           }
         }
       },
@@ -142,8 +134,7 @@
         "r2",
         "r3",
         "r4",
-        "r5",
-        "provider"
+        "r5"
       ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",

@@ -37,23 +37,21 @@
   assign subscribe_enabled = block.settings.subscribe_enabled
   assign default_mode = block.settings.default_mode | default: 'onetime'
   comment
-    Subscription discount precedence: the per-template block setting the merchant
-    configured in the theme editor is authoritative (mirrors how the per-tier
-    volume discount overrides metafield/global below). Metafield and global remain
-    as fallbacks only when the block does not specify a value, so a stale product
-    metafield can never silently override the configured rate.
+    Subscription discount precedence (intended): the product metafield is the
+    per-product source of truth, so the rate is set once in the product and never
+    has to be re-entered on each template's block. Global theme setting is the
+    next fallback, then the block setting, then a hard default. The displayed
+    subscribe price is still only an estimate compounded off this product's unit
+    price using whichever rate wins here.
   endcomment
-  assign b_sub_pct  = block.settings.subscription_discount_pct
   assign mf_sub_pct = product.metafields.bloomli.subscription_discount_pct
   assign g_sub_pct  = settings.bloomli_subscription_discount_pct
-  if b_sub_pct != blank
-    assign subscription_discount_pct = b_sub_pct | plus: 0
-  elsif mf_sub_pct != blank
+  if mf_sub_pct != blank
     assign subscription_discount_pct = mf_sub_pct | plus: 0
   elsif g_sub_pct != blank
     assign subscription_discount_pct = g_sub_pct | plus: 0
   else
-    assign subscription_discount_pct = 20
+    assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 20 | plus: 0
   endif
   assign tier_1_qty_for_discount = block.settings.tier_1_qty | default: 1 | plus: 0
   assign tier_2_qty_for_discount = block.settings.tier_2_qty | default: 2 | plus: 0
@@ -324,18 +322,19 @@
         endif
 
         comment
-          ALL displayed prices are estimates derived from THIS product's own single
-          unit price (× the display month count) — never from the mapped bundle
-          product. So each product always shows its own regular price (the compare-at
-          is one month's price, identical across every tier) and a tier can never
-          inherit another product's pricing. The bundle product is used only for the
-          cart submission (variant id + selling plan), set earlier.
+          One-time price is an estimate derived from THIS product's own single unit
+          price (× the month count), so each product shows its own regular pricing
+          and the compare-at is one month's price × the month count.
 
-          Discounts (per brand rules): the volume discount (discount_pct) applies to
-          the one-time price; the subscription discount (sub_discount_pct) compounds
-          with the volume discount for the subscribe price. Round the single-month
-          unit first, then multiply by the month count. Real discounts are applied by
-          the apps at checkout — these are display estimates only.
+          The subscribe price is taken from Shopify's own selling-plan allocation
+          price whenever the tier maps to a bundle product (whose variant price
+          already encodes the volume offer) or carries no extra volume discount.
+          allocation.price is exactly what Shopify charges per delivery, so the
+          displayed "every X weeks" total matches the cart/checkout to the cent
+          instead of drifting by a rounding cent from a re-derived estimate. Only
+          when there is no usable allocation do we fall back to an estimate
+          compounded off the unit price (volume % then subscription %), per the
+          brand rules. Real discounts are applied by the apps at checkout.
         endcomment
         assign line_compare = unit_price | times: qty
         if unit_compare > unit_price
@@ -345,18 +344,22 @@
         assign one_time_unit_cents = unit_price | times: one_time_pct_factor | divided_by: 100.0 | round
         assign one_time_total_cents = one_time_unit_cents | times: qty
 
-        comment
-          Subscribe price is always an estimate compounded off THIS product's own
-          single unit price (volume % then subscription %), per the brand rules —
-          never derived from the mapped bundle product's live selling-plan
-          allocation price, which can include its own bundle pricing and produce a
-          total that does not match the displayed per-month estimate. The plan id
-          found above is still used for the cart submission only.
-        endcomment
-        assign subscription_pct_factor = 100.0 | minus: sub_discount_pct
-        assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
-        assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round
-        assign subscribe_total_cents = subscribe_unit_cents | times: qty
+        assign subscribe_use_allocation = false
+        if tier_plan_allocation != blank
+          if bundle_product != blank
+            assign subscribe_use_allocation = true
+          elsif discount_pct == 0
+            assign subscribe_use_allocation = true
+          endif
+        endif
+        if subscribe_use_allocation
+          assign subscribe_total_cents = tier_plan_allocation.price | times: tier_cart_quantity
+        else
+          assign subscription_pct_factor = 100.0 | minus: sub_discount_pct
+          assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
+          assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round
+          assign subscribe_total_cents = subscribe_unit_cents | times: qty
+        endif
         assign rounded_discount_pct = discount_pct | floor
         assign dynamic_badge = discount_badge_template | replace: '[percent]', rounded_discount_pct | replace: '[qty]', qty
 

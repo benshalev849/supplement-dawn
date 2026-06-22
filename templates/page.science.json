@@ -17,6 +17,8 @@
         "headline_line1": "The science behind fuller-looking hair.",
         "headline_line2": "",
         "subtext": "Healthy hair is built over time. Bloomli brings consistent nutrition, strand support, and scalp care together in one simple daily ritual.",
+        "heading_text_size": 44,
+        "subtext_text_size": 15,
         "min_height": 700,
         "padding_top": 80,
         "padding_bottom": 80,
@@ -46,6 +48,8 @@
         "text_color": "#2a2622",
         "use_custom_accent_color": false,
         "accent_color": "#b23a6f",
+        "content_alignment": "left",
+        "content_alignment_mobile": "center",
         "content_position_mobile": "top"
       }
     },

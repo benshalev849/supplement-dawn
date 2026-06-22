@@ -126,6 +126,7 @@
           "type": "reason",
           "settings": {
             "number": "",
+            "image": "shopify://shop_images/Listicle_Image_6.png",
             "title": "Real Customer Insights, Plus Quality You Can Verify",
             "body": "<p>In an analysis of verified Bloomli reviews mentioning each topic, 95% described thicker-looking hair,<strong> </strong>88% mentioned reduced shedding, 82% reported less breakage, and 75% mentioned new hair growth.<br/><br/>Bloomli is also third-party tested for heavy metals, microbial contaminants, and label accuracy.*</p>"
           }
@@ -540,6 +541,7 @@
         "rev5",
         "rev6"
       ],
+      "disabled": true,
       "settings": {
         "title": "From women on a GLP-1.",
         "use_judgeme": false,

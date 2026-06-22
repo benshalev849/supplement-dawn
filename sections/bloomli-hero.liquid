@@ -5,6 +5,8 @@
   class="bloomli-hero bloomli-section color-{{ section.settings.color_scheme }} gradient{% unless has_bg_image %}{% if section.settings.use_brand_gradient %} bloomli-hero--brand-gradient{% endif %}{% endunless %}{% if has_bg_image %} bloomli-hero--has-bg-image bloomli-hero--banner-fixed-height{% endif %}"
   style="
     --hero-min-height: {{ section.settings.min_height }}px;
+    --hero-heading-size: {{ section.settings.heading_text_size }}px;
+    --hero-subtext-size: {{ section.settings.subtext_text_size }}px;
     --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -139,6 +141,8 @@
     { "type": "text",     "id": "headline_line1",  "label": "Headline line 1",         "default": "Quiet science," },
     { "type": "text",     "id": "headline_line2",  "label": "Headline line 2 (italic)", "default": "visible results." },
     { "type": "textarea", "id": "subtext",         "label": "Subtext",                 "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },
+    { "type": "range",    "id": "heading_text_size", "label": "Heading text size",      "min": 28, "max": 80, "step": 1, "default": 44, "unit": "px" },
+    { "type": "range",    "id": "subtext_text_size", "label": "Subtext size",           "min": 12, "max": 24, "step": 1, "default": 15, "unit": "px" },
     { "type": "range",    "id": "min_height",      "label": "Min height (px)",         "min": 500, "max": 900, "step": 20, "default": 720 },
     { "type": "range",    "id": "padding_top",     "label": "Padding top",             "min": 0, "max": 176, "step": 8, "default": 80, "unit": "px" },
     { "type": "range",    "id": "padding_bottom",  "label": "Padding bottom",          "min": 0, "max": 176, "step": 8, "default": 80, "unit": "px" },

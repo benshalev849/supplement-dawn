@@ -21,9 +21,6 @@
 >
   <div class="bloomli-glp1-compare__inner">
     <header class="bloomli-glp1-compare__header">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="bloomli-glp1-compare__eyebrow">{{ section.settings.eyebrow }}</p>
-      {%- endif -%}
       {%- if section.settings.heading != blank -%}
         <h2 class="bloomli-glp1-compare__title">{{ section.settings.heading }}</h2>
       {%- endif -%}
@@ -78,7 +75,6 @@
   "max_blocks": 3,
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A clearer comparison" },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "A fuller routine, <em>not just biotin.</em>" },
     { "type": "textarea", "id": "intro", "label": "Introduction", "default": "The difference is not a louder promise. It is a more complete daily formula and a routine you can keep." },
     { "type": "header", "content": "Optional custom colors" },

@@ -20,11 +20,8 @@
   "
 >
   <div class="bloomli-glp1-listicle__inner">
-    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.intro != blank -%}
+    {%- if section.settings.heading != blank or section.settings.intro != blank -%}
       <header class="bloomli-glp1-listicle__header">
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="bloomli-glp1-listicle__eyebrow">{{ section.settings.eyebrow }}</p>
-        {%- endif -%}
         {%- if section.settings.heading != blank -%}
           <h2 class="bloomli-glp1-listicle__title">{{ section.settings.heading }}</h2>
         {%- endif -%}
@@ -115,7 +112,6 @@
   "max_blocks": 6,
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A calmer way to understand it" },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Why women on a GLP-1 add Bloomli <em>to their routine.</em>" },
     { "type": "textarea", "id": "intro", "label": "Introduction", "default": "Five clear reasons, without fear tactics or overnight promises." },
     { "type": "select", "id": "first_media_side", "label": "First image side", "options": [

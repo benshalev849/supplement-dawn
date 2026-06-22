@@ -234,10 +234,13 @@
         assign frequency_filter = frequency_qty | append: 'mo'
         assign tier_plan_id = ''
         assign first_allocation_id = ''
+        assign first_allocation = ''
+        assign tier_plan_allocation = ''
         assign plan_filter_lower = plan_filter | downcase
         for allocation in tier_variant.selling_plan_allocations
           if first_allocation_id == blank
             assign first_allocation_id = allocation.selling_plan.id
+            assign first_allocation = allocation
           endif
 
           assign allocation_source = allocation.selling_plan.name | downcase
@@ -251,11 +254,13 @@
           assign frequency_filter_appstle = frequency_qty | append: 'month'
           if allocation_source contains plan_filter_lower or allocation_source contains frequency_filter or allocation_source contains frequency_filter_spaced or allocation_source contains frequency_filter_dash or allocation_source contains frequency_filter_month or allocation_source contains frequency_filter_every or allocation_source contains frequency_filter_appstle
             assign tier_plan_id = allocation.selling_plan.id
+            assign tier_plan_allocation = allocation
             break
           endif
         endfor
         if tier_plan_id == blank and first_allocation_id != blank
           assign tier_plan_id = first_allocation_id
+          assign tier_plan_allocation = first_allocation
         endif
 
         assign fallback_plan_id = ''
@@ -293,6 +298,15 @@
           assign tier_plan_id = fallback_plan_id
         endif
 
+        if tier_plan_allocation == blank and tier_plan_id != blank
+          for allocation in tier_variant.selling_plan_allocations
+            if allocation.selling_plan.id == tier_plan_id
+              assign tier_plan_allocation = allocation
+              break
+            endif
+          endfor
+        endif
+
         if show and forloop.index0 == default_idx
           assign default_variant_id = tier_variant_id
           assign default_variant_available = tier_available
@@ -317,11 +331,18 @@
         if unit_compare > unit_price
           assign line_compare = unit_compare | times: qty
         endif
-
         assign one_time_pct_factor = 100.0 | minus: discount_pct
         assign one_time_unit_cents = unit_price | times: one_time_pct_factor | divided_by: 100.0 | round
         assign one_time_total_cents = one_time_unit_cents | times: qty
 
+        comment
+          Subscribe price is always an estimate compounded off THIS product's own
+          single unit price (volume % then subscription %), per the brand rules —
+          never derived from the mapped bundle product's live selling-plan
+          allocation price, which can include its own bundle pricing and produce a
+          total that does not match the displayed per-month estimate. The plan id
+          found above is still used for the cart submission only.
+        endcomment
         assign subscription_pct_factor = 100.0 | minus: sub_discount_pct
         assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
         assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round

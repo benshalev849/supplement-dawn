@@ -36,9 +36,6 @@
 >
   {%- if section.settings.show_intro -%}
     <header class="bloomli-product-information__intro">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="bloomli-product-information__eyebrow">{{ section.settings.eyebrow }}</p>
-      {%- endif -%}
       {%- if section.settings.heading != blank -%}
         <h2 class="bloomli-product-information__heading">{{ section.settings.heading }}</h2>
       {%- endif -%}
@@ -158,7 +155,6 @@
     { "type": "product", "id": "product", "label": "Product for landing pages", "info": "Product templates use the current product automatically. Page templates use this selection." },
     { "type": "header", "content": "Section introduction" },
     { "type": "checkbox", "id": "show_intro", "label": "Show section introduction", "default": true },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Your daily hair-support ritual" },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Meet the routine behind <em>healthier-looking hair.</em>" },
     { "type": "richtext", "id": "subtext", "label": "Subtext", "default": "<p>The original Bloomli gummies product, with live product media, pricing, subscription options and details.</p>" },
     { "type": "header", "content": "Product information" },

@@ -16,7 +16,7 @@
         "use_brand_gradient": true,
         "headline_line1": "Losing weight fast can be hard on your hair.",
         "headline_line2": "You can support it.",
-        "subtext": "More shedding during rapid weight loss is common, and usually temporary. Here is why it happens, and the simple daily ritual that helps give your hair what it needs.*",
+        "subtext": "More shedding during rapid weight loss is common, and usually temporary. As the body drops weight quickly, more hairs shift into their natural resting-and-shedding phase, and smaller meals can leave gaps in the nutrients hair depends on. Nutrition is the one part you can actively support, with a simple two-gummy daily ritual.*",
         "min_height": 640,
         "padding_top": 72,
         "padding_bottom": 72,
@@ -33,76 +33,6 @@
         "trust_badge_2": "NSF-Certified Facility",
         "trust_badge_3": "Made in the USA",
         "content_position_mobile": "top"
-      }
-    },
-    "glp1_trust": {
-      "type": "bloomli-trust-row",
-      "blocks": {
-        "p1": {
-          "type": "proof",
-          "settings": {
-            "icon": "pill",
-            "label": "6,000mcg Biotin",
-            "body": "A daily amount for hair, skin and nail support.*"
-          }
-        },
-        "p2": {
-          "type": "proof",
-          "settings": {
-            "icon": "candy",
-            "label": "Just 2 Gummies a Day",
-            "body": "No extra pill to swallow alongside your medication."
-          }
-        },
-        "p3": {
-          "type": "proof",
-          "settings": {
-            "icon": "shield-check",
-            "label": "Tested, Made in the USA",
-            "body": "Made in an NSF/GMP facility, with a COA on file."
-          }
-        }
-      },
-      "block_order": ["p1", "p2", "p3"],
-      "settings": {
-        "color_scheme": "scheme-db3fe7fd-8cb8-43cd-b413-f26d3fc92c5f",
-        "padding_top": 28,
-        "padding_bottom": 28,
-        "padding_top_mobile": 22,
-        "padding_bottom_mobile": 22
-      }
-    },
-    "glp1_mechanism": {
-      "type": "rich-text",
-      "blocks": {
-        "caption": {
-          "type": "caption",
-          "settings": {
-            "caption": "First, a calm explanation",
-            "text_style": "caption-with-letter-spacing"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>When the body goes through rapid weight loss, more hairs than usual can temporarily shift into their natural resting-and-shedding phase, and eating less can mean fewer of the nutrients hair depends on. It is common, it is usually temporary, and nutrition is one thing you can actively support.*</p>"
-          }
-        },
-        "pullquote": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>This is not about doing more. It is about giving your hair the building blocks it may be missing right now.</em></p>"
-          }
-        }
-      },
-      "block_order": ["caption", "text", "pullquote"],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "full_width": true,
-        "padding_top": 44,
-        "padding_bottom": 32
       }
     },
     "glp1_listicle": {
@@ -155,7 +85,6 @@
       "block_order": ["r1", "r2", "r3", "r4", "r5", "provider"],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "eyebrow": "A calmer way to understand it",
         "heading": "Why women on a GLP-1 <em>add Bloomli.</em>",
         "intro": "Five clear reasons, without fear tactics or overnight promises.",
         "first_media_side": "media-first",
@@ -206,7 +135,6 @@
       "block_order": ["bloomli", "biotin", "nothing"],
       "settings": {
         "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
-        "eyebrow": "A clearer comparison",
         "heading": "A fuller routine, <em>not just biotin.</em>",
         "intro": "The difference is not a louder promise. It is a more complete daily formula and a routine you can keep.",
         "column_radius": 28,
@@ -324,7 +252,7 @@
             "tier_1_badge": "",
             "tier_1_tag": "",
             "tier_1_discount_pct": 0,
-            "tier_1_subscription_discount_pct": "15",
+            "tier_1_subscription_discount_pct": "20",
             "tier_1_plan_filter": "1-pack",
             "tier_1_default": true,
             "tier_2_show": true,
@@ -336,8 +264,8 @@
             "tier_2_daily_text": "",
             "tier_2_badge": "",
             "tier_2_tag": "Most Popular",
-            "tier_2_discount_pct": 15,
-            "tier_2_subscription_discount_pct": "27.75",
+            "tier_2_discount_pct": 10,
+            "tier_2_subscription_discount_pct": "28",
             "tier_2_plan_filter": "3-pack",
             "tier_2_default": false,
             "tier_3_show": true,
@@ -349,12 +277,12 @@
             "tier_3_daily_text": "",
             "tier_3_badge": "",
             "tier_3_tag": "Best Value",
-            "tier_3_discount_pct": 20,
+            "tier_3_discount_pct": 15,
             "tier_3_subscription_discount_pct": "32",
             "tier_3_plan_filter": "6-pack",
             "tier_3_default": false,
             "subscribe_enabled": true,
-            "subscription_discount_pct": "15",
+            "subscription_discount_pct": "20",
             "discount_badge_template": "SAVE [percent]%",
             "default_mode": "subscribe",
             "offer_section_label": "Select Your Offer:",
@@ -492,7 +420,6 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "product": "bloomli-hair-vitamin-gummies",
         "show_intro": true,
-        "eyebrow": "Your daily hair-support ritual",
         "heading": "Meet the routine behind <em>healthier-looking hair.</em>",
         "subtext": "<p>Two passion-fruit gummies a day, with live product media, pricing, subscription options and details.</p>",
         "show_title": true,
@@ -575,12 +502,22 @@
       "settings": {
         "heading": "Questions, answered honestly.",
         "intro": "<p>Everything you need to know before your first gummy.</p>",
+        "image": "shopify://shop_images/Model_Holding_Gummy_3.png",
+        "image_alt": "",
         "show_placeholder": false,
         "image_position": "right",
         "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
-        "padding_top": 56,
-        "padding_bottom": 40
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "border_color": "#e8ded8",
+        "image_width": 360,
+        "corner_radius": 14,
+        "heading_size": 48,
+        "question_size": 16,
+        "body_size": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "glp1_final_cta": {
@@ -620,8 +557,6 @@
   },
   "order": [
     "glp1_hero",
-    "glp1_trust",
-    "glp1_mechanism",
     "glp1_listicle",
     "glp1_compare",
     "glp1_reviews",

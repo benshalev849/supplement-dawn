@@ -99,6 +99,7 @@
           "type": "reason",
           "settings": {
             "number": "",
+            "image": "shopify://shop_images/Listicle_Image_3.png",
             "title": "Biotin Is Only One Piece of the Hair Puzzle",
             "body": "<p>Biotin gets most of the attention, but healthy-looking hair relies on a broader nutritional foundation. Bloomli pairs biotin with zinc, vitamin C, B vitamins, silicon, PABA, and marine collagen, so your daily routine isn’t built around a single ingredient.*</p>"
           }
@@ -107,6 +108,7 @@
           "type": "reason",
           "settings": {
             "number": "",
+            "image": "shopify://shop_images/Listicle_Image_4.png",
             "title": "Hair Changes Take Patience, Not Bigger Promises",
             "body": "<p>Hair grows in cycles, so meaningful changes are measured in months, not days. Consistent nutritional support gives your hair time to move through its natural cycle without relying on unrealistic overnight promises.*</p>"
           }
@@ -115,6 +117,7 @@
           "type": "reason",
           "settings": {
             "number": "",
+            "image": "shopify://shop_images/Listicle_Image_5.png",
             "title": "A Routine Only Works If You Can Stick With It",
             "body": "<p>New medications and eating habits can make wellness feel complicated. Bloomli keeps hair support simple with two passion-fruit gummies a day. There are no large capsules, powders, mixing, or measuring.</p>"
           }
@@ -124,7 +127,7 @@
           "settings": {
             "number": "",
             "title": "Real Customer Insights, Plus Quality You Can Verify",
-            "body": "<p>In an analysis of verified Bloomli reviews mentioning each topic, 95% described thicker-looking hair, 88% mentioned reduced shedding, 82% reported less breakage, and 75% mentioned new hair growth. Bloomli is also third-party tested for heavy metals, microbial contaminants, and label accuracy.*</p>"
+            "body": "<p>In an analysis of verified Bloomli reviews mentioning each topic, 95% described thicker-looking hair,<strong> </strong>88% mentioned reduced shedding, 82% reported less breakage, and 75% mentioned new hair growth.<br/><br/>Bloomli is also third-party tested for heavy metals, microbial contaminants, and label accuracy.*</p>"
           }
         },
         "r5": {

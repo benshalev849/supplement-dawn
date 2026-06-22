@@ -48,7 +48,7 @@
   margin: 0;
   font-size: 1.6rem;
   line-height: 1.7;
-  opacity: 0.72;
+  color: rgba(var(--color-foreground), 0.72);
   text-wrap: pretty;
 }
 
@@ -115,7 +115,7 @@
 
 .bloomli-glp1-listicle__index {
   font-family: var(--font-heading-family);
-  font-size: clamp(var(--glp1-reason-number-size-mobile, 56px), 8vw, var(--glp1-reason-number-size, 90px));
+  font-size: var(--glp1-reason-number-size-mobile, 56px);
   font-style: italic;
   letter-spacing: -0.05em;
   line-height: 0.72;
@@ -127,7 +127,7 @@
   max-width: 18ch;
   margin: 0;
   font-family: var(--font-heading-family);
-  font-size: clamp(var(--glp1-reason-title-size-mobile, 30px), 4vw, var(--glp1-reason-title-size, 46px));
+  font-size: var(--glp1-reason-title-size-mobile, 30px);
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.02;
@@ -136,9 +136,9 @@
 
 .bloomli-glp1-listicle__body {
   max-width: 58ch;
-  font-size: var(--glp1-reason-text-size, 16px);
+  font-size: var(--glp1-reason-text-size-mobile, 16px);
   line-height: 1.75;
-  opacity: 0.78;
+  color: rgba(var(--color-foreground), 0.72);
 }
 
 .bloomli-glp1-listicle__body > :first-child,
@@ -222,6 +222,18 @@
 
   .bloomli-glp1-listicle__title {
     font-size: var(--glp1-heading);
+  }
+
+  .bloomli-glp1-listicle__index {
+    font-size: var(--glp1-reason-number-size, 90px);
+  }
+
+  .bloomli-glp1-listicle__reason-title {
+    font-size: var(--glp1-reason-title-size, 46px);
+  }
+
+  .bloomli-glp1-listicle__body {
+    font-size: var(--glp1-reason-text-size, 16px);
   }
 
   .bloomli-glp1-listicle__reason {

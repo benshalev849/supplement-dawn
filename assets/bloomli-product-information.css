@@ -50,7 +50,11 @@
   border-radius: 2.8rem;
 }
 
-.bloomli-product-information .product__media-list {
+/* Round each media item individually so the corners stay clipped without
+   forcing `overflow: hidden` onto .product__media-list. That element is also
+   Dawn's mobile slider (.slider--mobile), which needs `overflow-x: auto` to
+   swipe horizontally — clipping it freezes the slider and its counter. */
+.bloomli-product-information .product__media-item {
   border-radius: 2.8rem;
   overflow: hidden;
 }

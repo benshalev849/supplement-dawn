@@ -207,171 +207,6 @@
         "padding_bottom_mobile": 72
       }
     },
-    "glp1_compare": {
-      "type": "bloomli-glp1-compare",
-      "blocks": {
-        "bloomli": {
-          "type": "column",
-          "settings": {
-            "featured": true,
-            "badge": "The fuller routine",
-            "title": "Bloomli Hair Gummies",
-            "positive": true,
-            "rows": "Biotin, marine collagen, zinc and B vitamins*\nTwo passion-fruit gummies a day\nDesigned for a consistent daily routine\nMade in the USA, COA on file"
-          }
-        },
-        "biotin": {
-          "type": "column",
-          "settings": {
-            "featured": false,
-            "badge": "The fuller routine",
-            "title": "Plain biotin",
-            "positive": false,
-            "rows": "A single nutrient\nOften a tablet or capsule\nNo supporting blend\nQuality depends on the brand"
-          }
-        },
-        "nothing": {
-          "type": "column",
-          "settings": {
-            "featured": false,
-            "badge": "The fuller routine",
-            "title": "Doing nothing",
-            "positive": false,
-            "rows": "No added nutritional support\nNo daily supplement step\nDietary gaps may remain*\nNo product quality standard"
-          }
-        }
-      },
-      "block_order": [
-        "bloomli",
-        "biotin",
-        "nothing"
-      ],
-      "settings": {
-        "color_scheme": "scheme-c080e6f6-81c2-4466-90ab-623088a7219d",
-        "eyebrow": "A clearer comparison",
-        "heading": "A fuller routine, <em>not just biotin.</em>",
-        "intro": "The difference is not a louder promise. It is a more complete daily formula and a routine you can keep.",
-        "accent_color": "#b23a6f",
-        "emphasis_color": "#7b2151",
-        "column_background": "#fffdfc",
-        "featured_background": "#f3e1e5",
-        "muted_color": "#9a8f89",
-        "badge_text_color": "#fdfaf7",
-        "column_radius": 28,
-        "heading_size": 48,
-        "heading_size_mobile": 38,
-        "padding_top": 112,
-        "padding_bottom": 112,
-        "padding_top_mobile": 72,
-        "padding_bottom_mobile": 72
-      }
-    },
-    "glp1_reviews": {
-      "type": "bloomli-reviews",
-      "blocks": {
-        "rev1": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 5,
-            "quote": "\"Started these a couple months into my GLP-1 and the extra shedding has calmed down for me. Easy to keep up with since they actually taste good.\"",
-            "name": "Megan R.",
-            "meta": "Hair Gummies · 3 months",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev2": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 5,
-            "quote": "\"I was losing more hair than usual after dropping weight and wanted something simple. Two gummies in the morning is the only routine I've actually stuck to.\"",
-            "name": "Danielle P.",
-            "meta": "Hair Gummies · 4 months",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev3": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 4,
-            "quote": "\"Taste is great and they're easy to remember. A little early to say much about my hair, but my nails already feel stronger.\"",
-            "name": "Christine W.",
-            "meta": "Hair Gummies · 6 weeks",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev4": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 5,
-            "quote": "\"Way easier than swallowing another pill on top of my meds. The passion fruit flavor is genuinely nice.\"",
-            "name": "Allison T.",
-            "meta": "Hair Gummies · 2 months",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev5": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 5,
-            "quote": "\"My hair felt thinner while I was losing weight and this gave me something I could actually do about it. It's looking a bit fuller and shinier lately.\"",
-            "name": "Rachel B.",
-            "meta": "Hair Gummies · 5 months",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev6": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 4,
-            "quote": "\"I like the ritual of it and the bottle looks cute on my counter. Wish it were a touch less sweet, but I keep reaching for them.\"",
-            "name": "Sofia M.",
-            "meta": "Hair Gummies · 3 months",
-            "verified_label": "Verified Customer"
-          }
-        }
-      },
-      "block_order": [
-        "rev1",
-        "rev2",
-        "rev3",
-        "rev4",
-        "rev5",
-        "rev6"
-      ],
-      "settings": {
-        "title": "From women on a GLP-1.",
-        "use_judgeme": false,
-        "manual_aggregate": "4.8 Stars · 2,400+ reviews",
-        "background_color": "#f2e7e4",
-        "card_background": "#fdfaf7",
-        "placeholder_color": "#f7f0e9",
-        "text_color": "#2a2622",
-        "muted_color": "#7c7169",
-        "accent_color": "#b23a6f",
-        "heading_size": 46,
-        "heading_size_mobile": 36,
-        "card_gap": 20,
-        "scroll_duration": 70,
-        "mobile_card_width": 82,
-        "card_radius": 10,
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48
-      }
-    },
     "glp1_offer": {
       "type": "bloomli-product-information",
       "blocks": {
@@ -606,6 +441,171 @@
         "padding_bottom_mobile": 72
       }
     },
+    "glp1_compare": {
+      "type": "bloomli-glp1-compare",
+      "blocks": {
+        "bloomli": {
+          "type": "column",
+          "settings": {
+            "featured": true,
+            "badge": "The fuller routine",
+            "title": "Bloomli Hair Gummies",
+            "positive": true,
+            "rows": "Biotin, marine collagen, zinc and B vitamins*\nTwo passion-fruit gummies a day\nDesigned for a consistent daily routine\nMade in the USA, COA on file"
+          }
+        },
+        "biotin": {
+          "type": "column",
+          "settings": {
+            "featured": false,
+            "badge": "The fuller routine",
+            "title": "Plain biotin",
+            "positive": false,
+            "rows": "A single nutrient\nOften a tablet or capsule\nNo supporting blend\nQuality depends on the brand"
+          }
+        },
+        "nothing": {
+          "type": "column",
+          "settings": {
+            "featured": false,
+            "badge": "The fuller routine",
+            "title": "Doing nothing",
+            "positive": false,
+            "rows": "No added nutritional support\nNo daily supplement step\nDietary gaps may remain*\nNo product quality standard"
+          }
+        }
+      },
+      "block_order": [
+        "bloomli",
+        "biotin",
+        "nothing"
+      ],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "eyebrow": "A clearer comparison",
+        "heading": "A fuller routine, <em>not just biotin.</em>",
+        "intro": "The difference is not a louder promise. It is a more complete daily formula and a routine you can keep.",
+        "accent_color": "#b23a6f",
+        "emphasis_color": "#7b2151",
+        "column_background": "#fffdfc",
+        "featured_background": "#f3e1e5",
+        "muted_color": "#9a8f89",
+        "badge_text_color": "#fdfaf7",
+        "column_radius": 28,
+        "heading_size": 48,
+        "heading_size_mobile": 38,
+        "padding_top": 112,
+        "padding_bottom": 112,
+        "padding_top_mobile": 72,
+        "padding_bottom_mobile": 72
+      }
+    },
+    "glp1_reviews": {
+      "type": "bloomli-reviews",
+      "blocks": {
+        "rev1": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"Started these a couple months into my GLP-1 and the extra shedding has calmed down for me. Easy to keep up with since they actually taste good.\"",
+            "name": "Megan R.",
+            "meta": "Hair Gummies · 3 months",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev2": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"I was losing more hair than usual after dropping weight and wanted something simple. Two gummies in the morning is the only routine I've actually stuck to.\"",
+            "name": "Danielle P.",
+            "meta": "Hair Gummies · 4 months",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev3": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 4,
+            "quote": "\"Taste is great and they're easy to remember. A little early to say much about my hair, but my nails already feel stronger.\"",
+            "name": "Christine W.",
+            "meta": "Hair Gummies · 6 weeks",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev4": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"Way easier than swallowing another pill on top of my meds. The passion fruit flavor is genuinely nice.\"",
+            "name": "Allison T.",
+            "meta": "Hair Gummies · 2 months",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev5": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"My hair felt thinner while I was losing weight and this gave me something I could actually do about it. It's looking a bit fuller and shinier lately.\"",
+            "name": "Rachel B.",
+            "meta": "Hair Gummies · 5 months",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev6": {
+          "type": "review",
+          "settings": {
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 4,
+            "quote": "\"I like the ritual of it and the bottle looks cute on my counter. Wish it were a touch less sweet, but I keep reaching for them.\"",
+            "name": "Sofia M.",
+            "meta": "Hair Gummies · 3 months",
+            "verified_label": "Verified Customer"
+          }
+        }
+      },
+      "block_order": [
+        "rev1",
+        "rev2",
+        "rev3",
+        "rev4",
+        "rev5",
+        "rev6"
+      ],
+      "settings": {
+        "title": "From women on a GLP-1.",
+        "use_judgeme": false,
+        "manual_aggregate": "4.8 Stars · 2,400+ reviews",
+        "background_color": "#f2e7e4",
+        "card_background": "#fdfaf7",
+        "placeholder_color": "#f7f0e9",
+        "text_color": "#2a2622",
+        "muted_color": "#7c7169",
+        "accent_color": "#b23a6f",
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "card_gap": 20,
+        "scroll_duration": 70,
+        "mobile_card_width": 82,
+        "card_radius": 10,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
     "glp1_faq": {
       "type": "bloomli-faq",
       "blocks": {
@@ -742,9 +742,9 @@
     "glp1_trust",
     "glp1_mechanism",
     "glp1_listicle",
+    "glp1_offer",
     "glp1_compare",
     "glp1_reviews",
-    "glp1_offer",
     "glp1_faq",
     "glp1_final_cta",
     "main"

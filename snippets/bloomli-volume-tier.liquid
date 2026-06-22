@@ -37,21 +37,23 @@
   assign subscribe_enabled = block.settings.subscribe_enabled
   assign default_mode = block.settings.default_mode | default: 'onetime'
   comment
-    Subscription discount precedence (intended): the product metafield is the
-    per-product source of truth, so the rate is set once in the product and never
-    has to be re-entered on each template's block. Global theme setting is the
-    next fallback, then the block setting, then a hard default. The displayed
-    subscribe price is still only an estimate compounded off this product's unit
-    price using whichever rate wins here.
+    Subscription discount precedence: the theme block setting is the source of
+    truth, so the rate the merchant configures on the section (default 20) always
+    wins. Product metafield and global setting are kept only as fallbacks for when
+    a block does not specify a value. The displayed subscribe price is an estimate
+    compounded off this product's unit price using whichever rate wins here.
   endcomment
+  assign b_sub_pct  = block.settings.subscription_discount_pct
   assign mf_sub_pct = product.metafields.bloomli.subscription_discount_pct
   assign g_sub_pct  = settings.bloomli_subscription_discount_pct
-  if mf_sub_pct != blank
+  if b_sub_pct != blank
+    assign subscription_discount_pct = b_sub_pct | plus: 0
+  elsif mf_sub_pct != blank
     assign subscription_discount_pct = mf_sub_pct | plus: 0
   elsif g_sub_pct != blank
     assign subscription_discount_pct = g_sub_pct | plus: 0
   else
-    assign subscription_discount_pct = block.settings.subscription_discount_pct | default: 20 | plus: 0
+    assign subscription_discount_pct = 20
   endif
   assign tier_1_qty_for_discount = block.settings.tier_1_qty | default: 1 | plus: 0
   assign tier_2_qty_for_discount = block.settings.tier_2_qty | default: 2 | plus: 0
@@ -322,47 +324,33 @@
         endif
 
         comment
-          Pricing source. When a tier maps to a real bundle product, its variant is a
-          genuine purchasable line whose price already encodes the volume offer, so we
-          show Shopify's OWN numbers to the cent: the bundle variant price for one-time,
-          and the selling-plan allocation price for subscribe. If the allocation is not
-          exposed at render (Appstle plans are not always surfaced in the variant), we
-          apply the subscription % to the bundle variant price and round it the same way
-          Shopify does, which still matches the cart. This avoids the rounding drift that
-          comes from re-deriving the price off the single-unit estimate.
+          Display prices are estimates derived only from THIS product's own unit
+          price, so they are deterministic and never depend on a mapped bundle
+          product's live price. Real discounts are applied by the apps at checkout
+          (subscription via the selling plan, volume via the cart discount); the
+          plan id found above is used for cart submission only, not for pricing.
 
-          When there is no bundle (e.g. the 1-month tier) prices are an estimate
-          compounded off this product's own unit price: volume % for one-time, then
-          subscription % compounded for subscribe. The compare-at is one month's price ×
-          the month count. Real discounts are applied by the apps at checkout.
+            one-time  = round(unit × (1 - volume%)) × months
+            subscribe = round(unit × (1 - volume%) × (1 - subscription%)) × months
+
+          Discounts compound (they do not add). Round the per-month unit first,
+          then multiply by the month count, per the brand pricing rules. The
+          compare-at is one month's price × the month count.
         endcomment
         assign line_compare = unit_price | times: qty
         if unit_compare > unit_price
           assign line_compare = unit_compare | times: qty
         endif
+
         assign one_time_pct_factor = 100.0 | minus: discount_pct
         assign subscription_pct_factor = 100.0 | minus: sub_discount_pct
+        assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
 
-        assign tier_uses_bundle_pricing = false
-        if bundle_product != blank and tier_product.selected_or_first_available_variant != blank
-          assign tier_uses_bundle_pricing = true
-        endif
+        assign one_time_unit_cents = unit_price | times: one_time_pct_factor | divided_by: 100.0 | round
+        assign one_time_total_cents = one_time_unit_cents | times: qty
 
-        if tier_uses_bundle_pricing
-          assign one_time_total_cents = tier_variant.price | times: tier_cart_quantity
-          if tier_plan_allocation != blank
-            assign subscribe_total_cents = tier_plan_allocation.price | times: tier_cart_quantity
-          else
-            assign subscribe_unit_cents = tier_variant.price | times: subscription_pct_factor | divided_by: 100.0 | round
-            assign subscribe_total_cents = subscribe_unit_cents | times: tier_cart_quantity
-          endif
-        else
-          assign one_time_unit_cents = unit_price | times: one_time_pct_factor | divided_by: 100.0 | round
-          assign one_time_total_cents = one_time_unit_cents | times: qty
-          assign compounded_pct_factor = one_time_pct_factor | times: subscription_pct_factor | divided_by: 100.0
-          assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round
-          assign subscribe_total_cents = subscribe_unit_cents | times: qty
-        endif
+        assign subscribe_unit_cents = unit_price | times: compounded_pct_factor | divided_by: 100.0 | round
+        assign subscribe_total_cents = subscribe_unit_cents | times: qty
         assign rounded_discount_pct = discount_pct | floor
         assign dynamic_badge = discount_badge_template | replace: '[percent]', rounded_discount_pct | replace: '[qty]', qty
 

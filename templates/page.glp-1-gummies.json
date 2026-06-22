@@ -413,31 +413,43 @@
           }
         },
         "how_to_take": {
-          "type": "collapsible_row",
+          "type": "product_detail",
           "settings": {
             "title": "How to Take",
-            "content": "<p></p>{{ product.metafields.custom.how_to_take | metafield_tag }}"
+            "metafield_namespace": "custom",
+            "metafield_key": "how_to_take",
+            "fallback_content": "<p>Take two gummies daily. Keep your healthcare provider informed about every supplement in your routine.</p>",
+            "open_by_default": false
           }
         },
         "ingredients": {
-          "type": "collapsible_row",
+          "type": "product_detail",
           "settings": {
             "title": "Ingredients & Allergens",
-            "content": "<p></p>{{ product.metafields.custom.ingredients_allergens | metafield_tag }}"
+            "metafield_namespace": "custom",
+            "metafield_key": "ingredients_allergens",
+            "fallback_content": "<p>Key ingredients include 6,000mcg biotin, marine collagen, PABA, silicon, zinc, iodine and vitamins A, C, D, E, B6, B12, folate and B5. Gluten-free. Contains fish (tilapia) and tree nut (coconut).</p>",
+            "open_by_default": false
           }
         },
         "quality": {
-          "type": "collapsible_row",
+          "type": "product_detail",
           "settings": {
             "title": "Quality & Certifications",
-            "content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.<br/><br/>Read more in our <a href=\"/pages/science-1\" title=\"Science\">Science Page</a></p>"
+            "metafield_namespace": "custom",
+            "metafield_key": "quality_certifications",
+            "fallback_content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.<br/><br/>Read more in our <a href=\"/pages/science-1\" title=\"Science\">Science Page</a></p>",
+            "open_by_default": false
           }
         },
         "shipping": {
-          "type": "collapsible_row",
+          "type": "product_detail",
           "settings": {
             "title": "Shipping & Returns",
-            "content": "<p>We offer free shipping on all subscriptions and on one-time orders over $75.<br/><br/>Orders are processed within 1 to 2 business days and typically arrive within 5 to 7 business days.<br/><br/>Not happy with your results? We offer a 30-day money-back guarantee, no questions asked. <br/><br/>View our full <a href=\"/policies/shipping-policy\" title=\"Shipping Policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\" title=\"Refund Policy\">Refund Policy</a> for complete details.</p>"
+            "metafield_namespace": "custom",
+            "metafield_key": "shipping_returns",
+            "fallback_content": "<p>We offer free shipping on all subscriptions and on one-time orders over $75.<br/><br/>Orders are processed within 1 to 2 business days and typically arrive within 5 to 7 business days.<br/><br/>Not happy with your results? We offer a 30-day money-back guarantee, no questions asked. <br/><br/>View our full <a href=\"/policies/shipping-policy\" title=\"Shipping Policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\" title=\"Refund Policy\">Refund Policy</a> for complete details.</p>",
+            "open_by_default": false
           }
         }
       },

@@ -9,7 +9,7 @@
 
   assign has_collapsible_rows = false
   for block in section.blocks
-    if block.type == 'collapsible_row'
+    if block.type == 'product_detail'
       assign has_collapsible_rows = true
       break
     endif
@@ -124,22 +124,41 @@
                     assign detail_namespace = block.settings.metafield_namespace | default: 'custom'
                     assign detail_key = block.settings.metafield_key
                     assign detail_metafield = source_product.metafields[detail_namespace][detail_key]
+                    assign detail_button_id = 'BloomliDetailButton-' | append: section.id | append: '-' | append: block.id
+                    assign detail_panel_id = 'BloomliDetailPanel-' | append: section.id | append: '-' | append: block.id
                   -%}
                   {%- if detail_metafield != blank or block.settings.fallback_content != blank -%}
-                    <details class="bloomli-product-information__detail" {% if block.settings.open_by_default %}open{% endif %} {{ block.shopify_attributes }}>
-                      <summary>{{ block.settings.title | escape }}</summary>
-                      <div class="bloomli-product-information__detail-content rte">
-                        {%- if detail_metafield != blank -%}
-                          {{ detail_metafield | metafield_tag }}
-                        {%- else -%}
-                          {{ block.settings.fallback_content }}
-                        {%- endif -%}
+                    <div class="bloomli-collapsible-row bloomli-faq__items" style="--bf-question-size: 16px; --bf-body-size: 14px;" {{ block.shopify_attributes }}>
+                      <div class="bloomli-faq__item">
+                        <button
+                          id="{{ detail_button_id }}"
+                          class="bloomli-faq__question"
+                          type="button"
+                          aria-expanded="{% if block.settings.open_by_default %}true{% else %}false{% endif %}"
+                          aria-controls="{{ detail_panel_id }}"
+                          data-bloomli-faq-button
+                        >
+                          <span>{{ block.settings.title | escape }}</span>
+                          <span class="bloomli-faq__plus" aria-hidden="true"></span>
+                        </button>
+                        <div
+                          id="{{ detail_panel_id }}"
+                          class="bloomli-faq__panel"
+                          role="region"
+                          aria-labelledby="{{ detail_button_id }}"
+                          {% unless block.settings.open_by_default %}hidden{% endunless %}
+                        >
+                          <div class="bloomli-faq__panel-inner rte">
+                            {%- if detail_metafield != blank -%}
+                              {{ detail_metafield | metafield_tag }}
+                            {%- else -%}
+                              {{ block.settings.fallback_content }}
+                            {%- endif -%}
+                          </div>
+                        </div>
                       </div>
-                    </details>
+                    </div>
                   {%- endif -%}
-
-                {%- when 'collapsible_row' -%}
-                  {%- render 'bloomli-collapsible-row', block: block, section_id: section.id -%}
               {%- endcase -%}
             {%- endfor -%}
           </div>
@@ -396,17 +415,6 @@
         { "type": "text", "id": "metafield_key", "label": "Metafield key", "default": "ingredients_allergens" },
         { "type": "richtext", "id": "fallback_content", "label": "Fallback content", "info": "Shown only when the product metafield is empty." },
         { "type": "checkbox", "id": "open_by_default", "label": "Open by default", "default": false }
-      ]
-    },
-    {
-      "type": "collapsible_row",
-      "name": "Bloomli - Collapsible row",
-      "limit": 8,
-      "settings": [
-        { "type": "text", "id": "title", "label": "Row title", "default": "Materials" },
-        { "type": "richtext", "id": "content", "label": "Row content", "default": "<p>Add details, links, or formatted content for this row.</p>" },
-        { "type": "image_picker", "id": "icon", "label": "Icon" },
-        { "type": "image_picker", "id": "row_image", "label": "Row image" }
       ]
     }
   ],

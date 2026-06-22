@@ -10063,9 +10063,9 @@
       "source_file": "bloomli-glp1-reveal.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_glp1_reveal_js",
-      "target": "assets_bloomli_glp1_reveal_revealall",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_glp1_reveal_revealall"
     },
     {
       "relation": "contains",
@@ -10073,9 +10073,9 @@
       "source_file": "bloomli-glp1-reveal.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_glp1_reveal_js",
-      "target": "assets_bloomli_glp1_reveal_initialize",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_glp1_reveal_initialize"
     },
     {
       "relation": "contains",
@@ -10083,9 +10083,9 @@
       "source_file": "bloomli-glp1-reveal.js",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "bloomli_glp1_reveal_js",
-      "target": "assets_bloomli_glp1_reveal_initializeall",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_glp1_reveal_initializeall"
     },
     {
       "relation": "calls",
@@ -10094,9 +10094,9 @@
       "source_file": "bloomli-glp1-reveal.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assets_bloomli_glp1_reveal_initialize",
-      "target": "assets_bloomli_glp1_reveal_revealall",
-      "confidence_score": 1.0
+      "target": "assets_bloomli_glp1_reveal_revealall"
     },
     {
       "relation": "contains",

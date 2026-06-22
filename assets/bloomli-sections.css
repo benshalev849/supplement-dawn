@@ -1829,39 +1829,65 @@
 
 .bloomli-sticky-cta {
   position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%) translateY(calc(100% + 32px));
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 9000;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-              opacity 0.25s ease;
-  opacity: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px 20px;
   pointer-events: none;
-  width: calc(100% - 40px);
-  max-width: 480px;
 }
 
-.bloomli-sticky-cta--visible {
-  transform: translateX(-50%) translateY(0);
+/* Full-width fade so page content disappears into the page background
+   behind the floating button (Gruns-style). */
+.bloomli-sticky-cta__scrim {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 180px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bscta-scrim, #fdfaf7), transparent 100%) 0%,
+    var(--bscta-scrim, #fdfaf7) 72%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bloomli-sticky-cta--visible .bloomli-sticky-cta__scrim {
   opacity: 1;
-  pointer-events: auto;
 }
 
 .bloomli-sticky-cta__btn {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
   width: 100%;
+  max-width: 480px;
   padding: 14px 24px 12px;
   border: none;
   border-radius: 100px;
-  background: var(--bscta-bg, #1b3a2d);
-  color: var(--bscta-text, #ffffff);
+  background: var(--bscta-bg, #b23a6f);
+  color: var(--bscta-text, #fdfaf7);
   cursor: pointer;
-  position: relative;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  pointer-events: auto;
+  box-shadow: 0 10px 34px rgba(178, 58, 111, 0.32);
   -webkit-tap-highlight-color: transparent;
+  transform: translateY(calc(100% + 40px));
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.25s ease;
+}
+
+.bloomli-sticky-cta--visible .bloomli-sticky-cta__btn {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .bloomli-sticky-cta__btn:active {
@@ -1874,8 +1900,8 @@
   top: -13px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--bscta-badge-bg, #f0b429);
-  color: var(--bscta-badge-text, #1b3a2d);
+  background: var(--bscta-badge-bg, #fdfaf7);
+  color: var(--bscta-badge-text, #b23a6f);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1883,6 +1909,7 @@
   padding: 3px 12px;
   border-radius: 100px;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(42, 38, 34, 0.12);
 }
 
 .bloomli-sticky-cta__main {
@@ -1890,7 +1917,7 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  color: var(--bscta-text, #ffffff);
+  color: var(--bscta-text, #fdfaf7);
   margin-top: 6px;
 }
 
@@ -1901,24 +1928,29 @@
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: color-mix(in srgb, var(--bscta-text, #ffffff) 75%, transparent);
+  color: color-mix(in srgb, var(--bscta-text, #fdfaf7) 78%, transparent);
   line-height: 1;
 }
 
 .bloomli-sticky-cta__stars {
-  color: var(--bscta-star, #f0b429);
+  color: var(--bscta-star, #fdfaf7);
   font-size: 13px;
   letter-spacing: 1px;
 }
 
 @media (max-width: 749px) {
   .bloomli-sticky-cta {
-    bottom: 16px;
-    max-width: calc(100% - 32px);
-    width: calc(100% - 32px);
+    padding: 0 16px 16px;
   }
 
   .bloomli-sticky-cta__main {
     font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloomli-sticky-cta__btn {
+    transition: opacity 0.25s ease;
+    transform: none;
   }
 }

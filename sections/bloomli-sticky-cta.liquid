@@ -3,7 +3,7 @@
   class="bloomli-sticky-cta"
   id="bloomli-sticky-cta-{{ section.id }}"
   data-scroll-target="{{ section.settings.scroll_target }}"
-  data-scroll-threshold="{{ section.settings.scroll_threshold }}"
+  data-proximity-margin="{{ section.settings.proximity_margin }}"
   aria-hidden="true"
   style="
     --bscta-bg: {{ section.settings.bg_color }};
@@ -11,8 +11,10 @@
     --bscta-badge-bg: {{ section.settings.badge_bg }};
     --bscta-badge-text: {{ section.settings.badge_text_color }};
     --bscta-star: {{ section.settings.star_color }};
+    --bscta-scrim: {{ section.settings.scrim_color }};
   "
 >
+  <div class="bloomli-sticky-cta__scrim" aria-hidden="true"></div>
   <button
     class="bloomli-sticky-cta__btn"
     type="button"
@@ -40,23 +42,53 @@
     var el = document.getElementById('bloomli-sticky-cta-{{ section.id }}');
     if (!el) return;
 
-    var threshold = parseInt(el.dataset.scrollThreshold, 10) || 300;
-    var target = el.dataset.scrollTarget;
+    var margin = parseInt(el.dataset.proximityMargin, 10);
+    if (isNaN(margin)) margin = 250;
+    var selector = el.dataset.scrollTarget;
     var visible = false;
+    var ticking = false;
 
-    function onScroll() {
-      var shouldShow = window.scrollY > threshold;
+    function targetEl() {
+      return selector ? document.querySelector(selector) : null;
+    }
+
+    function update() {
+      ticking = false;
+      var dest = targetEl();
+      var shouldShow;
+
+      if (dest) {
+        // Distance the target sits outside the viewport, in either direction.
+        var rect = dest.getBoundingClientRect();
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        var below = rect.top - vh; // > 0 → target is below the fold
+        var above = -rect.bottom;  // > 0 → target is above the top of the screen
+        var offscreenBy = Math.max(below, above, 0);
+        // Show once the target is more than `margin` px out of view (above or below).
+        shouldShow = offscreenBy > margin;
+      } else {
+        // No target on this page → fall back to a simple scroll distance.
+        shouldShow = (window.scrollY || window.pageYOffset) > margin;
+      }
+
       if (shouldShow === visible) return;
       visible = shouldShow;
       el.setAttribute('aria-hidden', String(!visible));
       el.classList.toggle('bloomli-sticky-cta--visible', visible);
     }
 
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
 
     el.querySelector('.bloomli-sticky-cta__btn').addEventListener('click', function () {
-      var dest = target ? document.querySelector(target) : null;
+      var dest = targetEl();
       if (dest) {
         dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
@@ -125,13 +157,13 @@
     },
     {
       "type": "range",
-      "id": "scroll_threshold",
-      "label": "Show after scrolling (px)",
+      "id": "proximity_margin",
+      "label": "Show when target is off-screen by (px)",
       "min": 0,
-      "max": 2000,
+      "max": 1200,
       "step": 50,
-      "default": 400,
-      "info": "How far the visitor must scroll before the bar appears."
+      "default": 250,
+      "info": "The bar appears once the target section is this far above or below the viewport, and hides while the target is in view."
     },
     {
       "type": "header",
@@ -141,31 +173,38 @@
       "type": "color",
       "id": "bg_color",
       "label": "Button background",
-      "default": "#1b3a2d"
+      "default": "#b23a6f"
     },
     {
       "type": "color",
       "id": "text_color",
       "label": "Button text",
-      "default": "#ffffff"
+      "default": "#fdfaf7"
     },
     {
       "type": "color",
       "id": "badge_bg",
       "label": "Badge background",
-      "default": "#f0b429"
+      "default": "#fdfaf7"
     },
     {
       "type": "color",
       "id": "badge_text_color",
       "label": "Badge text color",
-      "default": "#1b3a2d"
+      "default": "#b23a6f"
     },
     {
       "type": "color",
       "id": "star_color",
       "label": "Star color",
-      "default": "#f0b429"
+      "default": "#fdfaf7"
+    },
+    {
+      "type": "color",
+      "id": "scrim_color",
+      "label": "Fade background color",
+      "default": "#fdfaf7",
+      "info": "The page content fades into this color behind the bar. Set it to match the page background where the bar appears."
     }
   ],
   "presets": [

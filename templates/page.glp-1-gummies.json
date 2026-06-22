@@ -9,13 +9,30 @@
  */
 {
   "sections": {
+    "image_banner_h4jqEM": {
+      "type": "image-banner",
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
     "glp1_hero": {
       "type": "bloomli-hero",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_brand_gradient": false,
-        "headline_line1": "Losing weight fast can be hard on your hair.",
-        "headline_line2": "You can support it.",
+        "headline_line1": "7 Reasons GLP-1 Users Are Adding Bloomli to Their Hair Routine",
+        "headline_line2": "",
         "subtext": "More shedding during rapid weight loss is common, and usually temporary. As the body drops weight quickly, more hairs shift into their natural resting-and-shedding phase, and smaller meals can leave gaps in the nutrients hair depends on. Nutrition is the one part you can actively support, with a simple two-gummy daily ritual.*",
         "min_height": 640,
         "padding_top": 72,
@@ -23,7 +40,7 @@
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48,
         "button_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "cta_primary_label": "See the offer",
+        "cta_primary_label": "Save 47% And Start Your Routine Today",
         "cta_primary_url": "#glp1-offers",
         "cta_secondary_label": "",
         "cta_secondary_url": "#glp1-why",
@@ -651,6 +668,7 @@
     }
   },
   "order": [
+    "image_banner_h4jqEM",
     "glp1_hero",
     "glp1_listicle",
     "glp1_offer",

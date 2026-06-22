@@ -114,16 +114,16 @@
           "type": "reason",
           "settings": {
             "number": "",
-            "title": "One Beauty Routine Can Offer More Than One Benefit",
-            "body": "<p>Bloomli was created to support hair, skin, and nails from within. Its blend of biotin, zinc, vitamins C and E, and marine collagen makes it a simple addition to your broader beauty routine.*</p>"
+            "title": "Real Customer Insights, Plus Quality You Can Verify",
+            "body": "<p>In an analysis of verified Bloomli reviews mentioning each topic, 95% described thicker-looking hair, 88% mentioned reduced shedding, 82% reported less breakage, and 75% mentioned new hair growth. Bloomli is also third-party tested for heavy metals, microbial contaminants, and label accuracy.*</p>"
           }
         },
         "r5": {
           "type": "reason",
           "settings": {
             "number": "",
-            "title": "Quality Matters When You Take Something Every Day",
-            "body": "<p>Bloomli is third-party tested for heavy metals, microbial contaminants, and label accuracy. It is made in the USA in an NSF-certified facility, because a daily supplement should earn your trust.*</p>"
+            "title": "A Hair Routine Women Actually Enjoy Taking",
+            "body": "<p>Customers regularly praise the passion-fruit flavor, simple two-gummy format, and how easily Bloomli fits into their morning routine. That matters because supporting healthier-looking hair takes consistency, and the best routine is one you will actually maintain.*</p>"
           }
         }
       },
@@ -361,7 +361,7 @@
         "product": "bloomli-hair-vitamin-gummies",
         "show_intro": true,
         "heading": "Meet the routine behind <em>healthier-looking hair.</em>",
-        "subtext": "<p>Two passion-fruit gummies a day, with live product media, pricing, subscription options and details.</p>",
+        "subtext": "",
         "show_title": true,
         "show_review_badge": true,
         "show_description": true,

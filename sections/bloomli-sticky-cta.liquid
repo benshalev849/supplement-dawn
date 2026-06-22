@@ -1,0 +1,177 @@
+{%- if section.settings.enabled -%}
+<div
+  class="bloomli-sticky-cta"
+  id="bloomli-sticky-cta-{{ section.id }}"
+  data-scroll-target="{{ section.settings.scroll_target }}"
+  data-scroll-threshold="{{ section.settings.scroll_threshold }}"
+  aria-hidden="true"
+  style="
+    --bscta-bg: {{ section.settings.bg_color }};
+    --bscta-text: {{ section.settings.text_color }};
+    --bscta-badge-bg: {{ section.settings.badge_bg }};
+    --bscta-badge-text: {{ section.settings.badge_text_color }};
+    --bscta-star: {{ section.settings.star_color }};
+  "
+>
+  <button
+    class="bloomli-sticky-cta__btn"
+    type="button"
+    aria-label="{{ section.settings.main_text | escape }}"
+  >
+    {%- if section.settings.badge_text != blank -%}
+      <span class="bloomli-sticky-cta__badge">{{ section.settings.badge_text }}</span>
+    {%- endif -%}
+    <span class="bloomli-sticky-cta__main">{{ section.settings.main_text }}</span>
+    {%- if section.settings.social_proof != blank -%}
+      <span class="bloomli-sticky-cta__social">
+        {%- if section.settings.show_stars -%}
+          <span class="bloomli-sticky-cta__stars" aria-hidden="true">
+            {%- for i in (1..5) -%}★{%- endfor -%}
+          </span>
+        {%- endif -%}
+        {{ section.settings.social_proof }}
+      </span>
+    {%- endif -%}
+  </button>
+</div>
+
+<script>
+  (function () {
+    var el = document.getElementById('bloomli-sticky-cta-{{ section.id }}');
+    if (!el) return;
+
+    var threshold = parseInt(el.dataset.scrollThreshold, 10) || 300;
+    var target = el.dataset.scrollTarget;
+    var visible = false;
+
+    function onScroll() {
+      var shouldShow = window.scrollY > threshold;
+      if (shouldShow === visible) return;
+      visible = shouldShow;
+      el.setAttribute('aria-hidden', String(!visible));
+      el.classList.toggle('bloomli-sticky-cta--visible', visible);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    el.querySelector('.bloomli-sticky-cta__btn').addEventListener('click', function () {
+      var dest = target ? document.querySelector(target) : null;
+      if (dest) {
+        dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  })();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Sticky CTA bar",
+  "tag": null,
+  "class": "bloomli-sticky-cta-section",
+  "enabled_on": {
+    "templates": ["page", "index", "product", "collection"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable sticky CTA",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "100M+ Gummies Sold",
+      "info": "Small pill badge above the main text. Leave blank to hide."
+    },
+    {
+      "type": "text",
+      "id": "main_text",
+      "label": "Main CTA text",
+      "default": "Save 61% + Free Gifts"
+    },
+    {
+      "type": "text",
+      "id": "social_proof",
+      "label": "Social proof text",
+      "default": "4.8 stars | 100K+ reviews | 1M+ members",
+      "info": "Leave blank to hide the social proof row."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show star icons",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Behaviour"
+    },
+    {
+      "type": "text",
+      "id": "scroll_target",
+      "label": "Scroll-to anchor",
+      "default": "#glp1-offers",
+      "info": "CSS selector for the element to scroll to when the button is clicked. e.g. #glp1-offers"
+    },
+    {
+      "type": "range",
+      "id": "scroll_threshold",
+      "label": "Show after scrolling (px)",
+      "min": 0,
+      "max": 2000,
+      "step": 50,
+      "default": 400,
+      "info": "How far the visitor must scroll before the bar appears."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Button background",
+      "default": "#1b3a2d"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Badge background",
+      "default": "#f0b429"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text color",
+      "default": "#1b3a2d"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#f0b429"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky CTA bar"
+    }
+  ]
+}
+{% endschema %}

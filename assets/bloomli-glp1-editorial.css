@@ -46,7 +46,7 @@
 .bloomli-glp1-listicle__intro {
   max-width: 56ch;
   margin: 0;
-  font-size: 1.6rem;
+  font-size: var(--glp1-intro-size-mobile, 16px);
   line-height: 1.7;
   color: rgba(var(--color-foreground), 0.72);
   text-wrap: pretty;
@@ -182,7 +182,7 @@
 .bloomli-glp1-listicle__callout-title {
   margin: 0 0 0.25rem;
   font-family: var(--font-heading-family);
-  font-size: 1.35rem;
+  font-size: var(--glp1-callout-title-size-mobile, 14px);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.01em;
@@ -191,7 +191,7 @@
 
 .bloomli-glp1-listicle__callout-body {
   max-width: 72ch;
-  font-size: 1.2rem;
+  font-size: var(--glp1-callout-body-size-mobile, 12px);
   line-height: 1.55;
   opacity: 0.6;
 }
@@ -224,6 +224,10 @@
     font-size: var(--glp1-heading);
   }
 
+  .bloomli-glp1-listicle__intro {
+    font-size: var(--glp1-intro-size, 16px);
+  }
+
   .bloomli-glp1-listicle__index {
     font-size: var(--glp1-reason-number-size, 90px);
   }
@@ -234,6 +238,14 @@
 
   .bloomli-glp1-listicle__body {
     font-size: var(--glp1-reason-text-size, 16px);
+  }
+
+  .bloomli-glp1-listicle__callout-title {
+    font-size: var(--glp1-callout-title-size, 14px);
+  }
+
+  .bloomli-glp1-listicle__callout-body {
+    font-size: var(--glp1-callout-body-size, 12px);
   }
 
   .bloomli-glp1-listicle__reason {

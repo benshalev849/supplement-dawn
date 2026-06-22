@@ -581,7 +581,7 @@
           "type": "question",
           "settings": {
             "question": "How do I take the gummies, and when might I notice a difference?",
-            "answer": "<p>Take two passion-fruit gummies daily. Hair grows in cycles, so meaningful changes usually require consistent use for several months. Individual experiences will vary.*</p>",
+            "answer": "<p>Take two passion-fruit gummies daily. <br/>Most women begin to notice less shedding and an improved texture within 4 to 8 weeks, while visible density and growth changes typically occur after 3 to 6 months of consistent use. <br/>Individual results may vary.*</p>",
             "open_by_default": false
           }
         },

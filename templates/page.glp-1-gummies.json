@@ -474,6 +474,7 @@
         "rev1": {
           "type": "review",
           "settings": {
+            "image": "shopify://shop_images/Review_1.png",
             "image_scale": 100,
             "photo_label": "Verified buyer",
             "rating": 5,
@@ -486,6 +487,7 @@
         "rev2": {
           "type": "review",
           "settings": {
+            "image": "shopify://shop_images/Review_2.png",
             "image_scale": 100,
             "photo_label": "Verified buyer",
             "rating": 5,
@@ -498,6 +500,7 @@
         "rev3": {
           "type": "review",
           "settings": {
+            "image": "shopify://shop_images/Review_3.png",
             "image_scale": 100,
             "photo_label": "Verified buyer",
             "rating": 4,
@@ -510,6 +513,7 @@
         "rev4": {
           "type": "review",
           "settings": {
+            "image": "shopify://shop_images/review_4.png",
             "image_scale": 100,
             "photo_label": "Verified buyer",
             "rating": 5,

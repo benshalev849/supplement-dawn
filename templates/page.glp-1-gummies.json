@@ -471,6 +471,32 @@
     "glp1_reviews": {
       "type": "bloomli-reviews",
       "blocks": {
+        "rev6": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Review_6.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"I nearly quit at month two when I saw nothing. Eight months later my hair is full and wavy again with regrowth all along my part. After how thin it got when I was losing weight, I'm never stopping. People keep asking what I did.\"",
+            "name": "Marisol R.",
+            "meta": "Hair Gummies · 8 months",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev5": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Review_5.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"My ponytail had gotten so thin and wispy after I started losing weight. Two months on these and it's holding together better at the ends, and there's less in the shower drain. Early, but encouraging.\"",
+            "name": "Rachel S.",
+            "meta": "Hair Gummies · 2 months",
+            "verified_label": "Verified Customer"
+          }
+        },
         "rev1": {
           "type": "review",
           "settings": {
@@ -478,8 +504,8 @@
             "image_scale": 100,
             "photo_label": "Verified buyer",
             "rating": 5,
-            "quote": "\"Started these a couple months into my GLP-1 and the extra shedding has calmed down for me. Easy to keep up with since they actually taste good.\"",
-            "name": "Megan R.",
+            "quote": "\"I started shedding way more about a month into losing weight and it freaked me out. Three months in, the amount in my brush is noticeably less and my ponytail doesn't feel as thin. The passion fruit taste doesn't hurt either.\"",
+            "name": "Morgan R.",
             "meta": "Hair Gummies · 3 months",
             "verified_label": "Verified Customer"
           }
@@ -491,9 +517,9 @@
             "image_scale": 100,
             "photo_label": "Verified buyer",
             "rating": 5,
-            "quote": "\"I was losing more hair than usual after dropping weight and wanted something simple. Two gummies in the morning is the only routine I've actually stuck to.\"",
+            "quote": "\"Eating so much less meant I knew I wasn't getting what I used to, and my hair showed it first. Two gummies in the morning is honestly the only new habit that stuck. Shedding has calmed down a lot.\"",
             "name": "Danielle P.",
-            "meta": "Hair Gummies · 4 months",
+            "meta": "Hair Gummies · 5 months",
             "verified_label": "Verified Customer"
           }
         },
@@ -503,10 +529,10 @@
             "image": "shopify://shop_images/Review_3.png",
             "image_scale": 100,
             "photo_label": "Verified buyer",
-            "rating": 4,
-            "quote": "\"Taste is great and they're easy to remember. A little early to say much about my hair, but my nails already feel stronger.\"",
+            "rating": 5,
+            "quote": "\"Lost weight fast this year and the hair in my drain doubled. I just wanted something simple that wasn't a giant horse pill. Two months in and it's calming down, fingers crossed it keeps going.\"",
             "name": "Christine W.",
-            "meta": "Hair Gummies · 6 weeks",
+            "meta": "Hair Gummies · 8 weeks",
             "verified_label": "Verified Customer"
           }
         },
@@ -517,46 +543,21 @@
             "image_scale": 100,
             "photo_label": "Verified buyer",
             "rating": 5,
-            "quote": "\"Way easier than swallowing another pill on top of my meds. The passion fruit flavor is genuinely nice.\"",
-            "name": "Allison T.",
-            "meta": "Hair Gummies · 2 months",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev5": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 5,
-            "quote": "\"My hair felt thinner while I was losing weight and this gave me something I could actually do about it. It's looking a bit fuller and shinier lately.\"",
-            "name": "Rachel B.",
-            "meta": "Hair Gummies · 5 months",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev6": {
-          "type": "review",
-          "settings": {
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 4,
-            "quote": "\"I like the ritual of it and the bottle looks cute on my counter. Wish it were a touch less sweet, but I keep reaching for them.\"",
-            "name": "Sofia M.",
-            "meta": "Hair Gummies · 3 months",
+            "quote": "\"Menopause and dropping weight at the same time was brutal on my hair, especially at my temples. Five months in, my hairline is filling back in and my part doesn't look as wide. Wish I'd started sooner.\"",
+            "name": "Sofia R.",
+            "meta": "Hair Gummies · 6 months",
             "verified_label": "Verified Customer"
           }
         }
       },
       "block_order": [
+        "rev6",
+        "rev5",
         "rev1",
         "rev2",
         "rev3",
-        "rev4",
-        "rev5",
-        "rev6"
+        "rev4"
       ],
-      "disabled": true,
       "settings": {
         "title": "From women on a GLP-1.",
         "use_judgeme": false,

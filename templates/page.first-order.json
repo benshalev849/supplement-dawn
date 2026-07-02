@@ -79,6 +79,111 @@
         "content_position_mobile": "top"
       }
     },
+    "fo_reviews": {
+      "type": "bloomli-reviews",
+      "blocks": {
+        "rev1": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Review_1.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"I started noticing more hair in my brush during a really stressful year. Three months of two gummies a day and the shedding looks calmer, and my ponytail feels a little fuller.\"",
+            "name": "Sarah M.",
+            "meta": "Hair Gummies · 3 months",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev2": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Review_2.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"These are the first supplement I have actually stayed consistent with. The passion fruit flavor helps. A few months in, my hair feels softer and healthier than it did.\"",
+            "name": "Jenna K.",
+            "meta": "Hair Gummies · 4 months",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev3": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Review_3.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"Two months in. There is less hair in the shower drain than when I started, and my nails feel stronger too. Staying with it.\"",
+            "name": "Alyssa T.",
+            "meta": "Hair Gummies · 2 months",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev4": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review_4.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"I was skeptical about gummies, but I like that this is more than just biotin. My hair looks shinier and my part does not stand out to me the way it used to.\"",
+            "name": "Katie B.",
+            "meta": "Hair Gummies · 5 months",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev5": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Review_5.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 4,
+            "quote": "\"Easy little morning ritual. Too early for big changes, but the shedding seems calmer and I actually enjoy taking them, which never happens with supplements.\"",
+            "name": "Monica L.",
+            "meta": "Hair Gummies · 6 weeks",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev6": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Review_6.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"Six months in and my hair feels thicker when I braid it. Slow and steady, exactly like they say. Worth it for me.\"",
+            "name": "Erin W.",
+            "meta": "Hair Gummies · 6 months",
+            "verified_label": "Verified Customer"
+          }
+        }
+      },
+      "block_order": ["rev1", "rev2", "rev3", "rev4", "rev5", "rev6"],
+      "settings": {
+        "title": "From women who kept the ritual.",
+        "use_judgeme": true,
+        "manual_aggregate": "",
+        "background_color": "#fdfaf7",
+        "card_background": "#ffffff",
+        "placeholder_color": "#f7f0e9",
+        "text_color": "#2a2622",
+        "muted_color": "#2a2622",
+        "accent_color": "#b23a6f",
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "card_gap": 20,
+        "scroll_duration": 70,
+        "mobile_card_width": 82,
+        "card_radius": 10,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
     "fo_education": {
       "type": "bloomli-education",
       "settings": {
@@ -90,11 +195,148 @@
         "use_custom_emphasis_color": true,
         "emphasis_color": "#7b2151",
         "heading_size": 46,
-        "heading_size_mobile": 34,
-        "padding_top": 96,
-        "padding_bottom": 96,
-        "padding_top_mobile": 56,
-        "padding_bottom_mobile": 56
+        "heading_size_mobile": 36,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "fo_formula_gallery": {
+      "type": "bloomli-formula-gallery",
+      "blocks": {
+        "item_biotin": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Biotin_-_Cut_off.png",
+            "image_scale": 90,
+            "use_custom_circle_color": false,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Raw biotin - powder",
+            "icon": "leaf",
+            "title": "Biotin, 6,000mcg",
+            "text": "The building block behind keratin, the protein your hair is actually made of. Dosed at a meaningful level.",
+            "source_line": ""
+          }
+        },
+        "item_folate": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Folate_-_Cut_Out.png",
+            "image_scale": 100,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Folate",
+            "icon": "palm",
+            "title": "Folate",
+            "text": "Drives the cell division hair follicles depend on to grow.*",
+            "source_line": ""
+          }
+        },
+        "item_b12": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_B12_splash_24948dc1-5d29-4e55-95fa-df10b5d6274e.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin B12",
+            "icon": "drop",
+            "title": "Vitamin B12",
+            "text": "Delivers oxygen and nutrients to your follicles so they can thrive.*",
+            "source_line": ""
+          }
+        },
+        "item_b5": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_B5_38fce56d-fdf2-412c-b9bf-87e46ce29d2e.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin B5",
+            "icon": "root",
+            "title": "Vitamin B5",
+            "text": "Nourishes each strand from root to tip, reducing moisture loss and breakage.*",
+            "source_line": ""
+          }
+        },
+        "item_e": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_E_-_Cut_Off_36c3e276-9c53-4a9e-bf73-b303eb58c4ee.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin E",
+            "icon": "zinc",
+            "title": "Vitamin E",
+            "text": "Helps protect your scalp from oxidative stress as part of a daily routine.*",
+            "source_line": ""
+          }
+        },
+        "item_zinc": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Zinc_-_Cut_Out.png",
+            "image_scale": 150,
+            "use_custom_circle_color": false,
+            "circle_color": "#fdfaf7",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Zinc",
+            "icon": "leaf",
+            "title": "Zinc",
+            "text": "Supports the scalp environment and consistent follicle function.*",
+            "source_line": ""
+          }
+        }
+      },
+      "block_order": ["item_biotin", "item_folate", "item_b12", "item_b5", "item_e", "item_zinc"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "use_custom_background": false,
+        "background_color": "#fdfaf7",
+        "small_label_color": "#8a6678",
+        "card_background_color": "#ede5dc",
+        "card_border_color": "#e7dcd5",
+        "heading_line2": "14 nutrients. 2 gummies. One ritual.",
+        "copy": "<p>The ingredients that do the heavy lifting, chosen carefully and dosed for a reason. Passion fruit flavor. Gluten-free. Made in the USA. Contains fish (tilapia) and tree nuts (coconut).</p>",
+        "header_alignment": "left",
+        "desktop_columns": "2",
+        "media_background": "surface",
+        "proof_background": "surface",
+        "header_width": 600,
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "title_size": 26,
+        "title_size_mobile": 22,
+        "image_size": 168,
+        "image_size_mobile": 112,
+        "proof_icon_size": 64,
+        "proof_icon_size_mobile": 56,
+        "column_gap": 56,
+        "row_gap": 48,
+        "padding_top": 72,
+        "padding_bottom": 48,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 40
       }
     },
     "fo_inline_cta_1": {
@@ -169,10 +411,10 @@
         "show_connector": true,
         "connector_style": "dashed",
         "connector_width": 1,
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "padding_top_mobile": 56,
-        "padding_bottom_mobile": 56
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "fo_before_after": {
@@ -320,51 +562,96 @@
         "padding_bottom_mobile": 40
       }
     },
-    "fo_compare": {
-      "type": "bloomli-glp1-compare",
+    "fo_brand_difference": {
+      "type": "bloomli-brand-difference",
       "blocks": {
-        "typical": {
-          "type": "column",
+        "bd_complete_formula": {
+          "type": "card",
           "settings": {
-            "featured": false,
-            "badge": "",
-            "title": "A typical hair gummy",
-            "positive": false,
-            "rows": "Biotin only, low dose\nNo third-party testing shown\nOrigin unclear\nChalky or overly sweet\nNo guarantee"
+            "feature_label": "15+ hair-targeted nutrients",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
           }
         },
-        "bloomli": {
-          "type": "column",
+        "bd_more_than_biotin": {
+          "type": "card",
           "settings": {
-            "featured": true,
-            "badge": "",
-            "title": "Bloomli",
-            "positive": true,
-            "rows": "6,000mcg biotin plus 13 more nutrients\nThird-party tested, COA on file\nMade in the USA, NSF-certified facility\nPassion fruit flavor you will actually keep taking\n30-day money-back guarantee"
+            "feature_label": "More than biotin alone",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "check"
+          }
+        },
+        "bd_botanical_herbs": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Botanical herbs for hair growth**",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        "bd_easy_daily": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Easy to take daily",
+            "bloomli_value": "check",
+            "biotin_value": "check",
+            "standard_value": "check"
+          }
+        },
+        "bd_tasty_gummy": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Available as a tasty gummy",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "partial"
+          }
+        },
+        "bd_third_party": {
+          "type": "card",
+          "settings": {
+            "feature_label": "Third-party tested",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
+          }
+        },
+        "bd_nsf_facility": {
+          "type": "card",
+          "settings": {
+            "feature_label": "NSF-certified facility",
+            "bloomli_value": "check",
+            "biotin_value": "cross",
+            "standard_value": "cross"
           }
         }
       },
       "block_order": [
-        "typical",
-        "bloomli"
+        "bd_complete_formula",
+        "bd_more_than_biotin",
+        "bd_botanical_herbs",
+        "bd_easy_daily",
+        "bd_tasty_gummy",
+        "bd_third_party",
+        "bd_nsf_facility"
       ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "Not every hair gummy is built the same",
-        "intro": "",
-        "accent_color": "#b23a6f",
-        "emphasis_color": "#7b2151",
-        "column_background": "#fffdfc",
-        "featured_background": "#f3e1e5",
-        "muted_color": "#9a8f89",
-        "badge_text_color": "#fdfaf7",
-        "column_radius": 28,
-        "heading_size": 48,
-        "heading_size_mobile": 38,
-        "padding_top": 96,
-        "padding_bottom": 96,
-        "padding_top_mobile": 32,
-        "padding_bottom_mobile": 56
+        "heading": "Not all supplements are equal.",
+        "body": "<p>Most stop at biotin. Some go further. Bloomli goes all the way.</p>",
+        "feature_header": "",
+        "bloomli_header": "Bloomli",
+        "bloomli_header_logo": "shopify://shop_images/Final_Logo_Cropped_White_Colored.png",
+        "biotin_header": "Biotin Only Supplements",
+        "standard_header": "Other Hair Supplements",
+        "footnote": "** Botanical herbal blend available in capsules formula. † Based on general market data for mass-market hair supplements. Individual products may vary.",
+        "padding_top_desktop": 72,
+        "padding_bottom_desktop": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "fo_offer": {
@@ -586,11 +873,11 @@
         "enable_video_looping": false,
         "accent_color": "#b23a6f",
         "emphasis_color": "#7b2151",
-        "heading_size": 48,
-        "heading_size_mobile": 38,
-        "padding_top": 96,
-        "padding_bottom": 96,
-        "padding_top_mobile": 56,
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mobile": 48,
         "padding_bottom_mobile": 32
       }
     },
@@ -777,7 +1064,7 @@
         "border_color": "#e8ded8",
         "image_width": 360,
         "corner_radius": 14,
-        "heading_size": 48,
+        "heading_size": 46,
         "question_size": 16,
         "body_size": 15,
         "padding_top": 40,
@@ -802,13 +1089,13 @@
         "email_text": "Get our short guide to supporting your hair through stressful seasons, plus a first-order offer in your inbox.",
         "email_button_label": "Send It",
         "signup_tag": "bloomli-first-order-signup",
-        "fine_print": "",
+        "fine_print": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>",
         "heading_size": 46,
-        "heading_size_mobile": 34,
-        "padding_top": 96,
-        "padding_bottom": 96,
-        "padding_top_mobile": 56,
-        "padding_bottom_mobile": 56
+        "heading_size_mobile": 36,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "main": {
@@ -824,13 +1111,13 @@
       "name": "Sticky CTA bar",
       "settings": {
         "enabled": true,
-        "badge_text": "30-Day Money-Back Guarantee",
+        "badge_text": "15k+ Gummies Sold",
         "main_text": "Claim Your First-Order Offer",
-        "social_proof": "",
-        "show_stars": false,
+        "social_proof": "4.86 stars | 1630+ reviews",
+        "show_stars": true,
         "scroll_target": "#offers",
         "suppress_selector": ".bloomli-hero__ctas",
-        "compact": true,
+        "compact": false,
         "proximity_margin": 250,
         "bar_bg": "#5c0f2e",
         "btn_fill": "#b23a6f",
@@ -845,12 +1132,14 @@
   "order": [
     "fo_banner",
     "fo_hero",
+    "fo_reviews",
     "fo_education",
+    "fo_formula_gallery",
     "fo_inline_cta_1",
     "fo_timeline",
     "fo_before_after",
     "fo_inline_cta_2",
-    "fo_compare",
+    "fo_brand_difference",
     "fo_offer",
     "fo_mosaic",
     "fo_faq",

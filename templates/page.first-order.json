@@ -7,7 +7,6 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-// sync retry 2026-07-02
 {
   "sections": {
     "fo_banner": {
@@ -78,111 +77,6 @@
         "content_alignment": "left",
         "content_alignment_mobile": "left",
         "content_position_mobile": "top"
-      }
-    },
-    "fo_reviews": {
-      "type": "bloomli-reviews",
-      "blocks": {
-        "rev1": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Review_1.png",
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 5,
-            "quote": "\"I started noticing more hair in my brush during a really stressful year. Three months of two gummies a day and the shedding looks calmer, and my ponytail feels a little fuller.\"",
-            "name": "Sarah M.",
-            "meta": "Hair Gummies · 3 months",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev2": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Review_2.png",
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 5,
-            "quote": "\"These are the first supplement I have actually stayed consistent with. The passion fruit flavor helps. A few months in, my hair feels softer and healthier than it did.\"",
-            "name": "Jenna K.",
-            "meta": "Hair Gummies · 4 months",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev3": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Review_3.png",
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 5,
-            "quote": "\"Two months in. There is less hair in the shower drain than when I started, and my nails feel stronger too. Staying with it.\"",
-            "name": "Alyssa T.",
-            "meta": "Hair Gummies · 2 months",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev4": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review_4.png",
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 5,
-            "quote": "\"I was skeptical about gummies, but I like that this is more than just biotin. My hair looks shinier and my part does not stand out to me the way it used to.\"",
-            "name": "Katie B.",
-            "meta": "Hair Gummies · 5 months",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev5": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Review_5.png",
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 4,
-            "quote": "\"Easy little morning ritual. Too early for big changes, but the shedding seems calmer and I actually enjoy taking them, which never happens with supplements.\"",
-            "name": "Monica L.",
-            "meta": "Hair Gummies · 6 weeks",
-            "verified_label": "Verified Customer"
-          }
-        },
-        "rev6": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Review_6.png",
-            "image_scale": 100,
-            "photo_label": "Verified buyer",
-            "rating": 5,
-            "quote": "\"Six months in and my hair feels thicker when I braid it. Slow and steady, exactly like they say. Worth it for me.\"",
-            "name": "Erin W.",
-            "meta": "Hair Gummies · 6 months",
-            "verified_label": "Verified Customer"
-          }
-        }
-      },
-      "block_order": ["rev1", "rev2", "rev3", "rev4", "rev5", "rev6"],
-      "settings": {
-        "title": "From women who kept the ritual.",
-        "use_judgeme": true,
-        "manual_aggregate": "",
-        "background_color": "#fdfaf7",
-        "card_background": "#ffffff",
-        "placeholder_color": "#f7f0e9",
-        "text_color": "#2a2622",
-        "muted_color": "#2a2622",
-        "accent_color": "#b23a6f",
-        "heading_size": 46,
-        "heading_size_mobile": 36,
-        "card_gap": 20,
-        "scroll_duration": 70,
-        "mobile_card_width": 82,
-        "card_radius": 10,
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 40
       }
     },
     "fo_education": {
@@ -309,7 +203,14 @@
           }
         }
       },
-      "block_order": ["item_biotin", "item_folate", "item_b12", "item_b5", "item_e", "item_zinc"],
+      "block_order": [
+        "item_biotin",
+        "item_folate",
+        "item_b12",
+        "item_b5",
+        "item_e",
+        "item_zinc"
+      ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_custom_background": false,
@@ -1133,7 +1034,6 @@
   "order": [
     "fo_banner",
     "fo_hero",
-    "fo_reviews",
     "fo_education",
     "fo_formula_gallery",
     "fo_inline_cta_1",

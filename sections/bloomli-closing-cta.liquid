@@ -1,0 +1,136 @@
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+{{ 'bloomli-first-order.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-signup-popup.js' | asset_url }}" defer="defer"></script>
+
+<section
+  class="bloomli-closing-cta color-{{ section.settings.color_scheme }} gradient"
+  style="
+    --bcc-heading: {{ section.settings.heading_size }}px;
+    --bcc-heading-mobile: {{ section.settings.heading_size_mobile }}px;
+    --bcc-padding-top: {{ section.settings.padding_top }}px;
+    --bcc-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --bcc-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --bcc-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="bloomli-closing-cta__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="bloomli-closing-cta__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subline != blank -%}
+      <p class="bloomli-closing-cta__subline">{{ section.settings.subline }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.cta_label != blank and section.settings.cta_link != blank -%}
+      <div class="bloomli-closing-cta__button-wrap color-{{ section.settings.button_color_scheme }}">
+        <a href="{{ section.settings.cta_link }}" class="button button--primary">{{ section.settings.cta_label | escape }}</a>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_email_capture -%}
+      <hr class="bloomli-closing-cta__divider">
+
+      {%- if section.settings.email_heading != blank -%}
+        <h3 class="bloomli-closing-cta__email-heading">{{ section.settings.email_heading }}</h3>
+      {%- endif -%}
+
+      {%- if section.settings.email_text != blank -%}
+        <p class="bloomli-closing-cta__email-text">{{ section.settings.email_text }}</p>
+      {%- endif -%}
+
+      <div class="bloomli-closing-cta__form-wrap">
+        {%- assign newsletter_success_message = 'newsletter.success' | t -%}
+        {% form 'customer', class: 'newsletter-form', return_to: 'back', data-success-message: newsletter_success_message, data-shopify-captcha: 'true' %}
+          <input type="hidden" name="contact[tags]" value="newsletter,{{ section.settings.signup_tag | default: 'bloomli-first-order-signup' }}">
+          <div class="newsletter-form__field-wrapper">
+            <div class="field">
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                type="email"
+                name="contact[email]"
+                class="field__input"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                {% if form.errors %}
+                  aria-invalid="true"
+                  aria-describedby="Newsletter-error--{{ section.id }}"
+                {% endif %}
+                placeholder="{{ 'newsletter.label' | t }}"
+                required
+              >
+              <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                {{ 'newsletter.label' | t }}
+              </label>
+            </div>
+            <button type="submit" class="button button--primary bloomli-closing-cta__submit" name="commit">
+              {{ section.settings.email_button_label | default: 'Send It' | escape }}
+            </button>
+            {%- if form.errors -%}
+              <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+                <span class="svg-wrapper">
+                  {{- 'icon-error.svg' | inline_asset_content -}}
+                </span>
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </small>
+            {%- endif -%}
+            {%- if form.posted_successfully? -%}
+              <h4
+                class="newsletter-form__message newsletter-form__message--success form__message"
+                id="Newsletter-success--{{ section.id }}"
+              >
+                <span class="svg-wrapper">
+                  {{- 'icon-success.svg' | inline_asset_content -}}
+                </span>
+                {{- 'newsletter.success' | t }}
+              </h4>
+            {%- endif -%}
+          </div>
+        {% endform %}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.fine_print != blank -%}
+      <div class="bloomli-closing-cta__fine-print rte">{{ section.settings.fine_print }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli closing CTA",
+  "tag": "div",
+  "class": "bloomli-closing-cta-wrapper",
+  "enabled_on": { "templates": ["page", "index"] },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Your hair ritual starts with one order" },
+    { "type": "text", "id": "subline", "label": "Subline", "default": "Two gummies a day. A 30-day guarantee. Nothing to lose except the guesswork." },
+    { "type": "header", "content": "CTA button" },
+    { "type": "color_scheme", "id": "button_color_scheme", "label": "Button color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Claim Your First-Order Offer" },
+    { "type": "text", "id": "cta_link", "label": "Button link", "default": "#offers", "info": "Use an anchor like #offers to scroll to the buy box." },
+    { "type": "header", "content": "Email capture" },
+    { "type": "checkbox", "id": "show_email_capture", "label": "Show email capture", "default": true },
+    { "type": "inline_richtext", "id": "email_heading", "label": "Email heading", "default": "Not ready today?" },
+    { "type": "text", "id": "email_text", "label": "Email text", "default": "Get our short guide to supporting your hair through stressful seasons, plus a first-order offer in your inbox." },
+    { "type": "text", "id": "email_button_label", "label": "Email button label", "default": "Send It" },
+    { "type": "text", "id": "signup_tag", "label": "Signup customer tag", "default": "bloomli-first-order-signup", "info": "Added to the customer record so Omnisend flows can target this landing page." },
+    { "type": "header", "content": "Fine print" },
+    { "type": "richtext", "id": "fine_print", "label": "Fine print", "default": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>", "info": "Persistent small-type footnote, e.g. the DSHEA disclaimer for asterisked claims on this page." },
+    { "type": "header", "content": "Text sizes" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 32, "max": 64, "step": 2, "default": 46, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 26, "max": 44, "step": 2, "default": 34, "unit": "px" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding top", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding bottom", "default": 96 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding top mobile", "default": 56 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding bottom mobile", "default": 56 }
+  ],
+  "presets": [{ "name": "Bloomli closing CTA" }]
+}
+{% endschema %}

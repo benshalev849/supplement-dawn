@@ -98,6 +98,43 @@
   font-style: italic;
 }
 
+.bloomli-hero__eyebrow {
+  margin: 0 0 14px;
+  color: var(--hero-accent-color, var(--bloomli-accent));
+  font-family: var(--font-commerce-ui, var(--font-body-family));
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.bloomli-hero__bullets {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin: 0 0 28px;
+  padding: 0;
+}
+
+.bloomli-hero__bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--hero-text-color, var(--bloomli-text));
+  font-size: 15px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.bloomli-hero__bullet i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--hero-accent-color, var(--bloomli-accent));
+  font-size: 18px;
+  line-height: 1;
+}
+
 .bloomli-hero__subtext {
   font-size: calc(var(--hero-subtext-size, 15px) + 3px);
   color: var(--bloomli-text);
@@ -291,6 +328,23 @@
     gap: 6px 12px;
     font-size: 11px;
     justify-content: center;
+  }
+
+  .bloomli-hero__eyebrow {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .bloomli-hero__bullets {
+    gap: 8px;
+    margin-bottom: 22px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bloomli-hero__bullet {
+    font-size: 14px;
   }
 }
 
@@ -1653,6 +1707,23 @@
   margin: 0 auto;
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+
+.bloomli-timeline__footnote {
+  max-width: 640px;
+  margin: 48px auto 0;
+  color: var(--bloomli-text-muted);
+  font-size: 14px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.bloomli-timeline__footnote > :first-child {
+  margin-top: 0;
+}
+
+.bloomli-timeline__footnote > :last-child {
+  margin-bottom: 0;
 }
 
 .bloomli-timeline__wrap--no-line .bloomli-timeline__step::after {

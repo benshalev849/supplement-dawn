@@ -87,6 +87,10 @@
         </div>
       {%- endif -%}
 
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="bloomli-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
       <h1 class="bloomli-hero__headline">
         {{ section.settings.headline_line1 }}<br>
         <span>{{ section.settings.headline_line2 }}</span>
@@ -96,6 +100,21 @@
         <p class="bloomli-hero__subtext">
           {{ section.settings.subtext }}
         </p>
+      {%- endif -%}
+
+      {%- if section.settings.bullet_1 != blank or section.settings.bullet_2 != blank or section.settings.bullet_3 != blank -%}
+        <ul class="bloomli-hero__bullets" role="list">
+          {%- for i in (1..3) -%}
+            {%- assign bullet_key = 'bullet_' | append: i -%}
+            {%- assign bullet_text = section.settings[bullet_key] -%}
+            {%- if bullet_text != blank -%}
+              <li class="bloomli-hero__bullet">
+                <i class="ti ti-circle-check" aria-hidden="true"></i>
+                <span>{{ bullet_text }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
       {%- endif -%}
 
       <div class="bloomli-hero__ctas color-{{ section.settings.button_color_scheme }}">
@@ -139,6 +158,12 @@
               <span>{{ section.settings.trust_badge_3 }}</span>
             </span>
           {%- endif -%}
+          {%- if section.settings.trust_badge_4 != blank -%}
+            <span class="bloomli-hero__trust-badge">
+              <i class="ti ti-shield-check" aria-hidden="true"></i>
+              <span>{{ section.settings.trust_badge_4 }}</span>
+            </span>
+          {%- endif -%}
         </div>
       {%- endif -%}
     </div>
@@ -154,9 +179,13 @@
     { "type": "header", "content": "Copy" },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f" },
     { "type": "checkbox", "id": "use_brand_gradient", "label": "Use Bloomli brand gradient", "default": true },
+    { "type": "text",     "id": "eyebrow",         "label": "Eyebrow (small uppercase line above headline)" },
     { "type": "text",     "id": "headline_line1",  "label": "Headline line 1",         "default": "Quiet science," },
     { "type": "text",     "id": "headline_line2",  "label": "Headline line 2 (italic)", "default": "visible results." },
     { "type": "textarea", "id": "subtext",         "label": "Subtext",                 "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },
+    { "type": "text",     "id": "bullet_1",        "label": "Proof bullet 1", "info": "Optional check-icon bullets shown between the subtext and the CTA." },
+    { "type": "text",     "id": "bullet_2",        "label": "Proof bullet 2" },
+    { "type": "text",     "id": "bullet_3",        "label": "Proof bullet 3" },
     { "type": "range",    "id": "heading_text_size", "label": "Heading text size",      "min": 28, "max": 80, "step": 1, "default": 44, "unit": "px" },
     { "type": "range",    "id": "subtext_text_size", "label": "Subtext size",           "min": 12, "max": 24, "step": 1, "default": 15, "unit": "px" },
     { "type": "range",    "id": "min_height",      "label": "Min height (px)",         "min": 500, "max": 900, "step": 20, "default": 720 },
@@ -179,6 +208,7 @@
     { "type": "text", "id": "trust_badge_1", "label": "Badge 1 text", "default": "Third-Party Tested" },
     { "type": "text", "id": "trust_badge_2", "label": "Badge 2 text", "default": "NSF-Certified Facility" },
     { "type": "text", "id": "trust_badge_3", "label": "Badge 3 text", "default": "Made in the USA" },
+    { "type": "text", "id": "trust_badge_4", "label": "Badge 4 text" },
     { "type": "header", "content": "Background image" },
     { "type": "image_picker", "id": "desktop_image", "label": "Desktop background (16:9 landscape)" },
     { "type": "image_picker", "id": "ultrawide_image", "label": "Ultrawide background (2000px+ screens, recommended 3200 × 950)" },

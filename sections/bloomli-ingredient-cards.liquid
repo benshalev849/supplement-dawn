@@ -1,0 +1,115 @@
+{{ 'bloomli-first-order.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="bloomli-ingredient-cards color-{{ section.settings.color_scheme }} gradient"
+  style="
+    {%- if section.settings.use_custom_accent_color -%}
+      --bic-accent: {{ section.settings.accent_color }};
+    {%- endif -%}
+    {%- if section.settings.use_custom_card_background -%}
+      --bic-card-bg: {{ section.settings.card_background }};
+    {%- endif -%}
+    --bic-card-radius: {{ section.settings.card_radius }}px;
+    --bic-icon-size: {{ section.settings.icon_size }}px;
+    --bic-columns-desktop: {{ section.settings.columns_desktop }};
+    --bic-heading: {{ section.settings.heading_size }}px;
+    --bic-heading-mobile: {{ section.settings.heading_size_mobile }}px;
+    --bic-padding-top: {{ section.settings.padding_top }}px;
+    --bic-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --bic-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --bic-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="bloomli-ingredient-cards__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="bloomli-ingredient-cards__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.intro != blank -%}
+      <p class="bloomli-ingredient-cards__intro">{{ section.settings.intro }}</p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="bloomli-ingredient-cards__grid">
+        {%- for block in section.blocks -%}
+          {%- assign card_icon = block.settings.icon | remove: 'ti-' | strip | handleize -%}
+          <article class="bloomli-ingredient-cards__card" {{ block.shopify_attributes }}>
+            {%- if card_icon != blank and card_icon != 'none' -%}
+              <i class="bloomli-ingredient-cards__icon ti ti-{{ card_icon }}" aria-hidden="true"></i>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <h3 class="bloomli-ingredient-cards__title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <p class="bloomli-ingredient-cards__text">{{ block.settings.text }}</p>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.footer_line != blank -%}
+      <p class="bloomli-ingredient-cards__footer-line">{{ section.settings.footer_line }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.fine_print != blank -%}
+      <div class="bloomli-ingredient-cards__fine-print rte">{{ section.settings.fine_print }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli ingredient cards",
+  "tag": "div",
+  "class": "bloomli-ingredient-cards-wrapper",
+  "enabled_on": { "templates": ["page", "product", "index"] },
+  "max_blocks": 8,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "14 nutrients. 2 gummies. One ritual." },
+    { "type": "text", "id": "intro", "label": "Intro line" },
+    { "type": "text", "id": "footer_line", "label": "Line under the grid", "default": "Passion fruit flavor. Gluten-free. Made in the USA. Contains fish (tilapia) and tree nuts (coconut)." },
+    { "type": "richtext", "id": "fine_print", "label": "Fine print", "info": "Optional small-type note under the section, e.g. the DSHEA disclaimer for asterisked claims." },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "columns_desktop", "label": "Columns on desktop", "min": 2, "max": 4, "step": 1, "default": 4 },
+    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 6, "max": 28, "step": 2, "default": 14, "unit": "px" },
+    { "type": "range", "id": "icon_size", "label": "Icon size", "min": 18, "max": 40, "step": 2, "default": 26, "unit": "px" },
+    { "type": "header", "content": "Optional custom colors" },
+    { "type": "checkbox", "id": "use_custom_accent_color", "label": "Override icon color", "default": false },
+    { "type": "color", "id": "accent_color", "label": "Icon color", "default": "#B23A6F", "visible_if": "{{ section.settings.use_custom_accent_color }}" },
+    { "type": "checkbox", "id": "use_custom_card_background", "label": "Override card background", "default": false },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#F3E1E5", "visible_if": "{{ section.settings.use_custom_card_background }}" },
+    { "type": "header", "content": "Text sizes" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 32, "max": 64, "step": 2, "default": 46, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 26, "max": 44, "step": 2, "default": 34, "unit": "px" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding top", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding bottom", "default": 96 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding top mobile", "default": 56 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding bottom mobile", "default": 56 }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Ingredient card",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Tabler icon name", "default": "sparkles", "info": "Use the icon name without the ti- prefix, for example sparkles or fish." },
+        { "type": "text", "id": "title", "label": "Title", "default": "Biotin, 6,000mcg" },
+        { "type": "text", "id": "text", "label": "Text", "default": "The best-known hair B-vitamin, at a meaningful dose." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli ingredient cards",
+      "blocks": [
+        { "type": "card", "settings": { "icon": "sparkles", "title": "Biotin, 6,000mcg", "text": "The best-known hair B-vitamin, at a meaningful dose." } },
+        { "type": "card", "settings": { "icon": "fish", "title": "Marine Collagen", "text": "A beauty-from-within classic, sourced from fish." } },
+        { "type": "card", "settings": { "icon": "shield-check", "title": "Zinc", "text": "Supports the follicle environment your growth cycle depends on.*" } },
+        { "type": "card", "settings": { "icon": "plant-2", "title": "Vitamins A, C, D, E plus B-complex", "text": "The everyday gaps, covered." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

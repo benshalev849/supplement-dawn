@@ -70,6 +70,10 @@
       </div>
     </div>
 
+    {%- if section.settings.footnote != blank -%}
+      <div class="bloomli-timeline__footnote rte">{{ section.settings.footnote }}</div>
+    {%- endif -%}
+
   </div>
 </section>
 
@@ -83,6 +87,7 @@
     { "type": "color", "id": "timeline_icon_color", "label": "Timeline icon color", "default": "#6F7A5A" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Your ritual, over time." },
     { "type": "richtext", "id": "subheadline", "label": "Subheadline", "default": "<p>A simple month-by-month look at what consistency can support, from early scalp comfort to fuller-looking hair over time.</p>" },
+    { "type": "richtext", "id": "footnote", "label": "Footnote below steps", "info": "Optional short line shown under the timeline, e.g. a guarantee reminder or disclaimer." },
     { "type": "select", "id": "circle_background", "label": "Icon circle background", "options": [
       { "value": "surface", "label": "Scheme soft surface" },
       { "value": "surface_strong", "label": "Scheme stronger surface" },

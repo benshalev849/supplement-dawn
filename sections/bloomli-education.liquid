@@ -1,0 +1,62 @@
+{{ 'bloomli-first-order.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="bloomli-education color-{{ section.settings.color_scheme }} gradient"
+  style="
+    {%- if section.settings.use_custom_emphasis_color -%}
+      --bed-emphasis: {{ section.settings.emphasis_color }};
+    {%- endif -%}
+    --bed-heading: {{ section.settings.heading_size }}px;
+    --bed-heading-mobile: {{ section.settings.heading_size_mobile }}px;
+    --bed-padding-top: {{ section.settings.padding_top }}px;
+    --bed-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --bed-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --bed-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="bloomli-education__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="bloomli-education__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.body != blank -%}
+      <div class="bloomli-education__body rte">{{ section.settings.body }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.closing_line != blank -%}
+      <p class="bloomli-education__closing">{{ section.settings.closing_line }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.fine_print != blank -%}
+      <div class="bloomli-education__fine-print rte">{{ section.settings.fine_print }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli education block",
+  "tag": "div",
+  "class": "bloomli-education-wrapper",
+  "enabled_on": { "templates": ["page", "index"] },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Shedding more lately? There is usually a reason." },
+    { "type": "richtext", "id": "body", "label": "Body copy", "default": "<p>Hair is one of the first places your body shows it is running low. Stress, busy seasons, and everyday nutrient gaps can all push more strands out of their growth phase and into shedding.</p><p>The frustrating part: by the time you notice it in the brush or the shower drain, the gap has usually been building for weeks.</p>" },
+    { "type": "inline_richtext", "id": "closing_line", "label": "Emphasized closing line", "default": "Bloomli works from the inside, where the growth cycle actually starts.*" },
+    { "type": "richtext", "id": "fine_print", "label": "Fine print", "info": "Optional small-type note under the section, e.g. the DSHEA disclaimer for asterisked claims." },
+    { "type": "header", "content": "Optional custom colors" },
+    { "type": "checkbox", "id": "use_custom_emphasis_color", "label": "Override closing line color", "default": false },
+    { "type": "color", "id": "emphasis_color", "label": "Closing line color", "default": "#7B2151", "visible_if": "{{ section.settings.use_custom_emphasis_color }}" },
+    { "type": "header", "content": "Text sizes" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 32, "max": 64, "step": 2, "default": 46, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 26, "max": 44, "step": 2, "default": 34, "unit": "px" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding top", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding bottom", "default": 96 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding top mobile", "default": 56 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding bottom mobile", "default": 56 }
+  ],
+  "presets": [{ "name": "Bloomli education block" }]
+}
+{% endschema %}

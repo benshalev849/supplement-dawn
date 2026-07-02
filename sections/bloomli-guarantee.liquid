@@ -1,0 +1,75 @@
+{{ 'bloomli-trust-icons.css' | asset_url | stylesheet_tag }}
+{{ 'bloomli-first-order.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="bloomli-guarantee color-{{ section.settings.color_scheme }} gradient"
+  style="
+    --bgu-heading: {{ section.settings.heading_size }}px;
+    --bgu-heading-mobile: {{ section.settings.heading_size_mobile }}px;
+    --bgu-padding-top: {{ section.settings.padding_top }}px;
+    --bgu-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --bgu-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --bgu-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="bloomli-guarantee__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="bloomli-guarantee__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- render 'bloomli-trust-icons', block: section -%}
+
+    {%- if section.settings.text != blank -%}
+      <div class="bloomli-guarantee__text rte">{{ section.settings.text }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli guarantee",
+  "tag": "div",
+  "class": "bloomli-guarantee-wrapper",
+  "enabled_on": { "templates": ["page", "product", "index"] },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "text", "label": "Paragraph under the icons", "default": "<p>Try Bloomli for a full month. If it is not for you, write to us and we will refund your first order. No forms, no hoops.</p>" },
+    { "type": "header", "content": "Icon row" },
+    { "type": "select", "id": "layout", "label": "Layout", "options": [
+      { "value": "horizontal", "label": "Horizontal" },
+      { "value": "vertical", "label": "Vertical" }
+    ], "default": "horizontal" },
+    { "type": "range", "id": "gap", "label": "Gap", "min": 8, "max": 32, "step": 2, "default": 20, "unit": "px" },
+    { "type": "range", "id": "frame_size", "label": "Frame size", "min": 32, "max": 64, "step": 2, "default": 48, "unit": "px" },
+    { "type": "range", "id": "icon_size", "label": "Icon size", "min": 16, "max": 36, "step": 1, "default": 25, "unit": "px" },
+    { "type": "range", "id": "border_radius", "label": "Corner radius", "min": 6, "max": 24, "step": 2, "default": 14, "unit": "px" },
+    { "type": "range", "id": "text_size", "label": "Text size", "min": 11, "max": 18, "step": 1, "default": 15, "unit": "px" },
+    { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#7A2048" },
+    { "type": "color", "id": "border_color", "label": "Border color", "default": "#E7C7D3" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#2A2622" },
+    { "type": "header", "content": "Items" },
+    { "type": "checkbox", "id": "show_item_1", "label": "Show item 1", "default": true },
+    { "type": "text", "id": "icon_1", "label": "Item 1 icon", "default": "shield", "info": "Available icons: shield, truck, cancel." },
+    { "type": "image_picker", "id": "image_1", "label": "Item 1 image" },
+    { "type": "inline_richtext", "id": "label_1", "label": "Item 1 label", "default": "30-Day Money Back" },
+    { "type": "checkbox", "id": "show_item_2", "label": "Show item 2", "default": true },
+    { "type": "text", "id": "icon_2", "label": "Item 2 icon", "default": "truck" },
+    { "type": "image_picker", "id": "image_2", "label": "Item 2 image" },
+    { "type": "inline_richtext", "id": "label_2", "label": "Item 2 label", "default": "Free Shipping on Subscriptions" },
+    { "type": "checkbox", "id": "show_item_3", "label": "Show item 3", "default": true },
+    { "type": "text", "id": "icon_3", "label": "Item 3 icon", "default": "cancel" },
+    { "type": "image_picker", "id": "image_3", "label": "Item 3 image" },
+    { "type": "inline_richtext", "id": "label_3", "label": "Item 3 label", "default": "Cancel Anytime" },
+    { "type": "header", "content": "Text sizes" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 28, "max": 56, "step": 2, "default": 38, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 24, "max": 40, "step": 2, "default": 30, "unit": "px" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding top", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 8, "unit": "px", "label": "Padding bottom", "default": 72 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding top mobile", "default": 48 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Padding bottom mobile", "default": 48 }
+  ],
+  "presets": [{ "name": "Bloomli guarantee" }]
+}
+{% endschema %}

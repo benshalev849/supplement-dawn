@@ -1,0 +1,651 @@
+{
+  "sections": {
+    "fo_banner": {
+      "type": "image-banner",
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.banner {display: none; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/GLP-1_Hero_Image_Mobile.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "fo_hero": {
+      "type": "bloomli-hero",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "use_brand_gradient": false,
+        "eyebrow": "For women who are seeing more hair in the brush",
+        "headline_line1": "Your hair may be missing key nutrients. Bloomli helps fill the gap.*",
+        "headline_line2": "",
+        "subtext": "14 hair-nourishing nutrients in 2 daily gummies. Designed to support fuller-looking, healthier-feeling hair from within.*",
+        "bullet_1": "6,000mcg biotin plus 13 more hair-nourishing nutrients",
+        "bullet_2": "Supports less visible shedding and fuller-looking hair*",
+        "bullet_3": "30-day money-back guarantee, cancel anytime",
+        "heading_text_size": 30,
+        "subtext_text_size": 14,
+        "min_height": 640,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "button_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "cta_primary_label": "Claim Your First-Order Offer",
+        "cta_primary_url": "#offers",
+        "cta_secondary_label": "",
+        "cta_secondary_url": "",
+        "show_cta_reassurance": true,
+        "cta_reassurance_text": "Free shipping on subscriptions. Ships from the USA.",
+        "show_reviews": false,
+        "star_rating_text": "",
+        "trust_badge_1": "Third-Party Tested",
+        "trust_badge_2": "Made in the USA",
+        "trust_badge_3": "NSF-Certified Facility",
+        "trust_badge_4": "Gluten-Free",
+        "desktop_image": "shopify://shop_images/GLP-1_Hero_Image_Desktop.png",
+        "ultrawide_image": "shopify://shop_images/GLP-1_Hero_Image_Desktop_UltraWide.png",
+        "ultrawide_image_position": "center bottom",
+        "desktop_image_layout": "banner_fixed_height",
+        "desktop_image_fit": "cover",
+        "desktop_image_position": "center bottom",
+        "mobile_image_fit": "contain",
+        "mobile_image_position": "center bottom",
+        "overlay_opacity": 45,
+        "use_custom_text_color": false,
+        "text_color": "#2a2622",
+        "use_custom_accent_color": false,
+        "accent_color": "#b23a6f",
+        "content_alignment": "left",
+        "content_alignment_mobile": "left",
+        "content_position_mobile": "top"
+      }
+    },
+    "fo_review_aggregate": {
+      "type": "bloomli-review-aggregate",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "product": "bloomli-hair-vitamin-gummies",
+        "tagline": "Rated by women who made Bloomli part of their daily routine.",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "fo_education": {
+      "type": "bloomli-education",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Shedding more lately? There is usually a reason.",
+        "body": "<p>Hair is one of the first places your body shows it is running low. Stress, busy seasons, restrictive eating, and everyday nutrient gaps can all push more strands out of their growth phase and into shedding.</p><p>The frustrating part: by the time you notice it in the brush or the shower drain, the gap has usually been building for weeks.</p><p>That is why topical products alone often disappoint. They work on the strand you already have. They cannot reach the follicle doing the growing.</p>",
+        "closing_line": "Bloomli works from the inside, where the growth cycle actually starts.*",
+        "use_custom_emphasis_color": true,
+        "emphasis_color": "#7b2151",
+        "heading_size": 46,
+        "heading_size_mobile": 34,
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
+      }
+    },
+    "fo_ingredients": {
+      "type": "bloomli-ingredient-cards",
+      "blocks": {
+        "card_biotin": {
+          "type": "card",
+          "settings": {
+            "icon": "sparkles",
+            "title": "Biotin, 6,000mcg",
+            "text": "The best-known hair B-vitamin, at a meaningful dose."
+          }
+        },
+        "card_collagen": {
+          "type": "card",
+          "settings": {
+            "icon": "fish",
+            "title": "Marine Collagen",
+            "text": "A beauty-from-within classic, sourced from fish."
+          }
+        },
+        "card_zinc": {
+          "type": "card",
+          "settings": {
+            "icon": "shield-check",
+            "title": "Zinc",
+            "text": "Supports the follicle environment your growth cycle depends on.*"
+          }
+        },
+        "card_vitamins": {
+          "type": "card",
+          "settings": {
+            "icon": "plant-2",
+            "title": "Vitamins A, C, D, E plus B-complex",
+            "text": "The everyday gaps, covered."
+          }
+        }
+      },
+      "block_order": ["card_biotin", "card_collagen", "card_zinc", "card_vitamins"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "14 nutrients. 2 gummies. One ritual.",
+        "intro": "",
+        "footer_line": "Passion fruit flavor. Gluten-free. Made in the USA. Contains fish (tilapia) and tree nuts (coconut).",
+        "columns_desktop": 4,
+        "card_radius": 14,
+        "icon_size": 26,
+        "use_custom_accent_color": false,
+        "use_custom_card_background": true,
+        "card_background": "#f3e1e5",
+        "heading_size": 46,
+        "heading_size_mobile": 34,
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
+      }
+    },
+    "fo_timeline": {
+      "type": "bloomli-timeline",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "icon": "seed",
+            "range": "Weeks 1 to 4",
+            "title": "The quiet phase",
+            "description": "Your body starts absorbing what it was missing. Nothing visible yet. Consistency is the whole job right now."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "icon": "sprout",
+            "range": "Weeks 4 to 12",
+            "title": "Early signs",
+            "description": "Many women notice less hair in the brush and shower first.*"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "icon": "bloom",
+            "range": "Months 3 to 6",
+            "title": "Fuller-looking hair",
+            "description": "Fuller-looking, healthier-feeling hair as new growth works its way in.*"
+          }
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "What a realistic timeline looks like",
+        "subheadline": "",
+        "footnote": "<p>Hair grows on hair's schedule. That is exactly why every plan comes with a 30-day money-back guarantee and the freedom to cancel anytime.</p>",
+        "circle_background": "surface",
+        "circle_size": 280,
+        "icon_size": 120,
+        "show_connector": true,
+        "connector_style": "dashed",
+        "connector_width": 1,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
+      }
+    },
+    "fo_compare": {
+      "type": "bloomli-glp1-compare",
+      "blocks": {
+        "typical": {
+          "type": "column",
+          "settings": {
+            "featured": false,
+            "badge": "",
+            "title": "A typical hair gummy",
+            "positive": false,
+            "rows": "Biotin only, low dose\nNo third-party testing shown\nOrigin unclear\nChalky or overly sweet\nNo guarantee"
+          }
+        },
+        "bloomli": {
+          "type": "column",
+          "settings": {
+            "featured": true,
+            "badge": "",
+            "title": "Bloomli",
+            "positive": true,
+            "rows": "6,000mcg biotin plus 13 more nutrients\nThird-party tested, COA on file\nMade in the USA, NSF-certified facility\nPassion fruit flavor you will actually keep taking\n30-day money-back guarantee"
+          }
+        }
+      },
+      "block_order": ["typical", "bloomli"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Not every hair gummy is built the same",
+        "intro": "",
+        "accent_color": "#b23a6f",
+        "emphasis_color": "#7b2151",
+        "column_background": "#fffdfc",
+        "featured_background": "#f3e1e5",
+        "muted_color": "#9a8f89",
+        "badge_text_color": "#fdfaf7",
+        "column_radius": 28,
+        "heading_size": 48,
+        "heading_size_mobile": 38,
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 56
+      }
+    },
+    "fo_offer": {
+      "type": "bloomli-product-information",
+      "blocks": {
+        "volume_tier": {
+          "type": "volume_tier",
+          "settings": {
+            "heading": "Select Your Size:",
+            "override_product_image": "shopify://shop_images/Gummy_Bottle_Transperant.png",
+            "add_to_cart_label": "Start My Hair Ritual",
+            "sold_out_label": "Sold out",
+            "save_badge_background": "#b23a6f",
+            "save_badge_text_color": "#fdfaf7",
+            "tier_tag_background": "#8a6678",
+            "tier_tag_text_color": "#fdfaf7",
+            "desktop_tier_title_size": 14,
+            "desktop_tier_count_size": 11,
+            "desktop_tier_daily_size": 9,
+            "tier_1_show": true,
+            "tier_1_qty": 1,
+            "tier_1_bundle_product": "",
+            "tier_1_bundle_product_handle": "",
+            "tier_1_label": "Monthly Delivery",
+            "tier_1_count_text": "A 1-month supply delivered each month.",
+            "tier_1_daily_text": "",
+            "tier_1_badge": "",
+            "tier_1_tag": "",
+            "tier_1_discount_pct": 0,
+            "tier_1_subscription_discount_pct": "20",
+            "tier_1_plan_filter": "1-pack",
+            "tier_1_default": true,
+            "tier_2_show": true,
+            "tier_2_qty": 3,
+            "tier_2_bundle_product": "bloomli-hair-vitamin-gummies-3-month-delievery",
+            "tier_2_bundle_product_handle": "",
+            "tier_2_label": "3-Month Delivery",
+            "tier_2_count_text": "A 3-month supply delivered every 3 months.",
+            "tier_2_daily_text": "",
+            "tier_2_badge": "",
+            "tier_2_tag": "Most Popular",
+            "tier_2_discount_pct": 10,
+            "tier_2_subscription_discount_pct": "28",
+            "tier_2_plan_filter": "3-pack",
+            "tier_2_default": false,
+            "tier_3_show": true,
+            "tier_3_qty": 6,
+            "tier_3_bundle_product": "bloomli-hair-vitamin-gummies-1",
+            "tier_3_bundle_product_handle": "",
+            "tier_3_label": "6-Month Delivery",
+            "tier_3_count_text": "A 6-month supply delivered every 6 months.",
+            "tier_3_daily_text": "",
+            "tier_3_badge": "",
+            "tier_3_tag": "Best Value",
+            "tier_3_discount_pct": 15,
+            "tier_3_subscription_discount_pct": "32",
+            "tier_3_plan_filter": "6-pack",
+            "tier_3_default": false,
+            "subscribe_enabled": true,
+            "subscription_discount_pct": "20",
+            "discount_badge_template": "SAVE [percent]%",
+            "default_mode": "subscribe",
+            "offer_section_label": "Select Your Offer:",
+            "label_one_time": "One-Time Purchase",
+            "label_subscribe": "Subscribe & Save",
+            "subscribe_popular_pill": "Most Popular · Get [percent]% off",
+            "subscribe_show_perks": true,
+            "subscribe_perk_1": "Free shipping on every delivery",
+            "subscribe_perk_2": "30-day money-back guarantee",
+            "subscribe_perk_3": "Pause or cancel anytime, no fees",
+            "savings_label_prefix": "You're saving",
+            "savings_label_suffix": "$",
+            "onetime_caveat_1": "One Time Discount",
+            "onetime_caveat_2": "Free shipping unlocks at 3 packs",
+            "total_label": "Total price:"
+          }
+        },
+        "trust_icons": {
+          "type": "trust_icons",
+          "settings": {
+            "layout": "horizontal",
+            "gap": 20,
+            "frame_size": 48,
+            "icon_size": 25,
+            "border_radius": 14,
+            "text_size": 15,
+            "icon_color": "#7a2048",
+            "border_color": "#e7c7d3",
+            "text_color": "#2a2622",
+            "show_item_1": true,
+            "icon_1": "shield",
+            "label_1": "30-Day Money Back",
+            "show_item_2": true,
+            "icon_2": "truck",
+            "label_2": "Free Shipping",
+            "show_item_3": true,
+            "icon_3": "cancel",
+            "label_3": "Cancel Anytime"
+          }
+        },
+        "benefits": {
+          "type": "what_youll_feel",
+          "settings": {
+            "prefer_product_metafield": false,
+            "metafield_key": "benefits",
+            "heading": "What To Expect",
+            "disclaimer": "<p><em>* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary.</em></p>",
+            "heading_size": 23,
+            "title_size": 13,
+            "descriptor_size": 11,
+            "percentage_size": 16,
+            "fine_print_size": 9,
+            "icon_size": 20,
+            "heading_color": "#2a2622",
+            "title_color": "#2a2622",
+            "descriptor_color": "#7a2048",
+            "percentage_color": "#7a2048",
+            "icon_color": "#7a2048",
+            "show_benefit_1": true,
+            "image_1": "shopify://shop_images/flower_icon_c82214ba-23ab-48e1-a043-4e53426a79ac.png",
+            "icon_class_1": "ti-sparkles",
+            "title_1": "Fuller Hair",
+            "descriptor_1": "95% said their hair looked thicker*",
+            "percentage_1": "95%",
+            "show_benefit_2": true,
+            "image_2": "shopify://shop_images/Sparkles_Icon_e63509b6-c226-49de-9685-31c09eebf32c.png",
+            "icon_class_2": "ti-wind",
+            "title_2": "Less Shedding",
+            "descriptor_2": "88% experienced reduced shedding*",
+            "percentage_2": "88%",
+            "show_benefit_3": true,
+            "image_3": "shopify://shop_images/Bicep_Icon_7252fa21-eb1d-40cc-b103-f3b181e2f76e.png",
+            "icon_class_3": "ti-shield-check",
+            "title_3": "Stronger Strands",
+            "descriptor_3": "82% reported less breakage*",
+            "percentage_3": "82%",
+            "show_benefit_4": true,
+            "image_4": "shopify://shop_images/Seed_Icon_ebfa19c6-ece3-4eb6-b080-0a903867666f.png",
+            "icon_class_4": "ti-plant-2",
+            "title_4": "Visible Growth",
+            "descriptor_4": "75% noticed new hair growth*",
+            "percentage_4": "75%",
+            "show_benefit_5": false,
+            "title_5": "Add another benefit*",
+            "descriptor_5": "replace with a survey-supported descriptor",
+            "percentage_5": "00%"
+          }
+        },
+        "how_to_take": {
+          "type": "product_detail",
+          "settings": {
+            "title": "How to Take",
+            "metafield_namespace": "custom",
+            "metafield_key": "how_to_take",
+            "fallback_content": "<p>Take two gummies daily. Keep your healthcare provider informed about every supplement in your routine.</p>",
+            "open_by_default": false
+          }
+        },
+        "ingredients": {
+          "type": "product_detail",
+          "settings": {
+            "title": "Ingredients & Allergens",
+            "metafield_namespace": "custom",
+            "metafield_key": "ingredients_allergens",
+            "fallback_content": "<p>Key ingredients include 6,000mcg biotin, marine collagen, PABA, silicon, zinc, iodine and vitamins A, C, D, E, B6, B12, folate and B5. Gluten-free. Contains fish (tilapia) and tree nut (coconut).</p>",
+            "open_by_default": false
+          }
+        },
+        "quality": {
+          "type": "product_detail",
+          "settings": {
+            "title": "Quality & Certifications",
+            "metafield_namespace": "custom",
+            "metafield_key": "quality_certifications",
+            "fallback_content": "<p>Third-party tested for heavy metals, microbial contaminants, and label accuracy. Manufactured in an NSF-certified facility under NSF/ANSI 455-2 standards.<br/><br/>Read more in our <a href=\"/pages/science-1\" title=\"Science\">Science Page</a></p>",
+            "open_by_default": false
+          }
+        },
+        "shipping": {
+          "type": "product_detail",
+          "settings": {
+            "title": "Shipping & Returns",
+            "metafield_namespace": "custom",
+            "metafield_key": "shipping_returns",
+            "fallback_content": "<p>We offer free shipping on all subscriptions and on one-time orders over $75.<br/><br/>Orders are processed within 1 to 2 business days and typically arrive within 5 to 7 business days.<br/><br/>Not happy with your results? We offer a 30-day money-back guarantee, no questions asked. <br/><br/>View our full <a href=\"/policies/shipping-policy\" title=\"Shipping Policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\" title=\"Refund Policy\">Refund Policy</a> for complete details.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "volume_tier",
+        "trust_icons",
+        "benefits",
+        "how_to_take",
+        "ingredients",
+        "quality",
+        "shipping"
+      ],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "product": "bloomli-hair-vitamin-gummies",
+        "anchor_id": "offers",
+        "show_intro": true,
+        "heading": "Start your first order",
+        "subtext": "<p>Pick your pace. Every option ships free on subscription, and every option is covered by the 30-day guarantee.</p>",
+        "show_title": true,
+        "show_review_badge": true,
+        "show_description": true,
+        "show_price": false,
+        "enable_sticky_info": true,
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "accent_color": "#b23a6f",
+        "emphasis_color": "#7b2151",
+        "heading_size": 48,
+        "heading_size_mobile": 38,
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "fo_guarantee": {
+      "type": "bloomli-guarantee",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "",
+        "text": "<p>Try Bloomli for a full month. If it is not for you, write to us and we will refund your first order. No forms, no hoops.</p>",
+        "layout": "horizontal",
+        "gap": 20,
+        "frame_size": 48,
+        "icon_size": 25,
+        "border_radius": 14,
+        "text_size": 15,
+        "icon_color": "#7a2048",
+        "border_color": "#e7c7d3",
+        "text_color": "#2a2622",
+        "show_item_1": true,
+        "icon_1": "shield",
+        "label_1": "30-Day Money Back",
+        "show_item_2": true,
+        "icon_2": "truck",
+        "label_2": "Free Shipping on Subscriptions",
+        "show_item_3": true,
+        "icon_3": "cancel",
+        "label_3": "Cancel Anytime",
+        "heading_size": 38,
+        "heading_size_mobile": 30,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "fo_faq": {
+      "type": "bloomli-faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "How many do I take?",
+            "answer": "<p>Two gummies a day, any time, with or without food.</p>",
+            "open_by_default": false
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "When will I notice a difference?",
+            "answer": "<p>Most routines need 4 to 12 weeks before shedding looks calmer, and 3 to 6 months for fuller-looking hair.* Consistency matters more than anything else.</p>",
+            "open_by_default": false
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "What does it taste like?",
+            "answer": "<p>Passion fruit. Not chalky, not medicinal.</p>",
+            "open_by_default": false
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Is it vegan?",
+            "answer": "<p>No. The formula includes marine collagen sourced from fish, and it contains coconut. It is gluten-free.</p>",
+            "open_by_default": false
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Can I take it while pregnant or breastfeeding?",
+            "answer": "<p>Please talk with your healthcare provider first. We do not make claims for pregnancy or nursing.</p>",
+            "open_by_default": false
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "How does the subscription work?",
+            "answer": "<p>You choose the pace, we ship it free, and you can pause or cancel anytime from your account with no fees.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": {
+        "heading": "Questions, answered honestly.",
+        "intro": "<p>Everything you need to know before your first gummy.</p>",
+        "image": "shopify://shop_images/Model_Holding_Gummy_3.png",
+        "image_alt": "",
+        "show_placeholder": false,
+        "image_position": "right",
+        "container_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "border_color": "#e8ded8",
+        "image_width": 360,
+        "corner_radius": 14,
+        "heading_size": 48,
+        "question_size": 16,
+        "body_size": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "fo_closing": {
+      "type": "bloomli-closing-cta",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Your hair ritual starts with one order",
+        "subline": "Two gummies a day. A 30-day guarantee. Nothing to lose except the guesswork.",
+        "button_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "cta_label": "Claim Your First-Order Offer",
+        "cta_link": "#offers",
+        "show_email_capture": true,
+        "email_heading": "Not ready today?",
+        "email_text": "Get our short guide to supporting your hair through stressful seasons, plus a first-order offer in your inbox.",
+        "email_button_label": "Send It",
+        "signup_tag": "bloomli-first-order-signup",
+        "fine_print": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>",
+        "heading_size": 46,
+        "heading_size_mobile": 34,
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "fo_sticky_cta": {
+      "type": "bloomli-sticky-cta",
+      "name": "Sticky CTA bar",
+      "settings": {
+        "enabled": true,
+        "badge_text": "30-Day Money-Back Guarantee",
+        "main_text": "Claim Your First-Order Offer",
+        "social_proof": "",
+        "show_stars": false,
+        "scroll_target": "#offers",
+        "proximity_margin": 250,
+        "bar_bg": "#5c0f2e",
+        "btn_fill": "#b23a6f",
+        "btn_label": "#fdfaf7",
+        "badge_fill": "#fdfaf7",
+        "badge_label": "#b23a6f",
+        "social_color": "#fdfaf7",
+        "star_fill": "#f0b429"
+      }
+    }
+  },
+  "order": [
+    "fo_banner",
+    "fo_hero",
+    "fo_review_aggregate",
+    "fo_education",
+    "fo_ingredients",
+    "fo_timeline",
+    "fo_compare",
+    "fo_offer",
+    "fo_guarantee",
+    "fo_faq",
+    "fo_closing",
+    "main",
+    "fo_sticky_cta"
+  ]
+}

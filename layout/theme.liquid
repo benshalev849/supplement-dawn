@@ -12,6 +12,11 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
 
+    {%- comment -%} Ad landing page templates are excluded from search engines. {%- endcomment -%}
+    {%- if template.suffix == 'first-order' -%}
+      <meta name="robots" content="noindex, nofollow">
+    {%- endif -%}
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}

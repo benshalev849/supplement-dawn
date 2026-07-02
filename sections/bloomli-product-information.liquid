@@ -31,7 +31,7 @@
 {{ 'bloomli-product-information.css' | asset_url | stylesheet_tag }}
 
 <section
-  id="glp1-offers"
+  id="{{ section.settings.anchor_id | default: 'glp1-offers' | handleize }}"
   class="bloomli-product-information color-{{ section.settings.color_scheme }} gradient"
   style="
     --bpi-accent: {{ section.settings.accent_color }};
@@ -187,6 +187,7 @@
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "product", "id": "product", "label": "Product for landing pages", "info": "Product templates use the current product automatically. Page templates use this selection." },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "glp1-offers", "info": "The HTML id used by anchor links and the sticky CTA, e.g. glp1-offers or offers. Do not include the # symbol." },
     { "type": "header", "content": "Section introduction" },
     { "type": "checkbox", "id": "show_intro", "label": "Show section introduction", "default": true },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Meet the routine behind <em>healthier-looking hair.</em>" },

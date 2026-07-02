@@ -9,7 +9,7 @@
       "settings": {
         "image": "shopify://shop_images/GLP-1_Hero_Image_Mobile.png",
         "image_overlay_opacity": 0,
-        "image_height": "adapt",
+        "image_height": "small",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
@@ -26,19 +26,19 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_brand_gradient": false,
         "eyebrow": "For women who are seeing more hair in the brush",
-        "headline_line1": "Your hair may be missing key nutrients. Bloomli helps fill the gap.*",
-        "headline_line2": "",
+        "headline_line1": "Your hair may be missing key nutrients.",
+        "headline_line2": "Bloomli helps fill the gap.*",
         "subtext": "14 hair-nourishing nutrients in 2 daily gummies. Designed to support fuller-looking, healthier-feeling hair from within.*",
         "bullet_1": "6,000mcg biotin plus 13 more hair-nourishing nutrients",
         "bullet_2": "Supports less visible shedding and fuller-looking hair*",
         "bullet_3": "30-day money-back guarantee, cancel anytime",
-        "heading_text_size": 30,
-        "subtext_text_size": 14,
+        "heading_text_size": 28,
+        "subtext_text_size": 13,
         "min_height": 640,
         "padding_top": 72,
         "padding_bottom": 72,
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 40,
         "button_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "cta_primary_label": "Claim Your First-Order Offer",
         "cta_primary_url": "#offers",
@@ -70,18 +70,6 @@
         "content_position_mobile": "top"
       }
     },
-    "fo_review_aggregate": {
-      "type": "bloomli-review-aggregate",
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "product": "bloomli-hair-vitamin-gummies",
-        "tagline": "Rated by women who made Bloomli part of their daily routine.",
-        "padding_top": 24,
-        "padding_bottom": 24,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20
-      }
-    },
     "fo_education": {
       "type": "bloomli-education",
       "settings": {
@@ -99,60 +87,262 @@
         "padding_bottom_mobile": 56
       }
     },
-    "fo_ingredients": {
-      "type": "bloomli-ingredient-cards",
+    "fo_reviews": {
+      "type": "bloomli-reviews",
       "blocks": {
-        "card_biotin": {
-          "type": "card",
+        "rev1": {
+          "type": "review",
           "settings": {
-            "icon": "sparkles",
-            "title": "Biotin, 6,000mcg",
-            "text": "The best-known hair B-vitamin, at a meaningful dose."
+            "image": "shopify://shop_images/Review_1.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"I started noticing more hair in my brush during a really stressful year. Three months of two gummies a day and the shedding looks calmer, and my ponytail feels a little fuller.\"",
+            "name": "Sarah M.",
+            "meta": "Hair Gummies · 3 months",
+            "verified_label": "Verified Customer"
           }
         },
-        "card_collagen": {
-          "type": "card",
+        "rev2": {
+          "type": "review",
           "settings": {
-            "icon": "fish",
-            "title": "Marine Collagen",
-            "text": "A beauty-from-within classic, sourced from fish."
+            "image": "shopify://shop_images/Review_2.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"These are the first supplement I have actually stayed consistent with. The passion fruit flavor helps. A few months in, my hair feels softer and healthier than it did.\"",
+            "name": "Jenna K.",
+            "meta": "Hair Gummies · 4 months",
+            "verified_label": "Verified Customer"
           }
         },
-        "card_zinc": {
-          "type": "card",
+        "rev3": {
+          "type": "review",
           "settings": {
-            "icon": "shield-check",
-            "title": "Zinc",
-            "text": "Supports the follicle environment your growth cycle depends on.*"
+            "image": "shopify://shop_images/Review_3.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"Two months in. There is less hair in the shower drain than when I started, and my nails feel stronger too. Staying with it.\"",
+            "name": "Alyssa T.",
+            "meta": "Hair Gummies · 2 months",
+            "verified_label": "Verified Customer"
           }
         },
-        "card_vitamins": {
-          "type": "card",
+        "rev4": {
+          "type": "review",
           "settings": {
-            "icon": "plant-2",
-            "title": "Vitamins A, C, D, E plus B-complex",
-            "text": "The everyday gaps, covered."
+            "image": "shopify://shop_images/review_4.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"I was skeptical about gummies, but I like that this is more than just biotin. My hair looks shinier and my part does not stand out to me the way it used to.\"",
+            "name": "Katie B.",
+            "meta": "Hair Gummies · 5 months",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev5": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Review_5.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 4,
+            "quote": "\"Easy little morning ritual. Too early for big changes, but the shedding seems calmer and I actually enjoy taking them, which never happens with supplements.\"",
+            "name": "Monica L.",
+            "meta": "Hair Gummies · 6 weeks",
+            "verified_label": "Verified Customer"
+          }
+        },
+        "rev6": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Review_6.png",
+            "image_scale": 100,
+            "photo_label": "Verified buyer",
+            "rating": 5,
+            "quote": "\"Six months in and my hair feels thicker when I braid it. Slow and steady, exactly like they say. Worth it for me.\"",
+            "name": "Erin W.",
+            "meta": "Hair Gummies · 6 months",
+            "verified_label": "Verified Customer"
           }
         }
       },
-      "block_order": ["card_biotin", "card_collagen", "card_zinc", "card_vitamins"],
+      "block_order": ["rev1", "rev2", "rev3", "rev4", "rev5", "rev6"],
+      "settings": {
+        "title": "From women who kept the ritual.",
+        "use_judgeme": true,
+        "manual_aggregate": "",
+        "background_color": "#fdfaf7",
+        "card_background": "#ffffff",
+        "placeholder_color": "#f7f0e9",
+        "text_color": "#2a2622",
+        "muted_color": "#2a2622",
+        "accent_color": "#b23a6f",
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "card_gap": 20,
+        "scroll_duration": 70,
+        "mobile_card_width": 82,
+        "card_radius": 10,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "fo_formula_gallery": {
+      "type": "bloomli-formula-gallery",
+      "blocks": {
+        "item_biotin": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Biotin_-_Cut_off.png",
+            "image_scale": 90,
+            "use_custom_circle_color": false,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Raw biotin - powder",
+            "icon": "leaf",
+            "title": "Biotin, 6,000mcg",
+            "text": "The building block behind keratin, the protein your hair is actually made of. Dosed at a meaningful level.",
+            "source_line": ""
+          }
+        },
+        "item_folate": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Folate_-_Cut_Out.png",
+            "image_scale": 100,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Folate",
+            "icon": "palm",
+            "title": "Folate",
+            "text": "Drives the cell division hair follicles depend on to grow.*",
+            "source_line": ""
+          }
+        },
+        "item_b12": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_B12_splash_24948dc1-5d29-4e55-95fa-df10b5d6274e.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin B12",
+            "icon": "drop",
+            "title": "Vitamin B12",
+            "text": "Delivers oxygen and nutrients to your follicles so they can thrive.*",
+            "source_line": ""
+          }
+        },
+        "item_b5": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_B5_38fce56d-fdf2-412c-b9bf-87e46ce29d2e.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin B5",
+            "icon": "root",
+            "title": "Vitamin B5",
+            "text": "Nourishes each strand from root to tip, reducing moisture loss and breakage.*",
+            "source_line": ""
+          }
+        },
+        "item_e": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_E_-_Cut_Off_36c3e276-9c53-4a9e-bf73-b303eb58c4ee.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin E",
+            "icon": "zinc",
+            "title": "Vitamin E",
+            "text": "Helps protect your scalp from oxidative stress as part of a daily routine.*",
+            "source_line": ""
+          }
+        },
+        "item_zinc": {
+          "type": "item",
+          "settings": {
+            "is_proof": false,
+            "image": "shopify://shop_images/Zinc_-_Cut_Out.png",
+            "image_scale": 150,
+            "use_custom_circle_color": false,
+            "circle_color": "#fdfaf7",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Zinc",
+            "icon": "leaf",
+            "title": "Zinc",
+            "text": "Supports the scalp environment and consistent follicle function.*",
+            "source_line": ""
+          }
+        }
+      },
+      "block_order": ["item_biotin", "item_folate", "item_b12", "item_b5", "item_e", "item_zinc"],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "14 nutrients. 2 gummies. One ritual.",
-        "intro": "",
-        "footer_line": "Passion fruit flavor. Gluten-free. Made in the USA. Contains fish (tilapia) and tree nuts (coconut).",
-        "columns_desktop": 4,
-        "card_radius": 14,
-        "icon_size": 26,
-        "use_custom_accent_color": false,
-        "use_custom_card_background": true,
-        "card_background": "#f3e1e5",
-        "heading_size": 46,
-        "heading_size_mobile": 34,
-        "padding_top": 96,
-        "padding_bottom": 96,
+        "use_custom_background": false,
+        "background_color": "#fdfaf7",
+        "small_label_color": "#8a6678",
+        "card_background_color": "#ede5dc",
+        "card_border_color": "#e7dcd5",
+        "heading_line2": "14 nutrients. 2 gummies. One ritual.",
+        "copy": "<p>The ingredients that do the heavy lifting, chosen carefully and dosed for a reason. Passion fruit flavor. Gluten-free. Made in the USA. Contains fish (tilapia) and tree nuts (coconut).</p>",
+        "header_alignment": "left",
+        "desktop_columns": "2",
+        "media_background": "surface",
+        "proof_background": "surface",
+        "header_width": 600,
+        "heading_size": 52,
+        "heading_size_mobile": 36,
+        "title_size": 26,
+        "title_size_mobile": 22,
+        "image_size": 168,
+        "image_size_mobile": 112,
+        "proof_icon_size": 64,
+        "proof_icon_size_mobile": 56,
+        "column_gap": 56,
+        "row_gap": 48,
+        "padding_top": 72,
+        "padding_bottom": 48,
         "padding_top_mobile": 56,
-        "padding_bottom_mobile": 56
+        "padding_bottom_mobile": 48
+      }
+    },
+    "fo_inline_cta_1": {
+      "type": "bloomli-inline-cta",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "button_label": "Claim Your First-Order Offer",
+        "button_behavior": "link",
+        "button_link": "#offers",
+        "button_style": "primary",
+        "alignment": "center",
+        "mobile_full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 48,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
       }
     },
     "fo_timeline": {
@@ -161,28 +351,34 @@
         "step_1": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_1-3_V2_efed8977-ba01-4b9c-b597-5d1847d3237e.png",
+            "image_scale": 100,
             "icon": "seed",
-            "range": "Weeks 1 to 4",
-            "title": "The quiet phase",
-            "description": "Your body starts absorbing what it was missing. Nothing visible yet. Consistency is the whole job right now."
+            "range": "Weeks 1 to 12",
+            "title": "Build the Foundation",
+            "description": "Your body starts absorbing what it was missing. Many women notice less hair in the brush and shower first, and strands that feel less brittle.*"
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_4-6_V2_cbfc93bc-d5fe-4322-abb0-08d77a84d4ae.png",
+            "image_scale": 100,
             "icon": "sprout",
-            "range": "Weeks 4 to 12",
-            "title": "Early signs",
-            "description": "Many women notice less hair in the brush and shower first.*"
+            "range": "Months 3 to 6",
+            "title": "The Growth Phase",
+            "description": "New growth starts working its way in. Fuller-looking, healthier-feeling hair as the routine compounds.*"
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_7_V2_V2.png",
+            "image_scale": 100,
             "icon": "bloom",
-            "range": "Months 3 to 6",
-            "title": "Fuller-looking hair",
-            "description": "Fuller-looking, healthier-feeling hair as new growth works its way in.*"
+            "range": "Month 7+",
+            "title": "Your Hair, Flourishing",
+            "description": "Hair that holds a style, survives a wash, and finally feels like its best self. Consistency is the whole job.*"
           }
         }
       },
@@ -190,8 +386,8 @@
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "What a realistic timeline looks like",
-        "subheadline": "",
-        "footnote": "<p>Hair grows on hair's schedule. That is exactly why every plan comes with a 30-day money-back guarantee and the freedom to cancel anytime.</p>",
+        "subheadline": "<p><strong>Two gummies a day.</strong> Hair grows on hair's schedule, so results are measured in months, not days.</p>",
+        "footnote": "<p>That is exactly why every plan comes with a 30-day money-back guarantee and the freedom to cancel anytime.</p>",
         "circle_background": "surface",
         "circle_size": 280,
         "icon_size": 120,
@@ -507,6 +703,245 @@
         "padding_bottom_mobile": 48
       }
     },
+    "fo_before_after": {
+      "type": "bloomli-before-after",
+      "blocks": {
+        "result_1": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_4.png",
+            "after_image": "shopify://shop_images/After_4_9307f98a-e89a-4368-9a36-aeab015093c4.png",
+            "before_label": "Month 0",
+            "after_label": "Month 4",
+            "reviewer_name": "Maya R.",
+            "review_text": "\"Less hair in the shower by week six, that's when I knew it was working. By month four, my part line looked visibly tighter. My hair just feels different now.\"",
+            "result_tag_1": "Fuller part line",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Less fragile",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_2": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_3.png",
+            "after_image": "shopify://shop_images/After_3.png",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
+            "reviewer_name": "Danielle K.",
+            "review_text": "\"Dramatically less hair on my brush, then more body, more shine. My hair finally looks the way I always wanted it to.\"",
+            "result_tag_1": "More body",
+            "result_tag_2": "Less fallout",
+            "result_tag_3": "Better shine",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_3": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_13_ca272a6a-2dfa-42a5-81a4-d437be408d25.png",
+            "after_image": "shopify://shop_images/After_13_df6c6af4-7567-4698-af18-fc01dad0d336.png",
+            "before_label": "Month 0",
+            "after_label": "Month 10",
+            "reviewer_name": "Linda M.",
+            "review_text": "\"My crown was fuller, my lengths were thicker, and for the first time in a long time, styling my hair felt enjoyable. I finally felt confident about my hair. I am still taking them daily.\"",
+            "result_tag_1": "Crown density",
+            "result_tag_2": "Easier to style",
+            "result_tag_3": "Long-term results",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_4": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
+            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
+            "before_label": "Month 0",
+            "after_label": "Month 17",
+            "reviewer_name": "Emily K.",
+            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
+            "result_tag_1": "Hairline restored",
+            "result_tag_2": "Temple fill-in",
+            "result_tag_3": "17 months strong",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_5": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_10.png",
+            "after_image": "shopify://shop_images/After_10.png",
+            "before_label": "Month 0",
+            "after_label": "Month 7",
+            "reviewer_name": "Susan B.",
+            "review_text": "\"I was skeptical. Nothing had worked for me before. My hairdresser noticed my crown without me saying a word. I wish I'd found this sooner.\"",
+            "result_tag_1": "Fuller crown",
+            "result_tag_2": "Visible density",
+            "result_tag_3": "Skeptic converted",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_6": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_2.png",
+            "after_image": "shopify://shop_images/After_2.png",
+            "before_label": "Month 0",
+            "after_label": "Month 3",
+            "reviewer_name": "Rachel S.",
+            "review_text": "\"Less hair in the shower, and my part line visibly filling in. That's when I knew the routine was actually working.\"",
+            "result_tag_1": "Narrower part",
+            "result_tag_2": "Less shower fallout",
+            "result_tag_3": "Month 3 results",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        }
+      },
+      "block_order": ["result_1", "result_2", "result_3", "result_4", "result_5", "result_6"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Real Progress, Visible Difference",
+        "copy": "<p>No studios. No filters. Just verified customers, photographed at home over months of consistent use.</p>",
+        "corner_radius": 6,
+        "image_corner_radius": 6,
+        "cards_visible_desktop": 3,
+        "card_gap": 20,
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "body_size": 15,
+        "body_size_mobile": 15,
+        "verified_label": "Verified review",
+        "caption": "Results vary. Before and after photos submitted by verified customers.",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "fo_inline_cta_2": {
+      "type": "bloomli-inline-cta",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "button_label": "Start My Hair Ritual",
+        "button_behavior": "link",
+        "button_link": "#offers",
+        "button_style": "primary",
+        "alignment": "center",
+        "mobile_full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 48,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "fo_mosaic": {
+      "type": "bloomli-photo-mosaic",
+      "blocks": {
+        "photo_1": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Model_Holding_Gummy_2_5dc2294b-1314-41eb-b66d-3fb3fb684a85.png",
+            "image_scale": 100,
+            "label": "Photo 1",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_2": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_11.png",
+            "image_scale": 100,
+            "label": "Photo 2",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f3e1e5"
+          }
+        },
+        "photo_3": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Model_Eating_Gummy_1.png",
+            "image_scale": 100,
+            "label": "Photo 3",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#d9cce8"
+          }
+        },
+        "photo_4": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_1.png",
+            "image_scale": 100,
+            "label": "Photo 4",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_5": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_7_c82604d5-2d46-489c-a617-207ba8e2bd20.png",
+            "image_scale": 100,
+            "label": "Photo 5",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f3e1e5"
+          }
+        },
+        "photo_6": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Selfie_1_af7f5ff3-629c-4859-965b-b0a6575c80f3.png",
+            "image_scale": 100,
+            "label": "Photo 6",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_7": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Client_Result_Selfie_6.png",
+            "image_scale": 100,
+            "label": "Photo 7",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        },
+        "photo_8": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/Gummy_Selfie_5.png",
+            "image_scale": 100,
+            "label": "Photo 8",
+            "use_custom_placeholder_color": false,
+            "placeholder_color": "#f5ede4"
+          }
+        }
+      },
+      "block_order": ["photo_1", "photo_2", "photo_3", "photo_4", "photo_5", "photo_6", "photo_7", "photo_8"],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "use_custom_background": false,
+        "background_color": "#fdfaf7",
+        "heading": "Photos from the ritual.",
+        "subtext": "<p>Real customers, real routines. A few of our favorites from the Bloomli community.</p>",
+        "placeholder_background": "surface",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "gap": 10,
+        "radius": 6,
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
     "fo_faq": {
       "type": "bloomli-faq",
       "blocks": {
@@ -590,7 +1025,8 @@
         "button_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "cta_label": "Claim Your First-Order Offer",
         "cta_link": "#offers",
-        "show_email_capture": true,
+        "show_email_capture": false,
+        "email_mode": "omnisend",
         "email_heading": "Not ready today?",
         "email_text": "Get our short guide to supporting your hair through stressful seasons, plus a first-order offer in your inbox.",
         "email_button_label": "Send It",
@@ -622,6 +1058,8 @@
         "social_proof": "",
         "show_stars": false,
         "scroll_target": "#offers",
+        "suppress_selector": ".bloomli-hero__ctas",
+        "compact": true,
         "proximity_margin": 250,
         "bar_bg": "#5c0f2e",
         "btn_fill": "#b23a6f",
@@ -636,13 +1074,17 @@
   "order": [
     "fo_banner",
     "fo_hero",
-    "fo_review_aggregate",
+    "fo_reviews",
     "fo_education",
-    "fo_ingredients",
+    "fo_formula_gallery",
+    "fo_inline_cta_1",
     "fo_timeline",
+    "fo_before_after",
+    "fo_inline_cta_2",
     "fo_compare",
     "fo_offer",
     "fo_guarantee",
+    "fo_mosaic",
     "fo_faq",
     "fo_closing",
     "main",

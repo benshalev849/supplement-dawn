@@ -12,9 +12,29 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
 
-    {%- comment -%} Ad landing page templates are excluded from search engines. {%- endcomment -%}
+    {%- comment -%} Ad landing page templates are excluded from search engines and hide navigation exits. {%- endcomment -%}
     {%- if template.suffix == 'first-order' -%}
       <meta name="robots" content="noindex, nofollow">
+      {% style %}
+        .header__inline-menu,
+        .header__icons,
+        header-drawer {
+          display: none !important;
+        }
+
+        .header {
+          grid-template-columns: 1fr !important;
+          justify-items: center;
+          padding-top: 8px;
+          padding-bottom: 8px;
+        }
+
+        .header__heading,
+        .header > .header__heading-link {
+          margin: 0 auto;
+          justify-self: center;
+        }
+      {% endstyle %}
     {%- endif -%}
 
     {%- if settings.favicon != blank -%}

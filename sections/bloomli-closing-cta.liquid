@@ -1,6 +1,9 @@
-{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
 {{ 'bloomli-first-order.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'bloomli-signup-popup.js' | asset_url }}" defer="defer"></script>
+{%- if section.settings.show_email_capture and section.settings.email_mode != 'omnisend' -%}
+  {%- comment -%} Shopify customer form assets. Note: the customer form triggers Shopify's own hCaptcha badge. Use the Omnisend email mode to avoid it. {%- endcomment -%}
+  {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'bloomli-signup-popup.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 <section
   class="bloomli-closing-cta color-{{ section.settings.color_scheme }} gradient"
@@ -39,6 +42,12 @@
         <p class="bloomli-closing-cta__email-text">{{ section.settings.email_text }}</p>
       {%- endif -%}
 
+      {%- if section.settings.email_mode == 'omnisend' and section.settings.omnisend_embed_id != blank -%}
+        {{ 'bloomli-omnisend-embed.css' | asset_url | stylesheet_tag }}
+        <div class="bloomli-closing-cta__form-wrap bloomli-closing-cta__form-wrap--omnisend">
+          <div id="omnisend-embedded-v2-{{ section.settings.omnisend_embed_id | remove: 'omnisend-embedded-v2-' | strip }}"></div>
+        </div>
+      {%- else -%}
       <div class="bloomli-closing-cta__form-wrap">
         {%- assign newsletter_success_message = 'newsletter.success' | t -%}
         {% form 'customer', class: 'newsletter-form', return_to: 'back', data-success-message: newsletter_success_message, data-shopify-captcha: 'true' %}
@@ -92,6 +101,7 @@
           </div>
         {% endform %}
       </div>
+      {%- endif -%}
     {%- endif -%}
 
     {%- if section.settings.fine_print != blank -%}
@@ -116,6 +126,11 @@
     { "type": "text", "id": "cta_link", "label": "Button link", "default": "#offers", "info": "Use an anchor like #offers to scroll to the buy box." },
     { "type": "header", "content": "Email capture" },
     { "type": "checkbox", "id": "show_email_capture", "label": "Show email capture", "default": true },
+    { "type": "select", "id": "email_mode", "label": "Email form type", "options": [
+      { "value": "shopify", "label": "Shopify customer form (adds Shopify hCaptcha)" },
+      { "value": "omnisend", "label": "Omnisend embedded form (uses Omnisend reCAPTCHA)" }
+    ], "default": "shopify", "visible_if": "{{ section.settings.show_email_capture }}" },
+    { "type": "text", "id": "omnisend_embed_id", "label": "Omnisend embed form ID", "info": "The ID from the Omnisend embedded form snippet, e.g. 6a293507b28485476ae679ec. Create a dedicated form in Omnisend so it does not clash with the footer form.", "visible_if": "{{ section.settings.email_mode == 'omnisend' }}" },
     { "type": "inline_richtext", "id": "email_heading", "label": "Email heading", "default": "Not ready today?" },
     { "type": "text", "id": "email_text", "label": "Email text", "default": "Get our short guide to supporting your hair through stressful seasons, plus a first-order offer in your inbox." },
     { "type": "text", "id": "email_button_label", "label": "Email button label", "default": "Send It" },

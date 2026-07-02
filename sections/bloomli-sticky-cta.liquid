@@ -1,9 +1,10 @@
 {%- if section.settings.enabled -%}
 <div
-  class="bloomli-sticky-cta"
+  class="bloomli-sticky-cta{% if section.settings.compact %} bloomli-sticky-cta--compact{% endif %}"
   id="bloomli-sticky-cta-{{ section.id }}"
   data-scroll-target="{{ section.settings.scroll_target }}"
   data-proximity-margin="{{ section.settings.proximity_margin }}"
+  data-suppress-selector="{{ section.settings.suppress_selector | escape }}"
   aria-hidden="true"
   style="
     --bscta-bar-bg: {{ section.settings.bar_bg }};
@@ -45,11 +46,21 @@
     var margin = parseInt(el.dataset.proximityMargin, 10);
     if (isNaN(margin)) margin = 250;
     var selector = el.dataset.scrollTarget;
+    var suppressSelector = el.dataset.suppressSelector;
     var visible = false;
     var ticking = false;
 
     function targetEl() {
       return selector ? document.querySelector(selector) : null;
+    }
+
+    function suppressElVisible() {
+      if (!suppressSelector) return false;
+      var node = document.querySelector(suppressSelector);
+      if (!node) return false;
+      var rect = node.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      return rect.bottom > 0 && rect.top < vh;
     }
 
     function update() {
@@ -70,6 +81,8 @@
         // No target on this page → fall back to a simple scroll distance.
         shouldShow = (window.scrollY || window.pageYOffset) > margin;
       }
+
+      if (shouldShow && suppressElVisible()) shouldShow = false;
 
       if (shouldShow === visible) return;
       visible = shouldShow;
@@ -154,6 +167,19 @@
       "label": "Scroll-to anchor",
       "default": "#glp1-offers",
       "info": "CSS selector for the element to scroll to when the button is clicked. e.g. #glp1-offers"
+    },
+    {
+      "type": "text",
+      "id": "suppress_selector",
+      "label": "Hide while this element is visible",
+      "info": "Optional CSS selector. The bar stays hidden while this element is on screen, e.g. .bloomli-hero__ctas keeps it away from the hero button. Leave blank for the original behavior."
+    },
+    {
+      "type": "checkbox",
+      "id": "compact",
+      "label": "Compact bar",
+      "default": false,
+      "info": "Slimmer paddings and button, closer to a thin bottom bar on mobile."
     },
     {
       "type": "range",

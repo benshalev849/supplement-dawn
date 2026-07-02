@@ -314,6 +314,7 @@
         "step_1": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_1-3_V2_efed8977-ba01-4b9c-b597-5d1847d3237e.png",
             "image_scale": 100,
             "icon": "seed",
             "range": "Weeks 1 to 12",
@@ -324,6 +325,7 @@
         "step_2": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_4-6_V2_cbfc93bc-d5fe-4322-abb0-08d77a84d4ae.png",
             "image_scale": 100,
             "icon": "sprout",
             "range": "Months 3 to 6",
@@ -334,6 +336,7 @@
         "step_3": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_7_V2_V2.png",
             "image_scale": 100,
             "icon": "bloom",
             "range": "Month 7+",
@@ -351,8 +354,8 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "timeline_icon_color": "#6f7a5a",
         "heading": "What a realistic timeline looks like",
-        "subheadline": "",
-        "footnote": "",
+        "subheadline": "<p><strong>Two gummies a day.</strong> Hair grows on hair's schedule, so results are measured in months, not days.</p>",
+        "footnote": "<p>That is exactly why every plan comes with a 30-day money-back guarantee and the freedom to cancel anytime.</p>",
         "circle_background": "surface",
         "circle_size": 280,
         "icon_size": 120,

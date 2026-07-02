@@ -85,7 +85,7 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "Shedding more lately? There is usually a reason.",
         "body": "<p>Hair is one of the first places your body shows it is running low. Stress, busy seasons, restrictive eating, and everyday nutrient gaps can all push more strands out of their growth phase and into shedding.</p><p>The frustrating part: by the time you notice it in the brush or the shower drain, the gap has usually been building for weeks.</p><p>That is why topical products alone often disappoint. They work on the strand you already have. They cannot reach the follicle doing the growing.</p>",
-        "closing_line": "Bloomli works from the inside, where the growth cycle actually starts.*",
+        "closing_line": "Bloomli works from the inside, where the growth cycle actually starts.",
         "fine_print": "",
         "use_custom_emphasis_color": true,
         "emphasis_color": "#7b2151",
@@ -219,7 +219,7 @@
         "card_background_color": "#ede5dc",
         "card_border_color": "#e7dcd5",
         "heading_line2": "14 nutrients. 2 gummies. One ritual.",
-        "copy": "<p>The ingredients that do the heavy lifting, chosen carefully and dosed for a reason. Passion fruit flavor. Gluten-free. Made in the USA. Contains fish (tilapia) and tree nuts (coconut).</p>",
+        "copy": "<p>The ingredients that do the heavy lifting, chosen carefully and dosed for a reason. </p>",
         "header_alignment": "left",
         "desktop_columns": "2",
         "media_background": "surface",
@@ -317,134 +317,6 @@
         "padding_bottom": 72,
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48
-      }
-    },
-    "fo_before_after": {
-      "type": "bloomli-before-after",
-      "blocks": {
-        "result_1": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_4.png",
-            "after_image": "shopify://shop_images/After_4_9307f98a-e89a-4368-9a36-aeab015093c4.png",
-            "before_label": "Month 0",
-            "after_label": "Month 4",
-            "reviewer_name": "Maya R.",
-            "review_text": "\"Less hair in the shower by week six, that's when I knew it was working. By month four, my part line looked visibly tighter. My hair just feels different now.\"",
-            "result_tag_1": "Fuller part line",
-            "result_tag_2": "Less shedding",
-            "result_tag_3": "Less fragile",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
-        "result_2": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_3.png",
-            "after_image": "shopify://shop_images/After_3.png",
-            "before_label": "Month 0",
-            "after_label": "Month 6",
-            "reviewer_name": "Danielle K.",
-            "review_text": "\"Dramatically less hair on my brush, then more body, more shine. My hair finally looks the way I always wanted it to.\"",
-            "result_tag_1": "More body",
-            "result_tag_2": "Less fallout",
-            "result_tag_3": "Better shine",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
-        "result_4": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
-            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
-            "before_label": "Month 0",
-            "after_label": "Month 17",
-            "reviewer_name": "Emily K.",
-            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
-            "result_tag_1": "Hairline restored",
-            "result_tag_2": "Temple fill-in",
-            "result_tag_3": "17 months strong",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
-        "result_5": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_10.png",
-            "after_image": "shopify://shop_images/After_10.png",
-            "before_label": "Month 0",
-            "after_label": "Month 7",
-            "reviewer_name": "Susan B.",
-            "review_text": "\"I was skeptical. Nothing had worked for me before. My hairdresser noticed my crown without me saying a word. I wish I'd found this sooner.\"",
-            "result_tag_1": "Fuller crown",
-            "result_tag_2": "Visible density",
-            "result_tag_3": "Skeptic converted",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
-        "result_3": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_13_ca272a6a-2dfa-42a5-81a4-d437be408d25.png",
-            "after_image": "shopify://shop_images/After_13_df6c6af4-7567-4698-af18-fc01dad0d336.png",
-            "before_label": "Month 0",
-            "after_label": "Month 10",
-            "reviewer_name": "Linda M.",
-            "review_text": "\"My crown was fuller, my lengths were thicker, and for the first time in a long time, styling my hair felt enjoyable. I finally felt confident about my hair. I am still taking them daily.\"",
-            "result_tag_1": "Crown density",
-            "result_tag_2": "Easier to style",
-            "result_tag_3": "Long-term results",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        },
-        "result_6": {
-          "type": "result",
-          "settings": {
-            "before_image": "shopify://shop_images/Before_2.png",
-            "after_image": "shopify://shop_images/After_2.png",
-            "before_label": "Month 0",
-            "after_label": "Month 3",
-            "reviewer_name": "Rachel S.",
-            "review_text": "\"Less hair in the shower, and my part line visibly filling in. That's when I knew the routine was actually working.\"",
-            "result_tag_1": "Narrower part",
-            "result_tag_2": "Less shower fallout",
-            "result_tag_3": "Month 3 results",
-            "verified_review": true,
-            "verified_label": "Verified review"
-          }
-        }
-      },
-      "block_order": [
-        "result_1",
-        "result_2",
-        "result_4",
-        "result_5",
-        "result_3",
-        "result_6"
-      ],
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "Real Progress, Visible Difference",
-        "copy": "<p>No studios. No filters. Just verified customers, photographed at home over months of consistent use.</p>",
-        "corner_radius": 6,
-        "image_corner_radius": 6,
-        "cards_visible_desktop": 3,
-        "card_gap": 20,
-        "heading_size": 46,
-        "heading_size_mobile": 36,
-        "body_size": 15,
-        "body_size_mobile": 15,
-        "verified_label": "Verified review",
-        "caption": "Results vary. Before and after photos submitted by verified customers.",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 32,
-        "padding_bottom_mobile": 32
       }
     },
     "fo_inline_cta_2": {
@@ -783,6 +655,134 @@
         "padding_bottom_mobile": 32
       }
     },
+    "fo_before_after": {
+      "type": "bloomli-before-after",
+      "blocks": {
+        "result_1": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_4.png",
+            "after_image": "shopify://shop_images/After_4_9307f98a-e89a-4368-9a36-aeab015093c4.png",
+            "before_label": "Month 0",
+            "after_label": "Month 4",
+            "reviewer_name": "Maya R.",
+            "review_text": "\"Less hair in the shower by week six, that's when I knew it was working. By month four, my part line looked visibly tighter. My hair just feels different now.\"",
+            "result_tag_1": "Fuller part line",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Less fragile",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_2": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_3.png",
+            "after_image": "shopify://shop_images/After_3.png",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
+            "reviewer_name": "Danielle K.",
+            "review_text": "\"Dramatically less hair on my brush, then more body, more shine. My hair finally looks the way I always wanted it to.\"",
+            "result_tag_1": "More body",
+            "result_tag_2": "Less fallout",
+            "result_tag_3": "Better shine",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_4": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
+            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
+            "before_label": "Month 0",
+            "after_label": "Month 17",
+            "reviewer_name": "Emily K.",
+            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
+            "result_tag_1": "Hairline restored",
+            "result_tag_2": "Temple fill-in",
+            "result_tag_3": "17 months strong",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_5": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_10.png",
+            "after_image": "shopify://shop_images/After_10.png",
+            "before_label": "Month 0",
+            "after_label": "Month 7",
+            "reviewer_name": "Susan B.",
+            "review_text": "\"I was skeptical. Nothing had worked for me before. My hairdresser noticed my crown without me saying a word. I wish I'd found this sooner.\"",
+            "result_tag_1": "Fuller crown",
+            "result_tag_2": "Visible density",
+            "result_tag_3": "Skeptic converted",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_3": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_13_ca272a6a-2dfa-42a5-81a4-d437be408d25.png",
+            "after_image": "shopify://shop_images/After_13_df6c6af4-7567-4698-af18-fc01dad0d336.png",
+            "before_label": "Month 0",
+            "after_label": "Month 10",
+            "reviewer_name": "Linda M.",
+            "review_text": "\"My crown was fuller, my lengths were thicker, and for the first time in a long time, styling my hair felt enjoyable. I finally felt confident about my hair. I am still taking them daily.\"",
+            "result_tag_1": "Crown density",
+            "result_tag_2": "Easier to style",
+            "result_tag_3": "Long-term results",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_6": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_2.png",
+            "after_image": "shopify://shop_images/After_2.png",
+            "before_label": "Month 0",
+            "after_label": "Month 3",
+            "reviewer_name": "Rachel S.",
+            "review_text": "\"Less hair in the shower, and my part line visibly filling in. That's when I knew the routine was actually working.\"",
+            "result_tag_1": "Narrower part",
+            "result_tag_2": "Less shower fallout",
+            "result_tag_3": "Month 3 results",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        }
+      },
+      "block_order": [
+        "result_1",
+        "result_2",
+        "result_4",
+        "result_5",
+        "result_3",
+        "result_6"
+      ],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Real Progress, Visible Difference",
+        "copy": "<p>No studios. No filters. Just verified customers, photographed at home over months of consistent use.</p>",
+        "corner_radius": 6,
+        "image_corner_radius": 6,
+        "cards_visible_desktop": 3,
+        "card_gap": 20,
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "body_size": 15,
+        "body_size_mobile": 15,
+        "verified_label": "Verified review",
+        "caption": "Results vary. Before and after photos submitted by verified customers.",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
     "fo_mosaic": {
       "type": "bloomli-photo-mosaic",
       "blocks": {
@@ -1038,10 +1038,10 @@
     "fo_formula_gallery",
     "fo_inline_cta_1",
     "fo_timeline",
-    "fo_before_after",
     "fo_inline_cta_2",
     "fo_brand_difference",
     "fo_offer",
+    "fo_before_after",
     "fo_mosaic",
     "fo_faq",
     "fo_closing",

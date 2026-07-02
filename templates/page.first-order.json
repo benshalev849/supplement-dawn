@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "fo_banner": {
@@ -26,8 +35,8 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_brand_gradient": false,
         "eyebrow": "For women who are seeing more hair in the brush",
-        "headline_line1": "Your hair may be missing key nutrients.",
-        "headline_line2": "Bloomli helps fill the gap.*",
+        "headline_line1": "Your hair may be missing key nutrients. Bloomli helps fill the gap.",
+        "headline_line2": "",
         "subtext": "14 hair-nourishing nutrients in 2 daily gummies. Designed to support fuller-looking, healthier-feeling hair from within.*",
         "bullet_1": "6,000mcg biotin plus 13 more hair-nourishing nutrients",
         "bullet_2": "Supports less visible shedding and fuller-looking hair*",
@@ -77,6 +86,7 @@
         "heading": "Shedding more lately? There is usually a reason.",
         "body": "<p>Hair is one of the first places your body shows it is running low. Stress, busy seasons, restrictive eating, and everyday nutrient gaps can all push more strands out of their growth phase and into shedding.</p><p>The frustrating part: by the time you notice it in the brush or the shower drain, the gap has usually been building for weeks.</p><p>That is why topical products alone often disappoint. They work on the strand you already have. They cannot reach the follicle doing the growing.</p>",
         "closing_line": "Bloomli works from the inside, where the growth cycle actually starts.*",
+        "fine_print": "",
         "use_custom_emphasis_color": true,
         "emphasis_color": "#7b2151",
         "heading_size": 46,
@@ -249,82 +259,35 @@
         "item_b5": {
           "type": "item",
           "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Vitamin_B5_38fce56d-fdf2-412c-b9bf-87e46ce29d2e.png",
-            "image_scale": 90,
-            "use_custom_circle_color": true,
-            "circle_color": "#f3e1e5",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin B5",
-            "icon": "root",
-            "title": "Vitamin B5",
-            "text": "Nourishes each strand from root to tip, reducing moisture loss and breakage.*",
-            "source_line": ""
-          }
-        },
-        "item_e": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Vitamin_E_-_Cut_Off_36c3e276-9c53-4a9e-bf73-b303eb58c4ee.png",
-            "image_scale": 90,
-            "use_custom_circle_color": true,
-            "circle_color": "#f3e1e5",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin E",
-            "icon": "zinc",
-            "title": "Vitamin E",
-            "text": "Helps protect your scalp from oxidative stress as part of a daily routine.*",
-            "source_line": ""
-          }
-        },
-        "item_zinc": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Zinc_-_Cut_Out.png",
-            "image_scale": 150,
-            "use_custom_circle_color": false,
-            "circle_color": "#fdfaf7",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Zinc",
-            "icon": "leaf",
-            "title": "Zinc",
-            "text": "Supports the scalp environment and consistent follicle function.*",
-            "source_line": ""
+            "icon": "plant-2",
+            "title": "Vitamins A, C, D, E plus B-complex",
+            "text": "The everyday gaps, covered."
           }
         }
       },
-      "block_order": ["item_biotin", "item_folate", "item_b12", "item_b5", "item_e", "item_zinc"],
+      "block_order": [
+        "card_biotin",
+        "card_collagen",
+        "card_zinc",
+        "card_vitamins"
+      ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "use_custom_background": false,
-        "background_color": "#fdfaf7",
-        "small_label_color": "#8a6678",
-        "card_background_color": "#ede5dc",
-        "card_border_color": "#e7dcd5",
-        "heading_line2": "14 nutrients. 2 gummies. One ritual.",
-        "copy": "<p>The ingredients that do the heavy lifting, chosen carefully and dosed for a reason. Passion fruit flavor. Gluten-free. Made in the USA. Contains fish (tilapia) and tree nuts (coconut).</p>",
-        "header_alignment": "left",
-        "desktop_columns": "2",
-        "media_background": "surface",
-        "proof_background": "surface",
-        "header_width": 600,
-        "heading_size": 52,
-        "heading_size_mobile": 36,
-        "title_size": 26,
-        "title_size_mobile": 22,
-        "image_size": 168,
-        "image_size_mobile": 112,
-        "proof_icon_size": 64,
-        "proof_icon_size_mobile": 56,
-        "column_gap": 56,
-        "row_gap": 48,
-        "padding_top": 72,
-        "padding_bottom": 48,
+        "heading": "14 nutrients. 2 gummies. One ritual.",
+        "intro": "",
+        "footer_line": "Passion fruit flavor. Gluten-free. Made in the USA. Contains fish (tilapia) and tree nuts (coconut).",
+        "fine_print": "",
+        "columns_desktop": 4,
+        "card_radius": 14,
+        "icon_size": 26,
+        "use_custom_accent_color": false,
+        "accent_color": "#b23a6f",
+        "use_custom_card_background": true,
+        "card_background": "#f3e1e5",
+        "heading_size": 46,
+        "heading_size_mobile": 34,
+        "padding_top": 96,
+        "padding_bottom": 96,
         "padding_top_mobile": 56,
         "padding_bottom_mobile": 48
       }
@@ -351,7 +314,6 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Model_Back_Month_1-3_V2_efed8977-ba01-4b9c-b597-5d1847d3237e.png",
             "image_scale": 100,
             "icon": "seed",
             "range": "Weeks 1 to 12",
@@ -362,7 +324,6 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Model_Back_Month_4-6_V2_cbfc93bc-d5fe-4322-abb0-08d77a84d4ae.png",
             "image_scale": 100,
             "icon": "sprout",
             "range": "Months 3 to 6",
@@ -373,7 +334,6 @@
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Model_Back_Month_7_V2_V2.png",
             "image_scale": 100,
             "icon": "bloom",
             "range": "Month 7+",
@@ -382,12 +342,17 @@
           }
         }
       },
-      "block_order": ["step_1", "step_2", "step_3"],
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "timeline_icon_color": "#6f7a5a",
         "heading": "What a realistic timeline looks like",
-        "subheadline": "<p><strong>Two gummies a day.</strong> Hair grows on hair's schedule, so results are measured in months, not days.</p>",
-        "footnote": "<p>That is exactly why every plan comes with a 30-day money-back guarantee and the freedom to cancel anytime.</p>",
+        "subheadline": "",
+        "footnote": "",
         "circle_background": "surface",
         "circle_size": 280,
         "icon_size": 120,
@@ -424,7 +389,10 @@
           }
         }
       },
-      "block_order": ["typical", "bloomli"],
+      "block_order": [
+        "typical",
+        "bloomli"
+      ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "Not every hair gummy is built the same",
@@ -994,7 +962,14 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
       "settings": {
         "heading": "Questions, answered honestly.",
         "intro": "<p>Everything you need to know before your first gummy.</p>",

@@ -27,6 +27,14 @@
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
+
+  {%- if section.settings.mobile_only %}
+    @media screen and (min-width: 750px) {
+      #Banner-{{ section.id }} {
+        display: none;
+      }
+    }
+  {% endif -%}
 {%- endstyle -%}
 
 {%- liquid
@@ -49,6 +57,14 @@
   if section.index == 1
     assign fetch_priority = 'high'
   endif
+
+  assign mobile_only = section.settings.mobile_only
+  if mobile_only
+    assign widths = '375, 550, 750, 1100, 1500'
+    assign banner_image_width = 1500
+  else
+    assign banner_image_width = 3840
+  endif
 -%}
 
 <div
@@ -70,17 +86,37 @@
           assign sizes = full_width
         endif
       -%}
-      {{
-        section.settings.image
-        | image_url: width: 3840
-        | image_tag:
-          width: section.settings.image.width,
-          height: image_height,
-          class: image_class,
-          sizes: sizes,
-          widths: widths,
-          fetchpriority: fetch_priority
-      }}
+      {%- if mobile_only -%}
+        <picture>
+          <source
+            media="(min-width: 750px)"
+            srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          >
+          {{
+            section.settings.image
+            | image_url: width: banner_image_width
+            | image_tag:
+              width: section.settings.image.width,
+              height: image_height,
+              class: image_class,
+              sizes: sizes,
+              widths: widths,
+              fetchpriority: fetch_priority
+          }}
+        </picture>
+      {%- else -%}
+        {{
+          section.settings.image
+          | image_url: width: banner_image_width
+          | image_tag:
+            width: section.settings.image.width,
+            height: image_height,
+            class: image_class,
+            sizes: sizes,
+            widths: widths,
+            fetchpriority: fetch_priority
+        }}
+      {%- endif -%}
     </div>
   {%- elsif section.settings.image_2 == blank -%}
     <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
@@ -102,17 +138,37 @@
           assign sizes = full_width
         endif
       -%}
-      {{
-        section.settings.image_2
-        | image_url: width: 3840
-        | image_tag:
-          width: section.settings.image_2.width,
-          height: image_height_2,
-          class: image_class_2,
-          sizes: sizes,
-          widths: widths,
-          fetchpriority: fetch_priority
-      }}
+      {%- if mobile_only -%}
+        <picture>
+          <source
+            media="(min-width: 750px)"
+            srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          >
+          {{
+            section.settings.image_2
+            | image_url: width: banner_image_width
+            | image_tag:
+              width: section.settings.image_2.width,
+              height: image_height_2,
+              class: image_class_2,
+              sizes: sizes,
+              widths: widths,
+              fetchpriority: fetch_priority
+          }}
+        </picture>
+      {%- else -%}
+        {{
+          section.settings.image_2
+          | image_url: width: banner_image_width
+          | image_tag:
+            width: section.settings.image_2.width,
+            height: image_height_2,
+            class: image_class_2,
+            sizes: sizes,
+            widths: widths,
+            fetchpriority: fetch_priority
+        }}
+      {%- endif -%}
     </div>
   {%- endif -%}
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
@@ -184,6 +240,13 @@
       "type": "image_picker",
       "id": "image_2",
       "label": "t:sections.image-banner.settings.image_2.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_only",
+      "label": "Show on mobile only",
+      "info": "Hides the banner on desktop and skips the desktop image download entirely. Use for mobile-only hero banners.",
+      "default": false
     },
     {
       "type": "range",

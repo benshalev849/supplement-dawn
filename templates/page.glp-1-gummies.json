@@ -17,6 +17,7 @@
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/GLP-1_Hero_Image_Mobile.png",
+        "mobile_only": true,
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",

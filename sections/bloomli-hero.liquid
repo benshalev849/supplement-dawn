@@ -32,6 +32,13 @@
 >
   {%- if has_bg_image -%}
     <div class="bloomli-hero__bg{% if section.settings.mobile_image != blank %} bloomli-hero__bg--has-mobile{% endif %}" aria-hidden="true">
+      {%- comment -%}
+        Single <picture> so each breakpoint downloads exactly one file:
+        mobile must never fetch the desktop/ultrawide image and vice versa.
+        The 768px breakpoint matches the hero CSS in bloomli-sections.css.
+        When there is no mobile image the background is hidden below 768px,
+        so a 1x1 data-URI source keeps mobile from fetching anything.
+      {%- endcomment -%}
       <picture>
         {%- if section.settings.ultrawide_image != blank -%}
           <source
@@ -45,33 +52,47 @@
             sizes="100vw"
           >
         {%- endif -%}
-        {{
-          section.settings.desktop_image
-          | image_url: width: 1920
-          | image_tag:
-            class: 'bloomli-hero__bg-img bloomli-hero__bg-img--desktop',
-            alt: '',
-            widths: '960, 1440, 1920',
-            sizes: '100vw',
-            loading: 'eager',
-            fetchpriority: 'high',
-            decoding: 'async'
-        }}
+        <source
+          media="(min-width: 768px)"
+          srcset="
+            {{ section.settings.desktop_image | image_url: width: 960 }} 960w,
+            {{ section.settings.desktop_image | image_url: width: 1440 }} 1440w,
+            {{ section.settings.desktop_image | image_url: width: 1920 }} 1920w
+          "
+          sizes="100vw"
+        >
+        {%- if section.settings.mobile_image != blank -%}
+          {{
+            section.settings.mobile_image
+            | image_url: width: 900
+            | image_tag:
+              class: 'bloomli-hero__bg-img bloomli-hero__bg-img--desktop',
+              alt: '',
+              widths: '400, 600, 900',
+              sizes: '100vw',
+              loading: 'eager',
+              fetchpriority: 'high',
+              decoding: 'async'
+          }}
+        {%- else -%}
+          <source
+            media="(max-width: 767.98px)"
+            srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          >
+          {{
+            section.settings.desktop_image
+            | image_url: width: 1920
+            | image_tag:
+              class: 'bloomli-hero__bg-img bloomli-hero__bg-img--desktop',
+              alt: '',
+              widths: '960, 1440, 1920',
+              sizes: '100vw',
+              loading: 'eager',
+              fetchpriority: 'high',
+              decoding: 'async'
+          }}
+        {%- endif -%}
       </picture>
-      {%- if section.settings.mobile_image != blank -%}
-        {{
-          section.settings.mobile_image
-          | image_url: width: 900
-          | image_tag:
-            class: 'bloomli-hero__bg-img bloomli-hero__bg-img--mobile',
-            alt: '',
-            widths: '400, 600, 900',
-            sizes: '100vw',
-            loading: 'eager',
-            fetchpriority: 'high',
-            decoding: 'async'
-        }}
-      {%- endif -%}
       <div class="bloomli-hero__overlay"></div>
     </div>
   {%- endif -%}

@@ -398,6 +398,9 @@
     display: none;
   }
 
+  /* One responsive <img> serves both breakpoints; below 768px the <picture>
+     source swaps it to the mobile file, so restyle it rather than hide it. */
+  .bloomli-hero__bg--has-mobile .bloomli-hero__bg-img--desktop,
   .bloomli-hero__bg--has-mobile .bloomli-hero__bg-img--mobile {
     display: block;
     inset: auto 0 0;

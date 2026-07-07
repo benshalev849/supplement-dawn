@@ -117,67 +117,6 @@
         "padding_bottom_mobile": 40
       }
     },
-    "fo_timeline": {
-      "type": "bloomli-timeline",
-      "blocks": {
-        "step_1": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/Model_Back_Month_1-3_V2_efed8977-ba01-4b9c-b597-5d1847d3237e.png",
-            "image_scale": 100,
-            "icon": "seed",
-            "range": "Month 1-3",
-            "title": "Build the Foundation",
-            "description": "Your body starts absorbing what it was missing. Many women notice less hair in the brush and shower first, and strands that feel less brittle.*"
-          }
-        },
-        "step_2": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/Model_Back_Month_4-6_V2_cbfc93bc-d5fe-4322-abb0-08d77a84d4ae.png",
-            "image_scale": 100,
-            "icon": "sprout",
-            "range": "Month 4-6",
-            "title": "The Growth Phase",
-            "description": "New growth starts working its way in. Fuller-looking, healthier-feeling hair as the routine compounds.*"
-          }
-        },
-        "step_3": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/Model_Back_Month_7_V2_V2.png",
-            "image_scale": 100,
-            "icon": "bloom",
-            "range": "Month 7+",
-            "title": "Your Hair, Flourishing",
-            "description": "Hair that holds a style, survives a wash, and finally feels like its best self. Consistency is the whole job.*"
-          }
-        }
-      },
-      "block_order": [
-        "step_1",
-        "step_2",
-        "step_3"
-      ],
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "timeline_icon_color": "#6f7a5a",
-        "heading": "What a realistic timeline looks like",
-        "subheadline": "<p><strong>Two gummies a day.</strong> Hair grows on hair's schedule, so results are measured in months, not days.</p>",
-        "footnote": "<p>That is exactly why every plan comes with a 30-day money-back guarantee and the freedom to cancel anytime.</p>",
-        "icon_style": "card",
-        "circle_background": "surface",
-        "circle_size": 280,
-        "icon_size": 120,
-        "show_connector": true,
-        "connector_style": "dashed",
-        "connector_width": 1,
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48
-      }
-    },
     "fo_before_after": {
       "type": "bloomli-before-after",
       "blocks": {
@@ -411,6 +350,67 @@
         "footnote": "** Botanical herbal blend available in capsules formula. † Based on general market data for mass-market hair supplements. Individual products may vary.",
         "padding_top_desktop": 72,
         "padding_bottom_desktop": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "fo_timeline": {
+      "type": "bloomli-timeline",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_1-3_V2_efed8977-ba01-4b9c-b597-5d1847d3237e.png",
+            "image_scale": 100,
+            "icon": "seed",
+            "range": "Month 1-3",
+            "title": "Build the Foundation",
+            "description": "Your body starts absorbing what it was missing. Many women notice less hair in the brush and shower first, and strands that feel less brittle.*"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_4-6_V2_cbfc93bc-d5fe-4322-abb0-08d77a84d4ae.png",
+            "image_scale": 100,
+            "icon": "sprout",
+            "range": "Month 4-6",
+            "title": "The Growth Phase",
+            "description": "New growth starts working its way in. Fuller-looking, healthier-feeling hair as the routine compounds.*"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Model_Back_Month_7_V2_V2.png",
+            "image_scale": 100,
+            "icon": "bloom",
+            "range": "Month 7+",
+            "title": "Your Hair, Flourishing",
+            "description": "Hair that holds a style, survives a wash, and finally feels like its best self. Consistency is the whole job.*"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "timeline_icon_color": "#6f7a5a",
+        "heading": "What a realistic timeline looks like",
+        "subheadline": "<p><strong>Two gummies a day.</strong> Hair grows on hair's schedule, so results are measured in months, not days.</p>",
+        "footnote": "<p>That is exactly why every plan comes with a 30-day money-back guarantee and the freedom to cancel anytime.</p>",
+        "icon_style": "card",
+        "circle_background": "surface",
+        "circle_size": 280,
+        "icon_size": 120,
+        "show_connector": true,
+        "connector_style": "dashed",
+        "connector_width": 1,
+        "padding_top": 72,
+        "padding_bottom": 72,
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48
       }

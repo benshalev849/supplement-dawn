@@ -14,7 +14,7 @@
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_brand_gradient": false,
-        "eyebrow": "For women who are seeing more hair in the brush",
+        "eyebrow": "NEW CUSTOMER OFFER — SAVE UP TO 47%",
         "headline_line1": "Your hair may be missing key nutrients. Bloomli helps fill the gap.",
         "headline_line2": "",
         "subtext": "14 hair-nourishing nutrients in 2 daily gummies. Designed to support fuller-looking, healthier-feeling hair from within.*",
@@ -35,12 +35,12 @@
         "cta_secondary_url": "",
         "show_cta_reassurance": true,
         "cta_reassurance_text": "Free shipping on subscriptions. Ships from the USA.",
-        "show_reviews": false,
-        "star_rating_text": "",
+        "show_reviews": true,
+        "star_rating_text": "4.86 Stars from 1630+ Reviews",
         "trust_badge_1": "Third-Party Tested",
         "trust_badge_2": "Made in the USA",
-        "trust_badge_3": "NSF-Certified Facility",
-        "trust_badge_4": "Gluten-Free",
+        "trust_badge_3": "30-Day Money Back",
+        "trust_badge_4": "",
         "desktop_image": "shopify://shop_images/GLP-1_Hero_Image_Desktop.png",
         "ultrawide_image": "shopify://shop_images/GLP-1_Hero_Image_Desktop_UltraWide.png",
         "ultrawide_image_position": "center bottom",
@@ -96,150 +96,6 @@
         "padding_bottom": 72,
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48
-      }
-    },
-    "fo_formula_gallery": {
-      "type": "bloomli-formula-gallery",
-      "blocks": {
-        "item_biotin": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Biotin_-_Cut_off.png",
-            "image_scale": 90,
-            "use_custom_circle_color": false,
-            "circle_color": "#f3e1e5",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Raw biotin - powder",
-            "icon": "leaf",
-            "title": "Biotin, 6,000mcg",
-            "text": "The building block behind keratin, the protein your hair is actually made of. Dosed at a meaningful level.",
-            "source_line": ""
-          }
-        },
-        "item_folate": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Folate_-_Cut_Out.png",
-            "image_scale": 100,
-            "use_custom_circle_color": true,
-            "circle_color": "#f3e1e5",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Folate",
-            "icon": "palm",
-            "title": "Folate",
-            "text": "Drives the cell division hair follicles depend on to grow.*",
-            "source_line": ""
-          }
-        },
-        "item_b12": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Vitamin_B12_splash_24948dc1-5d29-4e55-95fa-df10b5d6274e.png",
-            "image_scale": 90,
-            "use_custom_circle_color": true,
-            "circle_color": "#f3e1e5",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin B12",
-            "icon": "drop",
-            "title": "Vitamin B12",
-            "text": "Delivers oxygen and nutrients to your follicles so they can thrive.*",
-            "source_line": ""
-          }
-        },
-        "item_b5": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Vitamin_B5_38fce56d-fdf2-412c-b9bf-87e46ce29d2e.png",
-            "image_scale": 90,
-            "use_custom_circle_color": true,
-            "circle_color": "#f3e1e5",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin B5",
-            "icon": "root",
-            "title": "Vitamin B5",
-            "text": "Nourishes each strand from root to tip, reducing moisture loss and breakage.*",
-            "source_line": ""
-          }
-        },
-        "item_e": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Vitamin_E_-_Cut_Off_36c3e276-9c53-4a9e-bf73-b303eb58c4ee.png",
-            "image_scale": 90,
-            "use_custom_circle_color": true,
-            "circle_color": "#f3e1e5",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Vitamin E",
-            "icon": "zinc",
-            "title": "Vitamin E",
-            "text": "Helps protect your scalp from oxidative stress as part of a daily routine.*",
-            "source_line": ""
-          }
-        },
-        "item_zinc": {
-          "type": "item",
-          "settings": {
-            "is_proof": false,
-            "image": "shopify://shop_images/Zinc_-_Cut_Out.png",
-            "image_scale": 150,
-            "use_custom_circle_color": false,
-            "circle_color": "#fdfaf7",
-            "use_custom_icon_color": false,
-            "icon_color": "#6f7a5a",
-            "photo_label": "Zinc",
-            "icon": "leaf",
-            "title": "Zinc",
-            "text": "Supports the scalp environment and consistent follicle function.*",
-            "source_line": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_biotin",
-        "item_folate",
-        "item_b12",
-        "item_b5",
-        "item_e",
-        "item_zinc"
-      ],
-      "settings": {
-        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "use_custom_background": false,
-        "background_color": "#fdfaf7",
-        "small_label_color": "#8a6678",
-        "card_background_color": "#ede5dc",
-        "card_border_color": "#e7dcd5",
-        "heading_line2": "14 nutrients. 2 gummies. One ritual.",
-        "copy": "<p>The ingredients that do the heavy lifting, chosen carefully and dosed for a reason. </p>",
-        "header_alignment": "left",
-        "desktop_columns": "2",
-        "media_background": "surface",
-        "proof_background": "surface",
-        "header_width": 600,
-        "heading_size": 46,
-        "heading_size_mobile": 36,
-        "title_size": 26,
-        "title_size_mobile": 22,
-        "image_size": 168,
-        "image_size_mobile": 112,
-        "proof_icon_size": 64,
-        "proof_icon_size_mobile": 56,
-        "column_gap": 56,
-        "row_gap": 48,
-        "padding_top": 72,
-        "padding_bottom": 48,
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 40
       }
     },
     "fo_inline_cta_1": {
@@ -318,6 +174,134 @@
         "padding_bottom": 72,
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48
+      }
+    },
+    "fo_before_after": {
+      "type": "bloomli-before-after",
+      "blocks": {
+        "result_1": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_4.png",
+            "after_image": "shopify://shop_images/After_4_9307f98a-e89a-4368-9a36-aeab015093c4.png",
+            "before_label": "Month 0",
+            "after_label": "Month 4",
+            "reviewer_name": "Maya R.",
+            "review_text": "\"Less hair in the shower by week six, that's when I knew it was working. By month four, my part line looked visibly tighter. My hair just feels different now.\"",
+            "result_tag_1": "Fuller part line",
+            "result_tag_2": "Less shedding",
+            "result_tag_3": "Less fragile",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_2": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_3.png",
+            "after_image": "shopify://shop_images/After_3.png",
+            "before_label": "Month 0",
+            "after_label": "Month 6",
+            "reviewer_name": "Danielle K.",
+            "review_text": "\"Dramatically less hair on my brush, then more body, more shine. My hair finally looks the way I always wanted it to.\"",
+            "result_tag_1": "More body",
+            "result_tag_2": "Less fallout",
+            "result_tag_3": "Better shine",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_4": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
+            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
+            "before_label": "Month 0",
+            "after_label": "Month 17",
+            "reviewer_name": "Emily K.",
+            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
+            "result_tag_1": "Hairline restored",
+            "result_tag_2": "Temple fill-in",
+            "result_tag_3": "17 months strong",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_5": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_10.png",
+            "after_image": "shopify://shop_images/After_10.png",
+            "before_label": "Month 0",
+            "after_label": "Month 7",
+            "reviewer_name": "Susan B.",
+            "review_text": "\"I was skeptical. Nothing had worked for me before. My hairdresser noticed my crown without me saying a word. I wish I'd found this sooner.\"",
+            "result_tag_1": "Fuller crown",
+            "result_tag_2": "Visible density",
+            "result_tag_3": "Skeptic converted",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_3": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_13_ca272a6a-2dfa-42a5-81a4-d437be408d25.png",
+            "after_image": "shopify://shop_images/After_13_df6c6af4-7567-4698-af18-fc01dad0d336.png",
+            "before_label": "Month 0",
+            "after_label": "Month 10",
+            "reviewer_name": "Linda M.",
+            "review_text": "\"My crown was fuller, my lengths were thicker, and for the first time in a long time, styling my hair felt enjoyable. I finally felt confident about my hair. I am still taking them daily.\"",
+            "result_tag_1": "Crown density",
+            "result_tag_2": "Easier to style",
+            "result_tag_3": "Long-term results",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        },
+        "result_6": {
+          "type": "result",
+          "settings": {
+            "before_image": "shopify://shop_images/Before_2.png",
+            "after_image": "shopify://shop_images/After_2.png",
+            "before_label": "Month 0",
+            "after_label": "Month 3",
+            "reviewer_name": "Rachel S.",
+            "review_text": "\"Less hair in the shower, and my part line visibly filling in. That's when I knew the routine was actually working.\"",
+            "result_tag_1": "Narrower part",
+            "result_tag_2": "Less shower fallout",
+            "result_tag_3": "Month 3 results",
+            "verified_review": true,
+            "verified_label": "Verified review"
+          }
+        }
+      },
+      "block_order": [
+        "result_1",
+        "result_2",
+        "result_4",
+        "result_5",
+        "result_3",
+        "result_6"
+      ],
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "heading": "Real Progress, Visible Difference",
+        "copy": "<p>No studios. No filters. Just verified customers, photographed at home over months of consistent use.</p>",
+        "corner_radius": 6,
+        "image_corner_radius": 6,
+        "cards_visible_desktop": 3,
+        "card_gap": 20,
+        "heading_size": 46,
+        "heading_size_mobile": 36,
+        "body_size": 15,
+        "body_size_mobile": 15,
+        "verified_label": "Verified review",
+        "caption": "Results vary. Before and after photos submitted by verified customers.",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
       }
     },
     "fo_inline_cta_2": {
@@ -656,132 +640,148 @@
         "padding_bottom_mobile": 32
       }
     },
-    "fo_before_after": {
-      "type": "bloomli-before-after",
+    "fo_formula_gallery": {
+      "type": "bloomli-formula-gallery",
       "blocks": {
-        "result_1": {
-          "type": "result",
+        "item_biotin": {
+          "type": "item",
           "settings": {
-            "before_image": "shopify://shop_images/Before_4.png",
-            "after_image": "shopify://shop_images/After_4_9307f98a-e89a-4368-9a36-aeab015093c4.png",
-            "before_label": "Month 0",
-            "after_label": "Month 4",
-            "reviewer_name": "Maya R.",
-            "review_text": "\"Less hair in the shower by week six, that's when I knew it was working. By month four, my part line looked visibly tighter. My hair just feels different now.\"",
-            "result_tag_1": "Fuller part line",
-            "result_tag_2": "Less shedding",
-            "result_tag_3": "Less fragile",
-            "verified_review": true,
-            "verified_label": "Verified review"
+            "is_proof": false,
+            "image": "shopify://shop_images/Biotin_-_Cut_off.png",
+            "image_scale": 90,
+            "use_custom_circle_color": false,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Raw biotin - powder",
+            "icon": "leaf",
+            "title": "Biotin, 6,000mcg",
+            "text": "The building block behind keratin, the protein your hair is actually made of. Dosed at a meaningful level.",
+            "source_line": ""
           }
         },
-        "result_2": {
-          "type": "result",
+        "item_folate": {
+          "type": "item",
           "settings": {
-            "before_image": "shopify://shop_images/Before_3.png",
-            "after_image": "shopify://shop_images/After_3.png",
-            "before_label": "Month 0",
-            "after_label": "Month 6",
-            "reviewer_name": "Danielle K.",
-            "review_text": "\"Dramatically less hair on my brush, then more body, more shine. My hair finally looks the way I always wanted it to.\"",
-            "result_tag_1": "More body",
-            "result_tag_2": "Less fallout",
-            "result_tag_3": "Better shine",
-            "verified_review": true,
-            "verified_label": "Verified review"
+            "is_proof": false,
+            "image": "shopify://shop_images/Folate_-_Cut_Out.png",
+            "image_scale": 100,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Folate",
+            "icon": "palm",
+            "title": "Folate",
+            "text": "Drives the cell division hair follicles depend on to grow.*",
+            "source_line": ""
           }
         },
-        "result_4": {
-          "type": "result",
+        "item_b12": {
+          "type": "item",
           "settings": {
-            "before_image": "shopify://shop_images/Before_1_6ed874a5-b3d9-4067-8a89-940f02be58ef.png",
-            "after_image": "shopify://shop_images/After_1_e8c528ce-193e-4c77-a3fa-b6f71d3e7c29.png",
-            "before_label": "Month 0",
-            "after_label": "Month 17",
-            "reviewer_name": "Emily K.",
-            "review_text": "\"Seventeen months in, and the temples and hairline that bothered me most have completely transformed. No visible scalp, no thinning patches. Honestly, my hair feels better than it did in my twenties.\"",
-            "result_tag_1": "Hairline restored",
-            "result_tag_2": "Temple fill-in",
-            "result_tag_3": "17 months strong",
-            "verified_review": true,
-            "verified_label": "Verified review"
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_B12_splash_24948dc1-5d29-4e55-95fa-df10b5d6274e.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin B12",
+            "icon": "drop",
+            "title": "Vitamin B12",
+            "text": "Delivers oxygen and nutrients to your follicles so they can thrive.*",
+            "source_line": ""
           }
         },
-        "result_5": {
-          "type": "result",
+        "item_b5": {
+          "type": "item",
           "settings": {
-            "before_image": "shopify://shop_images/Before_10.png",
-            "after_image": "shopify://shop_images/After_10.png",
-            "before_label": "Month 0",
-            "after_label": "Month 7",
-            "reviewer_name": "Susan B.",
-            "review_text": "\"I was skeptical. Nothing had worked for me before. My hairdresser noticed my crown without me saying a word. I wish I'd found this sooner.\"",
-            "result_tag_1": "Fuller crown",
-            "result_tag_2": "Visible density",
-            "result_tag_3": "Skeptic converted",
-            "verified_review": true,
-            "verified_label": "Verified review"
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_B5_38fce56d-fdf2-412c-b9bf-87e46ce29d2e.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin B5",
+            "icon": "root",
+            "title": "Vitamin B5",
+            "text": "Nourishes each strand from root to tip, reducing moisture loss and breakage.*",
+            "source_line": ""
           }
         },
-        "result_3": {
-          "type": "result",
+        "item_e": {
+          "type": "item",
           "settings": {
-            "before_image": "shopify://shop_images/Before_13_ca272a6a-2dfa-42a5-81a4-d437be408d25.png",
-            "after_image": "shopify://shop_images/After_13_df6c6af4-7567-4698-af18-fc01dad0d336.png",
-            "before_label": "Month 0",
-            "after_label": "Month 10",
-            "reviewer_name": "Linda M.",
-            "review_text": "\"My crown was fuller, my lengths were thicker, and for the first time in a long time, styling my hair felt enjoyable. I finally felt confident about my hair. I am still taking them daily.\"",
-            "result_tag_1": "Crown density",
-            "result_tag_2": "Easier to style",
-            "result_tag_3": "Long-term results",
-            "verified_review": true,
-            "verified_label": "Verified review"
+            "is_proof": false,
+            "image": "shopify://shop_images/Vitamin_E_-_Cut_Off_36c3e276-9c53-4a9e-bf73-b303eb58c4ee.png",
+            "image_scale": 90,
+            "use_custom_circle_color": true,
+            "circle_color": "#f3e1e5",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Vitamin E",
+            "icon": "zinc",
+            "title": "Vitamin E",
+            "text": "Helps protect your scalp from oxidative stress as part of a daily routine.*",
+            "source_line": ""
           }
         },
-        "result_6": {
-          "type": "result",
+        "item_zinc": {
+          "type": "item",
           "settings": {
-            "before_image": "shopify://shop_images/Before_2.png",
-            "after_image": "shopify://shop_images/After_2.png",
-            "before_label": "Month 0",
-            "after_label": "Month 3",
-            "reviewer_name": "Rachel S.",
-            "review_text": "\"Less hair in the shower, and my part line visibly filling in. That's when I knew the routine was actually working.\"",
-            "result_tag_1": "Narrower part",
-            "result_tag_2": "Less shower fallout",
-            "result_tag_3": "Month 3 results",
-            "verified_review": true,
-            "verified_label": "Verified review"
+            "is_proof": false,
+            "image": "shopify://shop_images/Zinc_-_Cut_Out.png",
+            "image_scale": 150,
+            "use_custom_circle_color": false,
+            "circle_color": "#fdfaf7",
+            "use_custom_icon_color": false,
+            "icon_color": "#6f7a5a",
+            "photo_label": "Zinc",
+            "icon": "leaf",
+            "title": "Zinc",
+            "text": "Supports the scalp environment and consistent follicle function.*",
+            "source_line": ""
           }
         }
       },
       "block_order": [
-        "result_1",
-        "result_2",
-        "result_4",
-        "result_5",
-        "result_3",
-        "result_6"
+        "item_biotin",
+        "item_folate",
+        "item_b12",
+        "item_b5",
+        "item_e",
+        "item_zinc"
       ],
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "heading": "Real Progress, Visible Difference",
-        "copy": "<p>No studios. No filters. Just verified customers, photographed at home over months of consistent use.</p>",
-        "corner_radius": 6,
-        "image_corner_radius": 6,
-        "cards_visible_desktop": 3,
-        "card_gap": 20,
+        "use_custom_background": false,
+        "background_color": "#fdfaf7",
+        "small_label_color": "#8a6678",
+        "card_background_color": "#ede5dc",
+        "card_border_color": "#e7dcd5",
+        "heading_line2": "14 nutrients. 2 gummies. One ritual.",
+        "copy": "<p>The ingredients that do the heavy lifting, chosen carefully and dosed for a reason. </p>",
+        "header_alignment": "left",
+        "desktop_columns": "2",
+        "media_background": "surface",
+        "proof_background": "surface",
+        "header_width": 600,
         "heading_size": 46,
         "heading_size_mobile": 36,
-        "body_size": 15,
-        "body_size_mobile": 15,
-        "verified_label": "Verified review",
-        "caption": "Results vary. Before and after photos submitted by verified customers.",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 32,
-        "padding_bottom_mobile": 32
+        "title_size": 26,
+        "title_size_mobile": 22,
+        "image_size": 168,
+        "image_size_mobile": 112,
+        "proof_icon_size": 64,
+        "proof_icon_size_mobile": 56,
+        "column_gap": 56,
+        "row_gap": 48,
+        "padding_top": 72,
+        "padding_bottom": 48,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 40
       }
     },
     "fo_mosaic": {
@@ -1036,13 +1036,13 @@
     "fo_hero",
     "fo_banner",
     "fo_education",
-    "fo_formula_gallery",
     "fo_inline_cta_1",
     "fo_timeline",
+    "fo_before_after",
     "fo_inline_cta_2",
     "fo_brand_difference",
     "fo_offer",
-    "fo_before_after",
+    "fo_formula_gallery",
     "fo_mosaic",
     "fo_faq",
     "fo_closing",

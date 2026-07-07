@@ -15,13 +15,13 @@
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "use_brand_gradient": false,
         "eyebrow": "NEW CUSTOMER OFFER — SAVE UP TO 47%",
-        "headline_line1": "Your hair may be missing key nutrients. Bloomli helps fill the gap.",
+        "headline_line1": "You loved your hair once. Bloomli helps you love it again.",
         "headline_line2": "",
         "subtext": "14 hair-nourishing nutrients in 2 daily gummies. Designed to support fuller-looking, healthier-feeling hair from within.*",
         "bullet_1": "6,000mcg biotin plus 13 more hair-nourishing nutrients",
         "bullet_2": "Supports less visible shedding and fuller-looking hair*",
         "bullet_3": "30-day money-back guarantee, cancel anytime",
-        "heading_text_size": 28,
+        "heading_text_size": 32,
         "subtext_text_size": 13,
         "min_height": 640,
         "padding_top": 72,
@@ -82,6 +82,7 @@
     },
     "fo_education": {
       "type": "bloomli-education",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "heading": "Shedding more lately? There is usually a reason.",
@@ -100,6 +101,7 @@
     },
     "fo_inline_cta_1": {
       "type": "bloomli-inline-cta",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
         "button_label": "Claim Your First-Order Offer",

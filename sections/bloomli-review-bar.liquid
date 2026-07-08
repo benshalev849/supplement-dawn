@@ -23,12 +23,28 @@
         {%- for dup in (1..2) -%}
           <div class="bloomli-review-bar__set"{% if dup == 2 %} aria-hidden="true"{% endif %}>
             {%- for block in section.blocks -%}
-              <span class="bloomli-review-bar__chip" {% if dup == 1 %}{{ block.shopify_attributes }}{% endif %}>
-                <span class="bloomli-review-bar__quote">&ldquo;{{ block.settings.text | escape }}&rdquo;</span>
-                {%- if block.settings.author != blank -%}
-                  <span class="bloomli-review-bar__author">{{ block.settings.author | escape }}</span>
-                {%- endif -%}
-              </span>
+              {%- assign initial = block.settings.author | strip | slice: 0, 1 -%}
+              {%- if initial == blank -%}{%- assign initial = 'B' -%}{%- endif -%}
+              <div class="bloomli-review-bar__card" {% if dup == 1 %}{{ block.shopify_attributes }}{% endif %}>
+                <div class="bloomli-review-bar__card-head">
+                  {%- if block.settings.avatar != blank -%}
+                    {{
+                      block.settings.avatar
+                      | image_url: width: 88
+                      | image_tag: class: 'bloomli-review-bar__avatar', alt: block.settings.author, widths: '44, 88', loading: 'lazy', decoding: 'async'
+                    }}
+                  {%- else -%}
+                    <span class="bloomli-review-bar__avatar bloomli-review-bar__avatar--initial" aria-hidden="true">{{ initial }}</span>
+                  {%- endif -%}
+                  {%- if block.settings.author != blank -%}
+                    <span class="bloomli-review-bar__name">{{ block.settings.author | escape }}</span>
+                  {%- endif -%}
+                  <span class="bloomli-review-bar__stars bloomli-review-bar__stars--sm bloomli-review-bar__stars--{{ section.settings.star_style }}" aria-hidden="true">
+                    {%- for i in (1..5) -%}<i class="ti ti-star-filled"></i>{%- endfor -%}
+                  </span>
+                </div>
+                <p class="bloomli-review-bar__text">&ldquo;{{ block.settings.text | escape }}&rdquo;</p>
+              </div>
             {%- endfor -%}
           </div>
         {%- endfor -%}
@@ -86,10 +102,10 @@
       "type": "range",
       "id": "marquee_speed",
       "label": "Scroll duration",
-      "min": 10,
-      "max": 60,
+      "min": 20,
+      "max": 120,
       "step": 5,
-      "default": 35,
+      "default": 60,
       "unit": "s",
       "info": "Seconds for one full loop. Higher is slower.",
       "visible_if": "{{ section.settings.enable_marquee }}"
@@ -146,17 +162,23 @@
       "limit": 12,
       "settings": [
         {
-          "type": "text",
+          "type": "textarea",
           "id": "text",
           "label": "Quote",
           "default": "Part of my morning now",
-          "info": "Keep it short — one line from a real customer review."
+          "info": "One or two short sentences from a real customer review."
         },
         {
           "type": "text",
           "id": "author",
           "label": "Reviewer name",
           "default": "Jamie L."
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar (optional)",
+          "info": "Square photo works best. Falls back to the reviewer's initial."
         }
       ]
     }

@@ -85,29 +85,29 @@
       "blocks": {
         "rb_q1": {
           "type": "quote",
-          "settings": { "text": "Part of my morning now", "author": "Jamie L." }
+          "settings": { "text": "Part of my morning now. I usually forget supplements, but these are easy to keep up with.", "author": "Jamie L." }
         },
         "rb_q2": {
           "type": "quote",
-          "settings": { "text": "The passion fruit taste is better than I expected", "author": "Rachel T." }
+          "settings": { "text": "The passion fruit taste is better than I expected. Consistency has been easy because of it.", "author": "Rachel T." }
         },
         "rb_q3": {
           "type": "quote",
-          "settings": { "text": "Better than swallowing pills", "author": "Kim S." }
+          "settings": { "text": "Better than swallowing pills. It feels like a small ritual instead of a chore.", "author": "Kim S." }
         },
         "rb_q4": {
           "type": "quote",
-          "settings": { "text": "I'm starting to see a difference", "author": "Dana W." }
+          "settings": { "text": "A few months in and I'm starting to see a difference. My nails feel stronger too.", "author": "Dana W." }
         }
       },
       "block_order": ["rb_q1", "rb_q2", "rb_q3", "rb_q4"],
       "settings": {
         "color_scheme": "scheme-1",
-        "rating_text": "4.86 from 1,630+ reviews",
+        "rating_text": "",
         "show_stars": true,
         "star_style": "gold",
         "enable_marquee": true,
-        "marquee_speed": 35,
+        "marquee_speed": 60,
         "padding_top": 28,
         "padding_bottom": 28,
         "padding_top_mobile": 20,
@@ -394,7 +394,7 @@
     "fo_timeline": {
       "type": "bloomli-timeline",
       "custom_css": [
-        "@media screen and (max-width: 749px) {.bloomli-timeline__grid {gap: 32px;} .bloomli-timeline__circle {width: clamp(150px, 48vw, 190px); margin-bottom: 12px;} .bloomli-timeline__header {margin-bottom: 28px;} .bloomli-timeline__footnote {margin-top: 24px;}}"
+        "@media screen and (max-width: 749px) {.bloomli-timeline__grid {gap: 32px;} .bloomli-timeline__circle {width: clamp(170px, 54vw, 215px); margin-bottom: 12px;} .bloomli-timeline__header {margin-bottom: 28px;} .bloomli-timeline__footnote {margin-top: 24px;}}"
       ],
       "blocks": {
         "step_1": {

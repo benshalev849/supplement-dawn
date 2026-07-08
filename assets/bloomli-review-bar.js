@@ -34,6 +34,9 @@
         dots.forEach(function (dot, i) {
           dot.classList.toggle('is-active', i === ci);
         });
+        Array.prototype.forEach.call(cards, function (card, i) {
+          card.classList.toggle('is-current', i === ci);
+        });
       }
 
       function goTo(index) {

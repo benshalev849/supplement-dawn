@@ -68,7 +68,7 @@
             {%- for block in section.blocks -%}
               {%- assign initial = block.settings.author | strip | slice: 0, 1 -%}
               {%- if initial == blank -%}{%- assign initial = 'B' -%}{%- endif -%}
-              <article class="bloomli-review-bar__card" {{ block.shopify_attributes }}>
+              <article class="bloomli-review-bar__card{% if forloop.first %} is-current{% endif %}" {{ block.shopify_attributes }}>
                 {%- if block.settings.title != blank -%}
                   <p class="bloomli-review-bar__card-title">&ldquo;{{ block.settings.title | escape }}&rdquo;</p>
                 {%- endif -%}

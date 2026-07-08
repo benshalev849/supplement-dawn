@@ -22,6 +22,7 @@
     --hero-ultrawide-image-position: {{ section.settings.ultrawide_image_position | default: 'center bottom' }};
     --hero-mobile-image-fit: {{ section.settings.mobile_image_fit | default: 'contain' }};
     --hero-mobile-image-position: {{ section.settings.mobile_image_position | default: 'center bottom' }};
+    --hero-headline2-color: {{ section.settings.headline_line2_color | default: '#b23a6f' }};
     {%- if section.settings.use_custom_text_color -%}
       --hero-text-color: {{ section.settings.text_color }};
     {%- endif -%}
@@ -112,9 +113,10 @@
         <p class="bloomli-hero__eyebrow">{{ section.settings.eyebrow }}</p>
       {%- endif -%}
 
+      {%- assign l2_style = section.settings.headline_line2_style | default: 'italic' -%}
       <h1 class="bloomli-hero__headline">
         {{ section.settings.headline_line1 }}<br>
-        <span>{{ section.settings.headline_line2 }}</span>
+        <span class="bloomli-hero__headline-l2--{{ l2_style }}">{{ section.settings.headline_line2 }}</span>
       </h1>
 
       {%- if section.settings.subtext != blank -%}
@@ -136,6 +138,10 @@
             {%- endif -%}
           {%- endfor -%}
         </ul>
+      {%- endif -%}
+
+      {%- if section.settings.bullets_note != blank -%}
+        <p class="bloomli-hero__bullets-note">{{ section.settings.bullets_note }}</p>
       {%- endif -%}
 
       <div class="bloomli-hero__ctas color-{{ section.settings.button_color_scheme }}">
@@ -202,11 +208,30 @@
     { "type": "checkbox", "id": "use_brand_gradient", "label": "Use Bloomli brand gradient", "default": true },
     { "type": "text",     "id": "eyebrow",         "label": "Eyebrow (small uppercase line above headline)" },
     { "type": "text",     "id": "headline_line1",  "label": "Headline line 1",         "default": "Quiet science," },
-    { "type": "text",     "id": "headline_line2",  "label": "Headline line 2 (italic)", "default": "visible results." },
+    { "type": "text",     "id": "headline_line2",  "label": "Headline line 2",         "default": "visible results." },
+    {
+      "type": "select",
+      "id": "headline_line2_style",
+      "label": "Headline line 2 style",
+      "default": "italic",
+      "options": [
+        { "value": "italic",        "label": "Italic serif (default)" },
+        { "value": "accent",        "label": "Colored" },
+        { "value": "accent_italic", "label": "Colored italic" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "headline_line2_color",
+      "label": "Headline line 2 color",
+      "default": "#b23a6f",
+      "visible_if": "{{ section.settings.headline_line2_style != 'italic' }}"
+    },
     { "type": "textarea", "id": "subtext",         "label": "Subtext",                 "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },
     { "type": "text",     "id": "bullet_1",        "label": "Proof bullet 1", "info": "Optional check-icon bullets shown between the subtext and the CTA." },
     { "type": "text",     "id": "bullet_2",        "label": "Proof bullet 2" },
     { "type": "text",     "id": "bullet_3",        "label": "Proof bullet 3" },
+    { "type": "inline_richtext", "id": "bullets_note", "label": "One-liner below bullets", "info": "Optional punchy line between the bullets and the CTA, e.g. \"No powder. No pills. Just 2 tasty gummies.\" Use bold for emphasis." },
     { "type": "range",    "id": "heading_text_size", "label": "Heading text size",      "min": 28, "max": 80, "step": 1, "default": 44, "unit": "px" },
     { "type": "range",    "id": "subtext_text_size", "label": "Subtext size",           "min": 12, "max": 24, "step": 1, "default": 15, "unit": "px" },
     { "type": "range",    "id": "min_height",      "label": "Min height (px)",         "min": 500, "max": 900, "step": 20, "default": 720 },

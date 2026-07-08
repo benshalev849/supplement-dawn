@@ -98,6 +98,15 @@
   font-style: italic;
 }
 
+.bloomli-hero__headline-l2--accent {
+  font-style: normal;
+  color: var(--hero-headline2-color, var(--hero-accent-color, var(--bloomli-accent)));
+}
+
+.bloomli-hero__headline-l2--accent_italic {
+  color: var(--hero-headline2-color, var(--hero-accent-color, var(--bloomli-accent)));
+}
+
 .bloomli-hero__eyebrow {
   margin: 0 0 14px;
   color: var(--hero-accent-color, var(--bloomli-accent));
@@ -133,6 +142,22 @@
   color: var(--hero-accent-color, var(--bloomli-accent));
   font-size: 18px;
   line-height: 1;
+}
+
+.bloomli-hero__bullets-note {
+  margin: 0 0 28px;
+  color: var(--hero-text-color, var(--bloomli-text));
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.bloomli-hero__bullets + .bloomli-hero__bullets-note {
+  margin-top: -14px;
+}
+
+.bloomli-hero__bullets-note strong {
+  font-weight: 700;
 }
 
 .bloomli-hero__subtext {

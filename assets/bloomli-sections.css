@@ -170,18 +170,22 @@
 }
 
 .bloomli-hero__ctas .button {
-  padding: calc(14px * var(--hero-cta-scale, 1)) calc(30px * var(--hero-cta-scale, 1));
-  font-size: calc(15px * var(--hero-cta-scale, 1));
-  min-height: calc(46px * var(--hero-cta-scale, 1));
+  padding: 14px calc(30px * var(--hero-cta-width-scale, 1));
+  font-size: 15px;
+  min-height: 46px;
+  min-width: calc(18rem * var(--hero-cta-width-scale, 1));
+  justify-content: center;
 }
 
 .bloomli-hero__primary-cta-wrap {
   position: relative;
   display: inline-flex;
+  min-width: calc(18rem * var(--hero-cta-width-scale, 1));
+  max-width: 100%;
 }
 
 .bloomli-hero__primary-cta-wrap--has-pill {
-  margin-top: calc(12px * var(--hero-cta-scale, 1));
+  margin-top: 12px;
 }
 
 .bloomli-hero__primary-cta-wrap .button {
@@ -197,12 +201,12 @@
   align-items: center;
   justify-content: center;
   max-width: calc(100% - 28px);
-  padding: calc(3px * var(--hero-cta-scale, 1)) calc(16px * var(--hero-cta-scale, 1));
-  border-radius: 999px;
-  background: rgb(var(--color-background));
-  color: rgb(var(--color-foreground));
+  padding: 3px 16px;
+  border-radius: var(--buttons-radius, 100px);
+  background: var(--bscta-badge-bg, #fff);
+  color: var(--bscta-badge-text, #b23a6f);
   font-family: var(--font-commerce-ui, var(--font-body-family));
-  font-size: calc(11px * var(--hero-cta-scale, 1));
+  font-size: 11px;
   font-weight: 800;
   line-height: 1.15;
   text-transform: uppercase;
@@ -376,9 +380,14 @@
   }
 
   .bloomli-hero__ctas .button {
-    padding: calc(12px * var(--hero-cta-scale, 1)) calc(22px * var(--hero-cta-scale, 1));
-    font-size: calc(14px * var(--hero-cta-scale, 1));
-    min-height: calc(42px * var(--hero-cta-scale, 1));
+    padding: 12px calc(22px * var(--hero-cta-width-scale, 1));
+    font-size: 14px;
+    min-height: 42px;
+    min-width: min(100%, calc(18rem * var(--hero-cta-width-scale, 1)));
+  }
+
+  .bloomli-hero__primary-cta-wrap {
+    min-width: min(100%, calc(18rem * var(--hero-cta-width-scale, 1)));
   }
 
   .bloomli-hero__reviews {

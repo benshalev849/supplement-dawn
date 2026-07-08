@@ -12,7 +12,7 @@
     --hero-min-height: {{ section.settings.min_height }}px;
     --hero-heading-size: {{ section.settings.heading_text_size }}px;
     --hero-subtext-size: {{ section.settings.subtext_text_size }}px;
-    --hero-cta-scale: {{ section.settings.cta_size | divided_by: 100.0 }};
+    --hero-cta-width-scale: {{ section.settings.cta_size | divided_by: 100.0 }};
     --hero-trust-badge-size: {{ section.settings.trust_badge_size }}px;
     --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     --section-padding-top: {{ section.settings.padding_top }}px;
@@ -239,7 +239,7 @@
     { "type": "url",  "id": "cta_primary_url",     "label": "CTA button URL" },
     { "type": "text", "id": "cta_secondary_label", "label": "Secondary button label",  "default": "Take the 2-min Quiz" },
     { "type": "url",  "id": "cta_secondary_url",   "label": "Secondary button URL" },
-    { "type": "range", "id": "cta_size", "label": "CTA size", "min": 80, "max": 150, "step": 5, "default": 100, "unit": "%" },
+    { "type": "range", "id": "cta_size", "label": "CTA width", "min": 80, "max": 220, "step": 5, "default": 100, "unit": "%" },
     { "type": "text", "id": "cta_pill_text", "label": "CTA top pill text", "info": "Optional pill shown above the primary CTA." },
     { "type": "checkbox", "id": "show_cta_reassurance", "label": "Show reassurance below CTA", "default": false },
     { "type": "inline_richtext", "id": "cta_reassurance_text", "label": "Reassurance text", "default": "Try It <strong>Risk-Free For 30 Days</strong>", "visible_if": "{{ section.settings.show_cta_reassurance }}" },

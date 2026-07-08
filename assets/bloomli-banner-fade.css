@@ -1,0 +1,25 @@
+/* Fade-in reveal for image-banner media ("Fade in image when it loads" setting).
+   Hiding is armed by JS only, so no-JS visitors always see the image. */
+
+.banner--fade-media .banner__media {
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+.banner--fade-media.fade-media-armed .banner__media img {
+  opacity: 0;
+  transform: scale(1.03);
+}
+
+.banner--fade-media.fade-media-armed .banner__media img.fade-media-loaded {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 1.1s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner--fade-media.fade-media-armed .banner__media img {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

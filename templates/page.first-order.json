@@ -73,6 +73,7 @@
       "settings": {
         "image": "shopify://shop_images/first-order-hero-mobile.png",
         "mobile_only": true,
+        "fade_in_image": true,
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",

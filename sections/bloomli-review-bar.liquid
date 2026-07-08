@@ -1,8 +1,11 @@
 {{ 'bloomli-review-bar.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bloomli-review-bar.js' | asset_url }}" defer="defer"></script>
 
 <section
-  class="bloomli-review-bar color-{{ section.settings.color_scheme }} gradient{% unless section.settings.enable_marquee %} bloomli-review-bar--static{% endunless %}"
+  class="bloomli-review-bar bloomli-review-bar--{{ section.settings.layout }} color-{{ section.settings.color_scheme }} gradient{% if section.settings.layout == 'marquee' and section.settings.enable_marquee == false %} bloomli-review-bar--static{% endif %}"
   style="--rb-pt: {{ section.settings.padding_top }}px; --rb-pb: {{ section.settings.padding_bottom }}px; --rb-pt-m: {{ section.settings.padding_top_mobile }}px; --rb-pb-m: {{ section.settings.padding_bottom_mobile }}px; --rb-speed: {{ section.settings.marquee_speed }}s;"
+  data-rb-autoplay="{{ section.settings.autoplay }}"
+  data-rb-interval="{{ section.settings.autoplay_interval }}"
 >
   {%- if section.settings.rating_text != blank -%}
     <div class="page-width">
@@ -18,38 +21,100 @@
   {%- endif -%}
 
   {%- if section.blocks.size > 0 -%}
-    <div class="bloomli-review-bar__marquee">
-      <div class="bloomli-review-bar__track">
-        {%- for dup in (1..2) -%}
-          <div class="bloomli-review-bar__set"{% if dup == 2 %} aria-hidden="true"{% endif %}>
+    {%- if section.settings.layout == 'marquee' -%}
+      <div class="bloomli-review-bar__marquee">
+        <div class="bloomli-review-bar__track">
+          {%- for dup in (1..2) -%}
+            <div class="bloomli-review-bar__set"{% if dup == 2 %} aria-hidden="true"{% endif %}>
+              {%- for block in section.blocks -%}
+                {%- assign initial = block.settings.author | strip | slice: 0, 1 -%}
+                {%- if initial == blank -%}{%- assign initial = 'B' -%}{%- endif -%}
+                <article class="bloomli-review-bar__card" {% if dup == 1 %}{{ block.shopify_attributes }}{% endif %}>
+                  {%- if block.settings.title != blank -%}
+                    <p class="bloomli-review-bar__card-title">&ldquo;{{ block.settings.title | escape }}&rdquo;</p>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <div class="bloomli-review-bar__text rte">{{ block.settings.text }}</div>
+                  {%- endif -%}
+                  <div class="bloomli-review-bar__card-foot">
+                    {%- if block.settings.avatar != blank -%}
+                      {{
+                        block.settings.avatar
+                        | image_url: width: 96
+                        | image_tag: class: 'bloomli-review-bar__avatar', alt: block.settings.author, widths: '48, 96', loading: 'lazy', decoding: 'async'
+                      }}
+                    {%- else -%}
+                      <span class="bloomli-review-bar__avatar bloomli-review-bar__avatar--initial" aria-hidden="true">{{ initial }}</span>
+                    {%- endif -%}
+                    <span class="bloomli-review-bar__card-id">
+                      <span class="bloomli-review-bar__stars bloomli-review-bar__stars--sm bloomli-review-bar__stars--{{ section.settings.star_style }}" aria-hidden="true">
+                        {%- for i in (1..5) -%}<i class="ti ti-star-filled"></i>{%- endfor -%}
+                      </span>
+                      {%- if block.settings.author != blank -%}
+                        <span class="bloomli-review-bar__name">{{ block.settings.author | escape }}</span>
+                      {%- endif -%}
+                    </span>
+                  </div>
+                </article>
+              {%- endfor -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- else -%}
+      <div class="page-width">
+        <div class="bloomli-review-bar__carousel">
+          <div class="bloomli-review-bar__viewport" data-rb-viewport tabindex="0" role="region" aria-label="Customer reviews">
             {%- for block in section.blocks -%}
               {%- assign initial = block.settings.author | strip | slice: 0, 1 -%}
               {%- if initial == blank -%}{%- assign initial = 'B' -%}{%- endif -%}
-              <div class="bloomli-review-bar__card" {% if dup == 1 %}{{ block.shopify_attributes }}{% endif %}>
-                <div class="bloomli-review-bar__card-head">
+              <article class="bloomli-review-bar__card" {{ block.shopify_attributes }}>
+                {%- if block.settings.title != blank -%}
+                  <p class="bloomli-review-bar__card-title">&ldquo;{{ block.settings.title | escape }}&rdquo;</p>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="bloomli-review-bar__text rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+                <div class="bloomli-review-bar__card-foot">
                   {%- if block.settings.avatar != blank -%}
                     {{
                       block.settings.avatar
-                      | image_url: width: 88
-                      | image_tag: class: 'bloomli-review-bar__avatar', alt: block.settings.author, widths: '44, 88', loading: 'lazy', decoding: 'async'
+                      | image_url: width: 96
+                      | image_tag: class: 'bloomli-review-bar__avatar', alt: block.settings.author, widths: '48, 96', loading: 'lazy', decoding: 'async'
                     }}
                   {%- else -%}
                     <span class="bloomli-review-bar__avatar bloomli-review-bar__avatar--initial" aria-hidden="true">{{ initial }}</span>
                   {%- endif -%}
-                  {%- if block.settings.author != blank -%}
-                    <span class="bloomli-review-bar__name">{{ block.settings.author | escape }}</span>
-                  {%- endif -%}
-                  <span class="bloomli-review-bar__stars bloomli-review-bar__stars--sm bloomli-review-bar__stars--{{ section.settings.star_style }}" aria-hidden="true">
-                    {%- for i in (1..5) -%}<i class="ti ti-star-filled"></i>{%- endfor -%}
+                  <span class="bloomli-review-bar__card-id">
+                    <span class="bloomli-review-bar__stars bloomli-review-bar__stars--sm bloomli-review-bar__stars--{{ section.settings.star_style }}" aria-hidden="true">
+                      {%- for i in (1..5) -%}<i class="ti ti-star-filled"></i>{%- endfor -%}
+                    </span>
+                    {%- if block.settings.author != blank -%}
+                      <span class="bloomli-review-bar__name">{{ block.settings.author | escape }}</span>
+                    {%- endif -%}
                   </span>
                 </div>
-                <p class="bloomli-review-bar__text">&ldquo;{{ block.settings.text | escape }}&rdquo;</p>
-              </div>
+              </article>
             {%- endfor -%}
           </div>
-        {%- endfor -%}
+          {%- if section.blocks.size > 1 -%}
+            <div class="bloomli-review-bar__nav">
+              <button type="button" class="bloomli-review-bar__arrow" data-rb-prev aria-label="Previous review">
+                <i class="ti ti-arrow-left" aria-hidden="true"></i>
+              </button>
+              <div class="bloomli-review-bar__dots">
+                {%- for block in section.blocks -%}
+                  <button type="button" class="bloomli-review-bar__dot{% if forloop.first %} is-active{% endif %}" data-rb-dot aria-label="Go to review {{ forloop.index }}"></button>
+                {%- endfor -%}
+              </div>
+              <button type="button" class="bloomli-review-bar__arrow" data-rb-next aria-label="Next review">
+                <i class="ti ti-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          {%- endif -%}
+        </div>
       </div>
-    </div>
+    {%- endif -%}
   {%- endif -%}
 </section>
 
@@ -72,12 +137,12 @@
       "type": "text",
       "id": "rating_text",
       "label": "Rating text",
-      "default": "4.86 from 1,630+ reviews"
+      "info": "Optional line above the cards, e.g. \"4.86 from 1,630+ reviews\". Leave empty to hide."
     },
     {
       "type": "checkbox",
       "id": "show_stars",
-      "label": "Show stars",
+      "label": "Show stars next to rating text",
       "default": true
     },
     {
@@ -88,15 +153,44 @@
         { "value": "gold", "label": "Gold" },
         { "value": "accent", "label": "Scheme accent" }
       ],
-      "default": "gold",
-      "visible_if": "{{ section.settings.show_stars }}"
+      "default": "gold"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "carousel", "label": "Swipe carousel (cards)" },
+        { "value": "marquee", "label": "Scrolling marquee" }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-advance cards",
+      "default": true,
+      "info": "Advances one card every few seconds until the visitor interacts. Disabled automatically for visitors who prefer reduced motion.",
+      "visible_if": "{{ section.settings.layout == 'carousel' }}"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_interval",
+      "label": "Auto-advance every",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "unit": "s",
+      "visible_if": "{{ section.settings.layout == 'carousel' and section.settings.autoplay }}"
     },
     {
       "type": "checkbox",
       "id": "enable_marquee",
       "label": "Scroll quotes automatically",
       "default": true,
-      "info": "Quotes drift sideways in a slow loop. Automatically disabled for visitors who prefer reduced motion; when off, quotes wrap in centered rows."
+      "info": "When off, quotes wrap in centered rows.",
+      "visible_if": "{{ section.settings.layout == 'marquee' }}"
     },
     {
       "type": "range",
@@ -108,7 +202,7 @@
       "default": 40,
       "unit": "s",
       "info": "Seconds for one full loop. Higher is slower.",
-      "visible_if": "{{ section.settings.enable_marquee }}"
+      "visible_if": "{{ section.settings.layout == 'marquee' and section.settings.enable_marquee }}"
     },
     {
       "type": "header",
@@ -158,15 +252,22 @@
   "blocks": [
     {
       "type": "quote",
-      "name": "Review quote",
+      "name": "Review card",
       "limit": 12,
       "settings": [
         {
-          "type": "textarea",
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Part of my morning now",
+          "info": "The bold hook — the review's best short line. Most visitors read only this."
+        },
+        {
+          "type": "richtext",
           "id": "text",
           "label": "Quote",
-          "default": "Part of my morning now",
-          "info": "One or two short sentences from a real customer review."
+          "default": "<p>I usually forget supplements, but these are <strong>easy to keep up with</strong>.</p>",
+          "info": "One or two short sentences from a real customer review. Bold the key phrase."
         },
         {
           "type": "text",
@@ -177,8 +278,8 @@
         {
           "type": "image_picker",
           "id": "avatar",
-          "label": "Avatar (optional)",
-          "info": "Square photo works best. Falls back to the reviewer's initial."
+          "label": "Photo (optional)",
+          "info": "Real customer photo only. Falls back to the reviewer's initial."
         }
       ]
     }
@@ -189,19 +290,35 @@
       "blocks": [
         {
           "type": "quote",
-          "settings": { "text": "Part of my morning now", "author": "Jamie L." }
+          "settings": {
+            "title": "Part of my morning now",
+            "text": "<p>I usually forget supplements, but these are <strong>easy to keep up with</strong>. Two gummies with my coffee and done.</p>",
+            "author": "Jamie L."
+          }
         },
         {
           "type": "quote",
-          "settings": { "text": "The passion fruit taste is better than I expected", "author": "Rachel T." }
+          "settings": {
+            "title": "Better than I expected",
+            "text": "<p>The passion fruit flavor is <strong>actually good</strong>, so staying consistent has been easy.</p>",
+            "author": "Rachel T."
+          }
         },
         {
           "type": "quote",
-          "settings": { "text": "Better than swallowing pills", "author": "Kim S." }
+          "settings": {
+            "title": "A ritual, not a chore",
+            "text": "<p><strong>Better than swallowing pills.</strong> It feels like a small treat I look forward to.</p>",
+            "author": "Kim S."
+          }
         },
         {
           "type": "quote",
-          "settings": { "text": "I'm starting to see a difference", "author": "Dana W." }
+          "settings": {
+            "title": "Starting to see a difference",
+            "text": "<p>A few months in, <strong>my nails feel stronger</strong> and my hair looks healthier overall.</p>",
+            "author": "Dana W."
+          }
         }
       ]
     }

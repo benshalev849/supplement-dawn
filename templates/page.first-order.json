@@ -85,19 +85,35 @@
       "blocks": {
         "rb_q1": {
           "type": "quote",
-          "settings": { "text": "Part of my morning now. I usually forget supplements, but these are easy to keep up with.", "author": "Jamie L." }
+          "settings": {
+            "title": "Part of my morning now",
+            "text": "<p>I usually forget supplements, but these are <strong>easy to keep up with</strong>. Two gummies with my coffee and done.</p>",
+            "author": "Jamie L."
+          }
         },
         "rb_q2": {
           "type": "quote",
-          "settings": { "text": "The passion fruit taste is better than I expected. Consistency has been easy because of it.", "author": "Rachel T." }
+          "settings": {
+            "title": "Better than I expected",
+            "text": "<p>The passion fruit flavor is <strong>actually good</strong>, so staying consistent has been easy.</p>",
+            "author": "Rachel T."
+          }
         },
         "rb_q3": {
           "type": "quote",
-          "settings": { "text": "Better than swallowing pills. It feels like a small ritual instead of a chore.", "author": "Kim S." }
+          "settings": {
+            "title": "A ritual, not a chore",
+            "text": "<p><strong>Better than swallowing pills.</strong> It feels like a small treat I look forward to.</p>",
+            "author": "Kim S."
+          }
         },
         "rb_q4": {
           "type": "quote",
-          "settings": { "text": "A few months in and I'm starting to see a difference. My nails feel stronger too.", "author": "Dana W." }
+          "settings": {
+            "title": "Starting to see a difference",
+            "text": "<p>A few months in, <strong>my nails feel stronger</strong> and my hair looks healthier overall.</p>",
+            "author": "Dana W."
+          }
         }
       },
       "block_order": ["rb_q1", "rb_q2", "rb_q3", "rb_q4"],
@@ -106,6 +122,9 @@
         "rating_text": "",
         "show_stars": true,
         "star_style": "gold",
+        "layout": "carousel",
+        "autoplay": true,
+        "autoplay_interval": 5,
         "enable_marquee": true,
         "marquee_speed": 40,
         "padding_top": 28,

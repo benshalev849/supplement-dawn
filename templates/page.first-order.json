@@ -407,7 +407,24 @@
       "type": "bloomli-inline-cta",
       "settings": {
         "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "button_label": "Start My Hair Ritual",
+        "button_label": "Start My Ritual - Save 47%",
+        "button_behavior": "link",
+        "button_link": "#offers",
+        "scroll_selector": ".bloomli-vt",
+        "button_style": "primary",
+        "alignment": "center",
+        "mobile_full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 48,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "bloomli_inline_cta_wiC4b3": {
+      "type": "bloomli-inline-cta",
+      "settings": {
+        "color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
+        "button_label": "Start My Ritual - Save 47%",
         "button_behavior": "link",
         "button_link": "#offers",
         "scroll_selector": ".bloomli-vt",
@@ -1165,7 +1182,7 @@
         "heading": "Your hair ritual starts with one order",
         "subline": "Two gummies a day. A 30-day guarantee. Nothing to lose except the guesswork.",
         "button_color_scheme": "scheme-6d8ba907-aae6-4c49-9120-e1031d9cdb3f",
-        "cta_label": "Claim Your First-Order Offer",
+        "cta_label": "Start My Ritual - Save 47%",
         "cta_link": "#offers",
         "show_email_capture": false,
         "email_mode": "omnisend",
@@ -1197,7 +1214,7 @@
       "settings": {
         "enabled": true,
         "badge_text": "15k+ Gummies Sold",
-        "main_text": "Claim Your First-Order Offer",
+        "main_text": "Start My Ritual - Save 47%",
         "social_proof": "4.86 stars | 1630+ reviews",
         "show_stars": true,
         "scroll_target": "#offers",
@@ -1228,6 +1245,7 @@
     "fo_offer",
     "fo_formula_gallery",
     "fo_mosaic",
+    "bloomli_inline_cta_wiC4b3",
     "1783418323938d0380",
     "fo_faq",
     "fo_closing",

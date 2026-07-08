@@ -17,7 +17,6 @@
         "eyebrow": "NEW CUSTOMER OFFER - SAVE  47%",
         "headline_line1": "Your hair is missing nutrients.",
         "headline_line2": "Bloomli fills them.",
-        "headline_line2_style": "accent_italic",
         "headline_line2_color": "#b23a6f",
         "subtext": "",
         "bullet_1": "14 Active Nutrients, 8 Essential Vitamins.",
@@ -36,6 +35,8 @@
         "cta_primary_url": "#offers",
         "cta_secondary_label": "",
         "cta_secondary_url": "",
+        "cta_size": 100,
+        "cta_pill_text": "",
         "show_cta_reassurance": false,
         "cta_reassurance_text": "Free shipping on subscriptions. Ships from the USA.",
         "show_reviews": true,
@@ -44,6 +45,7 @@
         "trust_badge_2": "Free Shipping",
         "trust_badge_3": "Pause or cancel anytime",
         "trust_badge_4": "",
+        "trust_badge_size": 12,
         "desktop_image": "shopify://shop_images/GLP-1_Hero_Image_Desktop.png",
         "ultrawide_image": "shopify://shop_images/GLP-1_Hero_Image_Desktop_UltraWide.png",
         "ultrawide_image_position": "center bottom",
@@ -191,14 +193,21 @@
           "type": "quality",
           "settings": {
             "icon": "circle-x",
-            "text": "5 microbial contaminants"
+            "text": "5  microbial contaminants"
           }
         },
         "wte_q_usa": {
           "type": "quality",
           "settings": {
             "icon": "circle-x",
-            "text": "3 pathogen screens"
+            "text": "Yeast & mold contamination"
+          }
+        },
+        "quality_Q3YDzb": {
+          "type": "quality",
+          "settings": {
+            "icon": "circle-x",
+            "text": "Harmful bacteria & pathogens"
           }
         }
       },
@@ -209,7 +218,8 @@
         "wte_growth",
         "wte_q_tested",
         "wte_q_nutrients",
-        "wte_q_usa"
+        "wte_q_usa",
+        "quality_Q3YDzb"
       ],
       "settings": {
         "color_scheme": "scheme-1",

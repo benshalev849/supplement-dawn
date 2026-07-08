@@ -184,28 +184,21 @@
           "type": "quality",
           "settings": {
             "icon": "circle-x",
-            "text": "Third-party tested for label accuracy"
+            "text": "4 types of heavy metals"
           }
         },
         "wte_q_nutrients": {
           "type": "quality",
           "settings": {
             "icon": "circle-x",
-            "text": "All 14 hair-supporting nutrients, not just biotin"
+            "text": "5 microbial contaminants"
           }
         },
         "wte_q_usa": {
           "type": "quality",
           "settings": {
             "icon": "circle-x",
-            "text": "Made in the USA, gluten-free"
-          }
-        },
-        "wte_q_guarantee": {
-          "type": "quality",
-          "settings": {
-            "icon": "circle-x",
-            "text": "30-day money-back guarantee"
+            "text": "3 pathogen screens"
           }
         }
       },
@@ -216,8 +209,7 @@
         "wte_growth",
         "wte_q_tested",
         "wte_q_nutrients",
-        "wte_q_usa",
-        "wte_q_guarantee"
+        "wte_q_usa"
       ],
       "settings": {
         "color_scheme": "scheme-1",
@@ -229,7 +221,7 @@
         "footnote": "* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary.",
         "show_quality": true,
         "quality_heading": "Quality You Can Trust",
-        "quality_text": "<p>Every batch is made to match what the label says, so you know exactly what you're taking:</p>",
+        "quality_text": "<p>Our gummies are third-party tested for all 14 nutrients to ensure the label claims are accurate and clean of contaminants, including:</p>",
         "padding_top_desktop": 56,
         "padding_bottom_desktop": 56,
         "padding_top_mobile": 48,

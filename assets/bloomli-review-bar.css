@@ -163,7 +163,7 @@
 }
 
 .bloomli-review-bar__arrow {
-  display: none;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 3.2rem;
@@ -340,9 +340,5 @@
 
   .bloomli-review-bar__text {
     font-size: 1.4rem;
-  }
-
-  .bloomli-review-bar__arrow {
-    display: inline-flex;
   }
 }

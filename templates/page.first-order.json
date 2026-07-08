@@ -183,28 +183,28 @@
         "wte_q_tested": {
           "type": "quality",
           "settings": {
-            "icon": "circle-check",
+            "icon": "circle-x",
             "text": "Third-party tested for label accuracy"
           }
         },
         "wte_q_nutrients": {
           "type": "quality",
           "settings": {
-            "icon": "circle-check",
+            "icon": "circle-x",
             "text": "All 14 hair-supporting nutrients, not just biotin"
           }
         },
         "wte_q_usa": {
           "type": "quality",
           "settings": {
-            "icon": "circle-check",
+            "icon": "circle-x",
             "text": "Made in the USA, gluten-free"
           }
         },
         "wte_q_guarantee": {
           "type": "quality",
           "settings": {
-            "icon": "circle-check",
+            "icon": "circle-x",
             "text": "30-day money-back guarantee"
           }
         }

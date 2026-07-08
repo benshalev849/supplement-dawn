@@ -12,6 +12,8 @@
     --hero-min-height: {{ section.settings.min_height }}px;
     --hero-heading-size: {{ section.settings.heading_text_size }}px;
     --hero-subtext-size: {{ section.settings.subtext_text_size }}px;
+    --hero-cta-scale: {{ section.settings.cta_size | divided_by: 100.0 }};
+    --hero-trust-badge-size: {{ section.settings.trust_badge_size }}px;
     --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -113,10 +115,9 @@
         <p class="bloomli-hero__eyebrow">{{ section.settings.eyebrow }}</p>
       {%- endif -%}
 
-      {%- assign l2_style = section.settings.headline_line2_style | default: 'italic' -%}
       <h1 class="bloomli-hero__headline">
-        {{ section.settings.headline_line1 }}<br>
-        <span class="bloomli-hero__headline-l2--{{ l2_style }}">{{ section.settings.headline_line2 }}</span>
+        {{ section.settings.headline_line1 }}
+        <span class="bloomli-hero__headline-l2">{{ section.settings.headline_line2 }}</span>
       </h1>
 
       {%- if section.settings.subtext != blank -%}
@@ -147,7 +148,12 @@
       <div class="bloomli-hero__ctas color-{{ section.settings.button_color_scheme }}">
         {%- if section.settings.cta_primary_label != blank -%}
           {%- assign cta_primary_href = section.settings.cta_primary_url | default: routes.all_products_collection_url -%}
-          <a href="{{ cta_primary_href }}" class="button button--primary">{{ section.settings.cta_primary_label }}</a>
+          <div class="bloomli-hero__primary-cta-wrap{% if section.settings.cta_pill_text != blank %} bloomli-hero__primary-cta-wrap--has-pill{% endif %}">
+            {%- if section.settings.cta_pill_text != blank -%}
+              <span class="bloomli-hero__cta-pill">{{ section.settings.cta_pill_text | escape }}</span>
+            {%- endif -%}
+            <a href="{{ cta_primary_href }}" class="button button--primary">{{ section.settings.cta_primary_label }}</a>
+          </div>
         {%- endif -%}
         {%- if section.settings.cta_secondary_label != blank and section.settings.cta_secondary_url != blank -%}
           <a href="{{ section.settings.cta_secondary_url }}" class="button button--secondary">{{ section.settings.cta_secondary_label }}</a>
@@ -210,22 +216,10 @@
     { "type": "text",     "id": "headline_line1",  "label": "Headline line 1",         "default": "Quiet science," },
     { "type": "text",     "id": "headline_line2",  "label": "Headline line 2",         "default": "visible results." },
     {
-      "type": "select",
-      "id": "headline_line2_style",
-      "label": "Headline line 2 style",
-      "default": "italic",
-      "options": [
-        { "value": "italic",        "label": "Italic serif (default)" },
-        { "value": "accent",        "label": "Colored" },
-        { "value": "accent_italic", "label": "Colored italic" }
-      ]
-    },
-    {
       "type": "color",
       "id": "headline_line2_color",
       "label": "Headline line 2 color",
-      "default": "#b23a6f",
-      "visible_if": "{{ section.settings.headline_line2_style != 'italic' }}"
+      "default": "#b23a6f"
     },
     { "type": "textarea", "id": "subtext",         "label": "Subtext",                 "default": "Gummies, capsules, or strips — clinically-formulated hair support in the form that fits your ritual. Backed by science, designed for real life." },
     { "type": "text",     "id": "bullet_1",        "label": "Proof bullet 1", "info": "Optional check-icon bullets shown between the subtext and the CTA." },
@@ -245,6 +239,8 @@
     { "type": "url",  "id": "cta_primary_url",     "label": "CTA button URL" },
     { "type": "text", "id": "cta_secondary_label", "label": "Secondary button label",  "default": "Take the 2-min Quiz" },
     { "type": "url",  "id": "cta_secondary_url",   "label": "Secondary button URL" },
+    { "type": "range", "id": "cta_size", "label": "CTA size", "min": 80, "max": 150, "step": 5, "default": 100, "unit": "%" },
+    { "type": "text", "id": "cta_pill_text", "label": "CTA top pill text", "info": "Optional pill shown above the primary CTA." },
     { "type": "checkbox", "id": "show_cta_reassurance", "label": "Show reassurance below CTA", "default": false },
     { "type": "inline_richtext", "id": "cta_reassurance_text", "label": "Reassurance text", "default": "Try It <strong>Risk-Free For 30 Days</strong>", "visible_if": "{{ section.settings.show_cta_reassurance }}" },
     { "type": "header", "content": "Reviews badge" },
@@ -255,6 +251,7 @@
     { "type": "text", "id": "trust_badge_2", "label": "Badge 2 text", "default": "NSF-Certified Facility" },
     { "type": "text", "id": "trust_badge_3", "label": "Badge 3 text", "default": "Made in the USA" },
     { "type": "text", "id": "trust_badge_4", "label": "Badge 4 text" },
+    { "type": "range", "id": "trust_badge_size", "label": "Badge text and icon size", "min": 10, "max": 22, "step": 1, "default": 12, "unit": "px" },
     { "type": "header", "content": "Background image" },
     { "type": "image_picker", "id": "desktop_image", "label": "Desktop background (16:9 landscape)" },
     { "type": "image_picker", "id": "ultrawide_image", "label": "Ultrawide background (2000px+ screens, recommended 3200 × 950)" },

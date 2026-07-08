@@ -10,7 +10,7 @@
       var viewport = section.querySelector('[data-rb-viewport]');
       if (!viewport || viewport.children.length < 2) return;
 
-      var cards = viewport.children;
+      var realCount = viewport.children.length;
       var dots = section.querySelectorAll('[data-rb-dot]');
       var prev = section.querySelector('[data-rb-prev]');
       var next = section.querySelector('[data-rb-next]');
@@ -20,27 +20,74 @@
       var timer = null;
       var inView = true;
 
+      // Clone the edges so the strip wraps: [last*, 1..n, first*].
+      // Resting on a clone teleports (instantly) to its real card.
+      var firstClone = viewport.children[0].cloneNode(true);
+      var lastClone = viewport.children[realCount - 1].cloneNode(true);
+      [firstClone, lastClone].forEach(function (clone) {
+        clone.classList.remove('is-current');
+        clone.setAttribute('aria-hidden', 'true');
+        clone.removeAttribute('data-shopify-editor-block');
+      });
+      viewport.insertBefore(lastClone, viewport.children[0]);
+      viewport.appendChild(firstClone);
+
+      var cards = viewport.children;
+
       function cardStep() {
         return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : viewport.clientWidth;
       }
 
-      function currentIndex() {
+      function domIndex() {
         var step = cardStep();
         return step > 0 ? Math.round(viewport.scrollLeft / step) : 0;
       }
 
+      function logicalIndex(di) {
+        return (((di - 1) % realCount) + realCount) % realCount;
+      }
+
       function updateDots() {
-        var ci = currentIndex();
+        var di = domIndex();
+        var li = logicalIndex(di);
         dots.forEach(function (dot, i) {
-          dot.classList.toggle('is-active', i === ci);
+          dot.classList.toggle('is-active', i === li);
         });
         Array.prototype.forEach.call(cards, function (card, i) {
-          card.classList.toggle('is-current', i === ci);
+          card.classList.toggle('is-current', i === di);
         });
       }
 
-      function goTo(index) {
-        viewport.scrollTo({ left: index * cardStep(), behavior: 'smooth' });
+      function jumpTo(di) {
+        viewport.scrollTo({ left: di * cardStep(), behavior: 'auto' });
+      }
+
+      function goTo(di) {
+        viewport.scrollTo({ left: di * cardStep(), behavior: 'smooth' });
+      }
+
+      // Once scrolling settles on a clone, swap to the real card it mirrors
+      function settle() {
+        var di = domIndex();
+        if (di === 0) {
+          jumpTo(realCount);
+        } else if (di === cards.length - 1) {
+          jumpTo(1);
+        }
+      }
+
+      if ('onscrollend' in viewport) {
+        viewport.addEventListener('scrollend', settle);
+      } else {
+        var settleTimer = null;
+        viewport.addEventListener(
+          'scroll',
+          function () {
+            if (settleTimer) clearTimeout(settleTimer);
+            settleTimer = setTimeout(settle, 140);
+          },
+          { passive: true }
+        );
       }
 
       function stopAuto() {
@@ -54,12 +101,7 @@
         if (!autoplay || timer) return;
         timer = setInterval(function () {
           if (!inView) return;
-          var maxScroll = viewport.scrollWidth - viewport.clientWidth;
-          if (viewport.scrollLeft >= maxScroll - 10) {
-            goTo(0);
-          } else {
-            viewport.scrollBy({ left: cardStep(), behavior: 'smooth' });
-          }
+          viewport.scrollBy({ left: cardStep(), behavior: 'smooth' });
         }, intervalMs);
       }
 
@@ -81,7 +123,7 @@
       dots.forEach(function (dot, i) {
         dot.addEventListener('click', function () {
           stopAuto();
-          goTo(i);
+          goTo(i + 1);
         });
       });
 
@@ -111,6 +153,8 @@
         ).observe(section);
       }
 
+      // Start on the real first card, with the last card's clone peeking left
+      jumpTo(1);
       updateDots();
       startAuto();
     });

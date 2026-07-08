@@ -9,49 +9,80 @@
   data-padding-top-desktop="{{ section.settings.padding_top_desktop }}"
   data-padding-bottom-desktop="{{ section.settings.padding_bottom_desktop }}"
 >
+  {%- liquid
+    assign stat_blocks = section.blocks | where: 'type', 'stat'
+    assign quality_blocks = section.blocks | where: 'type', 'quality'
+    assign heading_html = section.settings.heading | escape | replace: '[', '<em class="bloomli-wte__hl">' | replace: ']', '</em>'
+    assign quality_heading_html = section.settings.quality_heading | escape | replace: '[', '<em class="bloomli-wte__hl">' | replace: ']', '</em>'
+  -%}
   <div class="page-width">
     <div class="bloomli-wte__inner">
-      {%- if section.settings.heading != blank -%}
-        <h2 class="bloomli-wte__heading h1">{{ section.settings.heading | escape }}</h2>
-      {%- endif -%}
+      <div class="bloomli-wte__card">
+        {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+          <div class="bloomli-wte__head">
+            {%- if section.settings.heading != blank -%}
+              <h2 class="bloomli-wte__heading h1">{{ heading_html }}</h2>
+            {%- endif -%}
+            {%- if section.settings.subheading != blank -%}
+              <div class="bloomli-wte__subheading rte">{{ section.settings.subheading }}</div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
 
-      {%- if section.settings.subheading != blank -%}
-        <div class="bloomli-wte__subheading rte">{{ section.settings.subheading }}</div>
-      {%- endif -%}
-
-      {%- if section.blocks.size > 0 -%}
-        <div
-          class="bloomli-wte__card"
-          {% if section.settings.layout == 'grid' %}
-            style="--wte-cols: {{ section.settings.grid_columns }};"
-          {% endif %}
-        >
-          {%- for block in section.blocks -%}
-            <div class="bloomli-wte__row" {{ block.shopify_attributes }}>
-              {%- if block.settings.icon != 'none' -%}
-                <span class="bloomli-wte__icon" aria-hidden="true">
-                  <i class="ti ti-{{ block.settings.icon }}"></i>
-                </span>
-              {%- endif -%}
-              <div class="bloomli-wte__copy">
-                {%- if block.settings.label != blank -%}
-                  <h3 class="bloomli-wte__label">{{ block.settings.label | escape }}</h3>
+        {%- if stat_blocks.size > 0 -%}
+          <div
+            class="bloomli-wte__stats"
+            {% if section.settings.layout == 'grid' %}
+              style="--wte-cols: {{ section.settings.grid_columns }};"
+            {% endif %}
+          >
+            {%- for block in stat_blocks -%}
+              <div class="bloomli-wte__row" {{ block.shopify_attributes }}>
+                {%- if block.settings.icon != 'none' -%}
+                  <span class="bloomli-wte__icon" aria-hidden="true">
+                    <i class="ti ti-{{ block.settings.icon }}"></i>
+                  </span>
                 {%- endif -%}
-                {%- if block.settings.description != blank -%}
-                  <p class="bloomli-wte__description">{{ block.settings.description | escape }}</p>
+                <div class="bloomli-wte__copy">
+                  {%- if block.settings.label != blank -%}
+                    <h3 class="bloomli-wte__label">{{ block.settings.label | escape }}</h3>
+                  {%- endif -%}
+                  {%- if block.settings.description != blank -%}
+                    <p class="bloomli-wte__description">{{ block.settings.description | escape }}</p>
+                  {%- endif -%}
+                </div>
+                {%- if block.settings.stat != blank -%}
+                  <span class="bloomli-wte__stat" data-wte-count>{{ block.settings.stat | escape }}</span>
                 {%- endif -%}
               </div>
-              {%- if block.settings.stat != blank -%}
-                <span class="bloomli-wte__stat" data-wte-count>{{ block.settings.stat | escape }}</span>
-              {%- endif -%}
-            </div>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
 
-      {%- if section.settings.footnote != blank -%}
-        <p class="bloomli-wte__footnote">{{ section.settings.footnote | escape }}</p>
-      {%- endif -%}
+        {%- if section.settings.footnote != blank -%}
+          <p class="bloomli-wte__footnote">{{ section.settings.footnote | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.show_quality and quality_blocks.size > 0 -%}
+          <hr class="bloomli-wte__divider" aria-hidden="true">
+          <div class="bloomli-wte__quality">
+            {%- if section.settings.quality_heading != blank -%}
+              <h3 class="bloomli-wte__quality-heading">{{ quality_heading_html }}</h3>
+            {%- endif -%}
+            {%- if section.settings.quality_text != blank -%}
+              <div class="bloomli-wte__quality-text rte">{{ section.settings.quality_text }}</div>
+            {%- endif -%}
+            <ul class="bloomli-wte__quality-list" role="list">
+              {%- for block in quality_blocks -%}
+                <li class="bloomli-wte__quality-item" {{ block.shopify_attributes }}>
+                  <i class="ti ti-{{ block.settings.icon }}" aria-hidden="true"></i>
+                  <span>{{ block.settings.text | escape }}</span>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
     </div>
   </div>
 </section>
@@ -75,7 +106,8 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "What To Expect"
+      "default": "What To [Expect]",
+      "info": "Wrap words in [brackets] to color them in the scheme's accent color."
     },
     {
       "type": "richtext",
@@ -115,6 +147,32 @@
       "id": "footnote",
       "label": "Footnote",
       "default": "* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary."
+    },
+    {
+      "type": "header",
+      "content": "Quality strip"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quality",
+      "label": "Show quality strip",
+      "default": true,
+      "info": "Shows below a divider inside the same card. Add \"Quality point\" blocks for the checklist."
+    },
+    {
+      "type": "text",
+      "id": "quality_heading",
+      "label": "Quality heading",
+      "default": "Quality You Can [Trust]",
+      "info": "Wrap words in [brackets] to color them in the scheme's accent color.",
+      "visible_if": "{{ section.settings.show_quality }}"
+    },
+    {
+      "type": "richtext",
+      "id": "quality_text",
+      "label": "Quality text",
+      "default": "<p>Every bottle is made with ingredients you can read and understand:</p>",
+      "visible_if": "{{ section.settings.show_quality }}"
     },
     {
       "type": "header",
@@ -206,6 +264,32 @@
           "default": "said their hair looked thicker*"
         }
       ]
+    },
+    {
+      "type": "quality",
+      "name": "Quality point",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "circle-check", "label": "Check" },
+            { "value": "rosette-discount-check", "label": "Verified badge" },
+            { "value": "circle-x", "label": "X (free from)" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "shield-check", "label": "Shield check" }
+          ],
+          "default": "circle-check"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Biotin + marine collagen in every serving"
+        }
+      ]
     }
   ],
   "presets": [
@@ -246,6 +330,34 @@
             "stat": "75%",
             "label": "Visible Growth",
             "description": "noticed new growth*"
+          }
+        },
+        {
+          "type": "quality",
+          "settings": {
+            "icon": "circle-check",
+            "text": "Biotin + marine collagen in every serving"
+          }
+        },
+        {
+          "type": "quality",
+          "settings": {
+            "icon": "circle-check",
+            "text": "Vitamins A, C, D, E + full B-complex"
+          }
+        },
+        {
+          "type": "quality",
+          "settings": {
+            "icon": "circle-check",
+            "text": "Gluten-free, passion fruit flavor"
+          }
+        },
+        {
+          "type": "quality",
+          "settings": {
+            "icon": "circle-check",
+            "text": "Just 2 gummies a day"
           }
         }
       ]

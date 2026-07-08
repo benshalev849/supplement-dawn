@@ -8,15 +8,24 @@
   margin-inline: auto;
 }
 
+.bloomli-wte__head {
+  text-align: center;
+}
+
 .bloomli-wte__heading {
   margin: 0 0 0.8rem;
   color: rgb(var(--color-foreground));
   text-align: center;
 }
 
+.bloomli-wte__hl {
+  font-style: italic;
+  color: rgb(var(--color-button));
+}
+
 .bloomli-wte__subheading {
   max-width: 52rem;
-  margin: 0 auto 0.8rem;
+  margin: 0 auto;
   color: rgba(var(--color-foreground), 0.72);
   font-size: 1.5rem;
   line-height: 1.6;
@@ -24,12 +33,15 @@
 }
 
 .bloomli-wte__card {
-  margin-top: 2rem;
-  padding: 0.6rem 2rem;
+  padding: 2.8rem 2rem 2.4rem;
   background: rgba(255, 255, 255, 0.65);
   border: 0.1rem solid rgba(var(--color-foreground), 0.08);
   border-radius: 2rem;
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.05);
+}
+
+.bloomli-wte__stats {
+  margin-top: 1.2rem;
 }
 
 .bloomli-wte__row {
@@ -89,12 +101,72 @@
 
 .bloomli-wte__footnote {
   max-width: 52rem;
-  margin: 1.8rem auto 0;
+  margin: 2rem auto 0;
   font-size: 1.2rem;
   font-style: italic;
   line-height: 1.5;
   text-align: center;
   color: rgba(var(--color-foreground), 0.6);
+}
+
+/* Quality strip — divider + heading + checklist inside the same card */
+.bloomli-wte__divider {
+  border: 0;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  margin: 2.8rem auto;
+}
+
+.bloomli-wte__quality {
+  text-align: center;
+}
+
+.bloomli-wte__quality-heading {
+  margin: 0 0 1rem;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.2rem, 5.5vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: rgb(var(--color-foreground));
+}
+
+.bloomli-wte__quality-text {
+  max-width: 46rem;
+  margin: 0 auto 1.8rem;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.bloomli-wte__quality-text p {
+  margin: 0;
+}
+
+.bloomli-wte__quality-list {
+  list-style: none;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  gap: 1.2rem;
+  text-align: left;
+}
+
+.bloomli-wte__quality-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: rgb(var(--color-foreground));
+}
+
+.bloomli-wte__quality-item .ti {
+  flex-shrink: 0;
+  font-size: 2rem;
+  line-height: 1;
+  color: rgb(var(--color-button));
 }
 
 /* Scroll-in animation — armed by JS only, so no-JS visitors always see content */
@@ -122,14 +194,18 @@
 
 /* Big number grid layout — mobile-first: 2x2 of large stats inside one soft tinted container */
 .bloomli-wte--grid .bloomli-wte__card {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.8rem 1.2rem;
-  padding: 3.2rem 1.6rem;
+  padding: 3.2rem 1.6rem 2.8rem;
   background: rgba(var(--color-button), 0.05);
   border: 0;
   border-radius: 2.4rem;
   box-shadow: none;
+}
+
+.bloomli-wte--grid .bloomli-wte__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.8rem 1.2rem;
+  margin-top: 2.8rem;
 }
 
 .bloomli-wte--grid .bloomli-wte__row {
@@ -173,9 +249,13 @@
   }
 
   .bloomli-wte--grid .bloomli-wte__card {
+    padding: 4.4rem 2.4rem 3.6rem;
+  }
+
+  .bloomli-wte--grid .bloomli-wte__stats {
     grid-template-columns: repeat(var(--wte-cols, 4), minmax(0, 1fr));
     gap: 2.4rem;
-    padding: 4.4rem 2.4rem;
+    margin-top: 3.2rem;
   }
 
   .bloomli-wte--grid .bloomli-wte__row:last-child:nth-child(odd) {
@@ -188,6 +268,10 @@
 
   .bloomli-wte--grid .bloomli-wte__description {
     max-width: 24ch;
+  }
+
+  .bloomli-wte--grid .bloomli-wte__divider {
+    max-width: 72rem;
   }
 }
 

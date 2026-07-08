@@ -118,22 +118,57 @@
             "label": "",
             "description": "said their hair looked healthier overall*"
           }
+        },
+        "wte_q_tested": {
+          "type": "quality",
+          "settings": {
+            "icon": "circle-check",
+            "text": "Third-party tested for label accuracy"
+          }
+        },
+        "wte_q_nutrients": {
+          "type": "quality",
+          "settings": {
+            "icon": "circle-check",
+            "text": "All 14 hair-supporting nutrients, not just biotin"
+          }
+        },
+        "wte_q_usa": {
+          "type": "quality",
+          "settings": {
+            "icon": "circle-check",
+            "text": "Made in the USA, gluten-free"
+          }
+        },
+        "wte_q_guarantee": {
+          "type": "quality",
+          "settings": {
+            "icon": "circle-check",
+            "text": "30-day money-back guarantee"
+          }
         }
       },
       "block_order": [
         "wte_fuller",
         "wte_shedding",
         "wte_strands",
-        "wte_growth"
+        "wte_growth",
+        "wte_q_tested",
+        "wte_q_nutrients",
+        "wte_q_usa",
+        "wte_q_guarantee"
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "heading": "Loved, Repeated, Reviewed",
-        "subheading": "<p><br/>We know the gummies taste good and are easy to keep up with. But we wanted to know what happens after the honeymoon. Here's what thousands of Bloomli customers reported in their reviews.</p>",
+        "heading": "Loved, Repeated, [Reviewed]",
+        "subheading": "<p>We know the gummies taste good and are easy to keep up with. But we wanted to know what happens after the honeymoon. Here's what thousands of Bloomli customers reported in their reviews.</p>",
         "layout": "grid",
         "grid_columns": 4,
         "enable_animation": true,
         "footnote": "* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary.",
+        "show_quality": true,
+        "quality_heading": "Quality You Can [Trust]",
+        "quality_text": "<p>Every batch is made to match what the label says, so you know exactly what you're taking:</p>",
         "padding_top_desktop": 56,
         "padding_bottom_desktop": 56,
         "padding_top_mobile": 48,

@@ -80,7 +80,61 @@
         "show_text_below": true
       }
     },
-    "fo_education": {
+    "fo_numbers": {
+      "type": "bloomli-what-to-expect",
+      "blocks": {
+        "wte_fuller": {
+          "type": "stat",
+          "settings": {
+            "icon": "flower",
+            "stat": "95%",
+            "label": "Fuller Hair",
+            "description": "said their hair looked thicker*"
+          }
+        },
+        "wte_shedding": {
+          "type": "stat",
+          "settings": {
+            "icon": "sparkles",
+            "stat": "88%",
+            "label": "Less Shedding",
+            "description": "experienced reduced shedding*"
+          }
+        },
+        "wte_strands": {
+          "type": "stat",
+          "settings": {
+            "icon": "barbell",
+            "stat": "82%",
+            "label": "Stronger Strands",
+            "description": "reported less breakage*"
+          }
+        },
+        "wte_growth": {
+          "type": "stat",
+          "settings": {
+            "icon": "seeding",
+            "stat": "75%",
+            "label": "Visible Growth",
+            "description": "noticed new growth*"
+          }
+        }
+      },
+      "block_order": ["wte_fuller", "wte_shedding", "wte_strands", "wte_growth"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "What To Expect",
+        "layout": "grid",
+        "grid_columns": 4,
+        "enable_animation": true,
+        "footnote": "* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary.",
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+"fo_education": {
       "type": "bloomli-education",
       "disabled": true,
       "settings": {
@@ -1056,6 +1110,7 @@
   "order": [
     "fo_hero",
     "fo_banner",
+    "fo_numbers",
     "fo_education",
     "fo_inline_cta_1",
     "fo_before_after",

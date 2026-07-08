@@ -1,0 +1,188 @@
+{{ 'bloomli-review-bar.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="bloomli-review-bar color-{{ section.settings.color_scheme }} gradient{% unless section.settings.enable_marquee %} bloomli-review-bar--static{% endunless %}"
+  style="--rb-pt: {{ section.settings.padding_top }}px; --rb-pb: {{ section.settings.padding_bottom }}px; --rb-pt-m: {{ section.settings.padding_top_mobile }}px; --rb-pb-m: {{ section.settings.padding_bottom_mobile }}px; --rb-speed: {{ section.settings.marquee_speed }}s;"
+>
+  {%- if section.settings.rating_text != blank -%}
+    <div class="page-width">
+      <div class="bloomli-review-bar__rating">
+        {%- if section.settings.show_stars -%}
+          <span class="bloomli-review-bar__stars bloomli-review-bar__stars--{{ section.settings.star_style }}" aria-hidden="true">
+            {%- for i in (1..5) -%}<i class="ti ti-star-filled"></i>{%- endfor -%}
+          </span>
+        {%- endif -%}
+        <span class="bloomli-review-bar__rating-text">{{ section.settings.rating_text | escape }}</span>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="bloomli-review-bar__marquee">
+      <div class="bloomli-review-bar__track">
+        {%- for dup in (1..2) -%}
+          <div class="bloomli-review-bar__set"{% if dup == 2 %} aria-hidden="true"{% endif %}>
+            {%- for block in section.blocks -%}
+              <span class="bloomli-review-bar__chip" {% if dup == 1 %}{{ block.shopify_attributes }}{% endif %}>
+                <span class="bloomli-review-bar__quote">&ldquo;{{ block.settings.text | escape }}&rdquo;</span>
+                {%- if block.settings.author != blank -%}
+                  <span class="bloomli-review-bar__author">{{ block.settings.author | escape }}</span>
+                {%- endif -%}
+              </span>
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Bloomli Review Bar",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating text",
+      "default": "4.86 from 1,630+ reviews"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show stars",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "star_style",
+      "label": "Star color",
+      "options": [
+        { "value": "gold", "label": "Gold" },
+        { "value": "accent", "label": "Scheme accent" }
+      ],
+      "default": "gold",
+      "visible_if": "{{ section.settings.show_stars }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_marquee",
+      "label": "Scroll quotes automatically",
+      "default": true,
+      "info": "Quotes drift sideways in a slow loop. Automatically disabled for visitors who prefer reduced motion; when off, quotes wrap in centered rows."
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "label": "Scroll duration",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 35,
+      "unit": "s",
+      "info": "Seconds for one full loop. Higher is slower.",
+      "visible_if": "{{ section.settings.enable_marquee }}"
+    },
+    {
+      "type": "header",
+      "content": "Desktop spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Mobile spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Review quote",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Quote",
+          "default": "Part of my morning now",
+          "info": "Keep it short — one line from a real customer review."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Reviewer name",
+          "default": "Jamie L."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bloomli Review Bar",
+      "blocks": [
+        {
+          "type": "quote",
+          "settings": { "text": "Part of my morning now", "author": "Jamie L." }
+        },
+        {
+          "type": "quote",
+          "settings": { "text": "The passion fruit taste is better than I expected", "author": "Rachel T." }
+        },
+        {
+          "type": "quote",
+          "settings": { "text": "Better than swallowing pills", "author": "Kim S." }
+        },
+        {
+          "type": "quote",
+          "settings": { "text": "I'm starting to see a difference", "author": "Dana W." }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -80,6 +80,40 @@
         "show_text_below": true
       }
     },
+    "fo_reviewbar": {
+      "type": "bloomli-review-bar",
+      "blocks": {
+        "rb_q1": {
+          "type": "quote",
+          "settings": { "text": "Part of my morning now", "author": "Jamie L." }
+        },
+        "rb_q2": {
+          "type": "quote",
+          "settings": { "text": "The passion fruit taste is better than I expected", "author": "Rachel T." }
+        },
+        "rb_q3": {
+          "type": "quote",
+          "settings": { "text": "Better than swallowing pills", "author": "Kim S." }
+        },
+        "rb_q4": {
+          "type": "quote",
+          "settings": { "text": "I'm starting to see a difference", "author": "Dana W." }
+        }
+      },
+      "block_order": ["rb_q1", "rb_q2", "rb_q3", "rb_q4"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "rating_text": "4.86 from 1,630+ reviews",
+        "show_stars": true,
+        "star_style": "gold",
+        "enable_marquee": true,
+        "marquee_speed": 35,
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
     "fo_numbers": {
       "type": "bloomli-what-to-expect",
       "blocks": {
@@ -160,14 +194,14 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "heading": "Loved, Repeated, [Reviewed]",
+        "heading": "Loved, Repeated, Reviewed",
         "subheading": "<p>We know the gummies taste good and are easy to keep up with. But we wanted to know what happens after the honeymoon. Here's what thousands of Bloomli customers reported in their reviews.</p>",
         "layout": "grid",
         "grid_columns": 4,
         "enable_animation": true,
         "footnote": "* Based on verified Bloomli customer reviews mentioning each topic. Review insights are not clinical results. Individual experiences may vary.",
         "show_quality": true,
-        "quality_heading": "Quality You Can [Trust]",
+        "quality_heading": "Quality You Can Trust",
         "quality_text": "<p>Every batch is made to match what the label says, so you know exactly what you're taking:</p>",
         "padding_top_desktop": 56,
         "padding_bottom_desktop": 56,
@@ -359,6 +393,9 @@
     },
     "fo_timeline": {
       "type": "bloomli-timeline",
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.bloomli-timeline__grid {gap: 32px;} .bloomli-timeline__circle {width: clamp(150px, 48vw, 190px); margin-bottom: 12px;} .bloomli-timeline__header {margin-bottom: 28px;} .bloomli-timeline__footnote {margin-top: 24px;}}"
+      ],
       "blocks": {
         "step_1": {
           "type": "step",
@@ -368,7 +405,7 @@
             "icon": "seed",
             "range": "Month 1-3",
             "title": "Build the Foundation",
-            "description": "Your body starts absorbing what it was missing. Many women notice less hair in the brush and shower first, and strands that feel less brittle.*"
+            "description": "Your body starts absorbing what it was missing. Less hair in the brush and shower is usually the first sign.*"
           }
         },
         "step_2": {
@@ -379,7 +416,7 @@
             "icon": "sprout",
             "range": "Month 4-6",
             "title": "The Growth Phase",
-            "description": "New growth starts working its way in. Fuller-looking, healthier-feeling hair as the routine compounds.*"
+            "description": "New growth works its way in. Fuller-looking, healthier-feeling hair as the routine compounds.*"
           }
         },
         "step_3": {
@@ -390,7 +427,7 @@
             "icon": "bloom",
             "range": "Month 7+",
             "title": "Your Hair, Flourishing",
-            "description": "Hair that holds a style, survives a wash, and finally feels like its best self. Consistency is the whole job.*"
+            "description": "Hair that holds a style and survives a wash. Consistency is the whole job.*"
           }
         }
       },
@@ -404,7 +441,7 @@
         "timeline_icon_color": "#6f7a5a",
         "heading": "What a realistic timeline looks like",
         "subheadline": "<p><strong>Two gummies a day.</strong> Hair grows on hair's schedule, so results are measured in months, not days.</p>",
-        "footnote": "<p>That is exactly why every plan comes with a 30-day money-back guarantee and the freedom to cancel anytime.</p>",
+        "footnote": "<p>That's why every plan includes a 30-day money-back guarantee and the freedom to cancel anytime.</p>",
         "icon_style": "card",
         "circle_background": "surface",
         "circle_size": 280,
@@ -412,10 +449,10 @@
         "show_connector": true,
         "connector_style": "dashed",
         "connector_width": 1,
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
       }
     },
     "fo_brand_difference": {
@@ -1151,6 +1188,7 @@
   "order": [
     "fo_hero",
     "fo_banner",
+    "fo_reviewbar",
     "fo_numbers",
     "fo_education",
     "fo_inline_cta_1",

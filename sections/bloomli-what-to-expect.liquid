@@ -12,8 +12,6 @@
   {%- liquid
     assign stat_blocks = section.blocks | where: 'type', 'stat'
     assign quality_blocks = section.blocks | where: 'type', 'quality'
-    assign heading_html = section.settings.heading | escape | replace: '[', '<em class="bloomli-wte__hl">' | replace: ']', '</em>'
-    assign quality_heading_html = section.settings.quality_heading | escape | replace: '[', '<em class="bloomli-wte__hl">' | replace: ']', '</em>'
   -%}
   <div class="page-width">
     <div class="bloomli-wte__inner">
@@ -21,7 +19,7 @@
         {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
           <div class="bloomli-wte__head">
             {%- if section.settings.heading != blank -%}
-              <h2 class="bloomli-wte__heading h1">{{ heading_html }}</h2>
+              <h2 class="bloomli-wte__heading h1">{{ section.settings.heading | escape }}</h2>
             {%- endif -%}
             {%- if section.settings.subheading != blank -%}
               <div class="bloomli-wte__subheading rte">{{ section.settings.subheading }}</div>
@@ -67,7 +65,7 @@
           <hr class="bloomli-wte__divider" aria-hidden="true">
           <div class="bloomli-wte__quality">
             {%- if section.settings.quality_heading != blank -%}
-              <h3 class="bloomli-wte__quality-heading">{{ quality_heading_html }}</h3>
+              <h3 class="bloomli-wte__quality-heading">{{ section.settings.quality_heading | escape }}</h3>
             {%- endif -%}
             {%- if section.settings.quality_text != blank -%}
               <div class="bloomli-wte__quality-text rte">{{ section.settings.quality_text }}</div>
@@ -106,8 +104,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "What To [Expect]",
-      "info": "Wrap words in [brackets] to color them in the scheme's accent color."
+      "default": "What To Expect"
     },
     {
       "type": "richtext",
@@ -163,8 +160,7 @@
       "type": "text",
       "id": "quality_heading",
       "label": "Quality heading",
-      "default": "Quality You Can [Trust]",
-      "info": "Wrap words in [brackets] to color them in the scheme's accent color.",
+      "default": "Quality You Can Trust",
       "visible_if": "{{ section.settings.show_quality }}"
     },
     {

@@ -9,6 +9,27 @@
  */
 {
   "sections": {
+    "fo_banner": {
+      "type": "image-banner",
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.banner {display: none; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/GLP-1_Hero_Image_Mobile.png",
+        "mobile_only": true,
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
     "fo_hero": {
       "type": "bloomli-hero",
       "settings": {
@@ -57,27 +78,6 @@
         "content_alignment": "left",
         "content_alignment_mobile": "left",
         "content_position_mobile": "top"
-      }
-    },
-    "fo_banner": {
-      "type": "image-banner",
-      "custom_css": [
-        "@media screen and (min-width: 750px) {.banner {display: none; }}"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/GLP-1_Hero_Image_Mobile.png",
-        "mobile_only": true,
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
       }
     },
     "fo_reviewbar": {

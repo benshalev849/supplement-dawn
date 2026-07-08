@@ -88,8 +88,8 @@
           "settings": {
             "icon": "flower",
             "stat": "95%",
-            "label": "Fuller Hair",
-            "description": "said their hair looked thicker*"
+            "label": "",
+            "description": "said their hair looked fuller and thicker*"
           }
         },
         "wte_shedding": {
@@ -97,8 +97,8 @@
           "settings": {
             "icon": "sparkles",
             "stat": "88%",
-            "label": "Less Shedding",
-            "description": "experienced reduced shedding*"
+            "label": "",
+            "description": "noticed less shedding*"
           }
         },
         "wte_strands": {
@@ -106,8 +106,8 @@
           "settings": {
             "icon": "barbell",
             "stat": "82%",
-            "label": "Stronger Strands",
-            "description": "reported less breakage*"
+            "label": "",
+            "description": "said their strands felt stronger, with less breakage*"
           }
         },
         "wte_growth": {
@@ -115,15 +115,21 @@
           "settings": {
             "icon": "seeding",
             "stat": "75%",
-            "label": "Visible Growth",
-            "description": "noticed new growth*"
+            "label": "",
+            "description": "said their hair looked healthier overall*"
           }
         }
       },
-      "block_order": ["wte_fuller", "wte_shedding", "wte_strands", "wte_growth"],
+      "block_order": [
+        "wte_fuller",
+        "wte_shedding",
+        "wte_strands",
+        "wte_growth"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
-        "heading": "What To Expect",
+        "heading": "Loved, Repeated, Reviewed",
+        "subheading": "<p><br/>We know the gummies taste good and are easy to keep up with. But we wanted to know what happens after the honeymoon. Here's what thousands of Bloomli customers reported in their reviews.</p>",
         "layout": "grid",
         "grid_columns": 4,
         "enable_animation": true,
@@ -134,7 +140,7 @@
         "padding_bottom_mobile": 48
       }
     },
-"fo_education": {
+    "fo_education": {
       "type": "bloomli-education",
       "disabled": true,
       "settings": {
@@ -951,6 +957,25 @@
         "padding_bottom_mobile": 40
       }
     },
+    "1783418323938d0380": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_dGGwzX": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": "bloomli-hair-vitamin-gummies",
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_dGGwzX"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "fo_faq": {
       "type": "bloomli-faq",
       "blocks": {
@@ -1085,25 +1110,6 @@
         "badge_label": "#b23a6f",
         "social_color": "#fdfaf7",
         "star_fill": "#f0b429"
-      }
-    },
-    "1783418323938d0380": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_homepage_dGGwzX": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "product": "bloomli-hair-vitamin-gummies",
-            "review_data": "sample_data",
-            "max_width": 1200
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_homepage_dGGwzX"
-      ],
-      "settings": {
-        "include_margins": true
       }
     }
   },

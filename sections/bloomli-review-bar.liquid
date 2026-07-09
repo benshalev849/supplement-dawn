@@ -40,8 +40,8 @@
                     {%- if block.settings.avatar != blank -%}
                       {{
                         block.settings.avatar
-                        | image_url: width: 96
-                        | image_tag: class: 'bloomli-review-bar__avatar', alt: block.settings.author, widths: '48, 96', loading: 'lazy', decoding: 'async'
+                        | image_url: width: 88
+                        | image_tag: class: 'bloomli-review-bar__avatar', alt: block.settings.author, width: 44, height: 44, widths: '44, 88', loading: 'lazy', decoding: 'async'
                       }}
                     {%- else -%}
                       <span class="bloomli-review-bar__avatar bloomli-review-bar__avatar--initial" aria-hidden="true">{{ initial }}</span>
@@ -79,8 +79,8 @@
                   {%- if block.settings.avatar != blank -%}
                     {{
                       block.settings.avatar
-                      | image_url: width: 96
-                      | image_tag: class: 'bloomli-review-bar__avatar', alt: block.settings.author, widths: '48, 96', loading: 'lazy', decoding: 'async'
+                      | image_url: width: 88
+                      | image_tag: class: 'bloomli-review-bar__avatar', alt: block.settings.author, width: 44, height: 44, widths: '44, 88', loading: 'lazy', decoding: 'async'
                     }}
                   {%- else -%}
                     <span class="bloomli-review-bar__avatar bloomli-review-bar__avatar--initial" aria-hidden="true">{{ initial }}</span>

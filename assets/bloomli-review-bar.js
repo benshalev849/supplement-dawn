@@ -10,7 +10,7 @@
       var viewport = section.querySelector('[data-rb-viewport]');
       if (!viewport || viewport.children.length < 2) return;
 
-      var realCount = viewport.children.length;
+      var cards = viewport.children;
       var dots = section.querySelectorAll('[data-rb-dot]');
       var prev = section.querySelector('[data-rb-prev]');
       var next = section.querySelector('[data-rb-next]');
@@ -20,79 +20,28 @@
       var timer = null;
       var inView = true;
 
-      // Clone the edges so the strip wraps: [last*, 1..n, first*].
-      // Resting on a clone teleports (instantly) to its real card.
-      var firstClone = viewport.children[0].cloneNode(true);
-      var lastClone = viewport.children[realCount - 1].cloneNode(true);
-      [firstClone, lastClone].forEach(function (clone) {
-        clone.classList.remove('is-current');
-        clone.setAttribute('aria-hidden', 'true');
-        clone.removeAttribute('data-shopify-editor-block');
-      });
-      viewport.insertBefore(lastClone, viewport.children[0]);
-      viewport.appendChild(firstClone);
-
-      var cards = viewport.children;
-
       function cardStep() {
         return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : viewport.clientWidth;
       }
 
-      function domIndex() {
+      function currentIndex() {
         var step = cardStep();
-        return step > 0 ? Math.round(viewport.scrollLeft / step) : 0;
+        var i = step > 0 ? Math.round(viewport.scrollLeft / step) : 0;
+        return Math.max(0, Math.min(cards.length - 1, i));
       }
 
-      function logicalIndex(di) {
-        return (((di - 1) % realCount) + realCount) % realCount;
-      }
-
-      function updateDots() {
-        var di = domIndex();
-        var li = logicalIndex(di);
-        // A clone and the real card it mirrors must highlight together, so the
-        // edge teleport lands on a card that already looks "current" (no shake)
-        var twin = -1;
-        if (di === 0) twin = realCount;
-        else if (di === cards.length - 1) twin = 1;
+      function update() {
+        var idx = currentIndex();
         dots.forEach(function (dot, i) {
-          dot.classList.toggle('is-active', i === li);
+          dot.classList.toggle('is-active', i === idx);
         });
         Array.prototype.forEach.call(cards, function (card, i) {
-          card.classList.toggle('is-current', i === di || i === twin);
+          card.classList.toggle('is-current', i === idx);
         });
       }
 
-      function jumpTo(di) {
-        viewport.scrollTo({ left: di * cardStep(), behavior: 'auto' });
-      }
-
-      function goTo(di) {
-        viewport.scrollTo({ left: di * cardStep(), behavior: 'smooth' });
-      }
-
-      // Once scrolling settles on a clone, swap to the real card it mirrors
-      function settle() {
-        var di = domIndex();
-        if (di === 0) {
-          jumpTo(realCount);
-        } else if (di === cards.length - 1) {
-          jumpTo(1);
-        }
-      }
-
-      if ('onscrollend' in viewport) {
-        viewport.addEventListener('scrollend', settle);
-      } else {
-        var settleTimer = null;
-        viewport.addEventListener(
-          'scroll',
-          function () {
-            if (settleTimer) clearTimeout(settleTimer);
-            settleTimer = setTimeout(settle, 140);
-          },
-          { passive: true }
-        );
+      function goTo(i) {
+        viewport.scrollTo({ left: i * cardStep(), behavior: 'smooth' });
       }
 
       function stopAuto() {
@@ -106,19 +55,27 @@
         if (!autoplay || timer) return;
         timer = setInterval(function () {
           if (!inView) return;
-          viewport.scrollBy({ left: cardStep(), behavior: 'smooth' });
+          if (currentIndex() >= cards.length - 1) {
+            goTo(0);
+          } else {
+            goTo(currentIndex() + 1);
+          }
         }, intervalMs);
       }
 
       var scrollScheduled = false;
-      viewport.addEventListener('scroll', function () {
-        if (scrollScheduled) return;
-        scrollScheduled = true;
-        window.requestAnimationFrame(function () {
-          scrollScheduled = false;
-          updateDots();
-        });
-      });
+      viewport.addEventListener(
+        'scroll',
+        function () {
+          if (scrollScheduled) return;
+          scrollScheduled = true;
+          window.requestAnimationFrame(function () {
+            scrollScheduled = false;
+            update();
+          });
+        },
+        { passive: true }
+      );
 
       // Any deliberate interaction cancels autoplay for good
       ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(function (ev) {
@@ -128,21 +85,23 @@
       dots.forEach(function (dot, i) {
         dot.addEventListener('click', function () {
           stopAuto();
-          goTo(i + 1);
+          goTo(i);
         });
       });
 
       if (prev) {
         prev.addEventListener('click', function () {
           stopAuto();
-          viewport.scrollBy({ left: -cardStep(), behavior: 'smooth' });
+          var idx = currentIndex();
+          goTo(idx <= 0 ? cards.length - 1 : idx - 1);
         });
       }
 
       if (next) {
         next.addEventListener('click', function () {
           stopAuto();
-          viewport.scrollBy({ left: cardStep(), behavior: 'smooth' });
+          var idx = currentIndex();
+          goTo(idx >= cards.length - 1 ? 0 : idx + 1);
         });
       }
 
@@ -158,9 +117,7 @@
         ).observe(section);
       }
 
-      // Start on the real first card, with the last card's clone peeking left
-      jumpTo(1);
-      updateDots();
+      update();
       startAuto();
     });
   }

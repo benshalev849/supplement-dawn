@@ -89,40 +89,50 @@
     "fo_reviewbar": {
       "type": "bloomli-review-bar",
       "blocks": {
+        "quote_JrWgxp": {
+          "type": "quote",
+          "settings": {
+            "title": "My hairdresser noticed first",
+            "text": "<p>My hairdresser asked what I'd changed at my last appointment. <strong>My hair looks fuller and shinier than it has in years</strong>, and the passion fruit taste makes it the easiest part of my morning.<br/><br/></p>",
+            "author": "Maya K.",
+            "avatar": "shopify://shop_images/Image_1.png"
+          }
+        },
         "rb_q1": {
           "type": "quote",
           "settings": {
-            "title": "Part of my morning now",
-            "text": "<p>I usually forget supplements, but these are <strong>easy to keep up with</strong>. Two gummies with my coffee and done.</p>",
+            "title": "Less hair on the shower wall",
+            "text": "<p>By the second month, <strong>there was noticeably less hair in my brush and on the shower wall.</strong> They taste like a little treat, so skipping a day never even happens.<br/><br/></p>",
             "author": "Jamie L."
           }
         },
         "rb_q2": {
           "type": "quote",
           "settings": {
-            "title": "Better than I expected",
-            "text": "<p>The passion fruit flavor is <strong>actually good</strong>, so staying consistent has been easy.</p>",
+            "title": "The third brand I've tried",
+            "text": "<p>I gave up on two biotin-only brands before this. These actually taste amazing, my nails are stronger, and my hair feels healthier after a couple of months. First bottle I've ever finished.</p>",
             "author": "Rachel T."
           }
         },
         "rb_q3": {
           "type": "quote",
           "settings": {
-            "title": "A ritual, not a chore",
-            "text": "<p><strong>Better than swallowing pills.</strong> It feels like a small treat I look forward to.</p>",
+            "title": "Survived my chaos",
+            "text": "<p>Two kids and zero routine, and I still haven't missed a day because they taste that good. I'd recommend these to any mom who wants to do one good thing for herself daily.</p>",
             "author": "Kim S."
           }
         },
         "rb_q4": {
           "type": "quote",
           "settings": {
-            "title": "Starting to see a difference",
-            "text": "<p>A few months in, <strong>my nails feel stronger</strong> and my hair looks healthier overall.</p>",
+            "title": "Too early, but I'm staying",
+            "text": "<p>Only a few weeks in and my nails already feel stronger. The passion fruit flavor is genuinely delicious, so this is one habit that's sticking.</p>",
             "author": "Dana W."
           }
         }
       },
       "block_order": [
+        "quote_JrWgxp",
         "rb_q1",
         "rb_q2",
         "rb_q3",
@@ -135,7 +145,7 @@
         "star_style": "gold",
         "layout": "carousel",
         "autoplay": true,
-        "autoplay_interval": 8,
+        "autoplay_interval": 10,
         "enable_marquee": true,
         "marquee_speed": 40,
         "padding_top": 28,

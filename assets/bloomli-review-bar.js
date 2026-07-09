@@ -50,11 +50,16 @@
       function updateDots() {
         var di = domIndex();
         var li = logicalIndex(di);
+        // A clone and the real card it mirrors must highlight together, so the
+        // edge teleport lands on a card that already looks "current" (no shake)
+        var twin = -1;
+        if (di === 0) twin = realCount;
+        else if (di === cards.length - 1) twin = 1;
         dots.forEach(function (dot, i) {
           dot.classList.toggle('is-active', i === li);
         });
         Array.prototype.forEach.call(cards, function (card, i) {
-          card.classList.toggle('is-current', i === di);
+          card.classList.toggle('is-current', i === di || i === twin);
         });
       }
 

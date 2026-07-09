@@ -128,8 +128,7 @@
 
 /* Carousel layout — swipe with peek, dots, arrows.
    Without JS the viewport is a native snap scroller; with JS (.is-enhanced)
-   it becomes a clipping window and the strip slides via transform, which
-   allows a seamless infinite loop. */
+   Embla Carousel takes over and slides the strip with a seamless loop. */
 .bloomli-review-bar__viewport {
   position: relative;
   overflow-x: auto;
@@ -139,16 +138,27 @@
   -webkit-overflow-scrolling: touch;
 }
 
+/* Slide spacing uses Embla's negative-margin + padding pattern instead of
+   flex gap — Embla's loop repositioning doesn't account for gap. */
 .bloomli-review-bar__strip {
   position: relative;
   display: flex;
   align-items: stretch;
-  gap: 1.2rem;
+  margin-left: -1.2rem;
+}
+
+.bloomli-review-bar__slide {
+  display: flex;
+  flex: 0 0 auto;
+  width: min(86%, 32rem);
+  min-width: 0;
+  padding-left: 1.2rem;
+  scroll-snap-align: start;
 }
 
 .bloomli-review-bar--carousel.is-enhanced .bloomli-review-bar__viewport {
   overflow: hidden;
-  touch-action: pan-y;
+  scroll-snap-type: none;
   cursor: grab;
 }
 
@@ -157,7 +167,7 @@
 }
 
 .bloomli-review-bar--carousel.is-enhanced .bloomli-review-bar__strip {
-  will-change: transform;
+  touch-action: pan-y pinch-zoom;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -173,9 +183,7 @@
 }
 
 .bloomli-review-bar--carousel .bloomli-review-bar__card {
-  flex: 0 0 auto;
-  width: min(86%, 32rem);
-  scroll-snap-align: start;
+  width: 100%;
 }
 
 .bloomli-review-bar__nav {
@@ -330,28 +338,22 @@
     font-size: 1.5rem;
   }
 
-  /* Center-stage carousel: one main card centered, neighbors peek at the sides.
-     End margins give the first/last card room to reach the center snap point. */
-  .bloomli-review-bar--carousel .bloomli-review-bar__card {
-    width: min(56rem, 62%);
+  /* Center-stage carousel: one main card centered, neighbors peek at the
+     sides. No transform here — Embla positions slides with inline transforms
+     when looping, so dimming must stay on opacity/shadow only. */
+  .bloomli-review-bar__slide {
+    width: min(57.2rem, 63%);
     scroll-snap-align: center;
+  }
+
+  .bloomli-review-bar--carousel .bloomli-review-bar__card {
     opacity: 0.45;
-    transform: scale(0.96);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .bloomli-review-bar--carousel .bloomli-review-bar__card.is-current {
+  .bloomli-review-bar--carousel .is-current .bloomli-review-bar__card {
     opacity: 1;
-    transform: none;
     box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.08);
-  }
-
-  .bloomli-review-bar--carousel .bloomli-review-bar__card:first-child {
-    margin-left: calc((100% - min(56rem, 62%)) / 2);
-  }
-
-  .bloomli-review-bar--carousel .bloomli-review-bar__card:last-child {
-    margin-right: calc((100% - min(56rem, 62%)) / 2);
   }
 
   .bloomli-review-bar--marquee .bloomli-review-bar__card {

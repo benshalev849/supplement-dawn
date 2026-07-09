@@ -1,5 +1,9 @@
 {{ 'bloomli-review-bar.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'bloomli-review-bar.js' | asset_url }}" defer="defer"></script>
+{%- if section.settings.layout == 'carousel' -%}
+  <script src="{{ 'embla-carousel.umd.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'embla-carousel-autoplay.umd.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'bloomli-review-bar.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 <section
   class="bloomli-review-bar bloomli-review-bar--{{ section.settings.layout }} color-{{ section.settings.color_scheme }} gradient{% if section.settings.layout == 'marquee' and section.settings.enable_marquee == false %} bloomli-review-bar--static{% endif %}"
@@ -69,7 +73,8 @@
             {%- for block in section.blocks -%}
               {%- assign initial = block.settings.author | strip | slice: 0, 1 -%}
               {%- if initial == blank -%}{%- assign initial = 'B' -%}{%- endif -%}
-              <article class="bloomli-review-bar__card{% if forloop.first %} is-current{% endif %}" {{ block.shopify_attributes }}>
+              <div class="bloomli-review-bar__slide{% if forloop.first %} is-current{% endif %}" {{ block.shopify_attributes }}>
+              <article class="bloomli-review-bar__card">
                 {%- if block.settings.title != blank -%}
                   <p class="bloomli-review-bar__card-title">&ldquo;{{ block.settings.title | escape }}&rdquo;</p>
                 {%- endif -%}
@@ -96,6 +101,7 @@
                   </span>
                 </div>
               </article>
+              </div>
             {%- endfor -%}
             </div>
           </div>

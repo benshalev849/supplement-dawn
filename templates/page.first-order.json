@@ -95,7 +95,16 @@
             "title": "My hairdresser noticed first",
             "text": "<p>My hairdresser asked what I'd changed at my last appointment. My hair looks <strong>fuller and shinier</strong> than it has in years, and the <strong>passion fruit taste</strong> makes it the <strong>easiest part of my morning.</strong><br/><br/></p>",
             "author": "Noelle F.",
-            "avatar": "shopify://shop_images/Image_1_ea654bfa-be6a-4ce0-a7cf-7484d7456254.png"
+            "avatar": "shopify://shop_images/Image_1.png"
+          }
+        },
+        "rb_q1": {
+          "type": "quote",
+          "settings": {
+            "title": "Less hair on the shower wall",
+            "text": "<p>By the second month there was noticeably <strong>less hair in my brush</strong> and on the shower wall. They're <strong>easy to look forward to</strong>, so skipping a day <strong>never even happens</strong>.</p>",
+            "author": "Lauren B.",
+            "avatar": "shopify://shop_images/Image_2.png"
           }
         },
         "rb_q2": {
@@ -104,14 +113,6 @@
             "title": "The third brand I've tried",
             "text": "<p>Biotin-only brands never did anything for me, so I almost skipped this one. The <strong>full 14 nutrients</strong> turned out to be the difference, and it's the <strong>first bottle I've ever finished</strong>.</p>",
             "author": "Robyn C."
-          }
-        },
-        "rb_q1": {
-          "type": "quote",
-          "settings": {
-            "title": "Less hair on the shower wall",
-            "text": "<p>By the second month there was noticeably <strong>less hair in my brush</strong> and on the shower wall. They're <strong>easy to look forward to</strong>, so skipping a day <strong>never even happens</strong>.</p>",
-            "author": "Lauren B."
           }
         },
         "rb_q3": {
@@ -133,8 +134,8 @@
       },
       "block_order": [
         "quote_JrWgxp",
-        "rb_q2",
         "rb_q1",
+        "rb_q2",
         "rb_q3",
         "rb_q4"
       ],

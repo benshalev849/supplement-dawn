@@ -65,6 +65,7 @@
       <div class="page-width">
         <div class="bloomli-review-bar__carousel">
           <div class="bloomli-review-bar__viewport" data-rb-viewport tabindex="0" role="region" aria-label="Customer reviews">
+            <div class="bloomli-review-bar__strip" data-rb-strip>
             {%- for block in section.blocks -%}
               {%- assign initial = block.settings.author | strip | slice: 0, 1 -%}
               {%- if initial == blank -%}{%- assign initial = 'B' -%}{%- endif -%}
@@ -96,6 +97,7 @@
                 </div>
               </article>
             {%- endfor -%}
+            </div>
           </div>
           {%- if section.blocks.size > 1 -%}
             <div class="bloomli-review-bar__nav">

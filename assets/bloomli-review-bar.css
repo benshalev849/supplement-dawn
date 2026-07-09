@@ -126,16 +126,40 @@
   white-space: nowrap;
 }
 
-/* Carousel layout — swipe with peek, dots, arrows */
+/* Carousel layout — swipe with peek, dots, arrows.
+   Without JS the viewport is a native snap scroller; with JS (.is-enhanced)
+   it becomes a clipping window and the strip slides via transform, which
+   allows a seamless infinite loop. */
 .bloomli-review-bar__viewport {
-  display: flex;
-  align-items: stretch;
-  gap: 1.2rem;
+  position: relative;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 0.2rem 0.2rem 0.6rem;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+}
+
+.bloomli-review-bar__strip {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 1.2rem;
+}
+
+.bloomli-review-bar--carousel.is-enhanced .bloomli-review-bar__viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.bloomli-review-bar--carousel.is-enhanced .bloomli-review-bar__viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.bloomli-review-bar--carousel.is-enhanced .bloomli-review-bar__strip {
+  will-change: transform;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .bloomli-review-bar__viewport::-webkit-scrollbar {

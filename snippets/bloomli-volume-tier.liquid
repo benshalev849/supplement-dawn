@@ -435,6 +435,8 @@
 
             <div class="bloomli-vt__delivery-totalrow">
               <span class="bloomli-vt__delivery-total">
+                {{- block.settings.billing_prefix | default: 'Billed' | escape }}
+                {{ ' ' }}
                 <span class="bloomli-vt__delivery-total-amount">{{ subscribe_total_cents | money }}</span>
                 <span class="bloomli-vt__delivery-total-freq">every {{ delivery_weeks }} weeks</span>
               </span>
@@ -444,43 +446,33 @@
 
           {%- if block.settings.subscribe_show_perks != false -%}
             {%- liquid
-              assign perk_1 = block.settings.subscribe_perk_1 | default: '30-day money-back guarantee'
-              assign perk_2 = block.settings.subscribe_perk_2 | default: 'Complimentary shipping on every delivery'
-              assign perk_3 = block.settings.subscribe_perk_3 | default: 'Pause or cancel anytime, no fees'
+              case i
+                when 1
+                  assign perks_text = block.settings.tier_1_perks | default: 'One bottle delivered every 4 weeks||~||Free shipping on every delivery||~||Cancel or pause anytime||~||30-day money-back guarantee'
+                when 2
+                  assign perks_text = block.settings.tier_2_perks | default: 'Save 41%, one delivery instead of three||~||Covers Month 1 to 3, the foundation phase||~||Free shipping on every delivery||~||Cancel or pause anytime||~||30-day money-back guarantee'
+                when 3
+                  assign perks_text = block.settings.tier_3_perks | default: 'Maximum savings - just $1 a day||~||Covers the full Month 1 to 6 journey, through the growth phase||~||Your 44% discount stays locked for all 6 months||~||Free shipping on every delivery||~||Cancel or pause anytime||~||30-day money-back guarantee'
+              endcase
+              assign perks_with_breaks = perks_text | newline_to_br | replace: '<br />', '||~||'
+              assign perks = perks_with_breaks | split: '||~||'
             -%}
             <div class="bloomli-vt__delivery-accordion">
               <div class="bloomli-vt__delivery-accordion-inner">
                 <ul class="bloomli-vt__delivery-perks">
-                  {%- if perk_1 != blank -%}
-                    <li class="bloomli-vt__mode-perk">
-                      <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
-                        <svg viewBox="0 0 20 20" focusable="false">
-                          <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </span>
-                      <span>{{ perk_1 }}</span>
-                    </li>
-                  {%- endif -%}
-                  {%- if perk_2 != blank -%}
-                    <li class="bloomli-vt__mode-perk">
-                      <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
-                        <svg viewBox="0 0 20 20" focusable="false">
-                          <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </span>
-                      <span>{{ perk_2 }}</span>
-                    </li>
-                  {%- endif -%}
-                  {%- if perk_3 != blank -%}
-                    <li class="bloomli-vt__mode-perk">
-                      <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
-                        <svg viewBox="0 0 20 20" focusable="false">
-                          <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </span>
-                      <span>{{ perk_3 }}</span>
-                    </li>
-                  {%- endif -%}
+                  {%- for perk in perks -%}
+                    {%- assign perk_text = perk | strip -%}
+                    {%- if perk_text != blank -%}
+                      <li class="bloomli-vt__mode-perk">
+                        <span class="bloomli-checkmark bloomli-checkmark--svg bloomli-proof-split__check" aria-hidden="true">
+                          <svg viewBox="0 0 20 20" focusable="false">
+                            <path d="M4 10.5 8 14 16 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span>{{ perk_text | escape }}</span>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
                 </ul>
               </div>
             </div>
